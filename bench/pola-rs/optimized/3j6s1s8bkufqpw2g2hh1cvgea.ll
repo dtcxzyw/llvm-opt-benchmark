@@ -109007,9 +109007,9 @@ _ZN4core3ops5range11RangeBounds8contains17hf15836b62843d308E.exit.thread.i.invok
   br label %.critedge.i
 
 .invoke265.i:                                     ; preds = %.noexc113.i, %.noexc147.i, %.noexc142.i, %811, %810, %796, %795, %555, %521, %490
-  %518 = phi i64 [ %143, %.noexc142.i ], [ %143, %490 ], [ %143, %521 ], [ %143, %555 ], [ %143, %795 ], [ %802, %796 ], [ %143, %810 ], [ %1047, %.noexc147.i ], [ %817, %811 ], [ %143, %.noexc113.i ]
-  %519 = phi i64 [ 733, %.noexc142.i ], [ 733, %490 ], [ 733, %521 ], [ 733, %555 ], [ 733, %795 ], [ 12, %796 ], [ 733, %810 ], [ 12, %.noexc147.i ], [ 12, %811 ], [ 733, %.noexc113.i ]
-  %520 = phi ptr [ @anon.6505cacf4ee087cdec2b416b9e4fc700.381, %.noexc142.i ], [ @anon.6505cacf4ee087cdec2b416b9e4fc700.381, %490 ], [ @anon.6505cacf4ee087cdec2b416b9e4fc700.381, %521 ], [ @anon.6505cacf4ee087cdec2b416b9e4fc700.381, %555 ], [ @anon.6505cacf4ee087cdec2b416b9e4fc700.381, %795 ], [ @anon.6505cacf4ee087cdec2b416b9e4fc700.405, %796 ], [ @anon.6505cacf4ee087cdec2b416b9e4fc700.381, %810 ], [ @anon.6505cacf4ee087cdec2b416b9e4fc700.395, %.noexc147.i ], [ @anon.6505cacf4ee087cdec2b416b9e4fc700.418, %811 ], [ @anon.6505cacf4ee087cdec2b416b9e4fc700.381, %.noexc113.i ]
+  %518 = phi i64 [ %143, %.noexc142.i ], [ %143, %490 ], [ %817, %811 ], [ %143, %555 ], [ %143, %521 ], [ %802, %796 ], [ %1047, %.noexc147.i ], [ %143, %795 ], [ %143, %810 ], [ %143, %.noexc113.i ]
+  %519 = phi i64 [ 733, %.noexc142.i ], [ 733, %490 ], [ 12, %811 ], [ 733, %555 ], [ 733, %521 ], [ 12, %796 ], [ 12, %.noexc147.i ], [ 733, %795 ], [ 733, %810 ], [ 733, %.noexc113.i ]
+  %520 = phi ptr [ @anon.6505cacf4ee087cdec2b416b9e4fc700.381, %.noexc142.i ], [ @anon.6505cacf4ee087cdec2b416b9e4fc700.381, %490 ], [ @anon.6505cacf4ee087cdec2b416b9e4fc700.418, %811 ], [ @anon.6505cacf4ee087cdec2b416b9e4fc700.381, %555 ], [ @anon.6505cacf4ee087cdec2b416b9e4fc700.381, %521 ], [ @anon.6505cacf4ee087cdec2b416b9e4fc700.405, %796 ], [ @anon.6505cacf4ee087cdec2b416b9e4fc700.395, %.noexc147.i ], [ @anon.6505cacf4ee087cdec2b416b9e4fc700.381, %795 ], [ @anon.6505cacf4ee087cdec2b416b9e4fc700.381, %810 ], [ @anon.6505cacf4ee087cdec2b416b9e4fc700.381, %.noexc113.i ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %518, i64 noundef %519, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %520) #32
           to label %.cont.i unwind label %.loopexit.split-lp.i
 

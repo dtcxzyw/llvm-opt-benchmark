@@ -16787,7 +16787,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj5datum22VerticalReferenceFrame1
 
 19:                                               ; preds = %12
   %brmerge.demorgan.not.i = icmp eq i8 %15, 0
-  br i1 %brmerge.demorgan.not.i, label %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11.i, label %20
+  br i1 %brmerge.demorgan.not.i, label %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11.i14, label %20
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -16801,17 +16801,14 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj5datum22VerticalReferenceFrame1
 
 28:                                               ; preds = %20
   %29 = icmp eq i64 %24, 0
-  br i1 %29, label %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11.i, label %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.i
+  br i1 %29, label %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11.i14, label %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.i
 
 _ZNK5osgeo4proj4util8CodeListneERKS2_.exit.i:     ; preds = %28
   %30 = load ptr, ptr %22, align 8, !tbaa !41
   %31 = load ptr, ptr %21, align 8, !tbaa !41
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %31, ptr %30, i64 %24)
   %.not13.i = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %.not13.i, label %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11.i, label %_ZNK5osgeo4proj5datum22VerticalReferenceFrame30isEquivalentToNoExactTypeCheckEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exit
-
-_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11.i: ; preds = %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.i, %28, %19
-  br label %_ZNK5osgeo4proj5datum22VerticalReferenceFrame30isEquivalentToNoExactTypeCheckEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exit
+  br i1 %.not13.i, label %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11.i14, label %_ZNK5osgeo4proj5datum22VerticalReferenceFrame30isEquivalentToNoExactTypeCheckEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exit
 
 32:                                               ; preds = %4
   %33 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull @_ZTSN5osgeo4proj5datum22VerticalReferenceFrameE, i64 noundef 43, i64 noundef 3339675911)
@@ -16893,11 +16890,11 @@ _ZNK5osgeo4proj4util8CodeListneERKS2_.exit.i11:   ; preds = %71
   %.not13.i13 = icmp eq i32 %bcmp.i.i.i.i12, 0
   br i1 %.not13.i13, label %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11.i14, label %_ZNK5osgeo4proj5datum22VerticalReferenceFrame30isEquivalentToNoExactTypeCheckEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exit
 
-_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11.i14: ; preds = %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.i11, %71, %62
+_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11.i14: ; preds = %19, %28, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.i, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.i11, %71, %62
   br label %_ZNK5osgeo4proj5datum22VerticalReferenceFrame30isEquivalentToNoExactTypeCheckEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exit
 
-_ZNK5osgeo4proj5datum22VerticalReferenceFrame30isEquivalentToNoExactTypeCheckEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exit: ; preds = %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11.i14, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.i11, %63, %55, %53, %.split6, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11.i, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.i, %20, %12, %10, %7, %.split, %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22VerticalReferenceFrameENS1_11IComparableEEEbRKT0_.exit
-  %.0 = phi i1 [ false, %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22VerticalReferenceFrameENS1_11IComparableEEEbRKT0_.exit ], [ false, %20 ], [ true, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11.i ], [ false, %7 ], [ false, %12 ], [ false, %10 ], [ false, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.i ], [ false, %.split ], [ true, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11.i14 ], [ false, %.split6 ], [ false, %55 ], [ false, %53 ], [ false, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.i11 ], [ false, %63 ]
+_ZNK5osgeo4proj5datum22VerticalReferenceFrame30isEquivalentToNoExactTypeCheckEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE.exit: ; preds = %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11.i14, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.i11, %63, %55, %53, %.split6, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.i, %20, %12, %10, %7, %.split, %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22VerticalReferenceFrameENS1_11IComparableEEEbRKT0_.exit
+  %.0 = phi i1 [ false, %_ZN5osgeo4proj4util13isOfExactTypeINS0_5datum22VerticalReferenceFrameENS1_11IComparableEEEbRKT0_.exit ], [ false, %20 ], [ false, %63 ], [ false, %7 ], [ false, %12 ], [ false, %10 ], [ false, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.i ], [ false, %.split ], [ true, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.thread11.i14 ], [ false, %.split6 ], [ false, %55 ], [ false, %53 ], [ false, %_ZNK5osgeo4proj4util8CodeListneERKS2_.exit.i11 ]
   ret i1 %.0
 }
 

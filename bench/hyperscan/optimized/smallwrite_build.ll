@@ -6656,9 +6656,9 @@ _ZNK3ue29CharReach10find_firstEv.exit36.i:        ; preds = %_ZNK3ue29CharReach1
   %1003 = lshr i64 %.02862.i362, 6
   %1004 = and i64 %.02862.i362, 63
   %.not20.i.i.i = icmp eq i64 %1004, 63
-  br i1 %.not20.i.i.i, label %.preheader805, label %1005
+  br i1 %.not20.i.i.i, label %.preheader807, label %1005
 
-.preheader805:                                    ; preds = %1005, %.lr.ph
+.preheader807:                                    ; preds = %1005, %.lr.ph
   br label %1012
 
 1005:                                             ; preds = %.lr.ph
@@ -6667,14 +6667,14 @@ _ZNK3ue29CharReach10find_firstEv.exit36.i:        ; preds = %_ZNK3ue29CharReach1
   %1008 = shl nsw i64 -2, %1004
   %1009 = and i64 %1007, %1008
   %.not21.i.i.i = icmp eq i64 %1009, 0
-  br i1 %.not21.i.i.i, label %.preheader805, label %1010
+  br i1 %.not21.i.i.i, label %.preheader807, label %1010
 
 1010:                                             ; preds = %1005
   %1011 = and i64 %.02862.i362, 192
   br label %_ZNK3ue29CharReach9find_nextEm.exit.i
 
-1012:                                             ; preds = %.preheader805, %1014
-  %.0.in.i.i.i = phi i64 [ %.0.i.i38.i, %1014 ], [ %1003, %.preheader805 ]
+1012:                                             ; preds = %.preheader807, %1014
+  %.0.in.i.i.i = phi i64 [ %.0.i.i38.i, %1014 ], [ %1003, %.preheader807 ]
   %1013 = icmp samesign ult i64 %.0.in.i.i.i, 3
   br i1 %1013, label %1014, label %._crit_edge.i92
 
@@ -7184,10 +7184,10 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_7LitTrieE
   %.not19.i.i.i.i.i141 = icmp eq i64 %1212, %1191
   br i1 %.not19.i.i.i.i.i141, label %1203, label %..loopexit_crit_edge22.i.i.i.i.i142, !llvm.loop !213
 
-..loopexit_crit_edge22.i.i.i.i.i142:              ; preds = %1209
+..loopexit_crit_edge22.i.i.i.i.i142:              ; preds = %1221, %1209, %.lr.ph.i.i.i.i.i154, %1217, %..loopexit_crit_edge22.i.i.i.i.i158
   br label %.loopexit.i.i143.invoke, !llvm.loop !213
 
-.loopexit.i.i143.invoke:                          ; preds = %1221, %1189, %.lr.ph.i.i.i.i.i138, %.preheader249, %.lr.ph.i.i.i.i.i154, %1217, %..loopexit_crit_edge22.i.i.i.i.i158, %..loopexit_crit_edge22.i.i.i.i.i142
+.loopexit.i.i143.invoke:                          ; preds = %1189, %.lr.ph.i.i.i.i.i138, %.preheader249, %..loopexit_crit_edge22.i.i.i.i.i142
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.9) #31
           to label %.loopexit.i.i143.cont unwind label %.loopexit.split-lp
 
@@ -7209,7 +7209,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_7LitTrieE
   %.sroa.06.0.in.i.i.i162 = phi ptr [ %849, %1215 ], [ %.sroa.06.0.i.i.i163, %1218 ]
   %.sroa.06.0.i.i.i163 = load ptr, ptr %.sroa.06.0.in.i.i.i162, align 8
   %.not.i.i.i164 = icmp eq ptr %.sroa.06.0.i.i.i163, null
-  br i1 %.not.i.i.i164, label %.loopexit.i.i143.invoke, label %1218
+  br i1 %.not.i.i.i164, label %..loopexit_crit_edge22.i.i.i.i.i142, label %1218
 
 1218:                                             ; preds = %1217
   %1219 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i163, i64 8
@@ -7226,7 +7226,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_7LitTrieE
   %1227 = getelementptr inbounds nuw [8 x i8], ptr %1226, i64 %1225
   %1228 = load ptr, ptr %1227, align 8
   %.not.i.i.i.i.i152 = icmp eq ptr %1228, null
-  br i1 %.not.i.i.i.i.i152, label %.loopexit.i.i143.invoke, label %1229
+  br i1 %.not.i.i.i.i.i152, label %..loopexit_crit_edge22.i.i.i.i.i142, label %1229
 
 1229:                                             ; preds = %1221
   %1230 = load ptr, ptr %1228, align 8
@@ -7252,7 +7252,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_7LitTrieE
   %.021.i.i.i.i.i155 = phi ptr [ %1243, %1238 ], [ %1230, %1229 ]
   %1243 = load ptr, ptr %.021.i.i.i.i.i155, align 8
   %.not18.i.i.i.i.i156 = icmp eq ptr %1243, null
-  br i1 %.not18.i.i.i.i.i156, label %.loopexit.i.i143.invoke, label %1244
+  br i1 %.not18.i.i.i.i.i156, label %..loopexit_crit_edge22.i.i.i.i.i142, label %1244
 
 1244:                                             ; preds = %.lr.ph.i.i.i.i.i154
   %1245 = getelementptr inbounds nuw i8, ptr %1243, i64 32
@@ -7262,7 +7262,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_7LitTrieE
   br i1 %.not19.i.i.i.i.i157, label %1238, label %..loopexit_crit_edge22.i.i.i.i.i158, !llvm.loop !289
 
 ..loopexit_crit_edge22.i.i.i.i.i158:              ; preds = %1244
-  br label %.loopexit.i.i143.invoke, !llvm.loop !289
+  br label %..loopexit_crit_edge22.i.i.i.i.i142, !llvm.loop !289
 
 .loopexit246:                                     ; preds = %1238, %1218, %1229
   %.sroa.06.1.i.i.i161 = phi ptr [ %.sroa.06.0.i.i.i163, %1218 ], [ %1230, %1229 ], [ %1243, %1238 ]

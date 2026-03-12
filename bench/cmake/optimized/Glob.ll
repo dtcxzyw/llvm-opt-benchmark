@@ -604,7 +604,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   %80 = icmp eq i64 %79, 4611686018427387903
   br i1 %80, label %.invoke156, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i59
 
-.invoke156:                                       ; preds = %50, %43, %._crit_edge, %58
+.invoke156:                                       ; preds = %43, %50, %._crit_edge, %58
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.19) #24
           to label %.cont157 unwind label %.loopexit.split-lp.loopexit.split-lp
 

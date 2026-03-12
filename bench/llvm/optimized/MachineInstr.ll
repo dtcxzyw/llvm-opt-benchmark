@@ -5912,10 +5912,10 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12MachineInstr30shouldUpdateAdditi
   br i1 %or.cond.i.i.i, label %17, label %18
 
 17:                                               ; preds = %5
-  br i1 %.not.i, label %_ZNK4llvm12MachineInstr32isCandidateForAdditionalCallInfoENS0_9QueryTypeE.exit, label %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.thread.i.thread
+  br i1 %.not.i, label %_ZNK4llvm12MachineInstr32isCandidateForAdditionalCallInfoENS0_9QueryTypeE.exit, label %.loopexit
 
 18:                                               ; preds = %5
-  br i1 %.not.i, label %.lr.ph.i.i.i.i, label %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.thread.i.thread
+  br i1 %.not.i, label %.lr.ph.i.i.i.i, label %.loopexit
 
 .lr.ph.i.i.i.i:                                   ; preds = %18, %22
   %.sroa.0.0.us1115.i.i.i.i = phi ptr [ %24, %22 ], [ %0, %18 ]
@@ -5934,10 +5934,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12MachineInstr30shouldUpdateAdditi
   %28 = load i64, ptr %27, align 8, !tbaa !253
   %29 = and i64 %28, 128
   %.not.us12.i.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.us12.i.i.i.i, label %.lr.ph.i.i.i.i, label %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.thread.i.thread, !llvm.loop !254
-
-_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.thread.i.thread: ; preds = %22, %17, %18
-  br label %_ZNK4llvm12MachineInstr32isCandidateForAdditionalCallInfoENS0_9QueryTypeE.exit
+  br i1 %.not.us12.i.i.i.i, label %.lr.ph.i.i.i.i, label %.loopexit, !llvm.loop !254
 
 30:                                               ; preds = %1
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5950,7 +5947,10 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.thread.i.thread: ; preds = %
 
 _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.thread.i3: ; preds = %30
   %36 = icmp ult i16 %3, 33
-  br i1 %36, label %switch.lookup, label %_ZNK4llvm12MachineInstr32isCandidateForAdditionalCallInfoENS0_9QueryTypeE.exit
+  br i1 %36, label %switch.lookup, label %.loopexit
+
+.loopexit:                                        ; preds = %22, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.thread.i3, %18, %17
+  br label %_ZNK4llvm12MachineInstr32isCandidateForAdditionalCallInfoENS0_9QueryTypeE.exit
 
 switch.lookup:                                    ; preds = %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.thread.i3
   %switch.cast = zext nneg i16 %3 to i33
@@ -5958,8 +5958,8 @@ switch.lookup:                                    ; preds = %_ZNK4llvm12MachineI
   %switch.masked = trunc i33 %switch.downshift to i1
   br label %_ZNK4llvm12MachineInstr32isCandidateForAdditionalCallInfoENS0_9QueryTypeE.exit
 
-_ZNK4llvm12MachineInstr32isCandidateForAdditionalCallInfoENS0_9QueryTypeE.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.thread.i3, %switch.lookup, %30, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.thread.i.thread, %17
-  %.0 = phi i1 [ %switch.masked, %switch.lookup ], [ true, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.thread.i.thread ], [ false, %17 ], [ false, %30 ], [ true, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.thread.i3 ], [ false, %.lr.ph.i.i.i.i ]
+_ZNK4llvm12MachineInstr32isCandidateForAdditionalCallInfoENS0_9QueryTypeE.exit: ; preds = %.lr.ph.i.i.i.i, %switch.lookup, %.loopexit, %30, %17
+  %.0 = phi i1 [ %switch.masked, %switch.lookup ], [ true, %.loopexit ], [ false, %17 ], [ false, %30 ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %.0
 }
 

@@ -19068,7 +19068,7 @@ _ZN5clang6Parser12ConsumeParenEv.exit.i:          ; preds = %483
   call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %496, ptr noundef nonnull align 8 dereferenceable(20) %38) #19
   %497 = call noundef i32 @_ZN5clang6Parser34TryParseParameterDeclarationClauseEPbbNS_23ImplicitTypenameContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef null, i1 noundef zeroext false, i32 noundef 0) #19
   %.not.i131 = icmp eq i32 %497, 1
-  br i1 %.not.i131, label %.critedge.i, label %.preheader.i
+  br i1 %.not.i131, label %.fold.split.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN5clang6Parser12ConsumeParenEv.exit.i, %499
   %.0157.i = phi i32 [ %.217.i, %499 ], [ 1, %_ZN5clang6Parser12ConsumeParenEv.exit.i ]
@@ -19093,16 +19093,13 @@ _ZN5clang6Parser12ConsumeParenEv.exit.i:          ; preds = %483
 .thread.i:                                        ; preds = %499, %.preheader.i
   %505 = load i16, ptr %56, align 8, !tbaa !307
   %506 = icmp eq i16 %505, 24
-  br i1 %506, label %507, label %.critedge.i
+  br i1 %506, label %507, label %.fold.split.i
 
-.critedge.i:                                      ; preds = %.thread.i, %_ZN5clang6Parser12ConsumeParenEv.exit.i
+.fold.split.i:                                    ; preds = %.thread.i, %_ZN5clang6Parser12ConsumeParenEv.exit.i, %483
   br label %507
 
-.fold.split.i:                                    ; preds = %483
-  br label %507
-
-507:                                              ; preds = %.fold.split.i, %.critedge.i, %.thread.i, %483
-  %.0.i132 = phi i1 [ false, %483 ], [ false, %.thread.i ], [ true, %.critedge.i ], [ true, %.fold.split.i ]
+507:                                              ; preds = %.fold.split.i, %.thread.i, %483
+  %.0.i132 = phi i1 [ false, %483 ], [ false, %.thread.i ], [ true, %.fold.split.i ]
   %508 = load ptr, ptr %41, align 8, !tbaa !3
   call void @_ZN5clang12Preprocessor9BacktrackEv(ptr noundef nonnull align 8 dereferenceable(3288) %508) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %208, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8.i, i64 32, i1 false), !tbaa.struct !1078

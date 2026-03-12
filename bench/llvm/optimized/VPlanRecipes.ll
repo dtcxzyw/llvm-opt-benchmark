@@ -1018,14 +1018,14 @@ $_ZTVN4llvm22VPWidenInductionRecipeE = comdat any
 define dso_local noundef zeroext i1 @_ZNK4llvm12VPRecipeBase16mayWriteToMemoryEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8, !tbaa !3
-  switch i8 %3, label %48 [
+  switch i8 %3, label %11 [
     i8 4, label %4
-    i8 5, label %11
+    i8 5, label %12
     i8 25, label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
     i8 24, label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
-    i8 9, label %19
-    i8 14, label %31
-    i8 18, label %44
+    i8 9, label %20
+    i8 14, label %32
+    i8 18, label %45
     i8 0, label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
     i8 11, label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
     i8 29, label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
@@ -1053,62 +1053,62 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12VPRecipeBase16mayWriteToMemoryEv
 9:                                                ; preds = %4
   %switch.tableidx = add i8 %6, -53
   %10 = icmp ult i8 %switch.tableidx, 33
-  br i1 %10, label %switch.lookup, label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
+  br i1 %10, label %switch.lookup, label %11
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = load i32, ptr %12, align 8, !tbaa !52
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %15 = load i8, ptr %14, align 8, !tbaa !53, !range !57, !noundef !58
-  %16 = trunc nuw i8 %15 to i1
-  %.neg.i = select i1 %16, i32 -2, i32 -1
-  %17 = sub i32 0, %13
-  %18 = icmp ne i32 %.neg.i, %17
+11:                                               ; preds = %9, %1
   br label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
 
-19:                                               ; preds = %1
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %20, align 8
-  %21 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
-  %22 = icmp eq i64 %21, 0
-  %23 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
-  %24 = inttoptr i64 %23 to ptr
-  br i1 %22, label %_ZNK4llvm5VPDef16getVPSingleValueEv.exit, label %25
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %14 = load i32, ptr %13, align 8, !tbaa !52
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %16 = load i8, ptr %15, align 8, !tbaa !53, !range !57, !noundef !58
+  %17 = trunc nuw i8 %16 to i1
+  %.neg.i = select i1 %17, i32 -2, i32 -1
+  %18 = sub i32 0, %14
+  %19 = icmp ne i32 %.neg.i, %18
+  br label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
 
-25:                                               ; preds = %19
-  %26 = load ptr, ptr %24, align 8, !tbaa !59
-  %27 = load ptr, ptr %26, align 8, !tbaa !60
+20:                                               ; preds = %1
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %21, align 8
+  %22 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
+  %23 = icmp eq i64 %22, 0
+  %24 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
+  %25 = inttoptr i64 %24 to ptr
+  br i1 %23, label %_ZNK4llvm5VPDef16getVPSingleValueEv.exit, label %26
+
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %25, align 8, !tbaa !59
+  %28 = load ptr, ptr %27, align 8, !tbaa !60
   br label %_ZNK4llvm5VPDef16getVPSingleValueEv.exit
 
-_ZNK4llvm5VPDef16getVPSingleValueEv.exit:         ; preds = %19, %25
-  %.0.i.i = phi ptr [ %27, %25 ], [ %24, %19 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
-  %29 = load ptr, ptr %28, align 8, !tbaa !62
-  %30 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction16mayWriteToMemoryEv(ptr noundef nonnull align 8 dereferenceable(72) %29) #24
+_ZNK4llvm5VPDef16getVPSingleValueEv.exit:         ; preds = %20, %26
+  %.0.i.i = phi ptr [ %28, %26 ], [ %25, %20 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
+  %30 = load ptr, ptr %29, align 8, !tbaa !62
+  %31 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction16mayWriteToMemoryEv(ptr noundef nonnull align 8 dereferenceable(72) %30) #24
   br label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
 
-31:                                               ; preds = %1
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %33 = load i32, ptr %32, align 8, !tbaa !52
-  %34 = add i32 %33, -1
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %36 = zext i32 %34 to i64
-  %37 = load ptr, ptr %35, align 8, !tbaa !59
-  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %36
-  %39 = load ptr, ptr %38, align 8, !tbaa !60
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %41 = load ptr, ptr %40, align 8, !tbaa !62
-  %42 = tail call noundef zeroext i1 @_ZNK4llvm8Function15onlyReadsMemoryEv(ptr noundef nonnull align 8 dereferenceable(136) %41) #25
-  %43 = xor i1 %42, true
+32:                                               ; preds = %1
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %34 = load i32, ptr %33, align 8, !tbaa !52
+  %35 = add i32 %34, -1
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %37 = zext i32 %35 to i64
+  %38 = load ptr, ptr %36, align 8, !tbaa !59
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %37
+  %40 = load ptr, ptr %39, align 8, !tbaa !60
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  %42 = load ptr, ptr %41, align 8, !tbaa !62
+  %43 = tail call noundef zeroext i1 @_ZNK4llvm8Function15onlyReadsMemoryEv(ptr noundef nonnull align 8 dereferenceable(136) %42) #25
+  %44 = xor i1 %43, true
   br label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
 
-44:                                               ; preds = %1
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  %46 = load i8, ptr %45, align 1, !tbaa !63, !range !57, !noundef !58
-  %47 = trunc nuw i8 %46 to i1
-  br label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
-
-48:                                               ; preds = %1
+45:                                               ; preds = %1
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 177
+  %47 = load i8, ptr %46, align 1, !tbaa !63, !range !57, !noundef !58
+  %48 = trunc nuw i8 %47 to i1
   br label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
 
 switch.lookup:                                    ; preds = %9
@@ -1117,8 +1117,8 @@ switch.lookup:                                    ; preds = %9
   %switch.masked = trunc i33 %switch.downshift to i1
   br label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
 
-_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit: ; preds = %9, %switch.lookup, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %4, %1, %1, %1, %48, %44, %31, %_ZNK4llvm5VPDef16getVPSingleValueEv.exit, %11
-  %.0 = phi i1 [ true, %48 ], [ false, %1 ], [ %18, %11 ], [ %switch.masked, %switch.lookup ], [ %30, %_ZNK4llvm5VPDef16getVPSingleValueEv.exit ], [ %43, %31 ], [ %47, %44 ], [ false, %1 ], [ false, %1 ], [ false, %4 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ true, %9 ]
+_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit: ; preds = %switch.lookup, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %11, %4, %1, %1, %1, %45, %32, %_ZNK4llvm5VPDef16getVPSingleValueEv.exit, %12
+  %.0 = phi i1 [ false, %1 ], [ false, %1 ], [ %19, %12 ], [ %switch.masked, %switch.lookup ], [ %31, %_ZNK4llvm5VPDef16getVPSingleValueEv.exit ], [ %44, %32 ], [ %48, %45 ], [ false, %1 ], [ false, %1 ], [ false, %4 ], [ true, %11 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -1155,13 +1155,13 @@ declare noundef zeroext i1 @_ZNK4llvm8Function15onlyReadsMemoryEv(ptr noundef no
 define dso_local noundef zeroext i1 @_ZNK4llvm12VPRecipeBase17mayReadFromMemoryEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8, !tbaa !3
-  switch i8 %3, label %40 [
+  switch i8 %3, label %11 [
     i8 4, label %4
     i8 25, label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
     i8 24, label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
-    i8 9, label %11
-    i8 14, label %23
-    i8 18, label %36
+    i8 9, label %12
+    i8 14, label %24
+    i8 18, label %37
     i8 0, label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
     i8 29, label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
     i8 11, label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
@@ -1189,51 +1189,51 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12VPRecipeBase17mayReadFromMemoryE
 9:                                                ; preds = %4
   %switch.tableidx = add i8 %6, -53
   %10 = icmp ult i8 %switch.tableidx, 33
-  br i1 %10, label %switch.lookup, label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
+  br i1 %10, label %switch.lookup, label %11
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %12, align 8
-  %13 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
-  %14 = icmp eq i64 %13, 0
-  %15 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
-  %16 = inttoptr i64 %15 to ptr
-  br i1 %14, label %_ZNK4llvm5VPDef16getVPSingleValueEv.exit, label %17
+11:                                               ; preds = %9, %1
+  br label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
 
-17:                                               ; preds = %11
-  %18 = load ptr, ptr %16, align 8, !tbaa !59
-  %19 = load ptr, ptr %18, align 8, !tbaa !60
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %13, align 8
+  %14 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
+  %15 = icmp eq i64 %14, 0
+  %16 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
+  %17 = inttoptr i64 %16 to ptr
+  br i1 %15, label %_ZNK4llvm5VPDef16getVPSingleValueEv.exit, label %18
+
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %17, align 8, !tbaa !59
+  %20 = load ptr, ptr %19, align 8, !tbaa !60
   br label %_ZNK4llvm5VPDef16getVPSingleValueEv.exit
 
-_ZNK4llvm5VPDef16getVPSingleValueEv.exit:         ; preds = %11, %17
-  %.0.i.i = phi ptr [ %19, %17 ], [ %16, %11 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !62
-  %22 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction17mayReadFromMemoryEv(ptr noundef nonnull align 8 dereferenceable(72) %21) #24
+_ZNK4llvm5VPDef16getVPSingleValueEv.exit:         ; preds = %12, %18
+  %.0.i.i = phi ptr [ %20, %18 ], [ %17, %12 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
+  %22 = load ptr, ptr %21, align 8, !tbaa !62
+  %23 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction17mayReadFromMemoryEv(ptr noundef nonnull align 8 dereferenceable(72) %22) #24
   br label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
 
-23:                                               ; preds = %1
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %25 = load i32, ptr %24, align 8, !tbaa !52
-  %26 = add i32 %25, -1
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %28 = zext i32 %26 to i64
-  %29 = load ptr, ptr %27, align 8, !tbaa !59
-  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
-  %31 = load ptr, ptr %30, align 8, !tbaa !60
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %33 = load ptr, ptr %32, align 8, !tbaa !62
-  %34 = tail call noundef zeroext i1 @_ZNK4llvm8Function16onlyWritesMemoryEv(ptr noundef nonnull align 8 dereferenceable(136) %33) #25
-  %35 = xor i1 %34, true
+24:                                               ; preds = %1
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %26 = load i32, ptr %25, align 8, !tbaa !52
+  %27 = add i32 %26, -1
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %29 = zext i32 %27 to i64
+  %30 = load ptr, ptr %28, align 8, !tbaa !59
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %29
+  %32 = load ptr, ptr %31, align 8, !tbaa !60
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %34 = load ptr, ptr %33, align 8, !tbaa !62
+  %35 = tail call noundef zeroext i1 @_ZNK4llvm8Function16onlyWritesMemoryEv(ptr noundef nonnull align 8 dereferenceable(136) %34) #25
+  %36 = xor i1 %35, true
   br label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
 
-36:                                               ; preds = %1
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %38 = load i8, ptr %37, align 8, !tbaa !66, !range !57, !noundef !58
-  %39 = trunc nuw i8 %38 to i1
-  br label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
-
-40:                                               ; preds = %1
+37:                                               ; preds = %1
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %39 = load i8, ptr %38, align 8, !tbaa !66, !range !57, !noundef !58
+  %40 = trunc nuw i8 %39 to i1
   br label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
 
 switch.lookup:                                    ; preds = %9
@@ -1242,8 +1242,8 @@ switch.lookup:                                    ; preds = %9
   %switch.masked = trunc i33 %switch.downshift to i1
   br label %_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit
 
-_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit: ; preds = %9, %switch.lookup, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %4, %1, %1, %1, %1, %1, %40, %36, %23, %_ZNK4llvm5VPDef16getVPSingleValueEv.exit
-  %.0 = phi i1 [ true, %40 ], [ false, %1 ], [ %switch.masked, %switch.lookup ], [ %22, %_ZNK4llvm5VPDef16getVPSingleValueEv.exit ], [ %35, %23 ], [ %39, %36 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %4 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ true, %9 ]
+_ZNK4llvm13VPInstruction30opcodeMayReadOrWriteFromMemoryEv.exit: ; preds = %switch.lookup, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %11, %4, %1, %1, %1, %1, %1, %37, %24, %_ZNK4llvm5VPDef16getVPSingleValueEv.exit
+  %.0 = phi i1 [ false, %1 ], [ false, %1 ], [ %switch.masked, %switch.lookup ], [ %23, %_ZNK4llvm5VPDef16getVPSingleValueEv.exit ], [ %36, %24 ], [ %40, %37 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %4 ], [ true, %11 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
   ret i1 %.0
 }
 

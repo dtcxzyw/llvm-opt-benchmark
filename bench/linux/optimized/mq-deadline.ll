@@ -919,14 +919,14 @@ define internal zeroext i1 @dd_has_work(ptr noundef readonly captures(none) %0) 
   %17 = add nuw nsw i64 %34, 1
   %18 = icmp samesign ult i64 %34, 2
   %19 = icmp eq i64 %17, 3
-  br i1 %19, label %..loopexit_crit_edge, label %20, !llvm.loop !37
+  br i1 %19, label %..loopexit.loopexit_crit_edge32, label %20, !llvm.loop !37
 
 20:                                               ; preds = %16
   %21 = getelementptr [96 x i8], ptr %7, i64 %17
   %22 = load volatile ptr, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !36
   %23 = icmp eq ptr %22, %21
-  br i1 %23, label %24, label %..loopexit_crit_edge7, !llvm.loop !37
+  br i1 %23, label %24, label %..loopexit.loopexit_crit_edge32, !llvm.loop !37
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -965,17 +965,11 @@ define internal zeroext i1 @dd_has_work(ptr noundef readonly captures(none) %0) 
   %46 = icmp eq ptr %40, %45
   br i1 %46, label %16, label %.loopexit
 
-..loopexit_crit_edge:                             ; preds = %16
+..loopexit.loopexit_crit_edge32:                  ; preds = %20, %16, %24
   br label %.loopexit, !llvm.loop !37
 
-..loopexit_crit_edge7:                            ; preds = %20
-  br label %.loopexit, !llvm.loop !37
-
-..loopexit.loopexit_crit_edge32:                  ; preds = %24
-  br label %.loopexit, !llvm.loop !37
-
-.loopexit:                                        ; preds = %43, %39, %.lr.ph26, %.lr.ph, %.lr.ph.preheader, %..loopexit.loopexit_crit_edge32, %.preheader, %..loopexit_crit_edge, %..loopexit_crit_edge7, %1
-  %47 = phi i1 [ true, %1 ], [ %18, %..loopexit_crit_edge7 ], [ true, %.preheader ], [ %18, %..loopexit_crit_edge ], [ true, %.lr.ph.preheader ], [ %18, %..loopexit.loopexit_crit_edge32 ], [ %18, %.lr.ph ], [ %33, %.lr.ph26 ], [ %33, %39 ], [ %33, %43 ]
+.loopexit:                                        ; preds = %43, %39, %.lr.ph26, %.lr.ph, %.lr.ph.preheader, %..loopexit.loopexit_crit_edge32, %.preheader, %1
+  %47 = phi i1 [ true, %1 ], [ true, %.lr.ph.preheader ], [ true, %.preheader ], [ %18, %..loopexit.loopexit_crit_edge32 ], [ %33, %39 ], [ %33, %43 ], [ %18, %.lr.ph ], [ %33, %.lr.ph26 ]
   ret i1 %47
 }
 

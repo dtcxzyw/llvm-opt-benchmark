@@ -7776,7 +7776,7 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Dirent$u20$as$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(59) %.sroa.3278.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(59) %.sroa.3278, i64 59, i1 false)
   br label %79
 
-78:                                               ; preds = %42, %47, %60, %65, %29, %79, %75
+78:                                               ; preds = %42, %47, %65, %60, %29, %79, %75
   ret void
 
 79:                                               ; preds = %77, %74
@@ -8095,7 +8095,7 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Dirent$u20$as$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231, i64 60, i1 false)
   br label %81
 
-80:                                               ; preds = %45, %49, %64, %68, %30, %81, %78
+80:                                               ; preds = %45, %49, %68, %64, %30, %81, %78
   ret void
 
 81:                                               ; preds = %79, %77
@@ -9488,7 +9488,7 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_1..types..Fdstat$u20$as$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231, i64 60, i1 false)
   br label %76
 
-75:                                               ; preds = %41, %45, %59, %63, %24, %76, %73
+75:                                               ; preds = %41, %45, %63, %59, %24, %76, %73
   ret void
 
 76:                                               ; preds = %74, %72
@@ -13419,7 +13419,7 @@ switch.lookup:                                    ; preds = %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(58) %.sroa.3278.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(58) %.sroa.3278, i64 58, i1 false)
   br label %81
 
-80:                                               ; preds = %44, %49, %62, %67, %31, %81, %77
+80:                                               ; preds = %44, %49, %67, %62, %31, %81, %77
   ret void
 
 81:                                               ; preds = %79, %76
@@ -13692,7 +13692,7 @@ define void @"_ZN109_$LT$wasi_common..snapshots..preview_1..types..SubscriptionC
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231, i64 60, i1 false)
   br label %76
 
-75:                                               ; preds = %40, %44, %59, %63, %24, %76, %73
+75:                                               ; preds = %40, %44, %63, %59, %24, %76, %73
   ret void
 
 76:                                               ; preds = %74, %72

@@ -36874,17 +36874,11 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
 
 9:                                                ; preds = %6, %3
   %10 = tail call noundef i32 @_ZNK5clang19NestedNameSpecifier7getKindEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #17
-  switch i32 %10, label %19 [
-    i32 0, label %20
-    i32 1, label %20
-    i32 2, label %20
-    i32 5, label %20
-    i32 6, label %20
-    i32 3, label %11
-    i32 4, label %11
-  ]
+  %.off = add i32 %10, -3
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %11, label %19
 
-11:                                               ; preds = %9, %9
+11:                                               ; preds = %9
   %.0.copyload.i.i.i.i10 = load i64, ptr %4, align 8
   %12 = and i64 %.0.copyload.i.i.i.i10, 4
   %switch.not.i = icmp eq i64 %12, 0
@@ -36896,11 +36890,11 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %18 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111BodyIndexerEE12TraverseTypeENS_8QualTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %17)
   br i1 %18, label %19, label %20
 
-19:                                               ; preds = %11, %9
+19:                                               ; preds = %9, %11
   br label %20
 
-20:                                               ; preds = %11, %9, %9, %9, %9, %9, %6, %2, %19
-  %.0 = phi i1 [ true, %19 ], [ false, %6 ], [ true, %9 ], [ true, %2 ], [ true, %9 ], [ true, %9 ], [ true, %9 ], [ true, %9 ], [ false, %11 ]
+20:                                               ; preds = %11, %6, %2, %19
+  %.0 = phi i1 [ true, %19 ], [ false, %6 ], [ true, %2 ], [ false, %11 ]
   ret i1 %.0
 }
 

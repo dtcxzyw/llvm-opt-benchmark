@@ -3971,7 +3971,7 @@ while.body15:                                     ; preds = %while.cond8.prehead
   %Cur.37199 = phi ptr [ %incdec.ptr16, %land.rhs11thread-pre-split ], [ %Cur.085, %while.cond8.preheader ]
   %incdec.ptr16 = getelementptr inbounds nuw i8, ptr %Cur.37199, i64 1
   %cmp10.not = icmp eq ptr %incdec.ptr16, %add.ptr.i
-  br i1 %cmp10.not, label %while.cond8.cleanup.loopexit69_crit_edge, label %land.rhs11thread-pre-split, !llvm.loop !71
+  br i1 %cmp10.not, label %land.rhs11.cleanup.loopexit69_crit_edge, label %land.rhs11thread-pre-split, !llvm.loop !71
 
 for.body22thread-pre-split:                       ; preds = %for.inc
   %.pr91 = load i8, ptr %incdec.ptr53, align 1
@@ -4106,10 +4106,7 @@ while.cond.cleanup.loopexit_crit_edge:            ; preds = %while.body
 land.rhs.cleanup.loopexit_crit_edge:              ; preds = %land.rhs
   br label %_ZN4llvh11SmallStringILj128EED2Ev.exit, !llvm.loop !69
 
-while.cond8.cleanup.loopexit69_crit_edge:         ; preds = %while.body15
-  br label %_ZN4llvh11SmallStringILj128EED2Ev.exit, !llvm.loop !69
-
-land.rhs11.cleanup.loopexit69_crit_edge:          ; preds = %land.rhs11thread-pre-split
+land.rhs11.cleanup.loopexit69_crit_edge:          ; preds = %while.body15, %land.rhs11thread-pre-split
   br label %_ZN4llvh11SmallStringILj128EED2Ev.exit, !llvm.loop !69
 
 cleanup:                                          ; preds = %if.then.i.i.i48, %if.end.i.i45
@@ -4128,8 +4125,8 @@ if.then.i.i.i61:                                  ; preds = %cleanup
   call void @free(ptr noundef %.pre90) #29
   br label %_ZN4llvh11SmallStringILj128EED2Ev.exit
 
-_ZN4llvh11SmallStringILj128EED2Ev.exit:           ; preds = %while.cond8.preheader, %land.rhs11.cleanup.loopexit69_crit_edge, %while.cond8.cleanup.loopexit69_crit_edge, %land.rhs.cleanup.loopexit_crit_edge, %while.cond.cleanup.loopexit_crit_edge, %_ZL12isWhitespacec.exit, %cleanup, %if.then.i.i.i61
-  %Cur.294 = phi ptr [ %Cur.4.lcssa, %if.then.i.i.i61 ], [ %Cur.4.lcssa, %cleanup ], [ %Cur.085, %while.cond8.preheader ], [ %incdec.ptr16, %land.rhs11.cleanup.loopexit69_crit_edge ], [ %incdec.ptr16, %while.cond8.cleanup.loopexit69_crit_edge ], [ %Cur.174, %land.rhs.cleanup.loopexit_crit_edge ], [ %incdec.ptr, %while.cond.cleanup.loopexit_crit_edge ], [ %Cur.085, %_ZL12isWhitespacec.exit ]
+_ZN4llvh11SmallStringILj128EED2Ev.exit:           ; preds = %while.cond8.preheader, %land.rhs11.cleanup.loopexit69_crit_edge, %land.rhs.cleanup.loopexit_crit_edge, %while.cond.cleanup.loopexit_crit_edge, %_ZL12isWhitespacec.exit, %cleanup, %if.then.i.i.i61
+  %Cur.294 = phi ptr [ %Cur.4.lcssa, %if.then.i.i.i61 ], [ %Cur.4.lcssa, %cleanup ], [ %Cur.085, %while.cond8.preheader ], [ %incdec.ptr16, %land.rhs11.cleanup.loopexit69_crit_edge ], [ %Cur.085, %_ZL12isWhitespacec.exit ], [ %Cur.174, %land.rhs.cleanup.loopexit_crit_edge ], [ %incdec.ptr, %while.cond.cleanup.loopexit_crit_edge ]
   %cmp.not = icmp eq ptr %Cur.294, %add.ptr.i
   br i1 %cmp.not, label %for.end55, label %for.body
 

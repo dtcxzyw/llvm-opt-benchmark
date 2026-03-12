@@ -6311,7 +6311,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit43: ; preds = %18
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %31, label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit28, label %32
 
-32:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit43, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit38, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit33
+32:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit38, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit43, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit33
   %33 = call noundef zeroext i1 %14(ptr noundef nonnull align 1 %.val22, ptr noalias noundef nonnull readonly align 1 @anon.95a2a2af46fa738d12abe82399562330.92, i64 noundef 1), !noalias !564
   br label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit28
 }

@@ -2182,193 +2182,190 @@ define dso_local i64 @dpow(ptr noundef readonly captures(none) %0) local_unnamed
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load double, ptr %4, align 8
   %6 = fcmp uno double %3, 0.000000e+00
-  br i1 %6, label %7, label %10
+  br i1 %6, label %7, label %9
 
 7:                                                ; preds = %1
   %8 = fcmp une double %5, 0.000000e+00
-  br i1 %8, label %95, label %9
+  br i1 %8, label %94, label %13
 
-9:                                                ; preds = %7
-  br label %95
+9:                                                ; preds = %1
+  %10 = fcmp uno double %5, 0.000000e+00
+  br i1 %10, label %11, label %14
 
-10:                                               ; preds = %1
-  %11 = fcmp uno double %5, 0.000000e+00
-  br i1 %11, label %12, label %15
+11:                                               ; preds = %9
+  %12 = fcmp une double %3, 1.000000e+00
+  br i1 %12, label %94, label %13
 
-12:                                               ; preds = %10
-  %13 = fcmp une double %3, 1.000000e+00
-  br i1 %13, label %95, label %14
+13:                                               ; preds = %7, %11
+  br label %94
 
-14:                                               ; preds = %12
-  br label %95
+14:                                               ; preds = %9
+  %15 = fcmp oeq double %3, 0.000000e+00
+  %16 = fcmp olt double %5, 0.000000e+00
+  %or.cond3 = select i1 %15, i1 %16, i1 false
+  br i1 %or.cond3, label %17, label %21
 
-15:                                               ; preds = %10
-  %16 = fcmp oeq double %3, 0.000000e+00
-  %17 = fcmp olt double %5, 0.000000e+00
-  %or.cond3 = select i1 %16, i1 %17, i1 false
-  br i1 %or.cond3, label %18, label %22
-
-18:                                               ; preds = %15
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  %20 = tail call i32 @errcode(i32 noundef 369361026) #19
-  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20) #19
+17:                                               ; preds = %14
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %19 = tail call i32 @errcode(i32 noundef 369361026) #19
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20) #19
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1522, ptr noundef nonnull @__func__.dpow) #19
   unreachable
 
-22:                                               ; preds = %15
-  %23 = fcmp olt double %3, 0.000000e+00
-  %24 = tail call double @llvm.floor.f64(double %5)
-  %25 = fcmp une double %24, %5
-  %or.cond = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond, label %26, label %30
+21:                                               ; preds = %14
+  %22 = fcmp olt double %3, 0.000000e+00
+  %23 = tail call double @llvm.floor.f64(double %5)
+  %24 = fcmp une double %23, %5
+  %or.cond = select i1 %22, i1 %24, i1 false
+  br i1 %or.cond, label %25, label %29
 
-26:                                               ; preds = %22
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  %28 = tail call i32 @errcode(i32 noundef 369361026) #19
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21) #19
+25:                                               ; preds = %21
+  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %27 = tail call i32 @errcode(i32 noundef 369361026) #19
+  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21) #19
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1526, ptr noundef nonnull @__func__.dpow) #19
   unreachable
 
-30:                                               ; preds = %22
-  %31 = tail call double @llvm.fabs.f64(double %5)
-  %32 = fcmp oeq double %31, 0x7FF0000000000000
-  %33 = tail call double @llvm.fabs.f64(double %3)
-  br i1 %32, label %34, label %43
+29:                                               ; preds = %21
+  %30 = tail call double @llvm.fabs.f64(double %5)
+  %31 = fcmp oeq double %30, 0x7FF0000000000000
+  %32 = tail call double @llvm.fabs.f64(double %3)
+  br i1 %31, label %33, label %42
 
-34:                                               ; preds = %30
-  %35 = fcmp oeq double %33, 1.000000e+00
-  br i1 %35, label %93, label %36
+33:                                               ; preds = %29
+  %34 = fcmp oeq double %32, 1.000000e+00
+  br i1 %34, label %92, label %35
 
-36:                                               ; preds = %34
-  %37 = fcmp ogt double %5, 0.000000e+00
-  %38 = fcmp ogt double %33, 1.000000e+00
-  br i1 %37, label %39, label %40
+35:                                               ; preds = %33
+  %36 = fcmp ogt double %5, 0.000000e+00
+  %37 = fcmp ogt double %32, 1.000000e+00
+  br i1 %36, label %38, label %39
 
-39:                                               ; preds = %36
-  %. = select i1 %38, double %5, double 0.000000e+00
-  br label %93
+38:                                               ; preds = %35
+  %. = select i1 %37, double %5, double 0.000000e+00
+  br label %92
 
-40:                                               ; preds = %36
-  br i1 %38, label %93, label %41
+39:                                               ; preds = %35
+  br i1 %37, label %92, label %40
 
-41:                                               ; preds = %40
-  %42 = fneg double %5
-  br label %93
+40:                                               ; preds = %39
+  %41 = fneg double %5
+  br label %92
 
-43:                                               ; preds = %30
-  %44 = fcmp oeq double %33, 0x7FF0000000000000
-  br i1 %44, label %45, label %61
+42:                                               ; preds = %29
+  %43 = fcmp oeq double %32, 0x7FF0000000000000
+  br i1 %43, label %44, label %60
 
-45:                                               ; preds = %43
-  %46 = fcmp oeq double %5, 0.000000e+00
-  br i1 %46, label %93, label %47
+44:                                               ; preds = %42
+  %45 = fcmp oeq double %5, 0.000000e+00
+  br i1 %45, label %92, label %46
 
-47:                                               ; preds = %45
-  %48 = fcmp ogt double %3, 0.000000e+00
-  br i1 %48, label %49, label %51
+46:                                               ; preds = %44
+  %47 = fcmp ogt double %3, 0.000000e+00
+  br i1 %47, label %48, label %50
 
-49:                                               ; preds = %47
-  %50 = fcmp ogt double %5, 0.000000e+00
-  %.63 = select i1 %50, double %3, double 0.000000e+00
-  br label %93
+48:                                               ; preds = %46
+  %49 = fcmp ogt double %5, 0.000000e+00
+  %.63 = select i1 %49, double %3, double 0.000000e+00
+  br label %92
 
-51:                                               ; preds = %47
-  %52 = fmul nnan double %5, 5.000000e-01
-  %53 = tail call double @llvm.floor.f64(double %52)
-  %54 = fcmp une double %53, %52
-  %55 = fcmp ogt double %5, 0.000000e+00
-  br i1 %55, label %56, label %59
+50:                                               ; preds = %46
+  %51 = fmul nnan double %5, 5.000000e-01
+  %52 = tail call double @llvm.floor.f64(double %51)
+  %53 = fcmp une double %52, %51
+  %54 = fcmp ogt double %5, 0.000000e+00
+  br i1 %54, label %55, label %58
 
-56:                                               ; preds = %51
-  %57 = fneg double %3
-  %58 = select i1 %54, double %3, double %57
-  br label %93
+55:                                               ; preds = %50
+  %56 = fneg double %3
+  %57 = select i1 %53, double %3, double %56
+  br label %92
 
-59:                                               ; preds = %51
-  %60 = select i1 %54, double -0.000000e+00, double 0.000000e+00
-  br label %93
+58:                                               ; preds = %50
+  %59 = select i1 %53, double -0.000000e+00, double 0.000000e+00
+  br label %92
 
-61:                                               ; preds = %43
-  %62 = tail call ptr @__errno_location() #20
-  store i32 0, ptr %62, align 4
-  %63 = tail call double @pow(double noundef %3, double noundef %5) #19
-  %64 = load i32, ptr %62, align 4
-  %65 = icmp eq i32 %64, 33
-  %66 = fcmp uno double %63, 0.000000e+00
-  %or.cond64 = select i1 %65, i1 true, i1 %66
-  br i1 %or.cond64, label %67, label %78
+60:                                               ; preds = %42
+  %61 = tail call ptr @__errno_location() #20
+  store i32 0, ptr %61, align 4
+  %62 = tail call double @pow(double noundef %3, double noundef %5) #19
+  %63 = load i32, ptr %61, align 4
+  %64 = icmp eq i32 %63, 33
+  %65 = fcmp uno double %62, 0.000000e+00
+  %or.cond64 = select i1 %64, i1 true, i1 %65
+  br i1 %or.cond64, label %66, label %77
 
-67:                                               ; preds = %61
-  br i1 %16, label %93, label %68
+66:                                               ; preds = %60
+  br i1 %15, label %92, label %67
 
-68:                                               ; preds = %67
-  %69 = fcmp oeq double %33, 1.000000e+00
-  br i1 %69, label %93, label %70
+67:                                               ; preds = %66
+  %68 = fcmp oeq double %32, 1.000000e+00
+  br i1 %68, label %92, label %69
 
-70:                                               ; preds = %68
-  %71 = fcmp ult double %5, 0.000000e+00
-  br i1 %71, label %74, label %72
+69:                                               ; preds = %67
+  %70 = fcmp ult double %5, 0.000000e+00
+  br i1 %70, label %73, label %71
 
-72:                                               ; preds = %70
-  %73 = fcmp ogt double %33, 1.000000e+00
-  br i1 %73, label %76, label %77
+71:                                               ; preds = %69
+  %72 = fcmp ogt double %32, 1.000000e+00
+  br i1 %72, label %75, label %76
 
-74:                                               ; preds = %70
-  %75 = fcmp olt double %33, 1.000000e+00
-  br i1 %75, label %76, label %77
+73:                                               ; preds = %69
+  %74 = fcmp olt double %32, 1.000000e+00
+  br i1 %74, label %75, label %76
 
-76:                                               ; preds = %74, %72
+75:                                               ; preds = %73, %71
   tail call void @float_overflow_error() #21
   unreachable
 
-77:                                               ; preds = %74, %72
+76:                                               ; preds = %73, %71
   tail call void @float_underflow_error() #21
   unreachable
 
-78:                                               ; preds = %61
-  %79 = icmp eq i32 %64, 34
-  br i1 %79, label %80, label %84
+77:                                               ; preds = %60
+  %78 = icmp eq i32 %63, 34
+  br i1 %78, label %79, label %83
 
-80:                                               ; preds = %78
-  %81 = fcmp une double %63, 0.000000e+00
-  br i1 %81, label %82, label %83
+79:                                               ; preds = %77
+  %80 = fcmp une double %62, 0.000000e+00
+  br i1 %80, label %81, label %82
 
-82:                                               ; preds = %80
+81:                                               ; preds = %79
   tail call void @float_overflow_error() #21
   unreachable
 
-83:                                               ; preds = %80
+82:                                               ; preds = %79
   tail call void @float_underflow_error() #21
   unreachable
 
-84:                                               ; preds = %78
-  %85 = tail call double @llvm.fabs.f64(double %63)
-  %86 = fcmp oeq double %85, 0x7FF0000000000000
-  br i1 %86, label %87, label %88, !prof !9
+83:                                               ; preds = %77
+  %84 = tail call double @llvm.fabs.f64(double %62)
+  %85 = fcmp oeq double %84, 0x7FF0000000000000
+  br i1 %85, label %86, label %87, !prof !9
 
-87:                                               ; preds = %84
+86:                                               ; preds = %83
   tail call void @float_overflow_error() #21
   unreachable
 
-88:                                               ; preds = %84
-  %89 = fcmp oeq double %63, 0.000000e+00
-  br i1 %89, label %90, label %93, !prof !9
+87:                                               ; preds = %83
+  %88 = fcmp oeq double %62, 0.000000e+00
+  br i1 %88, label %89, label %92, !prof !9
 
-90:                                               ; preds = %88
-  %91 = fcmp une double %3, 0.000000e+00
-  br i1 %91, label %92, label %93
+89:                                               ; preds = %87
+  %90 = fcmp une double %3, 0.000000e+00
+  br i1 %90, label %91, label %92
 
-92:                                               ; preds = %90
+91:                                               ; preds = %89
   tail call void @float_underflow_error() #21
   unreachable
 
-93:                                               ; preds = %68, %67, %56, %59, %49, %45, %41, %34, %39, %40, %90, %88
-  %.1 = phi double [ %63, %88 ], [ 0.000000e+00, %40 ], [ %.63, %49 ], [ 1.000000e+00, %45 ], [ 1.000000e+00, %34 ], [ %60, %59 ], [ 0.000000e+00, %67 ], [ %63, %90 ], [ %42, %41 ], [ %., %39 ], [ %58, %56 ], [ 1.000000e+00, %68 ]
-  %94 = bitcast double %.1 to i64
-  br label %95
+92:                                               ; preds = %67, %66, %55, %58, %48, %44, %40, %33, %38, %39, %89, %87
+  %.1 = phi double [ %62, %87 ], [ 0.000000e+00, %39 ], [ %.63, %48 ], [ 1.000000e+00, %44 ], [ 1.000000e+00, %33 ], [ %59, %58 ], [ 0.000000e+00, %66 ], [ %62, %89 ], [ %41, %40 ], [ %., %38 ], [ %57, %55 ], [ 1.000000e+00, %67 ]
+  %93 = bitcast double %.1 to i64
+  br label %94
 
-95:                                               ; preds = %12, %7, %93, %14, %9
-  %.0 = phi i64 [ %94, %93 ], [ 4607182418800017408, %9 ], [ 9221120237041090560, %7 ], [ 4607182418800017408, %14 ], [ 9221120237041090560, %12 ]
+94:                                               ; preds = %11, %7, %92, %13
+  %.0 = phi i64 [ %93, %92 ], [ 9221120237041090560, %11 ], [ 9221120237041090560, %7 ], [ 4607182418800017408, %13 ]
   ret i64 %.0
 }
 

@@ -1398,14 +1398,14 @@ define hidden range(i32 0, 14) i32 @SSL_get_error(ptr noundef readonly captures(
 
 8:                                                ; preds = %4
   %9 = icmp eq i32 %1, 0
-  br i1 %9, label %10, label %20
+  br i1 %9, label %10, label %19
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i32, ptr %11, align 8, !tbaa !127
   %13 = and i32 %12, 2
   %.not37 = icmp eq i32 %13, 0
-  br i1 %.not37, label %19, label %14
+  br i1 %.not37, label %48, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1413,100 +1413,100 @@ define hidden range(i32 0, 14) i32 @SSL_get_error(ptr noundef readonly captures(
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 240
   %18 = load i8, ptr %17, align 8, !tbaa !154
   %.not38 = icmp eq i8 %18, 0
-  br i1 %.not38, label %19, label %50
+  br i1 %.not38, label %48, label %50
 
-19:                                               ; preds = %14, %10
-  br label %50
-
-20:                                               ; preds = %8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %22 = load i32, ptr %21, align 8, !tbaa !109
-  switch i32 %22, label %33 [
+19:                                               ; preds = %8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %21 = load i32, ptr %20, align 8, !tbaa !109
+  switch i32 %21, label %32 [
     i32 7, label %50
     i32 8, label %.fold.split
-    i32 3, label %23
+    i32 3, label %22
   ]
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !118
-  %26 = tail call i32 @BIO_should_read(ptr noundef %25) #21
-  %.not31 = icmp eq i32 %26, 0
-  br i1 %.not31, label %27, label %50
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = load ptr, ptr %23, align 8, !tbaa !118
+  %25 = tail call i32 @BIO_should_read(ptr noundef %24) #21
+  %.not31 = icmp eq i32 %25, 0
+  br i1 %.not31, label %26, label %50
 
-27:                                               ; preds = %23
-  %28 = tail call i32 @BIO_should_write(ptr noundef %25) #21
-  %.not32 = icmp eq i32 %28, 0
-  br i1 %.not32, label %29, label %50
+26:                                               ; preds = %22
+  %27 = tail call i32 @BIO_should_write(ptr noundef %24) #21
+  %.not32 = icmp eq i32 %27, 0
+  br i1 %.not32, label %28, label %50
 
-29:                                               ; preds = %27
-  %30 = tail call i32 @BIO_should_io_special(ptr noundef %25) #21
-  %.not33 = icmp eq i32 %30, 0
-  br i1 %.not33, label %._crit_edge, label %31
+28:                                               ; preds = %26
+  %29 = tail call i32 @BIO_should_io_special(ptr noundef %24) #21
+  %.not33 = icmp eq i32 %29, 0
+  br i1 %.not33, label %._crit_edge, label %30
 
-._crit_edge:                                      ; preds = %29
-  %.pre = load i32, ptr %21, align 8, !tbaa !109
-  br label %33
+._crit_edge:                                      ; preds = %28
+  %.pre = load i32, ptr %20, align 8, !tbaa !109
+  br label %32
 
-31:                                               ; preds = %29
-  %32 = tail call i32 @BIO_get_retry_reason(ptr noundef %25) #21
-  %switch.selectcmp = icmp eq i32 %32, 3
+30:                                               ; preds = %28
+  %31 = tail call i32 @BIO_get_retry_reason(ptr noundef %24) #21
+  %switch.selectcmp = icmp eq i32 %31, 3
   %switch.select = select i1 %switch.selectcmp, i32 8, i32 5
-  %switch.selectcmp40 = icmp eq i32 %32, 2
+  %switch.selectcmp40 = icmp eq i32 %31, 2
   %switch.select41 = select i1 %switch.selectcmp40, i32 7, i32 %switch.select
   br label %50
 
-33:                                               ; preds = %._crit_edge, %20
-  %34 = phi i32 [ %.pre, %._crit_edge ], [ %22, %20 ]
-  %35 = icmp eq i32 %34, 2
-  br i1 %35, label %36, label %46
+32:                                               ; preds = %._crit_edge, %19
+  %33 = phi i32 [ %.pre, %._crit_edge ], [ %21, %19 ]
+  %34 = icmp eq i32 %33, 2
+  br i1 %34, label %35, label %45
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !117
-  %39 = tail call i32 @BIO_should_write(ptr noundef %38) #21
-  %.not34 = icmp eq i32 %39, 0
-  br i1 %.not34, label %40, label %50
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %37 = load ptr, ptr %36, align 8, !tbaa !117
+  %38 = tail call i32 @BIO_should_write(ptr noundef %37) #21
+  %.not34 = icmp eq i32 %38, 0
+  br i1 %.not34, label %39, label %50
 
-40:                                               ; preds = %36
-  %41 = tail call i32 @BIO_should_read(ptr noundef %38) #21
-  %.not35 = icmp eq i32 %41, 0
-  br i1 %.not35, label %42, label %50
+39:                                               ; preds = %35
+  %40 = tail call i32 @BIO_should_read(ptr noundef %37) #21
+  %.not35 = icmp eq i32 %40, 0
+  br i1 %.not35, label %41, label %50
 
-42:                                               ; preds = %40
-  %43 = tail call i32 @BIO_should_io_special(ptr noundef %38) #21
-  %.not36 = icmp eq i32 %43, 0
-  br i1 %.not36, label %thread-pre-split, label %44
+41:                                               ; preds = %39
+  %42 = tail call i32 @BIO_should_io_special(ptr noundef %37) #21
+  %.not36 = icmp eq i32 %42, 0
+  br i1 %.not36, label %thread-pre-split, label %43
 
-44:                                               ; preds = %42
-  %45 = tail call i32 @BIO_get_retry_reason(ptr noundef %38) #21
-  %switch.selectcmp42 = icmp eq i32 %45, 3
+43:                                               ; preds = %41
+  %44 = tail call i32 @BIO_get_retry_reason(ptr noundef %37) #21
+  %switch.selectcmp42 = icmp eq i32 %44, 3
   %switch.select43 = select i1 %switch.selectcmp42, i32 8, i32 5
-  %switch.selectcmp44 = icmp eq i32 %45, 2
+  %switch.selectcmp44 = icmp eq i32 %44, 2
   %switch.select45 = select i1 %switch.selectcmp44, i32 7, i32 %switch.select43
   br label %50
 
-thread-pre-split:                                 ; preds = %42
-  %.pr = load i32, ptr %21, align 8, !tbaa !109
-  br label %46
+thread-pre-split:                                 ; preds = %41
+  %.pr = load i32, ptr %20, align 8, !tbaa !109
+  br label %45
 
-46:                                               ; preds = %thread-pre-split, %33
-  %47 = phi i32 [ %.pr, %thread-pre-split ], [ %34, %33 ]
-  %switch.tableidx = add i32 %47, -4
-  %48 = icmp ult i32 %switch.tableidx, 6
-  br i1 %48, label %switch.lookup, label %50
+45:                                               ; preds = %thread-pre-split, %32
+  %46 = phi i32 [ %.pr, %thread-pre-split ], [ %33, %32 ]
+  %switch.tableidx = add i32 %46, -4
+  %47 = icmp ult i32 %switch.tableidx, 6
+  br i1 %47, label %switch.lookup, label %48
 
-.fold.split:                                      ; preds = %20
+48:                                               ; preds = %45, %10, %14
   br label %50
 
-switch.lookup:                                    ; preds = %46
+.fold.split:                                      ; preds = %19
+  br label %50
+
+switch.lookup:                                    ; preds = %45
   %49 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SSL_get_error, i64 %49
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %50
 
-50:                                               ; preds = %46, %switch.lookup, %20, %.fold.split, %44, %31, %40, %36, %27, %23, %14, %6, %2, %19
-  %.0 = phi i32 [ 12, %.fold.split ], [ %., %6 ], [ 0, %2 ], [ 5, %46 ], [ 5, %19 ], [ 6, %14 ], [ 11, %20 ], [ 2, %40 ], [ 2, %23 ], [ 3, %27 ], [ %switch.select41, %31 ], [ %switch.select45, %44 ], [ %switch.load, %switch.lookup ], [ 3, %36 ]
+50:                                               ; preds = %switch.lookup, %19, %.fold.split, %43, %30, %48, %39, %35, %26, %22, %14, %6, %2
+  %.0 = phi i32 [ 12, %.fold.split ], [ %., %6 ], [ 0, %2 ], [ 5, %48 ], [ 3, %35 ], [ 6, %14 ], [ 11, %19 ], [ 2, %39 ], [ 2, %22 ], [ 3, %26 ], [ %switch.select41, %30 ], [ %switch.select45, %43 ], [ %switch.load, %switch.lookup ]
   ret i32 %.0
 }
 
@@ -5176,7 +5176,7 @@ switch.lookup:                                    ; preds = %22
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %14, %15
-  %.sink45 = phi i32 [ 26, %14 ], [ 27, %15 ], [ %switch.load, %switch.lookup ]
+  %.sink45 = phi i32 [ %switch.load, %switch.lookup ], [ 26, %14 ], [ 27, %15 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %26 = load i32, ptr %25, align 8, !tbaa !81
   %27 = lshr i32 %26, %.sink45

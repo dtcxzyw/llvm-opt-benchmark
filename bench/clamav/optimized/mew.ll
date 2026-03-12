@@ -1663,7 +1663,7 @@ thread-pre-split.us.us.us.us:                     ; preds = %784
   %838 = icmp eq i32 %837, 0
   br i1 %838, label %lzma_4862e0.exit.thread, label %thread-pre-split.us
 
-thread-pre-split.us:                              ; preds = %825, %836
+thread-pre-split.us:                              ; preds = %845, %849, %825, %836
   br label %lzma_4862e0.exit.thread
 
 .split:                                           ; preds = %13
@@ -1687,7 +1687,7 @@ thread-pre-split.us:                              ; preds = %825, %836
 845:                                              ; preds = %840
   %846 = load i32, ptr %16, align 1, !tbaa !3
   %847 = icmp eq i32 %846, 0
-  br i1 %847, label %lzma_4862e0.exit.thread, label %thread-pre-split
+  br i1 %847, label %lzma_4862e0.exit.thread, label %thread-pre-split.us
 
 848:                                              ; preds = %.split
   %or.cond732 = select i1 %20, i1 true, i1 %.not507
@@ -1701,10 +1701,7 @@ thread-pre-split.us:                              ; preds = %825, %836
   %or.cond548 = and i1 %.not510, %852
   %853 = icmp ugt i64 %22, %850
   %or.cond549 = and i1 %853, %or.cond548
-  br i1 %or.cond549, label %thread-pre-split, label %lzma_4862e0.exit.thread
-
-thread-pre-split:                                 ; preds = %849, %845
-  br label %lzma_4862e0.exit.thread
+  br i1 %or.cond549, label %thread-pre-split.us, label %lzma_4862e0.exit.thread
 
 .split1219.us:                                    ; preds = %782
   %854 = load i32, ptr %8, align 4, !tbaa !13
@@ -1755,8 +1752,8 @@ thread-pre-split:                                 ; preds = %849, %845
   %876 = icmp ult i32 %875, %862
   br i1 %876, label %.lr.ph, label %lzma_4862e0.exit.thread
 
-lzma_4862e0.exit.thread:                          ; preds = %783, %784, %789, %790, %795, %803, %810, %297, %304, %314, %324, %490, %493, %500, %507, %509, %516, %550, %558, %573, %771, %.preheader.i600.us.us, %253, %264, %213, %219, %171, %177, %129, %135, %85, %94, %34, %45, %47, %.lr.ph1179.us.us.preheader, %.preheader.split.us.i.us.us, %343, %407, %408, %.preheader.split.us.i603.us.us, %.lr.ph.us.us, %439, %.lr.ph1164.us.us, %625, %.lr.ph96.i.us.us, %676, %.lr.ph1179.us.us, %.lr.ph1590, %874, %824, %825, %830, %831, %836, %thread-pre-split.us, %thread-pre-split, %840, %839, %845, %849, %848, %.preheader, %856, %.split1219.us
-  %.1 = phi i32 [ -1, %831 ], [ 0, %856 ], [ 0, %836 ], [ -1, %.lr.ph96.i.us.us ], [ -1, %.lr.ph1164.us.us ], [ -1, %thread-pre-split ], [ -1, %824 ], [ -1, %297 ], [ -1, %thread-pre-split.us ], [ 0, %.preheader ], [ 0, %874 ], [ 0, %845 ], [ -1, %849 ], [ -1, %.lr.ph1179.us.us ], [ 0, %.split1219.us ], [ -1, %.preheader.split.us.i.us.us ], [ -1, %839 ], [ -1, %.preheader.split.us.i603.us.us ], [ -1, %848 ], [ -1, %840 ], [ -1, %830 ], [ -1, %407 ], [ -1, %825 ], [ -1, %.lr.ph1590 ], [ -1, %676 ], [ -1, %625 ], [ -1, %439 ], [ -1, %.lr.ph.us.us ], [ -1, %408 ], [ -1, %343 ], [ -1, %.lr.ph1179.us.us.preheader ], [ -1, %47 ], [ -1, %45 ], [ -1, %34 ], [ -1, %94 ], [ -1, %85 ], [ -1, %135 ], [ -1, %129 ], [ -1, %177 ], [ -1, %171 ], [ -1, %219 ], [ -1, %213 ], [ -1, %264 ], [ -1, %253 ], [ -1, %.preheader.i600.us.us ], [ -1, %771 ], [ -1, %573 ], [ -1, %558 ], [ -1, %550 ], [ -1, %516 ], [ -1, %509 ], [ -1, %507 ], [ -1, %500 ], [ -1, %493 ], [ -1, %490 ], [ -1, %324 ], [ -1, %314 ], [ -1, %304 ], [ -1, %783 ], [ -1, %790 ], [ -1, %784 ], [ -1, %789 ], [ -1, %810 ], [ -1, %803 ], [ 0, %795 ]
+lzma_4862e0.exit.thread:                          ; preds = %783, %784, %789, %790, %795, %803, %810, %297, %304, %314, %324, %490, %493, %500, %507, %509, %516, %550, %558, %573, %771, %.preheader.i600.us.us, %253, %264, %213, %219, %171, %177, %129, %135, %85, %94, %34, %45, %47, %.lr.ph1179.us.us.preheader, %.preheader.split.us.i.us.us, %343, %407, %408, %.preheader.split.us.i603.us.us, %.lr.ph.us.us, %439, %.lr.ph1164.us.us, %625, %.lr.ph96.i.us.us, %676, %.lr.ph1179.us.us, %.lr.ph1590, %874, %824, %825, %830, %831, %836, %thread-pre-split.us, %840, %839, %845, %849, %848, %.preheader, %856, %.split1219.us
+  %.1 = phi i32 [ -1, %825 ], [ 0, %856 ], [ -1, %831 ], [ -1, %840 ], [ -1, %.lr.ph96.i.us.us ], [ 0, %836 ], [ -1, %824 ], [ -1, %.lr.ph1164.us.us ], [ -1, %297 ], [ 0, %.preheader ], [ -1, %thread-pre-split.us ], [ 0, %845 ], [ -1, %849 ], [ 0, %874 ], [ 0, %.split1219.us ], [ -1, %.lr.ph1179.us.us ], [ -1, %839 ], [ -1, %.preheader.split.us.i.us.us ], [ -1, %848 ], [ -1, %.preheader.split.us.i603.us.us ], [ -1, %830 ], [ -1, %407 ], [ -1, %.lr.ph1590 ], [ -1, %676 ], [ -1, %625 ], [ -1, %439 ], [ -1, %.lr.ph.us.us ], [ -1, %408 ], [ -1, %343 ], [ -1, %.lr.ph1179.us.us.preheader ], [ -1, %47 ], [ -1, %45 ], [ -1, %34 ], [ -1, %94 ], [ -1, %85 ], [ -1, %135 ], [ -1, %129 ], [ -1, %177 ], [ -1, %171 ], [ -1, %219 ], [ -1, %213 ], [ -1, %264 ], [ -1, %253 ], [ -1, %.preheader.i600.us.us ], [ -1, %771 ], [ -1, %573 ], [ -1, %558 ], [ -1, %550 ], [ -1, %516 ], [ -1, %509 ], [ -1, %507 ], [ -1, %500 ], [ -1, %493 ], [ -1, %490 ], [ -1, %324 ], [ -1, %314 ], [ -1, %304 ], [ -1, %810 ], [ 0, %795 ], [ -1, %789 ], [ -1, %784 ], [ -1, %803 ], [ -1, %790 ], [ -1, %783 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -93,7 +93,7 @@ define internal noundef range(i32 1, 21) i32 @_ZNK12_GLOBAL__N_122X86WinCOFFObje
   store i8 3, ptr %20, align 8, !tbaa !29
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(34) %7) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %51
+  br label %49
 
 22:                                               ; preds = %16, %15, %15, %6
   %.027 = phi i32 [ %14, %6 ], [ 8, %15 ], [ 8, %15 ], [ 8, %16 ]
@@ -117,15 +117,15 @@ define internal noundef range(i32 1, 21) i32 @_ZNK12_GLOBAL__N_122X86WinCOFFObje
 
 33:                                               ; preds = %31
   switch i32 %.027, label %38 [
-    i32 8, label %51
-    i32 128, label %51
-    i32 129, label %51
-    i32 130, label %51
-    i32 131, label %51
-    i32 132, label %51
-    i32 133, label %51
-    i32 134, label %51
-    i32 139, label %51
+    i32 8, label %49
+    i32 128, label %49
+    i32 129, label %49
+    i32 130, label %49
+    i32 131, label %49
+    i32 132, label %49
+    i32 133, label %49
+    i32 134, label %49
+    i32 139, label %49
     i32 3, label %34
     i32 135, label %34
     i32 136, label %34
@@ -139,16 +139,16 @@ define internal noundef range(i32 1, 21) i32 @_ZNK12_GLOBAL__N_122X86WinCOFFObje
   %switch.select = select i1 %switch.selectcmp, i32 11, i32 2
   %switch.selectcmp31 = icmp eq i32 %32, 126
   %switch.select32 = select i1 %switch.selectcmp31, i32 3, i32 %switch.select
-  br label %51
+  br label %49
 
 35:                                               ; preds = %33
-  br label %51
+  br label %49
 
-36:                                               ; preds = %33
-  br label %51
+36:                                               ; preds = %42, %33
+  br label %49
 
-37:                                               ; preds = %33
-  br label %51
+37:                                               ; preds = %42, %33
+  br label %49
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -161,20 +161,20 @@ define internal noundef range(i32 1, 21) i32 @_ZNK12_GLOBAL__N_122X86WinCOFFObje
   store i8 3, ptr %40, align 8, !tbaa !29
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i37, ptr noundef nonnull align 8 dereferenceable(34) %8) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %51
+  br label %49
 
 42:                                               ; preds = %31
   %43 = icmp eq i32 %11, 332
   tail call void @llvm.assume(i1 %43)
-  switch i32 %.027, label %47 [
-    i32 8, label %51
-    i32 128, label %51
-    i32 129, label %51
+  switch i32 %.027, label %45 [
+    i32 8, label %49
+    i32 128, label %49
+    i32 129, label %49
     i32 3, label %44
     i32 135, label %44
     i32 136, label %44
-    i32 19, label %45
-    i32 20, label %46
+    i32 19, label %36
+    i32 20, label %37
   ]
 
 44:                                               ; preds = %42, %42, %42
@@ -182,29 +182,23 @@ define internal noundef range(i32 1, 21) i32 @_ZNK12_GLOBAL__N_122X86WinCOFFObje
   %switch.select34 = select i1 %switch.selectcmp33, i32 11, i32 6
   %switch.selectcmp35 = icmp eq i32 %32, 126
   %switch.select36 = select i1 %switch.selectcmp35, i32 7, i32 %switch.select34
-  br label %51
+  br label %49
 
 45:                                               ; preds = %42
-  br label %51
-
-46:                                               ; preds = %42
-  br label %51
-
-47:                                               ; preds = %42
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.0.0.copyload.i38 = load ptr, ptr %48, align 8, !tbaa !24
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.0.0.copyload.i38 = load ptr, ptr %46, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %49 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %50 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  store i8 1, ptr %50, align 1, !tbaa !25
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 33
+  store i8 1, ptr %48, align 1, !tbaa !25
   store ptr @.str.1, ptr %9, align 8, !tbaa !28
-  store i8 3, ptr %49, align 8, !tbaa !29
+  store i8 3, ptr %47, align 8, !tbaa !29
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i38, ptr noundef nonnull align 8 dereferenceable(34) %9) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %51
+  br label %49
 
-51:                                               ; preds = %44, %34, %35, %36, %37, %38, %45, %46, %47, %33, %33, %33, %33, %33, %33, %33, %33, %33, %42, %42, %42, %18
-  %.0 = phi i32 [ 2, %18 ], [ 2, %38 ], [ 11, %46 ], [ 4, %33 ], [ %switch.select32, %34 ], [ 20, %42 ], [ 1, %35 ], [ 10, %36 ], [ 11, %37 ], [ 6, %47 ], [ 20, %42 ], [ 20, %42 ], [ %switch.select36, %44 ], [ 4, %33 ], [ 10, %45 ], [ 4, %33 ], [ 4, %33 ], [ 4, %33 ], [ 4, %33 ], [ 4, %33 ], [ 4, %33 ], [ 4, %33 ]
+49:                                               ; preds = %44, %34, %35, %36, %37, %38, %45, %33, %33, %33, %33, %33, %33, %33, %33, %33, %42, %42, %42, %18
+  %.0 = phi i32 [ 2, %18 ], [ 2, %38 ], [ 4, %33 ], [ 4, %33 ], [ %switch.select32, %34 ], [ 20, %42 ], [ 1, %35 ], [ 10, %36 ], [ 11, %37 ], [ 6, %45 ], [ 20, %42 ], [ 20, %42 ], [ %switch.select36, %44 ], [ 4, %33 ], [ 4, %33 ], [ 4, %33 ], [ 4, %33 ], [ 4, %33 ], [ 4, %33 ], [ 4, %33 ]
   ret i32 %.0
 }
 

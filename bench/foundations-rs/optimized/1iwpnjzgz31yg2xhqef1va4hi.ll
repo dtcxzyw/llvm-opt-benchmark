@@ -5919,7 +5919,7 @@ default.unreachable:                              ; preds = %120, %"_ZN91_$LT$hy
   br i1 %.not179, label %.thread165.invoke, label %89, !prof !368
 
 .thread165.invoke:                                ; preds = %181, %167, %157, %89, %83, %73
-  %88 = phi ptr [ @anon.ad4612a719371f11c5addc366f012f45.59, %167 ], [ @anon.ad4612a719371f11c5addc366f012f45.53, %73 ], [ @anon.ad4612a719371f11c5addc366f012f45.53, %83 ], [ @anon.ad4612a719371f11c5addc366f012f45.53, %89 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %157 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %181 ]
+  %88 = phi ptr [ @anon.ad4612a719371f11c5addc366f012f45.53, %89 ], [ @anon.ad4612a719371f11c5addc366f012f45.53, %73 ], [ @anon.ad4612a719371f11c5addc366f012f45.53, %83 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %157 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %167 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %181 ]
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.ad4612a719371f11c5addc366f012f45.51, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %88) #22
           to label %.thread165.cont unwind label %.loopexit.split-lp
 
@@ -6475,7 +6475,7 @@ define hidden void @"_ZN5hyper5proto2h12io17WriteBuf$LT$B$GT$6buffer17h3a6278e99
   br i1 %.not155, label %.thread141.invoke, label %58, !prof !368
 
 .thread141.invoke:                                ; preds = %118, %104, %94, %58, %52, %42
-  %57 = phi ptr [ @anon.ad4612a719371f11c5addc366f012f45.59, %104 ], [ @anon.ad4612a719371f11c5addc366f012f45.53, %42 ], [ @anon.ad4612a719371f11c5addc366f012f45.53, %52 ], [ @anon.ad4612a719371f11c5addc366f012f45.53, %58 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %94 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %118 ]
+  %57 = phi ptr [ @anon.ad4612a719371f11c5addc366f012f45.53, %58 ], [ @anon.ad4612a719371f11c5addc366f012f45.53, %42 ], [ @anon.ad4612a719371f11c5addc366f012f45.53, %52 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %94 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %104 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %118 ]
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.ad4612a719371f11c5addc366f012f45.51, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %57) #22
           to label %.thread141.cont unwind label %.loopexit.split-lp
 
@@ -6884,7 +6884,7 @@ define hidden void @"_ZN5hyper5proto2h12io17WriteBuf$LT$B$GT$6buffer17heb4907ac9
   br i1 %.not155, label %.thread141.invoke, label %58, !prof !368
 
 .thread141.invoke:                                ; preds = %118, %104, %94, %58, %52, %42
-  %57 = phi ptr [ @anon.ad4612a719371f11c5addc366f012f45.59, %104 ], [ @anon.ad4612a719371f11c5addc366f012f45.53, %42 ], [ @anon.ad4612a719371f11c5addc366f012f45.53, %52 ], [ @anon.ad4612a719371f11c5addc366f012f45.53, %58 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %94 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %118 ]
+  %57 = phi ptr [ @anon.ad4612a719371f11c5addc366f012f45.53, %58 ], [ @anon.ad4612a719371f11c5addc366f012f45.53, %42 ], [ @anon.ad4612a719371f11c5addc366f012f45.53, %52 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %94 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %104 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %118 ]
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.ad4612a719371f11c5addc366f012f45.51, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %57) #22
           to label %.thread141.cont unwind label %.loopexit.split-lp
 
@@ -7287,8 +7287,8 @@ define hidden void @"_ZN5hyper5proto2h12io17WriteBuf$LT$B$GT$6buffer17hf5f7acf4f
   %.not162 = icmp eq i64 %49, 1
   br i1 %.not162, label %.thread146.invoke, label %60, !prof !368
 
-.thread146.invoke:                                ; preds = %128, %114, %104, %60, %54, %44
-  %59 = phi ptr [ @anon.ad4612a719371f11c5addc366f012f45.53, %44 ], [ @anon.ad4612a719371f11c5addc366f012f45.53, %60 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %104 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %114 ], [ @anon.ad4612a719371f11c5addc366f012f45.53, %54 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %128 ]
+.thread146.invoke:                                ; preds = %128, %114, %104, %54, %60, %44
+  %59 = phi ptr [ @anon.ad4612a719371f11c5addc366f012f45.53, %44 ], [ @anon.ad4612a719371f11c5addc366f012f45.53, %60 ], [ @anon.ad4612a719371f11c5addc366f012f45.53, %54 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %104 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %114 ], [ @anon.ad4612a719371f11c5addc366f012f45.59, %128 ]
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.ad4612a719371f11c5addc366f012f45.51, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %59) #22
           to label %.thread146.cont unwind label %.loopexit.split-lp
 

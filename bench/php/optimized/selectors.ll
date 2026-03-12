@@ -1375,7 +1375,7 @@ define internal fastcc zeroext i1 @lxb_selectors_match(ptr noundef readonly capt
   %7 = alloca %struct.dom_lxb_str_wrapper, align 8
   %8 = alloca %struct.dom_lxb_str_wrapper, align 8
   %9 = load i32, ptr %2, align 8, !tbaa !47
-  switch i32 %9, label %674 [
+  switch i32 %9, label %672 [
     i32 1, label %lxb_selectors_match_element.exit
     i32 2, label %10
     i32 3, label %27
@@ -1383,8 +1383,8 @@ define internal fastcc zeroext i1 @lxb_selectors_match(ptr noundef readonly capt
     i32 5, label %91
     i32 6, label %214
     i32 7, label %556
-    i32 8, label %673
-    i32 9, label %673
+    i32 8, label %671
+    i32 9, label %671
   ]
 
 10:                                               ; preds = %4
@@ -2653,7 +2653,7 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
   %553 = getelementptr inbounds nuw i8, ptr %551, i64 8
   %554 = load i32, ptr %553, align 8, !tbaa !40
   %555 = icmp ult i32 %554, 14
-  br i1 %555, label %switch.lookup, label %lxb_selectors_match_element.exit
+  br i1 %555, label %switch.lookup, label %671
 
 556:                                              ; preds = %4
   %557 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -2672,7 +2672,7 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
 .lr.ph.i50:                                       ; preds = %.preheader70.i
   %559 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %560 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  br label %625
+  br label %624
 
 .preheader68.i:                                   ; preds = %556
   %.not3975.i = icmp eq ptr %3, null
@@ -2681,7 +2681,7 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
 .lr.ph78.i:                                       ; preds = %.preheader68.i
   %561 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %562 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  br label %600
+  br label %599
 
 .preheader66.i:                                   ; preds = %556
   %.not4280.i = icmp eq ptr %3, null
@@ -2733,7 +2733,7 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
   %584 = icmp sgt i64 %583, -1
   %585 = icmp eq i64 %583, %.236.i
   %or.cond.i50.i = and i1 %584, %585
-  br i1 %or.cond.i50.i, label %lxb_selectors_match_element.exit, label %599
+  br i1 %or.cond.i50.i, label %lxb_selectors_match_element.exit, label %671
 
 586:                                              ; preds = %.loopexit.i55
   %587 = uitofp i64 %.236.i to double
@@ -2744,163 +2744,157 @@ lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i: ; preds = %lxb_selectors_adap
   %592 = sitofp i64 %579 to double
   %593 = fdiv double %591, %592
   %594 = fcmp ult double %593, 0.000000e+00
-  br i1 %594, label %599, label %595
+  br i1 %594, label %671, label %595
 
 595:                                              ; preds = %586
   %596 = tail call double @llvm.trunc.f64(double %593)
   %597 = fsub double %593, %596
   %598 = fcmp oeq double %597, 0.000000e+00
-  br i1 %598, label %lxb_selectors_match_element.exit, label %599
+  br i1 %598, label %lxb_selectors_match_element.exit, label %671
 
-599:                                              ; preds = %595, %586, %581
-  br label %lxb_selectors_match_element.exit
-
-600:                                              ; preds = %lxb_selectors_adapted_cmp_ns.exit.thread55.i, %.lr.ph78.i
-  %.277.i = phi ptr [ %3, %.lr.ph78.i ], [ %624, %lxb_selectors_adapted_cmp_ns.exit.thread55.i ]
+599:                                              ; preds = %lxb_selectors_adapted_cmp_ns.exit.thread55.i, %.lr.ph78.i
+  %.277.i = phi ptr [ %3, %.lr.ph78.i ], [ %623, %lxb_selectors_adapted_cmp_ns.exit.thread55.i ]
   %.576.i = phi i64 [ 0, %.lr.ph78.i ], [ %.6.i, %lxb_selectors_adapted_cmp_ns.exit.thread55.i ]
-  %601 = getelementptr inbounds nuw i8, ptr %.277.i, i64 8
-  %602 = load i32, ptr %601, align 8, !tbaa !40
-  %603 = and i32 %602, 255
-  %604 = icmp eq i32 %603, 1
-  br i1 %604, label %605, label %lxb_selectors_adapted_cmp_ns.exit.thread55.i
+  %600 = getelementptr inbounds nuw i8, ptr %.277.i, i64 8
+  %601 = load i32, ptr %600, align 8, !tbaa !40
+  %602 = and i32 %601, 255
+  %603 = icmp eq i32 %602, 1
+  br i1 %603, label %604, label %lxb_selectors_adapted_cmp_ns.exit.thread55.i
 
-605:                                              ; preds = %600
-  %606 = getelementptr inbounds nuw i8, ptr %.277.i, i64 16
-  %607 = load ptr, ptr %606, align 8, !tbaa !79
-  %608 = load ptr, ptr %561, align 8, !tbaa !79
-  %609 = tail call i32 @xmlStrEqual(ptr noundef %607, ptr noundef %608) #7
-  %.not40.i = icmp eq i32 %609, 0
-  br i1 %.not40.i, label %lxb_selectors_adapted_cmp_ns.exit.thread55.i, label %610
+604:                                              ; preds = %599
+  %605 = getelementptr inbounds nuw i8, ptr %.277.i, i64 16
+  %606 = load ptr, ptr %605, align 8, !tbaa !79
+  %607 = load ptr, ptr %561, align 8, !tbaa !79
+  %608 = tail call i32 @xmlStrEqual(ptr noundef %606, ptr noundef %607) #7
+  %.not40.i = icmp eq i32 %608, 0
+  br i1 %.not40.i, label %lxb_selectors_adapted_cmp_ns.exit.thread55.i, label %609
 
-610:                                              ; preds = %605
-  %611 = getelementptr inbounds nuw i8, ptr %.277.i, i64 72
-  %612 = load ptr, ptr %611, align 8, !tbaa !142
-  %613 = load ptr, ptr %562, align 8, !tbaa !142
-  %614 = icmp eq ptr %612, %613
-  br i1 %614, label %lxb_selectors_adapted_cmp_ns.exit.thread.i, label %616
+609:                                              ; preds = %604
+  %610 = getelementptr inbounds nuw i8, ptr %.277.i, i64 72
+  %611 = load ptr, ptr %610, align 8, !tbaa !142
+  %612 = load ptr, ptr %562, align 8, !tbaa !142
+  %613 = icmp eq ptr %611, %612
+  br i1 %613, label %lxb_selectors_adapted_cmp_ns.exit.thread.i, label %615
 
-lxb_selectors_adapted_cmp_ns.exit.thread.i:       ; preds = %610
-  %615 = add i64 %.576.i, 1
+lxb_selectors_adapted_cmp_ns.exit.thread.i:       ; preds = %609
+  %614 = add i64 %.576.i, 1
   br label %lxb_selectors_adapted_cmp_ns.exit.thread55.i
 
-616:                                              ; preds = %610
-  %.not.i.i54 = icmp eq ptr %612, null
-  %.not7.i.i = icmp eq ptr %613, null
+615:                                              ; preds = %609
+  %.not.i.i54 = icmp eq ptr %611, null
+  %.not7.i.i = icmp eq ptr %612, null
   %or.cond.i.i = or i1 %.not.i.i54, %.not7.i.i
   br i1 %or.cond.i.i, label %lxb_selectors_adapted_cmp_ns.exit.thread55.i, label %lxb_selectors_adapted_cmp_ns.exit.i
 
-lxb_selectors_adapted_cmp_ns.exit.i:              ; preds = %616
-  %617 = getelementptr inbounds nuw i8, ptr %612, i64 16
-  %618 = load ptr, ptr %617, align 8, !tbaa !143
-  %619 = getelementptr inbounds nuw i8, ptr %613, i64 16
-  %620 = load ptr, ptr %619, align 8, !tbaa !143
-  %621 = tail call i32 @xmlStrEqual(ptr noundef %618, ptr noundef %620) #7
-  %.fr64.i = freeze i32 %621
+lxb_selectors_adapted_cmp_ns.exit.i:              ; preds = %615
+  %616 = getelementptr inbounds nuw i8, ptr %611, i64 16
+  %617 = load ptr, ptr %616, align 8, !tbaa !143
+  %618 = getelementptr inbounds nuw i8, ptr %612, i64 16
+  %619 = load ptr, ptr %618, align 8, !tbaa !143
+  %620 = tail call i32 @xmlStrEqual(ptr noundef %617, ptr noundef %619) #7
+  %.fr64.i = freeze i32 %620
   %.not65.i = icmp ne i32 %.fr64.i, 0
-  %622 = zext i1 %.not65.i to i64
-  %spec.select61.i = add i64 %.576.i, %622
+  %621 = zext i1 %.not65.i to i64
+  %spec.select61.i = add i64 %.576.i, %621
   br label %lxb_selectors_adapted_cmp_ns.exit.thread55.i
 
-lxb_selectors_adapted_cmp_ns.exit.thread55.i:     ; preds = %lxb_selectors_adapted_cmp_ns.exit.i, %616, %lxb_selectors_adapted_cmp_ns.exit.thread.i, %605, %600
-  %.6.i = phi i64 [ %.576.i, %600 ], [ %.576.i, %605 ], [ %.576.i, %616 ], [ %spec.select61.i, %lxb_selectors_adapted_cmp_ns.exit.i ], [ %615, %lxb_selectors_adapted_cmp_ns.exit.thread.i ]
-  %623 = getelementptr inbounds nuw i8, ptr %.277.i, i64 56
-  %624 = load ptr, ptr %623, align 8, !tbaa !58
-  %.not39.i = icmp eq ptr %624, null
-  br i1 %.not39.i, label %.loopexit69.i, label %600
+lxb_selectors_adapted_cmp_ns.exit.thread55.i:     ; preds = %lxb_selectors_adapted_cmp_ns.exit.i, %615, %lxb_selectors_adapted_cmp_ns.exit.thread.i, %604, %599
+  %.6.i = phi i64 [ %.576.i, %599 ], [ %.576.i, %604 ], [ %.576.i, %615 ], [ %spec.select61.i, %lxb_selectors_adapted_cmp_ns.exit.i ], [ %614, %lxb_selectors_adapted_cmp_ns.exit.thread.i ]
+  %622 = getelementptr inbounds nuw i8, ptr %.277.i, i64 56
+  %623 = load ptr, ptr %622, align 8, !tbaa !58
+  %.not39.i = icmp eq ptr %623, null
+  br i1 %.not39.i, label %.loopexit69.i, label %599
 
-625:                                              ; preds = %lxb_selectors_adapted_cmp_ns.exit49.thread59.i, %.lr.ph.i50
-  %.374.i = phi ptr [ %3, %.lr.ph.i50 ], [ %649, %lxb_selectors_adapted_cmp_ns.exit49.thread59.i ]
+624:                                              ; preds = %lxb_selectors_adapted_cmp_ns.exit49.thread59.i, %.lr.ph.i50
+  %.374.i = phi ptr [ %3, %.lr.ph.i50 ], [ %648, %lxb_selectors_adapted_cmp_ns.exit49.thread59.i ]
   %.873.i = phi i64 [ 0, %.lr.ph.i50 ], [ %.9.i, %lxb_selectors_adapted_cmp_ns.exit49.thread59.i ]
-  %626 = getelementptr inbounds nuw i8, ptr %.374.i, i64 8
-  %627 = load i32, ptr %626, align 8, !tbaa !40
-  %628 = and i32 %627, 255
-  %629 = icmp eq i32 %628, 1
-  br i1 %629, label %630, label %lxb_selectors_adapted_cmp_ns.exit49.thread59.i
+  %625 = getelementptr inbounds nuw i8, ptr %.374.i, i64 8
+  %626 = load i32, ptr %625, align 8, !tbaa !40
+  %627 = and i32 %626, 255
+  %628 = icmp eq i32 %627, 1
+  br i1 %628, label %629, label %lxb_selectors_adapted_cmp_ns.exit49.thread59.i
 
-630:                                              ; preds = %625
-  %631 = getelementptr inbounds nuw i8, ptr %.374.i, i64 16
-  %632 = load ptr, ptr %631, align 8, !tbaa !79
-  %633 = load ptr, ptr %559, align 8, !tbaa !79
-  %634 = tail call i32 @xmlStrEqual(ptr noundef %632, ptr noundef %633) #7
-  %.not38.i = icmp eq i32 %634, 0
-  br i1 %.not38.i, label %lxb_selectors_adapted_cmp_ns.exit49.thread59.i, label %635
+629:                                              ; preds = %624
+  %630 = getelementptr inbounds nuw i8, ptr %.374.i, i64 16
+  %631 = load ptr, ptr %630, align 8, !tbaa !79
+  %632 = load ptr, ptr %559, align 8, !tbaa !79
+  %633 = tail call i32 @xmlStrEqual(ptr noundef %631, ptr noundef %632) #7
+  %.not38.i = icmp eq i32 %633, 0
+  br i1 %.not38.i, label %lxb_selectors_adapted_cmp_ns.exit49.thread59.i, label %634
 
-635:                                              ; preds = %630
-  %636 = getelementptr inbounds nuw i8, ptr %.374.i, i64 72
-  %637 = load ptr, ptr %636, align 8, !tbaa !142
-  %638 = load ptr, ptr %560, align 8, !tbaa !142
-  %639 = icmp eq ptr %637, %638
-  br i1 %639, label %lxb_selectors_adapted_cmp_ns.exit49.thread.i, label %641
+634:                                              ; preds = %629
+  %635 = getelementptr inbounds nuw i8, ptr %.374.i, i64 72
+  %636 = load ptr, ptr %635, align 8, !tbaa !142
+  %637 = load ptr, ptr %560, align 8, !tbaa !142
+  %638 = icmp eq ptr %636, %637
+  br i1 %638, label %lxb_selectors_adapted_cmp_ns.exit49.thread.i, label %640
 
-lxb_selectors_adapted_cmp_ns.exit49.thread.i:     ; preds = %635
-  %640 = add i64 %.873.i, 1
+lxb_selectors_adapted_cmp_ns.exit49.thread.i:     ; preds = %634
+  %639 = add i64 %.873.i, 1
   br label %lxb_selectors_adapted_cmp_ns.exit49.thread59.i
 
-641:                                              ; preds = %635
-  %.not.i46.i = icmp eq ptr %637, null
-  %.not7.i47.i = icmp eq ptr %638, null
+640:                                              ; preds = %634
+  %.not.i46.i = icmp eq ptr %636, null
+  %.not7.i47.i = icmp eq ptr %637, null
   %or.cond.i48.i = or i1 %.not.i46.i, %.not7.i47.i
   br i1 %or.cond.i48.i, label %lxb_selectors_adapted_cmp_ns.exit49.thread59.i, label %lxb_selectors_adapted_cmp_ns.exit49.i
 
-lxb_selectors_adapted_cmp_ns.exit49.i:            ; preds = %641
-  %642 = getelementptr inbounds nuw i8, ptr %637, i64 16
-  %643 = load ptr, ptr %642, align 8, !tbaa !143
-  %644 = getelementptr inbounds nuw i8, ptr %638, i64 16
-  %645 = load ptr, ptr %644, align 8, !tbaa !143
-  %646 = tail call i32 @xmlStrEqual(ptr noundef %643, ptr noundef %645) #7
-  %.fr.i = freeze i32 %646
+lxb_selectors_adapted_cmp_ns.exit49.i:            ; preds = %640
+  %641 = getelementptr inbounds nuw i8, ptr %636, i64 16
+  %642 = load ptr, ptr %641, align 8, !tbaa !143
+  %643 = getelementptr inbounds nuw i8, ptr %637, i64 16
+  %644 = load ptr, ptr %643, align 8, !tbaa !143
+  %645 = tail call i32 @xmlStrEqual(ptr noundef %642, ptr noundef %644) #7
+  %.fr.i = freeze i32 %645
   %.not63.i53 = icmp ne i32 %.fr.i, 0
-  %647 = zext i1 %.not63.i53 to i64
-  %spec.select62.i = add i64 %.873.i, %647
+  %646 = zext i1 %.not63.i53 to i64
+  %spec.select62.i = add i64 %.873.i, %646
   br label %lxb_selectors_adapted_cmp_ns.exit49.thread59.i
 
-lxb_selectors_adapted_cmp_ns.exit49.thread59.i:   ; preds = %lxb_selectors_adapted_cmp_ns.exit49.i, %641, %lxb_selectors_adapted_cmp_ns.exit49.thread.i, %630, %625
-  %.9.i = phi i64 [ %.873.i, %625 ], [ %.873.i, %630 ], [ %.873.i, %641 ], [ %spec.select62.i, %lxb_selectors_adapted_cmp_ns.exit49.i ], [ %640, %lxb_selectors_adapted_cmp_ns.exit49.thread.i ]
-  %648 = getelementptr inbounds nuw i8, ptr %.374.i, i64 48
-  %649 = load ptr, ptr %648, align 8, !tbaa !45
-  %.not.i51 = icmp eq ptr %649, null
-  br i1 %.not.i51, label %.loopexit69.i, label %625
+lxb_selectors_adapted_cmp_ns.exit49.thread59.i:   ; preds = %lxb_selectors_adapted_cmp_ns.exit49.i, %640, %lxb_selectors_adapted_cmp_ns.exit49.thread.i, %629, %624
+  %.9.i = phi i64 [ %.873.i, %624 ], [ %.873.i, %629 ], [ %.873.i, %640 ], [ %spec.select62.i, %lxb_selectors_adapted_cmp_ns.exit49.i ], [ %639, %lxb_selectors_adapted_cmp_ns.exit49.thread.i ]
+  %647 = getelementptr inbounds nuw i8, ptr %.374.i, i64 48
+  %648 = load ptr, ptr %647, align 8, !tbaa !45
+  %.not.i51 = icmp eq ptr %648, null
+  br i1 %.not.i51, label %.loopexit69.i, label %624
 
 .loopexit69.i:                                    ; preds = %lxb_selectors_adapted_cmp_ns.exit49.thread59.i, %lxb_selectors_adapted_cmp_ns.exit.thread55.i, %.preheader68.i, %.preheader70.i
   %.7.i = phi i64 [ %.6.i, %lxb_selectors_adapted_cmp_ns.exit.thread55.i ], [ 0, %.preheader68.i ], [ 0, %.preheader70.i ], [ %.9.i, %lxb_selectors_adapted_cmp_ns.exit49.thread59.i ]
-  %650 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %651 = load ptr, ptr %650, align 8, !tbaa !52
-  %652 = load i64, ptr %651, align 8, !tbaa !75
-  %653 = icmp eq i64 %652, 0
-  br i1 %653, label %654, label %659
+  %649 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %650 = load ptr, ptr %649, align 8, !tbaa !52
+  %651 = load i64, ptr %650, align 8, !tbaa !75
+  %652 = icmp eq i64 %651, 0
+  br i1 %652, label %653, label %658
 
-654:                                              ; preds = %.loopexit69.i
-  %655 = getelementptr inbounds nuw i8, ptr %651, i64 8
-  %656 = load i64, ptr %655, align 8, !tbaa !76
-  %657 = icmp sgt i64 %656, -1
-  %658 = icmp eq i64 %656, %.7.i
-  %or.cond.i52.i = and i1 %657, %658
-  br i1 %or.cond.i52.i, label %lxb_selectors_match_element.exit, label %672
+653:                                              ; preds = %.loopexit69.i
+  %654 = getelementptr inbounds nuw i8, ptr %650, i64 8
+  %655 = load i64, ptr %654, align 8, !tbaa !76
+  %656 = icmp sgt i64 %655, -1
+  %657 = icmp eq i64 %655, %.7.i
+  %or.cond.i52.i = and i1 %656, %657
+  br i1 %or.cond.i52.i, label %lxb_selectors_match_element.exit, label %671
 
-659:                                              ; preds = %.loopexit69.i
-  %660 = uitofp i64 %.7.i to double
-  %661 = getelementptr inbounds nuw i8, ptr %651, i64 8
-  %662 = load i64, ptr %661, align 8, !tbaa !76
-  %663 = sitofp i64 %662 to double
-  %664 = fsub double %660, %663
-  %665 = sitofp i64 %652 to double
-  %666 = fdiv double %664, %665
-  %667 = fcmp ult double %666, 0.000000e+00
-  br i1 %667, label %672, label %668
+658:                                              ; preds = %.loopexit69.i
+  %659 = uitofp i64 %.7.i to double
+  %660 = getelementptr inbounds nuw i8, ptr %650, i64 8
+  %661 = load i64, ptr %660, align 8, !tbaa !76
+  %662 = sitofp i64 %661 to double
+  %663 = fsub double %659, %662
+  %664 = sitofp i64 %651 to double
+  %665 = fdiv double %663, %664
+  %666 = fcmp ult double %665, 0.000000e+00
+  br i1 %666, label %671, label %667
 
-668:                                              ; preds = %659
-  %669 = tail call double @llvm.trunc.f64(double %666)
-  %670 = fsub double %666, %669
-  %671 = fcmp oeq double %670, 0.000000e+00
-  br i1 %671, label %lxb_selectors_match_element.exit, label %672
+667:                                              ; preds = %658
+  %668 = tail call double @llvm.trunc.f64(double %665)
+  %669 = fsub double %665, %668
+  %670 = fcmp oeq double %669, 0.000000e+00
+  br i1 %670, label %lxb_selectors_match_element.exit, label %671
 
-672:                                              ; preds = %668, %659, %654
+671:                                              ; preds = %552, %4, %4, %667, %658, %653, %595, %586, %581
   br label %lxb_selectors_match_element.exit
 
-673:                                              ; preds = %4, %4
-  br label %lxb_selectors_match_element.exit
-
-674:                                              ; preds = %4
+672:                                              ; preds = %4
   unreachable
 
 switch.lookup:                                    ; preds = %552
@@ -2909,8 +2903,8 @@ switch.lookup:                                    ; preds = %552
   %switch.masked = trunc i14 %switch.downshift to i1
   br label %lxb_selectors_match_element.exit
 
-lxb_selectors_match_element.exit:                 ; preds = %409, %414, %.preheader106.i, %lxb_selectors_adapted_cmp_ns.exit.i170.i, %432, %lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i, %lxb_selectors_adapted_cmp_ns.exit.i187.i, %455, %487, %511, %543, %lxb_selectors_adapted_cmp_ns.exit.thread12.i.i, %lxb_selectors_adapted_cmp_ns.exit.i.i, %345, %327, %.preheader95.i, %.lr.ph134.i, %319, %403, %356, %.preheader.i, %309, %258, %234, %lxb_selectors_adapted_cmp_ns.exit.thread12.i135.i, %lxb_selectors_adapted_cmp_ns.exit.i144.i, %374, %105, %68, %37, %552, %switch.lookup, %63, %70, %.thread60, %672, %668, %654, %599, %595, %581, %556, %549, %.thread70.i, %545, %538, %533, %522, %520, %517, %.thread62.i, %513, %506, %501, %493, %.thread54.i, %489, %482, %477, %466, %.loopexit.i, %.thread45.i, %405, %398, %.tail82.thread.i, %385, %361, %332, %324, %317, %315, %.thread37.i, %311, %304, %299, %dom_lxb_str_wrapper_release.exit.i46, %.thread12.i, %260, %253, %243, %242, %240, %.thread4.i, %236, %229, %.tail.thread.i, %216, %214, %dom_lxb_str_wrapper_release.exit.i35, %lxb_selectors_adapted_attr.exit.i34, %.thread25.i, %107, %98, %dom_lxb_str_wrapper_release.exit.i, %.thread18.i, %39, %32, %24, %22, %dom_lxb_str_wrapper_release.exit, %4, %673
-  %.0 = phi i1 [ false, %68 ], [ true, %668 ], [ %26, %24 ], [ true, %4 ], [ false, %70 ], [ false, %552 ], [ false, %258 ], [ false, %673 ], [ %.2, %dom_lxb_str_wrapper_release.exit ], [ %23, %22 ], [ %.0.shrunk.i, %dom_lxb_str_wrapper_release.exit.i ], [ false, %.thread18.i ], [ false, %39 ], [ false, %32 ], [ true, %lxb_selectors_adapted_attr.exit.i34 ], [ %.0.i20.i, %dom_lxb_str_wrapper_release.exit.i35 ], [ false, %.thread25.i ], [ false, %107 ], [ false, %98 ], [ false, %214 ], [ false, %lxb_selectors_adapted_cmp_ns.exit.i170.i ], [ true, %487 ], [ false, %304 ], [ false, %216 ], [ false, %243 ], [ false, %236 ], [ false, %229 ], [ false, %240 ], [ false, %299 ], [ %316, %315 ], [ %.0.shrunk.i45, %dom_lxb_str_wrapper_release.exit.i46 ], [ %.not18.i.i106.i, %.thread62.i ], [ %326, %324 ], [ %switch.masked, %switch.lookup ], [ false, %538 ], [ false, %522 ], [ false, %513 ], [ false, %493 ], [ %521, %520 ], [ %519, %517 ], [ true, %489 ], [ false, %466 ], [ false, %405 ], [ %.not18.i.i82.i, %.thread37.i ], [ false, %105 ], [ false, %385 ], [ false, %311 ], [ false, %599 ], [ false, %.tail.thread.i ], [ false, %242 ], [ false, %.tail82.thread.i ], [ %.not18.i.i114.i, %.thread70.i ], [ false, %403 ], [ false, %477 ], [ false, %501 ], [ false, %533 ], [ false, %549 ], [ false, %lxb_selectors_adapted_cmp_ns.exit.i187.i ], [ false, %345 ], [ %.not.i129.i, %356 ], [ false, %398 ], [ true, %332 ], [ %.not18.i.i98.i, %.thread54.i ], [ true, %654 ], [ false, %253 ], [ true, %361 ], [ true, %581 ], [ false, %545 ], [ true, %595 ], [ true, %482 ], [ true, %.loopexit.i ], [ %.not18.i.i90.i, %.thread45.i ], [ false, %506 ], [ false, %.thread12.i ], [ false, %260 ], [ %.not18.i.i.i, %.thread4.i ], [ false, %lxb_selectors_adapted_cmp_ns.exit.i144.i ], [ false, %234 ], [ false, %309 ], [ false, %511 ], [ %.not.i154.i, %414 ], [ false, %672 ], [ false, %543 ], [ true, %317 ], [ false, %.thread60 ], [ false, %63 ], [ %.not.i123.i, %327 ], [ %switch.i, %.lr.ph134.i ], [ false, %37 ], [ false, %556 ], [ false, %374 ], [ true, %lxb_selectors_adapted_cmp_ns.exit.thread12.i135.i ], [ %.not.i129.i, %.preheader.i ], [ %switch.i, %319 ], [ %.not.i123.i, %.preheader95.i ], [ false, %lxb_selectors_adapted_cmp_ns.exit.i.i ], [ true, %lxb_selectors_adapted_cmp_ns.exit.thread12.i.i ], [ false, %455 ], [ true, %lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i ], [ false, %432 ], [ %.not.i154.i, %.preheader106.i ], [ false, %409 ]
+lxb_selectors_match_element.exit:                 ; preds = %409, %414, %.preheader106.i, %lxb_selectors_adapted_cmp_ns.exit.i170.i, %432, %lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i, %lxb_selectors_adapted_cmp_ns.exit.i187.i, %455, %487, %511, %543, %lxb_selectors_adapted_cmp_ns.exit.thread12.i.i, %lxb_selectors_adapted_cmp_ns.exit.i.i, %345, %327, %.preheader95.i, %.lr.ph134.i, %319, %403, %356, %.preheader.i, %309, %258, %234, %lxb_selectors_adapted_cmp_ns.exit.thread12.i135.i, %lxb_selectors_adapted_cmp_ns.exit.i144.i, %374, %105, %68, %37, %switch.lookup, %63, %70, %.thread60, %671, %667, %653, %595, %581, %556, %549, %.thread70.i, %545, %538, %533, %522, %520, %517, %.thread62.i, %513, %506, %501, %493, %.thread54.i, %489, %482, %477, %466, %.loopexit.i, %.thread45.i, %405, %398, %.tail82.thread.i, %385, %361, %332, %324, %317, %315, %.thread37.i, %311, %304, %299, %dom_lxb_str_wrapper_release.exit.i46, %.thread12.i, %260, %253, %243, %242, %240, %.thread4.i, %236, %229, %.tail.thread.i, %216, %214, %dom_lxb_str_wrapper_release.exit.i35, %lxb_selectors_adapted_attr.exit.i34, %.thread25.i, %107, %98, %dom_lxb_str_wrapper_release.exit.i, %.thread18.i, %39, %32, %24, %22, %dom_lxb_str_wrapper_release.exit, %4
+  %.0 = phi i1 [ false, %68 ], [ false, %671 ], [ %26, %24 ], [ true, %4 ], [ false, %70 ], [ false, %258 ], [ true, %595 ], [ %.not.i129.i, %356 ], [ %.2, %dom_lxb_str_wrapper_release.exit ], [ %23, %22 ], [ %.0.shrunk.i, %dom_lxb_str_wrapper_release.exit.i ], [ false, %.thread18.i ], [ false, %39 ], [ false, %32 ], [ true, %lxb_selectors_adapted_attr.exit.i34 ], [ %.0.i20.i, %dom_lxb_str_wrapper_release.exit.i35 ], [ false, %.thread25.i ], [ false, %107 ], [ false, %98 ], [ false, %214 ], [ false, %lxb_selectors_adapted_cmp_ns.exit.i170.i ], [ %.not.i154.i, %414 ], [ false, %304 ], [ false, %216 ], [ false, %243 ], [ false, %236 ], [ false, %229 ], [ false, %240 ], [ false, %299 ], [ %316, %315 ], [ %.0.shrunk.i45, %dom_lxb_str_wrapper_release.exit.i46 ], [ %.not18.i.i106.i, %.thread62.i ], [ %326, %324 ], [ %switch.masked, %switch.lookup ], [ false, %538 ], [ false, %522 ], [ false, %513 ], [ false, %493 ], [ %521, %520 ], [ %519, %517 ], [ true, %489 ], [ false, %466 ], [ false, %405 ], [ %.not18.i.i82.i, %.thread37.i ], [ false, %105 ], [ false, %385 ], [ false, %311 ], [ true, %581 ], [ false, %.tail.thread.i ], [ false, %242 ], [ false, %.tail82.thread.i ], [ %.not18.i.i114.i, %.thread70.i ], [ false, %403 ], [ false, %477 ], [ false, %501 ], [ false, %533 ], [ false, %549 ], [ false, %455 ], [ false, %37 ], [ true, %487 ], [ false, %398 ], [ true, %332 ], [ %.not18.i.i98.i, %.thread54.i ], [ true, %667 ], [ false, %253 ], [ true, %361 ], [ false, %556 ], [ false, %545 ], [ false, %lxb_selectors_adapted_cmp_ns.exit.i.i ], [ true, %482 ], [ true, %.loopexit.i ], [ %.not18.i.i90.i, %.thread45.i ], [ false, %506 ], [ false, %.thread12.i ], [ false, %260 ], [ %.not18.i.i.i, %.thread4.i ], [ false, %lxb_selectors_adapted_cmp_ns.exit.i144.i ], [ false, %309 ], [ false, %234 ], [ false, %511 ], [ %switch.i, %.lr.ph134.i ], [ true, %653 ], [ false, %543 ], [ true, %317 ], [ false, %.thread60 ], [ false, %63 ], [ %.not.i123.i, %327 ], [ false, %374 ], [ true, %lxb_selectors_adapted_cmp_ns.exit.thread12.i135.i ], [ %.not.i129.i, %.preheader.i ], [ %switch.i, %319 ], [ %.not.i123.i, %.preheader95.i ], [ false, %345 ], [ true, %lxb_selectors_adapted_cmp_ns.exit.thread12.i.i ], [ false, %lxb_selectors_adapted_cmp_ns.exit.i187.i ], [ true, %lxb_selectors_adapted_cmp_ns.exit.thread12.i178.i ], [ false, %432 ], [ %.not.i154.i, %.preheader106.i ], [ false, %409 ]
   ret i1 %.0
 }
 

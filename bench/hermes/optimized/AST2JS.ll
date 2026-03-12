@@ -3876,10 +3876,10 @@ if.end.i.i854:                                    ; preds = %land.lhs.true.i877
     i8 42, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit
     i8 37, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit
     i8 47, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit
-    i8 43, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split
-    i8 45, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split
-    i8 60, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split427
-    i8 62, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split427
+    i8 43, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split426
+    i8 45, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split426
+    i8 60, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split428
+    i8 62, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split428
     i8 38, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split429
     i8 94, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split430
     i8 124, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split431
@@ -3959,10 +3959,10 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i877
   %spec.select = select i1 %14, i32 14, i32 0
   br label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit
 
-_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split: ; preds = %if.end.i.i854, %if.end.i.i854
+_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split426: ; preds = %if.end.i.i854, %if.end.i.i854
   br label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit
 
-_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split427: ; preds = %if.end.i.i854, %if.end.i.i854
+_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split428: ; preds = %if.end.i.i854, %if.end.i.i854
   br label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit
 
 _ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split429: ; preds = %if.end.i.i854
@@ -3974,8 +3974,8 @@ _ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.
 _ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split431: ; preds = %if.end.i.i854
   br label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit
 
-_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit: ; preds = %if.end.i.i854, %if.end.i.i854, %if.end.i.i854, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split431, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split430, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split429, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split427, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split, %if.end.i.i, %land.lhs.true.i877, %if.end.i.i84, %if.end.i.i119, %if.end.i.i154, %if.end.i.i189, %if.end.i.i329, %if.end.i.i364, %if.end.i.i399, %if.end.i.i434, %if.end.i.i469, %if.end.i.i504, %if.end.i.i609, %if.end.i.i644, %if.end.i.i679, %if.end.i.i889, %land.lhs.true.i.thread
-  %retval.i.0 = phi i32 [ %spec.select, %if.end.i.i ], [ 0, %land.lhs.true.i.thread ], [ 0, %land.lhs.true.i877 ], [ 7, %if.end.i.i119 ], [ 14, %if.end.i.i84 ], [ 9, %if.end.i.i189 ], [ 8, %if.end.i.i154 ], [ 12, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split429 ], [ 11, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split430 ], [ 13, %if.end.i.i329 ], [ 17, %if.end.i.i854 ], [ 13, %if.end.i.i399 ], [ 13, %if.end.i.i364 ], [ 14, %if.end.i.i469 ], [ 13, %if.end.i.i434 ], [ 14, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split427 ], [ 14, %if.end.i.i504 ], [ 15, %if.end.i.i609 ], [ 10, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split431 ], [ 15, %if.end.i.i679 ], [ 15, %if.end.i.i644 ], [ 18, %if.end.i.i889 ], [ 16, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split ], [ 17, %if.end.i.i854 ], [ 17, %if.end.i.i854 ]
+_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit: ; preds = %if.end.i.i854, %if.end.i.i854, %if.end.i.i854, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split431, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split430, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split429, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split428, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split426, %if.end.i.i, %land.lhs.true.i877, %if.end.i.i84, %if.end.i.i119, %if.end.i.i154, %if.end.i.i189, %if.end.i.i329, %if.end.i.i364, %if.end.i.i399, %if.end.i.i434, %if.end.i.i469, %if.end.i.i504, %if.end.i.i609, %if.end.i.i644, %if.end.i.i679, %if.end.i.i889, %land.lhs.true.i.thread
+  %retval.i.0 = phi i32 [ %spec.select, %if.end.i.i ], [ 0, %land.lhs.true.i.thread ], [ 0, %land.lhs.true.i877 ], [ 7, %if.end.i.i119 ], [ 14, %if.end.i.i84 ], [ 9, %if.end.i.i189 ], [ 8, %if.end.i.i154 ], [ 12, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split429 ], [ 11, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split430 ], [ 13, %if.end.i.i329 ], [ 14, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split428 ], [ 13, %if.end.i.i399 ], [ 13, %if.end.i.i364 ], [ 14, %if.end.i.i469 ], [ 13, %if.end.i.i434 ], [ 17, %if.end.i.i854 ], [ 14, %if.end.i.i504 ], [ 15, %if.end.i.i609 ], [ 16, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split426 ], [ 15, %if.end.i.i679 ], [ 15, %if.end.i.i644 ], [ 18, %if.end.i.i889 ], [ 10, %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit.fold.split431 ], [ 17, %if.end.i.i854 ], [ 17, %if.end.i.i854 ]
   ret i32 %retval.i.0
 }
 

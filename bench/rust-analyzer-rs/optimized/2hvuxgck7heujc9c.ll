@@ -23930,7 +23930,7 @@ define hidden noundef zeroext i1 @_ZN14ide_completion7context12TypeLocation14com
   br label %9
 
 9:                                                ; preds = %6, %1, %8
-  %.0 = phi i1 [ false, %8 ], [ %spec.select, %6 ], [ true, %1 ]
+  %.0 = phi i1 [ %spec.select, %6 ], [ false, %8 ], [ true, %1 ]
   ret i1 %.0
 }
 

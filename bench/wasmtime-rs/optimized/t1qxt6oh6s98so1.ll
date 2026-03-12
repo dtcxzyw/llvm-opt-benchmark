@@ -748,7 +748,7 @@ define hidden void @"_ZN129_$LT$object..read..coff..relocation..CoffRelocationIt
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !align !15, !noundef !4
   %9 = getelementptr i8, ptr %8, i64 6
   %.val = load i16, ptr %9, align 2, !noundef !4
-  switch i16 %.val, label %27 [
+  switch i16 %.val, label %22 [
     i16 452, label %10
     i16 -21916, label %11
     i16 -22975, label %11
@@ -757,87 +757,72 @@ define hidden void @"_ZN129_$LT$object..read..coff..relocation..CoffRelocationIt
   ]
 
 10:                                               ; preds = %3
-  switch i16 %5, label %27 [
-    i16 1, label %16
-    i16 2, label %17
-    i16 10, label %18
-    i16 14, label %19
-    i16 15, label %20
+  switch i16 %5, label %22 [
+    i16 1, label %30
+    i16 2, label %31
+    i16 10, label %32
+    i16 14, label %33
+    i16 15, label %34
   ]
 
 11:                                               ; preds = %3, %3
-  switch i16 %5, label %27 [
-    i16 1, label %34
-    i16 2, label %35
-    i16 8, label %36
-    i16 13, label %37
-    i16 14, label %38
-    i16 17, label %39
+  switch i16 %5, label %22 [
+    i16 1, label %30
+    i16 2, label %31
+    i16 8, label %34
+    i16 13, label %33
+    i16 14, label %29
+    i16 17, label %32
   ]
 
 12:                                               ; preds = %3
   %switch.tableidx = add i16 %5, -1
   %13 = icmp ult i16 %switch.tableidx, 20
-  br i1 %13, label %switch.lookup, label %27
+  br i1 %13, label %switch.lookup, label %22
 
 14:                                               ; preds = %3
   %switch.tableidx17 = add i16 %5, -1
   %15 = icmp ult i16 %switch.tableidx17, 12
-  br i1 %15, label %switch.lookup18, label %27
-
-16:                                               ; preds = %10
-  br label %27
-
-17:                                               ; preds = %10
-  br label %27
-
-18:                                               ; preds = %10
-  br label %27
-
-19:                                               ; preds = %10
-  br label %27
-
-20:                                               ; preds = %10
-  br label %27
+  br i1 %15, label %switch.lookup18, label %22
 
 switch.lookup:                                    ; preds = %12
-  %21 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575", i64 %21
+  %16 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575", i64 %16
   %switch.load = load i8, ptr %switch.gep, align 1
-  %22 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep13 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.260", i64 %22
+  %17 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep13 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.260", i64 %17
   %switch.load14 = load i8, ptr %switch.gep13, align 1
-  %23 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep15 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.261", i64 %23
+  %18 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep15 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.261", i64 %18
   %switch.load16 = load i64, ptr %switch.gep15, align 8
-  br label %27
+  br label %22
 
 switch.lookup18:                                  ; preds = %14
-  %24 = zext nneg i16 %switch.tableidx17 to i64
-  %switch.gep19 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.262", i64 %24
+  %19 = zext nneg i16 %switch.tableidx17 to i64
+  %switch.gep19 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.262", i64 %19
   %switch.load20 = load i8, ptr %switch.gep19, align 1
-  %25 = zext nneg i16 %switch.tableidx17 to i64
-  %switch.gep21 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.263", i64 %25
+  %20 = zext nneg i16 %switch.tableidx17 to i64
+  %switch.gep21 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.263", i64 %20
   %switch.load22 = load i8, ptr %switch.gep21, align 1
-  %26 = zext nneg i16 %switch.tableidx17 to i64
-  %switch.gep23 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.264", i64 %26
+  %21 = zext nneg i16 %switch.tableidx17 to i64
+  %switch.gep23 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.264", i64 %21
   %switch.load24 = load i64, ptr %switch.gep23, align 8
-  br label %27
+  br label %22
 
-27:                                               ; preds = %switch.lookup18, %14, %switch.lookup, %12, %11, %10, %3, %39, %38, %37, %36, %35, %34, %20, %19, %18, %17, %16
-  %.012 = phi i8 [ 0, %12 ], [ 0, %3 ], [ 1, %16 ], [ 8, %17 ], [ 2, %18 ], [ 10, %19 ], [ 9, %20 ], [ 0, %10 ], [ 1, %34 ], [ 8, %35 ], [ 9, %36 ], [ 10, %37 ], [ 1, %38 ], [ 2, %39 ], [ 0, %11 ], [ %switch.load20, %switch.lookup18 ], [ %switch.load, %switch.lookup ], [ 0, %14 ]
-  %.011 = phi i8 [ 0, %12 ], [ 0, %3 ], [ 32, %16 ], [ 32, %17 ], [ 32, %18 ], [ 16, %19 ], [ 32, %20 ], [ 0, %10 ], [ 32, %34 ], [ 32, %35 ], [ 32, %36 ], [ 16, %37 ], [ 64, %38 ], [ 32, %39 ], [ 0, %11 ], [ %switch.load22, %switch.lookup18 ], [ %switch.load14, %switch.lookup ], [ 0, %14 ]
-  %.0 = phi i64 [ 0, %12 ], [ 0, %3 ], [ 0, %16 ], [ 0, %17 ], [ -4, %18 ], [ 0, %19 ], [ 0, %20 ], [ 0, %10 ], [ 0, %34 ], [ 0, %35 ], [ 0, %36 ], [ 0, %37 ], [ 0, %38 ], [ -4, %39 ], [ 0, %11 ], [ %switch.load24, %switch.lookup18 ], [ %switch.load16, %switch.lookup ], [ 0, %14 ]
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %29 = load i32, ptr %28, align 1
-  %30 = zext i32 %29 to i64
-  %31 = load i32, ptr %2, align 1
-  %32 = zext i32 %31 to i64
-  store i64 %32, ptr %0, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %33, align 8
+22:                                               ; preds = %switch.lookup18, %14, %switch.lookup, %12, %11, %10, %3, %34, %33, %32, %31, %30, %29
+  %.012 = phi i8 [ %switch.load, %switch.lookup ], [ 0, %3 ], [ 0, %12 ], [ 1, %29 ], [ 1, %30 ], [ 8, %31 ], [ 2, %32 ], [ 0, %10 ], [ 0, %14 ], [ 9, %34 ], [ 10, %33 ], [ 0, %11 ], [ %switch.load20, %switch.lookup18 ]
+  %.011 = phi i8 [ %switch.load14, %switch.lookup ], [ 0, %3 ], [ 0, %12 ], [ 64, %29 ], [ 32, %30 ], [ 32, %31 ], [ 32, %32 ], [ 0, %10 ], [ 0, %14 ], [ 32, %34 ], [ 16, %33 ], [ 0, %11 ], [ %switch.load22, %switch.lookup18 ]
+  %.0 = phi i64 [ %switch.load16, %switch.lookup ], [ 0, %3 ], [ 0, %12 ], [ 0, %29 ], [ 0, %30 ], [ 0, %31 ], [ -4, %32 ], [ 0, %10 ], [ 0, %14 ], [ 0, %34 ], [ 0, %33 ], [ 0, %11 ], [ %switch.load24, %switch.lookup18 ]
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %24 = load i32, ptr %23, align 1
+  %25 = zext i32 %24 to i64
+  %26 = load i32, ptr %2, align 1
+  %27 = zext i32 %26 to i64
+  store i64 %27, ptr %0, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %28, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %30, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %25, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 3, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 26
@@ -854,23 +839,23 @@ switch.lookup18:                                  ; preds = %14
   store i8 %.011, ptr %.sroa.13.0..sroa_idx, align 1
   ret void
 
-34:                                               ; preds = %11
-  br label %27
+29:                                               ; preds = %11
+  br label %22
 
-35:                                               ; preds = %11
-  br label %27
+30:                                               ; preds = %10, %11
+  br label %22
 
-36:                                               ; preds = %11
-  br label %27
+31:                                               ; preds = %10, %11
+  br label %22
 
-37:                                               ; preds = %11
-  br label %27
+32:                                               ; preds = %10, %11
+  br label %22
 
-38:                                               ; preds = %11
-  br label %27
+33:                                               ; preds = %10, %11
+  br label %22
 
-39:                                               ; preds = %11
-  br label %27
+34:                                               ; preds = %10, %11
+  br label %22
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -881,7 +866,7 @@ define hidden void @"_ZN129_$LT$object..read..coff..relocation..CoffRelocationIt
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !align !14, !noundef !4
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !align !15, !noundef !4
   %.val = load i16, ptr %8, align 4, !noundef !4
-  switch i16 %.val, label %26 [
+  switch i16 %.val, label %21 [
     i16 452, label %9
     i16 -21916, label %10
     i16 -22975, label %10
@@ -890,87 +875,72 @@ define hidden void @"_ZN129_$LT$object..read..coff..relocation..CoffRelocationIt
   ]
 
 9:                                                ; preds = %3
-  switch i16 %5, label %26 [
-    i16 1, label %15
-    i16 2, label %16
-    i16 10, label %17
-    i16 14, label %18
-    i16 15, label %19
+  switch i16 %5, label %21 [
+    i16 1, label %29
+    i16 2, label %30
+    i16 10, label %31
+    i16 14, label %32
+    i16 15, label %33
   ]
 
 10:                                               ; preds = %3, %3
-  switch i16 %5, label %26 [
-    i16 1, label %33
-    i16 2, label %34
-    i16 8, label %35
-    i16 13, label %36
-    i16 14, label %37
-    i16 17, label %38
+  switch i16 %5, label %21 [
+    i16 1, label %29
+    i16 2, label %30
+    i16 8, label %33
+    i16 13, label %32
+    i16 14, label %28
+    i16 17, label %31
   ]
 
 11:                                               ; preds = %3
   %switch.tableidx = add i16 %5, -1
   %12 = icmp ult i16 %switch.tableidx, 20
-  br i1 %12, label %switch.lookup, label %26
+  br i1 %12, label %switch.lookup, label %21
 
 13:                                               ; preds = %3
   %switch.tableidx17 = add i16 %5, -1
   %14 = icmp ult i16 %switch.tableidx17, 12
-  br i1 %14, label %switch.lookup18, label %26
-
-15:                                               ; preds = %9
-  br label %26
-
-16:                                               ; preds = %9
-  br label %26
-
-17:                                               ; preds = %9
-  br label %26
-
-18:                                               ; preds = %9
-  br label %26
-
-19:                                               ; preds = %9
-  br label %26
+  br i1 %14, label %switch.lookup18, label %21
 
 switch.lookup:                                    ; preds = %11
-  %20 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575", i64 %20
+  %15 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575", i64 %15
   %switch.load = load i8, ptr %switch.gep, align 1
-  %21 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep13 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.260", i64 %21
+  %16 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep13 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.260", i64 %16
   %switch.load14 = load i8, ptr %switch.gep13, align 1
-  %22 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep15 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.261", i64 %22
+  %17 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep15 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.261", i64 %17
   %switch.load16 = load i64, ptr %switch.gep15, align 8
-  br label %26
+  br label %21
 
 switch.lookup18:                                  ; preds = %13
-  %23 = zext nneg i16 %switch.tableidx17 to i64
-  %switch.gep19 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.262", i64 %23
+  %18 = zext nneg i16 %switch.tableidx17 to i64
+  %switch.gep19 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.262", i64 %18
   %switch.load20 = load i8, ptr %switch.gep19, align 1
-  %24 = zext nneg i16 %switch.tableidx17 to i64
-  %switch.gep21 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.263", i64 %24
+  %19 = zext nneg i16 %switch.tableidx17 to i64
+  %switch.gep21 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.263", i64 %19
   %switch.load22 = load i8, ptr %switch.gep21, align 1
-  %25 = zext nneg i16 %switch.tableidx17 to i64
-  %switch.gep23 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.264", i64 %25
+  %20 = zext nneg i16 %switch.tableidx17 to i64
+  %switch.gep23 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN129_$LT$object..read..coff..relocation..CoffRelocationIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5f033730571aa4c9E.llvm.15361297093319246575.264", i64 %20
   %switch.load24 = load i64, ptr %switch.gep23, align 8
-  br label %26
+  br label %21
 
-26:                                               ; preds = %switch.lookup18, %13, %switch.lookup, %11, %10, %9, %3, %38, %37, %36, %35, %34, %33, %19, %18, %17, %16, %15
-  %.012 = phi i8 [ 0, %11 ], [ 0, %3 ], [ 1, %15 ], [ 8, %16 ], [ 2, %17 ], [ 10, %18 ], [ 9, %19 ], [ 0, %9 ], [ 1, %33 ], [ 8, %34 ], [ 9, %35 ], [ 10, %36 ], [ 1, %37 ], [ 2, %38 ], [ 0, %10 ], [ %switch.load20, %switch.lookup18 ], [ %switch.load, %switch.lookup ], [ 0, %13 ]
-  %.011 = phi i8 [ 0, %11 ], [ 0, %3 ], [ 32, %15 ], [ 32, %16 ], [ 32, %17 ], [ 16, %18 ], [ 32, %19 ], [ 0, %9 ], [ 32, %33 ], [ 32, %34 ], [ 32, %35 ], [ 16, %36 ], [ 64, %37 ], [ 32, %38 ], [ 0, %10 ], [ %switch.load22, %switch.lookup18 ], [ %switch.load14, %switch.lookup ], [ 0, %13 ]
-  %.0 = phi i64 [ 0, %11 ], [ 0, %3 ], [ 0, %15 ], [ 0, %16 ], [ -4, %17 ], [ 0, %18 ], [ 0, %19 ], [ 0, %9 ], [ 0, %33 ], [ 0, %34 ], [ 0, %35 ], [ 0, %36 ], [ 0, %37 ], [ -4, %38 ], [ 0, %10 ], [ %switch.load24, %switch.lookup18 ], [ %switch.load16, %switch.lookup ], [ 0, %13 ]
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %28 = load i32, ptr %27, align 1
-  %29 = zext i32 %28 to i64
-  %30 = load i32, ptr %2, align 1
-  %31 = zext i32 %30 to i64
-  store i64 %31, ptr %0, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %32, align 8
+21:                                               ; preds = %switch.lookup18, %13, %switch.lookup, %11, %10, %9, %3, %33, %32, %31, %30, %29, %28
+  %.012 = phi i8 [ %switch.load, %switch.lookup ], [ 0, %3 ], [ 0, %11 ], [ 1, %28 ], [ 1, %29 ], [ 8, %30 ], [ 2, %31 ], [ 0, %9 ], [ 0, %13 ], [ 9, %33 ], [ 10, %32 ], [ 0, %10 ], [ %switch.load20, %switch.lookup18 ]
+  %.011 = phi i8 [ %switch.load14, %switch.lookup ], [ 0, %3 ], [ 0, %11 ], [ 64, %28 ], [ 32, %29 ], [ 32, %30 ], [ 32, %31 ], [ 0, %9 ], [ 0, %13 ], [ 32, %33 ], [ 16, %32 ], [ 0, %10 ], [ %switch.load22, %switch.lookup18 ]
+  %.0 = phi i64 [ %switch.load16, %switch.lookup ], [ 0, %3 ], [ 0, %11 ], [ 0, %28 ], [ 0, %29 ], [ 0, %30 ], [ -4, %31 ], [ 0, %9 ], [ 0, %13 ], [ 0, %33 ], [ 0, %32 ], [ 0, %10 ], [ %switch.load24, %switch.lookup18 ]
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %23 = load i32, ptr %22, align 1
+  %24 = zext i32 %23 to i64
+  %25 = load i32, ptr %2, align 1
+  %26 = zext i32 %25 to i64
+  store i64 %26, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %27, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %29, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %24, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 3, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 26
@@ -987,23 +957,23 @@ switch.lookup18:                                  ; preds = %13
   store i8 %.011, ptr %.sroa.13.0..sroa_idx, align 1
   ret void
 
-33:                                               ; preds = %10
-  br label %26
+28:                                               ; preds = %10
+  br label %21
 
-34:                                               ; preds = %10
-  br label %26
+29:                                               ; preds = %9, %10
+  br label %21
 
-35:                                               ; preds = %10
-  br label %26
+30:                                               ; preds = %9, %10
+  br label %21
 
-36:                                               ; preds = %10
-  br label %26
+31:                                               ; preds = %9, %10
+  br label %21
 
-37:                                               ; preds = %10
-  br label %26
+32:                                               ; preds = %9, %10
+  br label %21
 
-38:                                               ; preds = %10
-  br label %26
+33:                                               ; preds = %9, %10
+  br label %21
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

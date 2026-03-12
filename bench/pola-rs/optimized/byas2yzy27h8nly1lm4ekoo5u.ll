@@ -34557,9 +34557,9 @@ _ZN14polars_parquet5arrow5write6nested6dremel5Level17next_level_length17h4578c80
   br i1 %248, label %"_ZN12polars_arrow6offset22OffsetsBuffer$LT$O$GT$9start_end17h7f6aee7c800d1edbE.exit.i131.i", label %.invoke1397.i, !prof !388
 
 .invoke1397.i:                                    ; preds = %398, %308, %281, %260, %243, %358, %344
-  %249 = phi ptr [ @anon.c67a6a2634d0458665f4a31f543faa7f.60, %358 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.60, %344 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.63, %308 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.63, %281 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.60, %260 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.60, %243 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.63, %398 ]
-  %250 = phi i64 [ 42, %358 ], [ 42, %344 ], [ 31, %308 ], [ 31, %281 ], [ 42, %260 ], [ 42, %243 ], [ 31, %398 ]
-  %251 = phi ptr [ @anon.c67a6a2634d0458665f4a31f543faa7f.62, %358 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.62, %344 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.65, %308 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.65, %281 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.62, %260 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.62, %243 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.65, %398 ]
+  %249 = phi ptr [ @anon.c67a6a2634d0458665f4a31f543faa7f.60, %358 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.60, %344 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.63, %281 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.63, %398 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.60, %260 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.60, %243 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.63, %308 ]
+  %250 = phi i64 [ 42, %358 ], [ 42, %344 ], [ 31, %281 ], [ 31, %398 ], [ 42, %260 ], [ 42, %243 ], [ 31, %308 ]
+  %251 = phi ptr [ @anon.c67a6a2634d0458665f4a31f543faa7f.62, %358 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.62, %344 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.65, %281 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.65, %398 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.62, %260 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.62, %243 ], [ @anon.c67a6a2634d0458665f4a31f543faa7f.65, %308 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %249, i64 noundef %250, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %251) #34
           to label %.cont1398.i unwind label %.loopexit.split-lp.i
 

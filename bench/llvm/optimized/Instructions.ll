@@ -16332,10 +16332,10 @@ define dso_local noundef i32 @_ZN4llvm8CastInst20isEliminableCastPairENS_11Instr
   %32 = icmp ult i32 %31, -2
   %33 = xor i1 %spec.select.i.i.i.i.i.i.i.i57, %32
   %or.cond = or i1 %11, %33
-  br i1 %or.cond, label %35, label %129
+  br i1 %or.cond, label %35, label %128
 
 34:                                               ; preds = %12
-  br i1 %11, label %35, label %129
+  br i1 %11, label %35, label %128
 
 35:                                               ; preds = %34, %23, %22
   %36 = sext i32 %0 to i64
@@ -16344,8 +16344,8 @@ define dso_local noundef i32 @_ZN4llvm8CastInst20isEliminableCastPairENS_11Instr
   %39 = getelementptr i8, ptr %37, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -532
   %41 = load i8, ptr %40, align 1, !tbaa !83
-  switch i8 %41, label %128 [
-    i8 0, label %129
+  switch i8 %41, label %127 [
+    i8 0, label %128
     i8 1, label %42
     i8 2, label %43
     i8 3, label %44
@@ -16355,19 +16355,19 @@ define dso_local noundef i32 @_ZN4llvm8CastInst20isEliminableCastPairENS_11Instr
     i8 8, label %90
     i8 9, label %98
     i8 11, label %99
-    i8 12, label %107
+    i8 12, label %106
     i8 13, label %42
-    i8 14, label %126
+    i8 14, label %125
     i8 15, label %42
     i8 16, label %43
-    i8 17, label %127
+    i8 17, label %126
   ]
 
 42:                                               ; preds = %35, %35, %35
-  br label %129
+  br label %128
 
 43:                                               ; preds = %35, %35
-  br label %129
+  br label %128
 
 44:                                               ; preds = %35
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16382,15 +16382,15 @@ define dso_local noundef i32 @_ZN4llvm8CastInst20isEliminableCastPairENS_11Instr
   %51 = load i32, ptr %50, align 8
   %52 = and i32 %51, 255
   %53 = icmp eq i32 %52, 12
-  br i1 %53, label %129, label %54
+  br i1 %53, label %128, label %54
 
-54:                                               ; preds = %49, %44
-  br label %129
+54:                                               ; preds = %100, %103, %49, %44
+  br label %128
 
 55:                                               ; preds = %35
   %56 = icmp eq ptr %4, %3
   %. = select i1 %56, i32 %0, i32 0
-  br label %129
+  br label %128
 
 57:                                               ; preds = %35
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16398,12 +16398,12 @@ define dso_local noundef i32 @_ZN4llvm8CastInst20isEliminableCastPairENS_11Instr
   %60 = and i32 %59, 255
   %61 = icmp eq i32 %60, 12
   %.51 = select i1 %61, i32 %1, i32 0
-  br label %129
+  br label %128
 
 62:                                               ; preds = %35
   %63 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16DisableI2pP2iOpt, i64 120), align 8, !tbaa !34, !range !48, !noundef !49
   %64 = trunc nuw i8 %63 to i1
-  br i1 %64, label %129, label %65
+  br i1 %64, label %128, label %65
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16442,112 +16442,109 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit62:  ; preds = %_ZNK4llvm4Type22get
   %83 = phi i32 [ %.pre.i61, %79 ], [ %76, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ]
   %.not47.unshifted = xor i32 %83, %74
   %.not47 = icmp ult i32 %.not47.unshifted, 256
-  br i1 %.not47, label %84, label %129
+  br i1 %.not47, label %84, label %128
 
 84:                                               ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit62
   %85 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #33
   %86 = icmp eq i32 %85, 64
-  br i1 %86, label %129, label %87
+  br i1 %86, label %128, label %87
 
 87:                                               ; preds = %84
   %.not48 = icmp ne ptr %5, null
   %.not49 = icmp eq ptr %7, %5
   %or.cond52 = and i1 %.not48, %.not49
-  br i1 %or.cond52, label %88, label %129
+  br i1 %or.cond52, label %88, label %128
 
 88:                                               ; preds = %87
   %89 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #33
   %.not50 = icmp ult i32 %85, %89
   %.53 = select i1 %.not50, i32 0, i32 49
-  br label %129
+  br label %128
 
 90:                                               ; preds = %35
   %91 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #33
   %92 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #33
   %93 = icmp eq ptr %2, %4
-  br i1 %93, label %129, label %94
+  br i1 %93, label %128, label %94
 
 94:                                               ; preds = %90
   %95 = icmp ult i32 %91, %92
-  br i1 %95, label %129, label %96
+  br i1 %95, label %128, label %96
 
 96:                                               ; preds = %94
   %97 = icmp ugt i32 %91, %92
   %.54 = select i1 %97, i32 %1, i32 0
-  br label %129
+  br label %128
 
 98:                                               ; preds = %35
-  br label %129
+  br label %128
 
 99:                                               ; preds = %35
   %.not45 = icmp eq ptr %6, null
-  br i1 %.not45, label %129, label %100
+  br i1 %.not45, label %128, label %100
 
 100:                                              ; preds = %99
   %101 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #33
   %102 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #33
   %.not46 = icmp ugt i32 %102, %101
-  br i1 %.not46, label %106, label %103
+  br i1 %.not46, label %54, label %103
 
 103:                                              ; preds = %100
   %104 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #33
   %105 = icmp eq i32 %102, %104
-  br i1 %105, label %129, label %106
+  br i1 %105, label %128, label %54
 
-106:                                              ; preds = %103, %100
-  br label %129
+106:                                              ; preds = %35
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %108 = load i32, ptr %107, align 8
+  %109 = and i32 %108, 255
+  %110 = add nsw i32 %109, -17
+  %spec.select.i.i.i63 = icmp ult i32 %110, 2
+  br i1 %spec.select.i.i.i63, label %111, label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit66
 
-107:                                              ; preds = %35
-  %108 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %109 = load i32, ptr %108, align 8
-  %110 = and i32 %109, 255
-  %111 = add nsw i32 %110, -17
-  %spec.select.i.i.i63 = icmp ult i32 %111, 2
-  br i1 %spec.select.i.i.i63, label %112, label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit66
-
-112:                                              ; preds = %107
-  %113 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %114 = load ptr, ptr %113, align 8, !tbaa !152
-  %115 = load ptr, ptr %114, align 8, !tbaa !153
-  %.phi.trans.insert.i64 = getelementptr inbounds nuw i8, ptr %115, i64 8
+111:                                              ; preds = %106
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %113 = load ptr, ptr %112, align 8, !tbaa !152
+  %114 = load ptr, ptr %113, align 8, !tbaa !153
+  %.phi.trans.insert.i64 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %.pre.i65 = load i32, ptr %.phi.trans.insert.i64, align 8
   br label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit66
 
-_ZNK4llvm4Type22getPointerAddressSpaceEv.exit66:  ; preds = %107, %112
-  %116 = phi i32 [ %.pre.i65, %112 ], [ %109, %107 ]
-  %117 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %118 = load i32, ptr %117, align 8
-  %119 = and i32 %118, 255
-  %120 = add nsw i32 %119, -17
-  %spec.select.i.i.i67 = icmp ult i32 %120, 2
-  br i1 %spec.select.i.i.i67, label %121, label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit70
+_ZNK4llvm4Type22getPointerAddressSpaceEv.exit66:  ; preds = %106, %111
+  %115 = phi i32 [ %.pre.i65, %111 ], [ %108, %106 ]
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %117 = load i32, ptr %116, align 8
+  %118 = and i32 %117, 255
+  %119 = add nsw i32 %118, -17
+  %spec.select.i.i.i67 = icmp ult i32 %119, 2
+  br i1 %spec.select.i.i.i67, label %120, label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit70
 
-121:                                              ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit66
-  %122 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %123 = load ptr, ptr %122, align 8, !tbaa !152
-  %124 = load ptr, ptr %123, align 8, !tbaa !153
-  %.phi.trans.insert.i68 = getelementptr inbounds nuw i8, ptr %124, i64 8
+120:                                              ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit66
+  %121 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %122 = load ptr, ptr %121, align 8, !tbaa !152
+  %123 = load ptr, ptr %122, align 8, !tbaa !153
+  %.phi.trans.insert.i68 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %.pre.i69 = load i32, ptr %.phi.trans.insert.i68, align 8
   br label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit70
 
-_ZNK4llvm4Type22getPointerAddressSpaceEv.exit70:  ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit66, %121
-  %125 = phi i32 [ %.pre.i69, %121 ], [ %118, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit66 ]
-  %.not.unshifted = xor i32 %125, %116
+_ZNK4llvm4Type22getPointerAddressSpaceEv.exit70:  ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit66, %120
+  %124 = phi i32 [ %.pre.i69, %120 ], [ %117, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit66 ]
+  %.not.unshifted = xor i32 %124, %115
   %.not = icmp ult i32 %.not.unshifted, 256
   %.55 = select i1 %.not, i32 49, i32 50
-  br label %129
+  br label %128
+
+125:                                              ; preds = %35
+  br label %128
 
 126:                                              ; preds = %35
-  br label %129
+  br label %128
 
 127:                                              ; preds = %35
-  br label %129
-
-128:                                              ; preds = %35
   unreachable
 
-129:                                              ; preds = %42, %43, %54, %98, %126, %127, %35, %49, %55, %57, %62, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit62, %87, %84, %88, %96, %94, %90, %99, %103, %106, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit70, %34, %23
-  %.0 = phi i32 [ 0, %34 ], [ 0, %23 ], [ 43, %127 ], [ %0, %42 ], [ %1, %43 ], [ 0, %54 ], [ 0, %35 ], [ %., %55 ], [ %0, %49 ], [ %.51, %57 ], [ %0, %94 ], [ 49, %90 ], [ 0, %62 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit62 ], [ 0, %87 ], [ 39, %98 ], [ 0, %99 ], [ %.54, %96 ], [ %.55, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit70 ], [ 49, %103 ], [ 0, %106 ], [ 50, %126 ], [ %.53, %88 ], [ 49, %84 ]
+128:                                              ; preds = %42, %43, %54, %98, %125, %126, %35, %49, %55, %57, %62, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit62, %87, %84, %88, %96, %94, %90, %99, %103, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit70, %34, %23
+  %.0 = phi i32 [ 0, %34 ], [ 0, %23 ], [ 43, %126 ], [ %0, %42 ], [ %1, %43 ], [ 0, %54 ], [ 0, %35 ], [ %., %55 ], [ %0, %49 ], [ %.51, %57 ], [ %0, %94 ], [ 49, %90 ], [ 0, %62 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit62 ], [ 0, %87 ], [ 39, %98 ], [ 0, %99 ], [ %.54, %96 ], [ %.55, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit70 ], [ 49, %103 ], [ 49, %84 ], [ 50, %125 ], [ %.53, %88 ]
   ret i32 %.0
 }
 

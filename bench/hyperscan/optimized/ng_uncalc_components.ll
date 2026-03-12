@@ -3662,10 +3662,7 @@ _ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairIN
   %621 = load i64, ptr %620, align 8
   %622 = urem i64 %621, %600
   %.not19.i.i.i.i.i.i = icmp eq i64 %622, %601
-  br i1 %.not19.i.i.i.i.i.i, label %613, label %..loopexit_crit_edge22.i.i.i.i.i.i, !llvm.loop !8
-
-..loopexit_crit_edge22.i.i.i.i.i.i:               ; preds = %619
-  br label %.loopexit.i.i.i489.invoke, !llvm.loop !8
+  br i1 %.not19.i.i.i.i.i.i, label %613, label %..loopexit_crit_edge22.i.i.i.i.i.i488, !llvm.loop !8
 
 .loopexit626:                                     ; preds = %613, %596
   %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %596 ], [ %618, %613 ]
@@ -3744,10 +3741,10 @@ _ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairIN
   %.not19.i.i.i.i.i.i487 = icmp eq i64 %658, %638
   br i1 %.not19.i.i.i.i.i.i487, label %649, label %..loopexit_crit_edge22.i.i.i.i.i.i488, !llvm.loop !8
 
-..loopexit_crit_edge22.i.i.i.i.i.i488:            ; preds = %655
+..loopexit_crit_edge22.i.i.i.i.i.i488:            ; preds = %619, %655
   br label %.loopexit.i.i.i489.invoke, !llvm.loop !8
 
-.loopexit.i.i.i489.invoke:                        ; preds = %.thread612, %599, %.lr.ph.i.i.i.i.i.i, %.preheader743, %.lr.ph.i.i.i.i.i.i484, %.preheader, %..loopexit_crit_edge22.i.i.i.i.i.i488, %..loopexit_crit_edge22.i.i.i.i.i.i
+.loopexit.i.i.i489.invoke:                        ; preds = %.thread612, %599, %.lr.ph.i.i.i.i.i.i, %.preheader743, %.lr.ph.i.i.i.i.i.i484, %.preheader, %..loopexit_crit_edge22.i.i.i.i.i.i488
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.4) #24
           to label %.loopexit.i.i.i489.cont unwind label %668
 

@@ -7328,7 +7328,7 @@ define noundef zeroext i1 @_ZN21uv_distribution_types24prioritized_distribution1
   br i1 %6, label %9, label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit
 
 8:                                                ; preds = %2
-  br i1 %6, label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit, label %48
+  br i1 %6, label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit, label %47
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7380,8 +7380,8 @@ default.unreachable:                              ; preds = %22, %18, %9
     i8 1, label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit
     i8 2, label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit
     i8 3, label %43
-    i8 4, label %47
-    i8 5, label %47
+    i8 4, label %42
+    i8 5, label %42
   ]
 
 24:                                               ; preds = %9
@@ -7411,7 +7411,7 @@ default.unreachable:                              ; preds = %22, %18, %9
   %41 = icmp samesign ugt i8 %38, %40
   br label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit
 
-42:                                               ; preds = %18, %18, %18, %18
+42:                                               ; preds = %22, %22, %18, %18, %18, %18
   br label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit
 
 43:                                               ; preds = %22
@@ -7420,103 +7420,100 @@ default.unreachable:                              ; preds = %22, %18, %9
   %46 = trunc nuw i8 %45 to i1
   br label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit
 
-47:                                               ; preds = %22, %22
-  br label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit
-
-_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit: ; preds = %87, %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.thread.i", %74, %72, %70, %63, %62, %61, %47, %43, %42, %36, %30, %27, %24, %22, %22, %22, %20, %18, %13, %9, %8, %7
-  %.sroa.0.0.shrunk = phi i1 [ true, %8 ], [ false, %22 ], [ false, %7 ], [ true, %13 ], [ false, %22 ], [ %35, %30 ], [ false, %9 ], [ false, %27 ], [ %41, %36 ], [ true, %42 ], [ false, %18 ], [ %switch.i, %20 ], [ %26, %24 ], [ false, %22 ], [ %46, %43 ], [ true, %47 ], [ %88, %87 ], [ %86, %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.thread.i" ], [ true, %72 ], [ true, %62 ], [ false, %61 ], [ %69, %63 ], [ %85, %74 ], [ false, %70 ]
+_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit: ; preds = %86, %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.thread.i", %73, %71, %69, %62, %61, %60, %43, %42, %36, %30, %27, %24, %22, %22, %22, %20, %18, %13, %9, %8, %7
+  %.sroa.0.0.shrunk = phi i1 [ true, %8 ], [ false, %22 ], [ false, %7 ], [ true, %13 ], [ false, %22 ], [ %35, %30 ], [ false, %9 ], [ false, %27 ], [ %41, %36 ], [ true, %42 ], [ false, %18 ], [ %switch.i, %20 ], [ %26, %24 ], [ false, %22 ], [ %46, %43 ], [ %87, %86 ], [ %85, %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.thread.i" ], [ true, %71 ], [ true, %61 ], [ false, %60 ], [ %68, %62 ], [ %84, %73 ], [ false, %69 ]
   ret i1 %.sroa.0.0.shrunk
 
-48:                                               ; preds = %8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %.val.i.i = load i8, ptr %49, align 4, !range !981, !noalias !1082, !noundef !6
-  %.val1.i.i = load i8, ptr %50, align 4, !range !981, !noalias !1082, !noundef !6
+47:                                               ; preds = %8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %.val.i.i = load i8, ptr %48, align 4, !range !981, !noalias !1082, !noundef !6
+  %.val1.i.i = load i8, ptr %49, align 4, !range !981, !noalias !1082, !noundef !6
   %.not.i = icmp eq i8 %.val.i.i, %.val1.i.i
-  br i1 %.not.i, label %51, label %87
+  br i1 %.not.i, label %50, label %86
 
-51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val.i29.i = load i32, ptr %53, align 8, !noalias !1082, !noundef !6
-  %.val1.i30.i = load i32, ptr %52, align 8, !noalias !1082
-  %54 = icmp eq i32 %.val.i29.i, 0
-  br i1 %54, label %55, label %57
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val.i29.i = load i32, ptr %52, align 8, !noalias !1082, !noundef !6
+  %.val1.i30.i = load i32, ptr %51, align 8, !noalias !1082
+  %53 = icmp eq i32 %.val.i29.i, 0
+  br i1 %53, label %54, label %56
 
-55:                                               ; preds = %51
-  %56 = icmp ne i32 %.val1.i30.i, 0
-  %..i.i.i = sext i1 %56 to i8
+54:                                               ; preds = %50
+  %55 = icmp ne i32 %.val1.i30.i, 0
+  %..i.i.i = sext i1 %55 to i8
   br label %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.i"
 
-57:                                               ; preds = %51
-  %58 = icmp eq i32 %.val1.i30.i, 0
-  br i1 %58, label %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.thread.i", label %59
+56:                                               ; preds = %50
+  %57 = icmp eq i32 %.val1.i30.i, 0
+  br i1 %57, label %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.thread.i", label %58
 
-59:                                               ; preds = %57
-  %60 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %.val.i29.i, i32 %.val1.i30.i)
+58:                                               ; preds = %56
+  %59 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %.val.i29.i, i32 %.val1.i30.i)
   br label %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.i"
 
-"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.i": ; preds = %59, %55
-  %.sroa.0.0.i.i.i = phi i8 [ %..i.i.i, %55 ], [ %60, %59 ]
+"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.i": ; preds = %58, %54
+  %.sroa.0.0.i.i.i = phi i8 [ %..i.i.i, %54 ], [ %59, %58 ]
   %.not23.i = icmp eq i8 %.sroa.0.0.i.i.i, 0
-  br i1 %.not23.i, label %61, label %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.thread.i"
+  br i1 %.not23.i, label %60, label %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.thread.i"
 
-61:                                               ; preds = %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.i"
+60:                                               ; preds = %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1086)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1089)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1091)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1094)
   %trunc.i.i.i.i = trunc nuw i64 %3 to i1
-  br i1 %trunc.i.i.i.i, label %62, label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit
+  br i1 %trunc.i.i.i.i, label %61, label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit
+
+61:                                               ; preds = %60
+  %trunc1.i.i.i.i = trunc nuw i64 %5 to i1
+  br i1 %trunc1.i.i.i.i, label %62, label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit
 
 62:                                               ; preds = %61
-  %trunc1.i.i.i.i = trunc nuw i64 %5 to i1
-  br i1 %trunc1.i.i.i.i, label %63, label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val.i.i.i.i = load i64, ptr %63, align 8, !alias.scope !1096, !noalias !1097, !noundef !6
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val5.i.i.i.i = load ptr, ptr %65, align 8, !alias.scope !1096, !noalias !1097
+  %.val6.i.i.i.i = load i64, ptr %64, align 8, !alias.scope !1098, !noalias !1099, !noundef !6
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val7.i.i.i.i = load ptr, ptr %66, align 8, !alias.scope !1098, !noalias !1099
+  %67 = icmp eq i64 %.val.i.i.i.i, %.val6.i.i.i.i
+  %68 = icmp ugt i64 %.val.i.i.i.i, %.val6.i.i.i.i
+  br i1 %67, label %69, label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit
 
-63:                                               ; preds = %62
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val.i.i.i.i = load i64, ptr %64, align 8, !alias.scope !1096, !noalias !1097, !noundef !6
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val5.i.i.i.i = load ptr, ptr %66, align 8, !alias.scope !1096, !noalias !1097
-  %.val6.i.i.i.i = load i64, ptr %65, align 8, !alias.scope !1098, !noalias !1099, !noundef !6
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val7.i.i.i.i = load ptr, ptr %67, align 8, !alias.scope !1098, !noalias !1099
-  %68 = icmp eq i64 %.val.i.i.i.i, %.val6.i.i.i.i
-  %69 = icmp ugt i64 %.val.i.i.i.i, %.val6.i.i.i.i
-  br i1 %68, label %70, label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit
+69:                                               ; preds = %62
+  %70 = icmp eq ptr %.val5.i.i.i.i, null
+  br i1 %70, label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit, label %71
 
-70:                                               ; preds = %63
-  %71 = icmp eq ptr %.val5.i.i.i.i, null
-  br i1 %71, label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit, label %72
+71:                                               ; preds = %69
+  %72 = icmp eq ptr %.val7.i.i.i.i, null
+  br i1 %72, label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit, label %73
 
-72:                                               ; preds = %70
-  %73 = icmp eq ptr %.val7.i.i.i.i, null
-  br i1 %73, label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit, label %74
-
-74:                                               ; preds = %72
-  %75 = load i64, ptr %.val5.i.i.i.i, align 8, !noalias !1100, !noundef !6
-  %76 = lshr i64 %75, 1
-  %77 = getelementptr inbounds nuw i8, ptr %.val5.i.i.i.i, i64 16
-  %78 = load i64, ptr %.val7.i.i.i.i, align 8, !noalias !1100, !noundef !6
-  %79 = lshr i64 %78, 1
-  %80 = getelementptr inbounds nuw i8, ptr %.val7.i.i.i.i, i64 16
-  %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %76, i64 range(i64 0, -9223372036854775808) %79)
-  %81 = sub nsw i64 %76, %79
-  %82 = tail call i32 @memcmp(ptr nonnull readonly align 1 %77, ptr nonnull readonly align 1 %80, i64 %..i.i.i.i.i.i), !alias.scope !1101, !noalias !1100
-  %83 = sext i32 %82 to i64
-  %84 = icmp eq i32 %82, 0
-  %spec.store.select.i.i.i.i.i.i = select i1 %84, i64 %81, i64 %83
-  %85 = icmp sgt i64 %spec.store.select.i.i.i.i.i.i, 0
+73:                                               ; preds = %71
+  %74 = load i64, ptr %.val5.i.i.i.i, align 8, !noalias !1100, !noundef !6
+  %75 = lshr i64 %74, 1
+  %76 = getelementptr inbounds nuw i8, ptr %.val5.i.i.i.i, i64 16
+  %77 = load i64, ptr %.val7.i.i.i.i, align 8, !noalias !1100, !noundef !6
+  %78 = lshr i64 %77, 1
+  %79 = getelementptr inbounds nuw i8, ptr %.val7.i.i.i.i, i64 16
+  %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %75, i64 range(i64 0, -9223372036854775808) %78)
+  %80 = sub nsw i64 %75, %78
+  %81 = tail call i32 @memcmp(ptr nonnull readonly align 1 %76, ptr nonnull readonly align 1 %79, i64 %..i.i.i.i.i.i), !alias.scope !1101, !noalias !1100
+  %82 = sext i32 %81 to i64
+  %83 = icmp eq i32 %81, 0
+  %spec.store.select.i.i.i.i.i.i = select i1 %83, i64 %80, i64 %82
+  %84 = icmp sgt i64 %spec.store.select.i.i.i.i.i.i, 0
   br label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit
 
-"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.thread.i": ; preds = %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.i", %57
-  %.sroa.0.0.i.i33.i = phi i8 [ %.sroa.0.0.i.i.i, %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.i" ], [ 1, %57 ]
-  %86 = icmp eq i8 %.sroa.0.0.i.i33.i, 1
+"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.thread.i": ; preds = %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.i", %56
+  %.sroa.0.0.i.i33.i = phi i8 [ %.sroa.0.0.i.i.i, %"_ZN4core3cmp5impls70_$LT$impl$u20$core..cmp..PartialOrd$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$11partial_cmp17h4bfcca2f96ddcbe0E.exit.i" ], [ 1, %56 ]
+  %85 = icmp eq i8 %.sroa.0.0.i.i33.i, 1
   br label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit
 
-87:                                               ; preds = %48
-  %88 = icmp samesign ugt i8 %.val.i.i, %.val1.i.i
+86:                                               ; preds = %47
+  %87 = icmp samesign ugt i8 %.val.i.i, %.val1.i.i
   br label %_ZN21uv_distribution_types24prioritized_distribution17IncompatibleWheel18is_more_compatible17h5591b902c2ef55dbE.exit
 }
 

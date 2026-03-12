@@ -5826,8 +5826,8 @@ mas_next_setup.exit:                              ; preds = %17, %.thread.i, %10
   %26 = tail call fastcc ptr @mas_next_slot(ptr noundef %0, i64 noundef %1, i1 noundef zeroext false)
   br label %27
 
-27:                                               ; preds = %17, %10, %14, %24, %23, %9, %mas_next_setup.exit
-  %28 = phi ptr [ %26, %mas_next_setup.exit ], [ null, %9 ], [ null, %10 ], [ %15, %14 ], [ null, %24 ], [ null, %23 ], [ null, %17 ]
+27:                                               ; preds = %10, %17, %14, %24, %23, %9, %mas_next_setup.exit
+  %28 = phi ptr [ %26, %mas_next_setup.exit ], [ null, %9 ], [ %15, %14 ], [ null, %24 ], [ null, %23 ], [ null, %17 ], [ null, %10 ]
   ret ptr %28
 }
 
@@ -6389,8 +6389,8 @@ mas_next_setup.exit:                              ; preds = %17, %.thread.i, %10
   %26 = tail call fastcc ptr @mas_next_slot(ptr noundef %0, i64 noundef %1, i1 noundef zeroext true)
   br label %27
 
-27:                                               ; preds = %17, %10, %14, %24, %23, %9, %mas_next_setup.exit
-  %28 = phi ptr [ %26, %mas_next_setup.exit ], [ null, %9 ], [ null, %10 ], [ %15, %14 ], [ null, %24 ], [ null, %23 ], [ null, %17 ]
+27:                                               ; preds = %10, %17, %14, %24, %23, %9, %mas_next_setup.exit
+  %28 = phi ptr [ %26, %mas_next_setup.exit ], [ null, %9 ], [ %15, %14 ], [ null, %24 ], [ null, %23 ], [ null, %17 ], [ null, %10 ]
   ret ptr %28
 }
 

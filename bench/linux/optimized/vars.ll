@@ -320,7 +320,7 @@ define dso_local i32 @efivar_init(ptr noundef readonly captures(none) %0, ptr no
   switch i64 %59, label %.split21.us [
     i64 0, label %60
     i64 -9223372036854775805, label %.thread
-    i64 -9223372036854775794, label %.thread.loopexit81
+    i64 -9223372036854775794, label %.thread.loopexit82
   ]
 
 60:                                               ; preds = %.split
@@ -385,11 +385,11 @@ define dso_local i32 @efivar_init(ptr noundef readonly captures(none) %0, ptr no
 .thread.loopexit:                                 ; preds = %.split.us
   br label %.thread
 
-.thread.loopexit81:                               ; preds = %.split
+.thread.loopexit82:                               ; preds = %.split
   br label %.thread
 
-.thread:                                          ; preds = %.loopexit15, %.loopexit13.us, %.split, %.split.us, %.thread.loopexit81, %.thread.loopexit, %.loopexit, %.split26.us, %.split21.us
-  %90 = phi i32 [ 0, %.split21.us ], [ 0, %.loopexit ], [ 0, %.split26.us ], [ -95, %.split.us ], [ 0, %.thread.loopexit ], [ -95, %.split ], [ %58, %.loopexit13.us ], [ %74, %.loopexit15 ], [ 0, %.thread.loopexit81 ]
+.thread:                                          ; preds = %.loopexit15, %.loopexit13.us, %.split.us, %.split, %.thread.loopexit82, %.thread.loopexit, %.loopexit, %.split26.us, %.split21.us
+  %90 = phi i32 [ 0, %.split21.us ], [ 0, %.loopexit ], [ 0, %.split26.us ], [ -95, %.split.us ], [ 0, %.thread.loopexit ], [ -95, %.split ], [ %58, %.loopexit13.us ], [ %74, %.loopexit15 ], [ 0, %.thread.loopexit82 ]
   call void @efivar_unlock() #14
   br label %91
 

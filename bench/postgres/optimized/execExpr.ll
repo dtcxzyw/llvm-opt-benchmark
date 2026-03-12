@@ -10946,22 +10946,19 @@ define internal fastcc noundef zeroext i1 @isAssignmentIndirectionExpr(ptr nound
   %9 = icmp eq i32 %8, 34
   br i1 %9, label %.loopexit, label %.thread
 
-.thread:                                          ; preds = %4, %7
+.thread:                                          ; preds = %13, %10, %4, %7
   br label %.loopexit
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %.tr30, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %.thread26, label %13
+  br i1 %.not, label %.thread, label %13
 
 13:                                               ; preds = %10
   %14 = load i32, ptr %12, align 4
   %15 = icmp eq i32 %14, 34
-  br i1 %15, label %.loopexit, label %.thread26
-
-.thread26:                                        ; preds = %10, %13
-  br label %.loopexit
+  br i1 %15, label %.loopexit, label %.thread
 
 tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph
   %.tr.be.in = getelementptr inbounds nuw i8, ptr %.tr30, i64 8
@@ -10969,8 +10966,8 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph
   %16 = icmp eq ptr %.tr.be, null
   br i1 %16, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %1, %.thread, %.thread26, %13, %7
-  %.0 = phi i1 [ false, %.thread ], [ true, %13 ], [ false, %.thread26 ], [ true, %7 ], [ false, %1 ], [ false, %.lr.ph ], [ false, %tailrecurse.backedge ]
+.loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %1, %.thread, %13, %7
+  %.0 = phi i1 [ false, %.thread ], [ true, %13 ], [ false, %1 ], [ true, %7 ], [ false, %.lr.ph ], [ false, %tailrecurse.backedge ]
   ret i1 %.0
 }
 

@@ -25171,7 +25171,7 @@ _ZStneIJRKN15LiveDebugValues8DbgValue5KindTERKNS0_18DbgValuePropertiesEEJS4_S7_E
   br i1 %.not41.i.i383, label %971, label %.loopexit911
 
 971:                                              ; preds = %_ZStneIJRKN15LiveDebugValues8DbgValue5KindTERKNS0_18DbgValuePropertiesEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.i.i382
-  switch i32 %928, label %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit401 [
+  switch i32 %928, label %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421 [
     i32 1, label %972
     i32 3, label %986
     i32 2, label %991
@@ -25190,7 +25190,7 @@ _ZStneIJRKN15LiveDebugValues8DbgValue5KindTERKNS0_18DbgValuePropertiesEEJS4_S7_E
 
 979:                                              ; preds = %972
   %.not9.i.i.i.i.i.i.i.i.i396 = icmp eq i32 %974, 0
-  br i1 %.not9.i.i.i.i.i.i.i.i.i396, label %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit401, label %.lr.ph.i.i.i.i.i.i.i.i.i397
+  br i1 %.not9.i.i.i.i.i.i.i.i.i396, label %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421, label %.lr.ph.i.i.i.i.i.i.i.i.i397
 
 .lr.ph.i.i.i.i.i.i.i.i.i397:                      ; preds = %979, %983
   %.011.i.i.i.i.i.i.i.i.i398 = phi ptr [ %985, %983 ], [ %926, %979 ]
@@ -25204,7 +25204,7 @@ _ZStneIJRKN15LiveDebugValues8DbgValue5KindTERKNS0_18DbgValuePropertiesEEJS4_S7_E
   %984 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i399, i64 4
   %985 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i398, i64 4
   %.not.i.i.i.i.i.i.i.i.i400 = icmp eq ptr %984, %978
-  br i1 %.not.i.i.i.i.i.i.i.i.i400, label %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit401, label %.lr.ph.i.i.i.i.i.i.i.i.i397, !llvm.loop !1270
+  br i1 %.not.i.i.i.i.i.i.i.i.i400, label %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421, label %.lr.ph.i.i.i.i.i.i.i.i.i397, !llvm.loop !1270
 
 986:                                              ; preds = %971
   %987 = getelementptr inbounds nuw i8, ptr %886, i64 36
@@ -25212,7 +25212,7 @@ _ZStneIJRKN15LiveDebugValues8DbgValue5KindTERKNS0_18DbgValuePropertiesEEJS4_S7_E
   %989 = getelementptr inbounds nuw i8, ptr %925, i64 44
   %990 = load i32, ptr %989, align 4, !tbaa !657
   %.not.i.i393 = icmp eq i32 %988, %990
-  br i1 %.not.i.i393, label %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit401, label %.loopexit911
+  br i1 %.not.i.i393, label %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421, label %.loopexit911
 
 991:                                              ; preds = %971
   %992 = getelementptr inbounds nuw i8, ptr %886, i64 36
@@ -25235,7 +25235,7 @@ _ZStneIJRKN15LiveDebugValues8DbgValue5KindTERKNS0_18DbgValuePropertiesEEJS4_S7_E
 
 1003:                                             ; preds = %996
   %.not9.i.i.i.i.i.i.i20.i.i387 = icmp eq i32 %998, 0
-  br i1 %.not9.i.i.i.i.i.i.i20.i.i387, label %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit401, label %.lr.ph.i.i.i.i.i.i.i22.i.i388
+  br i1 %.not9.i.i.i.i.i.i.i20.i.i387, label %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421, label %.lr.ph.i.i.i.i.i.i.i22.i.i388
 
 .lr.ph.i.i.i.i.i.i.i22.i.i388:                    ; preds = %1003, %1007
   %.011.i.i.i.i.i.i.i23.i.i389 = phi ptr [ %1009, %1007 ], [ %926, %1003 ]
@@ -25249,10 +25249,7 @@ _ZStneIJRKN15LiveDebugValues8DbgValue5KindTERKNS0_18DbgValuePropertiesEEJS4_S7_E
   %1008 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i24.i.i390, i64 4
   %1009 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i23.i.i389, i64 4
   %.not.i.i.i.i.i.i.i25.i.i391 = icmp eq ptr %1008, %1002
-  br i1 %.not.i.i.i.i.i.i.i25.i.i391, label %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit401, label %.lr.ph.i.i.i.i.i.i.i22.i.i388, !llvm.loop !1270
-
-_ZNK15LiveDebugValues8DbgValueneERKS0_.exit401:   ; preds = %1007, %983, %971, %979, %986, %1003
-  br label %.critedge139, !llvm.loop !1335
+  br i1 %.not.i.i.i.i.i.i.i25.i.i391, label %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421, label %.lr.ph.i.i.i.i.i.i.i22.i.i388, !llvm.loop !1270
 
 .loopexit911:                                     ; preds = %.lr.ph.i.i.i.i.i.i.i22.i.i388, %.lr.ph.i.i.i.i.i.i.i.i.i397, %_ZStneIJRKN15LiveDebugValues8DbgValue5KindTERKNS0_18DbgValuePropertiesEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.i.i382, %955, %986, %991, %972, %996, %951, %963
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %886, ptr noundef nonnull align 8 dereferenceable(60) %926, i64 60, i1 false), !tbaa.struct !677
@@ -25370,7 +25367,7 @@ _ZStneIJRKN15LiveDebugValues8DbgValue5KindTERKNS0_18DbgValuePropertiesEEJS4_S7_E
   %.not.i.i.i.i.i.i.i25.i.i411 = icmp eq ptr %1068, %1062
   br i1 %.not.i.i.i.i.i.i.i25.i.i411, label %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421, label %.lr.ph.i.i.i.i.i.i.i22.i.i408, !llvm.loop !1270
 
-_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421:   ; preds = %1067, %1043, %1031, %1039, %1046, %1063
+_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421:   ; preds = %1007, %983, %1067, %1043, %1003, %986, %979, %971, %1031, %1039, %1046, %1063
   br label %.critedge139, !llvm.loop !1335
 
 .loopexit908:                                     ; preds = %.lr.ph.i.i.i.i.i.i.i22.i.i408, %.lr.ph.i.i.i.i.i.i.i.i.i417, %_ZStneIJRKN15LiveDebugValues8DbgValue5KindTERKNS0_18DbgValuePropertiesEEJS4_S7_EEbRKSt5tupleIJDpT_EERKS8_IJDpT0_EE.exit.i.i402, %1015, %1046, %1051, %1032, %1056, %1010, %1023
@@ -26038,9 +26035,9 @@ _ZNSt14priority_queueIjSt6vectorIjSaIjEESt7greaterIjEE4pushERKj.exit545: ; preds
 ._crit_edge.i.i570:                               ; preds = %.critedge.i.i568, %1372
   %1379 = load i32, ptr %36, align 8, !tbaa !29, !noalias !1340
   %1380 = icmp ult i32 %1374, %1379
-  br i1 %1380, label %.critedge1596, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i546
+  br i1 %1380, label %.critedge1597, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i546
 
-.critedge1596:                                    ; preds = %._crit_edge.i.i570
+.critedge1597:                                    ; preds = %._crit_edge.i.i570
   %1381 = add nuw i32 %1374, 1
   store i32 %1381, ptr %37, align 4, !tbaa !30, !noalias !1340
   store ptr %1082, ptr %1376, align 8, !tbaa !320, !noalias !1340
@@ -26052,7 +26049,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i546: ; preds = %._crit_edge.
   %1384 = trunc nuw i8 %1383 to i1
   br i1 %1384, label %1385, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E8containsES4_.exit
 
-1385:                                             ; preds = %.critedge1596, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i546
+1385:                                             ; preds = %.critedge1597, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i546
   %1386 = load ptr, ptr %270, align 8, !tbaa !1093
   %1387 = load i32, ptr %271, align 8, !tbaa !1094
   %1388 = icmp eq i32 %1387, 0
@@ -26294,13 +26291,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebu
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %.critedge139
 
-.critedge139:                                     ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E8containsES4_.exit, %.critedge137, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit401, %.critedge141, %799
-  %.sroa.16.5 = phi ptr [ %.sroa.16.41093, %799 ], [ %.sroa.16.41093, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421 ], [ %.sroa.16.41093, %.critedge141 ], [ %.sroa.16.41093, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit401 ], [ %.sroa.16.41093, %.critedge137 ], [ %.sroa.16.7, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E8containsES4_.exit ]
-  %.sroa.10.4 = phi ptr [ %.sroa.10.31094, %799 ], [ %.sroa.10.31094, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421 ], [ %.sroa.10.31094, %.critedge141 ], [ %.sroa.10.31094, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit401 ], [ %.sroa.10.31094, %.critedge137 ], [ %.sroa.10.6, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E8containsES4_.exit ]
-  %.sroa.0859.5 = phi ptr [ %.sroa.0859.41095, %799 ], [ %.sroa.0859.41095, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421 ], [ %.sroa.0859.41095, %.critedge141 ], [ %.sroa.0859.41095, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit401 ], [ %.sroa.0859.41095, %.critedge137 ], [ %.sroa.0859.7, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E8containsES4_.exit ]
-  %.sroa.28.6 = phi ptr [ %.sroa.28.51096, %799 ], [ %.sroa.28.51096, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421 ], [ %.sroa.28.51096, %.critedge141 ], [ %.sroa.28.51096, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit401 ], [ %.sroa.28.51096, %.critedge137 ], [ %.sroa.28.8, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E8containsES4_.exit ]
-  %.sroa.16875.5 = phi ptr [ %719, %799 ], [ %719, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421 ], [ %719, %.critedge141 ], [ %719, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit401 ], [ %719, %.critedge137 ], [ %.sroa.16875.7, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E8containsES4_.exit ]
-  %.sroa.0867.6 = phi ptr [ %.sroa.0867.51098, %799 ], [ %.sroa.0867.51098, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421 ], [ %.sroa.0867.51098, %.critedge141 ], [ %.sroa.0867.51098, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit401 ], [ %.sroa.0867.51098, %.critedge137 ], [ %.sroa.0867.8, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E8containsES4_.exit ]
+.critedge139:                                     ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E8containsES4_.exit, %.critedge137, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421, %.critedge141, %799
+  %.sroa.16.5 = phi ptr [ %.sroa.16.41093, %799 ], [ %.sroa.16.41093, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421 ], [ %.sroa.16.41093, %.critedge141 ], [ %.sroa.16.41093, %.critedge137 ], [ %.sroa.16.7, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E8containsES4_.exit ]
+  %.sroa.10.4 = phi ptr [ %.sroa.10.31094, %799 ], [ %.sroa.10.31094, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421 ], [ %.sroa.10.31094, %.critedge141 ], [ %.sroa.10.31094, %.critedge137 ], [ %.sroa.10.6, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E8containsES4_.exit ]
+  %.sroa.0859.5 = phi ptr [ %.sroa.0859.41095, %799 ], [ %.sroa.0859.41095, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421 ], [ %.sroa.0859.41095, %.critedge141 ], [ %.sroa.0859.41095, %.critedge137 ], [ %.sroa.0859.7, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E8containsES4_.exit ]
+  %.sroa.28.6 = phi ptr [ %.sroa.28.51096, %799 ], [ %.sroa.28.51096, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421 ], [ %.sroa.28.51096, %.critedge141 ], [ %.sroa.28.51096, %.critedge137 ], [ %.sroa.28.8, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E8containsES4_.exit ]
+  %.sroa.16875.5 = phi ptr [ %719, %799 ], [ %719, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421 ], [ %719, %.critedge141 ], [ %719, %.critedge137 ], [ %.sroa.16875.7, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E8containsES4_.exit ]
+  %.sroa.0867.6 = phi ptr [ %.sroa.0867.51098, %799 ], [ %.sroa.0867.51098, %_ZNK15LiveDebugValues8DbgValueneERKS0_.exit421 ], [ %.sroa.0867.51098, %.critedge141 ], [ %.sroa.0867.51098, %.critedge137 ], [ %.sroa.0867.8, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E8containsES4_.exit ]
   %1487 = load ptr, ptr %26, align 8, !tbaa !25
   %1488 = icmp eq ptr %1487, %276
   br i1 %1488, label %_ZN4llvm11SmallVectorIPKNS_17MachineBasicBlockELj8EED2Ev.exit, label %1489

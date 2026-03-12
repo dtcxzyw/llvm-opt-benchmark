@@ -960,17 +960,17 @@ define dso_local noundef range(i32 0, 17) i32 @_ZNK5clang4Expr18isModifiableLval
   %.sroa.4.0.extract.shift = lshr i32 %6, 16
   %trunc = trunc i32 %6 to i16
   switch i16 %trunc, label %switch.lookup [
-    i16 11, label %15
+    i16 11, label %14
     i16 1, label %20
-    i16 2, label %7
+    i16 2, label %19
     i16 3, label %20
-    i16 4, label %8
-    i16 5, label %9
-    i16 6, label %10
-    i16 7, label %11
-    i16 8, label %12
-    i16 9, label %13
-    i16 10, label %14
+    i16 4, label %7
+    i16 5, label %8
+    i16 6, label %9
+    i16 7, label %10
+    i16 8, label %11
+    i16 9, label %12
+    i16 10, label %13
   ]
 
 7:                                                ; preds = %3
@@ -995,22 +995,22 @@ define dso_local noundef range(i32 0, 17) i32 @_ZNK5clang4Expr18isModifiableLval
   br label %20
 
 14:                                               ; preds = %3
-  br label %20
-
-15:                                               ; preds = %3
-  %16 = icmp eq i32 %.sroa.4.0.extract.shift, 4
-  %17 = select i1 %16, i32 5, i32 4
+  %15 = icmp eq i32 %.sroa.4.0.extract.shift, 4
+  %16 = select i1 %15, i32 5, i32 4
   br label %20
 
 switch.lookup:                                    ; preds = %3
-  %18 = zext nneg i32 %.sroa.4.0.extract.shift to i64
-  %19 = getelementptr [4 x i8], ptr @switch.table._ZNK5clang4Expr18isModifiableLvalueERNS_10ASTContextEPNS_14SourceLocationE, i64 %18
-  %switch.gep = getelementptr i8, ptr %19, i64 -4
+  %17 = zext nneg i32 %.sroa.4.0.extract.shift to i64
+  %18 = getelementptr [4 x i8], ptr @switch.table._ZNK5clang4Expr18isModifiableLvalueERNS_10ASTContextEPNS_14SourceLocationE, i64 %17
+  %switch.gep = getelementptr i8, ptr %18, i64 -4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %20
 
-20:                                               ; preds = %switch.lookup, %3, %3, %15, %14, %13, %12, %11, %10, %9, %8, %7
-  %.0 = phi i32 [ 2, %8 ], [ 4, %3 ], [ 3, %9 ], [ %switch.load, %switch.lookup ], [ 12, %10 ], [ 16, %13 ], [ 15, %12 ], [ 13, %11 ], [ %17, %15 ], [ 14, %14 ], [ 1, %7 ], [ 4, %3 ]
+19:                                               ; preds = %3
+  br label %20
+
+20:                                               ; preds = %switch.lookup, %3, %3, %19, %14, %13, %12, %11, %10, %9, %8, %7
+  %.0 = phi i32 [ 2, %7 ], [ 4, %3 ], [ 3, %8 ], [ 1, %19 ], [ 12, %9 ], [ 16, %12 ], [ 15, %11 ], [ 13, %10 ], [ %16, %14 ], [ 14, %13 ], [ %switch.load, %switch.lookup ], [ 4, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

@@ -45017,7 +45017,7 @@ _ZN11ruff_linter5rules11pycodestyle5rules13logical_lines11LogicalLine6tokens17ha
   %.not3.i358 = icmp ugt i32 %.val3.i312, %1414
   br i1 %.not3.i358, label %.invoke, label %1416, !prof !99
 
-.invoke:                                          ; preds = %1990, %.noexc98.thread388, %687, %632, %630, %547, %852, %831, %.noexc234.thread395, %1499, %1411
+.invoke:                                          ; preds = %1990, %.noexc98.thread388, %687, %632, %630, %547, %852, %831, %1499, %.noexc234.thread395, %1411
   %1415 = phi ptr [ @anon.0de5ee8f4a9046f07397637c35d34c13.44, %.noexc234.thread395 ], [ @anon.0de5ee8f4a9046f07397637c35d34c13.685, %852 ], [ @anon.0de5ee8f4a9046f07397637c35d34c13.44, %.noexc98.thread388 ], [ @anon.0de5ee8f4a9046f07397637c35d34c13.44, %1499 ], [ @anon.0de5ee8f4a9046f07397637c35d34c13.693, %1411 ], [ @anon.0de5ee8f4a9046f07397637c35d34c13.682, %831 ], [ @anon.0de5ee8f4a9046f07397637c35d34c13.44, %687 ], [ @anon.0de5ee8f4a9046f07397637c35d34c13.44, %630 ], [ @anon.0de5ee8f4a9046f07397637c35d34c13.693, %547 ], [ @anon.0de5ee8f4a9046f07397637c35d34c13.44, %632 ], [ @anon.0de5ee8f4a9046f07397637c35d34c13.429, %1990 ]
   invoke void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.0de5ee8f4a9046f07397637c35d34c13.35, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) %1415) #30
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

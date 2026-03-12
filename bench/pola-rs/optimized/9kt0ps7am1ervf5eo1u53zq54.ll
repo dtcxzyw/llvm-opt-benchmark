@@ -84697,7 +84697,7 @@ common.resume:                                    ; preds = %.thread, %141, %105
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %90
 
-138:                                              ; preds = %.thread89, %134, %127, %130, %134
+138:                                              ; preds = %.thread89, %134, %134, %130, %127
   store i8 32, ptr %0, align 16
   call fastcc void @"_ZN4core3ptr64drop_in_place$LT$polars_core..datatypes..any_value..AnyValue$GT$17h10a7eb3a4f8f0909E"(ptr noalias noundef align 16 dereferenceable(48) %15)
   br label %147

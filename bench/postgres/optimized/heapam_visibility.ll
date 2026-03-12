@@ -830,11 +830,11 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   switch i32 %12, label %HeapTupleSatisfiesMVCC.exit [
     i32 0, label %13
     i32 1, label %135
-    i32 2, label %250
-    i32 3, label %251
-    i32 4, label %281
-    i32 5, label %420
-    i32 6, label %539
+    i32 2, label %HeapTupleHeaderGetXmin.exit.thread.i
+    i32 3, label %250
+    i32 4, label %280
+    i32 5, label %419
+    i32 6, label %538
   ]
 
 13:                                               ; preds = %3
@@ -1337,672 +1337,669 @@ HeapTupleHeaderGetXvac.exit85.i:                  ; preds = %155
   br label %HeapTupleSatisfiesMVCC.exit
 
 250:                                              ; preds = %3
-  br label %HeapTupleSatisfiesMVCC.exit
+  %251 = getelementptr i8, ptr %0, i64 16
+  %.val23 = load ptr, ptr %251, align 8
+  %252 = getelementptr i8, ptr %.val23, i64 20
+  %.val.i32 = load i16, ptr %252, align 4
+  %253 = and i16 %.val.i32, 256
+  %.not2.i33 = icmp eq i16 %253, 0
+  br i1 %.not2.i33, label %254, label %HeapTupleHeaderGetXmin.exit.thread.i
 
-251:                                              ; preds = %3
-  %252 = getelementptr i8, ptr %0, i64 16
-  %.val23 = load ptr, ptr %252, align 8
-  %253 = getelementptr i8, ptr %.val23, i64 20
-  %.val.i32 = load i16, ptr %253, align 4
-  %254 = and i16 %.val.i32, 256
-  %.not2.i33 = icmp eq i16 %254, 0
-  br i1 %.not2.i33, label %255, label %HeapTupleHeaderGetXmin.exit.thread.i
+254:                                              ; preds = %250
+  %255 = and i16 %.val.i32, 512
+  %.not3.i35 = icmp eq i16 %255, 0
+  br i1 %.not3.i35, label %256, label %HeapTupleSatisfiesMVCC.exit
 
-255:                                              ; preds = %251
-  %256 = and i16 %.val.i32, 512
-  %.not3.i35 = icmp eq i16 %256, 0
-  br i1 %.not3.i35, label %257, label %HeapTupleSatisfiesMVCC.exit
+256:                                              ; preds = %254
+  %257 = and i16 %.val.i32, 16384
+  %.not.i36 = icmp eq i16 %257, 0
+  br i1 %.not.i36, label %268, label %HeapTupleHeaderGetXvac.exit.i37
 
-257:                                              ; preds = %255
-  %258 = and i16 %.val.i32, 16384
-  %.not.i36 = icmp eq i16 %258, 0
-  br i1 %.not.i36, label %269, label %HeapTupleHeaderGetXvac.exit.i37
+HeapTupleHeaderGetXvac.exit.i37:                  ; preds = %256
+  %258 = getelementptr inbounds nuw i8, ptr %.val23, i64 8
+  %259 = load i32, ptr %258, align 4
+  %260 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %259) #4
+  br i1 %260, label %HeapTupleSatisfiesMVCC.exit, label %261
 
-HeapTupleHeaderGetXvac.exit.i37:                  ; preds = %257
-  %259 = getelementptr inbounds nuw i8, ptr %.val23, i64 8
-  %260 = load i32, ptr %259, align 4
-  %261 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %260) #4
-  br i1 %261, label %HeapTupleSatisfiesMVCC.exit, label %262
+261:                                              ; preds = %HeapTupleHeaderGetXvac.exit.i37
+  %262 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %259) #4
+  br i1 %262, label %HeapTupleHeaderGetXmin.exit.thread.i, label %263
 
-262:                                              ; preds = %HeapTupleHeaderGetXvac.exit.i37
-  %263 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %260) #4
-  br i1 %263, label %HeapTupleHeaderGetXmin.exit.thread.i, label %264
+263:                                              ; preds = %261
+  %264 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %259) #4
+  %265 = load i16, ptr %252, align 4
+  br i1 %264, label %266, label %HeapTupleHeaderGetXmin.exit.thread.sink.split.i
 
-264:                                              ; preds = %262
-  %265 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %260) #4
-  %266 = load i16, ptr %253, align 4
-  br i1 %265, label %267, label %HeapTupleHeaderGetXmin.exit.thread.sink.split.i
-
-267:                                              ; preds = %264
-  %268 = or i16 %266, 512
-  store i16 %268, ptr %253, align 4
+266:                                              ; preds = %263
+  %267 = or i16 %265, 512
+  store i16 %267, ptr %252, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #4
   br label %HeapTupleSatisfiesMVCC.exit
 
-269:                                              ; preds = %257
+268:                                              ; preds = %256
   %.not27.i = icmp sgt i16 %.val.i32, -1
   br i1 %.not27.i, label %HeapTupleHeaderGetXmin.exit.i, label %HeapTupleHeaderGetXvac.exit34.i
 
-HeapTupleHeaderGetXvac.exit34.i:                  ; preds = %269
-  %270 = getelementptr inbounds nuw i8, ptr %.val23, i64 8
-  %271 = load i32, ptr %270, align 4
-  %272 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %271) #4
-  br i1 %272, label %HeapTupleHeaderGetXmin.exit.thread.i, label %273
+HeapTupleHeaderGetXvac.exit34.i:                  ; preds = %268
+  %269 = getelementptr inbounds nuw i8, ptr %.val23, i64 8
+  %270 = load i32, ptr %269, align 4
+  %271 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %270) #4
+  br i1 %271, label %HeapTupleHeaderGetXmin.exit.thread.i, label %272
 
-273:                                              ; preds = %HeapTupleHeaderGetXvac.exit34.i
-  %274 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %271) #4
-  br i1 %274, label %HeapTupleSatisfiesMVCC.exit, label %275
+272:                                              ; preds = %HeapTupleHeaderGetXvac.exit34.i
+  %273 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %270) #4
+  br i1 %273, label %HeapTupleSatisfiesMVCC.exit, label %274
 
-275:                                              ; preds = %273
-  %276 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %271) #4
-  %277 = load i16, ptr %253, align 4
-  br i1 %276, label %HeapTupleHeaderGetXmin.exit.thread.sink.split.i, label %278
+274:                                              ; preds = %272
+  %275 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %270) #4
+  %276 = load i16, ptr %252, align 4
+  br i1 %275, label %HeapTupleHeaderGetXmin.exit.thread.sink.split.i, label %277
 
-278:                                              ; preds = %275
-  %279 = or i16 %277, 512
-  store i16 %279, ptr %253, align 4
+277:                                              ; preds = %274
+  %278 = or i16 %276, 512
+  store i16 %278, ptr %252, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #4
   br label %HeapTupleSatisfiesMVCC.exit
 
-HeapTupleHeaderGetXmin.exit.i:                    ; preds = %269
+HeapTupleHeaderGetXmin.exit.i:                    ; preds = %268
   %.val.i.i = load i32, ptr %.val23, align 4
   %.not28.i = icmp eq i32 %.val.i.i, 0
   br i1 %.not28.i, label %HeapTupleSatisfiesMVCC.exit, label %HeapTupleHeaderGetXmin.exit.thread.i
 
-HeapTupleHeaderGetXmin.exit.thread.sink.split.i:  ; preds = %275, %264
-  %.sink4.i = phi i16 [ %266, %264 ], [ %277, %275 ]
-  %280 = or i16 %.sink4.i, 256
-  store i16 %280, ptr %253, align 4
+HeapTupleHeaderGetXmin.exit.thread.sink.split.i:  ; preds = %274, %263
+  %.sink4.i = phi i16 [ %265, %263 ], [ %276, %274 ]
+  %279 = or i16 %.sink4.i, 256
+  store i16 %279, ptr %252, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #4
   br label %HeapTupleHeaderGetXmin.exit.thread.i
 
-HeapTupleHeaderGetXmin.exit.thread.i:             ; preds = %HeapTupleHeaderGetXmin.exit.thread.sink.split.i, %HeapTupleHeaderGetXmin.exit.i, %HeapTupleHeaderGetXvac.exit34.i, %262, %251
+HeapTupleHeaderGetXmin.exit.thread.i:             ; preds = %3, %HeapTupleHeaderGetXmin.exit.thread.sink.split.i, %HeapTupleHeaderGetXmin.exit.i, %HeapTupleHeaderGetXvac.exit34.i, %261, %250
   br label %HeapTupleSatisfiesMVCC.exit
 
-281:                                              ; preds = %3
-  %282 = getelementptr i8, ptr %0, i64 16
-  %.val24 = load ptr, ptr %282, align 8
-  %283 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 0, ptr %283, align 8
-  %284 = getelementptr inbounds nuw i8, ptr %1, i64 4
+280:                                              ; preds = %3
+  %281 = getelementptr i8, ptr %0, i64 16
+  %.val24 = load ptr, ptr %281, align 8
+  %282 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 0, ptr %282, align 8
+  %283 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 0, ptr %283, align 4
+  %284 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 0, ptr %284, align 4
-  %285 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  store i32 0, ptr %285, align 4
-  %286 = getelementptr i8, ptr %.val24, i64 20
-  %.val.i38 = load i16, ptr %286, align 4
-  %287 = and i16 %.val.i38, 256
-  %.not1.i39 = icmp eq i16 %287, 0
-  br i1 %.not1.i39, label %288, label %359
+  %285 = getelementptr i8, ptr %.val24, i64 20
+  %.val.i38 = load i16, ptr %285, align 4
+  %286 = and i16 %.val.i38, 256
+  %.not1.i39 = icmp eq i16 %286, 0
+  br i1 %.not1.i39, label %287, label %358
 
-288:                                              ; preds = %281
-  %289 = and i16 %.val.i38, 512
-  %.not2.i47 = icmp eq i16 %289, 0
-  br i1 %.not2.i47, label %290, label %HeapTupleSatisfiesMVCC.exit
+287:                                              ; preds = %280
+  %288 = and i16 %.val.i38, 512
+  %.not2.i47 = icmp eq i16 %288, 0
+  br i1 %.not2.i47, label %289, label %HeapTupleSatisfiesMVCC.exit
 
-290:                                              ; preds = %288
-  %291 = and i16 %.val.i38, 16384
-  %.not.i48 = icmp eq i16 %291, 0
-  br i1 %.not.i48, label %304, label %HeapTupleHeaderGetXvac.exit.i49
+289:                                              ; preds = %287
+  %290 = and i16 %.val.i38, 16384
+  %.not.i48 = icmp eq i16 %290, 0
+  br i1 %.not.i48, label %303, label %HeapTupleHeaderGetXvac.exit.i49
 
-HeapTupleHeaderGetXvac.exit.i49:                  ; preds = %290
-  %292 = getelementptr inbounds nuw i8, ptr %.val24, i64 8
-  %293 = load i32, ptr %292, align 4
-  %294 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %293) #4
-  br i1 %294, label %HeapTupleSatisfiesMVCC.exit, label %295
+HeapTupleHeaderGetXvac.exit.i49:                  ; preds = %289
+  %291 = getelementptr inbounds nuw i8, ptr %.val24, i64 8
+  %292 = load i32, ptr %291, align 4
+  %293 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %292) #4
+  br i1 %293, label %HeapTupleSatisfiesMVCC.exit, label %294
 
-295:                                              ; preds = %HeapTupleHeaderGetXvac.exit.i49
-  %296 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %293) #4
-  br i1 %296, label %359, label %297
+294:                                              ; preds = %HeapTupleHeaderGetXvac.exit.i49
+  %295 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %292) #4
+  br i1 %295, label %358, label %296
 
-297:                                              ; preds = %295
-  %298 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %293) #4
-  %299 = load i16, ptr %286, align 4
-  br i1 %298, label %300, label %302
+296:                                              ; preds = %294
+  %297 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %292) #4
+  %298 = load i16, ptr %285, align 4
+  br i1 %297, label %299, label %301
 
-300:                                              ; preds = %297
-  %301 = or i16 %299, 512
-  store i16 %301, ptr %286, align 4
+299:                                              ; preds = %296
+  %300 = or i16 %298, 512
+  store i16 %300, ptr %285, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #4
   br label %HeapTupleSatisfiesMVCC.exit
 
-302:                                              ; preds = %297
-  %303 = or i16 %299, 256
-  store i16 %303, ptr %286, align 4
+301:                                              ; preds = %296
+  %302 = or i16 %298, 256
+  store i16 %302, ptr %285, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #4
-  br label %359
+  br label %358
 
-304:                                              ; preds = %290
+303:                                              ; preds = %289
   %.not76.i = icmp sgt i16 %.val.i38, -1
-  br i1 %.not76.i, label %317, label %HeapTupleHeaderGetXvac.exit103.i
+  br i1 %.not76.i, label %316, label %HeapTupleHeaderGetXvac.exit103.i
 
-HeapTupleHeaderGetXvac.exit103.i:                 ; preds = %304
-  %305 = getelementptr inbounds nuw i8, ptr %.val24, i64 8
-  %306 = load i32, ptr %305, align 4
-  %307 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %306) #4
-  br i1 %307, label %359, label %308
+HeapTupleHeaderGetXvac.exit103.i:                 ; preds = %303
+  %304 = getelementptr inbounds nuw i8, ptr %.val24, i64 8
+  %305 = load i32, ptr %304, align 4
+  %306 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %305) #4
+  br i1 %306, label %358, label %307
 
-308:                                              ; preds = %HeapTupleHeaderGetXvac.exit103.i
-  %309 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %306) #4
-  br i1 %309, label %HeapTupleSatisfiesMVCC.exit, label %310
+307:                                              ; preds = %HeapTupleHeaderGetXvac.exit103.i
+  %308 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %305) #4
+  br i1 %308, label %HeapTupleSatisfiesMVCC.exit, label %309
 
-310:                                              ; preds = %308
-  %311 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %306) #4
-  %312 = load i16, ptr %286, align 4
-  br i1 %311, label %313, label %315
+309:                                              ; preds = %307
+  %310 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %305) #4
+  %311 = load i16, ptr %285, align 4
+  br i1 %310, label %312, label %314
 
-313:                                              ; preds = %310
-  %314 = or i16 %312, 256
-  store i16 %314, ptr %286, align 4
+312:                                              ; preds = %309
+  %313 = or i16 %311, 256
+  store i16 %313, ptr %285, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #4
-  br label %359
+  br label %358
 
-315:                                              ; preds = %310
-  %316 = or i16 %312, 512
-  store i16 %316, ptr %286, align 4
+314:                                              ; preds = %309
+  %315 = or i16 %311, 512
+  store i16 %315, ptr %285, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #4
   br label %HeapTupleSatisfiesMVCC.exit
 
-317:                                              ; preds = %304
+316:                                              ; preds = %303
   %.val91.i = load i32, ptr %.val24, align 4
-  %318 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %.val91.i) #4
-  br i1 %318, label %319, label %340
+  %317 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %.val91.i) #4
+  br i1 %317, label %318, label %339
 
-319:                                              ; preds = %317
-  %320 = load i16, ptr %286, align 4
-  %321 = and i16 %320, 2048
-  %.not77.i = icmp eq i16 %321, 0
-  br i1 %.not77.i, label %322, label %HeapTupleSatisfiesMVCC.exit
+318:                                              ; preds = %316
+  %319 = load i16, ptr %285, align 4
+  %320 = and i16 %319, 2048
+  %.not77.i = icmp eq i16 %320, 0
+  br i1 %.not77.i, label %321, label %HeapTupleSatisfiesMVCC.exit
 
-322:                                              ; preds = %319
-  %323 = zext i16 %320 to i32
-  %324 = and i32 %323, 128
-  %325 = icmp ne i32 %324, 0
-  %326 = and i32 %323, 4176
-  %327 = icmp eq i32 %326, 64
-  %328 = or i1 %325, %327
-  br i1 %328, label %HeapTupleSatisfiesMVCC.exit, label %329
+321:                                              ; preds = %318
+  %322 = zext i16 %319 to i32
+  %323 = and i32 %322, 128
+  %324 = icmp ne i32 %323, 0
+  %325 = and i32 %322, 4176
+  %326 = icmp eq i32 %325, 64
+  %327 = or i1 %324, %326
+  br i1 %327, label %HeapTupleSatisfiesMVCC.exit, label %328
 
-329:                                              ; preds = %322
-  %330 = and i16 %320, 4096
-  %.not78.i53 = icmp eq i16 %330, 0
-  br i1 %.not78.i53, label %334, label %331
+328:                                              ; preds = %321
+  %329 = and i16 %319, 4096
+  %.not78.i53 = icmp eq i16 %329, 0
+  br i1 %.not78.i53, label %333, label %330
 
-331:                                              ; preds = %329
-  %332 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %.val24) #4
-  %333 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %332) #4
-  %.3.i54 = xor i1 %333, true
+330:                                              ; preds = %328
+  %331 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %.val24) #4
+  %332 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %331) #4
+  %.3.i54 = xor i1 %332, true
   br label %HeapTupleSatisfiesMVCC.exit
 
-334:                                              ; preds = %329
-  %335 = getelementptr i8, ptr %.val24, i64 4
-  %.val97.i55 = load i32, ptr %335, align 4
-  %336 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %.val97.i55) #4
-  br i1 %336, label %HeapTupleSatisfiesMVCC.exit, label %337
+333:                                              ; preds = %328
+  %334 = getelementptr i8, ptr %.val24, i64 4
+  %.val97.i55 = load i32, ptr %334, align 4
+  %335 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %.val97.i55) #4
+  br i1 %335, label %HeapTupleSatisfiesMVCC.exit, label %336
 
-337:                                              ; preds = %334
-  %338 = load i16, ptr %286, align 4
-  %339 = or i16 %338, 2048
-  store i16 %339, ptr %286, align 4
+336:                                              ; preds = %333
+  %337 = load i16, ptr %285, align 4
+  %338 = or i16 %337, 2048
+  store i16 %338, ptr %285, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #4
   br label %HeapTupleSatisfiesMVCC.exit
 
-340:                                              ; preds = %317
+339:                                              ; preds = %316
   %.val90.i = load i32, ptr %.val24, align 4
-  %341 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %.val90.i) #4
-  br i1 %341, label %342, label %353
+  %340 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %.val90.i) #4
+  br i1 %340, label %341, label %352
 
-342:                                              ; preds = %340
-  %343 = getelementptr i8, ptr %.val24, i64 16
-  %.val98.i50 = load i16, ptr %343, align 2
-  %344 = icmp eq i16 %.val98.i50, -2
-  br i1 %344, label %345, label %352
+341:                                              ; preds = %339
+  %342 = getelementptr i8, ptr %.val24, i64 16
+  %.val98.i50 = load i16, ptr %342, align 2
+  %343 = icmp eq i16 %.val98.i50, -2
+  br i1 %343, label %344, label %351
 
-345:                                              ; preds = %342
-  %346 = getelementptr i8, ptr %.val24, i64 12
-  %.val99.i51 = load i16, ptr %346, align 2
-  %347 = getelementptr i8, ptr %.val24, i64 14
-  %.val100.i52 = load i16, ptr %347, align 2
-  %348 = zext i16 %.val99.i51 to i32
-  %349 = shl nuw i32 %348, 16
-  %350 = zext i16 %.val100.i52 to i32
-  %351 = or disjoint i32 %349, %350
-  store i32 %351, ptr %285, align 4
-  br label %352
+344:                                              ; preds = %341
+  %345 = getelementptr i8, ptr %.val24, i64 12
+  %.val99.i51 = load i16, ptr %345, align 2
+  %346 = getelementptr i8, ptr %.val24, i64 14
+  %.val100.i52 = load i16, ptr %346, align 2
+  %347 = zext i16 %.val99.i51 to i32
+  %348 = shl nuw i32 %347, 16
+  %349 = zext i16 %.val100.i52 to i32
+  %350 = or disjoint i32 %348, %349
+  store i32 %350, ptr %284, align 4
+  br label %351
 
-352:                                              ; preds = %345, %342
+351:                                              ; preds = %344, %341
   %.val89.i = load i32, ptr %.val24, align 4
-  store i32 %.val89.i, ptr %284, align 4
+  store i32 %.val89.i, ptr %283, align 4
   br label %HeapTupleSatisfiesMVCC.exit
 
-353:                                              ; preds = %340
+352:                                              ; preds = %339
   %.val88.i = load i32, ptr %.val24, align 4
-  %354 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %.val88.i) #4
-  br i1 %354, label %355, label %356
+  %353 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %.val88.i) #4
+  br i1 %353, label %354, label %355
 
-355:                                              ; preds = %353
+354:                                              ; preds = %352
   %.val87.i = load i32, ptr %.val24, align 4
   tail call fastcc void @SetHintBits(ptr noundef nonnull %.val24, i32 noundef %2, i16 noundef zeroext 256, i32 noundef %.val87.i)
-  br label %359
+  br label %358
 
-356:                                              ; preds = %353
-  %357 = load i16, ptr %286, align 4
-  %358 = or i16 %357, 512
-  store i16 %358, ptr %286, align 4
+355:                                              ; preds = %352
+  %356 = load i16, ptr %285, align 4
+  %357 = or i16 %356, 512
+  store i16 %357, ptr %285, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #4
   br label %HeapTupleSatisfiesMVCC.exit
 
-359:                                              ; preds = %355, %313, %HeapTupleHeaderGetXvac.exit103.i, %302, %295, %281
-  %360 = load i16, ptr %286, align 4
-  %361 = zext i16 %360 to i32
-  %362 = and i32 %361, 2048
-  %.not79.i40 = icmp eq i32 %362, 0
-  br i1 %.not79.i40, label %363, label %HeapTupleSatisfiesMVCC.exit
+358:                                              ; preds = %354, %312, %HeapTupleHeaderGetXvac.exit103.i, %301, %294, %280
+  %359 = load i16, ptr %285, align 4
+  %360 = zext i16 %359 to i32
+  %361 = and i32 %360, 2048
+  %.not79.i40 = icmp eq i32 %361, 0
+  br i1 %.not79.i40, label %362, label %HeapTupleSatisfiesMVCC.exit
 
-363:                                              ; preds = %359
-  %364 = and i32 %361, 1024
-  %.not80.i42 = icmp eq i32 %364, 0
-  br i1 %.not80.i42, label %371, label %365
+362:                                              ; preds = %358
+  %363 = and i32 %360, 1024
+  %.not80.i42 = icmp eq i32 %363, 0
+  br i1 %.not80.i42, label %370, label %364
 
-365:                                              ; preds = %363
-  %366 = and i32 %361, 128
-  %367 = icmp ne i32 %366, 0
-  %368 = and i32 %361, 4176
-  %369 = icmp eq i32 %368, 64
-  %370 = or i1 %367, %369
+364:                                              ; preds = %362
+  %365 = and i32 %360, 128
+  %366 = icmp ne i32 %365, 0
+  %367 = and i32 %360, 4176
+  %368 = icmp eq i32 %367, 64
+  %369 = or i1 %366, %368
   br label %HeapTupleSatisfiesMVCC.exit
 
-371:                                              ; preds = %363
-  %372 = and i32 %361, 4096
-  %.not81.i43 = icmp eq i32 %372, 0
-  br i1 %.not81.i43, label %383, label %373
+370:                                              ; preds = %362
+  %371 = and i32 %360, 4096
+  %.not81.i43 = icmp eq i32 %371, 0
+  br i1 %.not81.i43, label %382, label %372
 
-373:                                              ; preds = %371
-  %374 = and i32 %361, 128
-  %.not3.i44 = icmp eq i32 %374, 0
-  br i1 %.not3.i44, label %375, label %HeapTupleSatisfiesMVCC.exit
+372:                                              ; preds = %370
+  %373 = and i32 %360, 128
+  %.not3.i44 = icmp eq i32 %373, 0
+  br i1 %.not3.i44, label %374, label %HeapTupleSatisfiesMVCC.exit
 
-375:                                              ; preds = %373
-  %376 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %.val24) #4
-  %377 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %376) #4
-  br i1 %377, label %HeapTupleSatisfiesMVCC.exit, label %378
+374:                                              ; preds = %372
+  %375 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %.val24) #4
+  %376 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %375) #4
+  br i1 %376, label %HeapTupleSatisfiesMVCC.exit, label %377
 
-378:                                              ; preds = %375
-  %379 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %376) #4
-  br i1 %379, label %380, label %381
+377:                                              ; preds = %374
+  %378 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %375) #4
+  br i1 %378, label %379, label %380
 
-380:                                              ; preds = %378
-  store i32 %376, ptr %283, align 8
+379:                                              ; preds = %377
+  store i32 %375, ptr %282, align 8
   br label %HeapTupleSatisfiesMVCC.exit
 
-381:                                              ; preds = %378
-  %382 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %376) #4
-  %not..i45 = xor i1 %382, true
+380:                                              ; preds = %377
+  %381 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %375) #4
+  %not..i45 = xor i1 %381, true
   br label %HeapTupleSatisfiesMVCC.exit
 
-383:                                              ; preds = %371
-  %384 = getelementptr i8, ptr %.val24, i64 4
-  %.val96.i46 = load i32, ptr %384, align 4
-  %385 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %.val96.i46) #4
-  br i1 %385, label %386, label %394
+382:                                              ; preds = %370
+  %383 = getelementptr i8, ptr %.val24, i64 4
+  %.val96.i46 = load i32, ptr %383, align 4
+  %384 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %.val96.i46) #4
+  br i1 %384, label %385, label %393
 
-386:                                              ; preds = %383
-  %387 = load i16, ptr %286, align 4
-  %388 = zext i16 %387 to i32
-  %389 = and i32 %388, 128
-  %390 = icmp ne i32 %389, 0
-  %391 = and i32 %388, 4176
-  %392 = icmp eq i32 %391, 64
-  %393 = or i1 %390, %392
+385:                                              ; preds = %382
+  %386 = load i16, ptr %285, align 4
+  %387 = zext i16 %386 to i32
+  %388 = and i32 %387, 128
+  %389 = icmp ne i32 %388, 0
+  %390 = and i32 %387, 4176
+  %391 = icmp eq i32 %390, 64
+  %392 = or i1 %389, %391
   br label %HeapTupleSatisfiesMVCC.exit
 
-394:                                              ; preds = %383
-  %.val95.i = load i32, ptr %384, align 4
-  %395 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %.val95.i) #4
-  br i1 %395, label %396, label %405
+393:                                              ; preds = %382
+  %.val95.i = load i32, ptr %383, align 4
+  %394 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %.val95.i) #4
+  br i1 %394, label %395, label %404
 
-396:                                              ; preds = %394
-  %397 = load i16, ptr %286, align 4
-  %398 = zext i16 %397 to i32
-  %399 = and i32 %398, 128
-  %400 = icmp ne i32 %399, 0
-  %401 = and i32 %398, 4176
-  %402 = icmp eq i32 %401, 64
-  %403 = or i1 %400, %402
-  br i1 %403, label %HeapTupleSatisfiesMVCC.exit, label %404
+395:                                              ; preds = %393
+  %396 = load i16, ptr %285, align 4
+  %397 = zext i16 %396 to i32
+  %398 = and i32 %397, 128
+  %399 = icmp ne i32 %398, 0
+  %400 = and i32 %397, 4176
+  %401 = icmp eq i32 %400, 64
+  %402 = or i1 %399, %401
+  br i1 %402, label %HeapTupleSatisfiesMVCC.exit, label %403
 
-404:                                              ; preds = %396
-  %.val94.i = load i32, ptr %384, align 4
-  store i32 %.val94.i, ptr %283, align 8
+403:                                              ; preds = %395
+  %.val94.i = load i32, ptr %383, align 4
+  store i32 %.val94.i, ptr %282, align 8
   br label %HeapTupleSatisfiesMVCC.exit
 
-405:                                              ; preds = %394
-  %.val93.i = load i32, ptr %384, align 4
-  %406 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %.val93.i) #4
-  %407 = load i16, ptr %286, align 4
-  br i1 %406, label %410, label %408
+404:                                              ; preds = %393
+  %.val93.i = load i32, ptr %383, align 4
+  %405 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %.val93.i) #4
+  %406 = load i16, ptr %285, align 4
+  br i1 %405, label %409, label %407
 
-408:                                              ; preds = %405
-  %409 = or i16 %407, 2048
-  store i16 %409, ptr %286, align 4
+407:                                              ; preds = %404
+  %408 = or i16 %406, 2048
+  store i16 %408, ptr %285, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #4
   br label %HeapTupleSatisfiesMVCC.exit
 
-410:                                              ; preds = %405
-  %411 = zext i16 %407 to i32
-  %412 = and i32 %411, 128
-  %413 = icmp ne i32 %412, 0
-  %414 = and i32 %411, 4176
-  %415 = icmp eq i32 %414, 64
-  %416 = or i1 %413, %415
-  br i1 %416, label %417, label %419
+409:                                              ; preds = %404
+  %410 = zext i16 %406 to i32
+  %411 = and i32 %410, 128
+  %412 = icmp ne i32 %411, 0
+  %413 = and i32 %410, 4176
+  %414 = icmp eq i32 %413, 64
+  %415 = or i1 %412, %414
+  br i1 %415, label %416, label %418
 
-417:                                              ; preds = %410
-  %418 = or i16 %407, 2048
-  store i16 %418, ptr %286, align 4
+416:                                              ; preds = %409
+  %417 = or i16 %406, 2048
+  store i16 %417, ptr %285, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %2, i1 noundef zeroext true) #4
   br label %HeapTupleSatisfiesMVCC.exit
 
-419:                                              ; preds = %410
-  %.val92.i = load i32, ptr %384, align 4
+418:                                              ; preds = %409
+  %.val92.i = load i32, ptr %383, align 4
   tail call fastcc void @SetHintBits(ptr noundef nonnull %.val24, i32 noundef %2, i16 noundef zeroext 1024, i32 noundef %.val92.i)
   br label %HeapTupleSatisfiesMVCC.exit
 
-420:                                              ; preds = %3
-  %421 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %422 = load ptr, ptr %421, align 8
-  %423 = getelementptr i8, ptr %422, i64 20
-  %.val2.i.i = load i16, ptr %423, align 4
-  %424 = and i16 %.val2.i.i, 768
-  %425 = icmp eq i16 %424, 768
-  br i1 %425, label %HeapTupleHeaderGetXmin.exit.thread.i58, label %HeapTupleHeaderGetXmin.exit.i56
+419:                                              ; preds = %3
+  %420 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %421 = load ptr, ptr %420, align 8
+  %422 = getelementptr i8, ptr %421, i64 20
+  %.val2.i.i = load i16, ptr %422, align 4
+  %423 = and i16 %.val2.i.i, 768
+  %424 = icmp eq i16 %423, 768
+  br i1 %424, label %HeapTupleHeaderGetXmin.exit.thread.i58, label %HeapTupleHeaderGetXmin.exit.i56
 
-HeapTupleHeaderGetXmin.exit.i56:                  ; preds = %420
-  %.val.i.i57 = load i32, ptr %422, align 4
-  %426 = icmp eq i16 %424, 512
-  br i1 %426, label %HeapTupleSatisfiesMVCC.exit, label %HeapTupleHeaderGetXmin.exit.thread.i58
+HeapTupleHeaderGetXmin.exit.i56:                  ; preds = %419
+  %.val.i.i57 = load i32, ptr %421, align 4
+  %425 = icmp eq i16 %423, 512
+  br i1 %425, label %HeapTupleSatisfiesMVCC.exit, label %HeapTupleHeaderGetXmin.exit.thread.i58
 
-HeapTupleHeaderGetXmin.exit.thread.i58:           ; preds = %HeapTupleHeaderGetXmin.exit.i56, %420
-  %427 = phi i32 [ %.val.i.i57, %HeapTupleHeaderGetXmin.exit.i56 ], [ 2, %420 ]
-  %.val5777.in.i = getelementptr i8, ptr %422, i64 4
+HeapTupleHeaderGetXmin.exit.thread.i58:           ; preds = %HeapTupleHeaderGetXmin.exit.i56, %419
+  %426 = phi i32 [ %.val.i.i57, %HeapTupleHeaderGetXmin.exit.i56 ], [ 2, %419 ]
+  %.val5777.in.i = getelementptr i8, ptr %421, i64 4
   %.val5777.i = load i32, ptr %.val5777.in.i, align 4
-  %428 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %429 = load ptr, ptr %428, align 8
-  %430 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %431 = load i32, ptr %430, align 8
+  %427 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %428 = load ptr, ptr %427, align 8
+  %429 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %430 = load i32, ptr %429, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i32 %427, ptr %7, align 4
-  %.not.i.i = icmp eq i32 %431, 0
+  store i32 %426, ptr %7, align 4
+  %.not.i.i = icmp eq i32 %430, 0
   br i1 %.not.i.i, label %.loopexit79.i, label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %HeapTupleHeaderGetXmin.exit.thread.i58
-  %432 = sext i32 %431 to i64
+  %431 = sext i32 %430 to i64
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %442, %.lr.ph.i.i.preheader.i
-  %.01621.i.i.i = phi i64 [ %.1.i.i.i, %442 ], [ 0, %.lr.ph.i.i.preheader.i ]
-  %.01720.i.i.i = phi i64 [ %.118.i.i.i, %442 ], [ %432, %.lr.ph.i.i.preheader.i ]
-  %433 = add i64 %.01720.i.i.i, %.01621.i.i.i
-  %434 = lshr i64 %433, 1
-  %435 = shl i64 %434, 2
-  %436 = getelementptr inbounds nuw i8, ptr %429, i64 %435
-  %437 = call i32 @xidComparator(ptr noundef nonnull %7, ptr noundef nonnull %436) #4
-  %438 = icmp slt i32 %437, 0
-  br i1 %438, label %442, label %439
+.lr.ph.i.i.i:                                     ; preds = %441, %.lr.ph.i.i.preheader.i
+  %.01621.i.i.i = phi i64 [ %.1.i.i.i, %441 ], [ 0, %.lr.ph.i.i.preheader.i ]
+  %.01720.i.i.i = phi i64 [ %.118.i.i.i, %441 ], [ %431, %.lr.ph.i.i.preheader.i ]
+  %432 = add i64 %.01720.i.i.i, %.01621.i.i.i
+  %433 = lshr i64 %432, 1
+  %434 = shl i64 %433, 2
+  %435 = getelementptr inbounds nuw i8, ptr %428, i64 %434
+  %436 = call i32 @xidComparator(ptr noundef nonnull %7, ptr noundef nonnull %435) #4
+  %437 = icmp slt i32 %436, 0
+  br i1 %437, label %441, label %438
 
-439:                                              ; preds = %.lr.ph.i.i.i
-  %.not.i.i.i = icmp eq i32 %437, 0
-  br i1 %.not.i.i.i, label %444, label %440
+438:                                              ; preds = %.lr.ph.i.i.i
+  %.not.i.i.i = icmp eq i32 %436, 0
+  br i1 %.not.i.i.i, label %443, label %439
 
-440:                                              ; preds = %439
-  %441 = add nuw i64 %434, 1
-  br label %442
+439:                                              ; preds = %438
+  %440 = add nuw i64 %433, 1
+  br label %441
 
-442:                                              ; preds = %440, %.lr.ph.i.i.i
-  %.118.i.i.i = phi i64 [ %.01720.i.i.i, %440 ], [ %434, %.lr.ph.i.i.i ]
-  %.1.i.i.i = phi i64 [ %441, %440 ], [ %.01621.i.i.i, %.lr.ph.i.i.i ]
-  %443 = icmp ult i64 %.1.i.i.i, %.118.i.i.i
-  br i1 %443, label %.lr.ph.i.i.i, label %.loopexit79.i, !llvm.loop !4
+441:                                              ; preds = %439, %.lr.ph.i.i.i
+  %.118.i.i.i = phi i64 [ %.01720.i.i.i, %439 ], [ %433, %.lr.ph.i.i.i ]
+  %.1.i.i.i = phi i64 [ %440, %439 ], [ %.01621.i.i.i, %.lr.ph.i.i.i ]
+  %442 = icmp ult i64 %.1.i.i.i, %.118.i.i.i
+  br i1 %442, label %.lr.ph.i.i.i, label %.loopexit79.i, !llvm.loop !4
 
-444:                                              ; preds = %439
+443:                                              ; preds = %438
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %445 = getelementptr i8, ptr %422, i64 8
-  %.val58.i = load i32, ptr %445, align 4
+  %444 = getelementptr i8, ptr %421, i64 8
+  %.val58.i = load i32, ptr %444, align 4
   store i32 %.val58.i, ptr %8, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 -1, ptr %9, align 4
-  %446 = call ptr @HistoricSnapshotGetTupleCids() #4
-  %447 = call zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %446, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %9) #4
-  br i1 %447, label %448, label %.critedge.i
+  %445 = call ptr @HistoricSnapshotGetTupleCids() #4
+  %446 = call zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %445, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %9) #4
+  br i1 %446, label %447, label %.critedge.i
 
-448:                                              ; preds = %444
-  %449 = load i32, ptr %8, align 4
-  %450 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %451 = load i32, ptr %450, align 8
-  %.not49.i = icmp ult i32 %449, %451
+447:                                              ; preds = %443
+  %448 = load i32, ptr %8, align 4
+  %449 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %450 = load i32, ptr %449, align 8
+  %.not49.i = icmp ult i32 %448, %450
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.not49.i, label %480, label %HeapTupleSatisfiesMVCC.exit
+  br i1 %.not49.i, label %479, label %HeapTupleSatisfiesMVCC.exit
 
-.loopexit79.i:                                    ; preds = %442, %HeapTupleHeaderGetXmin.exit.thread.i58
+.loopexit79.i:                                    ; preds = %441, %HeapTupleHeaderGetXmin.exit.thread.i58
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %452 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %453 = load i32, ptr %452, align 4
-  %454 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %427, i32 noundef %453) #4
-  br i1 %454, label %455, label %459
+  %451 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %452 = load i32, ptr %451, align 4
+  %453 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %426, i32 noundef %452) #4
+  br i1 %453, label %454, label %458
 
-455:                                              ; preds = %.loopexit79.i
-  %.val.i62 = load i16, ptr %423, align 4
-  %456 = and i16 %.val.i62, 256
-  %.not78.i63 = icmp eq i16 %456, 0
-  br i1 %.not78.i63, label %457, label %480
+454:                                              ; preds = %.loopexit79.i
+  %.val.i62 = load i16, ptr %422, align 4
+  %455 = and i16 %.val.i62, 256
+  %.not78.i63 = icmp eq i16 %455, 0
+  br i1 %.not78.i63, label %456, label %479
 
-457:                                              ; preds = %455
-  %458 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %427) #4
-  br i1 %458, label %480, label %HeapTupleSatisfiesMVCC.exit
+456:                                              ; preds = %454
+  %457 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %426) #4
+  br i1 %457, label %479, label %HeapTupleSatisfiesMVCC.exit
 
-459:                                              ; preds = %.loopexit79.i
-  %460 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %461 = load i32, ptr %460, align 8
-  %462 = call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %427, i32 noundef %461) #4
-  br i1 %462, label %HeapTupleSatisfiesMVCC.exit, label %463
+458:                                              ; preds = %.loopexit79.i
+  %459 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %460 = load i32, ptr %459, align 8
+  %461 = call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %426, i32 noundef %460) #4
+  br i1 %461, label %HeapTupleSatisfiesMVCC.exit, label %462
 
-463:                                              ; preds = %459
-  %464 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %465 = load ptr, ptr %464, align 8
-  %466 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %467 = load i32, ptr %466, align 8
+462:                                              ; preds = %458
+  %463 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %464 = load ptr, ptr %463, align 8
+  %465 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %466 = load i32, ptr %465, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i32 %427, ptr %6, align 4
-  %.not.i60.i = icmp eq i32 %467, 0
+  store i32 %426, ptr %6, align 4
+  %.not.i60.i = icmp eq i32 %466, 0
   br i1 %.not.i60.i, label %TransactionIdInArray.exit67.thread.i, label %.lr.ph.i.i61.preheader.i
 
-.lr.ph.i.i61.preheader.i:                         ; preds = %463
-  %468 = zext i32 %467 to i64
+.lr.ph.i.i61.preheader.i:                         ; preds = %462
+  %467 = zext i32 %466 to i64
   br label %.lr.ph.i.i61.i
 
-.lr.ph.i.i61.i:                                   ; preds = %478, %.lr.ph.i.i61.preheader.i
-  %.01621.i.i62.i = phi i64 [ %.1.i.i66.i, %478 ], [ 0, %.lr.ph.i.i61.preheader.i ]
-  %.01720.i.i63.i = phi i64 [ %.118.i.i65.i, %478 ], [ %468, %.lr.ph.i.i61.preheader.i ]
-  %469 = add i64 %.01720.i.i63.i, %.01621.i.i62.i
-  %470 = lshr i64 %469, 1
-  %471 = shl i64 %470, 2
-  %472 = getelementptr inbounds nuw i8, ptr %465, i64 %471
-  %473 = call i32 @xidComparator(ptr noundef nonnull %6, ptr noundef nonnull %472) #4
-  %474 = icmp slt i32 %473, 0
-  br i1 %474, label %478, label %475
+.lr.ph.i.i61.i:                                   ; preds = %477, %.lr.ph.i.i61.preheader.i
+  %.01621.i.i62.i = phi i64 [ %.1.i.i66.i, %477 ], [ 0, %.lr.ph.i.i61.preheader.i ]
+  %.01720.i.i63.i = phi i64 [ %.118.i.i65.i, %477 ], [ %467, %.lr.ph.i.i61.preheader.i ]
+  %468 = add i64 %.01720.i.i63.i, %.01621.i.i62.i
+  %469 = lshr i64 %468, 1
+  %470 = shl i64 %469, 2
+  %471 = getelementptr inbounds nuw i8, ptr %464, i64 %470
+  %472 = call i32 @xidComparator(ptr noundef nonnull %6, ptr noundef nonnull %471) #4
+  %473 = icmp slt i32 %472, 0
+  br i1 %473, label %477, label %474
 
-475:                                              ; preds = %.lr.ph.i.i61.i
-  %.not.i.i64.i = icmp eq i32 %473, 0
-  br i1 %.not.i.i64.i, label %TransactionIdInArray.exit67.i, label %476
+474:                                              ; preds = %.lr.ph.i.i61.i
+  %.not.i.i64.i = icmp eq i32 %472, 0
+  br i1 %.not.i.i64.i, label %TransactionIdInArray.exit67.i, label %475
 
-476:                                              ; preds = %475
-  %477 = add nuw i64 %470, 1
-  br label %478
+475:                                              ; preds = %474
+  %476 = add nuw i64 %469, 1
+  br label %477
 
-478:                                              ; preds = %476, %.lr.ph.i.i61.i
-  %.118.i.i65.i = phi i64 [ %.01720.i.i63.i, %476 ], [ %470, %.lr.ph.i.i61.i ]
-  %.1.i.i66.i = phi i64 [ %477, %476 ], [ %.01621.i.i62.i, %.lr.ph.i.i61.i ]
-  %479 = icmp ult i64 %.1.i.i66.i, %.118.i.i65.i
-  br i1 %479, label %.lr.ph.i.i61.i, label %TransactionIdInArray.exit67.thread.i, !llvm.loop !4
+477:                                              ; preds = %475, %.lr.ph.i.i61.i
+  %.118.i.i65.i = phi i64 [ %.01720.i.i63.i, %475 ], [ %469, %.lr.ph.i.i61.i ]
+  %.1.i.i66.i = phi i64 [ %476, %475 ], [ %.01621.i.i62.i, %.lr.ph.i.i61.i ]
+  %478 = icmp ult i64 %.1.i.i66.i, %.118.i.i65.i
+  br i1 %478, label %.lr.ph.i.i61.i, label %TransactionIdInArray.exit67.thread.i, !llvm.loop !4
 
-TransactionIdInArray.exit67.thread.i:             ; preds = %478, %463
+TransactionIdInArray.exit67.thread.i:             ; preds = %477, %462
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %HeapTupleSatisfiesMVCC.exit
 
-TransactionIdInArray.exit67.i:                    ; preds = %475
+TransactionIdInArray.exit67.i:                    ; preds = %474
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %480
+  br label %479
 
-480:                                              ; preds = %TransactionIdInArray.exit67.i, %457, %455, %448
-  %481 = load i16, ptr %423, align 4
-  %482 = and i16 %481, 2048
-  %.not50.i = icmp eq i16 %482, 0
-  br i1 %.not50.i, label %483, label %HeapTupleSatisfiesMVCC.exit
+479:                                              ; preds = %TransactionIdInArray.exit67.i, %456, %454, %447
+  %480 = load i16, ptr %422, align 4
+  %481 = and i16 %480, 2048
+  %.not50.i = icmp eq i16 %481, 0
+  br i1 %.not50.i, label %482, label %HeapTupleSatisfiesMVCC.exit
 
-483:                                              ; preds = %480
-  %484 = zext i16 %481 to i32
-  %485 = and i32 %484, 128
-  %486 = icmp ne i32 %485, 0
-  %487 = and i32 %484, 4176
-  %488 = icmp eq i32 %487, 64
-  %489 = or i1 %486, %488
-  br i1 %489, label %HeapTupleSatisfiesMVCC.exit, label %490
+482:                                              ; preds = %479
+  %483 = zext i16 %480 to i32
+  %484 = and i32 %483, 128
+  %485 = icmp ne i32 %484, 0
+  %486 = and i32 %483, 4176
+  %487 = icmp eq i32 %486, 64
+  %488 = or i1 %485, %487
+  br i1 %488, label %HeapTupleSatisfiesMVCC.exit, label %489
 
-490:                                              ; preds = %483
-  %491 = and i16 %481, 4096
-  %.not51.i = icmp eq i16 %491, 0
-  br i1 %.not51.i, label %494, label %492
+489:                                              ; preds = %482
+  %490 = and i16 %480, 4096
+  %.not51.i = icmp eq i16 %490, 0
+  br i1 %.not51.i, label %493, label %491
 
-492:                                              ; preds = %490
-  %493 = call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %422) #4
-  br label %494
+491:                                              ; preds = %489
+  %492 = call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %421) #4
+  br label %493
 
-494:                                              ; preds = %492, %490
-  %.046.i = phi i32 [ %493, %492 ], [ %.val5777.i, %490 ]
-  %495 = load ptr, ptr %428, align 8
-  %496 = load i32, ptr %430, align 8
+493:                                              ; preds = %491, %489
+  %.046.i = phi i32 [ %492, %491 ], [ %.val5777.i, %489 ]
+  %494 = load ptr, ptr %427, align 8
+  %495 = load i32, ptr %429, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %.046.i, ptr %5, align 4
-  %.not.i68.i = icmp eq i32 %496, 0
+  %.not.i68.i = icmp eq i32 %495, 0
   br i1 %.not.i68.i, label %.loopexit.i, label %.lr.ph.i.i69.preheader.i
 
-.lr.ph.i.i69.preheader.i:                         ; preds = %494
-  %497 = sext i32 %496 to i64
+.lr.ph.i.i69.preheader.i:                         ; preds = %493
+  %496 = sext i32 %495 to i64
   br label %.lr.ph.i.i69.i
 
-.lr.ph.i.i69.i:                                   ; preds = %507, %.lr.ph.i.i69.preheader.i
-  %.01621.i.i70.i = phi i64 [ %.1.i.i74.i, %507 ], [ 0, %.lr.ph.i.i69.preheader.i ]
-  %.01720.i.i71.i = phi i64 [ %.118.i.i73.i, %507 ], [ %497, %.lr.ph.i.i69.preheader.i ]
-  %498 = add i64 %.01720.i.i71.i, %.01621.i.i70.i
-  %499 = lshr i64 %498, 1
-  %500 = shl i64 %499, 2
-  %501 = getelementptr inbounds nuw i8, ptr %495, i64 %500
-  %502 = call i32 @xidComparator(ptr noundef nonnull %5, ptr noundef nonnull %501) #4
-  %503 = icmp slt i32 %502, 0
-  br i1 %503, label %507, label %504
+.lr.ph.i.i69.i:                                   ; preds = %506, %.lr.ph.i.i69.preheader.i
+  %.01621.i.i70.i = phi i64 [ %.1.i.i74.i, %506 ], [ 0, %.lr.ph.i.i69.preheader.i ]
+  %.01720.i.i71.i = phi i64 [ %.118.i.i73.i, %506 ], [ %496, %.lr.ph.i.i69.preheader.i ]
+  %497 = add i64 %.01720.i.i71.i, %.01621.i.i70.i
+  %498 = lshr i64 %497, 1
+  %499 = shl i64 %498, 2
+  %500 = getelementptr inbounds nuw i8, ptr %494, i64 %499
+  %501 = call i32 @xidComparator(ptr noundef nonnull %5, ptr noundef nonnull %500) #4
+  %502 = icmp slt i32 %501, 0
+  br i1 %502, label %506, label %503
 
-504:                                              ; preds = %.lr.ph.i.i69.i
-  %.not.i.i72.i = icmp eq i32 %502, 0
-  br i1 %.not.i.i72.i, label %509, label %505
+503:                                              ; preds = %.lr.ph.i.i69.i
+  %.not.i.i72.i = icmp eq i32 %501, 0
+  br i1 %.not.i.i72.i, label %508, label %504
 
-505:                                              ; preds = %504
-  %506 = add nuw i64 %499, 1
-  br label %507
+504:                                              ; preds = %503
+  %505 = add nuw i64 %498, 1
+  br label %506
 
-507:                                              ; preds = %505, %.lr.ph.i.i69.i
-  %.118.i.i73.i = phi i64 [ %.01720.i.i71.i, %505 ], [ %499, %.lr.ph.i.i69.i ]
-  %.1.i.i74.i = phi i64 [ %506, %505 ], [ %.01621.i.i70.i, %.lr.ph.i.i69.i ]
-  %508 = icmp ult i64 %.1.i.i74.i, %.118.i.i73.i
-  br i1 %508, label %.lr.ph.i.i69.i, label %.loopexit.i, !llvm.loop !4
+506:                                              ; preds = %504, %.lr.ph.i.i69.i
+  %.118.i.i73.i = phi i64 [ %.01720.i.i71.i, %504 ], [ %498, %.lr.ph.i.i69.i ]
+  %.1.i.i74.i = phi i64 [ %505, %504 ], [ %.01621.i.i70.i, %.lr.ph.i.i69.i ]
+  %507 = icmp ult i64 %.1.i.i74.i, %.118.i.i73.i
+  br i1 %507, label %.lr.ph.i.i69.i, label %.loopexit.i, !llvm.loop !4
 
-509:                                              ; preds = %504
+508:                                              ; preds = %503
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %510 = getelementptr i8, ptr %422, i64 8
-  %.val59.i = load i32, ptr %510, align 4
+  %509 = getelementptr i8, ptr %421, i64 8
+  %.val59.i = load i32, ptr %509, align 4
   store i32 %.val59.i, ptr %11, align 4
-  %511 = call ptr @HistoricSnapshotGetTupleCids() #4
-  %512 = call zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %511, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %11) #4
-  %513 = load i32, ptr %11, align 4
-  %514 = icmp ne i32 %513, -1
-  %or.cond.not.i = select i1 %512, i1 %514, i1 false
-  br i1 %or.cond.not.i, label %515, label %518
+  %510 = call ptr @HistoricSnapshotGetTupleCids() #4
+  %511 = call zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %510, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %11) #4
+  %512 = load i32, ptr %11, align 4
+  %513 = icmp ne i32 %512, -1
+  %or.cond.not.i = select i1 %511, i1 %513, i1 false
+  br i1 %or.cond.not.i, label %514, label %517
 
-515:                                              ; preds = %509
-  %516 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %517 = load i32, ptr %516, align 8
-  %.not.i61 = icmp uge i32 %513, %517
-  br label %518
+514:                                              ; preds = %508
+  %515 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %516 = load i32, ptr %515, align 8
+  %.not.i61 = icmp uge i32 %512, %516
+  br label %517
 
-518:                                              ; preds = %515, %509
-  %.2.i = phi i1 [ true, %509 ], [ %.not.i61, %515 ]
+517:                                              ; preds = %514, %508
+  %.2.i = phi i1 [ true, %508 ], [ %.not.i61, %514 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %HeapTupleSatisfiesMVCC.exit
 
-.loopexit.i:                                      ; preds = %507, %494
+.loopexit.i:                                      ; preds = %506, %493
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %519 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %520 = load i32, ptr %519, align 4
-  %521 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %.046.i, i32 noundef %520) #4
-  br i1 %521, label %522, label %528
+  %518 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %519 = load i32, ptr %518, align 4
+  %520 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %.046.i, i32 noundef %519) #4
+  br i1 %520, label %521, label %527
 
-522:                                              ; preds = %.loopexit.i
-  %523 = load i16, ptr %423, align 4
-  %524 = and i16 %523, 1024
-  %.not52.i = icmp eq i16 %524, 0
-  br i1 %.not52.i, label %525, label %HeapTupleSatisfiesMVCC.exit
+521:                                              ; preds = %.loopexit.i
+  %522 = load i16, ptr %422, align 4
+  %523 = and i16 %522, 1024
+  %.not52.i = icmp eq i16 %523, 0
+  br i1 %.not52.i, label %524, label %HeapTupleSatisfiesMVCC.exit
 
-525:                                              ; preds = %522
-  %526 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %.046.i) #4
-  %527 = xor i1 %526, true
+524:                                              ; preds = %521
+  %525 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %.046.i) #4
+  %526 = xor i1 %525, true
   br label %HeapTupleSatisfiesMVCC.exit
 
-528:                                              ; preds = %.loopexit.i
-  %529 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %530 = load i32, ptr %529, align 8
-  %531 = call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %.046.i, i32 noundef %530) #4
-  br i1 %531, label %HeapTupleSatisfiesMVCC.exit, label %532
+527:                                              ; preds = %.loopexit.i
+  %528 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %529 = load i32, ptr %528, align 8
+  %530 = call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %.046.i, i32 noundef %529) #4
+  br i1 %530, label %HeapTupleSatisfiesMVCC.exit, label %531
 
-532:                                              ; preds = %528
-  %533 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %534 = load ptr, ptr %533, align 8
-  %535 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %536 = load i32, ptr %535, align 8
-  %537 = zext i32 %536 to i64
-  %538 = call fastcc zeroext i1 @TransactionIdInArray(i32 noundef %.046.i, ptr noundef %534, i64 noundef %537)
-  %not..i60 = xor i1 %538, true
+531:                                              ; preds = %527
+  %532 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %533 = load ptr, ptr %532, align 8
+  %534 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %535 = load i32, ptr %534, align 8
+  %536 = zext i32 %535 to i64
+  %537 = call fastcc zeroext i1 @TransactionIdInArray(i32 noundef %.046.i, ptr noundef %533, i64 noundef %536)
+  %not..i60 = xor i1 %537, true
   br label %HeapTupleSatisfiesMVCC.exit
 
-.critedge.i:                                      ; preds = %444
+.critedge.i:                                      ; preds = %443
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %HeapTupleSatisfiesMVCC.exit
 
-539:                                              ; preds = %3
+538:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %540 = call i32 @HeapTupleSatisfiesVacuumHorizon(ptr noundef readonly %0, i32 noundef %2, ptr noundef nonnull %4)
-  %541 = icmp eq i32 %540, 2
-  br i1 %541, label %542, label %HeapTupleSatisfiesNonVacuumable.exit
+  %539 = call i32 @HeapTupleSatisfiesVacuumHorizon(ptr noundef readonly %0, i32 noundef %2, ptr noundef nonnull %4)
+  %540 = icmp eq i32 %539, 2
+  br i1 %540, label %541, label %HeapTupleSatisfiesNonVacuumable.exit
 
-542:                                              ; preds = %539
-  %543 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %544 = load ptr, ptr %543, align 8
-  %545 = load i32, ptr %4, align 4
-  %546 = tail call zeroext i1 @GlobalVisTestIsRemovableXid(ptr noundef %544, i32 noundef %545) #4
-  %spec.select.i = select i1 %546, i32 0, i32 2
+541:                                              ; preds = %538
+  %542 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %543 = load ptr, ptr %542, align 8
+  %544 = load i32, ptr %4, align 4
+  %545 = tail call zeroext i1 @GlobalVisTestIsRemovableXid(ptr noundef %543, i32 noundef %544) #4
+  %spec.select.i = select i1 %545, i32 0, i32 2
   br label %HeapTupleSatisfiesNonVacuumable.exit
 
-HeapTupleSatisfiesNonVacuumable.exit:             ; preds = %539, %542
-  %.0.i64 = phi i32 [ %540, %539 ], [ %spec.select.i, %542 ]
-  %547 = icmp ne i32 %.0.i64, 0
+HeapTupleSatisfiesNonVacuumable.exit:             ; preds = %538, %541
+  %.0.i64 = phi i32 [ %539, %538 ], [ %spec.select.i, %541 ]
+  %546 = icmp ne i32 %.0.i64, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %HeapTupleSatisfiesMVCC.exit
 
-HeapTupleSatisfiesMVCC.exit:                      ; preds = %.critedge.i, %532, %528, %525, %522, %518, %483, %480, %TransactionIdInArray.exit67.thread.i, %459, %457, %448, %HeapTupleHeaderGetXmin.exit.i56, %419, %417, %408, %404, %396, %386, %381, %380, %375, %373, %365, %359, %356, %352, %337, %334, %331, %322, %319, %315, %308, %300, %HeapTupleHeaderGetXvac.exit.i49, %288, %HeapTupleHeaderGetXmin.exit.thread.i, %HeapTupleHeaderGetXmin.exit.i, %278, %273, %267, %HeapTupleHeaderGetXvac.exit.i37, %255, %249, %247, %238, %233, %225, %220, %218, %215, %213, %205, %199, %196, %191, %188, %185, %182, %173, %170, %166, %159, %151, %HeapTupleHeaderGetXvac.exit.i31, %139, %134, %132, %128, %124, %120, %113, %111, %107, %95, %92, %90, %84, %79, %76, %73, %67, %64, %55, %52, %48, %44, %37, %29, %HeapTupleHeaderGetXvac.exit.i, %17, %3, %HeapTupleSatisfiesNonVacuumable.exit, %250
-  %.0 = phi i1 [ %547, %HeapTupleSatisfiesNonVacuumable.exit ], [ false, %3 ], [ false, %37 ], [ true, %250 ], [ false, %159 ], [ false, %273 ], [ false, %308 ], [ false, %90 ], [ true, %92 ], [ true, %95 ], [ true, %124 ], [ false, %134 ], [ %.not87.i, %120 ], [ %not..i, %113 ], [ true, %111 ], [ true, %128 ], [ false, %79 ], [ false, %84 ], [ true, %132 ], [ false, %29 ], [ false, %17 ], [ false, %48 ], [ true, %52 ], [ true, %55 ], [ %.not82.i, %76 ], [ true, %64 ], [ true, %73 ], [ %.not83.i, %67 ], [ %.not88.i, %107 ], [ false, %HeapTupleHeaderGetXvac.exit.i ], [ false, %44 ], [ false, %191 ], [ %210, %205 ], [ true, %199 ], [ false, %185 ], [ %232, %225 ], [ %not..i28, %220 ], [ false, %215 ], [ true, %247 ], [ false, %249 ], [ true, %238 ], [ false, %196 ], [ true, %233 ], [ false, %151 ], [ false, %139 ], [ true, %170 ], [ %.3.i, %182 ], [ true, %173 ], [ true, %188 ], [ true, %218 ], [ true, %213 ], [ false, %HeapTupleHeaderGetXvac.exit.i31 ], [ false, %166 ], [ true, %HeapTupleHeaderGetXmin.exit.thread.i ], [ false, %255 ], [ false, %HeapTupleHeaderGetXmin.exit.i ], [ false, %267 ], [ false, %HeapTupleHeaderGetXvac.exit.i37 ], [ false, %278 ], [ false, %334 ], [ %370, %365 ], [ true, %359 ], [ true, %352 ], [ %393, %386 ], [ %not..i45, %381 ], [ true, %380 ], [ true, %417 ], [ false, %419 ], [ true, %408 ], [ false, %356 ], [ true, %396 ], [ false, %300 ], [ false, %288 ], [ true, %319 ], [ %.3.i54, %331 ], [ true, %322 ], [ true, %337 ], [ false, %375 ], [ true, %373 ], [ true, %404 ], [ false, %HeapTupleHeaderGetXvac.exit.i49 ], [ false, %315 ], [ false, %459 ], [ false, %TransactionIdInArray.exit67.thread.i ], [ true, %480 ], [ %.2.i, %518 ], [ true, %483 ], [ %527, %525 ], [ false, %522 ], [ %not..i60, %532 ], [ true, %528 ], [ false, %448 ], [ false, %.critedge.i ], [ false, %457 ], [ false, %HeapTupleHeaderGetXmin.exit.i56 ]
+HeapTupleSatisfiesMVCC.exit:                      ; preds = %.critedge.i, %531, %527, %524, %521, %517, %482, %479, %TransactionIdInArray.exit67.thread.i, %458, %456, %447, %HeapTupleHeaderGetXmin.exit.i56, %418, %416, %407, %403, %395, %385, %380, %379, %374, %372, %364, %358, %355, %351, %336, %333, %330, %321, %318, %314, %307, %299, %HeapTupleHeaderGetXvac.exit.i49, %287, %HeapTupleHeaderGetXmin.exit.thread.i, %HeapTupleHeaderGetXmin.exit.i, %277, %272, %266, %HeapTupleHeaderGetXvac.exit.i37, %254, %249, %247, %238, %233, %225, %220, %218, %215, %213, %205, %199, %196, %191, %188, %185, %182, %173, %170, %166, %159, %151, %HeapTupleHeaderGetXvac.exit.i31, %139, %134, %132, %128, %124, %120, %113, %111, %107, %95, %92, %90, %84, %79, %76, %73, %67, %64, %55, %52, %48, %44, %37, %29, %HeapTupleHeaderGetXvac.exit.i, %17, %3, %HeapTupleSatisfiesNonVacuumable.exit
+  %.0 = phi i1 [ %546, %HeapTupleSatisfiesNonVacuumable.exit ], [ false, %3 ], [ false, %37 ], [ false, %HeapTupleHeaderGetXmin.exit.i56 ], [ false, %159 ], [ false, %272 ], [ false, %307 ], [ false, %90 ], [ true, %92 ], [ true, %95 ], [ true, %124 ], [ false, %134 ], [ %.not87.i, %120 ], [ %not..i, %113 ], [ true, %111 ], [ true, %128 ], [ false, %79 ], [ false, %84 ], [ true, %132 ], [ false, %29 ], [ false, %17 ], [ false, %48 ], [ true, %52 ], [ true, %55 ], [ %.not82.i, %76 ], [ true, %64 ], [ true, %73 ], [ %.not83.i, %67 ], [ %.not88.i, %107 ], [ false, %HeapTupleHeaderGetXvac.exit.i ], [ false, %44 ], [ false, %191 ], [ %210, %205 ], [ true, %199 ], [ false, %185 ], [ %232, %225 ], [ %not..i28, %220 ], [ false, %215 ], [ true, %247 ], [ false, %249 ], [ true, %238 ], [ false, %196 ], [ true, %233 ], [ false, %151 ], [ false, %139 ], [ true, %170 ], [ %.3.i, %182 ], [ true, %173 ], [ true, %188 ], [ true, %218 ], [ true, %213 ], [ false, %HeapTupleHeaderGetXvac.exit.i31 ], [ false, %166 ], [ true, %HeapTupleHeaderGetXmin.exit.thread.i ], [ false, %254 ], [ false, %HeapTupleHeaderGetXmin.exit.i ], [ false, %266 ], [ false, %HeapTupleHeaderGetXvac.exit.i37 ], [ false, %277 ], [ false, %333 ], [ %369, %364 ], [ true, %358 ], [ true, %351 ], [ %392, %385 ], [ %not..i45, %380 ], [ true, %379 ], [ true, %416 ], [ false, %418 ], [ true, %407 ], [ false, %355 ], [ true, %395 ], [ false, %299 ], [ false, %287 ], [ true, %318 ], [ %.3.i54, %330 ], [ true, %321 ], [ true, %336 ], [ false, %374 ], [ true, %372 ], [ true, %403 ], [ false, %HeapTupleHeaderGetXvac.exit.i49 ], [ false, %314 ], [ false, %458 ], [ false, %TransactionIdInArray.exit67.thread.i ], [ true, %479 ], [ %.2.i, %517 ], [ true, %482 ], [ %526, %524 ], [ false, %521 ], [ %not..i60, %531 ], [ true, %527 ], [ false, %447 ], [ false, %.critedge.i ], [ false, %456 ]
   ret i1 %.0
 }
 

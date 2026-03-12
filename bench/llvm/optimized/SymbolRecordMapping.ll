@@ -5514,39 +5514,39 @@ define dso_local noundef zeroext range(i8 0, 4) i8 @_ZN4llvm8codeview17encodeFra
     i16 5, label %3
     i16 6, label %3
     i16 7, label %3
-    i16 208, label %6
+    i16 208, label %4
   ]
 
 3:                                                ; preds = %2, %2, %2, %2, %2, %2, %2, %2
   switch i16 %0, label %8 [
     i16 30006, label %10
-    i16 22, label %4
-    i16 20, label %5
+    i16 22, label %6
+    i16 20, label %7
   ]
 
-4:                                                ; preds = %3
-  br label %10
-
-5:                                                ; preds = %3
-  br label %10
-
-6:                                                ; preds = %2
+4:                                                ; preds = %2
   %switch.tableidx = add i16 %0, -334
-  %7 = icmp ult i16 %switch.tableidx, 8
-  br i1 %7, label %switch.lookup, label %8
+  %5 = icmp ult i16 %switch.tableidx, 8
+  br i1 %5, label %switch.lookup, label %8
 
-8:                                                ; preds = %6, %3, %2
+6:                                                ; preds = %3
   br label %10
 
-switch.lookup:                                    ; preds = %6
+7:                                                ; preds = %3
+  br label %10
+
+8:                                                ; preds = %4, %3, %2
+  br label %10
+
+switch.lookup:                                    ; preds = %4
   %9 = shl nuw nsw i16 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i16 %9 to i64
   %switch.downshift = lshr i64 216172782113784066, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
   br label %10
 
-10:                                               ; preds = %switch.lookup, %3, %8, %5, %4
-  %.0 = phi i8 [ 0, %8 ], [ %switch.masked, %switch.lookup ], [ 2, %4 ], [ 3, %5 ], [ 1, %3 ]
+10:                                               ; preds = %switch.lookup, %3, %8, %7, %6
+  %.0 = phi i8 [ 0, %8 ], [ 3, %7 ], [ %switch.masked, %switch.lookup ], [ 2, %6 ], [ 1, %3 ]
   ret i8 %.0
 }
 

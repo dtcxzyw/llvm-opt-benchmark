@@ -363,7 +363,7 @@ define dso_local { i64, ptr } @jv_parser_next(ptr noundef %0) local_unnamed_addr
   br label %.backedge
 
 .backedge:                                        ; preds = %351, %350, %326, %323, %321, %198, %195, %193, %70, %74, %.thread
-  %.0119.be = phi ptr [ null, %70 ], [ null, %.thread ], [ null, %74 ], [ null, %351 ], [ null, %326 ], [ null, %321 ], [ null, %323 ], [ null, %350 ], [ %.088155.i, %193 ], [ %.088155.i, %198 ], [ %.088155.i, %195 ]
+  %.0119.be = phi ptr [ null, %70 ], [ null, %.thread ], [ null, %74 ], [ null, %351 ], [ null, %326 ], [ null, %321 ], [ null, %323 ], [ null, %350 ], [ %.088155.i, %198 ], [ %.088155.i, %193 ], [ %.088155.i, %195 ]
   %.not127 = icmp eq ptr %.0119.be, null
   br i1 %.not127, label %54, label %.critedge, !llvm.loop !30
 
@@ -1009,12 +1009,12 @@ tokenadd.exit134.i:                               ; preds = %335, %._crit_edge.i
   store i32 1, ptr %42, align 8, !tbaa !17
   br label %.backedge
 
-.critedge:                                        ; preds = %188, %classify.exit.thread.i, %.backedge, %unhex4.exit.i, %256, %258, %218, %unhex4.exit.i.i, %233, %217, %289, %253, %242, %270, %311, %315, %parse_is_top_num.exit.i, %seq_check_truncation.exit.thread138.i, %stream_is_top_num.exit.i, %stream_is_top_num.exit.thread.i
-  %.0119.be180 = phi ptr [ @.str.42, %unhex4.exit.i ], [ @.str.37, %311 ], [ @.str.12, %parse_is_top_num.exit.i ], [ @.str.37, %315 ], [ %124, %seq_check_truncation.exit.thread138.i ], [ @.str.41, %242 ], [ @.str.42, %270 ], [ @.str.13, %stream_is_top_num.exit.thread.i ], [ @.str.12, %stream_is_top_num.exit.i ], [ @.str.42, %253 ], [ @.str.44, %289 ], [ @.str.39, %217 ], [ @.str.40, %233 ], [ @.str.41, %unhex4.exit.i.i ], [ @.str.43, %218 ], [ @.str.42, %258 ], [ @.str.42, %256 ], [ %149, %classify.exit.thread.i ], [ %189, %188 ], [ %.0119.be, %.backedge ]
+.critedge:                                        ; preds = %188, %classify.exit.thread.i, %.backedge, %unhex4.exit.i, %258, %218, %unhex4.exit.i.i, %233, %217, %289, %253, %256, %242, %270, %311, %315, %parse_is_top_num.exit.i, %seq_check_truncation.exit.thread138.i, %stream_is_top_num.exit.i, %stream_is_top_num.exit.thread.i
+  %.0119.be180 = phi ptr [ @.str.42, %unhex4.exit.i ], [ @.str.37, %311 ], [ %124, %seq_check_truncation.exit.thread138.i ], [ @.str.37, %315 ], [ @.str.13, %stream_is_top_num.exit.thread.i ], [ @.str.41, %242 ], [ @.str.42, %270 ], [ @.str.12, %stream_is_top_num.exit.i ], [ @.str.12, %parse_is_top_num.exit.i ], [ @.str.42, %256 ], [ @.str.42, %253 ], [ @.str.44, %289 ], [ @.str.39, %217 ], [ @.str.40, %233 ], [ @.str.41, %unhex4.exit.i.i ], [ @.str.43, %218 ], [ @.str.42, %258 ], [ %149, %classify.exit.thread.i ], [ %189, %188 ], [ %.0119.be, %.backedge ]
   %352 = icmp eq ptr %.0119.be180, @.str.1
   br i1 %352, label %.critedge.thread, label %355
 
-.critedge.thread:                                 ; preds = %321, %193, %parse_check_done.exit128.i, %parse_check_done.exit123.i, %135, %133, %131, %.critedge
+.critedge.thread:                                 ; preds = %193, %321, %parse_check_done.exit123.i, %parse_check_done.exit128.i, %135, %133, %131, %.critedge
   %.sroa.097.0.copyload98 = load i64, ptr %2, align 8
   %.sroa.15.0.copyload106 = load ptr, ptr %29, align 8, !tbaa !15
   %353 = insertvalue { i64, ptr } poison, i64 %.sroa.097.0.copyload98, 0

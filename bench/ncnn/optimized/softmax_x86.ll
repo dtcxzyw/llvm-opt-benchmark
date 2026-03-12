@@ -883,7 +883,7 @@ _ZN4ncnn3MatD2Ev.exit934:                         ; preds = %497, %495, %503, %5
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull @_ZNK4ncnn11Softmax_x8615forward_inplaceERNS_3MatERKNS_6OptionE.omp_outlined, ptr nonnull %7, ptr nonnull %1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread2082
+  br label %.thread2088
 
 522:                                              ; preds = %512
   %523 = icmp eq i32 %38, 3
@@ -1776,7 +1776,7 @@ _ZN4ncnn3MatD2Ev.exit943:                         ; preds = %1011, %_ZN4ncnn3Mat
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %993, label %.thread2082, label %1796
+  br i1 %993, label %.thread2088, label %1796
 
 1026:                                             ; preds = %_ZN4ncnn3MatD2Ev.exit941, %942
   %.pn778 = phi { ptr, i32 } [ %968, %_ZN4ncnn3MatD2Ev.exit941 ], [ %943, %942 ]
@@ -1823,9 +1823,6 @@ _ZN4ncnn3MatD2Ev.exit944:                         ; preds = %1028, %1026, %1034,
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1797
-
-.thread2082:                                      ; preds = %.thread2080, %_ZN4ncnn3MatD2Ev.exit943
-  br label %1796
 
 1043:                                             ; preds = %919
   %1044 = icmp eq i32 %47, 2
@@ -3269,7 +3266,7 @@ _ZN4ncnn3MatD2Ev.exit958:                         ; preds = %1674, %1672, %1680,
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %1797
 
-.thread2088:                                      ; preds = %.thread2085, %_ZN4ncnn3MatD2Ev.exit957
+.thread2088:                                      ; preds = %_ZN4ncnn3MatD2Ev.exit943, %.thread2080, %.thread2085, %_ZN4ncnn3MatD2Ev.exit957
   br label %1796
 
 1689:                                             ; preds = %1565
@@ -3561,8 +3558,8 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %1781, %.critedge790
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %1796
 
-1796:                                             ; preds = %.thread2088, %.thread2082, %1689, %1691, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit926, %_ZN4ncnn3MatD2Ev.exit927, %1043, %1045, %_ZN4ncnn3MatD2Ev.exit928, %_ZN4ncnn3MatD2Ev.exit929, %_ZN4ncnn3MatD2Ev.exit930, %_ZN4ncnn3MatD2Ev.exit932, %_ZN4ncnn3MatD2Ev.exit938, %_ZN4ncnn3MatD2Ev.exit943, %_ZN4ncnn3MatD2Ev.exit946, %_ZN4ncnn3MatD2Ev.exit952, %_ZN4ncnn3MatD2Ev.exit957
-  %.3 = phi i32 [ -100, %_ZN4ncnn3MatD2Ev.exit928 ], [ -100, %_ZN4ncnn3MatD2Ev.exit943 ], [ -100, %_ZN4ncnn3MatD2Ev.exit938 ], [ -100, %_ZN4ncnn3MatD2Ev.exit932 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit957 ], [ -100, %_ZN4ncnn3MatD2Ev.exit952 ], [ -100, %_ZN4ncnn3MatD2Ev.exit946 ], [ -100, %_ZN4ncnn3MatD2Ev.exit930 ], [ -100, %_ZN4ncnn3MatD2Ev.exit929 ], [ 0, %1045 ], [ 0, %1043 ], [ -100, %_ZN4ncnn3MatD2Ev.exit927 ], [ -100, %_ZN4ncnn3MatD2Ev.exit926 ], [ 0, %1691 ], [ 0, %1689 ], [ 0, %.thread2082 ], [ 0, %.thread2088 ]
+1796:                                             ; preds = %.thread2088, %1689, %1691, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit926, %_ZN4ncnn3MatD2Ev.exit927, %1043, %1045, %_ZN4ncnn3MatD2Ev.exit928, %_ZN4ncnn3MatD2Ev.exit929, %_ZN4ncnn3MatD2Ev.exit930, %_ZN4ncnn3MatD2Ev.exit932, %_ZN4ncnn3MatD2Ev.exit938, %_ZN4ncnn3MatD2Ev.exit943, %_ZN4ncnn3MatD2Ev.exit946, %_ZN4ncnn3MatD2Ev.exit952, %_ZN4ncnn3MatD2Ev.exit957
+  %.3 = phi i32 [ -100, %_ZN4ncnn3MatD2Ev.exit928 ], [ -100, %_ZN4ncnn3MatD2Ev.exit943 ], [ -100, %_ZN4ncnn3MatD2Ev.exit938 ], [ -100, %_ZN4ncnn3MatD2Ev.exit932 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZN4ncnn3MatD2Ev.exit957 ], [ -100, %_ZN4ncnn3MatD2Ev.exit952 ], [ -100, %_ZN4ncnn3MatD2Ev.exit946 ], [ -100, %_ZN4ncnn3MatD2Ev.exit930 ], [ -100, %_ZN4ncnn3MatD2Ev.exit929 ], [ 0, %1045 ], [ 0, %1043 ], [ -100, %_ZN4ncnn3MatD2Ev.exit927 ], [ -100, %_ZN4ncnn3MatD2Ev.exit926 ], [ 0, %1691 ], [ 0, %1689 ], [ 0, %.thread2088 ]
   ret i32 %.3
 
 1797:                                             ; preds = %_ZN4ncnn3MatD2Ev.exit958, %_ZN4ncnn3MatD2Ev.exit954, %_ZN4ncnn3MatD2Ev.exit948, %_ZN4ncnn3MatD2Ev.exit944, %_ZN4ncnn3MatD2Ev.exit940, %_ZN4ncnn3MatD2Ev.exit934

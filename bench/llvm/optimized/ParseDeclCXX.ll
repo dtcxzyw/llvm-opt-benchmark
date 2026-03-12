@@ -24116,7 +24116,7 @@ _ZNK5clang10Declarator20isFunctionDeclaratorEv.exit: ; preds = %662
   br i1 %650, label %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread, label %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262
 
 _ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262: ; preds = %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit
-  switch i16 %649, label %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split [
+  switch i16 %649, label %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split434 [
     i16 148, label %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread
     i16 62, label %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread
     i16 64, label %667
@@ -24176,18 +24176,15 @@ _ZN5clang6Parser9NextTokenEv.exit264:             ; preds = %675, %679
   call void @_ZN5clang18SemaCodeCompletion31CodeCompleteAfterFunctionEqualsERNS_10DeclaratorE(ptr noundef nonnull align 8 dereferenceable(24) %695, ptr noundef nonnull align 8 dereferenceable(4584) %46) #23
   br label %.critedge205
 
-_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split: ; preds = %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262
-  br label %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread
-
 _ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split433: ; preds = %_ZN5clang6Parser9NextTokenEv.exit264
   br label %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread
 
-_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split434: ; preds = %_ZN5clang6Parser9NextTokenEv.exit264
+_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split434: ; preds = %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262, %_ZN5clang6Parser9NextTokenEv.exit264
   br label %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread
 
-_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread: ; preds = %662, %662, %662, %662, %662, %662, %666, %_ZN5clang6Parser9NextTokenEv.exit264, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split434, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split433, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit, %651
-  %.ph = phi i1 [ true, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split434 ], [ false, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split433 ], [ false, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262 ], [ false, %_ZN5clang6Parser9NextTokenEv.exit264 ], [ false, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262 ], [ false, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit ], [ false, %651 ], [ true, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split ], [ true, %666 ], [ true, %662 ], [ true, %662 ], [ true, %662 ], [ true, %662 ], [ true, %662 ], [ true, %662 ]
-  %.0153.ph = phi i16 [ 0, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split434 ], [ 12, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split433 ], [ 4, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262 ], [ 8, %_ZN5clang6Parser9NextTokenEv.exit264 ], [ 4, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262 ], [ 4, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit ], [ 4, %651 ], [ 0, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split ], [ 0, %666 ], [ 0, %662 ], [ 0, %662 ], [ 0, %662 ], [ 0, %662 ], [ 0, %662 ], [ 0, %662 ]
+_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread: ; preds = %662, %662, %662, %662, %662, %662, %666, %_ZN5clang6Parser9NextTokenEv.exit264, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split434, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split433, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit, %651
+  %.ph = phi i1 [ true, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split434 ], [ false, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split433 ], [ false, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262 ], [ false, %_ZN5clang6Parser9NextTokenEv.exit264 ], [ false, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262 ], [ false, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit ], [ false, %651 ], [ true, %666 ], [ true, %662 ], [ true, %662 ], [ true, %662 ], [ true, %662 ], [ true, %662 ], [ true, %662 ]
+  %.0153.ph = phi i16 [ 0, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split434 ], [ 12, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split433 ], [ 4, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262 ], [ 8, %_ZN5clang6Parser9NextTokenEv.exit264 ], [ 4, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262 ], [ 4, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit ], [ 4, %651 ], [ 0, %666 ], [ 0, %662 ], [ 0, %662 ], [ 0, %662 ], [ 0, %662 ], [ 0, %662 ], [ 0, %662 ]
   %.pr = load i32, ptr %565, align 8, !tbaa !978
   %696 = load i16, ptr %567, align 8
   %697 = and i16 %696, -13

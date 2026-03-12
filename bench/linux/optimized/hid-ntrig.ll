@@ -712,19 +712,19 @@ define internal noundef range(i32 -1, 2) i32 @ntrig_input_mapping(ptr noundef re
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %2, align 8
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %105
+  br i1 %10, label %11, label %104
 
 11:                                               ; preds = %6
   %12 = load i32, ptr %3, align 4
   %13 = and i32 %12, -65536
-  switch i32 %13, label %104 [
+  switch i32 %13, label %103 [
     i32 65536, label %14
     i32 851968, label %91
-    i32 -16777216, label %105
+    i32 -16777216, label %104
   ]
 
 14:                                               ; preds = %11
-  switch i32 %12, label %105 [
+  switch i32 %12, label %104 [
     i32 65584, label %15
     i32 65585, label %53
   ]
@@ -748,7 +748,7 @@ define internal noundef range(i32 -1, 2) i32 @ntrig_input_mapping(ptr noundef re
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 30
   %27 = load i16, ptr %26, align 2
   %28 = icmp eq i16 %27, 0
-  br i1 %28, label %29, label %105
+  br i1 %28, label %29, label %104
 
 29:                                               ; preds = %15
   %30 = load i32, ptr %24, align 4
@@ -778,7 +778,7 @@ define internal noundef range(i32 -1, 2) i32 @ntrig_input_mapping(ptr noundef re
   %51 = trunc i32 %50 to i16
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 22
   store i16 %51, ptr %52, align 2
-  br label %105
+  br label %104
 
 53:                                               ; preds = %14
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -799,7 +799,7 @@ define internal noundef range(i32 -1, 2) i32 @ntrig_input_mapping(ptr noundef re
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %65 = load i16, ptr %64, align 2
   %66 = icmp eq i16 %65, 0
-  br i1 %66, label %67, label %105
+  br i1 %66, label %67, label %104
 
 67:                                               ; preds = %53
   %68 = load i32, ptr %62, align 4
@@ -829,14 +829,14 @@ define internal noundef range(i32 -1, 2) i32 @ntrig_input_mapping(ptr noundef re
   %89 = trunc i32 %88 to i16
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i16 %89, ptr %90, align 2
-  br label %105
+  br label %104
 
 91:                                               ; preds = %11
   switch i32 %12, label %103 [
-    i32 852049, label %105
-    i32 852050, label %105
-    i32 852051, label %105
-    i32 852053, label %105
+    i32 852049, label %104
+    i32 852050, label %104
+    i32 852051, label %104
+    i32 852053, label %104
     i32 852040, label %92
     i32 852041, label %97
   ]
@@ -851,7 +851,7 @@ define internal noundef range(i32 -1, 2) i32 @ntrig_input_mapping(ptr noundef re
   store i16 48, ptr %96, align 2
   store i32 63, ptr %5, align 4
   store ptr %94, ptr %4, align 8
-  br label %105
+  br label %104
 
 97:                                               ; preds = %91
   %98 = getelementptr i8, ptr %1, i64 24
@@ -865,17 +865,14 @@ define internal noundef range(i32 -1, 2) i32 @ntrig_input_mapping(ptr noundef re
   store ptr %99, ptr %4, align 8
   %102 = load ptr, ptr %98, align 8
   tail call void @input_set_abs_params(ptr noundef %102, i32 noundef 52, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0) #9
-  br label %105
+  br label %104
 
-103:                                              ; preds = %91
-  br label %105
+103:                                              ; preds = %91, %11
+  br label %104
 
-104:                                              ; preds = %11
-  br label %105
-
-105:                                              ; preds = %104, %103, %97, %92, %91, %91, %91, %91, %67, %53, %29, %15, %14, %11, %6
-  %106 = phi i32 [ 0, %104 ], [ 0, %103 ], [ 1, %97 ], [ 1, %92 ], [ 0, %6 ], [ 1, %29 ], [ 1, %15 ], [ 1, %67 ], [ 1, %53 ], [ 0, %14 ], [ -1, %91 ], [ -1, %91 ], [ -1, %91 ], [ -1, %91 ], [ -1, %11 ]
-  ret i32 %106
+104:                                              ; preds = %103, %97, %92, %91, %91, %91, %91, %67, %53, %29, %15, %14, %11, %6
+  %105 = phi i32 [ 0, %103 ], [ -1, %11 ], [ 1, %97 ], [ 1, %92 ], [ 0, %6 ], [ 1, %29 ], [ 1, %15 ], [ 1, %67 ], [ 1, %53 ], [ 0, %14 ], [ -1, %91 ], [ -1, %91 ], [ -1, %91 ], [ -1, %91 ]
+  ret i32 %105
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

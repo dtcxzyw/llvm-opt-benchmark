@@ -567,7 +567,7 @@ switch.lookup13:                                  ; preds = %6
   br label %.critedge12
 
 .critedge12:                                      ; preds = %switch.lookup13, %switch.lookup, %.critedge, %8
-  %.0 = phi i32 [ %switch.load15, %switch.lookup13 ], [ %switch.load, %switch.lookup ], [ 0, %.critedge ], [ 0, %8 ]
+  %.0 = phi i32 [ %switch.load15, %switch.lookup13 ], [ 0, %8 ], [ %switch.load, %switch.lookup ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -1032,7 +1032,7 @@ switch.lookup43:                                  ; preds = %16
   br label %.critedge29
 
 .critedge29:                                      ; preds = %switch.lookup43, %switch.lookup, %.critedge34, %26, %.critedge31, %18, %.critedge, %8
-  %.027 = phi i32 [ -1, %.critedge31 ], [ %switch.load48, %switch.lookup43 ], [ -1, %.critedge ], [ -1, %.critedge34 ], [ -1, %26 ], [ -1, %18 ], [ -1, %8 ], [ %switch.load, %switch.lookup ]
+  %.027 = phi i32 [ -1, %.critedge31 ], [ %switch.load48, %switch.lookup43 ], [ %switch.load, %switch.lookup ], [ -1, %.critedge34 ], [ -1, %26 ], [ -1, %.critedge ], [ -1, %18 ], [ -1, %8 ]
   ret i32 %.027
 
 36:                                               ; preds = %32, %24, %14

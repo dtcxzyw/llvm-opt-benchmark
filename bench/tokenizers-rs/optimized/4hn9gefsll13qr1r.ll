@@ -15864,8 +15864,8 @@ default.unreachable:                              ; preds = %_ZN20unicode_segmen
   ]
 
 176:                                              ; preds = %173
-  %.pre72.i.i.i.i = load i8, ptr %.sroa.13.0..sroa_idx, align 1, !range !3425, !alias.scope !3431, !noalias !3434
-  %177 = icmp eq i8 %.pre72.i.i.i.i, 15
+  %.pre71.i.i.i.i = load i8, ptr %.sroa.13.0..sroa_idx, align 1, !range !3425, !alias.scope !3431, !noalias !3434
+  %177 = icmp eq i8 %.pre71.i.i.i.i, 15
   br i1 %177, label %182, label %.thread.thread.i.i.i.i
 
 178:                                              ; preds = %175
@@ -15964,13 +15964,13 @@ default.unreachable:                              ; preds = %_ZN20unicode_segmen
 
 .noexc34:                                         ; preds = %.thread.i.i.i.i
   store i8 %224, ptr %.sroa.13.0..sroa_idx, align 1, !alias.scope !3431, !noalias !3434
-  %.pre73.i.i.i.i = load i8, ptr %.sroa.14.0..sroa_idx, align 8, !range !3425, !alias.scope !3431, !noalias !3434
-  %225 = icmp eq i8 %.pre73.i.i.i.i, 15
+  %.pre72.i.i.i.i = load i8, ptr %.sroa.14.0..sroa_idx, align 8, !range !3425, !alias.scope !3431, !noalias !3434
+  %225 = icmp eq i8 %.pre72.i.i.i.i, 15
   br i1 %225, label %.invoke501, label %.thread.thread.i.i.i.i
 
 .thread.thread.i.i.i.i:                           ; preds = %.noexc34, %178, %176
-  %226 = phi i8 [ %224, %.noexc34 ], [ %179, %178 ], [ %.pre72.i.i.i.i, %176 ]
-  %227 = phi i8 [ %.pre73.i.i.i.i, %.noexc34 ], [ %162, %178 ], [ %162, %176 ]
+  %226 = phi i8 [ %224, %.noexc34 ], [ %179, %178 ], [ %.pre71.i.i.i.i, %176 ]
+  %227 = phi i8 [ %.pre72.i.i.i.i, %.noexc34 ], [ %162, %178 ], [ %162, %176 ]
   switch i8 %226, label %228 [
     i8 1, label %229
     i8 2, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread63.i.i.i.i
@@ -15986,7 +15986,7 @@ default.unreachable:                              ; preds = %_ZN20unicode_segmen
     i8 6, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread63.i.i.i.i
     i8 7, label %233
     i8 8, label %234
-    i8 11, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread66.i.i.i.i
+    i8 11, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread65.i.i.i.i
     i8 12, label %235
     i8 13, label %236
     i8 14, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread.i.i.i.i
@@ -15999,7 +15999,7 @@ default.unreachable:                              ; preds = %_ZN20unicode_segmen
 
 231:                                              ; preds = %228
   switch i8 %226, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread63.i.i.i.i [
-    i8 9, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread66.i.i.i.i
+    i8 9, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread65.i.i.i.i
     i8 10, label %237
     i8 14, label %239
   ]
@@ -16028,7 +16028,7 @@ default.unreachable:                              ; preds = %_ZN20unicode_segmen
     i8 8, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread.i.i.i.i
     i8 12, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread.i.i.i.i
     i8 13, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread.i.i.i.i
-    i8 9, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread66.i.i.i.i
+    i8 9, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread65.i.i.i.i
   ]
 
 236:                                              ; preds = %228
@@ -16036,23 +16036,23 @@ default.unreachable:                              ; preds = %_ZN20unicode_segmen
     i8 5, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread.i.i.i.i
     i8 7, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread.i.i.i.i
     i8 13, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread.i.i.i.i
-    i8 9, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread66.i.i.i.i
+    i8 9, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread65.i.i.i.i
   ]
 
 237:                                              ; preds = %231
   %238 = icmp eq i8 %227, 10
-  br i1 %238, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread68.i.i.i.i, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread63.i.i.i.i
+  br i1 %238, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread67.i.i.i.i, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread63.i.i.i.i
 
 239:                                              ; preds = %231
   %240 = icmp eq i8 %227, 4
-  br i1 %240, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread70.i.i.i.i, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread63.i.i.i.i
+  br i1 %240, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread69.i.i.i.i, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread63.i.i.i.i
 
 _ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.i.i.i.i: ; preds = %234, %233, %232, %229
-  %.0.i.i.i.i.i = phi i8 [ %switch.select9.i.i.i.i.i, %233 ], [ %switch.select13.i.i.i.i.i, %234 ], [ %..i.i.i.i.i, %229 ], [ %switch.select.i.i.i.i.i, %232 ]
+  %.0.i.i.i.i.i = phi i8 [ %switch.select13.i.i.i.i.i, %234 ], [ %switch.select.i.i.i.i.i, %232 ], [ %switch.select9.i.i.i.i.i, %233 ], [ %..i.i.i.i.i, %229 ]
   switch i8 %.0.i.i.i.i.i, label %default.unreachable [
     i8 0, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread.i.i.i.i
     i8 1, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread63.i.i.i.i
-    i8 2, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread66.i.i.i.i
+    i8 2, label %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread65.i.i.i.i
   ]
 
 _ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread.i.i.i.i: ; preds = %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.i.i.i.i, %236, %236, %236, %235, %235, %235, %235, %234, %233, %232, %228, %228
@@ -16066,7 +16066,7 @@ _ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread63
   %.sroa.19.8.insert.insert51.i.i.i = or disjoint i64 %.sroa.19.8.insert.mask50.i.i.i, 1
   br label %386
 
-_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread66.i.i.i.i: ; preds = %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.i.i.i.i, %236, %235, %231, %228
+_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread65.i.i.i.i: ; preds = %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.i.i.i.i, %236, %235, %231, %228
   %241 = load i8, ptr %.sroa.10.0..sroa_idx, align 4, !range !340, !alias.scope !3431, !noalias !3434, !noundef !14
   %242 = xor i8 %241, 1
   %..i.i.i.i = sub nuw nsw i8 2, %241
@@ -16076,15 +16076,15 @@ _ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread66
   %.sroa.19.8.insert.insert54.i.i.i = or disjoint i64 %.sroa.19.8.insert.mask53.i.i.i, %.sroa.19.8.insert.ext.i.i.i
   br label %386
 
-_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread68.i.i.i.i: ; preds = %237
+_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread67.i.i.i.i: ; preds = %237
   %243 = load i64, ptr %.sroa.55.0..sroa_idx, align 8, !range !255, !alias.scope !3431, !noalias !3434, !noundef !14
   %trunc49.i.i.i.i = trunc nuw i64 %243 to i1
   br i1 %trunc49.i.i.i.i, label %329, label %334
 
-_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread70.i.i.i.i: ; preds = %239
+_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread69.i.i.i.i: ; preds = %239
   br i1 %174, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$5index17ha2129c49510116d8E.exit21.i", label %244
 
-244:                                              ; preds = %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread70.i.i.i.i
+244:                                              ; preds = %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread69.i.i.i.i
   br i1 %.not.i.i.not.i.i, label %245, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h83cf5c9df38271d1E.llvm.14172520758739148588.exit.i20.i"
 
 245:                                              ; preds = %244
@@ -16093,7 +16093,7 @@ _ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread70
   %248 = icmp sgt i8 %247, -65
   br i1 %248, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h83cf5c9df38271d1E.llvm.14172520758739148588.exit.i20.i", label %.invoke
 
-"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$5index17ha2129c49510116d8E.exit21.i": ; preds = %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread70.i.i.i.i
+"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$5index17ha2129c49510116d8E.exit21.i": ; preds = %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread69.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !3459)
   call void @llvm.experimental.noalias.scope.decl(metadata !3462)
   br label %"_ZN96_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h25eccb8f3b92f263E.exit.thread.i.i.preheader"
@@ -16265,7 +16265,7 @@ _ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread70
   %.sroa.19.8.insert.mask69.i.i.i = and i64 %.sroa.19.0.i.i.i, -256
   br label %386
 
-329:                                              ; preds = %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread68.i.i.i.i
+329:                                              ; preds = %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread67.i.i.i.i
   %330 = load i64, ptr %33, align 8, !alias.scope !3431, !noalias !3434, !noundef !14
   %331 = and i64 %330, 1
   %332 = icmp eq i64 %331, 0
@@ -16276,7 +16276,7 @@ _ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread70
   %.sroa.19.8.insert.insert61.i.i.i = xor i64 %333, 1
   br label %386
 
-334:                                              ; preds = %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread68.i.i.i.i
+334:                                              ; preds = %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread67.i.i.i.i
   br i1 %174, label %_ZN20unicode_segmentation8grapheme14GraphemeCursor15handle_regional17h70cfe695ae4fbc4dE.exit.thread.i, label %335
 
 335:                                              ; preds = %334
@@ -16398,10 +16398,10 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor15handle_regional17h70cfe695ae
   %.sroa.19.8.insert.mask63.i.i.i = and i64 %.sroa.19.0.i.i.i, -256
   br label %386
 
-386:                                              ; preds = %385, %384, %329, %328, %.loopexit.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread66.i.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread63.i.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread.i.i.i.i, %164, %163
-  %.2199.i.i.i = phi i32 [ %.2.ph.i.i.i, %384 ], [ %.2.ph.i.i.i, %.loopexit.i ], [ %.2200.i.i.i, %163 ], [ %.2.ph.i.i.i, %385 ], [ %.2.ph.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread.i.i.i.i ], [ %.2.ph.i.i.i, %164 ], [ %.2.ph.i.i.i, %328 ], [ %.2.ph.i.i.i, %329 ], [ %.2.ph.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread66.i.i.i.i ], [ %.2.ph.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread63.i.i.i.i ]
-  %.sroa.0.1197.i.i.i = phi ptr [ %.sroa.0.1.ph.i.i.i, %384 ], [ %.sroa.0.1.ph.i.i.i, %.loopexit.i ], [ %.sroa.0.1198.i.i.i, %163 ], [ %.sroa.0.1.ph.i.i.i, %385 ], [ %.sroa.0.1.ph.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread.i.i.i.i ], [ %.sroa.0.1.ph.i.i.i, %164 ], [ %.sroa.0.1.ph.i.i.i, %328 ], [ %.sroa.0.1.ph.i.i.i, %329 ], [ %.sroa.0.1.ph.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread66.i.i.i.i ], [ %.sroa.0.1.ph.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread63.i.i.i.i ]
-  %.sroa.19.1.ph.i.i.i = phi i64 [ %.sroa.19.8.insert.insert67.i.i.i, %384 ], [ %.sroa.19.8.insert.insert73.i.i.i, %.loopexit.i ], [ %.sroa.19.8.insert.insert48.i.i.i, %163 ], [ %.sroa.19.8.insert.mask63.i.i.i, %385 ], [ %.sroa.19.8.insert.mask56.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread.i.i.i.i ], [ %.sroa.19.8.insert.mask.i.i.i, %164 ], [ %.sroa.19.8.insert.mask69.i.i.i, %328 ], [ %.sroa.19.8.insert.insert61.i.i.i, %329 ], [ %.sroa.19.8.insert.insert54.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread66.i.i.i.i ], [ %.sroa.19.8.insert.insert51.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread63.i.i.i.i ]
+386:                                              ; preds = %385, %384, %329, %328, %.loopexit.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread65.i.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread63.i.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread.i.i.i.i, %164, %163
+  %.2199.i.i.i = phi i32 [ %.2.ph.i.i.i, %384 ], [ %.2.ph.i.i.i, %.loopexit.i ], [ %.2200.i.i.i, %163 ], [ %.2.ph.i.i.i, %385 ], [ %.2.ph.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread.i.i.i.i ], [ %.2.ph.i.i.i, %164 ], [ %.2.ph.i.i.i, %328 ], [ %.2.ph.i.i.i, %329 ], [ %.2.ph.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread65.i.i.i.i ], [ %.2.ph.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread63.i.i.i.i ]
+  %.sroa.0.1197.i.i.i = phi ptr [ %.sroa.0.1.ph.i.i.i, %384 ], [ %.sroa.0.1.ph.i.i.i, %.loopexit.i ], [ %.sroa.0.1198.i.i.i, %163 ], [ %.sroa.0.1.ph.i.i.i, %385 ], [ %.sroa.0.1.ph.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread.i.i.i.i ], [ %.sroa.0.1.ph.i.i.i, %164 ], [ %.sroa.0.1.ph.i.i.i, %328 ], [ %.sroa.0.1.ph.i.i.i, %329 ], [ %.sroa.0.1.ph.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread65.i.i.i.i ], [ %.sroa.0.1.ph.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread63.i.i.i.i ]
+  %.sroa.19.1.ph.i.i.i = phi i64 [ %.sroa.19.8.insert.insert67.i.i.i, %384 ], [ %.sroa.19.8.insert.insert73.i.i.i, %.loopexit.i ], [ %.sroa.19.8.insert.insert48.i.i.i, %163 ], [ %.sroa.19.8.insert.mask63.i.i.i, %385 ], [ %.sroa.19.8.insert.mask56.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread.i.i.i.i ], [ %.sroa.19.8.insert.mask.i.i.i, %164 ], [ %.sroa.19.8.insert.mask69.i.i.i, %328 ], [ %.sroa.19.8.insert.insert61.i.i.i, %329 ], [ %.sroa.19.8.insert.insert54.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread65.i.i.i.i ], [ %.sroa.19.8.insert.insert51.i.i.i, %_ZN20unicode_segmentation8grapheme10check_pair17hb0b086ce2d534937E.exit.thread63.i.i.i.i ]
   %387 = trunc i64 %.sroa.19.1.ph.i.i.i to i1
   store i8 0, ptr %.sroa.11.0..sroa_idx, align 1, !alias.scope !3423, !noalias !3424
   br i1 %387, label %390, label %95

@@ -636,9 +636,9 @@ define dso_local noundef i32 @_ZN5clang7TypeLoc22getFullDataSizeForTypeENS_8Qual
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
-  %.026 = phi i32 [ %100, %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit ], [ 0, %.lr.ph.preheader ]
-  %.sroa.8.025 = phi ptr [ %103, %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit ], [ null, %.lr.ph.preheader ]
-  %.sroa.015.024 = phi ptr [ %102, %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit ], [ %2, %.lr.ph.preheader ]
+  %.026 = phi i32 [ %99, %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit ], [ 0, %.lr.ph.preheader ]
+  %.sroa.8.025 = phi ptr [ %102, %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit ], [ null, %.lr.ph.preheader ]
+  %.sroa.015.024 = phi ptr [ %101, %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit ], [ %2, %.lr.ph.preheader ]
   %.01723 = phi i32 [ %.sroa.speculated, %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit ], [ 1, %.lr.ph.preheader ]
   %3 = ptrtoint ptr %.sroa.015.024 to i64
   %.not.i.i.i = icmp ugt ptr %.sroa.015.024, inttoptr (i64 15 to ptr)
@@ -672,252 +672,249 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i:     ; preds = %_ZN5clang7TypeLoc24
   %16 = load ptr, ptr %.sroa.015.024, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i8, ptr %17, align 16
-  switch i8 %18, label %99 [
+  switch i8 %18, label %98 [
     i8 58, label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
     i8 0, label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
     i8 1, label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
-    i8 2, label %19
-    i8 3, label %19
-    i8 4, label %19
-    i8 5, label %19
-    i8 6, label %19
-    i8 7, label %20
-    i8 8, label %21
-    i8 9, label %22
-    i8 10, label %23
-    i8 11, label %23
+    i8 2, label %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i.i.i
+    i8 3, label %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i.i.i
+    i8 4, label %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i.i.i
+    i8 5, label %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i.i.i
+    i8 6, label %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i.i.i
+    i8 7, label %19
+    i8 8, label %20
+    i8 9, label %21
+    i8 10, label %22
+    i8 11, label %22
     i8 12, label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
-    i8 13, label %24
-    i8 14, label %23
-    i8 15, label %21
-    i8 16, label %19
-    i8 17, label %23
-    i8 18, label %34
-    i8 19, label %23
-    i8 20, label %34
-    i8 21, label %23
-    i8 22, label %35
-    i8 23, label %23
-    i8 24, label %45
-    i8 25, label %52
-    i8 26, label %62
-    i8 27, label %19
-    i8 28, label %23
-    i8 29, label %23
-    i8 30, label %72
-    i8 31, label %72
-    i8 32, label %19
-    i8 33, label %23
-    i8 34, label %73
-    i8 35, label %21
-    i8 36, label %81
-    i8 37, label %23
-    i8 38, label %23
-    i8 39, label %21
-    i8 40, label %23
-    i8 41, label %23
-    i8 42, label %23
-    i8 43, label %23
-    i8 44, label %23
-    i8 45, label %23
-    i8 46, label %23
-    i8 47, label %23
-    i8 48, label %89
-    i8 49, label %23
-    i8 50, label %20
-    i8 51, label %34
-    i8 52, label %23
-    i8 53, label %34
-    i8 54, label %23
-    i8 55, label %23
-    i8 56, label %23
-    i8 57, label %23
+    i8 13, label %23
+    i8 14, label %22
+    i8 15, label %20
+    i8 16, label %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i.i.i
+    i8 17, label %22
+    i8 18, label %33
+    i8 19, label %22
+    i8 20, label %33
+    i8 21, label %22
+    i8 22, label %34
+    i8 23, label %22
+    i8 24, label %44
+    i8 25, label %51
+    i8 26, label %61
+    i8 27, label %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i.i.i
+    i8 28, label %22
+    i8 29, label %22
+    i8 30, label %71
+    i8 31, label %71
+    i8 32, label %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i.i.i
+    i8 33, label %22
+    i8 34, label %72
+    i8 35, label %20
+    i8 36, label %80
+    i8 37, label %22
+    i8 38, label %22
+    i8 39, label %20
+    i8 40, label %22
+    i8 41, label %22
+    i8 42, label %22
+    i8 43, label %22
+    i8 44, label %22
+    i8 45, label %22
+    i8 46, label %22
+    i8 47, label %22
+    i8 48, label %88
+    i8 49, label %22
+    i8 50, label %19
+    i8 51, label %33
+    i8 52, label %22
+    i8 53, label %33
+    i8 54, label %22
+    i8 55, label %22
+    i8 56, label %22
+    i8 57, label %22
   ]
 
-19:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
+19:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
 
-20:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
+20:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
 
-21:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
+21:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
 
-22:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
+22:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
 
-23:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
-  br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
-
-24:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 16
-  %26 = load i32, ptr %25, align 16
-  %27 = lshr i32 %26, 19
-  %28 = and i32 %27, 511
-  %29 = add nsw i32 %28, -442
-  %or.cond.i.i.i.i.i = icmp ult i32 %29, 5
+23:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 16
+  %25 = load i32, ptr %24, align 16
+  %26 = lshr i32 %25, 19
+  %27 = and i32 %26, 511
+  %28 = add nsw i32 %27, -442
+  %or.cond.i.i.i.i.i = icmp ult i32 %28, 5
   br i1 %or.cond.i.i.i.i.i, label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit, label %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i.i
 
-_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i.i: ; preds = %24
-  %30 = add nsw i32 %28, -450
-  %or.cond3.i.i7.i.i.i = icmp ult i32 %30, 37
-  %31 = icmp eq i32 %28, 437
-  %or.cond5.i.i8.i.i.i = or i1 %31, %or.cond3.i.i7.i.i.i
-  %32 = icmp eq i32 %28, 448
-  %spec.select.i.i9.i.i.i = or i1 %32, %or.cond5.i.i8.i.i.i
+_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i.i: ; preds = %23
+  %29 = add nsw i32 %27, -450
+  %or.cond3.i.i7.i.i.i = icmp ult i32 %29, 37
+  %30 = icmp eq i32 %27, 437
+  %or.cond5.i.i8.i.i.i = or i1 %30, %or.cond3.i.i7.i.i.i
+  %31 = icmp eq i32 %27, 448
+  %spec.select.i.i9.i.i.i = or i1 %31, %or.cond5.i.i8.i.i.i
   %cond.fr.i10.i.i.i = freeze i1 %spec.select.i.i9.i.i.i
-  %33 = select i1 %cond.fr.i10.i.i.i, i32 12, i32 8
+  %32 = select i1 %cond.fr.i10.i.i.i, i32 12, i32 8
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
 
-34:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
+33:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
 
-35:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 20
-  %37 = load i32, ptr %36, align 4, !tbaa !29
-  %38 = shl i32 %37, 3
-  %39 = add i32 %38, 32
-  %40 = icmp ne i32 %39, 0
-  %.neg.i.i.i = sext i1 %40 to i32
-  %41 = add i32 %39, %.neg.i.i.i
-  %42 = select i1 %40, i32 8, i32 0
-  %43 = add i32 %41, %42
-  %44 = and i32 %43, -8
+34:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 20
+  %36 = load i32, ptr %35, align 4, !tbaa !29
+  %37 = shl i32 %36, 3
+  %38 = add i32 %37, 32
+  %39 = icmp ne i32 %38, 0
+  %.neg.i.i.i = sext i1 %39 to i32
+  %40 = add i32 %38, %.neg.i.i.i
+  %41 = select i1 %39, i32 8, i32 0
+  %42 = add i32 %40, %41
+  %43 = and i32 %42, -8
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
 
-45:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 16
-  %47 = load i32, ptr %46, align 16
-  %48 = and i32 %47, 133693440
-  %49 = icmp eq i32 %48, 3145728
-  br i1 %49, label %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.i.i.i, label %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i.i.i
+44:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 16
+  %46 = load i32, ptr %45, align 16
+  %47 = and i32 %46, 133693440
+  %48 = icmp eq i32 %47, 3145728
+  br i1 %48, label %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.i.i.i, label %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i.i.i
 
-_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.i.i.i: ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 32
-  %51 = load ptr, ptr %50, align 16, !tbaa !33
-  %.not.i.i.i.i = icmp eq ptr %51, null
+_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.i.i.i: ; preds = %44
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 32
+  %50 = load ptr, ptr %49, align 16, !tbaa !33
+  %.not.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i, label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit, label %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i.i.i
 
-_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i.i.i: ; preds = %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.i.i.i, %45
+_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i.i.i: ; preds = %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.i.i.i, %44, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
 
-52:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 16
-  %54 = load i8, ptr %53, align 16
-  switch i8 %54, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i [
+51:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 16
+  %53 = load i8, ptr %52, align 16
+  switch i8 %53, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i [
     i8 26, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i
     i8 25, label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
   ]
 
-_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i: ; preds = %52
-  %55 = load i64, ptr %53, align 16
-  %56 = and i64 %55, 270215977642229760
-  %.not.i.i.i247.i = icmp eq i64 %56, 0
-  %57 = select i1 %.not.i.i.i247.i, i32 16, i32 24
-  br label %58
+_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i: ; preds = %51
+  %54 = load i64, ptr %52, align 16
+  %55 = and i64 %54, 270215977642229760
+  %.not.i.i.i247.i = icmp eq i64 %55, 0
+  %56 = select i1 %.not.i.i.i247.i, i32 16, i32 24
+  br label %57
 
-_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i: ; preds = %52
-  %.pre.i.i.i.i = load i64, ptr %53, align 16
-  br label %58
+_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i: ; preds = %51
+  %.pre.i.i.i.i = load i64, ptr %52, align 16
+  br label %57
 
-58:                                               ; preds = %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i
-  %59 = phi i64 [ %55, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i ], [ %.pre.i.i.i.i, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i ]
-  %spec.select.i2.i.i.i.i = phi i32 [ %57, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i ], [ 16, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i ]
-  %sh.diff.i.i.i.i = lshr i64 %59, 35
+57:                                               ; preds = %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i
+  %58 = phi i64 [ %54, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i ], [ %.pre.i.i.i.i, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i ]
+  %spec.select.i2.i.i.i.i = phi i32 [ %56, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i ], [ 16, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i ]
+  %sh.diff.i.i.i.i = lshr i64 %58, 35
   %tr.sh.diff.i.i.i.i = trunc nuw nsw i64 %sh.diff.i.i.i.i to i32
-  %60 = and i32 %tr.sh.diff.i.i.i.i, 524280
-  %61 = add nuw nsw i32 %60, %spec.select.i2.i.i.i.i
+  %59 = and i32 %tr.sh.diff.i.i.i.i, 524280
+  %60 = add nuw nsw i32 %59, %spec.select.i2.i.i.i.i
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
 
-62:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 16
-  %64 = load i8, ptr %63, align 16
-  switch i8 %64, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i256.i [
+61:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 16
+  %63 = load i8, ptr %62, align 16
+  switch i8 %63, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i256.i [
     i8 26, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i261.i
     i8 25, label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
   ]
 
-_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i261.i: ; preds = %62
-  %65 = load i64, ptr %63, align 16
-  %66 = and i64 %65, 270215977642229760
-  %.not.i.i.i262.i = icmp eq i64 %66, 0
-  %67 = select i1 %.not.i.i.i262.i, i32 16, i32 24
-  br label %68
+_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i261.i: ; preds = %61
+  %64 = load i64, ptr %62, align 16
+  %65 = and i64 %64, 270215977642229760
+  %.not.i.i.i262.i = icmp eq i64 %65, 0
+  %66 = select i1 %.not.i.i.i262.i, i32 16, i32 24
+  br label %67
 
-_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i256.i: ; preds = %62
-  %.pre.i.i.i257.i = load i64, ptr %63, align 16
-  br label %68
+_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i256.i: ; preds = %61
+  %.pre.i.i.i257.i = load i64, ptr %62, align 16
+  br label %67
 
-68:                                               ; preds = %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i256.i, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i261.i
-  %69 = phi i64 [ %65, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i261.i ], [ %.pre.i.i.i257.i, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i256.i ]
-  %spec.select.i2.i.i.i258.i = phi i32 [ %67, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i261.i ], [ 16, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i256.i ]
-  %sh.diff.i.i.i259.i = lshr i64 %69, 35
+67:                                               ; preds = %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i256.i, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i261.i
+  %68 = phi i64 [ %64, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i261.i ], [ %.pre.i.i.i257.i, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i256.i ]
+  %spec.select.i2.i.i.i258.i = phi i32 [ %66, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i261.i ], [ 16, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i256.i ]
+  %sh.diff.i.i.i259.i = lshr i64 %68, 35
   %tr.sh.diff.i.i.i260.i = trunc nuw nsw i64 %sh.diff.i.i.i259.i to i32
-  %70 = and i32 %tr.sh.diff.i.i.i260.i, 524280
-  %71 = add nuw nsw i32 %70, %spec.select.i2.i.i.i258.i
+  %69 = and i32 %tr.sh.diff.i.i.i260.i, 524280
+  %70 = add nuw nsw i32 %69, %spec.select.i2.i.i.i258.i
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
 
-72:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
+71:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
 
-73:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 16
-  %75 = load i32, ptr %74, align 16
-  %76 = lshr i32 %75, 16
-  %77 = and i32 %76, 1016
-  %78 = lshr i32 %75, 24
-  %79 = add nuw nsw i32 %78, 20
-  %.lhs.trunc.i.i303.i = add nuw nsw i32 %79, %77
+72:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 16
+  %74 = load i32, ptr %73, align 16
+  %75 = lshr i32 %74, 16
+  %76 = and i32 %75, 1016
+  %77 = lshr i32 %74, 24
+  %78 = add nuw nsw i32 %77, 20
+  %.lhs.trunc.i.i303.i = add nuw nsw i32 %78, %76
   %.zext.i.i.i = and i32 %.lhs.trunc.i.i303.i, 2040
-  %80 = add nuw nsw i32 %.zext.i.i.i, 8
+  %79 = add nuw nsw i32 %.zext.i.i.i, 8
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
 
-81:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 32
-  %83 = load i8, ptr %82, align 16
-  %84 = and i8 %83, 63
-  %.not.i.i.i314.i = icmp eq i8 %84, 0
-  %85 = shl i8 %83, 2
-  %86 = zext i8 %85 to i32
-  %87 = add nuw nsw i32 %86, 12
-  %88 = select i1 %.not.i.i.i314.i, i32 4, i32 %87
+80:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 32
+  %82 = load i8, ptr %81, align 16
+  %83 = and i8 %82, 63
+  %.not.i.i.i314.i = icmp eq i8 %83, 0
+  %84 = shl i8 %82, 2
+  %85 = zext i8 %84 to i32
+  %86 = add nuw nsw i32 %85, 12
+  %87 = select i1 %.not.i.i.i314.i, i32 4, i32 %86
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
 
-89:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 20
-  %91 = load i32, ptr %90, align 4, !tbaa !29
-  %92 = shl i32 %91, 3
-  %93 = add i32 %92, 16
-  %94 = icmp ne i32 %93, 0
-  %.neg.i.i375.i = sext i1 %94 to i32
-  %95 = add i32 %93, %.neg.i.i375.i
-  %96 = select i1 %94, i32 8, i32 0
-  %97 = add i32 %95, %96
-  %98 = and i32 %97, -8
+88:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 20
+  %90 = load i32, ptr %89, align 4, !tbaa !29
+  %91 = shl i32 %90, 3
+  %92 = add i32 %91, 16
+  %93 = icmp ne i32 %92, 0
+  %.neg.i.i375.i = sext i1 %93 to i32
+  %94 = add i32 %92, %.neg.i.i375.i
+  %95 = select i1 %93, i32 8, i32 0
+  %96 = add i32 %94, %95
+  %97 = and i32 %96, -8
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
 
-99:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
+98:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
   unreachable
 
-_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit: ; preds = %_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %19, %20, %21, %22, %23, %24, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i.i, %34, %35, %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.i.i.i, %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i.i.i, %52, %58, %62, %68, %72, %73, %81, %89
-  %.0.i8 = phi i32 [ 16, %62 ], [ 0, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i ], [ 0, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i ], [ 16, %19 ], [ 0, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i ], [ 0, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i ], [ 0, %_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE.exit ], [ %71, %68 ], [ 12, %20 ], [ 8, %21 ], [ 1, %22 ], [ 4, %23 ], [ %61, %58 ], [ 16, %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i.i.i ], [ 32, %72 ], [ %33, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i.i ], [ 12, %24 ], [ 0, %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.i.i.i ], [ 16, %52 ], [ 24, %34 ], [ %88, %81 ], [ %98, %89 ], [ %80, %73 ], [ %44, %35 ]
-  %100 = add i32 %.0.i8, %15
-  %101 = tail call { ptr, ptr } @_ZN5clang7TypeLoc18getNextTypeLocImplES0_(ptr nonnull %.sroa.015.024, ptr %.sroa.8.025)
-  %102 = extractvalue { ptr, ptr } %101, 0
-  %103 = extractvalue { ptr, ptr } %101, 1
-  %.not.i = icmp eq ptr %102, null
+_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit: ; preds = %_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i, %19, %20, %21, %22, %23, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i.i, %33, %34, %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.i.i.i, %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i.i.i, %51, %57, %61, %67, %71, %72, %80, %88
+  %.0.i8 = phi i32 [ 16, %61 ], [ 0, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i ], [ 0, %_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE.exit ], [ %43, %34 ], [ 0, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i ], [ 0, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i ], [ 0, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i ], [ %70, %67 ], [ 12, %19 ], [ 8, %20 ], [ 1, %21 ], [ 4, %22 ], [ %60, %57 ], [ 16, %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.thread.i.i.i ], [ 32, %71 ], [ %32, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i.i ], [ 12, %23 ], [ 0, %_ZNK5clang17ElaboratedTypeLoc7isEmptyEv.exit.i.i.i ], [ 16, %51 ], [ 24, %33 ], [ %87, %80 ], [ %97, %88 ], [ %79, %72 ]
+  %99 = add i32 %.0.i8, %15
+  %100 = tail call { ptr, ptr } @_ZN5clang7TypeLoc18getNextTypeLocImplES0_(ptr nonnull %.sroa.015.024, ptr %.sroa.8.025)
+  %101 = extractvalue { ptr, ptr } %100, 0
+  %102 = extractvalue { ptr, ptr } %100, 1
+  %.not.i = icmp eq ptr %101, null
   br i1 %.not.i, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit, %1
   %.017.lcssa = phi i32 [ 1, %1 ], [ %.sroa.speculated, %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit ]
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %100, %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit ]
-  %104 = icmp ne i32 %.0.lcssa, 0
-  %105 = zext i1 %104 to i32
-  %106 = sub i32 %.0.lcssa, %105
-  %107 = udiv i32 %106, %.017.lcssa
-  %108 = add i32 %107, %105
-  %109 = mul i32 %108, %.017.lcssa
-  ret i32 %109
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %99, %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit ]
+  %103 = icmp ne i32 %.0.lcssa, 0
+  %104 = zext i1 %103 to i32
+  %105 = sub i32 %.0.lcssa, %104
+  %106 = udiv i32 %105, %.017.lcssa
+  %107 = add i32 %106, %104
+  %108 = mul i32 %107, %.017.lcssa
+  ret i32 %108
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -4192,8 +4189,8 @@ define dso_local i32 @_ZNK5clang7TypeLoc9getEndLocEv(ptr noundef nonnull readonl
 2:                                                ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread, %1
   %.sroa.11.0 = phi ptr [ null, %1 ], [ %.sroa.11.2, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread ]
   %.sroa.016.0 = phi ptr [ null, %1 ], [ %.sroa.016.2, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread ]
-  %.sroa.031.0 = phi ptr [ %.sroa.031.0.copyload, %1 ], [ %21, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.0.copyload, %1 ], [ %22, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread ]
+  %.sroa.031.0 = phi ptr [ %.sroa.031.0.copyload, %1 ], [ %20, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.0.copyload, %1 ], [ %21, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread ]
   %3 = ptrtoint ptr %.sroa.031.0 to i64
   %4 = and i64 %3, 15
   %.not.i = icmp eq i64 %4, 0
@@ -4204,20 +4201,20 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 16
   switch i8 %7, label %8 [
-    i8 39, label %10
-    i8 2, label %10
-    i8 4, label %10
-    i8 5, label %10
-    i8 6, label %10
-    i8 25, label %10
-    i8 26, label %11
-    i8 33, label %15
-    i8 41, label %18
-    i8 11, label %18
-    i8 32, label %18
-    i8 42, label %18
-    i8 43, label %18
-    i8 37, label %18
+    i8 39, label %18
+    i8 2, label %18
+    i8 4, label %18
+    i8 5, label %18
+    i8 6, label %18
+    i8 25, label %18
+    i8 26, label %10
+    i8 33, label %14
+    i8 41, label %17
+    i8 11, label %17
+    i8 32, label %17
+    i8 42, label %17
+    i8 43, label %17
+    i8 37, label %17
     i8 58, label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
     i8 24, label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
   ]
@@ -4231,38 +4228,35 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %2
   %.sroa.315.0.extract.trunc = trunc nuw i64 %.sroa.315.0.extract.shift to i32
   ret i32 %.sroa.315.0.extract.trunc
 
-10:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
-
-11:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.031.0, i64 16
-  %13 = load i64, ptr %12, align 16
-  %14 = and i64 %13, 2305843009213693952
-  %.not = icmp eq i64 %14, 0
+10:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.031.0, i64 16
+  %12 = load i64, ptr %11, align 16
+  %13 = and i64 %12, 2305843009213693952
+  %.not = icmp eq i64 %13, 0
   %spec.select34 = select i1 %.not, ptr %.sroa.12.0, ptr null
   %spec.select35 = select i1 %.not, ptr %.sroa.031.0, ptr null
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
-15:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
+14:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
   %.sroa.0.0.copyload.i.i = load i32, ptr %.sroa.12.0, align 4, !tbaa !12
-  %16 = icmp eq i32 %.sroa.0.0.copyload.i.i, 0
-  %17 = icmp ne ptr %.sroa.016.0, null
-  %or.cond = select i1 %16, i1 true, i1 %17
-  br i1 %or.cond, label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread, label %19
+  %15 = icmp eq i32 %.sroa.0.0.copyload.i.i, 0
+  %16 = icmp ne ptr %.sroa.016.0, null
+  %or.cond = select i1 %15, i1 true, i1 %16
+  br i1 %or.cond, label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread, label %18
 
-18:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
+17:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
   %.old.not = icmp eq ptr %.sroa.016.0, null
-  br i1 %.old.not, label %19, label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
+  br i1 %.old.not, label %18, label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
-19:                                               ; preds = %15, %18
+18:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %14, %17
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
-_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread: ; preds = %11, %2, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %18, %19, %15, %10
-  %.sroa.11.2 = phi ptr [ %.sroa.12.0, %10 ], [ %spec.select34, %11 ], [ %.sroa.11.0, %2 ], [ %.sroa.11.0, %15 ], [ %.sroa.11.0, %18 ], [ %.sroa.12.0, %19 ], [ %.sroa.11.0, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ], [ %.sroa.11.0, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ]
-  %.sroa.016.2 = phi ptr [ %.sroa.031.0, %10 ], [ %spec.select35, %11 ], [ %.sroa.016.0, %2 ], [ %.sroa.016.0, %15 ], [ %.sroa.016.0, %18 ], [ %.sroa.031.0, %19 ], [ %.sroa.016.0, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ], [ %.sroa.016.0, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ]
-  %20 = tail call { ptr, ptr } @_ZN5clang7TypeLoc18getNextTypeLocImplES0_(ptr %.sroa.031.0, ptr %.sroa.12.0)
-  %21 = extractvalue { ptr, ptr } %20, 0
-  %22 = extractvalue { ptr, ptr } %20, 1
+_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread: ; preds = %10, %2, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %17, %18, %14
+  %.sroa.11.2 = phi ptr [ %.sroa.11.0, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ], [ %spec.select34, %10 ], [ %.sroa.11.0, %2 ], [ %.sroa.11.0, %14 ], [ %.sroa.11.0, %17 ], [ %.sroa.12.0, %18 ], [ %.sroa.11.0, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ]
+  %.sroa.016.2 = phi ptr [ %.sroa.016.0, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ], [ %spec.select35, %10 ], [ %.sroa.016.0, %2 ], [ %.sroa.016.0, %14 ], [ %.sroa.016.0, %17 ], [ %.sroa.031.0, %18 ], [ %.sroa.016.0, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ]
+  %19 = tail call { ptr, ptr } @_ZN5clang7TypeLoc18getNextTypeLocImplES0_(ptr %.sroa.031.0, ptr %.sroa.12.0)
+  %20 = extractvalue { ptr, ptr } %19, 0
+  %21 = extractvalue { ptr, ptr } %19, 1
   br label %2, !llvm.loop !105
 }
 

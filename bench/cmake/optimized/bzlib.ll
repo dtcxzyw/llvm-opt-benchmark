@@ -272,7 +272,7 @@ define dso_local range(i32 -2, 5) i32 @BZ2_bzCompress(ptr noundef readonly captu
     i32 1, label %isempty_RL.exit.thread.loopexit
     i32 2, label %.split68.us
     i32 3, label %.split62.us.thread
-    i32 4, label %.split65.us.thread
+    i32 4, label %.split62.us.thread
   ]
 
 .preheader.split.us69:                            ; preds = %.preheader, %.backedge.us70
@@ -310,7 +310,7 @@ define dso_local range(i32 -2, 5) i32 @BZ2_bzCompress(ptr noundef readonly captu
     i32 1, label %isempty_RL.exit.thread.loopexit
     i32 2, label %17
     i32 3, label %.split62.us.thread
-    i32 4, label %.split65.us.thread
+    i32 4, label %.split62.us.thread
   ]
 
 17:                                               ; preds = %.preheader.split
@@ -322,7 +322,7 @@ define dso_local range(i32 -2, 5) i32 @BZ2_bzCompress(ptr noundef readonly captu
   %19 = select i1 %.not48, i32 -2, i32 1
   br label %isempty_RL.exit.thread
 
-.split62.us.thread:                               ; preds = %.preheader.split, %.preheader.split.us
+.split62.us.thread:                               ; preds = %.preheader.split.us, %.preheader.split, %.preheader.split, %.preheader.split.us
   br label %isempty_RL.exit.thread
 
 .split62.us:                                      ; preds = %.preheader.split.us77, %.preheader.split.us69
@@ -364,9 +364,6 @@ isempty_RL.exit:                                  ; preds = %31, %27
 
 40:                                               ; preds = %isempty_RL.exit
   store i32 2, ptr %10, align 8, !tbaa !23
-  br label %isempty_RL.exit.thread
-
-.split65.us.thread:                               ; preds = %.preheader.split, %.preheader.split.us
   br label %isempty_RL.exit.thread
 
 .split65.us:                                      ; preds = %.preheader.split.us77, %.preheader.split.us69
@@ -418,8 +415,8 @@ isempty_RL.exit.thread.loopexit:                  ; preds = %.preheader.split.us
   %.us-phi = phi i32 [ -1, %.preheader.split.us ], [ -1, %.preheader.split ], [ -1, %.preheader.split.us69 ], [ -2, %17 ], [ -1, %.preheader.split.us77 ]
   br label %isempty_RL.exit.thread
 
-isempty_RL.exit.thread:                           ; preds = %.preheader.split.us77, %.preheader.split.us69, %.split65.us.thread, %.split62.us.thread, %.preheader.split.us, %.preheader.split, %isempty_RL.exit.thread.loopexit, %53, %31, %47, %isempty_RL.exit52, %45, %41, %.split65.us, %24, %isempty_RL.exit, %20, %.split62.us, %8, %4, %2, %62, %40, %.split68.us
-  %.0 = phi i32 [ -1, %41 ], [ -2, %2 ], [ -2, %4 ], [ %.us-phi, %isempty_RL.exit.thread.loopexit ], [ -2, %8 ], [ %19, %.split68.us ], [ 2, %31 ], [ 3, %53 ], [ -1, %.split62.us ], [ -1, %20 ], [ 1, %40 ], [ 2, %24 ], [ -1, %.split65.us ], [ -1, %45 ], [ 4, %62 ], [ 2, %isempty_RL.exit ], [ 3, %47 ], [ 3, %isempty_RL.exit52 ], [ 0, %.preheader.split.us ], [ 0, %.preheader.split ], [ -1, %.split65.us.thread ], [ 0, %.preheader.split.us69 ], [ -1, %.split62.us.thread ], [ 0, %.preheader.split.us77 ]
+isempty_RL.exit.thread:                           ; preds = %.preheader.split.us77, %.preheader.split.us69, %.split62.us.thread, %.preheader.split.us, %.preheader.split, %isempty_RL.exit.thread.loopexit, %53, %31, %47, %isempty_RL.exit52, %45, %41, %.split65.us, %24, %isempty_RL.exit, %20, %.split62.us, %8, %4, %2, %62, %40, %.split68.us
+  %.0 = phi i32 [ -1, %41 ], [ -2, %2 ], [ -2, %4 ], [ %.us-phi, %isempty_RL.exit.thread.loopexit ], [ -2, %8 ], [ %19, %.split68.us ], [ 2, %31 ], [ 3, %53 ], [ -1, %.split62.us ], [ -1, %20 ], [ 1, %40 ], [ 2, %24 ], [ -1, %.split65.us ], [ -1, %45 ], [ 4, %62 ], [ 2, %isempty_RL.exit ], [ 3, %47 ], [ 3, %isempty_RL.exit52 ], [ 0, %.preheader.split.us ], [ 0, %.preheader.split ], [ 0, %.preheader.split.us69 ], [ -1, %.split62.us.thread ], [ 0, %.preheader.split.us77 ]
   ret i32 %.0
 }
 
@@ -2775,8 +2772,8 @@ define dso_local void @BZ2_bzWrite(ptr noundef writeonly captures(address_is_nul
   %.not48.i = icmp eq i8 %45, 0
   br i1 %.not48.i, label %select.unfold.loopexit, label %BZ2_bzCompress.exit
 
-select.unfold.loopexit:                           ; preds = %.preheader.i, %42, %39, %.split68.us.i
-  %.0.i.ph.ph = phi i32 [ -2, %39 ], [ -2, %42 ], [ 0, %.preheader.i ], [ -2, %.split68.us.i ]
+select.unfold.loopexit:                           ; preds = %42, %39, %.preheader.i, %.split68.us.i
+  %.0.i.ph.ph = phi i32 [ 0, %.preheader.i ], [ -2, %39 ], [ -2, %42 ], [ -2, %.split68.us.i ]
   br label %select.unfold
 
 select.unfold:                                    ; preds = %.preheader.i, %.preheader.i, %.preheader.i, %select.unfold.loopexit

@@ -525,7 +525,7 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
     i32 4, label %4
     i32 2, label %32
     i32 1, label %55
-    i32 6, label %94
+    i32 6, label %93
   ]
 
 4:                                                ; preds = %2
@@ -633,13 +633,13 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
 67:                                               ; preds = %66
   %68 = load i8, ptr %61, align 1, !tbaa !14
   %69 = icmp eq i8 %68, 46
-  br i1 %69, label %70, label %91
+  br i1 %69, label %70, label %90
 
 70:                                               ; preds = %67
   %71 = load i32, ptr %57, align 8, !tbaa !48
   %72 = load i32, ptr %59, align 8, !tbaa !48
   %73 = icmp sgt i32 %71, %72
-  br i1 %73, label %74, label %79
+  br i1 %73, label %74, label %133
 
 74:                                               ; preds = %70
   %75 = sub nsw i32 %71, %72
@@ -647,133 +647,130 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
   %77 = getelementptr inbounds nuw i8, ptr %63, i64 %76
   %78 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %61, ptr noundef nonnull %77) #5
   %.not37.i = icmp eq i32 %78, 0
-  br i1 %.not37.i, label %nc_dn.exit, label %79
-
-79:                                               ; preds = %74, %70
-  br label %nc_dn.exit
+  br i1 %.not37.i, label %nc_dn.exit, label %133
 
 .critedge.i:                                      ; preds = %66
   %.not38.i = icmp eq ptr %64, %61
-  br i1 %.not38.i, label %89, label %80
+  br i1 %.not38.i, label %88, label %79
 
-80:                                               ; preds = %.critedge.i
-  %81 = ptrtoint ptr %64 to i64
-  %82 = ptrtoint ptr %61 to i64
-  %83 = sub i64 %81, %82
-  %84 = ptrtoint ptr %65 to i64
-  %85 = ptrtoint ptr %63 to i64
-  %86 = sub i64 %84, %85
-  %.not39.i = icmp eq i64 %83, %86
-  br i1 %.not39.i, label %87, label %nc_dn.exit
+79:                                               ; preds = %.critedge.i
+  %80 = ptrtoint ptr %64 to i64
+  %81 = ptrtoint ptr %61 to i64
+  %82 = sub i64 %80, %81
+  %83 = ptrtoint ptr %65 to i64
+  %84 = ptrtoint ptr %63 to i64
+  %85 = sub i64 %83, %84
+  %.not39.i = icmp eq i64 %82, %85
+  br i1 %.not39.i, label %86, label %nc_dn.exit
 
-87:                                               ; preds = %80
-  %88 = tail call i32 @strncmp(ptr noundef nonnull %61, ptr noundef nonnull %63, i64 noundef %83) #6
-  %.not40.i = icmp eq i32 %88, 0
-  br i1 %.not40.i, label %89, label %nc_dn.exit
+86:                                               ; preds = %79
+  %87 = tail call i32 @strncmp(ptr noundef nonnull %61, ptr noundef nonnull %63, i64 noundef %82) #6
+  %.not40.i = icmp eq i32 %87, 0
+  br i1 %.not40.i, label %88, label %nc_dn.exit
 
-89:                                               ; preds = %87, %.critedge.i
-  %90 = getelementptr inbounds nuw i8, ptr %64, i64 1
-  br label %91
+88:                                               ; preds = %86, %.critedge.i
+  %89 = getelementptr inbounds nuw i8, ptr %64, i64 1
+  br label %90
 
-91:                                               ; preds = %89, %67
-  %.029.i = phi ptr [ %90, %89 ], [ %61, %67 ]
-  %92 = getelementptr inbounds nuw i8, ptr %65, i64 1
-  %93 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.029.i, ptr noundef nonnull %92) #5
-  %.not41.i = icmp eq i32 %93, 0
+90:                                               ; preds = %88, %67
+  %.029.i = phi ptr [ %89, %88 ], [ %61, %67 ]
+  %91 = getelementptr inbounds nuw i8, ptr %65, i64 1
+  %92 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.029.i, ptr noundef nonnull %91) #5
+  %.not41.i = icmp eq i32 %92, 0
   %..i14 = select i1 %.not41.i, i32 0, i32 47
   br label %nc_dn.exit
 
-94:                                               ; preds = %2
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %96 = load ptr, ptr %95, align 8, !tbaa !14
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %98 = load ptr, ptr %97, align 8, !tbaa !14
-  %99 = getelementptr i8, ptr %96, i64 8
-  %.val = load ptr, ptr %99, align 8, !tbaa !49
-  %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %101 = load ptr, ptr %100, align 8, !tbaa !49
-  %102 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.val, i32 noundef 58) #6
-  %.not.i15 = icmp eq ptr %102, null
-  br i1 %.not.i15, label %nc_dn.exit, label %103
+93:                                               ; preds = %2
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %95 = load ptr, ptr %94, align 8, !tbaa !14
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %97 = load ptr, ptr %96, align 8, !tbaa !14
+  %98 = getelementptr i8, ptr %95, i64 8
+  %.val = load ptr, ptr %98, align 8, !tbaa !49
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %100 = load ptr, ptr %99, align 8, !tbaa !49
+  %101 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.val, i32 noundef 58) #6
+  %.not.i15 = icmp eq ptr %101, null
+  br i1 %.not.i15, label %nc_dn.exit, label %102
 
-103:                                              ; preds = %94
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 1
-  %105 = load i8, ptr %104, align 1, !tbaa !14
-  %.not34.i = icmp eq i8 %105, 47
-  br i1 %.not34.i, label %106, label %nc_dn.exit
+102:                                              ; preds = %93
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 1
+  %104 = load i8, ptr %103, align 1, !tbaa !14
+  %.not34.i = icmp eq i8 %104, 47
+  br i1 %.not34.i, label %105, label %nc_dn.exit
 
-106:                                              ; preds = %103
-  %107 = getelementptr inbounds nuw i8, ptr %102, i64 2
-  %108 = load i8, ptr %107, align 1, !tbaa !14
-  %.not35.i = icmp eq i8 %108, 47
-  br i1 %.not35.i, label %109, label %nc_dn.exit
+105:                                              ; preds = %102
+  %106 = getelementptr inbounds nuw i8, ptr %101, i64 2
+  %107 = load i8, ptr %106, align 1, !tbaa !14
+  %.not35.i = icmp eq i8 %107, 47
+  br i1 %.not35.i, label %108, label %nc_dn.exit
 
-109:                                              ; preds = %106
-  %110 = getelementptr inbounds nuw i8, ptr %102, i64 3
-  %111 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %110, i32 noundef 58) #6
-  %.not36.i16 = icmp eq ptr %111, null
-  br i1 %.not36.i16, label %112, label %.thread.i
+108:                                              ; preds = %105
+  %109 = getelementptr inbounds nuw i8, ptr %101, i64 3
+  %110 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %109, i32 noundef 58) #6
+  %.not36.i16 = icmp eq ptr %110, null
+  br i1 %.not36.i16, label %111, label %.thread.i
 
-112:                                              ; preds = %109
-  %113 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %110, i32 noundef 47) #6
-  %.not37.i21 = icmp eq ptr %113, null
-  br i1 %.not37.i21, label %114, label %.thread.i
+111:                                              ; preds = %108
+  %112 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %109, i32 noundef 47) #6
+  %.not37.i21 = icmp eq ptr %112, null
+  br i1 %.not37.i21, label %113, label %.thread.i
 
-114:                                              ; preds = %112
-  %115 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %110) #6
-  br label %119
+113:                                              ; preds = %111
+  %114 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %109) #6
+  br label %118
 
-.thread.i:                                        ; preds = %112, %109
-  %.0293.i = phi ptr [ %113, %112 ], [ %111, %109 ]
-  %116 = ptrtoint ptr %.0293.i to i64
-  %117 = ptrtoint ptr %110 to i64
-  %118 = sub i64 %116, %117
-  br label %119
+.thread.i:                                        ; preds = %111, %108
+  %.0293.i = phi ptr [ %112, %111 ], [ %110, %108 ]
+  %115 = ptrtoint ptr %.0293.i to i64
+  %116 = ptrtoint ptr %109 to i64
+  %117 = sub i64 %115, %116
+  br label %118
 
-119:                                              ; preds = %.thread.i, %114
-  %.0.in.i = phi i64 [ %118, %.thread.i ], [ %115, %114 ]
+118:                                              ; preds = %.thread.i, %113
+  %.0.in.i = phi i64 [ %117, %.thread.i ], [ %114, %113 ]
   %.0.i17 = trunc i64 %.0.in.i to i32
-  %120 = icmp eq i32 %.0.i17, 0
-  br i1 %120, label %nc_dn.exit, label %121
+  %119 = icmp eq i32 %.0.i17, 0
+  br i1 %119, label %nc_dn.exit, label %120
 
-121:                                              ; preds = %119
-  %122 = load i8, ptr %101, align 1, !tbaa !14
-  %123 = icmp eq i8 %122, 46
-  %124 = load i32, ptr %98, align 8, !tbaa !48
-  br i1 %123, label %125, label %135
+120:                                              ; preds = %118
+  %121 = load i8, ptr %100, align 1, !tbaa !14
+  %122 = icmp eq i8 %121, 46
+  %123 = load i32, ptr %97, align 8, !tbaa !48
+  br i1 %122, label %124, label %134
 
-125:                                              ; preds = %121
-  %126 = icmp slt i32 %124, %.0.i17
-  br i1 %126, label %127, label %134
+124:                                              ; preds = %120
+  %125 = icmp slt i32 %123, %.0.i17
+  br i1 %125, label %126, label %133
 
-127:                                              ; preds = %125
+126:                                              ; preds = %124
   %sext40.i = shl i64 %.0.in.i, 32
-  %128 = ashr exact i64 %sext40.i, 32
-  %129 = getelementptr inbounds i8, ptr %110, i64 %128
-  %130 = sext i32 %124 to i64
-  %131 = sub nsw i64 0, %130
-  %132 = getelementptr inbounds i8, ptr %129, i64 %131
-  %133 = tail call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %132, ptr noundef nonnull %101, i64 noundef %130) #5
-  %.not41.i20 = icmp eq i32 %133, 0
-  br i1 %.not41.i20, label %nc_dn.exit, label %134
+  %127 = ashr exact i64 %sext40.i, 32
+  %128 = getelementptr inbounds i8, ptr %109, i64 %127
+  %129 = sext i32 %123 to i64
+  %130 = sub nsw i64 0, %129
+  %131 = getelementptr inbounds i8, ptr %128, i64 %130
+  %132 = tail call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %131, ptr noundef nonnull %100, i64 noundef %129) #5
+  %.not41.i20 = icmp eq i32 %132, 0
+  br i1 %.not41.i20, label %nc_dn.exit, label %133
 
-134:                                              ; preds = %127, %125
+133:                                              ; preds = %70, %74, %126, %124
   br label %nc_dn.exit
 
-135:                                              ; preds = %121
-  %.not38.i18 = icmp eq i32 %124, %.0.i17
-  br i1 %.not38.i18, label %136, label %nc_dn.exit
+134:                                              ; preds = %120
+  %.not38.i18 = icmp eq i32 %123, %.0.i17
+  br i1 %.not38.i18, label %135, label %nc_dn.exit
 
-136:                                              ; preds = %135
+135:                                              ; preds = %134
   %sext.i = shl i64 %.0.in.i, 32
-  %137 = ashr exact i64 %sext.i, 32
-  %138 = tail call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %110, ptr noundef nonnull %101, i64 noundef %137) #5
-  %.not39.i19 = icmp eq i32 %138, 0
+  %136 = ashr exact i64 %sext.i, 32
+  %137 = tail call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %109, ptr noundef nonnull %100, i64 noundef %136) #5
+  %.not39.i19 = icmp eq i32 %137, 0
   %spec.select.i = select i1 %.not39.i19, i32 0, i32 47
   br label %nc_dn.exit
 
-nc_dn.exit:                                       ; preds = %136, %135, %134, %127, %119, %106, %103, %94, %91, %87, %80, %79, %74, %55, %53, %50, %32, %26, %20, %17, %11, %2
-  %.0 = phi i32 [ 53, %55 ], [ 51, %2 ], [ %..i, %26 ], [ 47, %50 ], [ 47, %20 ], [ 17, %11 ], [ 17, %17 ], [ 0, %32 ], [ %..i11, %53 ], [ 0, %74 ], [ 47, %80 ], [ %..i14, %91 ], [ 47, %87 ], [ 47, %79 ], [ 47, %135 ], [ 53, %94 ], [ 47, %134 ], [ 53, %119 ], [ 0, %127 ], [ 53, %106 ], [ 53, %103 ], [ %spec.select.i, %136 ]
+nc_dn.exit:                                       ; preds = %135, %134, %133, %126, %118, %105, %102, %93, %90, %86, %79, %74, %55, %53, %50, %32, %26, %20, %17, %11, %2
+  %.0 = phi i32 [ 53, %55 ], [ 51, %2 ], [ %..i, %26 ], [ 47, %50 ], [ 47, %20 ], [ 17, %11 ], [ 17, %17 ], [ 0, %32 ], [ %..i11, %53 ], [ 0, %74 ], [ 47, %79 ], [ %..i14, %90 ], [ 47, %86 ], [ %spec.select.i, %135 ], [ 47, %134 ], [ 53, %93 ], [ 47, %133 ], [ 53, %118 ], [ 0, %126 ], [ 53, %105 ], [ 53, %102 ]
   ret i32 %.0
 }
 

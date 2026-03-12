@@ -7286,12 +7286,12 @@ dissect_usb_device_descriptor.exit:               ; preds = %dissect_max_packet_
   %377 = load ptr, ptr %187, align 8
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 4
   %379 = load i16, ptr %378, align 4
-  switch i16 %379, label %390 [
+  switch i16 %379, label %386 [
     i16 2, label %dissect_usb_interface_descriptor.exit.i
     i16 8, label %380
     i16 10, label %381
     i16 254, label %382
-    i16 3, label %386
+    i16 3, label %387
   ]
 
 380:                                              ; preds = %370
@@ -7305,16 +7305,16 @@ dissect_usb_device_descriptor.exit:               ; preds = %dissect_max_packet_
   %384 = load i16, ptr %383, align 2
   %switch.tableidx = add i16 %384, -1
   %385 = icmp ult i16 %switch.tableidx, 3
-  br i1 %385, label %switch.lookup, label %dissect_usb_interface_descriptor.exit.i
+  br i1 %385, label %switch.lookup, label %386
 
-386:                                              ; preds = %370
-  %387 = getelementptr inbounds nuw i8, ptr %377, i64 6
-  %388 = load i16, ptr %387, align 2
-  %389 = icmp eq i16 %388, 1
-  %hf_usb_bInterfaceProtocol_hid_boot.hf_usb_bInterfaceProtocol.i.i = select i1 %389, ptr @hf_usb_bInterfaceProtocol_hid_boot, ptr @hf_usb_bInterfaceProtocol
+386:                                              ; preds = %382, %370
   br label %dissect_usb_interface_descriptor.exit.i
 
-390:                                              ; preds = %370
+387:                                              ; preds = %370
+  %388 = getelementptr inbounds nuw i8, ptr %377, i64 6
+  %389 = load i16, ptr %388, align 2
+  %390 = icmp eq i16 %389, 1
+  %hf_usb_bInterfaceProtocol_hid_boot.hf_usb_bInterfaceProtocol.i.i = select i1 %390, ptr @hf_usb_bInterfaceProtocol_hid_boot, ptr @hf_usb_bInterfaceProtocol
   br label %dissect_usb_interface_descriptor.exit.i
 
 switch.lookup:                                    ; preds = %382
@@ -7323,8 +7323,8 @@ switch.lookup:                                    ; preds = %382
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dissect_usb_interface_descriptor.exit.i
 
-dissect_usb_interface_descriptor.exit.i:          ; preds = %382, %switch.lookup, %390, %386, %381, %380, %370
-  %hf_usb_bInterfaceProtocol_app_dfu.sink.i.i = phi ptr [ @hf_usb_bInterfaceProtocol_cdc, %370 ], [ @hf_usb_bInterfaceProtocol_massstorage, %380 ], [ @hf_usb_bInterfaceProtocol_cdc_data, %381 ], [ %hf_usb_bInterfaceProtocol_hid_boot.hf_usb_bInterfaceProtocol.i.i, %386 ], [ @hf_usb_bInterfaceProtocol, %390 ], [ %switch.load, %switch.lookup ], [ @hf_usb_bInterfaceProtocol, %382 ]
+dissect_usb_interface_descriptor.exit.i:          ; preds = %switch.lookup, %387, %386, %381, %380, %370
+  %hf_usb_bInterfaceProtocol_app_dfu.sink.i.i = phi ptr [ @hf_usb_bInterfaceProtocol_cdc, %370 ], [ @hf_usb_bInterfaceProtocol_cdc_data, %381 ], [ %hf_usb_bInterfaceProtocol_hid_boot.hf_usb_bInterfaceProtocol.i.i, %387 ], [ @hf_usb_bInterfaceProtocol, %386 ], [ @hf_usb_bInterfaceProtocol_massstorage, %380 ], [ %switch.load, %switch.lookup ]
   %392 = add i32 %.0128146.i, 7
   %393 = load i32, ptr %hf_usb_bInterfaceProtocol_app_dfu.sink.i.i, align 4
   %394 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %393, ptr noundef %2, i32 noundef %392, i32 noundef 1, i32 noundef -2147483648)

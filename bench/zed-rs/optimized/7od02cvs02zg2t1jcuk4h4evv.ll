@@ -3802,7 +3802,7 @@ define internal void @"_ZN4core3ptr144drop_in_place$LT$$LT$languages..c..CLspAda
     i8 6, label %54
   ]
 
-common.ret.sink.split:                            ; preds = %155, %"_ZN4core3ptr70drop_in_place$LT$alloc..sync..Arc$LT$languages..c..CLspAdapter$GT$$GT$17h1e26119e04d029c8E.exit30", %86, %"_ZN4core3ptr70drop_in_place$LT$alloc..sync..Arc$LT$languages..c..CLspAdapter$GT$$GT$17h1e26119e04d029c8E.exit"
+common.ret.sink.split:                            ; preds = %155, %"_ZN4core3ptr70drop_in_place$LT$alloc..sync..Arc$LT$languages..c..CLspAdapter$GT$$GT$17h1e26119e04d029c8E.exit30", %"_ZN4core3ptr70drop_in_place$LT$alloc..sync..Arc$LT$languages..c..CLspAdapter$GT$$GT$17h1e26119e04d029c8E.exit", %86
   %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.sink = load ptr, ptr %.sink.in, align 8, !nonnull !11, !align !158, !noundef !11
   tail call void @"_ZN12futures_util4lock5mutex14Mutex$LT$T$GT$6unlock17h6c58a88339131001E"(ptr noundef nonnull align 8 %.sink), !noalias !11
@@ -5021,7 +5021,7 @@ define internal void @"_ZN4core3ptr150drop_in_place$LT$$LT$languages..json..Json
     i8 6, label %54
   ]
 
-common.ret.sink.split:                            ; preds = %155, %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$languages..json..JsonLspAdapter$GT$$GT$17h34fc60427f881b47E.exit30", %86, %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$languages..json..JsonLspAdapter$GT$$GT$17h34fc60427f881b47E.exit"
+common.ret.sink.split:                            ; preds = %155, %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$languages..json..JsonLspAdapter$GT$$GT$17h34fc60427f881b47E.exit30", %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$languages..json..JsonLspAdapter$GT$$GT$17h34fc60427f881b47E.exit", %86
   %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.sink = load ptr, ptr %.sink.in, align 8, !nonnull !11, !align !158, !noundef !11
   tail call void @"_ZN12futures_util4lock5mutex14Mutex$LT$T$GT$6unlock17h6c58a88339131001E"(ptr noundef nonnull align 8 %.sink), !noalias !11
@@ -5486,7 +5486,7 @@ define internal void @"_ZN4core3ptr152drop_in_place$LT$$LT$languages..vtsls..Vts
     i8 6, label %54
   ]
 
-common.ret.sink.split:                            ; preds = %155, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$languages..vtsls..VtslsLspAdapter$GT$$GT$17he1d8c6e5a4f0470aE.exit30", %86, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$languages..vtsls..VtslsLspAdapter$GT$$GT$17he1d8c6e5a4f0470aE.exit"
+common.ret.sink.split:                            ; preds = %155, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$languages..vtsls..VtslsLspAdapter$GT$$GT$17he1d8c6e5a4f0470aE.exit30", %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$languages..vtsls..VtslsLspAdapter$GT$$GT$17he1d8c6e5a4f0470aE.exit", %86
   %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.sink = load ptr, ptr %.sink.in, align 8, !nonnull !11, !align !158, !noundef !11
   tail call void @"_ZN12futures_util4lock5mutex14Mutex$LT$T$GT$6unlock17h6c58a88339131001E"(ptr noundef nonnull align 8 %.sink), !noalias !11
@@ -5921,7 +5921,7 @@ define internal void @"_ZN4core3ptr154drop_in_place$LT$$LT$languages..json..Node
     i8 6, label %54
   ]
 
-common.ret.sink.split:                            ; preds = %155, %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$languages..json..NodeVersionAdapter$GT$$GT$17h62712a90006c2c45E.exit30", %86, %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$languages..json..NodeVersionAdapter$GT$$GT$17h62712a90006c2c45E.exit"
+common.ret.sink.split:                            ; preds = %155, %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$languages..json..NodeVersionAdapter$GT$$GT$17h62712a90006c2c45E.exit30", %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$languages..json..NodeVersionAdapter$GT$$GT$17h62712a90006c2c45E.exit", %86
   %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.sink = load ptr, ptr %.sink.in, align 8, !nonnull !11, !align !158, !noundef !11
   tail call void @"_ZN12futures_util4lock5mutex14Mutex$LT$T$GT$6unlock17h6c58a88339131001E"(ptr noundef nonnull align 8 %.sink), !noalias !11

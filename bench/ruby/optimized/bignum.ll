@@ -10222,7 +10222,7 @@ bary_swap.exit383:                                ; preds = %.lr.ph.i379, %.loop
   %237 = mul i64 %5, %4
   %238 = getelementptr i8, ptr %3, i64 %237
   %239 = icmp eq i64 %237, 0
-  br i1 %239, label %240, label %255
+  br i1 %239, label %240, label %254
 
 240:                                              ; preds = %236
   %241 = and i32 %7, 128
@@ -10233,340 +10233,337 @@ bary_swap.exit383:                                ; preds = %.lr.ph.i379, %.loop
 
 244:                                              ; preds = %240
   %245 = shl nsw i32 %spec.select, 1
-  br label %359
+  br label %358
 
 246:                                              ; preds = %240
   %247 = ptrtoint ptr %.0476 to i64
   %248 = ptrtoint ptr %1 to i64
   %249 = sub i64 %247, %248
   %250 = icmp eq i64 %249, 4
-  br i1 %250, label %251, label %254
+  br i1 %250, label %251, label %357
 
 251:                                              ; preds = %246
   %252 = load i32, ptr %1, align 4, !tbaa !18
   %253 = icmp eq i32 %252, 1
-  br i1 %253, label %359, label %254
+  br i1 %253, label %358, label %357
 
-254:                                              ; preds = %251, %246
-  br label %359
+254:                                              ; preds = %236
+  br i1 %16, label %.thread667, label %255
 
-255:                                              ; preds = %236
-  br i1 %16, label %.thread667, label %256
-
-.thread667:                                       ; preds = %255
+.thread667:                                       ; preds = %254
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %3, i8 noundef 0, i64 noundef %237, i1 noundef false) #28
   br label %.thread494
 
-256:                                              ; preds = %255
-  %257 = icmp ult ptr %3, %238
-  %or.cond359 = and i1 %257, %11
-  br i1 %or.cond359, label %258, label %359
+255:                                              ; preds = %254
+  %256 = icmp ult ptr %3, %238
+  %or.cond359 = and i1 %256, %11
+  br i1 %or.cond359, label %257, label %358
 
-258:                                              ; preds = %256
-  %259 = and i32 %7, 3
-  %260 = icmp eq i32 %259, 1
-  %261 = add i64 %4, -1
-  %262 = mul i64 %5, %261
-  %263 = sub i64 0, %5
-  %.035.i = select i1 %260, i64 %262, i64 0
-  %.034.i = select i1 %260, i64 %263, i64 %5
-  %.033.i = select i1 %260, i64 0, i64 %262
-  %264 = trunc i64 %6 to i32
-  %265 = and i32 %264, 7
-  %266 = icmp ne i32 %265, 0
-  %267 = lshr i64 %6, 3
-  %268 = sub i64 %5, %267
-  %269 = sext i1 %266 to i64
-  %spec.select.i = add i64 %268, %269
-  %270 = and i32 %7, 112
-  %271 = icmp eq i32 %270, 16
-  %272 = add i64 %5, -1
-  %.032.i = select i1 %271, i64 %272, i64 0
-  %.0.i384 = select i1 %271, i64 -1, i64 1
-  %273 = sub nuw nsw i32 8, %265
-  %spec.store.select.i = select i1 %266, i32 %273, i32 0
-  %274 = getelementptr i8, ptr %3, i64 %.035.i
-  %275 = getelementptr i8, ptr %3, i64 %.033.i
+257:                                              ; preds = %255
+  %258 = and i32 %7, 3
+  %259 = icmp eq i32 %258, 1
+  %260 = add i64 %4, -1
+  %261 = mul i64 %5, %260
+  %262 = sub i64 0, %5
+  %.035.i = select i1 %259, i64 %261, i64 0
+  %.034.i = select i1 %259, i64 %262, i64 %5
+  %.033.i = select i1 %259, i64 0, i64 %261
+  %263 = trunc i64 %6 to i32
+  %264 = and i32 %263, 7
+  %265 = icmp ne i32 %264, 0
+  %266 = lshr i64 %6, 3
+  %267 = sub i64 %5, %266
+  %268 = sext i1 %265 to i64
+  %spec.select.i = add i64 %267, %268
+  %269 = and i32 %7, 112
+  %270 = icmp eq i32 %269, 16
+  %271 = add i64 %5, -1
+  %.032.i = select i1 %270, i64 %271, i64 0
+  %.0.i384 = select i1 %270, i64 -1, i64 1
+  %272 = sub nuw nsw i32 8, %264
+  %spec.store.select.i = select i1 %265, i32 %272, i32 0
+  %273 = getelementptr i8, ptr %3, i64 %.035.i
+  %274 = getelementptr i8, ptr %3, i64 %.033.i
   %.not612 = icmp eq i64 %spec.select.i, 0
-  %276 = zext nneg i32 %spec.store.select.i to i64
-  %notmask.i = shl nsw i64 -1, %276
-  %277 = xor i64 %notmask.i, -1
-  %278 = add i64 %spec.select.i, 1
-  br label %279
+  %275 = zext nneg i32 %spec.store.select.i to i64
+  %notmask.i = shl nsw i64 -1, %275
+  %276 = xor i64 %notmask.i, -1
+  %277 = add i64 %spec.select.i, 1
+  br label %278
 
-279:                                              ; preds = %._crit_edge578, %258
-  %.0486 = phi i32 [ 0, %258 ], [ %.2488, %._crit_edge578 ]
-  %.0477 = phi i64 [ 0, %258 ], [ %.2479, %._crit_edge578 ]
-  %.0471 = phi ptr [ %1, %258 ], [ %.2473, %._crit_edge578 ]
-  %.0270 = phi ptr [ %274, %258 ], [ %322, %._crit_edge578 ]
-  %280 = getelementptr i8, ptr %.0270, i64 %.032.i
+278:                                              ; preds = %._crit_edge578, %257
+  %.0486 = phi i32 [ 0, %257 ], [ %.2488, %._crit_edge578 ]
+  %.0477 = phi i64 [ 0, %257 ], [ %.2479, %._crit_edge578 ]
+  %.0471 = phi ptr [ %1, %257 ], [ %.2473, %._crit_edge578 ]
+  %.0270 = phi ptr [ %273, %257 ], [ %321, %._crit_edge578 ]
+  %279 = getelementptr i8, ptr %.0270, i64 %.032.i
   br i1 %.not612, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %279, %integer_pack_fill_dd.exit
-  %.0264569 = phi ptr [ %296, %integer_pack_fill_dd.exit ], [ %280, %279 ]
-  %.0267568 = phi i64 [ %297, %integer_pack_fill_dd.exit ], [ 0, %279 ]
-  %.1472567 = phi ptr [ %.4475, %integer_pack_fill_dd.exit ], [ %.0471, %279 ]
-  %.1478566 = phi i64 [ %293, %integer_pack_fill_dd.exit ], [ %.0477, %279 ]
-  %.1487565 = phi i32 [ %294, %integer_pack_fill_dd.exit ], [ %.0486, %279 ]
-  %281 = icmp ult ptr %.1472567, %.0476
+.lr.ph:                                           ; preds = %278, %integer_pack_fill_dd.exit
+  %.0264569 = phi ptr [ %295, %integer_pack_fill_dd.exit ], [ %279, %278 ]
+  %.0267568 = phi i64 [ %296, %integer_pack_fill_dd.exit ], [ 0, %278 ]
+  %.1472567 = phi ptr [ %.4475, %integer_pack_fill_dd.exit ], [ %.0471, %278 ]
+  %.1478566 = phi i64 [ %292, %integer_pack_fill_dd.exit ], [ %.0477, %278 ]
+  %.1487565 = phi i32 [ %293, %integer_pack_fill_dd.exit ], [ %.0486, %278 ]
+  %280 = icmp ult ptr %.1472567, %.0476
   %notsub.i = add i32 %.1487565, -65
-  %282 = icmp slt i32 %notsub.i, -32
-  %or.cond544 = select i1 %281, i1 %282, i1 false
-  br i1 %or.cond544, label %283, label %291
+  %281 = icmp slt i32 %notsub.i, -32
+  %or.cond544 = select i1 %280, i1 %281, i1 false
+  br i1 %or.cond544, label %282, label %290
 
-283:                                              ; preds = %.lr.ph
-  %284 = getelementptr i8, ptr %.1472567, i64 4
-  %285 = load i32, ptr %.1472567, align 4, !tbaa !18
-  %286 = zext i32 %285 to i64
-  %287 = zext nneg i32 %.1487565 to i64
-  %288 = shl i64 %286, %287
-  %289 = or i64 %288, %.1478566
-  %290 = add nsw i32 %.1487565, 32
+282:                                              ; preds = %.lr.ph
+  %283 = getelementptr i8, ptr %.1472567, i64 4
+  %284 = load i32, ptr %.1472567, align 4, !tbaa !18
+  %285 = zext i32 %284 to i64
+  %286 = zext nneg i32 %.1487565 to i64
+  %287 = shl i64 %285, %286
+  %288 = or i64 %287, %.1478566
+  %289 = add nsw i32 %.1487565, 32
   br label %integer_pack_fill_dd.exit
 
-291:                                              ; preds = %.lr.ph
-  %292 = icmp eq ptr %.1472567, %.0476
-  %spec.select545 = select i1 %292, i32 64, i32 %.1487565
+290:                                              ; preds = %.lr.ph
+  %291 = icmp eq ptr %.1472567, %.0476
+  %spec.select545 = select i1 %291, i32 64, i32 %.1487565
   br label %integer_pack_fill_dd.exit
 
-integer_pack_fill_dd.exit:                        ; preds = %291, %283
-  %.3489 = phi i32 [ %spec.select545, %291 ], [ %290, %283 ]
-  %.4481 = phi i64 [ %.1478566, %291 ], [ %289, %283 ]
-  %.4475 = phi ptr [ %.1472567, %291 ], [ %284, %283 ]
-  %293 = lshr i64 %.4481, 8
-  %294 = add i32 %.3489, -8
-  %295 = trunc i64 %.4481 to i8
-  store i8 %295, ptr %.0264569, align 1, !tbaa !13
-  %296 = getelementptr i8, ptr %.0264569, i64 %.0.i384
-  %297 = add nuw i64 %.0267568, 1
-  %298 = icmp ult i64 %297, %spec.select.i
-  br i1 %298, label %.lr.ph, label %._crit_edge, !llvm.loop !102
+integer_pack_fill_dd.exit:                        ; preds = %290, %282
+  %.3489 = phi i32 [ %spec.select545, %290 ], [ %289, %282 ]
+  %.4481 = phi i64 [ %.1478566, %290 ], [ %288, %282 ]
+  %.4475 = phi ptr [ %.1472567, %290 ], [ %283, %282 ]
+  %292 = lshr i64 %.4481, 8
+  %293 = add i32 %.3489, -8
+  %294 = trunc i64 %.4481 to i8
+  store i8 %294, ptr %.0264569, align 1, !tbaa !13
+  %295 = getelementptr i8, ptr %.0264569, i64 %.0.i384
+  %296 = add nuw i64 %.0267568, 1
+  %297 = icmp ult i64 %296, %spec.select.i
+  br i1 %297, label %.lr.ph, label %._crit_edge, !llvm.loop !102
 
-._crit_edge:                                      ; preds = %integer_pack_fill_dd.exit, %279
-  %.1487.lcssa = phi i32 [ %.0486, %279 ], [ %294, %integer_pack_fill_dd.exit ]
-  %.1478.lcssa = phi i64 [ %.0477, %279 ], [ %293, %integer_pack_fill_dd.exit ]
-  %.1472.lcssa = phi ptr [ %.0471, %279 ], [ %.4475, %integer_pack_fill_dd.exit ]
-  %.0264.lcssa = phi ptr [ %280, %279 ], [ %296, %integer_pack_fill_dd.exit ]
-  br i1 %266, label %299, label %317
+._crit_edge:                                      ; preds = %integer_pack_fill_dd.exit, %278
+  %.1487.lcssa = phi i32 [ %.0486, %278 ], [ %293, %integer_pack_fill_dd.exit ]
+  %.1478.lcssa = phi i64 [ %.0477, %278 ], [ %292, %integer_pack_fill_dd.exit ]
+  %.1472.lcssa = phi ptr [ %.0471, %278 ], [ %.4475, %integer_pack_fill_dd.exit ]
+  %.0264.lcssa = phi ptr [ %279, %278 ], [ %295, %integer_pack_fill_dd.exit ]
+  br i1 %265, label %298, label %316
 
-299:                                              ; preds = %._crit_edge
-  %300 = icmp ult ptr %.1472.lcssa, %.0476
+298:                                              ; preds = %._crit_edge
+  %299 = icmp ult ptr %.1472.lcssa, %.0476
   %notsub.i387 = add i32 %.1487.lcssa, -65
-  %301 = icmp slt i32 %notsub.i387, -32
-  %or.cond547 = select i1 %300, i1 %301, i1 false
-  br i1 %or.cond547, label %302, label %310
+  %300 = icmp slt i32 %notsub.i387, -32
+  %or.cond547 = select i1 %299, i1 %300, i1 false
+  br i1 %or.cond547, label %301, label %309
 
-302:                                              ; preds = %299
-  %303 = getelementptr i8, ptr %.1472.lcssa, i64 4
-  %304 = load i32, ptr %.1472.lcssa, align 4, !tbaa !18
-  %305 = zext i32 %304 to i64
-  %306 = zext nneg i32 %.1487.lcssa to i64
-  %307 = shl i64 %305, %306
-  %308 = or i64 %307, %.1478.lcssa
-  %309 = add nsw i32 %.1487.lcssa, 32
+301:                                              ; preds = %298
+  %302 = getelementptr i8, ptr %.1472.lcssa, i64 4
+  %303 = load i32, ptr %.1472.lcssa, align 4, !tbaa !18
+  %304 = zext i32 %303 to i64
+  %305 = zext nneg i32 %.1487.lcssa to i64
+  %306 = shl i64 %304, %305
+  %307 = or i64 %306, %.1478.lcssa
+  %308 = add nsw i32 %.1487.lcssa, 32
   br label %integer_pack_fill_dd.exit388
 
-310:                                              ; preds = %299
-  %311 = icmp eq ptr %.1472.lcssa, %.0476
-  %spec.select548 = select i1 %311, i32 64, i32 %.1487.lcssa
+309:                                              ; preds = %298
+  %310 = icmp eq ptr %.1472.lcssa, %.0476
+  %spec.select548 = select i1 %310, i32 64, i32 %.1487.lcssa
   br label %integer_pack_fill_dd.exit388
 
-integer_pack_fill_dd.exit388:                     ; preds = %310, %302
-  %.4490 = phi i32 [ %spec.select548, %310 ], [ %309, %302 ]
-  %.6483 = phi i64 [ %.1478.lcssa, %310 ], [ %308, %302 ]
-  %.6 = phi ptr [ %.1472.lcssa, %310 ], [ %303, %302 ]
-  %312 = and i64 %.6483, %277
-  %313 = lshr i64 %.6483, %276
-  %314 = sub i32 %.4490, %273
-  %315 = trunc nuw i64 %312 to i8
-  store i8 %315, ptr %.0264.lcssa, align 1, !tbaa !13
-  %316 = getelementptr i8, ptr %.0264.lcssa, i64 %.0.i384
-  br label %317
+integer_pack_fill_dd.exit388:                     ; preds = %309, %301
+  %.4490 = phi i32 [ %spec.select548, %309 ], [ %308, %301 ]
+  %.6483 = phi i64 [ %.1478.lcssa, %309 ], [ %307, %301 ]
+  %.6 = phi ptr [ %.1472.lcssa, %309 ], [ %302, %301 ]
+  %311 = and i64 %.6483, %276
+  %312 = lshr i64 %.6483, %275
+  %313 = sub i32 %.4490, %272
+  %314 = trunc nuw i64 %311 to i8
+  store i8 %314, ptr %.0264.lcssa, align 1, !tbaa !13
+  %315 = getelementptr i8, ptr %.0264.lcssa, i64 %.0.i384
+  br label %316
 
-317:                                              ; preds = %integer_pack_fill_dd.exit388, %._crit_edge
-  %.2488 = phi i32 [ %.1487.lcssa, %._crit_edge ], [ %314, %integer_pack_fill_dd.exit388 ]
-  %.2479 = phi i64 [ %.1478.lcssa, %._crit_edge ], [ %313, %integer_pack_fill_dd.exit388 ]
+316:                                              ; preds = %integer_pack_fill_dd.exit388, %._crit_edge
+  %.2488 = phi i32 [ %.1487.lcssa, %._crit_edge ], [ %313, %integer_pack_fill_dd.exit388 ]
+  %.2479 = phi i64 [ %.1478.lcssa, %._crit_edge ], [ %312, %integer_pack_fill_dd.exit388 ]
   %.2473 = phi ptr [ %.1472.lcssa, %._crit_edge ], [ %.6, %integer_pack_fill_dd.exit388 ]
-  %.1268 = phi i64 [ %spec.select.i, %._crit_edge ], [ %278, %integer_pack_fill_dd.exit388 ]
-  %.1265 = phi ptr [ %.0264.lcssa, %._crit_edge ], [ %316, %integer_pack_fill_dd.exit388 ]
-  %318 = icmp ult i64 %.1268, %5
-  br i1 %318, label %.lr.ph577, label %._crit_edge578
+  %.1268 = phi i64 [ %spec.select.i, %._crit_edge ], [ %277, %integer_pack_fill_dd.exit388 ]
+  %.1265 = phi ptr [ %.0264.lcssa, %._crit_edge ], [ %315, %integer_pack_fill_dd.exit388 ]
+  %317 = icmp ult i64 %.1268, %5
+  br i1 %317, label %.lr.ph577, label %._crit_edge578
 
-.lr.ph577:                                        ; preds = %317, %.lr.ph577
-  %.2266575 = phi ptr [ %319, %.lr.ph577 ], [ %.1265, %317 ]
-  %.2269574 = phi i64 [ %320, %.lr.ph577 ], [ %.1268, %317 ]
+.lr.ph577:                                        ; preds = %316, %.lr.ph577
+  %.2266575 = phi ptr [ %318, %.lr.ph577 ], [ %.1265, %316 ]
+  %.2269574 = phi i64 [ %319, %.lr.ph577 ], [ %.1268, %316 ]
   store i8 0, ptr %.2266575, align 1, !tbaa !13
-  %319 = getelementptr i8, ptr %.2266575, i64 %.0.i384
-  %320 = add nuw i64 %.2269574, 1
-  %exitcond.not = icmp eq i64 %320, %5
+  %318 = getelementptr i8, ptr %.2266575, i64 %.0.i384
+  %319 = add nuw i64 %.2269574, 1
+  %exitcond.not = icmp eq i64 %319, %5
   br i1 %exitcond.not, label %._crit_edge578, label %.lr.ph577, !llvm.loop !103
 
-._crit_edge578:                                   ; preds = %.lr.ph577, %317
-  %321 = icmp eq ptr %.0270, %275
-  %322 = getelementptr i8, ptr %.0270, i64 %.034.i
-  br i1 %321, label %323, label %279
+._crit_edge578:                                   ; preds = %.lr.ph577, %316
+  %320 = icmp eq ptr %.0270, %274
+  %321 = getelementptr i8, ptr %.0270, i64 %.034.i
+  br i1 %320, label %322, label %278
 
-323:                                              ; preds = %._crit_edge578
-  %324 = icmp ult ptr %.2473, %.0476
+322:                                              ; preds = %._crit_edge578
+  %323 = icmp ult ptr %.2473, %.0476
   %notsub.i391 = add i32 %.2488, -65
-  %325 = icmp slt i32 %notsub.i391, -32
-  %or.cond550 = select i1 %324, i1 %325, i1 false
-  br i1 %or.cond550, label %326, label %integer_pack_fill_dd.exit392
+  %324 = icmp slt i32 %notsub.i391, -32
+  %or.cond550 = select i1 %323, i1 %324, i1 false
+  br i1 %or.cond550, label %325, label %integer_pack_fill_dd.exit392
 
-326:                                              ; preds = %323
-  %327 = getelementptr i8, ptr %.2473, i64 4
-  %328 = load i32, ptr %.2473, align 4, !tbaa !18
-  %329 = zext i32 %328 to i64
-  %330 = zext nneg i32 %.2488 to i64
-  %331 = shl i64 %329, %330
-  %332 = or i64 %331, %.2479
+325:                                              ; preds = %322
+  %326 = getelementptr i8, ptr %.2473, i64 4
+  %327 = load i32, ptr %.2473, align 4, !tbaa !18
+  %328 = zext i32 %327 to i64
+  %329 = zext nneg i32 %.2488 to i64
+  %330 = shl i64 %328, %329
+  %331 = or i64 %330, %.2479
   br label %integer_pack_fill_dd.exit392
 
-integer_pack_fill_dd.exit392:                     ; preds = %323, %326
-  %.8485 = phi i64 [ %332, %326 ], [ %.2479, %323 ]
-  %.8 = phi ptr [ %327, %326 ], [ %.2473, %323 ]
-  %333 = icmp ne ptr %.8, %.0476
-  %334 = icmp ugt i64 %.8485, 1
-  %or.cond13 = select i1 %333, i1 true, i1 %334
-  br i1 %or.cond13, label %335, label %337
+integer_pack_fill_dd.exit392:                     ; preds = %322, %325
+  %.8485 = phi i64 [ %331, %325 ], [ %.2479, %322 ]
+  %.8 = phi ptr [ %326, %325 ], [ %.2473, %322 ]
+  %332 = icmp ne ptr %.8, %.0476
+  %333 = icmp ugt i64 %.8485, 1
+  %or.cond13 = select i1 %332, i1 true, i1 %333
+  br i1 %or.cond13, label %334, label %336
 
-335:                                              ; preds = %integer_pack_fill_dd.exit392
-  %336 = shl nsw i32 %spec.select, 1
-  br label %359
+334:                                              ; preds = %integer_pack_fill_dd.exit392
+  %335 = shl nsw i32 %spec.select, 1
+  br label %358
 
-337:                                              ; preds = %integer_pack_fill_dd.exit392
-  %338 = icmp eq i64 %.8485, 1
-  br i1 %338, label %339, label %359
+336:                                              ; preds = %integer_pack_fill_dd.exit392
+  %337 = icmp eq i64 %.8485, 1
+  br i1 %337, label %338, label %358
 
-339:                                              ; preds = %337
-  %340 = and i32 %7, 128
-  %341 = icmp eq i32 %340, 0
-  %342 = icmp sgt i32 %spec.select, -1
-  %or.cond15 = or i1 %341, %342
-  br i1 %or.cond15, label %343, label %.preheader555
+338:                                              ; preds = %336
+  %339 = and i32 %7, 128
+  %340 = icmp eq i32 %339, 0
+  %341 = icmp sgt i32 %spec.select, -1
+  %or.cond15 = or i1 %340, %341
+  br i1 %or.cond15, label %342, label %.preheader555
 
-.preheader555:                                    ; preds = %339
+.preheader555:                                    ; preds = %338
   br i1 %11, label %.lr.ph580, label %.critedge17
 
-343:                                              ; preds = %339
-  %344 = shl nsw i32 %spec.select, 1
-  br label %359
+342:                                              ; preds = %338
+  %343 = shl nsw i32 %spec.select, 1
+  br label %358
 
-.lr.ph580:                                        ; preds = %.preheader555, %347
-  %storemerge579 = phi ptr [ %348, %347 ], [ %1, %.preheader555 ]
-  %345 = load i32, ptr %storemerge579, align 4, !tbaa !18
-  %346 = icmp eq i32 %345, 0
-  br i1 %346, label %347, label %.critedge17
+.lr.ph580:                                        ; preds = %.preheader555, %346
+  %storemerge579 = phi ptr [ %347, %346 ], [ %1, %.preheader555 ]
+  %344 = load i32, ptr %storemerge579, align 4, !tbaa !18
+  %345 = icmp eq i32 %344, 0
+  br i1 %345, label %346, label %.critedge17
 
-347:                                              ; preds = %.lr.ph580
-  %348 = getelementptr i8, ptr %storemerge579, i64 4
-  %349 = icmp ult ptr %348, %.0476
-  br i1 %349, label %.lr.ph580, label %.critedge17, !llvm.loop !104
+346:                                              ; preds = %.lr.ph580
+  %347 = getelementptr i8, ptr %storemerge579, i64 4
+  %348 = icmp ult ptr %347, %.0476
+  br i1 %348, label %.lr.ph580, label %.critedge17, !llvm.loop !104
 
-.critedge17:                                      ; preds = %.lr.ph580, %347, %.preheader555
-  %storemerge.lcssa = phi ptr [ %1, %.preheader555 ], [ %348, %347 ], [ %storemerge579, %.lr.ph580 ]
-  %350 = ptrtoint ptr %.0476 to i64
-  %351 = ptrtoint ptr %storemerge.lcssa to i64
-  %352 = sub i64 %350, %351
-  %353 = icmp eq i64 %352, 4
-  br i1 %353, label %354, label %358
+.critedge17:                                      ; preds = %.lr.ph580, %346, %.preheader555
+  %storemerge.lcssa = phi ptr [ %1, %.preheader555 ], [ %347, %346 ], [ %storemerge579, %.lr.ph580 ]
+  %349 = ptrtoint ptr %.0476 to i64
+  %350 = ptrtoint ptr %storemerge.lcssa to i64
+  %351 = sub i64 %349, %350
+  %352 = icmp eq i64 %351, 4
+  br i1 %352, label %353, label %357
 
-354:                                              ; preds = %.critedge17
-  %355 = load i32, ptr %storemerge.lcssa, align 4, !tbaa !18
-  %356 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %355)
-  %357 = icmp samesign ult i32 %356, 2
-  br i1 %357, label %359, label %358
+353:                                              ; preds = %.critedge17
+  %354 = load i32, ptr %storemerge.lcssa, align 4, !tbaa !18
+  %355 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %354)
+  %356 = icmp samesign ult i32 %355, 2
+  br i1 %356, label %358, label %357
 
-358:                                              ; preds = %354, %.critedge17
-  br label %359
+357:                                              ; preds = %246, %251, %353, %.critedge17
+  br label %358
 
-359:                                              ; preds = %335, %343, %358, %337, %354, %251, %256, %244, %254
-  %.3260 = phi i32 [ %245, %244 ], [ %0, %256 ], [ -2, %254 ], [ -1, %354 ], [ -1, %251 ], [ %336, %335 ], [ %344, %343 ], [ %spec.select, %337 ], [ -2, %358 ]
-  %360 = and i32 %7, 128
-  %361 = icmp ne i32 %360, 0
-  %362 = icmp slt i32 %.3260, 0
-  %or.cond19 = select i1 %361, i1 %362, i1 false
-  %363 = icmp ne i64 %4, 0
-  %or.cond21 = and i1 %363, %or.cond19
-  br i1 %or.cond21, label %364, label %.thread494
+358:                                              ; preds = %334, %342, %357, %336, %353, %251, %255, %244
+  %.3260 = phi i32 [ %245, %244 ], [ %0, %255 ], [ -2, %357 ], [ -1, %353 ], [ -1, %251 ], [ %335, %334 ], [ %343, %342 ], [ %spec.select, %336 ]
+  %359 = and i32 %7, 128
+  %360 = icmp ne i32 %359, 0
+  %361 = icmp slt i32 %.3260, 0
+  %or.cond19 = select i1 %360, i1 %361, i1 false
+  %362 = icmp ne i64 %4, 0
+  %or.cond21 = and i1 %362, %or.cond19
+  br i1 %or.cond21, label %363, label %.thread494
 
-364:                                              ; preds = %359
-  %365 = and i32 %7, 3
-  %366 = icmp eq i32 %365, 1
-  %367 = add i64 %4, -1
-  %368 = mul i64 %5, %367
-  %369 = sub i64 0, %5
-  %.035.i393 = select i1 %366, i64 %368, i64 0
-  %.034.i394 = select i1 %366, i64 %369, i64 %5
-  %.033.i395 = select i1 %366, i64 0, i64 %368
-  %370 = trunc i64 %6 to i32
-  %371 = and i32 %370, 7
-  %372 = icmp ne i32 %371, 0
-  %373 = lshr i64 %6, 3
-  %374 = sub i64 %5, %373
-  %375 = sext i1 %372 to i64
-  %spec.select.i396 = add i64 %374, %375
-  %376 = and i32 %7, 112
-  %377 = icmp eq i32 %376, 16
-  %378 = add i64 %5, -1
-  %.032.i397 = select i1 %377, i64 %378, i64 0
-  %.0.i398 = select i1 %377, i64 -1, i64 1
-  %379 = sub nuw nsw i32 8, %371
-  %380 = shl nsw i32 -1, %379
-  %381 = xor i32 %380, -1
-  %382 = select i1 %372, i32 %381, i32 0
-  %383 = getelementptr i8, ptr %3, i64 %.035.i393
-  %384 = getelementptr i8, ptr %3, i64 %.033.i395
+363:                                              ; preds = %358
+  %364 = and i32 %7, 3
+  %365 = icmp eq i32 %364, 1
+  %366 = add i64 %4, -1
+  %367 = mul i64 %5, %366
+  %368 = sub i64 0, %5
+  %.035.i393 = select i1 %365, i64 %367, i64 0
+  %.034.i394 = select i1 %365, i64 %368, i64 %5
+  %.033.i395 = select i1 %365, i64 0, i64 %367
+  %369 = trunc i64 %6 to i32
+  %370 = and i32 %369, 7
+  %371 = icmp ne i32 %370, 0
+  %372 = lshr i64 %6, 3
+  %373 = sub i64 %5, %372
+  %374 = sext i1 %371 to i64
+  %spec.select.i396 = add i64 %373, %374
+  %375 = and i32 %7, 112
+  %376 = icmp eq i32 %375, 16
+  %377 = add i64 %5, -1
+  %.032.i397 = select i1 %376, i64 %377, i64 0
+  %.0.i398 = select i1 %376, i64 -1, i64 1
+  %378 = sub nuw nsw i32 8, %370
+  %379 = shl nsw i32 -1, %378
+  %380 = xor i32 %379, -1
+  %381 = select i1 %371, i32 %380, i32 0
+  %382 = getelementptr i8, ptr %3, i64 %.035.i393
+  %383 = getelementptr i8, ptr %3, i64 %.033.i395
   %.not613 = icmp eq i64 %spec.select.i396, 0
-  br label %385
+  br label %384
 
-385:                                              ; preds = %405, %364
-  %.0262 = phi ptr [ %383, %364 ], [ %407, %405 ]
-  %.0253 = phi i32 [ 1, %364 ], [ %.2, %405 ]
-  %386 = getelementptr i8, ptr %.0262, i64 %.032.i397
+384:                                              ; preds = %404, %363
+  %.0262 = phi ptr [ %382, %363 ], [ %406, %404 ]
+  %.0253 = phi i32 [ 1, %363 ], [ %.2, %404 ]
+  %385 = getelementptr i8, ptr %.0262, i64 %.032.i397
   br i1 %.not613, label %._crit_edge589, label %.lr.ph588
 
-.lr.ph588:                                        ; preds = %385, %.lr.ph588
-  %.0586 = phi ptr [ %393, %.lr.ph588 ], [ %386, %385 ]
-  %.0252585 = phi i64 [ %394, %.lr.ph588 ], [ 0, %385 ]
-  %.1584 = phi i32 [ %392, %.lr.ph588 ], [ %.0253, %385 ]
-  %387 = load i8, ptr %.0586, align 1, !tbaa !13
-  %388 = xor i8 %387, -1
-  %389 = zext i8 %388 to i32
-  %390 = add i32 %.1584, %389
-  %391 = trunc i32 %390 to i8
-  store i8 %391, ptr %.0586, align 1, !tbaa !13
-  %392 = ashr i32 %390, 8
-  %393 = getelementptr i8, ptr %.0586, i64 %.0.i398
-  %394 = add nuw i64 %.0252585, 1
-  %395 = icmp ult i64 %394, %spec.select.i396
-  br i1 %395, label %.lr.ph588, label %._crit_edge589, !llvm.loop !105
+.lr.ph588:                                        ; preds = %384, %.lr.ph588
+  %.0586 = phi ptr [ %392, %.lr.ph588 ], [ %385, %384 ]
+  %.0252585 = phi i64 [ %393, %.lr.ph588 ], [ 0, %384 ]
+  %.1584 = phi i32 [ %391, %.lr.ph588 ], [ %.0253, %384 ]
+  %386 = load i8, ptr %.0586, align 1, !tbaa !13
+  %387 = xor i8 %386, -1
+  %388 = zext i8 %387 to i32
+  %389 = add i32 %.1584, %388
+  %390 = trunc i32 %389 to i8
+  store i8 %390, ptr %.0586, align 1, !tbaa !13
+  %391 = ashr i32 %389, 8
+  %392 = getelementptr i8, ptr %.0586, i64 %.0.i398
+  %393 = add nuw i64 %.0252585, 1
+  %394 = icmp ult i64 %393, %spec.select.i396
+  br i1 %394, label %.lr.ph588, label %._crit_edge589, !llvm.loop !105
 
-._crit_edge589:                                   ; preds = %.lr.ph588, %385
-  %.1.lcssa = phi i32 [ %.0253, %385 ], [ %392, %.lr.ph588 ]
-  %.0.lcssa = phi ptr [ %386, %385 ], [ %393, %.lr.ph588 ]
-  br i1 %372, label %396, label %405
+._crit_edge589:                                   ; preds = %.lr.ph588, %384
+  %.1.lcssa = phi i32 [ %.0253, %384 ], [ %391, %.lr.ph588 ]
+  %.0.lcssa = phi ptr [ %385, %384 ], [ %392, %.lr.ph588 ]
+  br i1 %371, label %395, label %404
 
-396:                                              ; preds = %._crit_edge589
-  %397 = load i8, ptr %.0.lcssa, align 1, !tbaa !13
-  %398 = zext i8 %397 to i32
-  %399 = xor i32 %398, -1
-  %400 = and i32 %382, %399
-  %401 = add i32 %400, %.1.lcssa
-  %402 = and i32 %401, %382
-  %403 = trunc nuw i32 %402 to i8
-  store i8 %403, ptr %.0.lcssa, align 1, !tbaa !13
-  %404 = ashr i32 %401, %379
-  br label %405
+395:                                              ; preds = %._crit_edge589
+  %396 = load i8, ptr %.0.lcssa, align 1, !tbaa !13
+  %397 = zext i8 %396 to i32
+  %398 = xor i32 %397, -1
+  %399 = and i32 %381, %398
+  %400 = add i32 %399, %.1.lcssa
+  %401 = and i32 %400, %381
+  %402 = trunc nuw i32 %401 to i8
+  store i8 %402, ptr %.0.lcssa, align 1, !tbaa !13
+  %403 = ashr i32 %400, %378
+  br label %404
 
-405:                                              ; preds = %396, %._crit_edge589
-  %.2 = phi i32 [ %404, %396 ], [ %.1.lcssa, %._crit_edge589 ]
-  %406 = icmp eq ptr %.0262, %384
-  %407 = getelementptr i8, ptr %.0262, i64 %.034.i394
-  br i1 %406, label %.thread494, label %385
+404:                                              ; preds = %395, %._crit_edge589
+  %.2 = phi i32 [ %403, %395 ], [ %.1.lcssa, %._crit_edge589 ]
+  %405 = icmp eq ptr %.0262, %383
+  %406 = getelementptr i8, ptr %.0262, i64 %.034.i394
+  br i1 %405, label %.thread494, label %384
 
-.thread494:                                       ; preds = %405, %.thread667, %117, %120, %89, %73, %.thread530, %bytes_2comp.exit.thread, %.thread526, %63, %50, %35, %359, %bary_swap.exit383, %20
-  %.0254 = phi i32 [ %.3260, %359 ], [ 0, %20 ], [ %61, %50 ], [ %spec.select357, %bary_swap.exit383 ], [ %164, %.thread526 ], [ %71, %63 ], [ %84, %73 ], [ %45, %35 ], [ %spec.select, %.thread530 ], [ %165, %bytes_2comp.exit.thread ], [ %124, %120 ], [ -1, %117 ], [ %101, %89 ], [ 0, %.thread667 ], [ %.3260, %405 ]
+.thread494:                                       ; preds = %404, %.thread667, %117, %120, %89, %73, %.thread530, %bytes_2comp.exit.thread, %.thread526, %63, %50, %35, %358, %bary_swap.exit383, %20
+  %.0254 = phi i32 [ %.3260, %358 ], [ 0, %20 ], [ %61, %50 ], [ %spec.select357, %bary_swap.exit383 ], [ %164, %.thread526 ], [ %71, %63 ], [ %84, %73 ], [ %45, %35 ], [ %spec.select, %.thread530 ], [ %165, %bytes_2comp.exit.thread ], [ %124, %120 ], [ -1, %117 ], [ %101, %89 ], [ 0, %.thread667 ], [ %.3260, %404 ]
   ret i32 %.0254
 }
 

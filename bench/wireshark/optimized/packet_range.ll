@@ -821,7 +821,7 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr noundef captu
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 401, ptr noundef nonnull @__func__.packet_range_process_packet_include_depends, ptr noundef nonnull @.str.2) #10
   unreachable
 
-86:                                               ; preds = %81, %77, %66, %62, %51, %47, %36, %32, %20, %16
+86:                                               ; preds = %123, %127, %81, %77, %66, %62, %51, %47, %36, %32, %20, %16
   br label %packet_range_process_packet_include_depends.exit
 
 87:                                               ; preds = %10
@@ -902,20 +902,17 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr noundef captu
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %125 = load i8, ptr %124, align 4, !range !11, !noundef !12
   %126 = trunc nuw i8 %125 to i1
-  br i1 %126, label %127, label %132
+  br i1 %126, label %127, label %86
 
 127:                                              ; preds = %123
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 57
   %129 = load i16, ptr %128, align 1
   %130 = and i16 %129, 1
   %131 = icmp eq i16 %130, 0
-  br i1 %131, label %packet_range_process_packet_include_depends.exit, label %132
+  br i1 %131, label %packet_range_process_packet_include_depends.exit, label %86
 
-132:                                              ; preds = %127, %123
-  br label %packet_range_process_packet_include_depends.exit
-
-packet_range_process_packet_include_depends.exit: ; preds = %86, %81, %77, %66, %62, %51, %47, %36, %32, %20, %127, %117, %106, %98, %93, %88, %6, %132
-  %.0 = phi i32 [ 1, %106 ], [ 1, %127 ], [ 1, %117 ], [ 0, %132 ], [ 1, %6 ], [ 1, %88 ], [ 1, %93 ], [ 2, %98 ], [ 1, %77 ], [ 0, %86 ], [ 1, %20 ], [ 1, %32 ], [ 1, %36 ], [ 1, %47 ], [ 1, %51 ], [ 1, %62 ], [ 1, %66 ], [ 1, %81 ]
+packet_range_process_packet_include_depends.exit: ; preds = %86, %81, %77, %66, %62, %51, %47, %36, %32, %20, %127, %117, %106, %98, %93, %88, %6
+  %.0 = phi i32 [ 1, %106 ], [ 1, %127 ], [ 1, %117 ], [ 1, %81 ], [ 1, %6 ], [ 1, %88 ], [ 1, %93 ], [ 2, %98 ], [ 1, %77 ], [ 0, %86 ], [ 1, %20 ], [ 1, %32 ], [ 1, %36 ], [ 1, %47 ], [ 1, %51 ], [ 1, %62 ], [ 1, %66 ]
   ret i32 %.0
 }
 

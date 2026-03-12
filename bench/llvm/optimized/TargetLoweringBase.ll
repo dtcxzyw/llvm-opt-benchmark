@@ -1371,8 +1371,8 @@ switch.lookup131:                                 ; preds = %7
   %switch.load133 = load i32, ptr %switch.gep132, align 4
   br label %_ZNK4llvm3EVTeqES0_.exit12
 
-_ZNK4llvm3EVTeqES0_.exit12:                       ; preds = %7, %5, %switch.lookup131, %switch.lookup, %11, %10, %9, %4
-  %.0 = phi i32 [ %spec.select, %10 ], [ %spec.select127, %11 ], [ %switch.load, %switch.lookup ], [ %switch.load133, %switch.lookup131 ], [ 717, %5 ], [ 717, %4 ], [ %switch.select129, %9 ], [ 717, %7 ]
+_ZNK4llvm3EVTeqES0_.exit12:                       ; preds = %5, %7, %switch.lookup131, %switch.lookup, %11, %10, %9, %4
+  %.0 = phi i32 [ %spec.select, %10 ], [ %switch.select129, %9 ], [ %switch.load, %switch.lookup ], [ 717, %4 ], [ %switch.load133, %switch.lookup131 ], [ %spec.select127, %11 ], [ 717, %7 ], [ 717, %5 ]
   ret i32 %.0
 }
 

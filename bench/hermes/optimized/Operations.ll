@@ -391,7 +391,7 @@ entry:
   %shr.i = ashr i64 %0, 47
   switch i64 %shr.i, label %sw.default [
     i64 -12, label %return
-    i64 -11, label %sw.bb6
+    i64 -11, label %if.end
     i64 -6, label %sw.bb10
     i64 -5, label %sw.bb10
     i64 -4, label %sw.bb14
@@ -401,9 +401,6 @@ entry:
     i64 -2, label %sw.bb26
     i64 -1, label %sw.bb26
   ]
-
-sw.bb6:                                           ; preds = %entry
-  br label %return
 
 sw.bb10:                                          ; preds = %entry, %entry
   br label %return
@@ -429,14 +426,14 @@ _ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit: ; preds = %sw.bb26
   %3 = icmp ult i32 %2, 150994944
   br i1 %3, label %return, label %if.end
 
-if.end:                                           ; preds = %sw.bb26, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit
+if.end:                                           ; preds = %entry, %sw.bb26, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit
   br label %return
 
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit, %entry, %sw.default, %if.end, %sw.bb22, %sw.bb18, %sw.bb14, %sw.bb10, %sw.bb6
-  %.sink = phi i32 [ 19, %sw.default ], [ 25, %if.end ], [ 17, %entry ], [ 24, %sw.bb22 ], [ 23, %sw.bb18 ], [ 20, %sw.bb14 ], [ 21, %sw.bb10 ], [ 25, %sw.bb6 ], [ 26, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit ]
+return:                                           ; preds = %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit, %entry, %sw.default, %if.end, %sw.bb22, %sw.bb18, %sw.bb14, %sw.bb10
+  %.sink = phi i32 [ 19, %sw.default ], [ 25, %if.end ], [ 17, %entry ], [ 24, %sw.bb22 ], [ 23, %sw.bb18 ], [ 20, %sw.bb14 ], [ 21, %sw.bb10 ], [ 26, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit ]
   %identifierTable_.i.i30 = getelementptr inbounds nuw i8, ptr %runtime, i64 9264
   %call.i.i31 = tail call noundef ptr @_ZN6hermes2vm15IdentifierTable13getStringPrimERNS0_7RuntimeENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i30, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %.sink) #17
   %retval.sroa.0.0.in = ptrtoint ptr %call.i.i31 to i64

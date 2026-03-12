@@ -9921,10 +9921,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2eq14EqualityEngine14a
   %82 = load i64, ptr %81, align 8, !tbaa !167
   %83 = urem i64 %82, %58
   %.not19.i.i.i.i.i = icmp eq i64 %83, %59
-  br i1 %.not19.i.i.i.i.i, label %73, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !169
-
-..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %80
-  br label %.critedge98.thread502, !llvm.loop !169
+  br i1 %.not19.i.i.i.i.i, label %73, label %..loopexit_crit_edge21.i.i.i.i.i131, !llvm.loop !169
 
 .loopexit:                                        ; preds = %73, %51, %63
   call void @llvm.experimental.noalias.scope.decl(metadata !451)
@@ -10007,7 +10004,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2eq14EqualityEngine14a
   %.not19.i.i.i.i.i130 = icmp eq i64 %132, %108
   br i1 %.not19.i.i.i.i.i130, label %122, label %..loopexit_crit_edge21.i.i.i.i.i131, !llvm.loop !169
 
-..loopexit_crit_edge21.i.i.i.i.i131:              ; preds = %129
+..loopexit_crit_edge21.i.i.i.i.i131:              ; preds = %80, %129
   br label %.critedge98.thread502, !llvm.loop !169
 
 .critedge98:                                      ; preds = %122, %100, %112
@@ -10044,7 +10041,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2eq14EqualityEngine14a
   %158 = call noundef zeroext i1 @_ZNK4cvc58internal6theory2eq14EqualityEngine8areEqualENS0_12NodeTemplateILb0EEES5_(ptr noundef nonnull align 8 dereferenceable(1784) %0, ptr noundef nonnull %12, ptr noundef nonnull %13)
   br i1 %158, label %755, label %.critedge98.thread502
 
-.critedge98.thread502:                            ; preds = %.lr.ph.i.i.i.i.i, %50, %.lr.ph.i.i.i.i.i127, %99, %..loopexit_crit_edge21.i.i.i.i.i131, %.noexc136, %.noexc, %..loopexit_crit_edge21.i.i.i.i.i, %.critedge98
+.critedge98.thread502:                            ; preds = %.lr.ph.i.i.i.i.i, %50, %.lr.ph.i.i.i.i.i127, %99, %..loopexit_crit_edge21.i.i.i.i.i131, %.noexc136, %.noexc, %.critedge98
   call void @llvm.experimental.noalias.scope.decl(metadata !460)
   %159 = load ptr, ptr %1, align 8, !tbaa !157, !noalias !460
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
@@ -10160,10 +10157,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2eq14EqualityEngine14a
   %234 = load i64, ptr %233, align 8, !tbaa !167
   %235 = urem i64 %234, %210
   %.not19.i.i.i.i.i154 = icmp eq i64 %235, %211
-  br i1 %.not19.i.i.i.i.i154, label %225, label %..loopexit_crit_edge21.i.i.i.i.i155, !llvm.loop !169
-
-..loopexit_crit_edge21.i.i.i.i.i155:              ; preds = %232
-  br label %.critedge100.thread514, !llvm.loop !169
+  br i1 %.not19.i.i.i.i.i154, label %225, label %..loopexit_crit_edge21.i.i.i.i.i171, !llvm.loop !169
 
 .loopexit543:                                     ; preds = %225, %203, %215
   call void @llvm.experimental.noalias.scope.decl(metadata !469)
@@ -10246,7 +10240,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2eq14EqualityEngine14a
   %.not19.i.i.i.i.i170 = icmp eq i64 %284, %260
   br i1 %.not19.i.i.i.i.i170, label %274, label %..loopexit_crit_edge21.i.i.i.i.i171, !llvm.loop !169
 
-..loopexit_crit_edge21.i.i.i.i.i171:              ; preds = %281
+..loopexit_crit_edge21.i.i.i.i.i171:              ; preds = %232, %281
   br label %.critedge100.thread514, !llvm.loop !169
 
 .critedge100:                                     ; preds = %274, %252, %264
@@ -10283,7 +10277,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2eq14EqualityEngine14a
   %310 = call noundef zeroext i1 @_ZNK4cvc58internal6theory2eq14EqualityEngine11areDisequalENS0_12NodeTemplateILb0EEES5_b(ptr noundef nonnull align 8 dereferenceable(1784) %0, ptr noundef nonnull %19, ptr noundef nonnull %20, i1 noundef zeroext false)
   br i1 %310, label %755, label %.critedge100.thread514
 
-.critedge100.thread514:                           ; preds = %.lr.ph.i.i.i.i.i151, %202, %.lr.ph.i.i.i.i.i167, %251, %..loopexit_crit_edge21.i.i.i.i.i171, %.noexc176, %.noexc160, %..loopexit_crit_edge21.i.i.i.i.i155, %.critedge100
+.critedge100.thread514:                           ; preds = %.lr.ph.i.i.i.i.i151, %202, %.lr.ph.i.i.i.i.i167, %251, %..loopexit_crit_edge21.i.i.i.i.i171, %.noexc176, %.noexc160, %.critedge100
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %312 = load ptr, ptr %311, align 8, !tbaa !205
   call void @llvm.experimental.noalias.scope.decl(metadata !478)

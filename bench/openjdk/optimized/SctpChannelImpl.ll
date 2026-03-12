@@ -887,7 +887,7 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
   %43 = tail call ptr @__errno_location() #13
   %44 = load i32, ptr %43, align 4
   switch i32 %44, label %.split59.us [
-    i32 11, label %.split61.us.loopexit126
+    i32 11, label %.split61.us.loopexit
     i32 4, label %.split61.us
     i32 107, label %45
   ]
@@ -980,14 +980,14 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
   call void @handleMessage(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %10, i32 noundef %75, i8 noundef zeroext %77, ptr noundef nonnull %8)
   br label %.split61.us
 
-.split61.us.loopexit126:                          ; preds = %42
+.split61.us.loopexit:                             ; preds = %42
   br label %.split61.us
 
 .split61.us.loopexit132:                          ; preds = %26
   br label %.split61.us
 
-.split61.us:                                      ; preds = %33, %.thread, %65, %26, %42, %.split61.us.loopexit132, %.split61.us.loopexit126, %.split67.us, %61, %55, %.split59.us
-  %.0 = phi i32 [ 0, %.split59.us ], [ -3, %42 ], [ -3, %26 ], [ %75, %.split67.us ], [ -1, %55 ], [ 0, %61 ], [ -2, %.split61.us.loopexit126 ], [ 0, %.thread ], [ 0, %65 ], [ 0, %33 ], [ -2, %.split61.us.loopexit132 ]
+.split61.us:                                      ; preds = %33, %.thread, %65, %42, %26, %.split61.us.loopexit132, %.split61.us.loopexit, %.split67.us, %61, %55, %.split59.us
+  %.0 = phi i32 [ 0, %.split59.us ], [ -2, %.split61.us.loopexit ], [ -3, %42 ], [ %75, %.split67.us ], [ -1, %55 ], [ 0, %61 ], [ -3, %26 ], [ 0, %.thread ], [ 0, %65 ], [ 0, %33 ], [ -2, %.split61.us.loopexit132 ]
   ret i32 %.0
 }
 

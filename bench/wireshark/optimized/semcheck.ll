@@ -203,8 +203,8 @@ switch.lookup47:                                  ; preds = %17
   %switch.masked51 = trunc i46 %switch.downshift50 to i1
   br label %switch.edge
 
-switch.edge:                                      ; preds = %17, %switch.lookup47, %7, %switch.lookup, %5, %15, %13, %11, %9, %3
-  %.0 = phi i1 [ %4, %3 ], [ %switch.masked, %switch.lookup ], [ %switch, %5 ], [ %16, %15 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %switch.masked51, %switch.lookup47 ], [ false, %7 ], [ false, %17 ]
+switch.edge:                                      ; preds = %7, %17, %switch.lookup47, %switch.lookup, %5, %15, %13, %11, %9, %3
+  %.0 = phi i1 [ %4, %3 ], [ %switch.masked, %switch.lookup ], [ %switch, %5 ], [ %16, %15 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %switch.masked51, %switch.lookup47 ], [ false, %17 ], [ false, %7 ]
   ret i1 %.0
 }
 

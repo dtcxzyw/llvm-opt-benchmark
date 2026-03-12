@@ -20287,38 +20287,35 @@ _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i: ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2074)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2077)
   %16 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2080
-  switch i8 %16, label %18 [
+  switch i8 %16, label %17 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hbf7b843f5a52e05bE.exit"
-    i8 0, label %17
+    i8 0, label %21
   ]
 
 17:                                               ; preds = %15
-  br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hbf7b843f5a52e05bE.exit"
-
-18:                                               ; preds = %15
   store i8 1, ptr %0, align 1, !alias.scope !2081, !noalias !2071
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hbf7b843f5a52e05bE.exit"
 
-"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hbf7b843f5a52e05bE.exit": ; preds = %23, %22, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h66c002bcd4976a00E.exit", %10, %15, %17, %18
-  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %17 ], [ 65, %18 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h66c002bcd4976a00E.exit" ], [ 65, %22 ], [ 65, %23 ]
-  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %17 ], [ null, %18 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h66c002bcd4976a00E.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %22 ], [ null, %23 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %20 = insertvalue { ptr, i64 } %19, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %20
+"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hbf7b843f5a52e05bE.exit": ; preds = %22, %21, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h66c002bcd4976a00E.exit", %10, %15, %17
+  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %22 ], [ 65, %17 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h66c002bcd4976a00E.exit" ], [ 65, %21 ]
+  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ null, %22 ], [ null, %17 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h66c002bcd4976a00E.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %21 ]
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %19
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h66c002bcd4976a00E.exit": ; preds = %3, %_ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2082)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2085)
-  %21 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2088
-  switch i8 %21, label %23 [
+  %20 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2088
+  switch i8 %20, label %22 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hbf7b843f5a52e05bE.exit"
-    i8 0, label %22
+    i8 0, label %21
   ]
 
-22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h66c002bcd4976a00E.exit"
+21:                                               ; preds = %15, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h66c002bcd4976a00E.exit"
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hbf7b843f5a52e05bE.exit"
 
-23:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h66c002bcd4976a00E.exit"
+22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h66c002bcd4976a00E.exit"
   store i8 1, ptr %0, align 1, !alias.scope !2088
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hbf7b843f5a52e05bE.exit"
 }
@@ -20358,38 +20355,35 @@ _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i: ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2096)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2099)
   %16 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2102
-  switch i8 %16, label %18 [
+  switch i8 %16, label %17 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h1a180831c7d853d9E.exit"
-    i8 0, label %17
+    i8 0, label %21
   ]
 
 17:                                               ; preds = %15
-  br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h1a180831c7d853d9E.exit"
-
-18:                                               ; preds = %15
   store i8 1, ptr %0, align 1, !alias.scope !2103, !noalias !2093
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h1a180831c7d853d9E.exit"
 
-"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h1a180831c7d853d9E.exit": ; preds = %23, %22, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3561f74f6a7767e4E.exit", %10, %15, %17, %18
-  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %17 ], [ 65, %18 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3561f74f6a7767e4E.exit" ], [ 65, %22 ], [ 65, %23 ]
-  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %17 ], [ null, %18 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3561f74f6a7767e4E.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %22 ], [ null, %23 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %20 = insertvalue { ptr, i64 } %19, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %20
+"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h1a180831c7d853d9E.exit": ; preds = %22, %21, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3561f74f6a7767e4E.exit", %10, %15, %17
+  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %22 ], [ 65, %17 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3561f74f6a7767e4E.exit" ], [ 65, %21 ]
+  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ null, %22 ], [ null, %17 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3561f74f6a7767e4E.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %21 ]
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %19
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3561f74f6a7767e4E.exit": ; preds = %3, %_ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2104)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2107)
-  %21 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2110
-  switch i8 %21, label %23 [
+  %20 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2110
+  switch i8 %20, label %22 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h1a180831c7d853d9E.exit"
-    i8 0, label %22
+    i8 0, label %21
   ]
 
-22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3561f74f6a7767e4E.exit"
+21:                                               ; preds = %15, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3561f74f6a7767e4E.exit"
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h1a180831c7d853d9E.exit"
 
-23:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3561f74f6a7767e4E.exit"
+22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3561f74f6a7767e4E.exit"
   store i8 1, ptr %0, align 1, !alias.scope !2110
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h1a180831c7d853d9E.exit"
 }
@@ -20429,38 +20423,35 @@ _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i: ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2118)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2121)
   %16 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2124
-  switch i8 %16, label %18 [
+  switch i8 %16, label %17 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h30a327602d1fded7E.exit"
-    i8 0, label %17
+    i8 0, label %21
   ]
 
 17:                                               ; preds = %15
-  br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h30a327602d1fded7E.exit"
-
-18:                                               ; preds = %15
   store i8 1, ptr %0, align 1, !alias.scope !2125, !noalias !2115
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h30a327602d1fded7E.exit"
 
-"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h30a327602d1fded7E.exit": ; preds = %23, %22, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h480237b114534d69E.exit", %10, %15, %17, %18
-  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %17 ], [ 65, %18 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h480237b114534d69E.exit" ], [ 65, %22 ], [ 65, %23 ]
-  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %17 ], [ null, %18 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h480237b114534d69E.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %22 ], [ null, %23 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %20 = insertvalue { ptr, i64 } %19, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %20
+"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h30a327602d1fded7E.exit": ; preds = %22, %21, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h480237b114534d69E.exit", %10, %15, %17
+  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %22 ], [ 65, %17 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h480237b114534d69E.exit" ], [ 65, %21 ]
+  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ null, %22 ], [ null, %17 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h480237b114534d69E.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %21 ]
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %19
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h480237b114534d69E.exit": ; preds = %3, %_ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2126)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2129)
-  %21 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2132
-  switch i8 %21, label %23 [
+  %20 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2132
+  switch i8 %20, label %22 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h30a327602d1fded7E.exit"
-    i8 0, label %22
+    i8 0, label %21
   ]
 
-22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h480237b114534d69E.exit"
+21:                                               ; preds = %15, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h480237b114534d69E.exit"
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h30a327602d1fded7E.exit"
 
-23:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h480237b114534d69E.exit"
+22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h480237b114534d69E.exit"
   store i8 1, ptr %0, align 1, !alias.scope !2132
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h30a327602d1fded7E.exit"
 }
@@ -20500,38 +20491,35 @@ _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i: ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2140)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2143)
   %16 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2146
-  switch i8 %16, label %18 [
+  switch i8 %16, label %17 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hecc3c5c4d887f91dE.exit"
-    i8 0, label %17
+    i8 0, label %21
   ]
 
 17:                                               ; preds = %15
-  br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hecc3c5c4d887f91dE.exit"
-
-18:                                               ; preds = %15
   store i8 1, ptr %0, align 1, !alias.scope !2147, !noalias !2137
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hecc3c5c4d887f91dE.exit"
 
-"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hecc3c5c4d887f91dE.exit": ; preds = %23, %22, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h682628d957c49769E.exit", %10, %15, %17, %18
-  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %17 ], [ 65, %18 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h682628d957c49769E.exit" ], [ 65, %22 ], [ 65, %23 ]
-  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %17 ], [ null, %18 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h682628d957c49769E.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %22 ], [ null, %23 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %20 = insertvalue { ptr, i64 } %19, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %20
+"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hecc3c5c4d887f91dE.exit": ; preds = %22, %21, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h682628d957c49769E.exit", %10, %15, %17
+  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %22 ], [ 65, %17 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h682628d957c49769E.exit" ], [ 65, %21 ]
+  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ null, %22 ], [ null, %17 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h682628d957c49769E.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %21 ]
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %19
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h682628d957c49769E.exit": ; preds = %3, %_ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2148)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2151)
-  %21 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2154
-  switch i8 %21, label %23 [
+  %20 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2154
+  switch i8 %20, label %22 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hecc3c5c4d887f91dE.exit"
-    i8 0, label %22
+    i8 0, label %21
   ]
 
-22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h682628d957c49769E.exit"
+21:                                               ; preds = %15, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h682628d957c49769E.exit"
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hecc3c5c4d887f91dE.exit"
 
-23:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h682628d957c49769E.exit"
+22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h682628d957c49769E.exit"
   store i8 1, ptr %0, align 1, !alias.scope !2154
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hecc3c5c4d887f91dE.exit"
 }
@@ -20571,38 +20559,35 @@ _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i: ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2162)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2165)
   %16 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2168
-  switch i8 %16, label %18 [
+  switch i8 %16, label %17 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h9ea7c1d688b6e242E.exit"
-    i8 0, label %17
+    i8 0, label %21
   ]
 
 17:                                               ; preds = %15
-  br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h9ea7c1d688b6e242E.exit"
-
-18:                                               ; preds = %15
   store i8 1, ptr %0, align 1, !alias.scope !2169, !noalias !2159
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h9ea7c1d688b6e242E.exit"
 
-"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h9ea7c1d688b6e242E.exit": ; preds = %23, %22, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd4a1bcc95e6c6cd2E.exit", %10, %15, %17, %18
-  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %17 ], [ 65, %18 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd4a1bcc95e6c6cd2E.exit" ], [ 65, %22 ], [ 65, %23 ]
-  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %17 ], [ null, %18 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd4a1bcc95e6c6cd2E.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %22 ], [ null, %23 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %20 = insertvalue { ptr, i64 } %19, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %20
+"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h9ea7c1d688b6e242E.exit": ; preds = %22, %21, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd4a1bcc95e6c6cd2E.exit", %10, %15, %17
+  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %22 ], [ 65, %17 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd4a1bcc95e6c6cd2E.exit" ], [ 65, %21 ]
+  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ null, %22 ], [ null, %17 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd4a1bcc95e6c6cd2E.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %21 ]
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %19
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd4a1bcc95e6c6cd2E.exit": ; preds = %3, %_ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2170)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2173)
-  %21 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2176
-  switch i8 %21, label %23 [
+  %20 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2176
+  switch i8 %20, label %22 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h9ea7c1d688b6e242E.exit"
-    i8 0, label %22
+    i8 0, label %21
   ]
 
-22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd4a1bcc95e6c6cd2E.exit"
+21:                                               ; preds = %15, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd4a1bcc95e6c6cd2E.exit"
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h9ea7c1d688b6e242E.exit"
 
-23:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd4a1bcc95e6c6cd2E.exit"
+22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd4a1bcc95e6c6cd2E.exit"
   store i8 1, ptr %0, align 1, !alias.scope !2176
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h9ea7c1d688b6e242E.exit"
 }
@@ -20642,38 +20627,35 @@ _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i: ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2184)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2187)
   %16 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2190
-  switch i8 %16, label %18 [
+  switch i8 %16, label %17 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h13201ca804f81690E.exit"
-    i8 0, label %17
+    i8 0, label %21
   ]
 
 17:                                               ; preds = %15
-  br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h13201ca804f81690E.exit"
-
-18:                                               ; preds = %15
   store i8 1, ptr %0, align 1, !alias.scope !2191, !noalias !2181
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h13201ca804f81690E.exit"
 
-"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h13201ca804f81690E.exit": ; preds = %23, %22, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h03336597fe34d81aE.exit", %10, %15, %17, %18
-  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %17 ], [ 65, %18 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h03336597fe34d81aE.exit" ], [ 65, %22 ], [ 65, %23 ]
-  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %17 ], [ null, %18 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h03336597fe34d81aE.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %22 ], [ null, %23 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %20 = insertvalue { ptr, i64 } %19, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %20
+"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h13201ca804f81690E.exit": ; preds = %22, %21, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h03336597fe34d81aE.exit", %10, %15, %17
+  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %22 ], [ 65, %17 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h03336597fe34d81aE.exit" ], [ 65, %21 ]
+  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ null, %22 ], [ null, %17 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h03336597fe34d81aE.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %21 ]
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %19
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h03336597fe34d81aE.exit": ; preds = %3, %_ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2192)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2195)
-  %21 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2198
-  switch i8 %21, label %23 [
+  %20 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2198
+  switch i8 %20, label %22 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h13201ca804f81690E.exit"
-    i8 0, label %22
+    i8 0, label %21
   ]
 
-22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h03336597fe34d81aE.exit"
+21:                                               ; preds = %15, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h03336597fe34d81aE.exit"
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h13201ca804f81690E.exit"
 
-23:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h03336597fe34d81aE.exit"
+22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h03336597fe34d81aE.exit"
   store i8 1, ptr %0, align 1, !alias.scope !2198
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h13201ca804f81690E.exit"
 }
@@ -20713,38 +20695,35 @@ _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i: ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2206)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2209)
   %16 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2212
-  switch i8 %16, label %18 [
+  switch i8 %16, label %17 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h8663ed2f0cdfa542E.exit"
-    i8 0, label %17
+    i8 0, label %21
   ]
 
 17:                                               ; preds = %15
-  br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h8663ed2f0cdfa542E.exit"
-
-18:                                               ; preds = %15
   store i8 1, ptr %0, align 1, !alias.scope !2213, !noalias !2203
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h8663ed2f0cdfa542E.exit"
 
-"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h8663ed2f0cdfa542E.exit": ; preds = %23, %22, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h153474c5351a6e97E.exit", %10, %15, %17, %18
-  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %17 ], [ 65, %18 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h153474c5351a6e97E.exit" ], [ 65, %22 ], [ 65, %23 ]
-  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %17 ], [ null, %18 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h153474c5351a6e97E.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %22 ], [ null, %23 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %20 = insertvalue { ptr, i64 } %19, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %20
+"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h8663ed2f0cdfa542E.exit": ; preds = %22, %21, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h153474c5351a6e97E.exit", %10, %15, %17
+  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %22 ], [ 65, %17 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h153474c5351a6e97E.exit" ], [ 65, %21 ]
+  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ null, %22 ], [ null, %17 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h153474c5351a6e97E.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %21 ]
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %19
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h153474c5351a6e97E.exit": ; preds = %3, %_ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2214)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2217)
-  %21 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2220
-  switch i8 %21, label %23 [
+  %20 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2220
+  switch i8 %20, label %22 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h8663ed2f0cdfa542E.exit"
-    i8 0, label %22
+    i8 0, label %21
   ]
 
-22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h153474c5351a6e97E.exit"
+21:                                               ; preds = %15, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h153474c5351a6e97E.exit"
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h8663ed2f0cdfa542E.exit"
 
-23:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h153474c5351a6e97E.exit"
+22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h153474c5351a6e97E.exit"
   store i8 1, ptr %0, align 1, !alias.scope !2220
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h8663ed2f0cdfa542E.exit"
 }
@@ -20784,38 +20763,35 @@ _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i: ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2228)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2231)
   %16 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2234
-  switch i8 %16, label %18 [
+  switch i8 %16, label %17 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hf380d8ea8b06011fE.exit"
-    i8 0, label %17
+    i8 0, label %21
   ]
 
 17:                                               ; preds = %15
-  br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hf380d8ea8b06011fE.exit"
-
-18:                                               ; preds = %15
   store i8 1, ptr %0, align 1, !alias.scope !2235, !noalias !2225
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hf380d8ea8b06011fE.exit"
 
-"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hf380d8ea8b06011fE.exit": ; preds = %23, %22, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3ada028d9cd5c148E.exit", %10, %15, %17, %18
-  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %17 ], [ 65, %18 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3ada028d9cd5c148E.exit" ], [ 65, %22 ], [ 65, %23 ]
-  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %17 ], [ null, %18 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3ada028d9cd5c148E.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %22 ], [ null, %23 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %20 = insertvalue { ptr, i64 } %19, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %20
+"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hf380d8ea8b06011fE.exit": ; preds = %22, %21, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3ada028d9cd5c148E.exit", %10, %15, %17
+  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %22 ], [ 65, %17 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3ada028d9cd5c148E.exit" ], [ 65, %21 ]
+  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ null, %22 ], [ null, %17 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3ada028d9cd5c148E.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %21 ]
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %19
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3ada028d9cd5c148E.exit": ; preds = %3, %_ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2236)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2239)
-  %21 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2242
-  switch i8 %21, label %23 [
+  %20 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2242
+  switch i8 %20, label %22 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hf380d8ea8b06011fE.exit"
-    i8 0, label %22
+    i8 0, label %21
   ]
 
-22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3ada028d9cd5c148E.exit"
+21:                                               ; preds = %15, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3ada028d9cd5c148E.exit"
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hf380d8ea8b06011fE.exit"
 
-23:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3ada028d9cd5c148E.exit"
+22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3ada028d9cd5c148E.exit"
   store i8 1, ptr %0, align 1, !alias.scope !2242
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17hf380d8ea8b06011fE.exit"
 }
@@ -20855,38 +20831,35 @@ _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i: ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2250)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2253)
   %16 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2256
-  switch i8 %16, label %18 [
+  switch i8 %16, label %17 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h6411eb8c5916db4dE.exit"
-    i8 0, label %17
+    i8 0, label %21
   ]
 
 17:                                               ; preds = %15
-  br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h6411eb8c5916db4dE.exit"
-
-18:                                               ; preds = %15
   store i8 1, ptr %0, align 1, !alias.scope !2257, !noalias !2247
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h6411eb8c5916db4dE.exit"
 
-"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h6411eb8c5916db4dE.exit": ; preds = %23, %22, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h49054e72624c563bE.exit", %10, %15, %17, %18
-  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %17 ], [ 65, %18 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h49054e72624c563bE.exit" ], [ 65, %22 ], [ 65, %23 ]
-  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %17 ], [ null, %18 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h49054e72624c563bE.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %22 ], [ null, %23 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %20 = insertvalue { ptr, i64 } %19, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %20
+"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h6411eb8c5916db4dE.exit": ; preds = %22, %21, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h49054e72624c563bE.exit", %10, %15, %17
+  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %22 ], [ 65, %17 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h49054e72624c563bE.exit" ], [ 65, %21 ]
+  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ null, %22 ], [ null, %17 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h49054e72624c563bE.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %21 ]
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %19
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h49054e72624c563bE.exit": ; preds = %3, %_ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2258)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2261)
-  %21 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2264
-  switch i8 %21, label %23 [
+  %20 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2264
+  switch i8 %20, label %22 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h6411eb8c5916db4dE.exit"
-    i8 0, label %22
+    i8 0, label %21
   ]
 
-22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h49054e72624c563bE.exit"
+21:                                               ; preds = %15, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h49054e72624c563bE.exit"
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h6411eb8c5916db4dE.exit"
 
-23:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h49054e72624c563bE.exit"
+22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h49054e72624c563bE.exit"
   store i8 1, ptr %0, align 1, !alias.scope !2264
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h6411eb8c5916db4dE.exit"
 }
@@ -20926,38 +20899,35 @@ _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i: ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2272)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2275)
   %16 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2278
-  switch i8 %16, label %18 [
+  switch i8 %16, label %17 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h3d1a3a319b66bd76E.exit"
-    i8 0, label %17
+    i8 0, label %21
   ]
 
 17:                                               ; preds = %15
-  br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h3d1a3a319b66bd76E.exit"
-
-18:                                               ; preds = %15
   store i8 1, ptr %0, align 1, !alias.scope !2279, !noalias !2269
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h3d1a3a319b66bd76E.exit"
 
-"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h3d1a3a319b66bd76E.exit": ; preds = %23, %22, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc5bf460d59d88e8dE.exit", %10, %15, %17, %18
-  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %17 ], [ 65, %18 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc5bf460d59d88e8dE.exit" ], [ 65, %22 ], [ 65, %23 ]
-  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %17 ], [ null, %18 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc5bf460d59d88e8dE.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %22 ], [ null, %23 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %20 = insertvalue { ptr, i64 } %19, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %20
+"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h3d1a3a319b66bd76E.exit": ; preds = %22, %21, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc5bf460d59d88e8dE.exit", %10, %15, %17
+  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %22 ], [ 65, %17 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc5bf460d59d88e8dE.exit" ], [ 65, %21 ]
+  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ null, %22 ], [ null, %17 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc5bf460d59d88e8dE.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %21 ]
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %19
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc5bf460d59d88e8dE.exit": ; preds = %3, %_ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2280)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2283)
-  %21 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2286
-  switch i8 %21, label %23 [
+  %20 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2286
+  switch i8 %20, label %22 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h3d1a3a319b66bd76E.exit"
-    i8 0, label %22
+    i8 0, label %21
   ]
 
-22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc5bf460d59d88e8dE.exit"
+21:                                               ; preds = %15, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc5bf460d59d88e8dE.exit"
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h3d1a3a319b66bd76E.exit"
 
-23:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc5bf460d59d88e8dE.exit"
+22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc5bf460d59d88e8dE.exit"
   store i8 1, ptr %0, align 1, !alias.scope !2286
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h3d1a3a319b66bd76E.exit"
 }
@@ -20997,38 +20967,35 @@ _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i: ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2294)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2297)
   %16 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2300
-  switch i8 %16, label %18 [
+  switch i8 %16, label %17 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h9dd2478a36dd5518E.exit"
-    i8 0, label %17
+    i8 0, label %21
   ]
 
 17:                                               ; preds = %15
-  br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h9dd2478a36dd5518E.exit"
-
-18:                                               ; preds = %15
   store i8 1, ptr %0, align 1, !alias.scope !2301, !noalias !2291
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h9dd2478a36dd5518E.exit"
 
-"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h9dd2478a36dd5518E.exit": ; preds = %23, %22, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6839e44dd479331eE.exit", %10, %15, %17, %18
-  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %17 ], [ 65, %18 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6839e44dd479331eE.exit" ], [ 65, %22 ], [ 65, %23 ]
-  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %17 ], [ null, %18 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6839e44dd479331eE.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %22 ], [ null, %23 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %20 = insertvalue { ptr, i64 } %19, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %20
+"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h9dd2478a36dd5518E.exit": ; preds = %22, %21, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6839e44dd479331eE.exit", %10, %15, %17
+  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %22 ], [ 65, %17 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6839e44dd479331eE.exit" ], [ 65, %21 ]
+  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ null, %22 ], [ null, %17 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6839e44dd479331eE.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %21 ]
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %19
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6839e44dd479331eE.exit": ; preds = %3, %_ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2302)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2305)
-  %21 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2308
-  switch i8 %21, label %23 [
+  %20 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2308
+  switch i8 %20, label %22 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h9dd2478a36dd5518E.exit"
-    i8 0, label %22
+    i8 0, label %21
   ]
 
-22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6839e44dd479331eE.exit"
+21:                                               ; preds = %15, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6839e44dd479331eE.exit"
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h9dd2478a36dd5518E.exit"
 
-23:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6839e44dd479331eE.exit"
+22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6839e44dd479331eE.exit"
   store i8 1, ptr %0, align 1, !alias.scope !2308
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h9dd2478a36dd5518E.exit"
 }
@@ -21068,38 +21035,35 @@ _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i: ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2316)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2319)
   %16 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2322
-  switch i8 %16, label %18 [
+  switch i8 %16, label %17 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h1274f76973ec9ec4E.exit"
-    i8 0, label %17
+    i8 0, label %21
   ]
 
 17:                                               ; preds = %15
-  br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h1274f76973ec9ec4E.exit"
-
-18:                                               ; preds = %15
   store i8 1, ptr %0, align 1, !alias.scope !2323, !noalias !2313
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h1274f76973ec9ec4E.exit"
 
-"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h1274f76973ec9ec4E.exit": ; preds = %23, %22, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3b773cd5b4ed0c6bE.exit", %10, %15, %17, %18
-  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %17 ], [ 65, %18 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3b773cd5b4ed0c6bE.exit" ], [ 65, %22 ], [ 65, %23 ]
-  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %17 ], [ null, %18 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3b773cd5b4ed0c6bE.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %22 ], [ null, %23 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %20 = insertvalue { ptr, i64 } %19, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %20
+"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h1274f76973ec9ec4E.exit": ; preds = %22, %21, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3b773cd5b4ed0c6bE.exit", %10, %15, %17
+  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %22 ], [ 65, %17 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3b773cd5b4ed0c6bE.exit" ], [ 65, %21 ]
+  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ null, %22 ], [ null, %17 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3b773cd5b4ed0c6bE.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %21 ]
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %19
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3b773cd5b4ed0c6bE.exit": ; preds = %3, %_ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2324)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2327)
-  %21 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2330
-  switch i8 %21, label %23 [
+  %20 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2330
+  switch i8 %20, label %22 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h1274f76973ec9ec4E.exit"
-    i8 0, label %22
+    i8 0, label %21
   ]
 
-22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3b773cd5b4ed0c6bE.exit"
+21:                                               ; preds = %15, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3b773cd5b4ed0c6bE.exit"
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h1274f76973ec9ec4E.exit"
 
-23:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3b773cd5b4ed0c6bE.exit"
+22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3b773cd5b4ed0c6bE.exit"
   store i8 1, ptr %0, align 1, !alias.scope !2330
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h1274f76973ec9ec4E.exit"
 }
@@ -21139,38 +21103,35 @@ _ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i: ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2338)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2341)
   %16 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2344
-  switch i8 %16, label %18 [
+  switch i8 %16, label %17 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h547d4d6c8f627e03E.exit"
-    i8 0, label %17
+    i8 0, label %21
   ]
 
 17:                                               ; preds = %15
-  br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h547d4d6c8f627e03E.exit"
-
-18:                                               ; preds = %15
   store i8 1, ptr %0, align 1, !alias.scope !2345, !noalias !2335
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h547d4d6c8f627e03E.exit"
 
-"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h547d4d6c8f627e03E.exit": ; preds = %23, %22, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he45b5cdd78533205E.exit", %10, %15, %17, %18
-  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %17 ], [ 65, %18 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he45b5cdd78533205E.exit" ], [ 65, %22 ], [ 65, %23 ]
-  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %17 ], [ null, %18 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he45b5cdd78533205E.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %22 ], [ null, %23 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %20 = insertvalue { ptr, i64 } %19, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %20
+"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h547d4d6c8f627e03E.exit": ; preds = %22, %21, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he45b5cdd78533205E.exit", %10, %15, %17
+  %.sroa.3.0 = phi i64 [ %13, %10 ], [ 65, %15 ], [ 65, %22 ], [ 65, %17 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he45b5cdd78533205E.exit" ], [ 65, %21 ]
+  %.sroa.0.0 = phi ptr [ %14, %10 ], [ null, %15 ], [ null, %22 ], [ null, %17 ], [ null, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he45b5cdd78533205E.exit" ], [ @anon.6c21e81d71a43a6d8351564ab11a437b.281, %21 ]
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %19
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he45b5cdd78533205E.exit": ; preds = %3, %_ZN4core3ops8function6FnOnce9call_once17hb57b376cb2e5d718E.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2346)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2349)
-  %21 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2352
-  switch i8 %21, label %23 [
+  %20 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !2352
+  switch i8 %20, label %22 [
     i8 2, label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h547d4d6c8f627e03E.exit"
-    i8 0, label %22
+    i8 0, label %21
   ]
 
-22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he45b5cdd78533205E.exit"
+21:                                               ; preds = %15, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he45b5cdd78533205E.exit"
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h547d4d6c8f627e03E.exit"
 
-23:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he45b5cdd78533205E.exit"
+22:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he45b5cdd78533205E.exit"
   store i8 1, ptr %0, align 1, !alias.scope !2352
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker12with_current28_$u7b$$u7b$closure$u7d$$u7d$17h547d4d6c8f627e03E.exit"
 }
@@ -49223,7 +49184,7 @@ _ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %.not = icmp eq i64 %27, 0
-  br i1 %.not, label %53, label %41
+  br i1 %.not, label %51, label %41
 
 28:                                               ; preds = %5
   %29 = load i8, ptr %1, align 1, !noundef !3
@@ -49246,8 +49207,8 @@ _ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit: ; preds
   %40 = icmp sgt i8 %39, -65
   br i1 %40, label %42, label %45
 
-41:                                               ; preds = %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit54, %36, %68, %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit49, %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit59, %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit, %42, %76, %73, %71, %70, %52, %49, %47, %46
-  %.sink = phi i8 [ 13, %36 ], [ 19, %76 ], [ 17, %73 ], [ 17, %71 ], [ 16, %70 ], [ 13, %68 ], [ 19, %52 ], [ 17, %49 ], [ 17, %47 ], [ 16, %46 ], [ 11, %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit49 ], [ %.mux, %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit54 ], [ 0, %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit ], [ 13, %42 ], [ 11, %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit59 ]
+41:                                               ; preds = %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit54, %36, %66, %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit49, %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit59, %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit, %42, %74, %71, %69, %68, %48, %46
+  %.sink = phi i8 [ 13, %42 ], [ 19, %74 ], [ 17, %71 ], [ 17, %69 ], [ 16, %68 ], [ 13, %66 ], [ 11, %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit59 ], [ 17, %48 ], [ 17, %46 ], [ 13, %36 ], [ 11, %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit49 ], [ %.mux, %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit54 ], [ 0, %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit ]
   store i8 %.sink, ptr %0, align 16
   ret void
 
@@ -49256,50 +49217,44 @@ _ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit: ; preds
   %44 = tail call noundef i8 @_ZN11polars_time12chunkedarray6string5infer20infer_pattern_single17h48f0e64461e2226eE(ptr noalias noundef nonnull readonly align 1 %38, i64 noundef %43)
   switch i8 %44, label %default.unreachable [
     i8 6, label %41
-    i8 0, label %46
-    i8 1, label %46
-    i8 2, label %47
-    i8 3, label %47
-    i8 4, label %49
-    i8 5, label %52
+    i8 0, label %68
+    i8 1, label %68
+    i8 2, label %46
+    i8 3, label %46
+    i8 4, label %48
+    i8 5, label %74
   ]
 
 45:                                               ; preds = %37
   tail call void @_ZN4core3str16slice_error_fail17h1024a1f744d3da7fE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 1, i64 noundef %32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c21e81d71a43a6d8351564ab11a437b.543) #32
   unreachable
 
-default.unreachable:                              ; preds = %68, %42
+default.unreachable:                              ; preds = %66, %42
   unreachable
 
 46:                                               ; preds = %42, %42
-  br label %41
-
-47:                                               ; preds = %42, %42
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %48, align 1
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %47, align 1
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 31
   store i8 -38, ptr %.sroa.3.0..sroa_idx, align 1
   br label %41
 
-49:                                               ; preds = %42
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %50, align 1
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) @anon.6c21e81d71a43a6d8351564ab11a437b.544, i64 24, i1 false)
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %49, align 1
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) @anon.6c21e81d71a43a6d8351564ab11a437b.544, i64 24, i1 false)
   br label %41
 
-52:                                               ; preds = %42
-  br label %41
+51:                                               ; preds = %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit
+  br i1 %4, label %.critedge, label %52
 
-53:                                               ; preds = %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit
-  br i1 %4, label %.critedge, label %54
+52:                                               ; preds = %51
+  %53 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9polars_io5utils5other8FLOAT_RE17h124ba6a80ad76e60E, i64 32) acquire, align 8
+  %54 = icmp eq i32 %53, 3
+  br i1 %54, label %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit49, label %55, !prof !156
 
-54:                                               ; preds = %53
-  %55 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9polars_io5utils5other8FLOAT_RE17h124ba6a80ad76e60E, i64 32) acquire, align 8
-  %56 = icmp eq i32 %55, 3
-  br i1 %56, label %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit49, label %57, !prof !156
-
-57:                                               ; preds = %54
+55:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr @_ZN9polars_io5utils5other8FLOAT_RE17h124ba6a80ad76e60E, ptr %11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -49309,7 +49264,7 @@ default.unreachable:                              ; preds = %68, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit49
 
-_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit49: ; preds = %57, %54
+_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit49: ; preds = %55, %52
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 0, ptr %19, align 8
   %.sroa.465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -49324,18 +49279,18 @@ _ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit49: ; pre
   store i8 1, ptr %.sroa.1169.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call fastcc void @_ZN14regex_automata4meta5regex5Regex11search_half17h35827b129516fecaE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef readonly align 8 dereferenceable(16) @_ZN9polars_io5utils5other8FLOAT_RE17h124ba6a80ad76e60E, ptr noalias noundef readonly align 8 dereferenceable(48) %19)
-  %58 = load i64, ptr %18, align 8, !range !207, !noundef !3
+  %56 = load i64, ptr %18, align 8, !range !207, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %.not38 = icmp eq i64 %58, 0
-  br i1 %.not38, label %59, label %41
+  %.not38 = icmp eq i64 %56, 0
+  br i1 %.not38, label %57, label %41
 
-59:                                               ; preds = %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit49, %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit59
-  %60 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9polars_io5utils5other10INTEGER_RE17h7899b069911395cdE, i64 32) acquire, align 8
-  %61 = icmp eq i32 %60, 3
-  br i1 %61, label %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit54, label %62, !prof !156
+57:                                               ; preds = %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit49, %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit59
+  %58 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9polars_io5utils5other10INTEGER_RE17h7899b069911395cdE, i64 32) acquire, align 8
+  %59 = icmp eq i32 %58, 3
+  br i1 %59, label %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit54, label %60, !prof !156
 
-62:                                               ; preds = %59
+60:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN9polars_io5utils5other10INTEGER_RE17h7899b069911395cdE, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -49345,7 +49300,7 @@ _ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit49: ; pre
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit54
 
-_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit54: ; preds = %62, %59
+_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit54: ; preds = %60, %57
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 8
   %.sroa.481.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -49360,20 +49315,20 @@ _ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit54: ; pre
   store i8 1, ptr %.sroa.1185.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call fastcc void @_ZN14regex_automata4meta5regex5Regex11search_half17h35827b129516fecaE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef readonly align 8 dereferenceable(16) @_ZN9polars_io5utils5other10INTEGER_RE17h7899b069911395cdE, ptr noalias noundef readonly align 8 dereferenceable(48) %15)
-  %63 = load i64, ptr %14, align 8, !range !207, !noundef !3
+  %61 = load i64, ptr %14, align 8, !range !207, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %.not40 = icmp eq i64 %63, 0
+  %.not40 = icmp eq i64 %61, 0
   %brmerge.not = and i1 %.not40, %3
   %.mux = select i1 %.not40, i8 13, i8 8
-  br i1 %brmerge.not, label %68, label %41
+  br i1 %brmerge.not, label %66, label %41
 
-.critedge:                                        ; preds = %53
-  %64 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9polars_io5utils5other16FLOAT_RE_DECIMAL17h03dbd4dc4581de7aE, i64 32) acquire, align 8
-  %65 = icmp eq i32 %64, 3
-  br i1 %65, label %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit59, label %66, !prof !156
+.critedge:                                        ; preds = %51
+  %62 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9polars_io5utils5other16FLOAT_RE_DECIMAL17h03dbd4dc4581de7aE, i64 32) acquire, align 8
+  %63 = icmp eq i32 %62, 3
+  br i1 %63, label %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit59, label %64, !prof !156
 
-66:                                               ; preds = %.critedge
+64:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @_ZN9polars_io5utils5other16FLOAT_RE_DECIMAL17h03dbd4dc4581de7aE, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -49383,7 +49338,7 @@ _ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit54: ; pre
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit59
 
-_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit59: ; preds = %66, %.critedge
+_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit59: ; preds = %64, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %17, align 8
   %.sroa.473.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -49398,42 +49353,42 @@ _ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit59: ; pre
   store i8 1, ptr %.sroa.1177.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call fastcc void @_ZN14regex_automata4meta5regex5Regex11search_half17h35827b129516fecaE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef readonly align 8 dereferenceable(16) @_ZN9polars_io5utils5other16FLOAT_RE_DECIMAL17h03dbd4dc4581de7aE, ptr noalias noundef readonly align 8 dereferenceable(48) %17)
-  %67 = load i64, ptr %16, align 8, !range !207, !noundef !3
+  %65 = load i64, ptr %16, align 8, !range !207, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %.not39 = icmp eq i64 %67, 0
-  br i1 %.not39, label %59, label %41
+  %.not39 = icmp eq i64 %65, 0
+  br i1 %.not39, label %57, label %41
 
-68:                                               ; preds = %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit54
-  %69 = call noundef i8 @_ZN11polars_time12chunkedarray6string5infer20infer_pattern_single17h48f0e64461e2226eE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  switch i8 %69, label %default.unreachable [
+66:                                               ; preds = %_ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit54
+  %67 = call noundef i8 @_ZN11polars_time12chunkedarray6string5infer20infer_pattern_single17h48f0e64461e2226eE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  switch i8 %67, label %default.unreachable [
     i8 6, label %41
-    i8 0, label %70
-    i8 1, label %70
-    i8 2, label %71
-    i8 3, label %71
-    i8 4, label %73
-    i8 5, label %76
+    i8 0, label %68
+    i8 1, label %68
+    i8 2, label %69
+    i8 3, label %69
+    i8 4, label %71
+    i8 5, label %74
   ]
 
-70:                                               ; preds = %68, %68
+68:                                               ; preds = %42, %42, %66, %66
   br label %41
 
-71:                                               ; preds = %68, %68
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %72, align 1
+69:                                               ; preds = %66, %66
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %70, align 1
   %.sroa.38.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 31
   store i8 -38, ptr %.sroa.38.0..sroa_idx, align 1
   br label %41
 
-73:                                               ; preds = %68
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %74, align 1
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull align 8 dereferenceable(24) @anon.6c21e81d71a43a6d8351564ab11a437b.544, i64 24, i1 false)
+71:                                               ; preds = %66
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %72, align 1
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull align 8 dereferenceable(24) @anon.6c21e81d71a43a6d8351564ab11a437b.544, i64 24, i1 false)
   br label %41
 
-76:                                               ; preds = %68
+74:                                               ; preds = %42, %66
   br label %41
 }
 

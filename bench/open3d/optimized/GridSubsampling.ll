@@ -1040,7 +1040,7 @@ _ZNSt6vectorIfSaIfEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %443 = icmp ugt i64 %442, 2305843009213693951
   br i1 %443, label %.invoke, label %444
 
-.invoke:                                          ; preds = %414, %._crit_edge, %440
+.invoke:                                          ; preds = %._crit_edge, %414, %440
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #16
           to label %.cont unwind label %438
 

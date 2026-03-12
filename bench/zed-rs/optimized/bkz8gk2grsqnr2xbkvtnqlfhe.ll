@@ -7877,7 +7877,7 @@ define internal void @"_ZN4core3ptr146drop_in_place$LT$$LT$languages..go..GoLspA
     i8 6, label %54
   ]
 
-common.ret.sink.split:                            ; preds = %155, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$languages..go..GoLspAdapter$GT$$GT$17hc853d6e5caacd444E.exit30", %86, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$languages..go..GoLspAdapter$GT$$GT$17hc853d6e5caacd444E.exit"
+common.ret.sink.split:                            ; preds = %155, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$languages..go..GoLspAdapter$GT$$GT$17hc853d6e5caacd444E.exit30", %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$languages..go..GoLspAdapter$GT$$GT$17hc853d6e5caacd444E.exit", %86
   %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.sink = load ptr, ptr %.sink.in, align 8, !nonnull !4, !align !12, !noundef !4
   tail call void @"_ZN12futures_util4lock5mutex14Mutex$LT$T$GT$6unlock17h6c58a88339131001E"(ptr noundef nonnull align 8 %.sink), !noalias !4
@@ -8783,7 +8783,7 @@ define internal void @"_ZN4core3ptr150drop_in_place$LT$$LT$languages..rust..Rust
     i8 6, label %54
   ]
 
-common.ret.sink.split:                            ; preds = %155, %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$languages..rust..RustLspAdapter$GT$$GT$17hc07aade55cffdca3E.exit30", %86, %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$languages..rust..RustLspAdapter$GT$$GT$17hc07aade55cffdca3E.exit"
+common.ret.sink.split:                            ; preds = %155, %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$languages..rust..RustLspAdapter$GT$$GT$17hc07aade55cffdca3E.exit30", %"_ZN4core3ptr76drop_in_place$LT$alloc..sync..Arc$LT$languages..rust..RustLspAdapter$GT$$GT$17hc07aade55cffdca3E.exit", %86
   %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.sink = load ptr, ptr %.sink.in, align 8, !nonnull !4, !align !12, !noundef !4
   tail call void @"_ZN12futures_util4lock5mutex14Mutex$LT$T$GT$6unlock17h6c58a88339131001E"(ptr noundef nonnull align 8 %.sink), !noalias !4
@@ -9806,7 +9806,7 @@ define internal void @"_ZN4core3ptr158drop_in_place$LT$$LT$languages..typescript
     i8 6, label %54
   ]
 
-common.ret.sink.split:                            ; preds = %155, %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$languages..typescript..EsLintLspAdapter$GT$$GT$17h748d8f6549df2dd7E.exit30", %86, %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$languages..typescript..EsLintLspAdapter$GT$$GT$17h748d8f6549df2dd7E.exit"
+common.ret.sink.split:                            ; preds = %155, %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$languages..typescript..EsLintLspAdapter$GT$$GT$17h748d8f6549df2dd7E.exit30", %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$languages..typescript..EsLintLspAdapter$GT$$GT$17h748d8f6549df2dd7E.exit", %86
   %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.sink = load ptr, ptr %.sink.in, align 8, !nonnull !4, !align !12, !noundef !4
   tail call void @"_ZN12futures_util4lock5mutex14Mutex$LT$T$GT$6unlock17h6c58a88339131001E"(ptr noundef nonnull align 8 %.sink), !noalias !4
@@ -10247,7 +10247,7 @@ define internal void @"_ZN4core3ptr162drop_in_place$LT$$LT$languages..typescript
     i8 6, label %54
   ]
 
-common.ret.sink.split:                            ; preds = %155, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$languages..typescript..TypeScriptLspAdapter$GT$$GT$17h2bb14b8e6225c1c4E.exit30", %86, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$languages..typescript..TypeScriptLspAdapter$GT$$GT$17h2bb14b8e6225c1c4E.exit"
+common.ret.sink.split:                            ; preds = %155, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$languages..typescript..TypeScriptLspAdapter$GT$$GT$17h2bb14b8e6225c1c4E.exit30", %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$languages..typescript..TypeScriptLspAdapter$GT$$GT$17h2bb14b8e6225c1c4E.exit", %86
   %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.sink = load ptr, ptr %.sink.in, align 8, !nonnull !4, !align !12, !noundef !4
   tail call void @"_ZN12futures_util4lock5mutex14Mutex$LT$T$GT$6unlock17h6c58a88339131001E"(ptr noundef nonnull align 8 %.sink), !noalias !4

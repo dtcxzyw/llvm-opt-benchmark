@@ -4798,7 +4798,6 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN5clang4ento10ExprEngine17mayInl
     i32 2, label %17
     i32 3, label %17
     i32 5, label %19
-    i32 6, label %.critedge
     i32 4, label %107
   ]
 
@@ -5104,8 +5103,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit62: ; preds =
 180:                                              ; preds = %91, %95, %_ZNK5clang13CXXMethodDecl9getParentEv.exit, %156, %174, %177, %166, %17, %5
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, %89, %95, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, %_ZN4llvm15isa_and_nonnullIJN5clang37NewAllocatedObjectConstructionContextEEPKNS1_19ConstructionContextEEEbRKT0_.exit, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit62, %156, %177, %170, %166, %107, %5, %19, %17, %180
-  %.0 = phi i32 [ 0, %180 ], [ 2, %170 ], [ 2, %166 ], [ 2, %177 ], [ 0, %5 ], [ 1, %156 ], [ 2, %17 ], [ 2, %19 ], [ 1, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit62 ], [ 2, %107 ], [ 1, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread ], [ 2, %89 ], [ 1, %95 ], [ 1, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ 1, %_ZN4llvm15isa_and_nonnullIJN5clang37NewAllocatedObjectConstructionContextEEPKNS1_19ConstructionContextEEEbRKT0_.exit ]
+.critedge:                                        ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, %89, %95, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, %_ZN4llvm15isa_and_nonnullIJN5clang37NewAllocatedObjectConstructionContextEEPKNS1_19ConstructionContextEEEbRKT0_.exit, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit62, %156, %177, %170, %166, %107, %19, %17, %180
+  %.0 = phi i32 [ 0, %180 ], [ 2, %170 ], [ 2, %166 ], [ 2, %177 ], [ 1, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit62 ], [ 1, %156 ], [ 2, %17 ], [ 2, %19 ], [ 2, %107 ], [ 1, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread ], [ 2, %89 ], [ 1, %95 ], [ 1, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ 1, %_ZN4llvm15isa_and_nonnullIJN5clang37NewAllocatedObjectConstructionContextEEPKNS1_19ConstructionContextEEEbRKT0_.exit ]
   ret i32 %.0
 }
 

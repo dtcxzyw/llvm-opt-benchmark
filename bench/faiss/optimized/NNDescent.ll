@@ -833,7 +833,7 @@ define void @_ZN5faiss9nndescent5NhoodC2ERKS1_(ptr noundef nonnull align 8 captu
   br i1 %33, label %.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i
 
 .invoke:                                          ; preds = %29, %_ZNSt6vectorIiSaIiEE7reserveEm.exit, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEESt20back_insert_iteratorIS6_EET0_T_SB_SA_.exit
-  %34 = phi ptr [ @.str.2, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEESt20back_insert_iteratorIS6_EET0_T_SB_SA_.exit ], [ @.str.2, %_ZNSt6vectorIiSaIiEE7reserveEm.exit ], [ @.str.1, %29 ]
+  %34 = phi ptr [ @.str.2, %_ZNSt6vectorIiSaIiEE7reserveEm.exit ], [ @.str.2, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEESt20back_insert_iteratorIS6_EET0_T_SB_SA_.exit ], [ @.str.1, %29 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %34) #27
           to label %.cont unwind label %.loopexit.split-lp
 

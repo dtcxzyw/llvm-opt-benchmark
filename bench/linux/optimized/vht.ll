@@ -689,91 +689,79 @@ define dso_local range(i32 0, 5) i32 @ieee80211_sta_cur_vht_bw(ptr noundef reado
   %23 = load volatile i64, ptr %22, align 8
   %24 = and i64 %23, 2048
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %46, label %26
+  br i1 %25, label %42, label %26
 
 26:                                               ; preds = %17
   %27 = load volatile i64, ptr %22, align 8
   %28 = and i64 %27, 65536
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %46, label %30
+  br i1 %29, label %42, label %30
 
 30:                                               ; preds = %26
   %31 = load volatile i64, ptr %22, align 8
   %32 = and i64 %31, 8
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %46, label %34
+  br i1 %33, label %42, label %34
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 1336
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %46, label %38
+  br i1 %37, label %42, label %38
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 1344
   %40 = load i32, ptr %39, align 8
-  switch i32 %40, label %45 [
-    i32 0, label %52
-    i32 1, label %52
-    i32 2, label %41
-    i32 3, label %42
-    i32 5, label %43
-    i32 4, label %43
-    i32 13, label %44
+  switch i32 %40, label %41 [
+    i32 0, label %48
+    i32 1, label %48
+    i32 2, label %43
+    i32 3, label %44
+    i32 5, label %45
+    i32 4, label %45
+    i32 13, label %46
   ]
 
 41:                                               ; preds = %38
-  br label %52
-
-42:                                               ; preds = %38
-  br label %52
-
-43:                                               ; preds = %38, %38
-  br label %52
-
-44:                                               ; preds = %38
-  br label %52
-
-45:                                               ; preds = %38
   tail call void asm sideeffect "2961: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2961b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2961) #13, !srcloc !17
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 499, i32 2307, i64 12) #13, !srcloc !18
   tail call void asm sideeffect "2962: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2962b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2962) #13, !srcloc !19
-  br label %52
+  br label %48
 
-46:                                               ; preds = %34, %30, %26, %17
-  switch i32 %18, label %51 [
-    i32 0, label %52
-    i32 1, label %52
-    i32 2, label %47
-    i32 3, label %48
-    i32 5, label %49
-    i32 4, label %49
-    i32 13, label %50
+42:                                               ; preds = %34, %30, %26, %17
+  switch i32 %18, label %47 [
+    i32 0, label %48
+    i32 1, label %48
+    i32 2, label %43
+    i32 3, label %44
+    i32 5, label %45
+    i32 4, label %45
+    i32 13, label %46
   ]
 
-47:                                               ; preds = %46
-  br label %52
+43:                                               ; preds = %38, %42
+  br label %48
 
-48:                                               ; preds = %46
-  br label %52
+44:                                               ; preds = %38, %42
+  br label %48
 
-49:                                               ; preds = %46, %46
-  br label %52
+45:                                               ; preds = %38, %38, %42, %42
+  br label %48
 
-50:                                               ; preds = %46
-  br label %52
+46:                                               ; preds = %38, %42
+  br label %48
 
-51:                                               ; preds = %46
+47:                                               ; preds = %42
   tail call void asm sideeffect "2961: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2961b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2961) #13, !srcloc !17
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 499, i32 2307, i64 12) #13, !srcloc !18
   tail call void asm sideeffect "2962: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2962b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2962) #13, !srcloc !19
-  br label %52
+  br label %48
 
-52:                                               ; preds = %51, %50, %49, %48, %47, %46, %46, %45, %44, %43, %42, %41, %38, %38
-  %53 = phi i32 [ 0, %45 ], [ 4, %44 ], [ 3, %43 ], [ 2, %42 ], [ 1, %41 ], [ 0, %38 ], [ 0, %38 ], [ 0, %51 ], [ 4, %50 ], [ 3, %49 ], [ 2, %48 ], [ 1, %47 ], [ 0, %46 ], [ 0, %46 ]
-  %54 = tail call i32 @llvm.umin.i32(i32 %19, i32 %21)
-  %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 %53)
-  ret i32 %55
+48:                                               ; preds = %47, %46, %45, %44, %43, %42, %42, %41, %38, %38
+  %49 = phi i32 [ 0, %41 ], [ 2, %44 ], [ 1, %43 ], [ 0, %42 ], [ 0, %42 ], [ 0, %38 ], [ 0, %38 ], [ 0, %47 ], [ 4, %46 ], [ 3, %45 ]
+  %50 = tail call i32 @llvm.umin.i32(i32 %19, i32 %21)
+  %51 = tail call i32 @llvm.umin.i32(i32 %50, i32 %49)
+  ret i32 %51
 }
 
 ; Function Attrs: null_pointer_is_valid

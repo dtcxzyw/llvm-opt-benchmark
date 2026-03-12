@@ -121,7 +121,7 @@ define i32 @Java_java_lang_ProcessHandleImpl_waitForProcessExit0(ptr noundef rea
 11:                                               ; preds = %.preheader
   %12 = load i32, ptr %8, align 4
   switch i32 %12, label %.loopexit [
-    i32 10, label %.loopexit.loopexit19
+    i32 10, label %.loopexit.loopexit20
     i32 4, label %.preheader
   ], !llvm.loop !6
 
@@ -184,11 +184,11 @@ define i32 @Java_java_lang_ProcessHandleImpl_waitForProcessExit0(ptr noundef rea
 .loopexit.loopexit:                               ; preds = %26
   br label %.loopexit
 
-.loopexit.loopexit19:                             ; preds = %11
+.loopexit.loopexit20:                             ; preds = %11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %26, %.loopexit.loopexit19, %.loopexit.loopexit, %35, %20, %39, %32, %17
-  %.0 = phi i32 [ -1, %26 ], [ -2, %.loopexit.loopexit ], [ %19, %17 ], [ %41, %39 ], [ -2, %.loopexit.loopexit19 ], [ %38, %35 ], [ %spec.select, %20 ], [ %34, %32 ], [ -1, %11 ]
+.loopexit:                                        ; preds = %26, %11, %.loopexit.loopexit20, %.loopexit.loopexit, %35, %20, %39, %32, %17
+  %.0 = phi i32 [ -2, %.loopexit.loopexit ], [ -2, %.loopexit.loopexit20 ], [ %19, %17 ], [ %41, %39 ], [ %34, %32 ], [ %38, %35 ], [ %spec.select, %20 ], [ -1, %11 ], [ -1, %26 ]
   ret i32 %.0
 }
 

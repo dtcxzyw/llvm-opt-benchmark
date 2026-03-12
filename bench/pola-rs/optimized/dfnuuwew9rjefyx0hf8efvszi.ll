@@ -12727,77 +12727,71 @@ define noundef range(i64 1, 0) i64 @_ZN14polars_parquet7parquet8encoding7uleb128
 define noundef range(i8 0, 3) i8 @_ZN14polars_parquet7parquet8metadata4sort14get_sort_order17h63b557143565ba74E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #0 {
   %4 = load i8, ptr %0, align 8, !range !2023, !noundef !3
   switch i8 %4, label %default.unreachable [
-    i8 12, label %9
+    i8 12, label %7
     i8 0, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
     i8 1, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
-    i8 2, label %5
-    i8 3, label %5
-    i8 4, label %5
-    i8 5, label %5
-    i8 6, label %6
-    i8 7, label %8
+    i8 2, label %9
+    i8 3, label %9
+    i8 4, label %9
+    i8 5, label %9
+    i8 6, label %5
+    i8 7, label %10
     i8 8, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
     i8 9, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
     i8 10, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
     i8 11, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
   ]
 
-default.unreachable:                              ; preds = %9, %3
+default.unreachable:                              ; preds = %7, %3
   unreachable
 
-5:                                                ; preds = %3, %3, %3, %3
-  br label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
-
-6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.val2 = load i8, ptr %7, align 1
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.val2 = load i8, ptr %6, align 1
   %switch.i = icmp ugt i8 %.val2, 3
   %..i = zext i1 %switch.i to i8
   br label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
 
-8:                                                ; preds = %3
-  br label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
-
-9:                                                ; preds = %3
-  %10 = load i64, ptr %1, align 8, !range !2024, !noundef !3
-  switch i64 %10, label %default.unreachable [
+7:                                                ; preds = %3
+  %8 = load i64, ptr %1, align 8, !range !2024, !noundef !3
+  switch i64 %8, label %default.unreachable [
     i64 19, label %switch.lookup
     i64 0, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
     i64 1, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
-    i64 2, label %11
-    i64 3, label %11
-    i64 4, label %11
-    i64 5, label %11
-    i64 6, label %11
-    i64 7, label %11
+    i64 2, label %9
+    i64 3, label %9
+    i64 4, label %9
+    i64 5, label %9
+    i64 6, label %9
+    i64 7, label %9
     i64 8, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
     i64 9, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
     i64 10, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
     i64 11, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
-    i64 12, label %11
-    i64 13, label %11
-    i64 14, label %11
-    i64 15, label %11
+    i64 12, label %9
+    i64 13, label %9
+    i64 14, label %9
+    i64 15, label %9
     i64 16, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
     i64 17, label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
-    i64 18, label %12
+    i64 18, label %10
   ]
 
-_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit: ; preds = %switch.lookup, %3, %3, %3, %3, %3, %3, %9, %9, %9, %9, %9, %9, %9, %9, %12, %11, %8, %6, %5
-  %.sroa.0.0 = phi i8 [ 1, %9 ], [ %..i, %6 ], [ 0, %5 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 2, %8 ], [ 1, %3 ], [ 0, %11 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 2, %12 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ %switch.masked, %switch.lookup ]
+_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit: ; preds = %switch.lookup, %3, %3, %3, %3, %3, %3, %7, %7, %7, %7, %7, %7, %7, %7, %10, %9, %5
+  %.sroa.0.0 = phi i8 [ 1, %7 ], [ %..i, %5 ], [ 2, %10 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 0, %9 ], [ 1, %3 ], [ %switch.masked, %switch.lookup ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ], [ 1, %7 ]
   ret i8 %.sroa.0.0
 
-11:                                               ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9, %9
-  br label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
-
-12:                                               ; preds = %9
-  br label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
-
-switch.lookup:                                    ; preds = %9
+switch.lookup:                                    ; preds = %7
   %.val4 = load i64, ptr %2, align 8, !range !2025, !noundef !3
   %switch.shiftamt = shl nuw nsw i64 %.val4, 3
   %switch.downshift = lshr i64 72339069048193025, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
+  br label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
+
+9:                                                ; preds = %3, %3, %3, %3, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7
+  br label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
+
+10:                                               ; preds = %3, %7
   br label %_ZN14polars_parquet7parquet8metadata4sort22get_logical_sort_order17h2d8456b021e60891E.exit
 }
 

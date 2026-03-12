@@ -7702,10 +7702,7 @@ define noundef zeroext i1 @_ZN3net10QuicFramer11IsValidPathEhPm(ptr noundef nonn
   %74 = zext i8 %73 to i64
   %75 = urem i64 %74, %58
   %.not19.i.i.i.i.i13 = icmp eq i64 %75, %59
-  br i1 %.not19.i.i.i.i.i13, label %68, label %..loopexit_crit_edge21.i.i.i.i.i14, !llvm.loop !277
-
-..loopexit_crit_edge21.i.i.i.i.i14:               ; preds = %71
-  br label %_ZN4base11ContainsKeyISt13unordered_setIhSt4hashIhESt8equal_toIhESaIhEEhEEbRKT_RKT0_.exit.sink.split, !llvm.loop !277
+  br i1 %.not19.i.i.i.i.i13, label %68, label %..loopexit_crit_edge21.i.i.i.i.i25, !llvm.loop !277
 
 _ZN4base11ContainsKeyISt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEhEEbRKT_RKT0_.exit.loopexit: ; preds = %51
   %.phi.trans.insert77 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -7847,7 +7844,7 @@ _ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEixERS5_.exit: ; 
   %.not19.i.i.i.i.i24 = icmp eq i64 %134, %118
   br i1 %.not19.i.i.i.i.i24, label %127, label %..loopexit_crit_edge21.i.i.i.i.i25, !llvm.loop !277
 
-..loopexit_crit_edge21.i.i.i.i.i25:               ; preds = %130
+..loopexit_crit_edge21.i.i.i.i.i25:               ; preds = %130, %71
   br label %_ZN4base11ContainsKeyISt13unordered_setIhSt4hashIhESt8equal_toIhESaIhEEhEEbRKT_RKT0_.exit.sink.split, !llvm.loop !277
 
 _ZN4base11ContainsKeyISt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEhEEbRKT_RKT0_.exit30.loopexit: ; preds = %110
@@ -7917,8 +7914,8 @@ _ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEixERS5_.exit41: 
   %157 = load i64, ptr %.1.i.i40, align 8, !tbaa !65
   br label %_ZN4base11ContainsKeyISt13unordered_setIhSt4hashIhESt8equal_toIhESaIhEEhEEbRKT_RKT0_.exit.sink.split
 
-_ZN4base11ContainsKeyISt13unordered_setIhSt4hashIhESt8equal_toIhESaIhEEhEEbRKT_RKT0_.exit.sink.split: ; preds = %.lr.ph.i.i.i.i.i21, %109, %.lr.ph.i.i.i.i.i10, %50, %114, %..loopexit_crit_edge21.i.i.i.i.i25, %55, %..loopexit_crit_edge21.i.i.i.i.i14, %41, %100, %_ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEixERS5_.exit41, %_ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEixERS5_.exit
-  %.sink110 = phi i64 [ %43, %41 ], [ %98, %_ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEixERS5_.exit ], [ 0, %55 ], [ %157, %_ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEixERS5_.exit41 ], [ %102, %100 ], [ 0, %50 ], [ 0, %114 ], [ 0, %..loopexit_crit_edge21.i.i.i.i.i14 ], [ 0, %109 ], [ 0, %.lr.ph.i.i.i.i.i10 ], [ 0, %..loopexit_crit_edge21.i.i.i.i.i25 ], [ 0, %.lr.ph.i.i.i.i.i21 ]
+_ZN4base11ContainsKeyISt13unordered_setIhSt4hashIhESt8equal_toIhESaIhEEhEEbRKT_RKT0_.exit.sink.split: ; preds = %.lr.ph.i.i.i.i.i21, %109, %.lr.ph.i.i.i.i.i10, %50, %114, %..loopexit_crit_edge21.i.i.i.i.i25, %55, %41, %100, %_ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEixERS5_.exit41, %_ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEixERS5_.exit
+  %.sink110 = phi i64 [ %43, %41 ], [ %98, %_ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEixERS5_.exit ], [ 0, %55 ], [ %157, %_ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEixERS5_.exit41 ], [ %102, %100 ], [ 0, %50 ], [ 0, %..loopexit_crit_edge21.i.i.i.i.i25 ], [ 0, %114 ], [ 0, %109 ], [ 0, %.lr.ph.i.i.i.i.i10 ], [ 0, %.lr.ph.i.i.i.i.i21 ]
   store i64 %.sink110, ptr %2, align 8, !tbaa !65
   br label %_ZN4base11ContainsKeyISt13unordered_setIhSt4hashIhESt8equal_toIhESaIhEEhEEbRKT_RKT0_.exit
 

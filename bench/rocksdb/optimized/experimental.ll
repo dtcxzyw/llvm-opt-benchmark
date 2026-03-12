@@ -25681,7 +25681,7 @@ _ZN7rocksdb14EncodeVarint64EPcm.exit.i119:        ; preds = %.lr.ph.i.i123, %284
   %304 = icmp ult i64 %303, %301
   br i1 %304, label %.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i122
 
-.invoke:                                          ; preds = %_ZN7rocksdb14EncodeVarint64EPcm.exit.i107, %259, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i, %223, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i119
+.invoke:                                          ; preds = %223, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i, %259, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i107, %_ZN7rocksdb14EncodeVarint64EPcm.exit.i119
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.64) #37
           to label %.cont unwind label %282
 

@@ -180,6 +180,9 @@ lex.exit:                                         ; preds = %43, %45
     i32 56, label %423
   ]
 
+.backedge920.backedge:                            ; preds = %lex.exit438, %lex.exit, %lex.exit, %lex.exit, %.loopexit, %279, %.loopexit909
+  br label %.backedge920
+
 49:                                               ; preds = %lex.exit
   %50 = load ptr, ptr %8, align 8, !tbaa !23
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
@@ -834,9 +837,6 @@ gv_isspace.exit:                                  ; preds = %.lr.ph, %.lr.ph, %.
   store ptr %9, ptr %10, align 8, !tbaa !30
   store i32 0, ptr %11, align 8, !tbaa !31
   br label %.backedge920.backedge
-
-.backedge920.backedge:                            ; preds = %lex.exit438, %279, %.loopexit909, %.loopexit, %lex.exit, %lex.exit, %lex.exit
-  br label %.backedge920
 
 280:                                              ; preds = %270
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.5) #17

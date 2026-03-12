@@ -2937,7 +2937,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN5clang6Parser30isStartOfTemplat
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i16, ptr %3, align 8, !tbaa !96
   %5 = icmp eq i16 %4, 127
-  br i1 %5, label %6, label %45
+  br i1 %5, label %6, label %43
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2964,228 +2964,222 @@ _ZN5clang6Parser9NextTokenEv.exit:                ; preds = %15, %19
   %.0.i.i = phi ptr [ %18, %15 ], [ %20, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %22 = load i16, ptr %21, align 8, !tbaa !96
-  switch i16 %22, label %23 [
-    i16 64, label %135
-    i16 66, label %135
-    i16 52, label %135
-    i16 53, label %135
-    i16 27, label %135
-    i16 5, label %24
+  switch i16 %22, label %132 [
+    i16 64, label %133
+    i16 66, label %133
+    i16 52, label %133
+    i16 53, label %133
+    i16 27, label %133
+    i16 5, label %23
   ]
 
 23:                                               ; preds = %_ZN5clang6Parser9NextTokenEv.exit
-  br label %135
+  %24 = load i16, ptr %3, align 8
+  %25 = icmp eq i16 %24, 1
+  br i1 %25, label %_ZN5clang6Parser17GetLookAheadTokenEj.exit, label %26
 
-24:                                               ; preds = %_ZN5clang6Parser9NextTokenEv.exit
-  %25 = load i16, ptr %3, align 8
-  %26 = icmp eq i16 %25, 1
-  br i1 %26, label %_ZN5clang6Parser17GetLookAheadTokenEj.exit, label %27
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %7, align 8, !tbaa !97
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 2928
+  %29 = load i64, ptr %28, align 8, !tbaa !98
+  %30 = add i64 %29, 1
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 2896
+  %32 = load i32, ptr %31, align 8, !tbaa !317
+  %33 = zext i32 %32 to i64
+  %34 = icmp ult i64 %30, %33
+  br i1 %34, label %35, label %39
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr %7, align 8, !tbaa !97
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 2928
-  %30 = load i64, ptr %29, align 8, !tbaa !98
-  %31 = add i64 %30, 1
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 2896
-  %33 = load i32, ptr %32, align 8, !tbaa !317
-  %34 = zext i32 %33 to i64
-  %35 = icmp ult i64 %31, %34
-  br i1 %35, label %36, label %40
-
-36:                                               ; preds = %27
-  %37 = getelementptr inbounds nuw i8, ptr %28, i64 2888
-  %38 = load ptr, ptr %37, align 8, !tbaa !318
-  %39 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %31
+35:                                               ; preds = %26
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 2888
+  %37 = load ptr, ptr %36, align 8, !tbaa !318
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %30
   br label %_ZN5clang6Parser17GetLookAheadTokenEj.exit
 
-40:                                               ; preds = %27
-  %41 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZN5clang12Preprocessor9PeekAheadEj(ptr noundef nonnull align 8 dereferenceable(3288) %28, i32 noundef 2) #18
+39:                                               ; preds = %26
+  %40 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZN5clang12Preprocessor9PeekAheadEj(ptr noundef nonnull align 8 dereferenceable(3288) %27, i32 noundef 2) #18
   br label %_ZN5clang6Parser17GetLookAheadTokenEj.exit
 
-_ZN5clang6Parser17GetLookAheadTokenEj.exit:       ; preds = %24, %36, %40
-  %.0.i = phi ptr [ %41, %40 ], [ %39, %36 ], [ %2, %24 ]
-  %42 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %43 = load i16, ptr %42, align 8, !tbaa !96
-  switch i16 %43, label %44 [
-    i16 64, label %135
-    i16 66, label %135
-    i16 52, label %135
-    i16 53, label %135
+_ZN5clang6Parser17GetLookAheadTokenEj.exit:       ; preds = %23, %35, %39
+  %.0.i = phi ptr [ %40, %39 ], [ %38, %35 ], [ %2, %23 ]
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %42 = load i16, ptr %41, align 8, !tbaa !96
+  switch i16 %42, label %132 [
+    i16 64, label %133
+    i16 66, label %133
+    i16 52, label %133
+    i16 53, label %133
   ]
 
-44:                                               ; preds = %_ZN5clang6Parser17GetLookAheadTokenEj.exit
-  br label %135
+43:                                               ; preds = %1
+  %44 = tail call noundef zeroext i1 @_ZN5clang6Parser25TryAnnotateTypeConstraintEv(ptr noundef nonnull align 8 dereferenceable(2936) %0)
+  br i1 %44, label %133, label %45
 
-45:                                               ; preds = %1
-  %46 = tail call noundef zeroext i1 @_ZN5clang6Parser25TryAnnotateTypeConstraintEv(ptr noundef nonnull align 8 dereferenceable(2936) %0)
-  br i1 %46, label %135, label %47
+45:                                               ; preds = %43
+  %46 = load i16, ptr %3, align 8, !tbaa !96
+  %47 = icmp eq i16 %46, 412
+  br i1 %47, label %48, label %_ZN5clang6Parser9NextTokenEv.exit.i
 
-47:                                               ; preds = %45
-  %48 = load i16, ptr %3, align 8, !tbaa !96
-  %49 = icmp eq i16 %48, 412
-  br i1 %49, label %50, label %_ZN5clang6Parser9NextTokenEv.exit.i
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load ptr, ptr %49, align 8, !tbaa !97
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 2928
+  %52 = load i64, ptr %51, align 8, !tbaa !98
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 2896
+  %54 = load i32, ptr %53, align 8, !tbaa !317
+  %55 = zext i32 %54 to i64
+  %56 = icmp ult i64 %52, %55
+  br i1 %56, label %57, label %61
 
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !97
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 2928
-  %54 = load i64, ptr %53, align 8, !tbaa !98
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 2896
-  %56 = load i32, ptr %55, align 8, !tbaa !317
-  %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %54, %57
-  br i1 %58, label %59, label %63
-
-59:                                               ; preds = %50
-  %60 = getelementptr inbounds nuw i8, ptr %52, i64 2888
-  %61 = load ptr, ptr %60, align 8, !tbaa !318
-  %62 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %54
+57:                                               ; preds = %48
+  %58 = getelementptr inbounds nuw i8, ptr %50, i64 2888
+  %59 = load ptr, ptr %58, align 8, !tbaa !318
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %59, i64 %52
   br label %_ZN5clang6Parser9NextTokenEv.exit.i
 
-63:                                               ; preds = %50
-  %64 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZN5clang12Preprocessor9PeekAheadEj(ptr noundef nonnull align 8 dereferenceable(3288) %52, i32 noundef 1) #18
+61:                                               ; preds = %48
+  %62 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZN5clang12Preprocessor9PeekAheadEj(ptr noundef nonnull align 8 dereferenceable(3288) %50, i32 noundef 1) #18
   br label %_ZN5clang6Parser9NextTokenEv.exit.i
 
-_ZN5clang6Parser9NextTokenEv.exit.i:              ; preds = %63, %59, %47
-  %65 = phi ptr [ %2, %47 ], [ %62, %59 ], [ %64, %63 ]
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %67 = load i16, ptr %66, align 8, !tbaa !96
-  %.not.i = icmp eq i16 %67, 414
+_ZN5clang6Parser9NextTokenEv.exit.i:              ; preds = %61, %57, %45
+  %63 = phi ptr [ %2, %45 ], [ %60, %57 ], [ %62, %61 ]
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %65 = load i16, ptr %64, align 8, !tbaa !96
+  %.not.i = icmp eq i16 %65, 414
   br i1 %.not.i, label %_ZN5clang6Parser26isTypeConstraintAnnotationEv.exit, label %_ZN5clang6Parser26isTypeConstraintAnnotationEv.exit.thread
 
 _ZN5clang6Parser26isTypeConstraintAnnotationEv.exit: ; preds = %_ZN5clang6Parser9NextTokenEv.exit.i
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !1067
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  %71 = load i32, ptr %70, align 8, !tbaa !1068
-  %72 = icmp eq i32 %71, 6
-  br i1 %72, label %73, label %_ZN5clang6Parser26isTypeConstraintAnnotationEv.exit.thread
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !1067
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
+  %69 = load i32, ptr %68, align 8, !tbaa !1068
+  %70 = icmp eq i32 %69, 6
+  br i1 %70, label %71, label %_ZN5clang6Parser26isTypeConstraintAnnotationEv.exit.thread
 
-73:                                               ; preds = %_ZN5clang6Parser26isTypeConstraintAnnotationEv.exit
-  %74 = load i16, ptr %3, align 8, !tbaa !96
-  %75 = icmp eq i16 %74, 412
-  %76 = select i1 %75, i32 2, i32 1
-  %77 = icmp eq i16 %74, 1
-  br i1 %77, label %_ZN5clang6Parser17GetLookAheadTokenEj.exit3, label %78
+71:                                               ; preds = %_ZN5clang6Parser26isTypeConstraintAnnotationEv.exit
+  %72 = load i16, ptr %3, align 8, !tbaa !96
+  %73 = icmp eq i16 %72, 412
+  %74 = select i1 %73, i32 2, i32 1
+  %75 = icmp eq i16 %72, 1
+  br i1 %75, label %_ZN5clang6Parser17GetLookAheadTokenEj.exit3, label %76
 
-78:                                               ; preds = %73
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %80 = load ptr, ptr %79, align 8, !tbaa !97
-  %81 = add nsw i32 %76, -1
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 2928
-  %83 = load i64, ptr %82, align 8, !tbaa !98
-  %84 = zext nneg i32 %81 to i64
-  %85 = add i64 %83, %84
-  %86 = getelementptr inbounds nuw i8, ptr %80, i64 2896
-  %87 = load i32, ptr %86, align 8, !tbaa !317
-  %88 = zext i32 %87 to i64
-  %89 = icmp ult i64 %85, %88
-  br i1 %89, label %90, label %94
+76:                                               ; preds = %71
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %78 = load ptr, ptr %77, align 8, !tbaa !97
+  %79 = add nsw i32 %74, -1
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 2928
+  %81 = load i64, ptr %80, align 8, !tbaa !98
+  %82 = zext nneg i32 %79 to i64
+  %83 = add i64 %81, %82
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 2896
+  %85 = load i32, ptr %84, align 8, !tbaa !317
+  %86 = zext i32 %85 to i64
+  %87 = icmp ult i64 %83, %86
+  br i1 %87, label %88, label %92
 
-90:                                               ; preds = %78
-  %91 = getelementptr inbounds nuw i8, ptr %80, i64 2888
-  %92 = load ptr, ptr %91, align 8, !tbaa !318
-  %93 = getelementptr inbounds nuw [24 x i8], ptr %92, i64 %85
+88:                                               ; preds = %76
+  %89 = getelementptr inbounds nuw i8, ptr %78, i64 2888
+  %90 = load ptr, ptr %89, align 8, !tbaa !318
+  %91 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 %83
   br label %_ZN5clang6Parser17GetLookAheadTokenEj.exit3
 
-94:                                               ; preds = %78
-  %95 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZN5clang12Preprocessor9PeekAheadEj(ptr noundef nonnull align 8 dereferenceable(3288) %80, i32 noundef %76) #18
+92:                                               ; preds = %76
+  %93 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZN5clang12Preprocessor9PeekAheadEj(ptr noundef nonnull align 8 dereferenceable(3288) %78, i32 noundef %74) #18
   br label %_ZN5clang6Parser17GetLookAheadTokenEj.exit3
 
-_ZN5clang6Parser17GetLookAheadTokenEj.exit3:      ; preds = %73, %90, %94
-  %.0.i2 = phi ptr [ %95, %94 ], [ %93, %90 ], [ %2, %73 ]
-  %96 = getelementptr inbounds nuw i8, ptr %.0.i2, i64 16
-  %97 = load i16, ptr %96, align 8, !tbaa !96
-  switch i16 %97, label %135 [
+_ZN5clang6Parser17GetLookAheadTokenEj.exit3:      ; preds = %71, %88, %92
+  %.0.i2 = phi ptr [ %93, %92 ], [ %91, %88 ], [ %2, %71 ]
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i2, i64 16
+  %95 = load i16, ptr %94, align 8, !tbaa !96
+  switch i16 %95, label %133 [
     i16 161, label %_ZN5clang6Parser26isTypeConstraintAnnotationEv.exit.thread
     i16 76, label %_ZN5clang6Parser26isTypeConstraintAnnotationEv.exit.thread
   ]
 
 _ZN5clang6Parser26isTypeConstraintAnnotationEv.exit.thread: ; preds = %_ZN5clang6Parser17GetLookAheadTokenEj.exit3, %_ZN5clang6Parser17GetLookAheadTokenEj.exit3, %_ZN5clang6Parser9NextTokenEv.exit.i, %_ZN5clang6Parser26isTypeConstraintAnnotationEv.exit
-  %98 = load i16, ptr %3, align 8, !tbaa !96
-  switch i16 %98, label %135 [
-    i16 149, label %99
-    i16 105, label %99
+  %96 = load i16, ptr %3, align 8, !tbaa !96
+  switch i16 %96, label %133 [
+    i16 149, label %97
+    i16 105, label %97
   ]
 
-99:                                               ; preds = %_ZN5clang6Parser26isTypeConstraintAnnotationEv.exit.thread, %_ZN5clang6Parser26isTypeConstraintAnnotationEv.exit.thread
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %101 = load ptr, ptr %100, align 8, !tbaa !97
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 2928
-  %103 = load i64, ptr %102, align 8, !tbaa !98
-  %104 = getelementptr inbounds nuw i8, ptr %101, i64 2896
-  %105 = load i32, ptr %104, align 8, !tbaa !317
-  %106 = zext i32 %105 to i64
-  %107 = icmp ult i64 %103, %106
-  br i1 %107, label %108, label %112
+97:                                               ; preds = %_ZN5clang6Parser26isTypeConstraintAnnotationEv.exit.thread, %_ZN5clang6Parser26isTypeConstraintAnnotationEv.exit.thread
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %99 = load ptr, ptr %98, align 8, !tbaa !97
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 2928
+  %101 = load i64, ptr %100, align 8, !tbaa !98
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 2896
+  %103 = load i32, ptr %102, align 8, !tbaa !317
+  %104 = zext i32 %103 to i64
+  %105 = icmp ult i64 %101, %104
+  br i1 %105, label %106, label %110
 
-108:                                              ; preds = %99
-  %109 = getelementptr inbounds nuw i8, ptr %101, i64 2888
-  %110 = load ptr, ptr %109, align 8, !tbaa !318
-  %111 = getelementptr inbounds nuw [24 x i8], ptr %110, i64 %103
+106:                                              ; preds = %97
+  %107 = getelementptr inbounds nuw i8, ptr %99, i64 2888
+  %108 = load ptr, ptr %107, align 8, !tbaa !318
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %108, i64 %101
   br label %_ZN5clang6Parser9NextTokenEv.exit5
 
-112:                                              ; preds = %99
-  %113 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZN5clang12Preprocessor9PeekAheadEj(ptr noundef nonnull align 8 dereferenceable(3288) %101, i32 noundef 1) #18
+110:                                              ; preds = %97
+  %111 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZN5clang12Preprocessor9PeekAheadEj(ptr noundef nonnull align 8 dereferenceable(3288) %99, i32 noundef 1) #18
   br label %_ZN5clang6Parser9NextTokenEv.exit5
 
-_ZN5clang6Parser9NextTokenEv.exit5:               ; preds = %108, %112
-  %.0.i.i4 = phi ptr [ %111, %108 ], [ %113, %112 ]
+_ZN5clang6Parser9NextTokenEv.exit5:               ; preds = %106, %110
+  %.0.i.i4 = phi ptr [ %109, %106 ], [ %111, %110 ]
   %.sroa.4.0..0.i.i4.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i4, i64 16
   %.sroa.4.0.copyload = load i16, ptr %.sroa.4.0..0.i.i4.sroa_idx, align 8, !tbaa !361
-  %114 = icmp eq i16 %.sroa.4.0.copyload, 5
-  br i1 %114, label %115, label %133
+  %112 = icmp eq i16 %.sroa.4.0.copyload, 5
+  br i1 %112, label %113, label %131
 
-115:                                              ; preds = %_ZN5clang6Parser9NextTokenEv.exit5
-  %116 = load i16, ptr %3, align 8
-  %117 = icmp eq i16 %116, 1
-  br i1 %117, label %_ZN5clang6Parser17GetLookAheadTokenEj.exit7, label %118
+113:                                              ; preds = %_ZN5clang6Parser9NextTokenEv.exit5
+  %114 = load i16, ptr %3, align 8
+  %115 = icmp eq i16 %114, 1
+  br i1 %115, label %_ZN5clang6Parser17GetLookAheadTokenEj.exit7, label %116
 
-118:                                              ; preds = %115
-  %119 = load ptr, ptr %100, align 8, !tbaa !97
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 2928
-  %121 = load i64, ptr %120, align 8, !tbaa !98
-  %122 = add i64 %121, 1
-  %123 = getelementptr inbounds nuw i8, ptr %119, i64 2896
-  %124 = load i32, ptr %123, align 8, !tbaa !317
-  %125 = zext i32 %124 to i64
-  %126 = icmp ult i64 %122, %125
-  br i1 %126, label %127, label %131
+116:                                              ; preds = %113
+  %117 = load ptr, ptr %98, align 8, !tbaa !97
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 2928
+  %119 = load i64, ptr %118, align 8, !tbaa !98
+  %120 = add i64 %119, 1
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 2896
+  %122 = load i32, ptr %121, align 8, !tbaa !317
+  %123 = zext i32 %122 to i64
+  %124 = icmp ult i64 %120, %123
+  br i1 %124, label %125, label %129
 
-127:                                              ; preds = %118
-  %128 = getelementptr inbounds nuw i8, ptr %119, i64 2888
-  %129 = load ptr, ptr %128, align 8, !tbaa !318
-  %130 = getelementptr inbounds nuw [24 x i8], ptr %129, i64 %122
+125:                                              ; preds = %116
+  %126 = getelementptr inbounds nuw i8, ptr %117, i64 2888
+  %127 = load ptr, ptr %126, align 8, !tbaa !318
+  %128 = getelementptr inbounds nuw [24 x i8], ptr %127, i64 %120
   br label %_ZN5clang6Parser17GetLookAheadTokenEj.exit7
 
-131:                                              ; preds = %118
-  %132 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZN5clang12Preprocessor9PeekAheadEj(ptr noundef nonnull align 8 dereferenceable(3288) %119, i32 noundef 2) #18
+129:                                              ; preds = %116
+  %130 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZN5clang12Preprocessor9PeekAheadEj(ptr noundef nonnull align 8 dereferenceable(3288) %117, i32 noundef 2) #18
   br label %_ZN5clang6Parser17GetLookAheadTokenEj.exit7
 
-_ZN5clang6Parser17GetLookAheadTokenEj.exit7:      ; preds = %115, %127, %131
-  %.0.i6 = phi ptr [ %132, %131 ], [ %130, %127 ], [ %2, %115 ]
+_ZN5clang6Parser17GetLookAheadTokenEj.exit7:      ; preds = %113, %125, %129
+  %.0.i6 = phi ptr [ %130, %129 ], [ %128, %125 ], [ %2, %113 ]
   %.sroa.4.0..0.i6.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i6, i64 16
   %.sroa.4.0.copyload8 = load i16, ptr %.sroa.4.0..0.i6.sroa_idx, align 8, !tbaa !361
-  br label %133
+  br label %131
 
-133:                                              ; preds = %_ZN5clang6Parser17GetLookAheadTokenEj.exit7, %_ZN5clang6Parser9NextTokenEv.exit5
+131:                                              ; preds = %_ZN5clang6Parser17GetLookAheadTokenEj.exit7, %_ZN5clang6Parser9NextTokenEv.exit5
   %.sroa.4.0 = phi i16 [ %.sroa.4.0.copyload8, %_ZN5clang6Parser17GetLookAheadTokenEj.exit7 ], [ %.sroa.4.0.copyload, %_ZN5clang6Parser9NextTokenEv.exit5 ]
-  switch i16 %.sroa.4.0, label %134 [
-    i16 64, label %135
-    i16 66, label %135
-    i16 52, label %135
-    i16 53, label %135
-    i16 27, label %135
-    i16 149, label %135
-    i16 105, label %135
-    i16 127, label %135
+  switch i16 %.sroa.4.0, label %132 [
+    i16 64, label %133
+    i16 66, label %133
+    i16 52, label %133
+    i16 53, label %133
+    i16 27, label %133
+    i16 149, label %133
+    i16 105, label %133
+    i16 127, label %133
   ]
 
-134:                                              ; preds = %133
-  br label %135
+132:                                              ; preds = %_ZN5clang6Parser9NextTokenEv.exit, %_ZN5clang6Parser17GetLookAheadTokenEj.exit, %131
+  br label %133
 
-135:                                              ; preds = %134, %133, %133, %133, %133, %133, %133, %133, %133, %_ZN5clang6Parser26isTypeConstraintAnnotationEv.exit.thread, %_ZN5clang6Parser17GetLookAheadTokenEj.exit3, %45, %_ZN5clang6Parser17GetLookAheadTokenEj.exit, %_ZN5clang6Parser17GetLookAheadTokenEj.exit, %_ZN5clang6Parser17GetLookAheadTokenEj.exit, %_ZN5clang6Parser17GetLookAheadTokenEj.exit, %_ZN5clang6Parser9NextTokenEv.exit, %_ZN5clang6Parser9NextTokenEv.exit, %_ZN5clang6Parser9NextTokenEv.exit, %_ZN5clang6Parser9NextTokenEv.exit, %_ZN5clang6Parser9NextTokenEv.exit, %44, %23
-  %.0 = phi i32 [ 1, %23 ], [ 3, %45 ], [ 1, %44 ], [ 0, %_ZN5clang6Parser9NextTokenEv.exit ], [ 0, %_ZN5clang6Parser17GetLookAheadTokenEj.exit ], [ 0, %_ZN5clang6Parser17GetLookAheadTokenEj.exit3 ], [ 1, %_ZN5clang6Parser26isTypeConstraintAnnotationEv.exit.thread ], [ 0, %_ZN5clang6Parser9NextTokenEv.exit ], [ 0, %_ZN5clang6Parser9NextTokenEv.exit ], [ 0, %_ZN5clang6Parser9NextTokenEv.exit ], [ 0, %_ZN5clang6Parser9NextTokenEv.exit ], [ 0, %_ZN5clang6Parser17GetLookAheadTokenEj.exit ], [ 0, %_ZN5clang6Parser17GetLookAheadTokenEj.exit ], [ 0, %_ZN5clang6Parser17GetLookAheadTokenEj.exit ], [ 1, %134 ], [ 0, %133 ], [ 0, %133 ], [ 0, %133 ], [ 0, %133 ], [ 0, %133 ], [ 0, %133 ], [ 0, %133 ], [ 0, %133 ]
+133:                                              ; preds = %132, %131, %131, %131, %131, %131, %131, %131, %131, %_ZN5clang6Parser26isTypeConstraintAnnotationEv.exit.thread, %_ZN5clang6Parser17GetLookAheadTokenEj.exit3, %43, %_ZN5clang6Parser17GetLookAheadTokenEj.exit, %_ZN5clang6Parser17GetLookAheadTokenEj.exit, %_ZN5clang6Parser17GetLookAheadTokenEj.exit, %_ZN5clang6Parser17GetLookAheadTokenEj.exit, %_ZN5clang6Parser9NextTokenEv.exit, %_ZN5clang6Parser9NextTokenEv.exit, %_ZN5clang6Parser9NextTokenEv.exit, %_ZN5clang6Parser9NextTokenEv.exit, %_ZN5clang6Parser9NextTokenEv.exit
+  %.0 = phi i32 [ 0, %131 ], [ 3, %43 ], [ 0, %131 ], [ 0, %_ZN5clang6Parser9NextTokenEv.exit ], [ 0, %_ZN5clang6Parser17GetLookAheadTokenEj.exit ], [ 0, %_ZN5clang6Parser17GetLookAheadTokenEj.exit3 ], [ 1, %_ZN5clang6Parser26isTypeConstraintAnnotationEv.exit.thread ], [ 0, %_ZN5clang6Parser9NextTokenEv.exit ], [ 0, %_ZN5clang6Parser9NextTokenEv.exit ], [ 0, %_ZN5clang6Parser9NextTokenEv.exit ], [ 0, %_ZN5clang6Parser9NextTokenEv.exit ], [ 0, %_ZN5clang6Parser17GetLookAheadTokenEj.exit ], [ 0, %_ZN5clang6Parser17GetLookAheadTokenEj.exit ], [ 0, %_ZN5clang6Parser17GetLookAheadTokenEj.exit ], [ 1, %132 ], [ 0, %131 ], [ 0, %131 ], [ 0, %131 ], [ 0, %131 ], [ 0, %131 ], [ 0, %131 ]
   ret i32 %.0
 }
 

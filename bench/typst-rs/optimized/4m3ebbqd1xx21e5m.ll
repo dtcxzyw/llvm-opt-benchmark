@@ -6148,7 +6148,7 @@ _ZN13icu_segmenter4line23is_break_utf32_by_loose17hec74c3bac9a5d6d0E.exit: ; pre
   %.sroa.0.6 = zext i1 %238 to i64
   br label %"_ZN13icu_segmenter4line26LineBreakIterator$LT$Y$GT$9check_eof17h8bf4fb768cb4acebE.exit"
 
-select.unfold:                                    ; preds = %223, %225, %226, %226, %226, %226, %226, %228, %226, %226, %227, %227, %232
+select.unfold:                                    ; preds = %223, %225, %226, %226, %228, %226, %226, %226, %226, %226, %227, %227, %232
   %240 = trunc nuw i8 %224 to i1
   br i1 %240, label %.thread, label %.backedge
 
@@ -52282,7 +52282,7 @@ define hidden void @"_ZN94_$LT$$RF$mut$u20$serde_yaml..de..DeserializerFromEvent
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %295
 
-_ZN10serde_yaml2de12visit_scalar17h813038719cbcfe6cE.exit: ; preds = %291, %290, %284, %258, %257, %251, %205, %"_ZN4core3ptr178drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$typst..foundations..value..Value$C$serde_yaml..error..Error$GT$$C$typst..foundations..value..ValueVisitor$GT$$GT$17hee4588bd23154d98E.exit.i", %130, %76
+_ZN10serde_yaml2de12visit_scalar17h813038719cbcfe6cE.exit: ; preds = %291, %290, %284, %251, %257, %258, %205, %"_ZN4core3ptr178drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$typst..foundations..value..Value$C$serde_yaml..error..Error$GT$$C$typst..foundations..value..ValueVisitor$GT$$GT$17hee4588bd23154d98E.exit.i", %130, %76
   %.pr.pr = load i8, ptr %31, align 8, !alias.scope !9045, !noalias !9048
   call void @llvm.experimental.noalias.scope.decl(metadata !9052)
   call void @llvm.experimental.noalias.scope.decl(metadata !9045)
@@ -61564,7 +61564,7 @@ _ZN5alloc7raw_vec11finish_grow17h9b8b8a0ec08387c9E.exit.i.i.i.i: ; preds = %142,
   store i64 %.0.sroa.speculated.i24.i.i.i.i, ptr %58, align 8, !alias.scope !10852
   br label %146
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h37ebed6ae460a61cE.llvm.9217674556973953327.exit.thread.i.i.i.invoke": ; preds = %462, %298, %459, %295, %134, %183, %180, %131
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h37ebed6ae460a61cE.llvm.9217674556973953327.exit.thread.i.i.i.invoke": ; preds = %462, %298, %295, %459, %134, %183, %180, %131
   invoke void @_ZN5alloc7raw_vec17capacity_overflow17h2434c0983b86c347E() #53
           to label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h37ebed6ae460a61cE.llvm.9217674556973953327.exit.thread.i.i.i.cont" unwind label %.loopexit.split-lp598
 

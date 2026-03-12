@@ -18622,13 +18622,13 @@ _ZN5clang4Decl14getDeclContextEv.exit.i:          ; preds = %1298, %_ZNK5clang17
   %1303 = icmp eq i16 %1302, 16
   br i1 %1303, label %_ZL19getAssignmentActionRKN5clang17InitializedEntityEb.exit, label %.critedge.i
 
-.critedge.i:                                      ; preds = %_ZN5clang4Decl14getDeclContextEv.exit.i, %_ZNK5clang17InitializedEntity7getDeclEv.exit.i
+.critedge.i:                                      ; preds = %_ZNK5clang17InitializedEntity7getDeclEv.exit15.i, %_ZN5clang4Decl14getDeclContextEv.exit21.i, %_ZN5clang4Decl14getDeclContextEv.exit.i, %_ZNK5clang17InitializedEntity7getDeclEv.exit.i
   br label %_ZL19getAssignmentActionRKN5clang17InitializedEntityEb.exit
 
 _ZNK5clang17InitializedEntity7getDeclEv.exit15.i: ; preds = %1284
   %.0.copyload.i.i.i.i14.i = load i64, ptr %908, align 8
   %.not.i831 = icmp ult i64 %.0.copyload.i.i.i.i14.i, 8
-  br i1 %.not.i831, label %.critedge2.i, label %_ZNK5clang17InitializedEntity7getDeclEv.exit18.i
+  br i1 %.not.i831, label %.critedge.i, label %_ZNK5clang17InitializedEntity7getDeclEv.exit18.i
 
 _ZNK5clang17InitializedEntity7getDeclEv.exit18.i: ; preds = %_ZNK5clang17InitializedEntity7getDeclEv.exit15.i
   %1304 = and i64 %.0.copyload.i.i.i.i14.i, -8
@@ -18651,10 +18651,7 @@ _ZN5clang4Decl14getDeclContextEv.exit21.i:        ; preds = %1311, %_ZNK5clang17
   %1314 = load i16, ptr %1313, align 8
   %1315 = and i16 %1314, 127
   %1316 = icmp eq i16 %1315, 16
-  br i1 %1316, label %_ZL19getAssignmentActionRKN5clang17InitializedEntityEb.exit, label %.critedge2.i
-
-.critedge2.i:                                     ; preds = %_ZN5clang4Decl14getDeclContextEv.exit21.i, %_ZNK5clang17InitializedEntity7getDeclEv.exit15.i
-  br label %_ZL19getAssignmentActionRKN5clang17InitializedEntityEb.exit
+  br i1 %1316, label %_ZL19getAssignmentActionRKN5clang17InitializedEntityEb.exit, label %.critedge.i
 
 1317:                                             ; preds = %1284, %1284
   br label %_ZL19getAssignmentActionRKN5clang17InitializedEntityEb.exit
@@ -18668,8 +18665,8 @@ _ZN5clang4Decl14getDeclContextEv.exit21.i:        ; preds = %1311, %_ZNK5clang17
 1320:                                             ; preds = %1284
   unreachable
 
-_ZL19getAssignmentActionRKN5clang17InitializedEntityEb.exit: ; preds = %1284, %1284, %1284, %1284, %1284, %1284, %1284, %1284, %1284, %1284, %1284, %1284, %1284, %1284, %1284, %_ZN5clang4Decl14getDeclContextEv.exit.i, %.critedge.i, %_ZN5clang4Decl14getDeclContextEv.exit21.i, %.critedge2.i, %1317, %1318, %1319
-  %.0.i830 = phi i32 [ 5, %_ZN5clang4Decl14getDeclContextEv.exit21.i ], [ 4, %1284 ], [ 1, %.critedge.i ], [ 5, %_ZN5clang4Decl14getDeclContextEv.exit.i ], [ 1, %.critedge2.i ], [ 2, %1317 ], [ 6, %1318 ], [ 3, %1319 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ]
+_ZL19getAssignmentActionRKN5clang17InitializedEntityEb.exit: ; preds = %1284, %1284, %1284, %1284, %1284, %1284, %1284, %1284, %1284, %1284, %1284, %1284, %1284, %1284, %1284, %_ZN5clang4Decl14getDeclContextEv.exit.i, %.critedge.i, %_ZN5clang4Decl14getDeclContextEv.exit21.i, %1317, %1318, %1319
+  %.0.i830 = phi i32 [ 5, %_ZN5clang4Decl14getDeclContextEv.exit21.i ], [ 4, %1284 ], [ 1, %.critedge.i ], [ 5, %_ZN5clang4Decl14getDeclContextEv.exit.i ], [ 4, %1284 ], [ 2, %1317 ], [ 6, %1318 ], [ 3, %1319 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ], [ 4, %1284 ]
   %1321 = call i64 @_ZN5clang4Sema25PerformImplicitConversionEPNS_4ExprENS_8QualTypeERKNS_26ImplicitConversionSequenceENS_16AssignmentActionENS_21CheckedConversionKindE(ptr noundef nonnull align 8 dereferenceable(17504) %1, ptr noundef nonnull %944, i64 %.sroa.0208.0.copyload, ptr noundef nonnull align 8 dereferenceable(152) %1289, i32 noundef %.0.i830, i32 noundef %1285) #23
   %1322 = icmp eq i64 %1321, 1
   br i1 %1322, label %.critedge669.thread1274, label %1323

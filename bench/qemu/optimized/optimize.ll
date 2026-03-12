@@ -8353,7 +8353,7 @@ switch.lookup29:                                  ; preds = %92
   br label %do_constant_folding_cond_eq.exit
 
 do_constant_folding_cond_eq.exit:                 ; preds = %92, %switch.lookup29, %switch.lookup, %.loopexit, %arg_is_const_val.exit, %do_constant_folding_cond_32.exit, %do_constant_folding_cond_64.exit, %12
-  %.1 = phi i32 [ %switch.load31, %switch.lookup29 ], [ -1, %arg_is_const_val.exit ], [ -1, %.loopexit ], [ -1, %12 ], [ %switch.load, %switch.lookup ], [ %76, %do_constant_folding_cond_64.exit ], [ %47, %do_constant_folding_cond_32.exit ], [ -1, %92 ]
+  %.1 = phi i32 [ %switch.load31, %switch.lookup29 ], [ -1, %arg_is_const_val.exit ], [ %switch.load, %switch.lookup ], [ -1, %12 ], [ -1, %.loopexit ], [ %76, %do_constant_folding_cond_64.exit ], [ %47, %do_constant_folding_cond_32.exit ], [ -1, %92 ]
   ret i32 %.1
 }
 

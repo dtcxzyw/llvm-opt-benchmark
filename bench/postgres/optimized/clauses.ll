@@ -430,11 +430,11 @@ define internal zeroext i1 @contain_volatile_functions_walker(ptr noundef %0, pt
 
 6:                                                ; preds = %4
   %7 = load i32, ptr %0, align 4
-  switch i32 %7, label %26 [
+  switch i32 %7, label %25 [
     i32 59, label %common.ret35
     i32 317, label %8
     i32 276, label %16
-    i32 67, label %24
+    i32 67, label %23
   ]
 
 8:                                                ; preds = %6
@@ -445,11 +445,11 @@ define internal zeroext i1 @contain_volatile_functions_walker(ptr noundef %0, pt
     i32 1, label %11
   ]
 
-11:                                               ; preds = %8
+11:                                               ; preds = %16, %8
   br label %common.ret35
 
-common.ret35:                                     ; preds = %6, %19, %16, %11, %8, %4, %2, %26, %24, %20, %12
-  %common.ret35.op = phi i1 [ %23, %20 ], [ %15, %12 ], [ true, %19 ], [ true, %11 ], [ %27, %26 ], [ false, %2 ], [ true, %4 ], [ true, %6 ], [ false, %8 ], [ %25, %24 ], [ false, %16 ]
+common.ret35:                                     ; preds = %6, %16, %11, %8, %4, %2, %25, %23, %19, %12
+  %common.ret35.op = phi i1 [ %22, %19 ], [ %15, %12 ], [ true, %11 ], [ false, %16 ], [ %26, %25 ], [ false, %2 ], [ true, %4 ], [ true, %6 ], [ false, %8 ], [ %24, %23 ]
   ret i1 %common.ret35.op
 
 12:                                               ; preds = %8
@@ -463,28 +463,25 @@ common.ret35:                                     ; preds = %6, %19, %16, %11, %
 16:                                               ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %18 = load i32, ptr %17, align 4
-  switch i32 %18, label %20 [
+  switch i32 %18, label %19 [
     i32 2, label %common.ret35
-    i32 1, label %19
+    i32 1, label %11
   ]
 
 19:                                               ; preds = %16
-  br label %common.ret35
-
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call zeroext i1 @contain_volatile_functions_walker(ptr noundef %22, ptr noundef %1)
-  %.34 = select i1 %23, i32 1, i32 2
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call zeroext i1 @contain_volatile_functions_walker(ptr noundef %21, ptr noundef %1)
+  %.34 = select i1 %22, i32 1, i32 2
   store i32 %.34, ptr %17, align 4
   br label %common.ret35
 
-24:                                               ; preds = %6
-  %25 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_volatile_functions_walker, ptr noundef %1, i32 noundef 0) #7
+23:                                               ; preds = %6
+  %24 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_volatile_functions_walker, ptr noundef %1, i32 noundef 0) #7
   br label %common.ret35
 
-26:                                               ; preds = %6
-  %27 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_volatile_functions_walker, ptr noundef %1) #7
+25:                                               ; preds = %6
+  %26 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_volatile_functions_walker, ptr noundef %1) #7
   br label %common.ret35
 }
 
@@ -1766,8 +1763,8 @@ tailrecurse:                                      ; preds = %54
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.critedge, label %.lr.ph
 
-.critedge:                                        ; preds = %tailrecurse, %54, %.lr.ph, %46, %22, %26, %29, %32, %4, %8, %12, %15, %18, %1, %.preheader, %find_forced_null_var.exit
-  %.0 = phi ptr [ null, %1 ], [ %42, %find_forced_null_var.exit ], [ null, %.preheader ], [ null, %22 ], [ null, %29 ], [ null, %26 ], [ %51, %46 ], [ null, %18 ], [ null, %15 ], [ null, %12 ], [ null, %8 ], [ null, %4 ], [ null, %32 ], [ null, %.lr.ph ], [ null, %54 ], [ null, %tailrecurse ]
+.critedge:                                        ; preds = %tailrecurse, %54, %.lr.ph, %46, %32, %29, %26, %22, %18, %15, %12, %8, %4, %1, %.preheader, %find_forced_null_var.exit
+  %.0 = phi ptr [ null, %1 ], [ %42, %find_forced_null_var.exit ], [ null, %.preheader ], [ null, %32 ], [ null, %26 ], [ null, %29 ], [ %51, %46 ], [ null, %4 ], [ null, %8 ], [ null, %12 ], [ null, %15 ], [ null, %18 ], [ null, %22 ], [ null, %.lr.ph ], [ null, %54 ], [ null, %tailrecurse ]
   ret ptr %.0
 }
 
@@ -1812,37 +1809,34 @@ define dso_local ptr @find_forced_null_var(ptr noundef readonly captures(address
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %37, label %.thread
 
-.thread:                                          ; preds = %9, %5, %19, %16, %13
+.thread:                                          ; preds = %27, %30, %33, %23, %9, %5, %19, %16, %13
   br label %37
 
 23:                                               ; preds = %3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 4
-  br i1 %26, label %27, label %.thread38
+  br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %.thread38, label %30
+  br i1 %.not, label %.thread, label %30
 
 30:                                               ; preds = %27
   %31 = load i32, ptr %29, align 4
   %32 = icmp eq i32 %31, 6
-  br i1 %32, label %33, label %.thread38
+  br i1 %32, label %33, label %.thread
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %.thread38
+  br i1 %36, label %37, label %.thread
 
-.thread38:                                        ; preds = %23, %33, %30, %27
-  br label %37
-
-37:                                               ; preds = %3, %.thread, %.thread38, %33, %19, %1
-  %.0 = phi ptr [ %15, %19 ], [ %29, %33 ], [ null, %1 ], [ null, %.thread38 ], [ null, %.thread ], [ null, %3 ]
+37:                                               ; preds = %3, %.thread, %33, %19, %1
+  %.0 = phi ptr [ %15, %19 ], [ %29, %33 ], [ null, %1 ], [ null, %3 ], [ null, %.thread ]
   ret ptr %.0
 }
 

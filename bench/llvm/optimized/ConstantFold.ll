@@ -5065,7 +5065,7 @@ switch.lookup256:                                 ; preds = %165
   br label %.thread217
 
 .thread217:                                       ; preds = %switch.lookup256, %switch.lookup250, %switch.lookup246, %switch.lookup, %170, %173, %167, %179, %176, %156, %182
-  %.0220 = phi i64 [ 0, %182 ], [ 1, %173 ], [ 1, %167 ], [ 1, %179 ], [ 1, %176 ], [ %switch.load261, %switch.lookup256 ], [ %switch.load, %switch.lookup ], [ %switch.load252, %switch.lookup250 ], [ 1, %170 ], [ %switch.load248, %switch.lookup246 ], [ %158, %156 ]
+  %.0220 = phi i64 [ 0, %182 ], [ 1, %173 ], [ 1, %167 ], [ 1, %179 ], [ 1, %176 ], [ %switch.load261, %switch.lookup256 ], [ %switch.load, %switch.lookup ], [ %switch.load252, %switch.lookup250 ], [ %158, %156 ], [ %switch.load248, %switch.lookup246 ], [ 1, %170 ]
   %187 = tail call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %.0108, i64 noundef %.0220, i1 noundef zeroext false) #11
   br label %.thread207
 

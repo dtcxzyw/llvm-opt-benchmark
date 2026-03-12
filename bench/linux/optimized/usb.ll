@@ -1638,96 +1638,90 @@ define dso_local noundef range(i32 -113, 1) i32 @usb_lock_device_for_reset(ptr n
   %4 = add i64 %3, 1000
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
-  switch i32 %6, label %8 [
+  switch i32 %6, label %7 [
     i32 0, label %.split2.us
-    i32 8, label %7
+    i32 8, label %.split2.us.loopexit10
   ]
 
 7:                                                ; preds = %2
-  br label %.split2.us
+  %8 = icmp eq ptr %1, null
+  br i1 %8, label %12, label %9
 
-8:                                                ; preds = %2
-  %9 = icmp eq ptr %1, null
-  br i1 %9, label %13, label %10
-
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %12 = load i32, ptr %11, align 4
-  switch i32 %12, label %.thread [
+9:                                                ; preds = %7
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %11 = load i32, ptr %10, align 4
+  switch i32 %11, label %.thread [
     i32 3, label %.split2.us
     i32 0, label %.split2.us
   ]
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %15 = tail call i32 @mutex_trylock(ptr noundef nonnull %14) #13
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.split.us, label %.split2.us
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %14 = tail call i32 @mutex_trylock(ptr noundef nonnull %13) #13
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %.split.us, label %.split2.us
 
-.thread:                                          ; preds = %10
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %18 = tail call i32 @mutex_trylock(ptr noundef nonnull %17) #13
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %.split.preheader, label %.split2.us
+.thread:                                          ; preds = %9
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %17 = tail call i32 @mutex_trylock(ptr noundef nonnull %16) #13
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %.split.preheader, label %.split2.us
 
 .split.preheader:                                 ; preds = %.thread
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 36
   br label %.split
 
-.split.us:                                        ; preds = %13, %26
-  %21 = load volatile i64, ptr @jiffies, align 64
-  %22 = sub i64 %4, %21
-  %23 = icmp slt i64 %22, 0
-  br i1 %23, label %.split2.us, label %24
+.split.us:                                        ; preds = %12, %25
+  %20 = load volatile i64, ptr @jiffies, align 64
+  %21 = sub i64 %4, %20
+  %22 = icmp slt i64 %21, 0
+  br i1 %22, label %.split2.us, label %23
 
-24:                                               ; preds = %.split.us
+23:                                               ; preds = %.split.us
   tail call void @msleep(i32 noundef 15) #13
-  %25 = load i32, ptr %5, align 8
-  switch i32 %25, label %26 [
-    i32 0, label %.split2.us.loopexit12
-    i32 8, label %.split2.us
+  %24 = load i32, ptr %5, align 8
+  switch i32 %24, label %25 [
+    i32 0, label %.split2.us
+    i32 8, label %.split2.us.loopexit10
   ]
 
-26:                                               ; preds = %24
-  %27 = tail call i32 @mutex_trylock(ptr noundef nonnull %14) #13
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %.split.us, label %.split2.us, !llvm.loop !20
+25:                                               ; preds = %23
+  %26 = tail call i32 @mutex_trylock(ptr noundef nonnull %13) #13
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %.split.us, label %.split2.us, !llvm.loop !20
 
-.split:                                           ; preds = %.split.preheader, %36
-  %29 = load volatile i64, ptr @jiffies, align 64
-  %30 = sub i64 %4, %29
-  %31 = icmp slt i64 %30, 0
-  br i1 %31, label %.split2.us, label %32
+.split:                                           ; preds = %.split.preheader, %35
+  %28 = load volatile i64, ptr @jiffies, align 64
+  %29 = sub i64 %4, %28
+  %30 = icmp slt i64 %29, 0
+  br i1 %30, label %.split2.us, label %31
 
-32:                                               ; preds = %.split
+31:                                               ; preds = %.split
   tail call void @msleep(i32 noundef 15) #13
-  %33 = load i32, ptr %5, align 8
-  switch i32 %33, label %34 [
-    i32 0, label %.split2.us.loopexit13
-    i32 8, label %.split2.us
+  %32 = load i32, ptr %5, align 8
+  switch i32 %32, label %33 [
+    i32 0, label %.split2.us
+    i32 8, label %.split2.us.loopexit10
   ]
 
-34:                                               ; preds = %32
-  %35 = load i32, ptr %20, align 4
-  switch i32 %35, label %36 [
+33:                                               ; preds = %31
+  %34 = load i32, ptr %19, align 4
+  switch i32 %34, label %35 [
     i32 3, label %.split2.us
     i32 0, label %.split2.us
   ]
 
-36:                                               ; preds = %34
-  %37 = tail call i32 @mutex_trylock(ptr noundef nonnull %17) #13
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %.split, label %.split2.us, !llvm.loop !20
+35:                                               ; preds = %33
+  %36 = tail call i32 @mutex_trylock(ptr noundef nonnull %16) #13
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %.split, label %.split2.us, !llvm.loop !20
 
-.split2.us.loopexit12:                            ; preds = %24
+.split2.us.loopexit10:                            ; preds = %31, %23, %2
   br label %.split2.us
 
-.split2.us.loopexit13:                            ; preds = %32
-  br label %.split2.us
-
-.split2.us:                                       ; preds = %.split, %34, %34, %36, %26, %.split.us, %32, %24, %.split2.us.loopexit13, %.split2.us.loopexit12, %.thread, %13, %10, %10, %7, %2
-  %39 = phi i32 [ -113, %7 ], [ -19, %2 ], [ -4, %10 ], [ -4, %10 ], [ 0, %13 ], [ 0, %.thread ], [ -19, %.split2.us.loopexit12 ], [ -113, %32 ], [ -113, %24 ], [ -16, %.split.us ], [ 0, %26 ], [ -16, %.split ], [ -4, %34 ], [ -4, %34 ], [ 0, %36 ], [ -19, %.split2.us.loopexit13 ]
-  ret i32 %39
+.split2.us:                                       ; preds = %.split, %33, %33, %35, %31, %25, %.split.us, %23, %.split2.us.loopexit10, %.thread, %12, %9, %9, %2
+  %38 = phi i32 [ -113, %.split2.us.loopexit10 ], [ -19, %2 ], [ -4, %9 ], [ -4, %9 ], [ 0, %12 ], [ 0, %.thread ], [ -19, %23 ], [ -16, %.split.us ], [ 0, %25 ], [ -4, %33 ], [ 0, %35 ], [ -19, %31 ], [ -16, %.split ], [ -4, %33 ]
+  ret i32 %38
 }
 
 ; Function Attrs: null_pointer_is_valid

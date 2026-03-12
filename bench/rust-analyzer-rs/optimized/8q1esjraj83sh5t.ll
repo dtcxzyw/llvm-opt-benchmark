@@ -2219,7 +2219,7 @@ _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exi
   unreachable
 
 _ZN15ra_ap_rustc_abi5Niche9available17ha45c18d9d701302cE.exit: ; preds = %switch.lookup, %2, %11, %12, %13, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i
-  %.neg7.i = phi i64 [ %.neg6.i, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i ], [ %switch.load, %switch.lookup ], [ -32, %11 ], [ -64, %12 ], [ -128, %13 ], [ -16, %2 ]
+  %.neg7.i = phi i64 [ %.neg6.i, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i ], [ %switch.load, %switch.lookup ], [ -16, %2 ], [ -64, %12 ], [ -32, %11 ], [ -128, %13 ]
   %20 = and i64 %.neg7.i, 120
   %21 = zext nneg i64 %20 to i128
   %22 = lshr i128 -1, %21
@@ -2297,7 +2297,7 @@ _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exi
   unreachable
 
 _ZN15ra_ap_rustc_abi5Niche9available17ha45c18d9d701302cE.exit: ; preds = %switch.lookup, %2, %10, %11, %12, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i
-  %.neg7.i = phi i64 [ %.neg6.i, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i ], [ %switch.load, %switch.lookup ], [ -32, %10 ], [ -64, %11 ], [ -128, %12 ], [ -16, %2 ]
+  %.neg7.i = phi i64 [ %.neg6.i, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i ], [ %switch.load, %switch.lookup ], [ -16, %2 ], [ -64, %11 ], [ -32, %10 ], [ -128, %12 ]
   %19 = and i64 %.neg7.i, 120
   %20 = zext nneg i64 %19 to i128
   %21 = lshr i128 -1, %20
@@ -3678,7 +3678,7 @@ _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exi
   unreachable
 
 "_ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17he8e7637ba1024046E.llvm.371848337259013923.exit": ; preds = %switch.lookup, %3, %7, %8, %9, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i.i
-  %.neg7.i.i.i = phi i64 [ %.neg6.i.i.i, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i.i ], [ %switch.load, %switch.lookup ], [ -32, %7 ], [ -64, %8 ], [ -128, %9 ], [ -16, %3 ]
+  %.neg7.i.i.i = phi i64 [ %.neg6.i.i.i, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i.i ], [ %switch.load, %switch.lookup ], [ -16, %3 ], [ -64, %8 ], [ -32, %7 ], [ -128, %9 ]
   %16 = and i64 %.neg7.i.i.i, 120
   %17 = zext nneg i64 %16 to i128
   %18 = lshr i128 -1, %17
@@ -3814,7 +3814,7 @@ _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exi
   unreachable
 
 "_ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17hb78312f2778796b3E.llvm.371848337259013923.exit": ; preds = %switch.lookup, %3, %7, %8, %9, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i.i
-  %.neg7.i.i.i = phi i64 [ %.neg6.i.i.i, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i.i ], [ %switch.load, %switch.lookup ], [ -32, %7 ], [ -64, %8 ], [ -128, %9 ], [ -16, %3 ]
+  %.neg7.i.i.i = phi i64 [ %.neg6.i.i.i, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i.i ], [ %switch.load, %switch.lookup ], [ -16, %3 ], [ -64, %8 ], [ -32, %7 ], [ -128, %9 ]
   %16 = and i64 %.neg7.i.i.i, 120
   %17 = zext nneg i64 %16 to i128
   %18 = lshr i128 -1, %17
@@ -7600,7 +7600,7 @@ _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exi
   unreachable
 
 "_ZN15ra_ap_rustc_abi6layout16LayoutCalculator11scalar_pair28_$u7b$$u7b$closure$u7d$$u7d$17h2c21787d3ed5a6a4E.llvm.371848337259013923.exit": ; preds = %switch.lookup, %3, %11, %12, %13, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i
-  %.neg7.i.i = phi i64 [ %.neg6.i.i, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i ], [ %switch.load, %switch.lookup ], [ -32, %11 ], [ -64, %12 ], [ -128, %13 ], [ -16, %3 ]
+  %.neg7.i.i = phi i64 [ %.neg6.i.i, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i ], [ %switch.load, %switch.lookup ], [ -16, %3 ], [ -64, %12 ], [ -32, %11 ], [ -128, %13 ]
   %20 = and i64 %.neg7.i.i, 120
   %21 = zext nneg i64 %20 to i128
   %22 = lshr i128 -1, %21
@@ -7675,7 +7675,7 @@ _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exi
   unreachable
 
 "_ZN15ra_ap_rustc_abi6layout14layout_of_enum28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6c9569670fc064f6E.llvm.371848337259013923.exit": ; preds = %switch.lookup, %3, %12, %13, %14, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i
-  %.neg7.i.i = phi i64 [ %.neg6.i.i, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i ], [ %switch.load, %switch.lookup ], [ -32, %12 ], [ -64, %13 ], [ -128, %14 ], [ -16, %3 ]
+  %.neg7.i.i = phi i64 [ %.neg6.i.i, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i ], [ %switch.load, %switch.lookup ], [ -16, %3 ], [ -64, %13 ], [ -32, %12 ], [ -128, %14 ]
   %21 = and i64 %.neg7.i.i, 120
   %22 = zext nneg i64 %21 to i128
   %23 = lshr i128 -1, %22
@@ -21904,7 +21904,7 @@ switch.lookup:                                    ; preds = %2
   br label %_ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit
 
 _ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit: ; preds = %switch.lookup, %2, %5, %6, %7, %8
-  %.0.i = phi i64 [ %.24.val, %8 ], [ %switch.load, %switch.lookup ], [ 4, %5 ], [ 8, %6 ], [ 16, %7 ], [ 2, %2 ]
+  %.0.i = phi i64 [ %.24.val, %8 ], [ %switch.load, %switch.lookup ], [ 2, %2 ], [ 8, %6 ], [ 4, %5 ], [ 16, %7 ]
   %9 = tail call { i128, i128 } @_ZN15ra_ap_rustc_abi13WrappingRange4full17h655ee30068e91b17E(i64 noundef %.0.i)
   %10 = extractvalue { i128, i128 } %9, 0
   %11 = extractvalue { i128, i128 } %9, 1
@@ -21958,7 +21958,7 @@ switch.lookup:                                    ; preds = %3
   br label %_ZN6hir_ty6layout11scalar_unit17ha3b647a2b6d0aa83E.exit
 
 _ZN6hir_ty6layout11scalar_unit17ha3b647a2b6d0aa83E.exit: ; preds = %switch.lookup, %3, %8, %9, %10, %11
-  %.0.i.i = phi i64 [ %.val, %11 ], [ %switch.load, %switch.lookup ], [ 4, %8 ], [ 8, %9 ], [ 16, %10 ], [ 2, %3 ]
+  %.0.i.i = phi i64 [ %.val, %11 ], [ %switch.load, %switch.lookup ], [ 2, %3 ], [ 8, %9 ], [ 4, %8 ], [ 16, %10 ]
   %12 = tail call { i128, i128 } @_ZN15ra_ap_rustc_abi13WrappingRange4full17h655ee30068e91b17E(i64 noundef %.0.i.i), !noalias !3557
   %13 = extractvalue { i128, i128 } %12, 0
   %14 = extractvalue { i128, i128 } %12, 1
@@ -70822,7 +70822,7 @@ switch.lookup:                                    ; preds = %60
   unreachable
 
 127:                                              ; preds = %switch.lookup, %60, %63, %64, %65, %66
-  %.0.i.i = phi i64 [ %70, %66 ], [ %switch.load, %switch.lookup ], [ 4, %63 ], [ 8, %64 ], [ 16, %65 ], [ 2, %60 ]
+  %.0.i.i = phi i64 [ %70, %66 ], [ %switch.load, %switch.lookup ], [ 2, %60 ], [ 8, %64 ], [ 4, %63 ], [ 16, %65 ]
   %128 = getelementptr inbounds nuw i8, ptr %32, i64 176
   %129 = invoke fastcc noundef i64 @"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$6offset17hf9c7112bb6626b07E"(ptr noalias noundef readonly align 8 dereferenceable(48) %128, i64 noundef 0)
           to label %130 unwind label %.loopexit.split-lp
@@ -70852,9 +70852,9 @@ switch.lookup:                                    ; preds = %60
   unreachable
 
 .invoke162:                                       ; preds = %155, %150, %148, %137
-  %141 = phi i64 [ %.0.i.i, %150 ], [ %135, %137 ], [ %146, %148 ], [ %.0.i.i, %155 ]
-  %142 = phi i64 [ 16, %150 ], [ %4, %137 ], [ %4, %148 ], [ 16, %155 ]
-  %143 = phi ptr [ @anon.8ee6e441894c40610342b4e80829890a.1002.llvm.371848337259013923, %150 ], [ @anon.8ee6e441894c40610342b4e80829890a.878, %137 ], [ @anon.8ee6e441894c40610342b4e80829890a.879, %148 ], [ @anon.8ee6e441894c40610342b4e80829890a.1002.llvm.371848337259013923, %155 ]
+  %141 = phi i64 [ %146, %148 ], [ %135, %137 ], [ %.0.i.i, %150 ], [ %.0.i.i, %155 ]
+  %142 = phi i64 [ %4, %148 ], [ %4, %137 ], [ 16, %150 ], [ 16, %155 ]
+  %143 = phi ptr [ @anon.8ee6e441894c40610342b4e80829890a.879, %148 ], [ @anon.8ee6e441894c40610342b4e80829890a.878, %137 ], [ @anon.8ee6e441894c40610342b4e80829890a.1002.llvm.371848337259013923, %150 ], [ @anon.8ee6e441894c40610342b4e80829890a.1002.llvm.371848337259013923, %155 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %141, i64 noundef %142, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %143) #65
           to label %.cont163 unwind label %.loopexit.split-lp
 
@@ -82524,7 +82524,7 @@ default.unreachable696:                           ; preds = %66, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %269
 
-269:                                              ; preds = %394, %404, %372, %384, %350, %362, %205, %"_ZN4core3ptr202drop_in_place$LT$triomphe..arc..Arc$LT$la_arena..map..ArenaMap$LT$la_arena..Idx$LT$hir_def..data..adt..FieldData$GT$$C$chalk_ir..Binders$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$GT$17he4049410b4cd467cE.llvm.371848337259013923.exit488", %412, %338, %361, %383, %317, %324, %331, %"_ZN4core3ptr202drop_in_place$LT$triomphe..arc..Arc$LT$la_arena..map..ArenaMap$LT$la_arena..Idx$LT$hir_def..data..adt..FieldData$GT$$C$chalk_ir..Binders$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$GT$17he4049410b4cd467cE.llvm.371848337259013923.exit479", %303, %62
+269:                                              ; preds = %394, %404, %362, %350, %384, %372, %205, %"_ZN4core3ptr202drop_in_place$LT$triomphe..arc..Arc$LT$la_arena..map..ArenaMap$LT$la_arena..Idx$LT$hir_def..data..adt..FieldData$GT$$C$chalk_ir..Binders$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$GT$17he4049410b4cd467cE.llvm.371848337259013923.exit488", %412, %338, %361, %383, %317, %324, %331, %"_ZN4core3ptr202drop_in_place$LT$triomphe..arc..Arc$LT$la_arena..map..ArenaMap$LT$la_arena..Idx$LT$hir_def..data..adt..FieldData$GT$$C$chalk_ir..Binders$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$GT$17he4049410b4cd467cE.llvm.371848337259013923.exit479", %303, %62
   call void @llvm.experimental.noalias.scope.decl(metadata !15398)
   call void @llvm.experimental.noalias.scope.decl(metadata !15401)
   %270 = load ptr, ptr %38, align 8, !alias.scope !15404, !nonnull !4, !noundef !4

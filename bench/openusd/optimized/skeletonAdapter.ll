@@ -9050,10 +9050,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_34USDIMAGING_COLLECTI
   %102 = load i64, ptr %101, align 8
   %103 = urem i64 %102, %73
   %.not17.i.i.i.i.i28 = icmp eq i64 %103, %83
-  br i1 %.not17.i.i.i.i.i28, label %94, label %..loopexit_crit_edge22.i.i.i.i.i29, !llvm.loop !40
-
-..loopexit_crit_edge22.i.i.i.i.i29:               ; preds = %100
-  br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE12emplace_backIJRKS1_EEERS1_DpOT_.exit, !llvm.loop !40
+  br i1 %.not17.i.i.i.i.i28, label %94, label %..loopexit_crit_edge22.i.i.i.i.i46, !llvm.loop !40
 
 .loopexit71:                                      ; preds = %94, %69, %86
   %.sroa.06.1.i.i.i31 = phi ptr [ %.sroa.06.0.i.i.i34, %69 ], [ %87, %86 ], [ %99, %94 ]
@@ -9154,7 +9151,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfDebug9IsEnabledINS_34USDIMAGING_COLLECTI
   %.not17.i.i.i.i.i45 = icmp eq i64 %150, %129
   br i1 %.not17.i.i.i.i.i45, label %141, label %..loopexit_crit_edge22.i.i.i.i.i46, !llvm.loop !10
 
-..loopexit_crit_edge22.i.i.i.i.i46:               ; preds = %147
+..loopexit_crit_edge22.i.i.i.i.i46:               ; preds = %100, %147
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE12emplace_backIJRKS1_EEERS1_DpOT_.exit, !llvm.loop !10
 
 _ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter12_GetSkelDataERKNS_7SdfPathE.exit: ; preds = %141, %113, %133
@@ -9171,7 +9168,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter12_GetSkelD
   invoke void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE15_M_range_insertISt23_Rb_tree_const_iteratorIS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EET_SB_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr null, ptr %155, ptr nonnull %156)
           to label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE12emplace_backIJRKS1_EEERS1_DpOT_.exit unwind label %.loopexit.split-lp
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE12emplace_backIJRKS1_EEERS1_DpOT_.exit: ; preds = %.lr.ph.i.i.i.i.i25, %68, %.lr.ph.i.i.i.i.i42, %112, %153, %.loopexit71, %116, %..loopexit_crit_edge22.i.i.i.i.i46, %.thread62, %..loopexit_crit_edge22.i.i.i.i.i29, %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter12_GetSkelDataERKNS_7SdfPathE.exit
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE12emplace_backIJRKS1_EEERS1_DpOT_.exit: ; preds = %.lr.ph.i.i.i.i.i25, %68, %.lr.ph.i.i.i.i.i42, %112, %153, %.loopexit71, %116, %..loopexit_crit_edge22.i.i.i.i.i46, %.thread62, %_ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter12_GetSkelDataERKNS_7SdfPathE.exit
   %157 = load ptr, ptr %0, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 528
   %159 = load ptr, ptr %158, align 8

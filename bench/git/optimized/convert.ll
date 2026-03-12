@@ -1978,9 +1978,9 @@ will_convert_lf_to_crlf.exit:                     ; preds = %95, %92
   %97 = add i32 %.sroa.5.0, %.sroa.11.0
   br label %will_convert_lf_to_crlf.exit.thread
 
-will_convert_lf_to_crlf.exit.thread:              ; preds = %95, %text_eol_is_crlf.exit.i.i, %.thread212, %.thread212, %.thread212, %84, %93, %output_eol.exit.thread.i, %output_eol.exit.i, %will_convert_lf_to_crlf.exit
-  %.sroa.11.1 = phi i32 [ %97, %will_convert_lf_to_crlf.exit ], [ %.sroa.11.0, %output_eol.exit.i ], [ %.sroa.11.0, %output_eol.exit.thread.i ], [ %.sroa.11.0, %93 ], [ 0, %95 ], [ %.sroa.11.0, %text_eol_is_crlf.exit.i.i ], [ %.sroa.11.0, %84 ], [ %.sroa.11.0, %.thread212 ], [ %.sroa.11.0, %.thread212 ], [ %.sroa.11.0, %.thread212 ]
-  %.sroa.5.1 = phi i32 [ 0, %will_convert_lf_to_crlf.exit ], [ %.sroa.5.0, %output_eol.exit.i ], [ 0, %output_eol.exit.thread.i ], [ 1, %93 ], [ 1, %95 ], [ %.sroa.5.0, %text_eol_is_crlf.exit.i.i ], [ %.sroa.5.0, %84 ], [ %.sroa.5.0, %.thread212 ], [ %.sroa.5.0, %.thread212 ], [ %.sroa.5.0, %.thread212 ]
+will_convert_lf_to_crlf.exit.thread:              ; preds = %95, %84, %text_eol_is_crlf.exit.i.i, %.thread212, %.thread212, %.thread212, %93, %output_eol.exit.thread.i, %output_eol.exit.i, %will_convert_lf_to_crlf.exit
+  %.sroa.11.1 = phi i32 [ %97, %will_convert_lf_to_crlf.exit ], [ %.sroa.11.0, %output_eol.exit.i ], [ %.sroa.11.0, %output_eol.exit.thread.i ], [ %.sroa.11.0, %93 ], [ 0, %95 ], [ %.sroa.11.0, %84 ], [ %.sroa.11.0, %.thread212 ], [ %.sroa.11.0, %.thread212 ], [ %.sroa.11.0, %.thread212 ], [ %.sroa.11.0, %text_eol_is_crlf.exit.i.i ]
+  %.sroa.5.1 = phi i32 [ 0, %will_convert_lf_to_crlf.exit ], [ %.sroa.5.0, %output_eol.exit.i ], [ 0, %output_eol.exit.thread.i ], [ 1, %93 ], [ 1, %95 ], [ %.sroa.5.0, %84 ], [ %.sroa.5.0, %.thread212 ], [ %.sroa.5.0, %.thread212 ], [ %.sroa.5.0, %.thread212 ], [ %.sroa.5.0, %text_eol_is_crlf.exit.i.i ]
   %.not11.i88 = icmp eq i32 %.sroa.11.1, 0
   %or.cond.i = select i1 %82, i1 %.not11.i88, i1 false
   br i1 %or.cond.i, label %98, label %105
@@ -3148,7 +3148,7 @@ output_eol.exit:                                  ; preds = %34, %36
   %39 = icmp eq i32 %38, 1
   br i1 %39, label %output_eol.exit.thread, label %output_eol.exit.thread23
 
-output_eol.exit.thread:                           ; preds = %29, %29, %29, %31, %text_eol_is_crlf.exit.i, %output_eol.exit
+output_eol.exit.thread:                           ; preds = %29, %29, %29, %text_eol_is_crlf.exit.i, %31, %output_eol.exit
   %40 = tail call noundef ptr @xcalloc(i64 noundef 1, i64 noundef 16) #22
   store ptr @lf_to_crlf_vtbl, ptr %40, align 8, !tbaa !115
   %.not.i12 = icmp eq ptr %.0, null
@@ -3173,7 +3173,7 @@ output_eol.exit.thread:                           ; preds = %29, %29, %29, %31, 
   store ptr @cascade_vtbl, ptr %43, align 8, !tbaa !123
   br label %cascade_filter.exit
 
-output_eol.exit.thread23:                         ; preds = %31, %text_eol_is_crlf.exit.i, %29, %29, %29, %output_eol.exit
+output_eol.exit.thread23:                         ; preds = %29, %29, %31, %text_eol_is_crlf.exit.i, %29, %output_eol.exit
   %.not.i14 = icmp eq ptr %.0, null
   %spec.select = select i1 %.not.i14, ptr @null_filter_singleton, ptr %.0
   br label %cascade_filter.exit

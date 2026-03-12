@@ -9974,8 +9974,8 @@ _Z22cvImageWidget_get_typev.exit:                 ; preds = %14, %16
   %switch.load162 = load i32, ptr %switch.gep161, align 4
   br label %.thread134
 
-.thread134:                                       ; preds = %.thread134.sink.split, %54, %50, %46
-  %.1.ph = phi i32 [ 0, %46 ], [ 0, %54 ], [ 0, %50 ], [ %switch.load162, %.thread134.sink.split ]
+.thread134:                                       ; preds = %.thread134.sink.split, %46, %50, %54
+  %.1.ph = phi i32 [ 0, %54 ], [ 0, %50 ], [ 0, %46 ], [ %switch.load162, %.thread134.sink.split ]
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %89 = load i32, ptr %88, align 8, !tbaa !232
   br label %.thread

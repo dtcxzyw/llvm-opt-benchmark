@@ -3024,7 +3024,7 @@ _ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread: ; preds = %98, %_ZNK4l
   %111 = load i64, ptr %110, align 8, !tbaa !345
   %112 = and i64 %111, 16
   %.not.not.i64 = icmp eq i64 %112, 0
-  br i1 %.not.not.i64, label %113, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65.thread
+  br i1 %.not.not.i64, label %113, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72.thread
 
 113:                                              ; preds = %107, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -3038,7 +3038,7 @@ _ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread: ; preds = %98, %_ZNK4l
 
 120:                                              ; preds = %113
   %121 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 1048576, i32 noundef 1) #20
-  br i1 %121, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65.thread, label %select.unfold102
+  br i1 %121, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72.thread, label %select.unfold102
 
 _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65: ; preds = %113
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3048,10 +3048,7 @@ _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65: ; preds = %113
   %.fr120 = freeze i64 %125
   %126 = and i64 %.fr120, 1048576
   %.not121 = icmp eq i64 %126, 0
-  br i1 %.not121, label %select.unfold102, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65.thread
-
-_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65.thread: ; preds = %107, %120, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65
-  br label %select.unfold102
+  br i1 %.not121, label %select.unfold102, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72.thread
 
 127:                                              ; preds = %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit.thread91, %_ZNK4llvm12MachineInstr17memoperands_emptyEv.exit
   %128 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -3112,7 +3109,7 @@ _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72: ; preds = %145
   %.not119 = icmp eq i64 %158, 0
   br i1 %.not119, label %select.unfold102, label %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72.thread
 
-_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72.thread: ; preds = %139, %152, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72
+_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72.thread: ; preds = %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65, %120, %107, %139, %152, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72
   br label %select.unfold102
 
 159:                                              ; preds = %131
@@ -3255,8 +3252,8 @@ select.unfold:                                    ; preds = %208, %201
   %.not = icmp eq ptr %223, %173
   br i1 %.not, label %select.unfold102, label %181
 
-select.unfold102:                                 ; preds = %._crit_edge, %201, %208, %.thread, %159, %_ZNK4llvm12MachineInstr11memoperandsEv.exit, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72.thread, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72, %152, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65.thread, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65, %120, %88, %42, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit60, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit
-  %.0 = phi i32 [ 0, %88 ], [ 1, %120 ], [ 0, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit60 ], [ 1, %152 ], [ 0, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit ], [ 0, %42 ], [ 2, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65.thread ], [ 1, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65 ], [ 2, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72.thread ], [ 1, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72 ], [ 1, %201 ], [ 0, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ], [ 0, %159 ], [ 0, %.thread ], [ 1, %208 ], [ 0, %._crit_edge ]
+select.unfold102:                                 ; preds = %._crit_edge, %201, %208, %.thread, %159, %_ZNK4llvm12MachineInstr11memoperandsEv.exit, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72.thread, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72, %152, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65, %120, %88, %42, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit60, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit
+  %.0 = phi i32 [ 0, %88 ], [ 1, %120 ], [ 0, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit60 ], [ 1, %152 ], [ 0, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit ], [ 0, %42 ], [ 1, %201 ], [ 1, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit65 ], [ 2, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72.thread ], [ 1, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit72 ], [ 0, %.thread ], [ 0, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ], [ 0, %159 ], [ 1, %208 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 

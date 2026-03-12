@@ -136,135 +136,123 @@ define dso_local range(i32 0, 44) i32 @add_file_name_to_url(ptr noundef %0, ptr 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %1, align 8, !tbaa !30
   %10 = tail call i32 @curl_url_set(ptr noundef nonnull %7, i32 noundef 0, ptr noundef %9, i32 noundef 520) #8
-  switch i32 %10, label %14 [
-    i32 0, label %15
+  switch i32 %10, label %16 [
+    i32 0, label %11
     i32 7, label %urlerr_cvt.exit.thread
-    i32 5, label %11
-    i32 30, label %12
-    i32 1, label %13
+    i32 5, label %13
+    i32 30, label %14
+    i32 1, label %15
   ]
 
 11:                                               ; preds = %8
-  br label %urlerr_cvt.exit.thread
-
-12:                                               ; preds = %8
-  br label %urlerr_cvt.exit.thread
-
-13:                                               ; preds = %8
-  br label %urlerr_cvt.exit.thread
-
-14:                                               ; preds = %8
-  br label %urlerr_cvt.exit.thread
-
-15:                                               ; preds = %8
-  %16 = call i32 @curl_url_get(ptr noundef nonnull %7, i32 noundef 7, ptr noundef nonnull %4, i32 noundef 0) #8
-  switch i32 %16, label %20 [
-    i32 0, label %21
+  %12 = call i32 @curl_url_get(ptr noundef nonnull %7, i32 noundef 7, ptr noundef nonnull %4, i32 noundef 0) #8
+  switch i32 %12, label %16 [
+    i32 0, label %17
     i32 7, label %urlerr_cvt.exit.thread
-    i32 5, label %17
-    i32 30, label %18
-    i32 1, label %19
+    i32 5, label %13
+    i32 30, label %14
+    i32 1, label %15
   ]
 
-17:                                               ; preds = %15
+13:                                               ; preds = %8, %11
   br label %urlerr_cvt.exit.thread
 
-18:                                               ; preds = %15
+14:                                               ; preds = %8, %11
   br label %urlerr_cvt.exit.thread
 
-19:                                               ; preds = %15
+15:                                               ; preds = %8, %11
   br label %urlerr_cvt.exit.thread
 
-20:                                               ; preds = %15
+16:                                               ; preds = %8, %11
   br label %urlerr_cvt.exit.thread
 
-21:                                               ; preds = %15
-  %22 = call i32 @curl_url_get(ptr noundef nonnull %7, i32 noundef 8, ptr noundef nonnull %5, i32 noundef 0) #8
-  %23 = icmp eq i32 %22, 0
-  %24 = load ptr, ptr %5, align 8
-  %25 = icmp ne ptr %24, null
-  %or.cond = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond, label %urlerr_cvt.exit.thread87, label %27
+17:                                               ; preds = %11
+  %18 = call i32 @curl_url_get(ptr noundef nonnull %7, i32 noundef 8, ptr noundef nonnull %5, i32 noundef 0) #8
+  %19 = icmp eq i32 %18, 0
+  %20 = load ptr, ptr %5, align 8
+  %21 = icmp ne ptr %20, null
+  %or.cond = select i1 %19, i1 %21, i1 false
+  br i1 %or.cond, label %urlerr_cvt.exit.thread87, label %23
 
-urlerr_cvt.exit.thread87:                         ; preds = %21
-  call void @curl_free(ptr noundef nonnull %24) #8
-  %26 = load ptr, ptr %4, align 8, !tbaa !30
-  call void @curl_free(ptr noundef %26) #8
+urlerr_cvt.exit.thread87:                         ; preds = %17
+  call void @curl_free(ptr noundef nonnull %20) #8
+  %22 = load ptr, ptr %4, align 8, !tbaa !30
+  call void @curl_free(ptr noundef %22) #8
   call void @curl_url_cleanup(ptr noundef nonnull %7) #8
-  br label %52
+  br label %48
 
-27:                                               ; preds = %21
-  %28 = load ptr, ptr %4, align 8, !tbaa !30
-  %29 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %28, i32 noundef 47) #9
-  %.not68 = icmp eq ptr %29, null
-  br i1 %.not68, label %33, label %30
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %4, align 8, !tbaa !30
+  %25 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %24, i32 noundef 47) #9
+  %.not68 = icmp eq ptr %25, null
+  br i1 %.not68, label %29, label %26
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  %32 = load i8, ptr %31, align 1, !tbaa !31
-  %.not69 = icmp eq i8 %32, 0
-  br i1 %.not69, label %33, label %urlerr_cvt.exit.thread
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  %28 = load i8, ptr %27, align 1, !tbaa !31
+  %.not69 = icmp eq i8 %28, 0
+  br i1 %.not69, label %29, label %urlerr_cvt.exit.thread
 
-33:                                               ; preds = %30, %27
-  %34 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 47) #9
-  %.not70 = icmp eq ptr %34, null
-  %35 = select i1 %.not70, ptr %2, ptr %34
-  %36 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %35, i32 noundef 92) #9
-  %.not71 = icmp eq ptr %36, null
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 1
-  %spec.select = select i1 %.not70, ptr %2, ptr %38
-  %.050 = select i1 %.not71, ptr %spec.select, ptr %37
-  %39 = call ptr @curl_easy_escape(ptr noundef %0, ptr noundef nonnull %.050, i32 noundef 0) #8
-  %.not72 = icmp eq ptr %39, null
-  br i1 %.not72, label %urlerr_cvt.exit.thread, label %40
+29:                                               ; preds = %26, %23
+  %30 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 47) #9
+  %.not70 = icmp eq ptr %30, null
+  %31 = select i1 %.not70, ptr %2, ptr %30
+  %32 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %31, i32 noundef 92) #9
+  %.not71 = icmp eq ptr %32, null
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  %spec.select = select i1 %.not70, ptr %2, ptr %34
+  %.050 = select i1 %.not71, ptr %spec.select, ptr %33
+  %35 = call ptr @curl_easy_escape(ptr noundef %0, ptr noundef nonnull %.050, i32 noundef 0) #8
+  %.not72 = icmp eq ptr %35, null
+  br i1 %.not72, label %urlerr_cvt.exit.thread, label %36
 
-40:                                               ; preds = %33
+36:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %41 = load ptr, ptr %4, align 8, !tbaa !30
+  %37 = load ptr, ptr %4, align 8, !tbaa !30
   %.str.5..str.4 = select i1 %.not68, ptr @.str.5, ptr @.str.4
-  %42 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull %.str.5..str.4, ptr noundef %41, ptr noundef nonnull %39) #8
-  call void @curl_free(ptr noundef nonnull %39) #8
-  %.not74 = icmp eq ptr %42, null
-  br i1 %.not74, label %.thread, label %43
+  %38 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull %.str.5..str.4, ptr noundef %37, ptr noundef nonnull %35) #8
+  call void @curl_free(ptr noundef nonnull %35) #8
+  %.not74 = icmp eq ptr %38, null
+  br i1 %.not74, label %.thread, label %39
 
-43:                                               ; preds = %40
-  %44 = call i32 @curl_url_set(ptr noundef nonnull %7, i32 noundef 7, ptr noundef nonnull %42, i32 noundef 0) #8
-  call void @free(ptr noundef nonnull %42) #8
-  %.not75 = icmp eq i32 %44, 0
-  br i1 %.not75, label %45, label %.thread.sink.split
+39:                                               ; preds = %36
+  %40 = call i32 @curl_url_set(ptr noundef nonnull %7, i32 noundef 7, ptr noundef nonnull %38, i32 noundef 0) #8
+  call void @free(ptr noundef nonnull %38) #8
+  %.not75 = icmp eq i32 %40, 0
+  br i1 %.not75, label %41, label %.thread.sink.split
 
-45:                                               ; preds = %43
-  %46 = call i32 @curl_url_get(ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 4) #8
-  %.not76 = icmp eq i32 %46, 0
-  br i1 %.not76, label %48, label %.thread.sink.split
+41:                                               ; preds = %39
+  %42 = call i32 @curl_url_get(ptr noundef nonnull %7, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 4) #8
+  %.not76 = icmp eq i32 %42, 0
+  br i1 %.not76, label %44, label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %45, %43
-  %.sink = phi i32 [ %44, %43 ], [ %46, %45 ]
-  %47 = call i32 @urlerr_cvt(i32 noundef %.sink)
+.thread.sink.split:                               ; preds = %41, %39
+  %.sink = phi i32 [ %40, %39 ], [ %42, %41 ]
+  %43 = call i32 @urlerr_cvt(i32 noundef %.sink)
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %40
-  %.2.ph = phi i32 [ 3, %40 ], [ %47, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %36
+  %.2.ph = phi i32 [ 3, %36 ], [ %43, %.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %urlerr_cvt.exit.thread
 
-48:                                               ; preds = %45
-  %49 = load ptr, ptr %1, align 8, !tbaa !30
-  call void @free(ptr noundef %49) #8
-  %50 = load ptr, ptr %6, align 8, !tbaa !30
-  store ptr %50, ptr %1, align 8, !tbaa !30
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %1, align 8, !tbaa !30
+  call void @free(ptr noundef %45) #8
+  %46 = load ptr, ptr %6, align 8, !tbaa !30
+  store ptr %46, ptr %1, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %urlerr_cvt.exit.thread
 
-urlerr_cvt.exit.thread:                           ; preds = %48, %.thread, %33, %15, %8, %20, %19, %18, %17, %13, %12, %11, %14, %30, %3
-  %.5 = phi i32 [ 3, %3 ], [ 0, %30 ], [ 27, %15 ], [ 43, %19 ], [ 4, %18 ], [ 1, %17 ], [ 3, %20 ], [ 43, %13 ], [ 4, %12 ], [ 1, %11 ], [ 3, %14 ], [ 27, %8 ], [ 3, %33 ], [ 0, %48 ], [ %.2.ph, %.thread ]
+urlerr_cvt.exit.thread:                           ; preds = %44, %.thread, %29, %11, %8, %16, %15, %14, %13, %26, %3
+  %.5 = phi i32 [ 3, %3 ], [ 0, %26 ], [ 27, %11 ], [ 43, %15 ], [ 4, %14 ], [ 1, %13 ], [ 3, %16 ], [ 3, %29 ], [ 0, %44 ], [ %.2.ph, %.thread ], [ 27, %8 ]
   call void @curl_url_cleanup(ptr noundef %7) #8
-  %51 = load ptr, ptr %4, align 8, !tbaa !30
-  call void @curl_free(ptr noundef %51) #8
-  br label %52
+  %47 = load ptr, ptr %4, align 8, !tbaa !30
+  call void @curl_free(ptr noundef %47) #8
+  br label %48
 
-52:                                               ; preds = %urlerr_cvt.exit.thread87, %urlerr_cvt.exit.thread
+48:                                               ; preds = %urlerr_cvt.exit.thread87, %urlerr_cvt.exit.thread
   %.1 = phi i32 [ 0, %urlerr_cvt.exit.thread87 ], [ %.5, %urlerr_cvt.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

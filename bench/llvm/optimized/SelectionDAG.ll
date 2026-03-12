@@ -82563,7 +82563,7 @@ _ZNK4llvm18TargetLoweringBase18getBooleanContentsENS_3EVTE.exit: ; preds = %18, 
   %30 = load i32, ptr %29, align 8, !tbaa !109
   switch i32 %.0.i.i, label %63 [
     i32 1, label %31
-    i32 2, label %39
+    i32 2, label %40
     i32 0, label %56
   ]
 
@@ -82587,41 +82587,40 @@ _ZNK4llvm5APInt5isOneEv.exit:                     ; preds = %31
 
 _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %_ZNK4llvm5APInt5isOneEv.exit
   %38 = icmp eq i32 %35, %30
-  %spec.select = select i1 %38, i16 256, i16 0
+  br i1 %38, label %_ZNK4llvm5APInt9isAllOnesEv.exit.thread, label %39
+
+39:                                               ; preds = %_ZNK4llvm5APInt6isZeroEv.exit13, %52, %_ZNK4llvm5APInt6isZeroEv.exit
   br label %_ZNK4llvm5APInt9isAllOnesEv.exit.thread
 
-39:                                               ; preds = %_ZNK4llvm18TargetLoweringBase18getBooleanContentsENS_3EVTE.exit
-  %40 = icmp eq i32 %30, 0
-  br i1 %40, label %_ZNK4llvm5APInt9isAllOnesEv.exit.thread, label %41
+40:                                               ; preds = %_ZNK4llvm18TargetLoweringBase18getBooleanContentsENS_3EVTE.exit
+  %41 = icmp eq i32 %30, 0
+  br i1 %41, label %_ZNK4llvm5APInt9isAllOnesEv.exit.thread, label %42
 
-41:                                               ; preds = %39
-  %42 = icmp ult i32 %30, 65
-  br i1 %42, label %_ZNK4llvm5APInt9isAllOnesEv.exit, label %43
+42:                                               ; preds = %40
+  %43 = icmp ult i32 %30, 65
+  br i1 %43, label %_ZNK4llvm5APInt9isAllOnesEv.exit, label %44
 
-43:                                               ; preds = %41
-  %44 = call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %10) #39
-  %45 = icmp eq i32 %44, %30
-  br i1 %45, label %_ZNK4llvm5APInt9isAllOnesEv.exit.thread, label %_ZNK4llvm5APInt6isZeroEv.exit13
+44:                                               ; preds = %42
+  %45 = call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %10) #39
+  %46 = icmp eq i32 %45, %30
+  br i1 %46, label %_ZNK4llvm5APInt9isAllOnesEv.exit.thread, label %_ZNK4llvm5APInt6isZeroEv.exit13
 
-_ZNK4llvm5APInt9isAllOnesEv.exit:                 ; preds = %41
-  %46 = load i64, ptr %10, align 8, !tbaa !95
-  %47 = sub nuw nsw i32 64, %30
-  %48 = zext nneg i32 %47 to i64
-  %49 = lshr i64 -1, %48
-  %50 = icmp eq i64 %46, %49
-  br i1 %50, label %_ZNK4llvm5APInt9isAllOnesEv.exit.thread, label %51
+_ZNK4llvm5APInt9isAllOnesEv.exit:                 ; preds = %42
+  %47 = load i64, ptr %10, align 8, !tbaa !95
+  %48 = sub nuw nsw i32 64, %30
+  %49 = zext nneg i32 %48 to i64
+  %50 = lshr i64 -1, %49
+  %51 = icmp eq i64 %47, %50
+  br i1 %51, label %_ZNK4llvm5APInt9isAllOnesEv.exit.thread, label %52
 
-51:                                               ; preds = %_ZNK4llvm5APInt9isAllOnesEv.exit
-  %52 = icmp eq i64 %46, 0
-  br i1 %52, label %_ZNK4llvm5APInt9isAllOnesEv.exit.thread, label %55
+52:                                               ; preds = %_ZNK4llvm5APInt9isAllOnesEv.exit
+  %53 = icmp eq i64 %47, 0
+  br i1 %53, label %_ZNK4llvm5APInt9isAllOnesEv.exit.thread, label %39
 
-_ZNK4llvm5APInt6isZeroEv.exit13:                  ; preds = %43
-  %53 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %10) #39
-  %54 = icmp eq i32 %53, %30
-  br i1 %54, label %_ZNK4llvm5APInt9isAllOnesEv.exit.thread, label %55
-
-55:                                               ; preds = %51, %_ZNK4llvm5APInt6isZeroEv.exit13
-  br label %_ZNK4llvm5APInt9isAllOnesEv.exit.thread
+_ZNK4llvm5APInt6isZeroEv.exit13:                  ; preds = %44
+  %54 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %10) #39
+  %55 = icmp eq i32 %54, %30
+  br i1 %55, label %_ZNK4llvm5APInt9isAllOnesEv.exit.thread, label %39
 
 56:                                               ; preds = %_ZNK4llvm18TargetLoweringBase18getBooleanContentsENS_3EVTE.exit
   %57 = icmp ult i32 %30, 65
@@ -82636,8 +82635,8 @@ _ZNK4llvm5APInt6isZeroEv.exit13:                  ; preds = %43
 63:                                               ; preds = %_ZNK4llvm18TargetLoweringBase18getBooleanContentsENS_3EVTE.exit
   unreachable
 
-_ZNK4llvm5APInt9isAllOnesEv.exit.thread:          ; preds = %_ZNK4llvm5APInt6isZeroEv.exit, %33, %39, %_ZNK4llvm5APInt6isZeroEv.exit13, %51, %_ZNK4llvm5APInt9isAllOnesEv.exit, %43, %_ZNK4llvm5APInt5isOneEv.exit, %4, %55, %56
-  %.sroa.6.0 = phi i16 [ %62, %56 ], [ 0, %4 ], [ 257, %_ZNK4llvm5APInt5isOneEv.exit ], [ %switch.select27, %33 ], [ 256, %51 ], [ 257, %_ZNK4llvm5APInt9isAllOnesEv.exit ], [ 0, %55 ], [ %spec.select, %_ZNK4llvm5APInt6isZeroEv.exit ], [ 257, %39 ], [ 257, %43 ], [ 256, %_ZNK4llvm5APInt6isZeroEv.exit13 ]
+_ZNK4llvm5APInt9isAllOnesEv.exit.thread:          ; preds = %33, %40, %_ZNK4llvm5APInt6isZeroEv.exit13, %52, %_ZNK4llvm5APInt9isAllOnesEv.exit, %44, %_ZNK4llvm5APInt6isZeroEv.exit, %_ZNK4llvm5APInt5isOneEv.exit, %4, %39, %56
+  %.sroa.6.0 = phi i16 [ %62, %56 ], [ 0, %4 ], [ 257, %_ZNK4llvm5APInt5isOneEv.exit ], [ 0, %39 ], [ 256, %_ZNK4llvm5APInt6isZeroEv.exit ], [ 257, %_ZNK4llvm5APInt9isAllOnesEv.exit ], [ %switch.select27, %33 ], [ 256, %52 ], [ 257, %40 ], [ 257, %44 ], [ 256, %_ZNK4llvm5APInt6isZeroEv.exit13 ]
   ret i16 %.sroa.6.0
 }
 

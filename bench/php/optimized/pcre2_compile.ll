@@ -13171,7 +13171,7 @@ define internal fastcc noundef ptr @find_recurse(ptr noundef nonnull readonly ca
   %.033.us = phi ptr [ %.033.us.be, %.split.us.backedge ], [ %0, %2 ]
   %3 = load i8, ptr %.033.us, align 1, !tbaa !23
   switch i8 %3, label %4 [
-    i8 0, label %.split58.us.loopexit70
+    i8 0, label %.split58.us.loopexit71
     i8 118, label %.split58.us
   ]
 
@@ -13275,7 +13275,7 @@ define internal fastcc noundef ptr @find_recurse(ptr noundef nonnull readonly ca
   %.033 = phi ptr [ %.033.be, %.split.backedge ], [ %0, %2 ]
   %48 = load i8, ptr %.033, align 1, !tbaa !23
   switch i8 %48, label %49 [
-    i8 0, label %.split58.us.loopexit72
+    i8 0, label %.split58.us.loopexit73
     i8 118, label %.split58.us
   ]
 
@@ -13392,14 +13392,14 @@ define internal fastcc noundef ptr @find_recurse(ptr noundef nonnull readonly ca
   %103 = getelementptr inbounds nuw i8, ptr %92, i64 %102
   br label %.split.backedge
 
-.split58.us.loopexit70:                           ; preds = %.split.us
+.split58.us.loopexit71:                           ; preds = %.split.us
   br label %.split58.us
 
-.split58.us.loopexit72:                           ; preds = %.split
+.split58.us.loopexit73:                           ; preds = %.split
   br label %.split58.us
 
-.split58.us:                                      ; preds = %.split, %.split.us, %.split58.us.loopexit72, %.split58.us.loopexit70
-  %.1.ph = phi ptr [ null, %.split58.us.loopexit72 ], [ null, %.split58.us.loopexit70 ], [ %.033.us, %.split.us ], [ %.033, %.split ]
+.split58.us:                                      ; preds = %.split, %.split.us, %.split58.us.loopexit73, %.split58.us.loopexit71
+  %.1.ph = phi ptr [ null, %.split58.us.loopexit73 ], [ %.033.us, %.split.us ], [ null, %.split58.us.loopexit71 ], [ %.033, %.split ]
   ret ptr %.1.ph
 }
 

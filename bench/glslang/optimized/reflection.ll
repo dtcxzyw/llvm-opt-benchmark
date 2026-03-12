@@ -12588,8 +12588,8 @@ switch.lookup64:                                  ; preds = %128
   %switch.load66 = load i32, ptr %switch.gep65, align 4
   br label %144
 
-144:                                              ; preds = %128, %switch.lookup64, %117, %switch.lookup60, %111, %switch.lookup56, %105, %switch.lookup52, %94, %switch.lookup48, %88, %switch.lookup44, %82, %switch.lookup40, %71, %switch.lookup36, %65, %switch.lookup32, %59, %switch.lookup, %123, %50, %100, %77, %54, %19, %2, %2, %2, %43, %41, %39, %37, %35, %33, %31, %29, %27, %7
-  %.0 = phi i32 [ 0, %2 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ 0, %100 ], [ %switch.load38, %switch.lookup36 ], [ 0, %2 ], [ 0, %19 ], [ 0, %123 ], [ 0, %2 ], [ %switch.load66, %switch.lookup64 ], [ %switch.load, %switch.lookup ], [ 0, %59 ], [ %12, %7 ], [ 0, %94 ], [ %switch.load34, %switch.lookup32 ], [ 0, %65 ], [ 0, %77 ], [ %switch.load50, %switch.lookup48 ], [ 0, %111 ], [ 0, %54 ], [ 0, %71 ], [ 0, %50 ], [ 0, %105 ], [ %switch.load42, %switch.lookup40 ], [ 0, %82 ], [ %switch.load54, %switch.lookup52 ], [ 0, %117 ], [ %switch.load46, %switch.lookup44 ], [ 0, %88 ], [ %switch.load58, %switch.lookup56 ], [ %switch.load62, %switch.lookup60 ], [ 0, %128 ]
+144:                                              ; preds = %59, %65, %71, %82, %88, %94, %105, %111, %117, %128, %switch.lookup64, %switch.lookup60, %switch.lookup56, %switch.lookup52, %switch.lookup48, %switch.lookup44, %switch.lookup40, %switch.lookup36, %switch.lookup32, %switch.lookup, %123, %50, %100, %77, %54, %19, %2, %2, %2, %43, %41, %39, %37, %35, %33, %31, %29, %27, %7
+  %.0 = phi i32 [ 0, %2 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ 0, %100 ], [ %switch.load38, %switch.lookup36 ], [ 0, %123 ], [ 0, %19 ], [ %switch.load46, %switch.lookup44 ], [ %switch.load54, %switch.lookup52 ], [ 0, %2 ], [ %switch.load, %switch.lookup ], [ %switch.load42, %switch.lookup40 ], [ %switch.load62, %switch.lookup60 ], [ 0, %2 ], [ %switch.load34, %switch.lookup32 ], [ 0, %50 ], [ %switch.load66, %switch.lookup64 ], [ %switch.load50, %switch.lookup48 ], [ %12, %7 ], [ 0, %54 ], [ %switch.load58, %switch.lookup56 ], [ 0, %77 ], [ 0, %128 ], [ 0, %117 ], [ 0, %111 ], [ 0, %105 ], [ 0, %94 ], [ 0, %88 ], [ 0, %82 ], [ 0, %71 ], [ 0, %65 ], [ 0, %59 ]
   ret i32 %.0
 }
 
@@ -12602,23 +12602,23 @@ define linkonce_odr noundef i32 @_ZN7glslang20TReflectionTraverser18mapSamplerTo
   %3 = and i32 %1, 524288
   %.not = icmp eq i32 %3, 0
   %trunc = trunc i32 %1 to i8
-  br i1 %.not, label %4, label %107
+  br i1 %.not, label %4, label %103
 
 4:                                                ; preds = %2
-  switch i8 %trunc, label %180 [
+  switch i8 %trunc, label %173 [
     i8 1, label %5
-    i8 3, label %38
-    i8 8, label %71
-    i8 9, label %89
+    i8 3, label %37
+    i8 8, label %69
+    i8 9, label %86
   ]
 
 5:                                                ; preds = %4
   %6 = lshr i32 %1, 8
   %trunc90 = trunc i32 %6 to i8
-  switch i8 %trunc90, label %37 [
+  switch i8 %trunc90, label %172 [
     i8 1, label %7
     i8 2, label %14
-    i8 3, label %180
+    i8 3, label %173
     i8 4, label %26
     i8 5, label %33
     i8 6, label %36
@@ -12633,11 +12633,11 @@ define linkonce_odr noundef i32 @_ZN7glslang20TReflectionTraverser18mapSamplerTo
 
 10:                                               ; preds = %7
   %11 = select i1 %.not101, i32 35681, i32 36291
-  br label %180
+  br label %173
 
 12:                                               ; preds = %7
   %13 = select i1 %.not101, i32 35677, i32 36288
-  br label %180
+  br label %173
 
 14:                                               ; preds = %5
   %15 = and i32 %1, 262144
@@ -12648,7 +12648,7 @@ define linkonce_odr noundef i32 @_ZN7glslang20TReflectionTraverser18mapSamplerTo
   %17 = and i32 %1, 65536
   %.not99 = icmp eq i32 %17, 0
   %18 = select i1 %.not99, i32 37128, i32 37131
-  br label %180
+  br label %173
 
 19:                                               ; preds = %14
   %20 = and i32 %1, 131072
@@ -12659,11 +12659,11 @@ define linkonce_odr noundef i32 @_ZN7glslang20TReflectionTraverser18mapSamplerTo
 
 22:                                               ; preds = %19
   %23 = select i1 %.not97, i32 35682, i32 36292
-  br label %180
+  br label %173
 
 24:                                               ; preds = %19
   %25 = select i1 %.not97, i32 35678, i32 36289
-  br label %180
+  br label %173
 
 26:                                               ; preds = %5
   %27 = and i32 %1, 131072
@@ -12674,402 +12674,381 @@ define linkonce_odr noundef i32 @_ZN7glslang20TReflectionTraverser18mapSamplerTo
 
 29:                                               ; preds = %26
   %30 = select i1 %.not93, i32 36293, i32 36877
-  br label %180
+  br label %173
 
 31:                                               ; preds = %26
   %32 = select i1 %.not93, i32 35680, i32 36876
-  br label %180
+  br label %173
 
 33:                                               ; preds = %5
   %34 = and i32 %1, 131072
   %.not91 = icmp eq i32 %34, 0
   %35 = select i1 %.not91, i32 35683, i32 35684
-  br label %180
+  br label %173
 
 36:                                               ; preds = %5
-  br label %180
+  br label %173
 
-37:                                               ; preds = %5
-  br label %180
-
-38:                                               ; preds = %4
-  %39 = lshr i32 %1, 8
-  %trunc77 = trunc i32 %39 to i8
-  switch i8 %trunc77, label %70 [
-    i8 1, label %40
-    i8 2, label %47
-    i8 3, label %180
-    i8 4, label %59
-    i8 5, label %66
-    i8 6, label %69
+37:                                               ; preds = %4
+  %38 = lshr i32 %1, 8
+  %trunc77 = trunc i32 %38 to i8
+  switch i8 %trunc77, label %172 [
+    i8 1, label %39
+    i8 2, label %46
+    i8 3, label %173
+    i8 4, label %58
+    i8 5, label %65
+    i8 6, label %68
   ]
 
-40:                                               ; preds = %38
-  %41 = and i32 %1, 131072
-  %.not87 = icmp eq i32 %41, 0
-  %42 = and i32 %1, 65536
-  %.not88 = icmp eq i32 %42, 0
-  br i1 %.not87, label %45, label %43
+39:                                               ; preds = %37
+  %40 = and i32 %1, 131072
+  %.not87 = icmp eq i32 %40, 0
+  %41 = and i32 %1, 65536
+  %.not88 = icmp eq i32 %41, 0
+  br i1 %.not87, label %44, label %42
 
-43:                                               ; preds = %40
-  %44 = select i1 %.not88, i32 37337, i32 37340
-  br label %180
+42:                                               ; preds = %39
+  %43 = select i1 %.not88, i32 37337, i32 37340
+  br label %173
 
-45:                                               ; preds = %40
-  %46 = select i1 %.not88, i32 37326, i32 37331
-  br label %180
+44:                                               ; preds = %39
+  %45 = select i1 %.not88, i32 37326, i32 37331
+  br label %173
 
-47:                                               ; preds = %38
-  %48 = and i32 %1, 262144
-  %.not82 = icmp eq i32 %48, 0
-  br i1 %.not82, label %52, label %49
+46:                                               ; preds = %37
+  %47 = and i32 %1, 262144
+  %.not82 = icmp eq i32 %47, 0
+  br i1 %.not82, label %51, label %48
 
-49:                                               ; preds = %47
-  %50 = and i32 %1, 65536
-  %.not86 = icmp eq i32 %50, 0
-  %51 = select i1 %.not86, i32 37335, i32 37336
-  br label %180
+48:                                               ; preds = %46
+  %49 = and i32 %1, 65536
+  %.not86 = icmp eq i32 %49, 0
+  %50 = select i1 %.not86, i32 37335, i32 37336
+  br label %173
 
-52:                                               ; preds = %47
-  %53 = and i32 %1, 131072
-  %.not83 = icmp eq i32 %53, 0
-  %54 = and i32 %1, 65536
-  %.not84 = icmp eq i32 %54, 0
-  br i1 %.not83, label %57, label %55
+51:                                               ; preds = %46
+  %52 = and i32 %1, 131072
+  %.not83 = icmp eq i32 %52, 0
+  %53 = and i32 %1, 65536
+  %.not84 = icmp eq i32 %53, 0
+  br i1 %.not83, label %56, label %54
 
-55:                                               ; preds = %52
-  %56 = select i1 %.not84, i32 37338, i32 37341
-  br label %180
+54:                                               ; preds = %51
+  %55 = select i1 %.not84, i32 37338, i32 37341
+  br label %173
 
-57:                                               ; preds = %52
-  %58 = select i1 %.not84, i32 37327, i32 37332
-  br label %180
+56:                                               ; preds = %51
+  %57 = select i1 %.not84, i32 37327, i32 37332
+  br label %173
 
-59:                                               ; preds = %38
-  %60 = and i32 %1, 131072
-  %.not79 = icmp eq i32 %60, 0
-  %61 = and i32 %1, 65536
-  %.not80 = icmp eq i32 %61, 0
-  br i1 %.not79, label %64, label %62
+58:                                               ; preds = %37
+  %59 = and i32 %1, 131072
+  %.not79 = icmp eq i32 %59, 0
+  %60 = and i32 %1, 65536
+  %.not80 = icmp eq i32 %60, 0
+  br i1 %.not79, label %63, label %61
 
-62:                                               ; preds = %59
-  %63 = select i1 %.not80, i32 37342, i32 37343
-  br label %180
+61:                                               ; preds = %58
+  %62 = select i1 %.not80, i32 37342, i32 37343
+  br label %173
 
-64:                                               ; preds = %59
-  %65 = select i1 %.not80, i32 37329, i32 37333
-  br label %180
+63:                                               ; preds = %58
+  %64 = select i1 %.not80, i32 37329, i32 37333
+  br label %173
 
-66:                                               ; preds = %38
-  %67 = and i32 %1, 131072
-  %.not78 = icmp eq i32 %67, 0
-  %68 = select i1 %.not78, i32 37330, i32 37339
-  br label %180
+65:                                               ; preds = %37
+  %66 = and i32 %1, 131072
+  %.not78 = icmp eq i32 %66, 0
+  %67 = select i1 %.not78, i32 37330, i32 37339
+  br label %173
 
-69:                                               ; preds = %38
-  br label %180
+68:                                               ; preds = %37
+  br label %173
 
-70:                                               ; preds = %38
-  br label %180
-
-71:                                               ; preds = %4
-  %72 = lshr i32 %1, 8
-  %trunc71 = trunc i32 %72 to i8
-  switch i8 %trunc71, label %88 [
-    i8 1, label %73
-    i8 2, label %76
-    i8 3, label %180
-    i8 4, label %83
-    i8 5, label %86
-    i8 6, label %87
+69:                                               ; preds = %4
+  %70 = lshr i32 %1, 8
+  %trunc71 = trunc i32 %70 to i8
+  switch i8 %trunc71, label %172 [
+    i8 1, label %71
+    i8 2, label %74
+    i8 3, label %173
+    i8 4, label %81
+    i8 5, label %84
+    i8 6, label %85
   ]
 
-73:                                               ; preds = %71
-  %74 = and i32 %1, 65536
-  %.not76 = icmp eq i32 %74, 0
-  %75 = select i1 %.not76, i32 36297, i32 36302
-  br label %180
+71:                                               ; preds = %69
+  %72 = and i32 %1, 65536
+  %.not76 = icmp eq i32 %72, 0
+  %73 = select i1 %.not76, i32 36297, i32 36302
+  br label %173
 
-76:                                               ; preds = %71
-  %77 = and i32 %1, 262144
-  %.not73 = icmp eq i32 %77, 0
-  %78 = and i32 %1, 65536
-  %.not74 = icmp eq i32 %78, 0
-  br i1 %.not73, label %81, label %79
+74:                                               ; preds = %69
+  %75 = and i32 %1, 262144
+  %.not73 = icmp eq i32 %75, 0
+  %76 = and i32 %1, 65536
+  %.not74 = icmp eq i32 %76, 0
+  br i1 %.not73, label %79, label %77
 
-79:                                               ; preds = %76
-  %80 = select i1 %.not74, i32 37129, i32 37132
-  br label %180
+77:                                               ; preds = %74
+  %78 = select i1 %.not74, i32 37129, i32 37132
+  br label %173
 
-81:                                               ; preds = %76
-  %82 = select i1 %.not74, i32 36298, i32 36303
-  br label %180
+79:                                               ; preds = %74
+  %80 = select i1 %.not74, i32 36298, i32 36303
+  br label %173
 
-83:                                               ; preds = %71
-  %84 = and i32 %1, 65536
-  %.not72 = icmp eq i32 %84, 0
-  %85 = select i1 %.not72, i32 36300, i32 36878
-  br label %180
+81:                                               ; preds = %69
+  %82 = and i32 %1, 65536
+  %.not72 = icmp eq i32 %82, 0
+  %83 = select i1 %.not72, i32 36300, i32 36878
+  br label %173
 
-86:                                               ; preds = %71
-  br label %180
+84:                                               ; preds = %69
+  br label %173
 
-87:                                               ; preds = %71
-  br label %180
+85:                                               ; preds = %69
+  br label %173
 
-88:                                               ; preds = %71
-  br label %180
-
-89:                                               ; preds = %4
-  %90 = lshr i32 %1, 8
-  %trunc65 = trunc i32 %90 to i8
-  switch i8 %trunc65, label %106 [
-    i8 1, label %91
-    i8 2, label %94
-    i8 3, label %180
-    i8 4, label %101
-    i8 5, label %104
-    i8 6, label %105
+86:                                               ; preds = %4
+  %87 = lshr i32 %1, 8
+  %trunc65 = trunc i32 %87 to i8
+  switch i8 %trunc65, label %172 [
+    i8 1, label %88
+    i8 2, label %91
+    i8 3, label %173
+    i8 4, label %98
+    i8 5, label %101
+    i8 6, label %102
   ]
 
-91:                                               ; preds = %89
-  %92 = and i32 %1, 65536
-  %.not70 = icmp eq i32 %92, 0
-  %93 = select i1 %.not70, i32 36305, i32 36310
-  br label %180
+88:                                               ; preds = %86
+  %89 = and i32 %1, 65536
+  %.not70 = icmp eq i32 %89, 0
+  %90 = select i1 %.not70, i32 36305, i32 36310
+  br label %173
 
-94:                                               ; preds = %89
-  %95 = and i32 %1, 262144
-  %.not67 = icmp eq i32 %95, 0
-  %96 = and i32 %1, 65536
-  %.not68 = icmp eq i32 %96, 0
-  br i1 %.not67, label %99, label %97
+91:                                               ; preds = %86
+  %92 = and i32 %1, 262144
+  %.not67 = icmp eq i32 %92, 0
+  %93 = and i32 %1, 65536
+  %.not68 = icmp eq i32 %93, 0
+  br i1 %.not67, label %96, label %94
 
-97:                                               ; preds = %94
-  %98 = select i1 %.not68, i32 37130, i32 37133
-  br label %180
+94:                                               ; preds = %91
+  %95 = select i1 %.not68, i32 37130, i32 37133
+  br label %173
 
-99:                                               ; preds = %94
-  %100 = select i1 %.not68, i32 36306, i32 36311
-  br label %180
+96:                                               ; preds = %91
+  %97 = select i1 %.not68, i32 36306, i32 36311
+  br label %173
 
-101:                                              ; preds = %89
-  %102 = and i32 %1, 65536
-  %.not66 = icmp eq i32 %102, 0
-  %103 = select i1 %.not66, i32 36308, i32 36879
-  br label %180
+98:                                               ; preds = %86
+  %99 = and i32 %1, 65536
+  %.not66 = icmp eq i32 %99, 0
+  %100 = select i1 %.not66, i32 36308, i32 36879
+  br label %173
 
-104:                                              ; preds = %89
-  br label %180
+101:                                              ; preds = %86
+  br label %173
 
-105:                                              ; preds = %89
-  br label %180
+102:                                              ; preds = %86
+  br label %173
 
-106:                                              ; preds = %89
-  br label %180
-
-107:                                              ; preds = %2
-  switch i8 %trunc, label %180 [
-    i8 1, label %108
-    i8 3, label %126
-    i8 8, label %144
-    i8 9, label %162
+103:                                              ; preds = %2
+  switch i8 %trunc, label %173 [
+    i8 1, label %104
+    i8 3, label %121
+    i8 8, label %138
+    i8 9, label %155
   ]
 
-108:                                              ; preds = %107
-  %109 = lshr i32 %1, 8
-  %trunc122 = trunc i32 %109 to i8
-  switch i8 %trunc122, label %125 [
-    i8 1, label %110
-    i8 2, label %113
-    i8 3, label %180
-    i8 4, label %120
-    i8 5, label %123
-    i8 6, label %124
+104:                                              ; preds = %103
+  %105 = lshr i32 %1, 8
+  %trunc122 = trunc i32 %105 to i8
+  switch i8 %trunc122, label %172 [
+    i8 1, label %106
+    i8 2, label %109
+    i8 3, label %173
+    i8 4, label %116
+    i8 5, label %119
+    i8 6, label %120
   ]
 
-110:                                              ; preds = %108
+106:                                              ; preds = %104
+  %107 = and i32 %1, 65536
+  %.not127 = icmp eq i32 %107, 0
+  %108 = select i1 %.not127, i32 36940, i32 36946
+  br label %173
+
+109:                                              ; preds = %104
+  %110 = and i32 %1, 262144
+  %.not124 = icmp eq i32 %110, 0
   %111 = and i32 %1, 65536
-  %.not127 = icmp eq i32 %111, 0
-  %112 = select i1 %.not127, i32 36940, i32 36946
-  br label %180
+  %.not125 = icmp eq i32 %111, 0
+  br i1 %.not124, label %114, label %112
 
-113:                                              ; preds = %108
-  %114 = and i32 %1, 262144
-  %.not124 = icmp eq i32 %114, 0
-  %115 = and i32 %1, 65536
-  %.not125 = icmp eq i32 %115, 0
-  br i1 %.not124, label %118, label %116
+112:                                              ; preds = %109
+  %113 = select i1 %.not125, i32 36949, i32 36950
+  br label %173
 
-116:                                              ; preds = %113
-  %117 = select i1 %.not125, i32 36949, i32 36950
-  br label %180
+114:                                              ; preds = %109
+  %115 = select i1 %.not125, i32 36941, i32 36947
+  br label %173
 
-118:                                              ; preds = %113
-  %119 = select i1 %.not125, i32 36941, i32 36947
-  br label %180
+116:                                              ; preds = %104
+  %117 = and i32 %1, 65536
+  %.not123 = icmp eq i32 %117, 0
+  %118 = select i1 %.not123, i32 36944, i32 36948
+  br label %173
 
-120:                                              ; preds = %108
-  %121 = and i32 %1, 65536
-  %.not123 = icmp eq i32 %121, 0
-  %122 = select i1 %.not123, i32 36944, i32 36948
-  br label %180
+119:                                              ; preds = %104
+  br label %173
 
-123:                                              ; preds = %108
-  br label %180
+120:                                              ; preds = %104
+  br label %173
 
-124:                                              ; preds = %108
-  br label %180
-
-125:                                              ; preds = %108
-  br label %180
-
-126:                                              ; preds = %107
-  %127 = lshr i32 %1, 8
-  %trunc116 = trunc i32 %127 to i8
-  switch i8 %trunc116, label %143 [
-    i8 1, label %128
-    i8 2, label %131
-    i8 3, label %180
-    i8 4, label %138
-    i8 5, label %141
-    i8 6, label %142
+121:                                              ; preds = %103
+  %122 = lshr i32 %1, 8
+  %trunc116 = trunc i32 %122 to i8
+  switch i8 %trunc116, label %172 [
+    i8 1, label %123
+    i8 2, label %126
+    i8 3, label %173
+    i8 4, label %133
+    i8 5, label %136
+    i8 6, label %137
   ]
 
-128:                                              ; preds = %126
-  %129 = and i32 %1, 65536
-  %.not121 = icmp eq i32 %129, 0
-  %130 = select i1 %.not121, i32 37344, i32 37349
-  br label %180
+123:                                              ; preds = %121
+  %124 = and i32 %1, 65536
+  %.not121 = icmp eq i32 %124, 0
+  %125 = select i1 %.not121, i32 37344, i32 37349
+  br label %173
+
+126:                                              ; preds = %121
+  %127 = and i32 %1, 262144
+  %.not118 = icmp eq i32 %127, 0
+  %128 = and i32 %1, 65536
+  %.not119 = icmp eq i32 %128, 0
+  br i1 %.not118, label %131, label %129
+
+129:                                              ; preds = %126
+  %130 = select i1 %.not119, i32 37353, i32 37354
+  br label %173
 
 131:                                              ; preds = %126
-  %132 = and i32 %1, 262144
-  %.not118 = icmp eq i32 %132, 0
-  %133 = and i32 %1, 65536
-  %.not119 = icmp eq i32 %133, 0
-  br i1 %.not118, label %136, label %134
+  %132 = select i1 %.not119, i32 37345, i32 37350
+  br label %173
 
-134:                                              ; preds = %131
-  %135 = select i1 %.not119, i32 37353, i32 37354
-  br label %180
+133:                                              ; preds = %121
+  %134 = and i32 %1, 65536
+  %.not117 = icmp eq i32 %134, 0
+  %135 = select i1 %.not117, i32 37348, i32 37351
+  br label %173
 
-136:                                              ; preds = %131
-  %137 = select i1 %.not119, i32 37345, i32 37350
-  br label %180
+136:                                              ; preds = %121
+  br label %173
 
-138:                                              ; preds = %126
-  %139 = and i32 %1, 65536
-  %.not117 = icmp eq i32 %139, 0
-  %140 = select i1 %.not117, i32 37348, i32 37351
-  br label %180
+137:                                              ; preds = %121
+  br label %173
 
-141:                                              ; preds = %126
-  br label %180
-
-142:                                              ; preds = %126
-  br label %180
-
-143:                                              ; preds = %126
-  br label %180
-
-144:                                              ; preds = %107
-  %145 = lshr i32 %1, 8
-  %trunc110 = trunc i32 %145 to i8
-  switch i8 %trunc110, label %161 [
-    i8 1, label %146
-    i8 2, label %149
-    i8 3, label %180
-    i8 4, label %156
-    i8 5, label %159
-    i8 6, label %160
+138:                                              ; preds = %103
+  %139 = lshr i32 %1, 8
+  %trunc110 = trunc i32 %139 to i8
+  switch i8 %trunc110, label %172 [
+    i8 1, label %140
+    i8 2, label %143
+    i8 3, label %173
+    i8 4, label %150
+    i8 5, label %153
+    i8 6, label %154
   ]
 
-146:                                              ; preds = %144
-  %147 = and i32 %1, 65536
-  %.not115 = icmp eq i32 %147, 0
-  %148 = select i1 %.not115, i32 36951, i32 36957
-  br label %180
+140:                                              ; preds = %138
+  %141 = and i32 %1, 65536
+  %.not115 = icmp eq i32 %141, 0
+  %142 = select i1 %.not115, i32 36951, i32 36957
+  br label %173
 
-149:                                              ; preds = %144
-  %150 = and i32 %1, 262144
-  %.not112 = icmp eq i32 %150, 0
+143:                                              ; preds = %138
+  %144 = and i32 %1, 262144
+  %.not112 = icmp eq i32 %144, 0
+  %145 = and i32 %1, 65536
+  %.not113 = icmp eq i32 %145, 0
+  br i1 %.not112, label %148, label %146
+
+146:                                              ; preds = %143
+  %147 = select i1 %.not113, i32 36960, i32 36961
+  br label %173
+
+148:                                              ; preds = %143
+  %149 = select i1 %.not113, i32 36952, i32 36958
+  br label %173
+
+150:                                              ; preds = %138
   %151 = and i32 %1, 65536
-  %.not113 = icmp eq i32 %151, 0
-  br i1 %.not112, label %154, label %152
+  %.not111 = icmp eq i32 %151, 0
+  %152 = select i1 %.not111, i32 36955, i32 36959
+  br label %173
 
-152:                                              ; preds = %149
-  %153 = select i1 %.not113, i32 36960, i32 36961
-  br label %180
+153:                                              ; preds = %138
+  br label %173
 
-154:                                              ; preds = %149
-  %155 = select i1 %.not113, i32 36952, i32 36958
-  br label %180
+154:                                              ; preds = %138
+  br label %173
 
-156:                                              ; preds = %144
-  %157 = and i32 %1, 65536
-  %.not111 = icmp eq i32 %157, 0
-  %158 = select i1 %.not111, i32 36955, i32 36959
-  br label %180
-
-159:                                              ; preds = %144
-  br label %180
-
-160:                                              ; preds = %144
-  br label %180
-
-161:                                              ; preds = %144
-  br label %180
-
-162:                                              ; preds = %107
-  %163 = lshr i32 %1, 8
-  %trunc104 = trunc i32 %163 to i8
-  switch i8 %trunc104, label %179 [
-    i8 1, label %164
-    i8 2, label %167
-    i8 3, label %180
-    i8 4, label %174
-    i8 5, label %177
-    i8 6, label %178
+155:                                              ; preds = %103
+  %156 = lshr i32 %1, 8
+  %trunc104 = trunc i32 %156 to i8
+  switch i8 %trunc104, label %172 [
+    i8 1, label %157
+    i8 2, label %160
+    i8 3, label %173
+    i8 4, label %167
+    i8 5, label %170
+    i8 6, label %171
   ]
 
-164:                                              ; preds = %162
-  %165 = and i32 %1, 65536
-  %.not109 = icmp eq i32 %165, 0
-  %166 = select i1 %.not109, i32 36962, i32 36968
-  br label %180
+157:                                              ; preds = %155
+  %158 = and i32 %1, 65536
+  %.not109 = icmp eq i32 %158, 0
+  %159 = select i1 %.not109, i32 36962, i32 36968
+  br label %173
 
-167:                                              ; preds = %162
-  %168 = and i32 %1, 262144
-  %.not106 = icmp eq i32 %168, 0
-  %169 = and i32 %1, 65536
-  %.not107 = icmp eq i32 %169, 0
-  br i1 %.not106, label %172, label %170
+160:                                              ; preds = %155
+  %161 = and i32 %1, 262144
+  %.not106 = icmp eq i32 %161, 0
+  %162 = and i32 %1, 65536
+  %.not107 = icmp eq i32 %162, 0
+  br i1 %.not106, label %165, label %163
 
-170:                                              ; preds = %167
-  %171 = select i1 %.not107, i32 36971, i32 36972
-  br label %180
+163:                                              ; preds = %160
+  %164 = select i1 %.not107, i32 36971, i32 36972
+  br label %173
 
-172:                                              ; preds = %167
-  %173 = select i1 %.not107, i32 36963, i32 36969
-  br label %180
+165:                                              ; preds = %160
+  %166 = select i1 %.not107, i32 36963, i32 36969
+  br label %173
 
-174:                                              ; preds = %162
-  %175 = and i32 %1, 65536
-  %.not105 = icmp eq i32 %175, 0
-  %176 = select i1 %.not105, i32 36966, i32 36970
-  br label %180
+167:                                              ; preds = %155
+  %168 = and i32 %1, 65536
+  %.not105 = icmp eq i32 %168, 0
+  %169 = select i1 %.not105, i32 36966, i32 36970
+  br label %173
 
-177:                                              ; preds = %162
-  br label %180
+170:                                              ; preds = %155
+  br label %173
 
-178:                                              ; preds = %162
-  br label %180
+171:                                              ; preds = %155
+  br label %173
 
-179:                                              ; preds = %162
-  br label %180
+172:                                              ; preds = %5, %37, %69, %86, %104, %121, %138, %155
+  br label %173
 
-180:                                              ; preds = %107, %162, %144, %126, %108, %4, %89, %71, %38, %5, %179, %178, %177, %174, %172, %170, %164, %161, %160, %159, %156, %154, %152, %146, %143, %142, %141, %138, %136, %134, %128, %125, %124, %123, %120, %118, %116, %110, %106, %105, %104, %101, %99, %97, %91, %88, %87, %86, %83, %81, %79, %73, %70, %69, %66, %64, %62, %57, %55, %49, %45, %43, %37, %36, %33, %31, %29, %24, %22, %16, %12, %10
-  %.0 = phi i32 [ 36964, %162 ], [ 0, %125 ], [ %112, %110 ], [ %117, %116 ], [ %119, %118 ], [ 0, %4 ], [ %122, %120 ], [ 36943, %123 ], [ 36945, %124 ], [ 0, %143 ], [ %130, %128 ], [ %135, %134 ], [ %137, %136 ], [ 36942, %108 ], [ %140, %138 ], [ 37347, %141 ], [ 37352, %142 ], [ 0, %161 ], [ %148, %146 ], [ %153, %152 ], [ %155, %154 ], [ 37346, %126 ], [ %158, %156 ], [ 36954, %159 ], [ 36956, %160 ], [ 0, %179 ], [ %166, %164 ], [ %171, %170 ], [ %173, %172 ], [ 36953, %144 ], [ %176, %174 ], [ 36965, %177 ], [ 36967, %178 ], [ 36307, %89 ], [ 0, %37 ], [ %11, %10 ], [ %13, %12 ], [ %18, %16 ], [ %23, %22 ], [ %25, %24 ], [ 36312, %105 ], [ %30, %29 ], [ %32, %31 ], [ %35, %33 ], [ 36290, %36 ], [ 0, %70 ], [ %44, %43 ], [ %46, %45 ], [ %51, %49 ], [ %56, %55 ], [ %58, %57 ], [ 35679, %5 ], [ %63, %62 ], [ %65, %64 ], [ %68, %66 ], [ 37334, %69 ], [ 0, %88 ], [ %75, %73 ], [ %80, %79 ], [ %82, %81 ], [ 37328, %38 ], [ %85, %83 ], [ 36301, %86 ], [ 36304, %87 ], [ 0, %106 ], [ %93, %91 ], [ %98, %97 ], [ %100, %99 ], [ 36299, %71 ], [ %103, %101 ], [ 36309, %104 ], [ 0, %107 ]
+173:                                              ; preds = %103, %155, %138, %121, %104, %4, %86, %69, %37, %5, %172, %171, %170, %167, %165, %163, %157, %154, %153, %150, %148, %146, %140, %137, %136, %133, %131, %129, %123, %120, %119, %116, %114, %112, %106, %102, %101, %98, %96, %94, %88, %85, %84, %81, %79, %77, %71, %68, %65, %63, %61, %56, %54, %48, %44, %42, %36, %33, %31, %29, %24, %22, %16, %12, %10
+  %.0 = phi i32 [ 36964, %155 ], [ %97, %96 ], [ %108, %106 ], [ %113, %112 ], [ %115, %114 ], [ 0, %4 ], [ %118, %116 ], [ 36943, %119 ], [ 36945, %120 ], [ %95, %94 ], [ %125, %123 ], [ %130, %129 ], [ %132, %131 ], [ 36942, %104 ], [ %135, %133 ], [ 37347, %136 ], [ 37352, %137 ], [ %90, %88 ], [ %142, %140 ], [ %147, %146 ], [ %149, %148 ], [ 37346, %121 ], [ %152, %150 ], [ 36954, %153 ], [ 36956, %154 ], [ 0, %172 ], [ %159, %157 ], [ %164, %163 ], [ %166, %165 ], [ 36953, %138 ], [ %169, %167 ], [ 36965, %170 ], [ 36967, %171 ], [ 36307, %86 ], [ 0, %103 ], [ %11, %10 ], [ %13, %12 ], [ %18, %16 ], [ %23, %22 ], [ %25, %24 ], [ 36312, %102 ], [ %30, %29 ], [ %32, %31 ], [ %35, %33 ], [ 36290, %36 ], [ 36309, %101 ], [ %43, %42 ], [ %45, %44 ], [ %50, %48 ], [ %55, %54 ], [ %57, %56 ], [ 35679, %5 ], [ %62, %61 ], [ %64, %63 ], [ %67, %65 ], [ 37334, %68 ], [ %100, %98 ], [ %73, %71 ], [ %78, %77 ], [ %80, %79 ], [ 37328, %37 ], [ %83, %81 ], [ 36301, %84 ], [ 36304, %85 ], [ 36299, %69 ]
   ret i32 %.0
 }
 

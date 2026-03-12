@@ -18161,14 +18161,14 @@ _ZNK9subpaving9context_tINS_10config_hwfEE4node5lowerEj.exit: ; preds = %31, %44
   %53 = icmp eq ptr %29, null
   %54 = icmp eq ptr %52, null
   %or.cond = and i1 %53, %54
-  br i1 %or.cond, label %133, label %55
+  br i1 %or.cond, label %132, label %55
 
 55:                                               ; preds = %_ZNK9subpaving9context_tINS_10config_hwfEE4node5lowerEj.exit
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 1073741824
   %.not = icmp eq i32 %58, 0
-  br i1 %.not, label %96, label %59
+  br i1 %.not, label %95, label %59
 
 59:                                               ; preds = %55
   br i1 %53, label %77, label %60
@@ -18179,7 +18179,7 @@ _ZNK9subpaving9context_tINS_10config_hwfEE4node5lowerEj.exit: ; preds = %31, %44
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = load ptr, ptr %62, align 8, !tbaa !10
   %65 = tail call noundef zeroext i1 @_ZN11hwf_manager2ltERK3hwfS2_(ptr noundef nonnull align 8 dereferenceable(736) %64, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %63)
-  br i1 %65, label %133, label %66
+  br i1 %65, label %132, label %66
 
 66:                                               ; preds = %60
   %67 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -18197,10 +18197,10 @@ _ZNK9subpaving9context_tINS_10config_hwfEE4node5lowerEj.exit: ; preds = %31, %44
   %74 = load ptr, ptr %61, align 8, !tbaa !176
   %75 = load ptr, ptr %74, align 8, !tbaa !10
   %76 = tail call noundef zeroext i1 @_ZN11hwf_manager2eqERK3hwfS2_(ptr noundef nonnull align 8 dereferenceable(736) %75, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %63)
-  br i1 %76, label %133, label %77
+  br i1 %76, label %132, label %77
 
 77:                                               ; preds = %73, %70, %59
-  br i1 %54, label %95, label %78
+  br i1 %54, label %131, label %78
 
 78:                                               ; preds = %77
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18208,7 +18208,7 @@ _ZNK9subpaving9context_tINS_10config_hwfEE4node5lowerEj.exit: ; preds = %31, %44
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = load ptr, ptr %80, align 8, !tbaa !10
   %83 = tail call noundef zeroext i1 @_ZN11hwf_manager2gtERK3hwfS2_(ptr noundef nonnull align 8 dereferenceable(736) %82, ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull align 8 dereferenceable(8) %81)
-  br i1 %83, label %133, label %84
+  br i1 %83, label %132, label %84
 
 84:                                               ; preds = %78
   %85 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -18220,80 +18220,77 @@ _ZNK9subpaving9context_tINS_10config_hwfEE4node5lowerEj.exit: ; preds = %31, %44
 88:                                               ; preds = %84
   %89 = load i32, ptr %56, align 8
   %90 = icmp slt i32 %89, 0
-  br i1 %90, label %95, label %91
+  br i1 %90, label %131, label %91
 
 91:                                               ; preds = %88, %84
   %92 = load ptr, ptr %79, align 8, !tbaa !176
   %93 = load ptr, ptr %92, align 8, !tbaa !10
   %94 = tail call noundef zeroext i1 @_ZN11hwf_manager2eqERK3hwfS2_(ptr noundef nonnull align 8 dereferenceable(736) %93, ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull align 8 dereferenceable(8) %81)
-  br i1 %94, label %133, label %95
+  br i1 %94, label %132, label %131
 
-95:                                               ; preds = %91, %88, %77
-  br label %133
+95:                                               ; preds = %55
+  br i1 %54, label %113, label %96
 
-96:                                               ; preds = %55
-  br i1 %54, label %114, label %97
+96:                                               ; preds = %95
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %98 = load ptr, ptr %97, align 8, !tbaa !176
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %100 = load ptr, ptr %98, align 8, !tbaa !10
+  %101 = tail call noundef zeroext i1 @_ZN11hwf_manager2gtERK3hwfS2_(ptr noundef nonnull align 8 dereferenceable(736) %100, ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull align 8 dereferenceable(8) %99)
+  br i1 %101, label %132, label %102
 
-97:                                               ; preds = %96
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %99 = load ptr, ptr %98, align 8, !tbaa !176
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %101 = load ptr, ptr %99, align 8, !tbaa !10
-  %102 = tail call noundef zeroext i1 @_ZN11hwf_manager2gtERK3hwfS2_(ptr noundef nonnull align 8 dereferenceable(736) %101, ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull align 8 dereferenceable(8) %100)
-  br i1 %102, label %133, label %103
+102:                                              ; preds = %96
+  %103 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %104 = load i32, ptr %103, align 8
+  %105 = and i32 %104, 1073741824
+  %.not52 = icmp eq i32 %105, 0
+  br i1 %.not52, label %106, label %109
 
-103:                                              ; preds = %97
-  %104 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %105 = load i32, ptr %104, align 8
-  %106 = and i32 %105, 1073741824
-  %.not52 = icmp eq i32 %106, 0
-  br i1 %.not52, label %107, label %110
+106:                                              ; preds = %102
+  %107 = load i32, ptr %56, align 8
+  %108 = icmp slt i32 %107, 0
+  br i1 %108, label %109, label %113
 
-107:                                              ; preds = %103
-  %108 = load i32, ptr %56, align 8
-  %109 = icmp slt i32 %108, 0
-  br i1 %109, label %110, label %114
+109:                                              ; preds = %106, %102
+  %110 = load ptr, ptr %97, align 8, !tbaa !176
+  %111 = load ptr, ptr %110, align 8, !tbaa !10
+  %112 = tail call noundef zeroext i1 @_ZN11hwf_manager2eqERK3hwfS2_(ptr noundef nonnull align 8 dereferenceable(736) %111, ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull align 8 dereferenceable(8) %99)
+  br i1 %112, label %132, label %113
 
-110:                                              ; preds = %107, %103
-  %111 = load ptr, ptr %98, align 8, !tbaa !176
-  %112 = load ptr, ptr %111, align 8, !tbaa !10
-  %113 = tail call noundef zeroext i1 @_ZN11hwf_manager2eqERK3hwfS2_(ptr noundef nonnull align 8 dereferenceable(736) %112, ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull align 8 dereferenceable(8) %100)
-  br i1 %113, label %133, label %114
+113:                                              ; preds = %109, %106, %95
+  br i1 %53, label %131, label %114
 
-114:                                              ; preds = %110, %107, %96
-  br i1 %53, label %132, label %115
+114:                                              ; preds = %113
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %116 = load ptr, ptr %115, align 8, !tbaa !176
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %118 = load ptr, ptr %116, align 8, !tbaa !10
+  %119 = tail call noundef zeroext i1 @_ZN11hwf_manager2ltERK3hwfS2_(ptr noundef nonnull align 8 dereferenceable(736) %118, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %117)
+  br i1 %119, label %132, label %120
 
-115:                                              ; preds = %114
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %117 = load ptr, ptr %116, align 8, !tbaa !176
-  %118 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %119 = load ptr, ptr %117, align 8, !tbaa !10
-  %120 = tail call noundef zeroext i1 @_ZN11hwf_manager2ltERK3hwfS2_(ptr noundef nonnull align 8 dereferenceable(736) %119, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %118)
-  br i1 %120, label %133, label %121
+120:                                              ; preds = %114
+  %121 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %122 = load i32, ptr %121, align 8
+  %123 = and i32 %122, 1073741824
+  %.not53 = icmp eq i32 %123, 0
+  br i1 %.not53, label %124, label %127
 
-121:                                              ; preds = %115
-  %122 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %123 = load i32, ptr %122, align 8
-  %124 = and i32 %123, 1073741824
-  %.not53 = icmp eq i32 %124, 0
-  br i1 %.not53, label %125, label %128
+124:                                              ; preds = %120
+  %125 = load i32, ptr %56, align 8
+  %126 = icmp slt i32 %125, 0
+  br i1 %126, label %131, label %127
 
-125:                                              ; preds = %121
-  %126 = load i32, ptr %56, align 8
-  %127 = icmp slt i32 %126, 0
-  br i1 %127, label %132, label %128
+127:                                              ; preds = %124, %120
+  %128 = load ptr, ptr %115, align 8, !tbaa !176
+  %129 = load ptr, ptr %128, align 8, !tbaa !10
+  %130 = tail call noundef zeroext i1 @_ZN11hwf_manager2eqERK3hwfS2_(ptr noundef nonnull align 8 dereferenceable(736) %129, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %117)
+  br i1 %130, label %132, label %131
 
-128:                                              ; preds = %125, %121
-  %129 = load ptr, ptr %116, align 8, !tbaa !176
-  %130 = load ptr, ptr %129, align 8, !tbaa !10
-  %131 = tail call noundef zeroext i1 @_ZN11hwf_manager2eqERK3hwfS2_(ptr noundef nonnull align 8 dereferenceable(736) %130, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %118)
-  br i1 %131, label %133, label %132
+131:                                              ; preds = %77, %88, %91, %127, %124, %113
+  br label %132
 
-132:                                              ; preds = %128, %125, %114
-  br label %133
-
-133:                                              ; preds = %115, %128, %97, %110, %78, %91, %60, %73, %_ZNK9subpaving9context_tINS_10config_hwfEE4node5lowerEj.exit, %132, %95
-  %.0 = phi i32 [ 0, %132 ], [ 0, %_ZNK9subpaving9context_tINS_10config_hwfEE4node5lowerEj.exit ], [ -1, %60 ], [ 0, %95 ], [ 1, %78 ], [ -1, %97 ], [ -1, %73 ], [ 1, %91 ], [ -1, %110 ], [ 1, %128 ], [ 1, %115 ]
+132:                                              ; preds = %114, %127, %96, %109, %78, %91, %60, %73, %_ZNK9subpaving9context_tINS_10config_hwfEE4node5lowerEj.exit, %131
+  %.0 = phi i32 [ 0, %131 ], [ 0, %_ZNK9subpaving9context_tINS_10config_hwfEE4node5lowerEj.exit ], [ -1, %60 ], [ 1, %114 ], [ 1, %78 ], [ -1, %96 ], [ -1, %73 ], [ 1, %91 ], [ -1, %109 ], [ 1, %127 ]
   ret i32 %.0
 }
 

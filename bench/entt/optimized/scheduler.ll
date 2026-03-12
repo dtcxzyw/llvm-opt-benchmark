@@ -10848,7 +10848,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4entt8internal15process_handle
     i8 1, label %.thread2.i
     i8 3, label %9
     i8 4, label %10
-    i8 5, label %11
+    i8 5, label %10
   ]
 
 .thread2.i:                                       ; preds = %3
@@ -10861,79 +10861,76 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4entt8internal15process_handle
 9:                                                ; preds = %3
   br label %.sink.split.i
 
-10:                                               ; preds = %.thread2.i, %3
+10:                                               ; preds = %.thread2.i, %3, %3
   br label %.sink.split.i
 
-11:                                               ; preds = %3
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %11, %10, %9, %3
-  %.sink.i = phi i8 [ 6, %9 ], [ 7, %11 ], [ 7, %10 ], [ 1, %3 ]
+.sink.split.i:                                    ; preds = %10, %9, %3
+  %.sink.i = phi i8 [ 6, %9 ], [ 1, %3 ], [ 7, %10 ]
   store i8 %.sink.i, ptr %4, align 8, !tbaa !252
   br label %_ZN4entt7processI14failed_processjE4tickEjPv.exit
 
 _ZN4entt7processI14failed_processjE4tickEjPv.exit: ; preds = %3, %.sink.split.i
-  %12 = phi i8 [ %5, %3 ], [ %.sink.i, %.sink.split.i ]
-  %13 = icmp eq i8 %12, 7
-  br i1 %13, label %14, label %_ZNSt12__shared_ptrIN4entt8internal21basic_process_handlerIjEELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
+  %11 = phi i8 [ %5, %3 ], [ %.sink.i, %.sink.split.i ]
+  %12 = icmp eq i8 %11, 7
+  br i1 %12, label %13, label %_ZNSt12__shared_ptrIN4entt8internal21basic_process_handlerIjEELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
 
-14:                                               ; preds = %_ZN4entt7processI14failed_processjE4tickEjPv.exit
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %15, align 8, !tbaa !74
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !57
-  store ptr null, ptr %16, align 8, !tbaa !57
-  %.not.i.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.i, label %_ZNSt12__shared_ptrIN4entt8internal21basic_process_handlerIjEELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit, label %18
+13:                                               ; preds = %_ZN4entt7processI14failed_processjE4tickEjPv.exit
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %14, align 8, !tbaa !74
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !57
+  store ptr null, ptr %15, align 8, !tbaa !57
+  %.not.i.i.i = icmp eq ptr %16, null
+  br i1 %.not.i.i.i, label %_ZNSt12__shared_ptrIN4entt8internal21basic_process_handlerIjEELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit, label %17
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %20 = load atomic i64, ptr %19 acquire, align 8
-  %21 = icmp eq i64 %20, 4294967297
-  %22 = trunc i64 %20 to i32
-  br i1 %21, label %23, label %31
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %19 = load atomic i64, ptr %18 acquire, align 8
+  %20 = icmp eq i64 %19, 4294967297
+  %21 = trunc i64 %19 to i32
+  br i1 %20, label %22, label %30
 
-23:                                               ; preds = %18
-  store i32 0, ptr %19, align 8, !tbaa !47
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  store i32 0, ptr %24, align 4, !tbaa !49
-  %25 = load ptr, ptr %17, align 8, !tbaa !4
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %17) #25
-  %28 = load ptr, ptr %17, align 8, !tbaa !4
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %17) #25
+22:                                               ; preds = %17
+  store i32 0, ptr %18, align 8, !tbaa !47
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  store i32 0, ptr %23, align 4, !tbaa !49
+  %24 = load ptr, ptr %16, align 8, !tbaa !4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %26 = load ptr, ptr %25, align 8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %16) #25
+  %27 = load ptr, ptr %16, align 8, !tbaa !4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %29 = load ptr, ptr %28, align 8
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %16) #25
   br label %_ZNSt12__shared_ptrIN4entt8internal21basic_process_handlerIjEELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
 
-31:                                               ; preds = %18
-  %32 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !40
-  %.not.i.i.i.i = icmp eq i8 %32, 0
-  br i1 %.not.i.i.i.i, label %35, label %33
+30:                                               ; preds = %17
+  %31 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !40
+  %.not.i.i.i.i = icmp eq i8 %31, 0
+  br i1 %.not.i.i.i.i, label %34, label %32
 
-33:                                               ; preds = %31
-  %34 = add nsw i32 %22, -1
-  store i32 %34, ptr %19, align 4, !tbaa !68
+32:                                               ; preds = %30
+  %33 = add nsw i32 %21, -1
+  store i32 %33, ptr %18, align 4, !tbaa !68
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-35:                                               ; preds = %31
-  %36 = atomicrmw volatile add ptr %19, i32 -1 acq_rel, align 4
+34:                                               ; preds = %30
+  %35 = atomicrmw volatile add ptr %18, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %35, %33
-  %.0.i.i.i.i.i = phi i32 [ %22, %33 ], [ %36, %35 ]
-  %37 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %37, label %38, label %_ZNSt12__shared_ptrIN4entt8internal21basic_process_handlerIjEELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit, !prof !69
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %34, %32
+  %.0.i.i.i.i.i = phi i32 [ %21, %32 ], [ %35, %34 ]
+  %36 = icmp eq i32 %.0.i.i.i.i.i, 1
+  br i1 %36, label %37, label %_ZNSt12__shared_ptrIN4entt8internal21basic_process_handlerIjEELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit, !prof !69
 
-38:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #25
+37:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #25
   br label %_ZNSt12__shared_ptrIN4entt8internal21basic_process_handlerIjEELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
 
-_ZNSt12__shared_ptrIN4entt8internal21basic_process_handlerIjEELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit: ; preds = %38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %23, %14, %_ZN4entt7processI14failed_processjE4tickEjPv.exit
-  %39 = load i8, ptr %4, align 8, !tbaa !252
-  %40 = and i8 %39, -2
-  %spec.select = icmp eq i8 %40, 6
+_ZNSt12__shared_ptrIN4entt8internal21basic_process_handlerIjEELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit: ; preds = %37, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %22, %13, %_ZN4entt7processI14failed_processjE4tickEjPv.exit
+  %38 = load i8, ptr %4, align 8, !tbaa !252
+  %39 = and i8 %38, -2
+  %spec.select = icmp eq i8 %39, 6
   ret i1 %spec.select
 }
 

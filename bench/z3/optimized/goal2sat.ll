@@ -3119,7 +3119,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8goal2sat3imp10is_bool_opEP4e
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 65535
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %35
+  br i1 %6, label %7, label %34
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3138,14 +3138,14 @@ _ZNK3app13get_family_idEv.exit:                   ; preds = %7
 _ZNK3app13get_decl_kindEv.exit:                   ; preds = %_ZNK3app13get_family_idEv.exit
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !198
-  switch i32 %17, label %23 [
-    i32 6, label %35
-    i32 5, label %35
-    i32 0, label %35
-    i32 1, label %35
-    i32 8, label %35
-    i32 9, label %35
-    i32 7, label %35
+  switch i32 %17, label %33 [
+    i32 6, label %34
+    i32 5, label %34
+    i32 0, label %34
+    i32 1, label %34
+    i32 8, label %34
+    i32 9, label %34
+    i32 7, label %34
     i32 4, label %18
     i32 2, label %18
   ]
@@ -3155,35 +3155,32 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %_ZNK3app13get_famil
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !159
   %22 = tail call noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976) %19, ptr noundef %21)
-  br label %35
-
-23:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
-  br label %35
+  br label %34
 
 _ZNK3app13get_family_idEv.exit.thread:            ; preds = %7
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 273
-  %25 = load i8, ptr %24, align 1, !tbaa !126, !range !147, !noundef !148
-  %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %34, label %_ZNK3app13get_family_idEv.exit7
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 273
+  %24 = load i8, ptr %23, align 1, !tbaa !126, !range !147, !noundef !148
+  %25 = trunc nuw i8 %24 to i1
+  br i1 %25, label %33, label %_ZNK3app13get_family_idEv.exit7
 
 .thread:                                          ; preds = %_ZNK3app13get_family_idEv.exit
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 273
-  %28 = load i8, ptr %27, align 1, !tbaa !126, !range !147, !noundef !148
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %34, label %_ZNK3app13get_family_idEv.exit7
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 273
+  %27 = load i8, ptr %26, align 1, !tbaa !126, !range !147, !noundef !148
+  %28 = trunc nuw i8 %27 to i1
+  br i1 %28, label %33, label %_ZNK3app13get_family_idEv.exit7
 
 _ZNK3app13get_family_idEv.exit7:                  ; preds = %.thread, %_ZNK3app13get_family_idEv.exit.thread
-  %30 = phi i32 [ -1, %_ZNK3app13get_family_idEv.exit.thread ], [ %13, %.thread ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %32 = load i32, ptr %31, align 8, !tbaa !87
-  %33 = icmp eq i32 %30, %32
-  br i1 %33, label %35, label %34
+  %29 = phi i32 [ -1, %_ZNK3app13get_family_idEv.exit.thread ], [ %13, %.thread ]
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %31 = load i32, ptr %30, align 8, !tbaa !87
+  %32 = icmp eq i32 %29, %31
+  br i1 %32, label %34, label %33
 
-34:                                               ; preds = %.thread, %_ZNK3app13get_family_idEv.exit7, %_ZNK3app13get_family_idEv.exit.thread
-  br label %35
+33:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit, %.thread, %_ZNK3app13get_family_idEv.exit7, %_ZNK3app13get_family_idEv.exit.thread
+  br label %34
 
-35:                                               ; preds = %_ZNK3app13get_family_idEv.exit7, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %2, %34, %23, %18
-  %.0 = phi i1 [ false, %23 ], [ false, %2 ], [ %22, %18 ], [ false, %34 ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_family_idEv.exit7 ]
+34:                                               ; preds = %_ZNK3app13get_family_idEv.exit7, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %2, %33, %18
+  %.0 = phi i1 [ true, %_ZNK3app13get_family_idEv.exit7 ], [ false, %2 ], [ %22, %18 ], [ false, %33 ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit ]
   ret i1 %.0
 }
 

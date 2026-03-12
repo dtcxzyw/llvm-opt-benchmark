@@ -41143,7 +41143,7 @@ _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i:     ; preds = %2
   br label %_ZN11flatbuffers15InlineAlignmentERKNS_4TypeE.exit
 
 _ZN11flatbuffers15InlineAlignmentERKNS_4TypeE.exit: ; preds = %2, %2, %2, %2, %2, %2, %75, %78, %.thread11.i, %79, %80
-  %.0.i = phi i64 [ %77, %75 ], [ 1, %2 ], [ 1, %2 ], [ 0, %80 ], [ 8, %79 ], [ 4, %.thread11.i ], [ 1, %2 ], [ 2, %78 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ]
+  %.0.i = phi i64 [ %77, %75 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 2, %78 ], [ 1, %2 ], [ 1, %2 ], [ 1, %2 ], [ 8, %79 ], [ 4, %.thread11.i ], [ 0, %80 ]
   %81 = call noundef i64 @_ZN11flatbuffers10InlineSizeERKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(26) %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.experimental.noalias.scope.decl(metadata !1079)

@@ -286,16 +286,7 @@ _ZN5hound4read9iter_next17h2ed36717eb5b7a01E.exit.i.i.i.i: ; preds = %33
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !40
   br label %"_ZN4core3ptr67drop_in_place$LT$core..result..Result$LT$f32$C$hound..Error$GT$$GT$17ha6a68c6030bfd904E.exit.i.i.i.i"
 
-"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split.i.i.i.i": ; preds = %68
-  br label %158
-
-"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split135.i.i.i.i": ; preds = %87
-  br label %158
-
-"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split136.i.i.i.i": ; preds = %104
-  br label %158
-
-"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split137.i.i.i.i": ; preds = %122
+"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split137.i.i.i.i": ; preds = %122, %104, %87, %68
   br label %158
 
 62:                                               ; preds = %30
@@ -325,7 +316,7 @@ _ZN5hound4read9iter_next17h2ed36717eb5b7a01E.exit.i.i.i.i: ; preds = %33
   store i32 %78, ptr %76, align 8, !alias.scope !30
   %79 = sext i8 %75 to i16
   %80 = shl nsw i16 %79, 8
-  switch i64 %72, label %"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split.i.i.i.i" [
+  switch i64 %72, label %"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split137.i.i.i.i" [
     i64 6, label %158
     i64 0, label %134
   ]
@@ -359,7 +350,7 @@ _ZN5hound4read9iter_next17ha8c4cd2305c06b81E.exit.i.i.i.i: ; preds = %62
   %96 = load i32, ptr %95, align 8, !alias.scope !30, !noundef !4
   %97 = add i32 %96, 1
   store i32 %97, ptr %95, align 8, !alias.scope !30
-  switch i64 %91, label %"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split135.i.i.i.i" [
+  switch i64 %91, label %"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split137.i.i.i.i" [
     i64 6, label %158
     i64 0, label %140
   ]
@@ -394,7 +385,7 @@ _ZN5hound4read9iter_next17hdc8f9ecf89eb20a4E.exit.i.i.i.i: ; preds = %81
   store i32 %113, ptr %111, align 8, !alias.scope !30
   %114 = lshr i64 %110, 8
   %115 = trunc i64 %114 to i16
-  switch i64 %108, label %"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split136.i.i.i.i" [
+  switch i64 %108, label %"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split137.i.i.i.i" [
     i64 6, label %158
     i64 0, label %146
   ]
@@ -510,8 +501,8 @@ _ZN5hound4read9iter_next17h8bc8019618254f03E.exit40.i.i.i.i: ; preds = %116
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !113
   br label %158
 
-158:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he863fd9e6b7792b2E.exit.i.i48.i.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he863fd9e6b7792b2E.exit.i.i46.i.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he863fd9e6b7792b2E.exit.i.i44.i.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he863fd9e6b7792b2E.exit.i.i42.i.i.i.i", %122, %104, %87, %68, %"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split137.i.i.i.i", %"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split136.i.i.i.i", %"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split135.i.i.i.i", %"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split.i.i.i.i", %"_ZN4core3ptr67drop_in_place$LT$core..result..Result$LT$f32$C$hound..Error$GT$$GT$17ha6a68c6030bfd904E.exit.i.i.i.i"
-  %.sroa.3.0.i.ph.i.i = phi i16 [ 0, %"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split137.i.i.i.i" ], [ 0, %"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split136.i.i.i.i" ], [ %133, %122 ], [ 0, %"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split135.i.i.i.i" ], [ %115, %104 ], [ 0, %"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split.i.i.i.i" ], [ %94, %87 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he863fd9e6b7792b2E.exit.i.i48.i.i.i.i" ], [ %80, %68 ], [ %56, %"_ZN4core3ptr67drop_in_place$LT$core..result..Result$LT$f32$C$hound..Error$GT$$GT$17ha6a68c6030bfd904E.exit.i.i.i.i" ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he863fd9e6b7792b2E.exit.i.i44.i.i.i.i" ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he863fd9e6b7792b2E.exit.i.i42.i.i.i.i" ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he863fd9e6b7792b2E.exit.i.i46.i.i.i.i" ]
+158:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he863fd9e6b7792b2E.exit.i.i48.i.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he863fd9e6b7792b2E.exit.i.i46.i.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he863fd9e6b7792b2E.exit.i.i44.i.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he863fd9e6b7792b2E.exit.i.i42.i.i.i.i", %122, %104, %87, %68, %"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split137.i.i.i.i", %"_ZN4core3ptr67drop_in_place$LT$core..result..Result$LT$f32$C$hound..Error$GT$$GT$17ha6a68c6030bfd904E.exit.i.i.i.i"
+  %.sroa.3.0.i.ph.i.i = phi i16 [ %133, %122 ], [ %115, %104 ], [ 0, %"_ZN4core3ptr66drop_in_place$LT$core..result..Result$LT$i8$C$hound..Error$GT$$GT$17h9788b574a868c69eE.exit.fold.split137.i.i.i.i" ], [ %94, %87 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he863fd9e6b7792b2E.exit.i.i48.i.i.i.i" ], [ %80, %68 ], [ %56, %"_ZN4core3ptr67drop_in_place$LT$core..result..Result$LT$f32$C$hound..Error$GT$$GT$17ha6a68c6030bfd904E.exit.i.i.i.i" ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he863fd9e6b7792b2E.exit.i.i44.i.i.i.i" ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he863fd9e6b7792b2E.exit.i.i42.i.i.i.i" ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he863fd9e6b7792b2E.exit.i.i46.i.i.i.i" ]
   %159 = sitofp i16 %.sroa.3.0.i.ph.i.i to float
   %160 = fmul nnan float %159, 0x3F00000000000000
   br label %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf197adbfb8334fa8E.exit"

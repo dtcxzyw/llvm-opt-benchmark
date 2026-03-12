@@ -2228,7 +2228,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3dESaIS1_EE9push_backEOS1_
   %304 = icmp eq i64 %303, 9223372036854775800
   br i1 %304, label %.invoke, label %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3dESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i214
 
-.invoke:                                          ; preds = %152, %124, %96, %68, %39, %299, %273, %247, %221, %194
+.invoke:                                          ; preds = %39, %68, %96, %124, %152, %299, %273, %247, %221, %194
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #30
           to label %.cont unwind label %171
 

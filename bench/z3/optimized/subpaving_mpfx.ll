@@ -18940,14 +18940,14 @@ _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %31, %4
   %53 = icmp eq ptr %29, null
   %54 = icmp eq ptr %52, null
   %or.cond = and i1 %53, %54
-  br i1 %or.cond, label %125, label %55
+  br i1 %or.cond, label %124, label %55
 
 55:                                               ; preds = %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, 1073741824
   %.not = icmp eq i32 %58, 0
-  br i1 %.not, label %92, label %59
+  br i1 %.not, label %91, label %59
 
 59:                                               ; preds = %55
   br i1 %53, label %75, label %60
@@ -18957,7 +18957,7 @@ _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %31, %4
   %62 = load ptr, ptr %61, align 8, !tbaa !161
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %64 = tail call noundef zeroext i1 @_ZNK12mpfx_manager2ltERK4mpfxS2_(ptr noundef nonnull align 8 dereferenceable(85) %62, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull align 4 dereferenceable(4) %63)
-  br i1 %64, label %125, label %65
+  br i1 %64, label %124, label %65
 
 65:                                               ; preds = %60
   %66 = getelementptr inbounds nuw i8, ptr %29, i64 4
@@ -18974,17 +18974,17 @@ _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %31, %4
 72:                                               ; preds = %69, %65
   %73 = load ptr, ptr %61, align 8, !tbaa !161
   %74 = tail call noundef zeroext i1 @_ZNK12mpfx_manager2eqERK4mpfxS2_(ptr noundef nonnull align 8 dereferenceable(85) %73, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull align 4 dereferenceable(4) %63)
-  br i1 %74, label %125, label %75
+  br i1 %74, label %124, label %75
 
 75:                                               ; preds = %72, %69, %59
-  br i1 %54, label %91, label %76
+  br i1 %54, label %123, label %76
 
 76:                                               ; preds = %75
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !161
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %80 = tail call noundef zeroext i1 @_ZNK12mpfx_manager2ltERK4mpfxS2_(ptr noundef nonnull align 8 dereferenceable(85) %78, ptr noundef nonnull align 4 dereferenceable(4) %79, ptr noundef nonnull align 4 dereferenceable(4) %52)
-  br i1 %80, label %125, label %81
+  br i1 %80, label %124, label %81
 
 81:                                               ; preds = %76
   %82 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -18996,75 +18996,72 @@ _ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit: ; preds = %31, %4
 85:                                               ; preds = %81
   %86 = load i32, ptr %56, align 4
   %87 = icmp slt i32 %86, 0
-  br i1 %87, label %91, label %88
+  br i1 %87, label %123, label %88
 
 88:                                               ; preds = %85, %81
   %89 = load ptr, ptr %77, align 8, !tbaa !161
   %90 = tail call noundef zeroext i1 @_ZNK12mpfx_manager2eqERK4mpfxS2_(ptr noundef nonnull align 8 dereferenceable(85) %89, ptr noundef nonnull align 4 dereferenceable(4) %52, ptr noundef nonnull align 4 dereferenceable(4) %79)
-  br i1 %90, label %125, label %91
+  br i1 %90, label %124, label %123
 
-91:                                               ; preds = %88, %85, %75
-  br label %125
+91:                                               ; preds = %55
+  br i1 %54, label %107, label %92
 
-92:                                               ; preds = %55
-  br i1 %54, label %108, label %93
+92:                                               ; preds = %91
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %94 = load ptr, ptr %93, align 8, !tbaa !161
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %96 = tail call noundef zeroext i1 @_ZNK12mpfx_manager2ltERK4mpfxS2_(ptr noundef nonnull align 8 dereferenceable(85) %94, ptr noundef nonnull align 4 dereferenceable(4) %95, ptr noundef nonnull align 4 dereferenceable(4) %52)
+  br i1 %96, label %124, label %97
 
-93:                                               ; preds = %92
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %95 = load ptr, ptr %94, align 8, !tbaa !161
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %97 = tail call noundef zeroext i1 @_ZNK12mpfx_manager2ltERK4mpfxS2_(ptr noundef nonnull align 8 dereferenceable(85) %95, ptr noundef nonnull align 4 dereferenceable(4) %96, ptr noundef nonnull align 4 dereferenceable(4) %52)
-  br i1 %97, label %125, label %98
+97:                                               ; preds = %92
+  %98 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %99 = load i32, ptr %98, align 4
+  %100 = and i32 %99, 1073741824
+  %.not52 = icmp eq i32 %100, 0
+  br i1 %.not52, label %101, label %104
 
-98:                                               ; preds = %93
-  %99 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %100 = load i32, ptr %99, align 4
-  %101 = and i32 %100, 1073741824
-  %.not52 = icmp eq i32 %101, 0
-  br i1 %.not52, label %102, label %105
+101:                                              ; preds = %97
+  %102 = load i32, ptr %56, align 4
+  %103 = icmp slt i32 %102, 0
+  br i1 %103, label %104, label %107
 
-102:                                              ; preds = %98
-  %103 = load i32, ptr %56, align 4
-  %104 = icmp slt i32 %103, 0
-  br i1 %104, label %105, label %108
+104:                                              ; preds = %101, %97
+  %105 = load ptr, ptr %93, align 8, !tbaa !161
+  %106 = tail call noundef zeroext i1 @_ZNK12mpfx_manager2eqERK4mpfxS2_(ptr noundef nonnull align 8 dereferenceable(85) %105, ptr noundef nonnull align 4 dereferenceable(4) %52, ptr noundef nonnull align 4 dereferenceable(4) %95)
+  br i1 %106, label %124, label %107
 
-105:                                              ; preds = %102, %98
-  %106 = load ptr, ptr %94, align 8, !tbaa !161
-  %107 = tail call noundef zeroext i1 @_ZNK12mpfx_manager2eqERK4mpfxS2_(ptr noundef nonnull align 8 dereferenceable(85) %106, ptr noundef nonnull align 4 dereferenceable(4) %52, ptr noundef nonnull align 4 dereferenceable(4) %96)
-  br i1 %107, label %125, label %108
+107:                                              ; preds = %104, %101, %91
+  br i1 %53, label %123, label %108
 
-108:                                              ; preds = %105, %102, %92
-  br i1 %53, label %124, label %109
+108:                                              ; preds = %107
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %110 = load ptr, ptr %109, align 8, !tbaa !161
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %112 = tail call noundef zeroext i1 @_ZNK12mpfx_manager2ltERK4mpfxS2_(ptr noundef nonnull align 8 dereferenceable(85) %110, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull align 4 dereferenceable(4) %111)
+  br i1 %112, label %124, label %113
 
-109:                                              ; preds = %108
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %111 = load ptr, ptr %110, align 8, !tbaa !161
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %113 = tail call noundef zeroext i1 @_ZNK12mpfx_manager2ltERK4mpfxS2_(ptr noundef nonnull align 8 dereferenceable(85) %111, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull align 4 dereferenceable(4) %112)
-  br i1 %113, label %125, label %114
+113:                                              ; preds = %108
+  %114 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %115 = load i32, ptr %114, align 4
+  %116 = and i32 %115, 1073741824
+  %.not53 = icmp eq i32 %116, 0
+  br i1 %.not53, label %117, label %120
 
-114:                                              ; preds = %109
-  %115 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %116 = load i32, ptr %115, align 4
-  %117 = and i32 %116, 1073741824
-  %.not53 = icmp eq i32 %117, 0
-  br i1 %.not53, label %118, label %121
+117:                                              ; preds = %113
+  %118 = load i32, ptr %56, align 4
+  %119 = icmp slt i32 %118, 0
+  br i1 %119, label %123, label %120
 
-118:                                              ; preds = %114
-  %119 = load i32, ptr %56, align 4
-  %120 = icmp slt i32 %119, 0
-  br i1 %120, label %124, label %121
+120:                                              ; preds = %117, %113
+  %121 = load ptr, ptr %109, align 8, !tbaa !161
+  %122 = tail call noundef zeroext i1 @_ZNK12mpfx_manager2eqERK4mpfxS2_(ptr noundef nonnull align 8 dereferenceable(85) %121, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull align 4 dereferenceable(4) %111)
+  br i1 %122, label %124, label %123
 
-121:                                              ; preds = %118, %114
-  %122 = load ptr, ptr %110, align 8, !tbaa !161
-  %123 = tail call noundef zeroext i1 @_ZNK12mpfx_manager2eqERK4mpfxS2_(ptr noundef nonnull align 8 dereferenceable(85) %122, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull align 4 dereferenceable(4) %112)
-  br i1 %123, label %125, label %124
+123:                                              ; preds = %75, %85, %88, %120, %117, %107
+  br label %124
 
-124:                                              ; preds = %121, %118, %108
-  br label %125
-
-125:                                              ; preds = %109, %121, %93, %105, %76, %88, %60, %72, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit, %124, %91
-  %.0 = phi i32 [ 0, %124 ], [ 0, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit ], [ -1, %60 ], [ 0, %91 ], [ 1, %76 ], [ -1, %93 ], [ -1, %72 ], [ 1, %88 ], [ -1, %105 ], [ 1, %121 ], [ 1, %109 ]
+124:                                              ; preds = %108, %120, %92, %104, %76, %88, %60, %72, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit, %123
+  %.0 = phi i32 [ 0, %123 ], [ 0, %_ZNK9subpaving9context_tINS_11config_mpfxEE4node5lowerEj.exit ], [ -1, %60 ], [ 1, %108 ], [ 1, %76 ], [ -1, %92 ], [ -1, %72 ], [ 1, %88 ], [ -1, %104 ], [ 1, %120 ]
   ret i32 %.0
 }
 

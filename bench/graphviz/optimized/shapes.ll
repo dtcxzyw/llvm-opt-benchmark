@@ -5220,61 +5220,61 @@ define internal fastcc range(i32 0, 2) i32 @compassPort(ptr noundef %0, ptr noun
   switch i32 %123, label %default.unreachable [
     i32 0, label %invflip_side.exit
     i32 2, label %124
-    i32 1, label %127
-    i32 3, label %133
+    i32 1, label %125
+    i32 3, label %131
   ]
 
 124:                                              ; preds = %117
   switch i8 %.0128, label %invflip_side.exit [
-    i8 4, label %125
-    i8 1, label %126
+    i8 4, label %137
+    i8 1, label %138
   ]
 
-125:                                              ; preds = %124
+125:                                              ; preds = %117
+  %126 = zext i8 %.0128 to i32
+  %127 = tail call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %126)
+  %128 = icmp eq i32 %127, 1
+  br i1 %128, label %.split.i, label %invflip_side.exit
+
+.split.i:                                         ; preds = %125
+  %129 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %126, i1 true)
+  %130 = icmp samesign ult i32 %129, 4
+  br i1 %130, label %switch.lookup, label %invflip_side.exit
+
+131:                                              ; preds = %117
+  %132 = zext i8 %.0128 to i32
+  %133 = tail call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %132)
+  %134 = icmp eq i32 %133, 1
+  br i1 %134, label %.split1.i, label %invflip_side.exit
+
+.split1.i:                                        ; preds = %131
+  %135 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %132, i1 true)
+  %136 = icmp samesign ult i32 %135, 4
+  br i1 %136, label %switch.lookup161, label %invflip_side.exit
+
+137:                                              ; preds = %124
   br label %invflip_side.exit
 
-126:                                              ; preds = %124
+138:                                              ; preds = %124
   br label %invflip_side.exit
-
-127:                                              ; preds = %117
-  %128 = zext i8 %.0128 to i32
-  %129 = tail call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %128)
-  %130 = icmp eq i32 %129, 1
-  br i1 %130, label %.split.i, label %invflip_side.exit
-
-.split.i:                                         ; preds = %127
-  %131 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %128, i1 true)
-  %132 = icmp samesign ult i32 %131, 4
-  br i1 %132, label %switch.lookup, label %invflip_side.exit
-
-133:                                              ; preds = %117
-  %134 = zext i8 %.0128 to i32
-  %135 = tail call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %134)
-  %136 = icmp eq i32 %135, 1
-  br i1 %136, label %.split1.i, label %invflip_side.exit
-
-.split1.i:                                        ; preds = %133
-  %137 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %134, i1 true)
-  %138 = icmp samesign ult i32 %137, 4
-  br i1 %138, label %switch.lookup161, label %invflip_side.exit
 
 default.unreachable:                              ; preds = %invflip_side.exit, %117
   unreachable
 
 switch.lookup:                                    ; preds = %.split.i
-  %switch.shiftamt = shl nuw nsw i32 %131, 3
+  %switch.shiftamt = shl nuw nsw i32 %129, 3
   %switch.downshift = lshr i32 67240200, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
   br label %invflip_side.exit
 
 switch.lookup161:                                 ; preds = %.split1.i
-  %switch.shiftamt162 = shl nuw nsw i32 %137, 3
+  %switch.shiftamt162 = shl nuw nsw i32 %135, 3
   %switch.downshift163 = lshr i32 16909320, %switch.shiftamt162
   %switch.masked164 = trunc i32 %switch.downshift163 to i8
   br label %invflip_side.exit
 
-invflip_side.exit:                                ; preds = %switch.lookup161, %.split1.i, %switch.lookup, %.split.i, %133, %127, %126, %125, %124, %117, %106
-  %.0.i.sink = phi i8 [ %.0128, %106 ], [ %.0128, %117 ], [ %.0128, %124 ], [ 1, %125 ], [ 4, %126 ], [ %.0128, %.split.i ], [ %switch.masked, %switch.lookup ], [ %.0128, %133 ], [ %.0128, %.split1.i ], [ %switch.masked164, %switch.lookup161 ], [ %.0128, %127 ]
+invflip_side.exit:                                ; preds = %switch.lookup161, %.split1.i, %switch.lookup, %.split.i, %138, %137, %131, %125, %124, %117, %106
+  %.0.i.sink = phi i8 [ %.0128, %106 ], [ %.0128, %117 ], [ %.0128, %124 ], [ %.0128, %131 ], [ 4, %138 ], [ %.0128, %.split.i ], [ 1, %137 ], [ %switch.masked, %switch.lookup ], [ %switch.masked164, %switch.lookup161 ], [ %.0128, %.split1.i ], [ %.0128, %125 ]
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 37
   store i8 %.0.i.sink, ptr %139, align 1, !tbaa !129
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 24

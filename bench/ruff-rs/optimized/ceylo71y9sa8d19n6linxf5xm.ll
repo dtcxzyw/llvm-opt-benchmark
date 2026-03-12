@@ -4587,7 +4587,7 @@ define noundef zeroext i1 @"_ZN14ruff_formatter14format_element8document132_$LT$
   %24 = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.01.0.ph84, i64 1)
   br label %.outer
 
-25:                                               ; preds = %.lr.ph.split.split, %13
+25:                                               ; preds = %13, %.lr.ph.split.split
   %.not88 = icmp eq ptr %11, %3
   br i1 %.not88, label %.loopexit, label %.lr.ph.split.split
 

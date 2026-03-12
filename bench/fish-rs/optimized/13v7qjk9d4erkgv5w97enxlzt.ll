@@ -8593,8 +8593,8 @@ default.unreachable.i:                            ; preds = %44
   br label %108
 
 108:                                              ; preds = %104, %100, %94, %91
-  %.sroa.015.0.i = phi i64 [ %80, %94 ], [ %spec.select21.i, %104 ], [ %80, %91 ], [ %spec.select.i, %100 ]
-  %.sroa.016.0.i = phi i8 [ 0, %94 ], [ 0, %104 ], [ 0, %91 ], [ %spec.select20.i, %100 ]
+  %.sroa.015.0.i = phi i64 [ %80, %94 ], [ %spec.select21.i, %104 ], [ %spec.select.i, %100 ], [ %80, %91 ]
+  %.sroa.016.0.i = phi i8 [ 0, %94 ], [ 0, %104 ], [ %spec.select20.i, %100 ], [ 0, %91 ]
   %109 = icmp ugt i64 %.sroa.015.0.i, %90
   br i1 %109, label %110, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he85553722452c851E.exit.i", !prof !59
 

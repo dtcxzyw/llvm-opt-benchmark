@@ -2483,138 +2483,126 @@ define dso_local noundef range(i32 0, 19) i32 @drm_dp_subconnector_type(ptr noun
   %4 = load i8, ptr %3, align 1
   %5 = and i8 %4, 1
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %23, label %7
+  br i1 %6, label %21, label %7
 
 7:                                                ; preds = %2
   %8 = load i8, ptr %0, align 1
   %9 = icmp eq i8 %8, 16
-  br i1 %9, label %10, label %15
+  br i1 %9, label %10, label %13
 
 10:                                               ; preds = %7
   %11 = and i8 %4, 6
   switch i8 %11, label %.unreachabledefault [
-    i8 4, label %23
-    i8 2, label %12
-    i8 0, label %13
-    i8 6, label %14
+    i8 4, label %21
+    i8 2, label %16
+    i8 0, label %12
+    i8 6, label %20
   ]
 
 12:                                               ; preds = %10
-  br label %23
-
-13:                                               ; preds = %10
-  br label %23
+  br label %21
 
 .unreachabledefault:                              ; preds = %10
   unreachable
 
-14:                                               ; preds = %10
-  br label %23
-
-15:                                               ; preds = %7
-  %16 = load i8, ptr %1, align 1
-  %17 = and i8 %16, 7
-  switch i8 %17, label %22 [
-    i8 0, label %23
-    i8 5, label %23
-    i8 1, label %18
-    i8 2, label %19
-    i8 3, label %20
-    i8 6, label %21
+13:                                               ; preds = %7
+  %14 = load i8, ptr %1, align 1
+  %15 = and i8 %14, 7
+  switch i8 %15, label %20 [
+    i8 0, label %21
+    i8 5, label %21
+    i8 1, label %16
+    i8 2, label %17
+    i8 3, label %18
+    i8 6, label %19
   ]
 
-18:                                               ; preds = %15
-  br label %23
+16:                                               ; preds = %10, %13
+  br label %21
 
-19:                                               ; preds = %15
-  br label %23
+17:                                               ; preds = %13
+  br label %21
 
-20:                                               ; preds = %15
-  br label %23
+18:                                               ; preds = %13
+  br label %21
 
-21:                                               ; preds = %15
-  br label %23
+19:                                               ; preds = %13
+  br label %21
 
-22:                                               ; preds = %15
-  br label %23
+20:                                               ; preds = %10, %13
+  br label %21
 
-23:                                               ; preds = %10, %22, %21, %20, %19, %18, %15, %15, %14, %13, %12, %2
-  %24 = phi i32 [ 0, %14 ], [ 10, %13 ], [ 1, %12 ], [ 0, %22 ], [ 18, %21 ], [ 11, %20 ], [ 3, %19 ], [ 1, %18 ], [ 15, %2 ], [ 3, %10 ], [ 10, %15 ], [ 10, %15 ]
-  ret i32 %24
+21:                                               ; preds = %10, %20, %19, %18, %17, %16, %13, %13, %12, %2
+  %22 = phi i32 [ 10, %13 ], [ 10, %12 ], [ 10, %13 ], [ 0, %20 ], [ 18, %19 ], [ 11, %18 ], [ 3, %17 ], [ 1, %16 ], [ 15, %2 ], [ 3, %10 ]
+  ret i32 %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_dp_set_subconnector_property(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #2 align 16 {
   %5 = icmp eq i32 %1, 1
-  br i1 %5, label %6, label %27
+  br i1 %5, label %6, label %25
 
 6:                                                ; preds = %4
   %7 = getelementptr i8, ptr %2, i64 5
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, 1
   %10 = icmp eq i8 %9, 0
-  br i1 %10, label %27, label %11
+  br i1 %10, label %25, label %11
 
 11:                                               ; preds = %6
   %12 = load i8, ptr %2, align 1
   %13 = icmp eq i8 %12, 16
-  br i1 %13, label %14, label %19
+  br i1 %13, label %14, label %17
 
 14:                                               ; preds = %11
   %15 = and i8 %8, 6
   switch i8 %15, label %.unreachabledefault [
-    i8 4, label %27
-    i8 2, label %16
-    i8 0, label %17
-    i8 6, label %18
+    i8 4, label %25
+    i8 2, label %20
+    i8 0, label %16
+    i8 6, label %24
   ]
 
 16:                                               ; preds = %14
-  br label %27
-
-17:                                               ; preds = %14
-  br label %27
+  br label %25
 
 .unreachabledefault:                              ; preds = %14
   unreachable
 
-18:                                               ; preds = %14
-  br label %27
-
-19:                                               ; preds = %11
-  %20 = load i8, ptr %3, align 1
-  %21 = and i8 %20, 7
-  switch i8 %21, label %26 [
-    i8 0, label %27
-    i8 5, label %27
-    i8 1, label %22
-    i8 2, label %23
-    i8 3, label %24
-    i8 6, label %25
+17:                                               ; preds = %11
+  %18 = load i8, ptr %3, align 1
+  %19 = and i8 %18, 7
+  switch i8 %19, label %24 [
+    i8 0, label %25
+    i8 5, label %25
+    i8 1, label %20
+    i8 2, label %21
+    i8 3, label %22
+    i8 6, label %23
   ]
 
-22:                                               ; preds = %19
-  br label %27
+20:                                               ; preds = %14, %17
+  br label %25
 
-23:                                               ; preds = %19
-  br label %27
+21:                                               ; preds = %17
+  br label %25
 
-24:                                               ; preds = %19
-  br label %27
+22:                                               ; preds = %17
+  br label %25
 
-25:                                               ; preds = %19
-  br label %27
+23:                                               ; preds = %17
+  br label %25
 
-26:                                               ; preds = %19
-  br label %27
+24:                                               ; preds = %14, %17
+  br label %25
 
-27:                                               ; preds = %14, %26, %25, %24, %23, %22, %19, %19, %18, %17, %16, %6, %4
-  %28 = phi i64 [ 0, %4 ], [ 0, %18 ], [ 10, %17 ], [ 1, %16 ], [ 0, %26 ], [ 18, %25 ], [ 11, %24 ], [ 3, %23 ], [ 1, %22 ], [ 15, %6 ], [ 3, %14 ], [ 10, %19 ], [ 10, %19 ]
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1144
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 @drm_object_property_set_value(ptr noundef nonnull %29, ptr noundef %32, i64 noundef %28) #18
+25:                                               ; preds = %14, %24, %23, %22, %21, %20, %17, %17, %16, %6, %4
+  %26 = phi i64 [ 0, %4 ], [ 10, %17 ], [ 10, %16 ], [ 10, %17 ], [ 0, %24 ], [ 18, %23 ], [ 11, %22 ], [ 3, %21 ], [ 1, %20 ], [ 15, %6 ], [ 3, %14 ]
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %28 = load ptr, ptr %0, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1144
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call i32 @drm_object_property_set_value(ptr noundef nonnull %27, ptr noundef %30, i64 noundef %26) #18
   ret void
 }
 
@@ -3743,25 +3731,25 @@ define dso_local void @drm_dp_vsc_sdp_log(ptr noundef %0, ptr noundef %1, ptr no
   tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.43, ptr noundef nonnull %21) #19
   %22 = load i32, ptr %10, align 4
   %23 = icmp ugt i32 %22, 6
-  br i1 %23, label %54, label %24
+  br i1 %23, label %48, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load i32, ptr %25, align 4
-  switch i32 %26, label %54 [
+  switch i32 %26, label %48 [
     i32 0, label %27
-    i32 1, label %32
-    i32 2, label %35
-    i32 3, label %38
-    i32 4, label %41
-    i32 5, label %44
-    i32 6, label %47
-    i32 7, label %50
+    i32 1, label %31
+    i32 2, label %33
+    i32 3, label %35
+    i32 4, label %37
+    i32 5, label %39
+    i32 6, label %41
+    i32 7, label %44
   ]
 
 27:                                               ; preds = %24
-  switch i32 %22, label %31 [
-    i32 0, label %54
+  switch i32 %22, label %43 [
+    i32 0, label %48
     i32 1, label %28
     i32 2, label %28
     i32 3, label %28
@@ -3770,148 +3758,130 @@ define dso_local void @drm_dp_vsc_sdp_log(ptr noundef %0, ptr noundef %1, ptr no
   ]
 
 28:                                               ; preds = %27, %27, %27
-  br label %54
+  br label %48
 
 29:                                               ; preds = %27
-  br label %54
+  br label %48
 
 30:                                               ; preds = %27
-  br label %54
+  br label %48
 
-31:                                               ; preds = %27
-  br label %54
-
-32:                                               ; preds = %24
-  switch i32 %22, label %34 [
-    i32 0, label %54
-    i32 1, label %33
-    i32 2, label %33
-    i32 3, label %33
+31:                                               ; preds = %24
+  switch i32 %22, label %43 [
+    i32 0, label %48
+    i32 1, label %32
+    i32 2, label %32
+    i32 3, label %32
   ]
 
-33:                                               ; preds = %32, %32, %32
-  br label %54
+32:                                               ; preds = %31, %31, %31
+  br label %48
 
-34:                                               ; preds = %32
-  br label %54
+33:                                               ; preds = %24
+  switch i32 %22, label %43 [
+    i32 0, label %48
+    i32 1, label %34
+    i32 2, label %34
+    i32 3, label %34
+  ]
+
+34:                                               ; preds = %33, %33, %33
+  br label %48
 
 35:                                               ; preds = %24
-  switch i32 %22, label %37 [
-    i32 0, label %54
+  switch i32 %22, label %43 [
+    i32 0, label %48
     i32 1, label %36
     i32 2, label %36
     i32 3, label %36
   ]
 
 36:                                               ; preds = %35, %35, %35
-  br label %54
+  br label %48
 
-37:                                               ; preds = %35
-  br label %54
-
-38:                                               ; preds = %24
-  switch i32 %22, label %40 [
-    i32 0, label %54
-    i32 1, label %39
-    i32 2, label %39
-    i32 3, label %39
+37:                                               ; preds = %24
+  switch i32 %22, label %43 [
+    i32 0, label %48
+    i32 1, label %38
+    i32 2, label %38
+    i32 3, label %38
   ]
 
-39:                                               ; preds = %38, %38, %38
-  br label %54
+38:                                               ; preds = %37, %37, %37
+  br label %48
 
-40:                                               ; preds = %38
-  br label %54
+39:                                               ; preds = %24
+  switch i32 %22, label %43 [
+    i32 0, label %48
+    i32 1, label %40
+    i32 2, label %40
+    i32 3, label %40
+  ]
+
+40:                                               ; preds = %39, %39, %39
+  br label %48
 
 41:                                               ; preds = %24
   switch i32 %22, label %43 [
-    i32 0, label %54
+    i32 0, label %48
     i32 1, label %42
     i32 2, label %42
     i32 3, label %42
   ]
 
 42:                                               ; preds = %41, %41, %41
-  br label %54
+  br label %48
 
-43:                                               ; preds = %41
-  br label %54
+43:                                               ; preds = %27, %31, %33, %35, %37, %39, %41
+  br label %48
 
 44:                                               ; preds = %24
-  switch i32 %22, label %46 [
-    i32 0, label %54
-    i32 1, label %45
-    i32 2, label %45
-    i32 3, label %45
-  ]
+  %45 = add nsw i32 %22, -1
+  %46 = icmp ult i32 %45, 3
+  %47 = select i1 %46, ptr @.str.119, ptr @.str.102
+  br label %48
 
-45:                                               ; preds = %44, %44, %44
-  br label %54
-
-46:                                               ; preds = %44
-  br label %54
-
-47:                                               ; preds = %24
-  switch i32 %22, label %49 [
-    i32 0, label %54
-    i32 1, label %48
-    i32 2, label %48
-    i32 3, label %48
-  ]
-
-48:                                               ; preds = %47, %47, %47
-  br label %54
-
-49:                                               ; preds = %47
-  br label %54
-
-50:                                               ; preds = %24
-  %51 = add nsw i32 %22, -1
-  %52 = icmp ult i32 %51, 3
-  %53 = select i1 %52, ptr @.str.119, ptr @.str.102
-  br label %54
-
-54:                                               ; preds = %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %24, %20
-  %55 = phi ptr [ @.str.102, %49 ], [ @.str.118, %48 ], [ @.str.102, %46 ], [ @.str.116, %45 ], [ @.str.102, %43 ], [ @.str.114, %42 ], [ @.str.102, %40 ], [ @.str.112, %39 ], [ @.str.102, %37 ], [ @.str.110, %36 ], [ @.str.102, %34 ], [ @.str.108, %33 ], [ @.str.102, %31 ], [ @.str.106, %30 ], [ @.str.105, %29 ], [ @.str.104, %28 ], [ @.str.95, %20 ], [ @.str.103, %27 ], [ @.str.107, %32 ], [ @.str.109, %35 ], [ @.str.111, %38 ], [ @.str.113, %41 ], [ @.str.115, %44 ], [ @.str.117, %47 ], [ %53, %50 ], [ @.str.95, %24 ]
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.44, ptr noundef nonnull %55) #19
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %57 = load i32, ptr %56, align 4
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.45, i32 noundef %57) #19
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 16
+48:                                               ; preds = %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %24, %20
+  %49 = phi ptr [ @.str.102, %43 ], [ @.str.118, %42 ], [ @.str.111, %35 ], [ @.str.116, %40 ], [ @.str.113, %37 ], [ @.str.114, %38 ], [ @.str.115, %39 ], [ @.str.112, %36 ], [ @.str.117, %41 ], [ @.str.110, %34 ], [ %47, %44 ], [ @.str.108, %32 ], [ @.str.95, %24 ], [ @.str.106, %30 ], [ @.str.105, %29 ], [ @.str.104, %28 ], [ @.str.95, %20 ], [ @.str.103, %27 ], [ @.str.107, %31 ], [ @.str.109, %33 ]
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.44, ptr noundef nonnull %49) #19
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %51 = load i32, ptr %50, align 4
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.45, i32 noundef %51) #19
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %53 = load i32, ptr %52, align 4
+  %54 = icmp eq i32 %53, 1
+  %55 = select i1 %54, ptr @.str.121, ptr @.str.95
+  %56 = icmp eq i32 %53, 0
+  %57 = select i1 %56, ptr @.str.120, ptr %55
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.46, ptr noundef nonnull %57) #19
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %59 = load i32, ptr %58, align 4
-  %60 = icmp eq i32 %59, 1
-  %61 = select i1 %60, ptr @.str.121, ptr @.str.95
-  %62 = icmp eq i32 %59, 0
-  %63 = select i1 %62, ptr @.str.120, ptr %61
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.46, ptr noundef nonnull %63) #19
-  %64 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %65 = load i32, ptr %64, align 4
-  switch i32 %65, label %70 [
-    i32 0, label %71
-    i32 1, label %66
-    i32 2, label %67
-    i32 3, label %68
-    i32 4, label %69
+  switch i32 %59, label %64 [
+    i32 0, label %65
+    i32 1, label %60
+    i32 2, label %61
+    i32 3, label %62
+    i32 4, label %63
   ]
 
-66:                                               ; preds = %54
-  br label %71
+60:                                               ; preds = %48
+  br label %65
 
-67:                                               ; preds = %54
-  br label %71
+61:                                               ; preds = %48
+  br label %65
 
-68:                                               ; preds = %54
-  br label %71
+62:                                               ; preds = %48
+  br label %65
 
-69:                                               ; preds = %54
-  br label %71
+63:                                               ; preds = %48
+  br label %65
 
-70:                                               ; preds = %54
-  br label %71
+64:                                               ; preds = %48
+  br label %65
 
-71:                                               ; preds = %70, %69, %68, %67, %66, %54
-  %72 = phi ptr [ @.str.102, %70 ], [ @.str.126, %69 ], [ @.str.125, %68 ], [ @.str.124, %67 ], [ @.str.123, %66 ], [ @.str.122, %54 ]
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.47, ptr noundef nonnull %72) #19
+65:                                               ; preds = %64, %63, %62, %61, %60, %48
+  %66 = phi ptr [ @.str.102, %64 ], [ @.str.126, %63 ], [ @.str.125, %62 ], [ @.str.124, %61 ], [ @.str.123, %60 ], [ @.str.122, %48 ]
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.47, ptr noundef nonnull %66) #19
   ret void
 }
 

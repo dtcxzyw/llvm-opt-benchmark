@@ -3874,39 +3874,39 @@ define dso_local i16 @_ZN4llvm3MVT5getVTEPNS_4TypeEb(ptr noundef readonly captur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %trunc = trunc i32 %4 to i8
-  switch i8 %trunc, label %5 [
+  switch i8 %trunc, label %_ZN4llvmeqENS_9StringRefES0_.exit34.thread47 [
     i8 7, label %_ZN4llvm3MVT12getIntegerVTEj.exit
-    i8 12, label %6
-    i8 0, label %12
-    i8 1, label %13
-    i8 2, label %14
-    i8 3, label %15
-    i8 4, label %16
-    i8 20, label %17
-    i8 10, label %34
-    i8 5, label %35
-    i8 6, label %36
-    i8 17, label %37
-    i8 18, label %37
+    i8 12, label %5
+    i8 0, label %11
+    i8 1, label %12
+    i8 2, label %13
+    i8 3, label %14
+    i8 4, label %15
+    i8 20, label %16
+    i8 10, label %33
+    i8 5, label %34
+    i8 6, label %35
+    i8 17, label %36
+    i8 18, label %36
   ]
 
 5:                                                ; preds = %2
-  br label %_ZN4llvm3MVT12getIntegerVTEj.exit
+  %6 = lshr i32 %4, 8
+  %7 = tail call range(i32 0, 25) i32 @llvm.ctpop.i32(i32 %6)
+  %8 = icmp eq i32 %7, 1
+  br i1 %8, label %.split.i, label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
-6:                                                ; preds = %2
-  %7 = lshr i32 %4, 8
-  %8 = tail call range(i32 0, 25) i32 @llvm.ctpop.i32(i32 %7)
-  %9 = icmp eq i32 %8, 1
-  br i1 %9, label %.split.i, label %_ZN4llvm3MVT12getIntegerVTEj.exit
-
-.split.i:                                         ; preds = %6
-  %10 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %7, i1 true)
-  %11 = icmp samesign ult i32 %10, 8
-  br i1 %11, label %switch.lookup.i, label %_ZN4llvm3MVT12getIntegerVTEj.exit
+.split.i:                                         ; preds = %5
+  %9 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %6, i1 true)
+  %10 = icmp samesign ult i32 %9, 8
+  br i1 %10, label %switch.lookup.i, label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
 switch.lookup.i:                                  ; preds = %.split.i
-  %switch.idx.cast.i = trunc nuw nsw i32 %10 to i16
+  %switch.idx.cast.i = trunc nuw nsw i32 %9 to i16
   %switch.offset.i = add nuw nsw i16 %switch.idx.cast.i, 2
+  br label %_ZN4llvm3MVT12getIntegerVTEj.exit
+
+11:                                               ; preds = %2
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
 12:                                               ; preds = %2
@@ -3922,34 +3922,31 @@ switch.lookup.i:                                  ; preds = %.split.i
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
 16:                                               ; preds = %2
-  br label %_ZN4llvm3MVT12getIntegerVTEj.exit
-
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.0.0.copyload.i = load ptr, ptr %18, align 8, !tbaa !60
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.0.0.copyload.i = load ptr, ptr %17, align 8, !tbaa !60
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !49
   %.not.i = icmp eq i64 %.sroa.2.0.copyload.i, 15
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread43
 
-_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %17
+_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %16
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %.sroa.0.0.copyload.i, ptr noundef nonnull dereferenceable(15) @.str.22, i64 15)
-  %19 = icmp eq i32 %bcmp.i, 0
-  br i1 %19, label %_ZN4llvm3MVT12getIntegerVTEj.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
+  %18 = icmp eq i32 %bcmp.i, 0
+  br i1 %18, label %_ZN4llvm3MVT12getIntegerVTEj.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread43:       ; preds = %17
+_ZN4llvmeqENS_9StringRefES0_.exit.thread43:       ; preds = %16
   %.not.i24 = icmp ult i64 %.sroa.2.0.copyload.i, 6
   br i1 %.not.i24, label %_ZN4llvmeqENS_9StringRefES0_.exit34.thread47, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread43
   %bcmp.i25 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %.sroa.0.0.copyload.i, ptr noundef nonnull dereferenceable(6) @.str.24, i64 6)
-  %20 = icmp eq i32 %bcmp.i25, 0
-  br i1 %20, label %_ZN4llvm3MVT12getIntegerVTEj.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread45
+  %19 = icmp eq i32 %bcmp.i25, 0
+  br i1 %19, label %_ZN4llvm3MVT12getIntegerVTEj.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread45
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
   %bcmp.i2551 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %.sroa.0.0.copyload.i, ptr noundef nonnull dereferenceable(6) @.str.24, i64 6)
-  %21 = icmp eq i32 %bcmp.i2551, 0
-  br i1 %21, label %_ZN4llvm3MVT12getIntegerVTEj.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit34.thread47
+  %20 = icmp eq i32 %bcmp.i2551, 0
+  br i1 %20, label %_ZN4llvm3MVT12getIntegerVTEj.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit34.thread47
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread45: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
   %.not.i31 = icmp eq i64 %.sroa.2.0.copyload.i, 18
@@ -3957,24 +3954,27 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread45: ; preds = %_ZNK4llvm9StringR
 
 _ZN4llvmeqENS_9StringRefES0_.exit34:              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread45
   %bcmp.i33 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %.sroa.0.0.copyload.i, ptr noundef nonnull dereferenceable(18) @.str.23, i64 18)
-  %22 = icmp eq i32 %bcmp.i33, 0
-  br i1 %22, label %_ZN4llvmeqENS_9StringRefES0_.exit34.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit34.thread47
+  %21 = icmp eq i32 %bcmp.i33, 0
+  br i1 %21, label %_ZN4llvmeqENS_9StringRefES0_.exit34.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit34.thread47
 
 _ZN4llvmeqENS_9StringRefES0_.exit34.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit34
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !31
-  %25 = load ptr, ptr %24, align 8, !tbaa !24
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %27 = load i32, ptr %26, align 8, !tbaa !23
-  %28 = shl i32 %27, 3
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %30 = load ptr, ptr %29, align 8, !tbaa !61
-  %31 = load i32, ptr %30, align 4, !tbaa !25
-  %32 = mul i32 %28, %31
-  %33 = tail call i16 @_ZN4llvm3MVT21getRISCVVectorTupleVTEjj(i32 noundef %32, i32 noundef %31)
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !31
+  %24 = load ptr, ptr %23, align 8, !tbaa !24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %26 = load i32, ptr %25, align 8, !tbaa !23
+  %27 = shl i32 %26, 3
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %29 = load ptr, ptr %28, align 8, !tbaa !61
+  %30 = load i32, ptr %29, align 4, !tbaa !25
+  %31 = mul i32 %27, %30
+  %32 = tail call i16 @_ZN4llvm3MVT21getRISCVVectorTupleVTEjj(i32 noundef %31, i32 noundef %30)
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
-_ZN4llvmeqENS_9StringRefES0_.exit34.thread47:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread43, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread45, %_ZN4llvmeqENS_9StringRefES0_.exit34
+_ZN4llvmeqENS_9StringRefES0_.exit34.thread47:     ; preds = %2, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread43, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread45, %_ZN4llvmeqENS_9StringRefES0_.exit34
+  br label %_ZN4llvm3MVT12getIntegerVTEj.exit
+
+33:                                               ; preds = %2
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
 34:                                               ; preds = %2
@@ -3983,30 +3983,27 @@ _ZN4llvmeqENS_9StringRefES0_.exit34.thread47:     ; preds = %_ZNK4llvm9StringRef
 35:                                               ; preds = %2
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
-36:                                               ; preds = %2
+36:                                               ; preds = %2, %2
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %38 = load ptr, ptr %37, align 8, !tbaa !19
+  %39 = tail call i16 @_ZN4llvm3MVT5getVTEPNS_4TypeEb(ptr noundef %38, i1 noundef zeroext false)
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %41 = load i32, ptr %40, align 8, !tbaa !23
+  %42 = load i32, ptr %3, align 8
+  %43 = and i32 %42, 255
+  %.not = icmp eq i32 %43, 18
+  br i1 %.not, label %44, label %46
+
+44:                                               ; preds = %36
+  %45 = tail call i16 @_ZN4llvm3MVT19getScalableVectorVTES0_j(i16 %39, i32 noundef %41)
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
-37:                                               ; preds = %2, %2
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !19
-  %40 = tail call i16 @_ZN4llvm3MVT5getVTEPNS_4TypeEb(ptr noundef %39, i1 noundef zeroext false)
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = load i32, ptr %41, align 8, !tbaa !23
-  %43 = load i32, ptr %3, align 8
-  %44 = and i32 %43, 255
-  %.not = icmp eq i32 %44, 18
-  br i1 %.not, label %45, label %47
-
-45:                                               ; preds = %37
-  %46 = tail call i16 @_ZN4llvm3MVT19getScalableVectorVTES0_j(i16 %40, i32 noundef %42)
+46:                                               ; preds = %36
+  %47 = tail call i16 @_ZN4llvm3MVT11getVectorVTES0_j(i16 %39, i32 noundef %41)
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
-47:                                               ; preds = %37
-  %48 = tail call i16 @_ZN4llvm3MVT11getVectorVTES0_j(i16 %40, i32 noundef %42)
-  br label %_ZN4llvm3MVT12getIntegerVTEj.exit
-
-_ZN4llvm3MVT12getIntegerVTEj.exit:                ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %47, %45, %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit, %switch.lookup.i, %.split.i, %6, %2, %_ZN4llvmeqENS_9StringRefES0_.exit34.thread, %_ZN4llvmeqENS_9StringRefES0_.exit34.thread47, %36, %35, %34, %16, %15, %14, %13, %12, %5
-  %.sroa.041.0 = phi i16 [ 1, %5 ], [ 233, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ 225, %2 ], [ 11, %12 ], [ 10, %13 ], [ 12, %14 ], [ 13, %15 ], [ 14, %16 ], [ 0, %6 ], [ 232, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %33, %_ZN4llvmeqENS_9StringRefES0_.exit34.thread ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit34.thread47 ], [ 230, %34 ], [ 15, %35 ], [ 16, %36 ], [ %switch.offset.i, %switch.lookup.i ], [ 0, %.split.i ], [ %48, %47 ], [ %46, %45 ], [ 233, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ]
+_ZN4llvm3MVT12getIntegerVTEj.exit:                ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %46, %44, %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit, %switch.lookup.i, %.split.i, %5, %2, %_ZN4llvmeqENS_9StringRefES0_.exit34.thread, %_ZN4llvmeqENS_9StringRefES0_.exit34.thread47, %35, %34, %33, %15, %14, %13, %12, %11
+  %.sroa.041.0 = phi i16 [ 233, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ 233, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ 225, %2 ], [ 11, %11 ], [ 10, %12 ], [ 12, %13 ], [ 13, %14 ], [ 14, %15 ], [ 0, %5 ], [ 232, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %32, %_ZN4llvmeqENS_9StringRefES0_.exit34.thread ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit34.thread47 ], [ 230, %33 ], [ 15, %34 ], [ 16, %35 ], [ %switch.offset.i, %switch.lookup.i ], [ 0, %.split.i ], [ %47, %46 ], [ %45, %44 ]
   ret i16 %.sroa.041.0
 }
 

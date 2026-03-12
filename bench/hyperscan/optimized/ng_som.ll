@@ -1817,7 +1817,7 @@ _ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit: ; preds = %139, %_ZNSt6vector
   %.sroa.06.0.in.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i, %193 ], [ %176, %190 ]
   %.sroa.06.0.i.i.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i.i.i, align 8
   %.not.i.i.i.i.i232 = icmp eq ptr %.sroa.06.0.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i232, label %.loopexit.i.i25.i.invoke, label %193
+  br i1 %.not.i.i.i.i.i232, label %..loopexit_crit_edge22.i.i.i.i.i24.i, label %193
 
 193:                                              ; preds = %.preheader39.i
   %194 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i.i.i, i64 8
@@ -1830,7 +1830,7 @@ _ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit: ; preds = %139, %_ZNSt6vector
   %198 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %197
   %199 = load ptr, ptr %198, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %199, null
-  br i1 %.not.i.i.i.i.i.i.i, label %.loopexit.i.i25.i.invoke, label %200
+  br i1 %.not.i.i.i.i.i.i.i, label %..loopexit_crit_edge22.i.i.i.i.i24.i, label %200
 
 200:                                              ; preds = %196
   %201 = load ptr, ptr %199, align 8
@@ -1855,17 +1855,14 @@ _ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit: ; preds = %139, %_ZNSt6vector
   %.021.i.i.i.i.i.i.i = phi ptr [ %213, %208 ], [ %201, %200 ]
   %213 = load ptr, ptr %.021.i.i.i.i.i.i.i, align 8
   %.not18.i.i.i.i.i.i.i = icmp eq ptr %213, null
-  br i1 %.not18.i.i.i.i.i.i.i, label %.loopexit.i.i25.i.invoke, label %214
+  br i1 %.not18.i.i.i.i.i.i.i, label %..loopexit_crit_edge22.i.i.i.i.i24.i, label %214
 
 214:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
   %215 = getelementptr inbounds nuw i8, ptr %213, i64 32
   %216 = load i64, ptr %215, align 8
   %217 = urem i64 %216, %172
   %.not19.i.i.i.i.i.i.i = icmp eq i64 %217, %197
-  br i1 %.not19.i.i.i.i.i.i.i, label %208, label %..loopexit_crit_edge22.i.i.i.i.i.i.i, !llvm.loop !136
-
-..loopexit_crit_edge22.i.i.i.i.i.i.i:             ; preds = %214
-  br label %.loopexit.i.i25.i.invoke, !llvm.loop !136
+  br i1 %.not19.i.i.i.i.i.i.i, label %208, label %..loopexit_crit_edge22.i.i.i.i.i31.i.i, !llvm.loop !136
 
 _ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEE2atERSE_.exit.i.i: ; preds = %208, %193
   %.sroa.06.1.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i, %193 ], [ %213, %208 ]
@@ -1887,7 +1884,7 @@ _ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_
   %.sroa.06.0.in.i.i.i35.i.i = phi ptr [ %.sroa.06.0.i.i.i36.i.i, %225 ], [ %176, %224 ]
   %.sroa.06.0.i.i.i36.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i35.i.i, align 8
   %.not.i.i.i37.i.i = icmp eq ptr %.sroa.06.0.i.i.i36.i.i, null
-  br i1 %.not.i.i.i37.i.i, label %.loopexit.i.i25.i.invoke, label %225
+  br i1 %.not.i.i.i37.i.i, label %..loopexit_crit_edge22.i.i.i.i.i24.i, label %225
 
 225:                                              ; preds = %.preheader.i
   %226 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i36.i.i, i64 8
@@ -1900,7 +1897,7 @@ _ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_
   %229 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %228
   %230 = load ptr, ptr %229, align 8
   %.not.i.i.i.i.i25.i.i = icmp eq ptr %230, null
-  br i1 %.not.i.i.i.i.i25.i.i, label %.loopexit.i.i25.i.invoke, label %231
+  br i1 %.not.i.i.i.i.i25.i.i, label %..loopexit_crit_edge22.i.i.i.i.i24.i, label %231
 
 231:                                              ; preds = %.thread.i.i
   %232 = load ptr, ptr %230, align 8
@@ -1925,7 +1922,7 @@ _ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_
   %.021.i.i.i.i.i28.i.i = phi ptr [ %244, %239 ], [ %232, %231 ]
   %244 = load ptr, ptr %.021.i.i.i.i.i28.i.i, align 8
   %.not18.i.i.i.i.i29.i.i = icmp eq ptr %244, null
-  br i1 %.not18.i.i.i.i.i29.i.i, label %.loopexit.i.i25.i.invoke, label %245
+  br i1 %.not18.i.i.i.i.i29.i.i, label %..loopexit_crit_edge22.i.i.i.i.i24.i, label %245
 
 245:                                              ; preds = %.lr.ph.i.i.i.i.i27.i.i
   %246 = getelementptr inbounds nuw i8, ptr %244, i64 32
@@ -1934,8 +1931,8 @@ _ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_
   %.not19.i.i.i.i.i30.i.i = icmp eq i64 %248, %228
   br i1 %.not19.i.i.i.i.i30.i.i, label %239, label %..loopexit_crit_edge22.i.i.i.i.i31.i.i, !llvm.loop !136
 
-..loopexit_crit_edge22.i.i.i.i.i31.i.i:           ; preds = %245
-  br label %.loopexit.i.i25.i.invoke, !llvm.loop !136
+..loopexit_crit_edge22.i.i.i.i.i31.i.i:           ; preds = %214, %245
+  br label %..loopexit_crit_edge22.i.i.i.i.i24.i, !llvm.loop !136
 
 _ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEE2atERSE_.exit39.i.i: ; preds = %239, %225, %231
   %.sroa.06.1.i.i.i34.i.i = phi ptr [ %.sroa.06.0.i.i.i36.i.i, %225 ], [ %232, %231 ], [ %244, %239 ]
@@ -2079,10 +2076,7 @@ _ZN3ue2L17pickInitialSomCutERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail
   %304 = load i64, ptr %303, align 8
   %305 = urem i64 %304, %172
   %.not19.i.i.i.i.i.i = icmp eq i64 %305, %285
-  br i1 %.not19.i.i.i.i.i.i, label %296, label %..loopexit_crit_edge22.i.i.i.i.i.i, !llvm.loop !136
-
-..loopexit_crit_edge22.i.i.i.i.i.i:               ; preds = %302
-  br label %.loopexit.i.i25.i.invoke, !llvm.loop !136
+  br i1 %.not19.i.i.i.i.i.i, label %296, label %..loopexit_crit_edge22.i.i.i.i.i24.i, !llvm.loop !136
 
 _ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEE2atERSE_.exit.i: ; preds = %296, %281
   %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %281 ], [ %301, %296 ]
@@ -2195,10 +2189,10 @@ _ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_
   %.not19.i.i.i.i.i23.i = icmp eq i64 %350, %330
   br i1 %.not19.i.i.i.i.i23.i, label %341, label %..loopexit_crit_edge22.i.i.i.i.i24.i, !llvm.loop !136
 
-..loopexit_crit_edge22.i.i.i.i.i24.i:             ; preds = %347
+..loopexit_crit_edge22.i.i.i.i.i24.i:             ; preds = %.thread.i.i, %196, %.lr.ph.i.i.i.i.i.i.i, %.preheader39.i, %.lr.ph.i.i.i.i.i27.i.i, %.preheader.i, %302, %347, %..loopexit_crit_edge22.i.i.i.i.i31.i.i
   br label %.loopexit.i.i25.i.invoke, !llvm.loop !136
 
-.loopexit.i.i25.i.invoke:                         ; preds = %.thread.i.i, %196, %.lr.ph.i.i.i.i.i.i.i, %.preheader39.i, %.lr.ph.i.i.i.i.i27.i.i, %.preheader.i, %.lr.ph.i.i.i.i.i.i, %.preheader561, %329, %.lr.ph.i.i.i.i.i20.i, %.preheader.i237, %..loopexit_crit_edge22.i.i.i.i.i31.i.i, %..loopexit_crit_edge22.i.i.i.i.i.i.i, %..loopexit_crit_edge22.i.i.i.i.i24.i, %284, %..loopexit_crit_edge22.i.i.i.i.i.i
+.loopexit.i.i25.i.invoke:                         ; preds = %.lr.ph.i.i.i.i.i.i, %.preheader561, %329, %.lr.ph.i.i.i.i.i20.i, %.preheader.i237, %..loopexit_crit_edge22.i.i.i.i.i24.i, %284
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.6) #25
           to label %.loopexit.i.i25.i.cont unwind label %278
 
@@ -25396,10 +25390,10 @@ _ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pa
   %.not19.i.i.i.i.i149 = icmp eq i64 %303, %282
   br i1 %.not19.i.i.i.i.i149, label %294, label %..loopexit_crit_edge22.i.i.i.i.i150, !llvm.loop !959
 
-..loopexit_crit_edge22.i.i.i.i.i150:              ; preds = %300
+..loopexit_crit_edge22.i.i.i.i.i150:              ; preds = %311, %300, %.lr.ph.i.i.i.i.i162, %.preheader347, %..loopexit_crit_edge22.i.i.i.i.i166
   br label %.loopexit.i.i151.invoke, !llvm.loop !959
 
-.loopexit.i.i151.invoke:                          ; preds = %311, %280, %.lr.ph.i.i.i.i.i146, %.preheader263, %.lr.ph.i.i.i.i.i162, %.preheader347, %..loopexit_crit_edge22.i.i.i.i.i166, %..loopexit_crit_edge22.i.i.i.i.i150
+.loopexit.i.i151.invoke:                          ; preds = %280, %.lr.ph.i.i.i.i.i146, %.preheader263, %..loopexit_crit_edge22.i.i.i.i.i150
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.6) #25
           to label %.loopexit.i.i151.cont unwind label %.loopexit.split-lp
 
@@ -25425,7 +25419,7 @@ _ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pa
   %.sroa.06.0.in.i.i.i170 = phi ptr [ %.sroa.06.0.i.i.i171, %308 ], [ %268, %306 ]
   %.sroa.06.0.i.i.i171 = load ptr, ptr %.sroa.06.0.in.i.i.i170, align 8
   %.not.i.i.i172 = icmp eq ptr %.sroa.06.0.i.i.i171, null
-  br i1 %.not.i.i.i172, label %.loopexit.i.i151.invoke, label %308
+  br i1 %.not.i.i.i172, label %..loopexit_crit_edge22.i.i.i.i.i150, label %308
 
 308:                                              ; preds = %.preheader347
   %309 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i171, i64 8
@@ -25440,7 +25434,7 @@ _ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pa
   %315 = getelementptr inbounds nuw [8 x i8], ptr %314, i64 %313
   %316 = load ptr, ptr %315, align 8
   %.not.i.i.i.i.i160 = icmp eq ptr %316, null
-  br i1 %.not.i.i.i.i.i160, label %.loopexit.i.i151.invoke, label %317
+  br i1 %.not.i.i.i.i.i160, label %..loopexit_crit_edge22.i.i.i.i.i150, label %317
 
 317:                                              ; preds = %311
   %318 = load ptr, ptr %316, align 8
@@ -25465,7 +25459,7 @@ _ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pa
   %.021.i.i.i.i.i163 = phi ptr [ %330, %325 ], [ %318, %317 ]
   %330 = load ptr, ptr %.021.i.i.i.i.i163, align 8
   %.not18.i.i.i.i.i164 = icmp eq ptr %330, null
-  br i1 %.not18.i.i.i.i.i164, label %.loopexit.i.i151.invoke, label %331
+  br i1 %.not18.i.i.i.i.i164, label %..loopexit_crit_edge22.i.i.i.i.i150, label %331
 
 331:                                              ; preds = %.lr.ph.i.i.i.i.i162
   %332 = getelementptr inbounds nuw i8, ptr %330, i64 32
@@ -25475,7 +25469,7 @@ _ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pa
   br i1 %.not19.i.i.i.i.i165, label %325, label %..loopexit_crit_edge22.i.i.i.i.i166, !llvm.loop !136
 
 ..loopexit_crit_edge22.i.i.i.i.i166:              ; preds = %331
-  br label %.loopexit.i.i151.invoke, !llvm.loop !136
+  br label %..loopexit_crit_edge22.i.i.i.i.i150, !llvm.loop !136
 
 .loopexit260:                                     ; preds = %325, %308, %317
   %.sroa.06.1.i.i.i169 = phi ptr [ %.sroa.06.0.i.i.i171, %308 ], [ %318, %317 ], [ %330, %325 ]
@@ -32636,10 +32630,7 @@ thread-pre-split.i:                               ; preds = %437, %434, %_ZN3ue2
   %473 = load i64, ptr %472, align 8
   %474 = urem i64 %473, %443
   %.not19.i.i.i.i.i147.i = icmp eq i64 %474, %454
-  br i1 %.not19.i.i.i.i.i147.i, label %465, label %..loopexit_crit_edge22.i.i.i.i.i148.i, !llvm.loop !136
-
-..loopexit_crit_edge22.i.i.i.i.i148.i:            ; preds = %471
-  br label %.loopexit.i.i166.invoke.i, !llvm.loop !136
+  br i1 %.not19.i.i.i.i.i147.i, label %465, label %..loopexit_crit_edge22.i.i.i.i.i165.i, !llvm.loop !136
 
 .loopexit239.i:                                   ; preds = %465, %450
   %.sroa.06.1.i.i.i151.i = phi ptr [ %.sroa.06.0.i.i.i153.i, %450 ], [ %470, %465 ]
@@ -32672,13 +32663,13 @@ thread-pre-split.i:                               ; preds = %437, %434, %_ZN3ue2
 .thread230.i:                                     ; preds = %481
   %.pre333.i = urem i64 %.sroa.8.0.copyload.i, %443
   %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %444, i64 %.pre333.i
-  %.pre118 = load ptr, ptr %.phi.trans.insert, align 8
-  %.not.i.i.i.i.i159.i = icmp eq ptr %.pre118, null
+  %.pre120 = load ptr, ptr %.phi.trans.insert, align 8
+  %.not.i.i.i.i.i159.i = icmp eq ptr %.pre120, null
   br i1 %.not.i.i.i.i.i159.i, label %.loopexit.i.i166.invoke.i, label %.thread230.i.thread
 
 .thread230.i.thread:                              ; preds = %.thread.i, %.thread230.i
-  %.pre-phi.i173 = phi i64 [ %.pre333.i, %.thread230.i ], [ %454, %.thread.i ]
-  %485 = phi ptr [ %.pre118, %.thread230.i ], [ %456, %.thread.i ]
+  %.pre-phi.i175 = phi i64 [ %.pre333.i, %.thread230.i ], [ %454, %.thread.i ]
+  %485 = phi ptr [ %.pre120, %.thread230.i ], [ %456, %.thread.i ]
   %486 = load ptr, ptr %485, align 8
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 8
   %488 = getelementptr inbounds nuw i8, ptr %486, i64 32
@@ -32707,13 +32698,13 @@ thread-pre-split.i:                               ; preds = %437, %434, %_ZN3ue2
   %500 = getelementptr inbounds nuw i8, ptr %498, i64 32
   %501 = load i64, ptr %500, align 8
   %502 = urem i64 %501, %443
-  %.not19.i.i.i.i.i164.i = icmp eq i64 %502, %.pre-phi.i173
+  %.not19.i.i.i.i.i164.i = icmp eq i64 %502, %.pre-phi.i175
   br i1 %.not19.i.i.i.i.i164.i, label %493, label %..loopexit_crit_edge22.i.i.i.i.i165.i, !llvm.loop !136
 
-..loopexit_crit_edge22.i.i.i.i.i165.i:            ; preds = %499
+..loopexit_crit_edge22.i.i.i.i.i165.i:            ; preds = %471, %499
   br label %.loopexit.i.i166.invoke.i, !llvm.loop !136
 
-.loopexit.i.i166.invoke.i:                        ; preds = %.thread230.i, %453, %.lr.ph.i.i.i.i.i144.i, %.preheader300.i, %.lr.ph.i.i.i.i.i161.i, %.preheader.i, %..loopexit_crit_edge22.i.i.i.i.i165.i, %..loopexit_crit_edge22.i.i.i.i.i148.i
+.loopexit.i.i166.invoke.i:                        ; preds = %.thread230.i, %453, %.lr.ph.i.i.i.i.i144.i, %.preheader300.i, %.lr.ph.i.i.i.i.i161.i, %.preheader.i, %..loopexit_crit_edge22.i.i.i.i.i165.i
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.6) #25
           to label %.loopexit.i.i166.cont.i unwind label %508
 
@@ -35411,10 +35402,7 @@ _ZN3ue28NGHolderC2Ev.exit:                        ; preds = %861
   %888 = load i64, ptr %887, align 8
   %889 = urem i64 %888, %867
   %.not19.i.i.i.i.i.i87 = icmp eq i64 %889, %868
-  br i1 %.not19.i.i.i.i.i.i87, label %880, label %..loopexit_crit_edge22.i.i.i.i.i.i88, !llvm.loop !136
-
-..loopexit_crit_edge22.i.i.i.i.i.i88:             ; preds = %886
-  br label %.loopexit.i.i25.i.invoke, !llvm.loop !136
+  br i1 %.not19.i.i.i.i.i.i87, label %880, label %..loopexit_crit_edge22.i.i.i.i.i24.i, !llvm.loop !136
 
 .lr.ph148.i.preheader:                            ; preds = %880, %863, %872
   %.sroa.06.1.i.i.i.i91 = phi ptr [ %.sroa.06.0.i.i.i.i121, %863 ], [ %873, %872 ], [ %885, %880 ]
@@ -35503,10 +35491,10 @@ _ZN3ue28NGHolderC2Ev.exit:                        ; preds = %861
   %.not19.i.i.i.i.i23.i = icmp eq i64 %926, %905
   br i1 %.not19.i.i.i.i.i23.i, label %917, label %..loopexit_crit_edge22.i.i.i.i.i24.i, !llvm.loop !136
 
-..loopexit_crit_edge22.i.i.i.i.i24.i:             ; preds = %923
+..loopexit_crit_edge22.i.i.i.i.i24.i:             ; preds = %886, %923
   br label %.loopexit.i.i25.i.invoke, !llvm.loop !136
 
-.loopexit.i.i25.i.invoke:                         ; preds = %866, %.lr.ph.i.i.i.i.i.i84, %.preheader70, %903, %.lr.ph.i.i.i.i.i20.i, %.preheader.i119, %..loopexit_crit_edge22.i.i.i.i.i24.i, %..loopexit_crit_edge22.i.i.i.i.i.i88
+.loopexit.i.i25.i.invoke:                         ; preds = %866, %.lr.ph.i.i.i.i.i.i84, %.preheader70, %903, %.lr.ph.i.i.i.i.i20.i, %.preheader.i119, %..loopexit_crit_edge22.i.i.i.i.i24.i
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.6) #25
           to label %.loopexit.i.i25.i.cont unwind label %.loopexit.split-lp52.loopexit.split-lp
 

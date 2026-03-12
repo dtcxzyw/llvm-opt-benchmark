@@ -19679,8 +19679,8 @@ default.unreachable:                              ; preds = %178, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br i1 %133, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0ff85a83b3046e01E.exit, label %178
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h0ff85a83b3046e01E.exit: ; preds = %173, %171, %110, %108, %98, %161, %159, %84, %82, %144, %142, %50, %48, %151, %149, %"_ZN18ty_python_semantic5types10class_base137_$LT$impl$u20$core..convert..From$LT$ty_python_semantic..types..class_base..ClassBase$GT$$u20$for$u20$ty_python_semantic..types..Type$GT$4from17h5cfb64321d686991E.exit", %176, %113, %147, %5, %64, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %"_ZN120_$LT$ty_python_semantic..types..Type$u20$as$u20$core..convert..From$LT$ty_python_semantic..types..SuperOwnerKind$GT$$GT$4from17ha0220091c534ec1cE.exit", %68, %"_ZN18ty_python_semantic5types11subclass_of144_$LT$impl$u20$core..convert..From$LT$ty_python_semantic..types..subclass_of..SubclassOfInner$GT$$u20$for$u20$ty_python_semantic..types..Type$GT$4from17hf006cf53ac294ef3E.exit", %28
-  %.sroa.0.0 = phi i1 [ false, %64 ], [ %39, %28 ], [ true, %"_ZN18ty_python_semantic5types10class_base137_$LT$impl$u20$core..convert..From$LT$ty_python_semantic..types..class_base..ClassBase$GT$$u20$for$u20$ty_python_semantic..types..Type$GT$4from17h5cfb64321d686991E.exit" ], [ %63, %"_ZN18ty_python_semantic5types11subclass_of144_$LT$impl$u20$core..convert..From$LT$ty_python_semantic..types..subclass_of..SubclassOfInner$GT$$u20$for$u20$ty_python_semantic..types..Type$GT$4from17hf006cf53ac294ef3E.exit" ], [ false, %26 ], [ %70, %68 ], [ true, %5 ], [ %.not.not.not.i54.not.not.not, %110 ], [ true, %98 ], [ true, %147 ], [ false, %149 ], [ %198, %"_ZN120_$LT$ty_python_semantic..types..Type$u20$as$u20$core..convert..From$LT$ty_python_semantic..types..SuperOwnerKind$GT$$GT$4from17ha0220091c534ec1cE.exit" ], [ %152, %151 ], [ %.not.not.not.i50.not.not.not, %84 ], [ false, %113 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ %.not.not.not.i.not.not.not, %50 ], [ %.not.not.not.i56.not.not.not, %144 ], [ %177, %176 ], [ %.not.not.not.i58.not.not.not, %161 ], [ %.not.not.not.i.not.not.not, %48 ], [ %.not.not.not.i56.not.not.not, %142 ], [ %.not.not.not.i50.not.not.not, %82 ], [ %.not.not.not.i58.not.not.not, %159 ], [ %.not.not.not.i54.not.not.not, %108 ], [ %.not.not.not.i60.not.not.not, %171 ], [ %.not.not.not.i60.not.not.not, %173 ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h0ff85a83b3046e01E.exit: ; preds = %173, %171, %110, %108, %98, %161, %159, %84, %82, %144, %142, %50, %48, %151, %149, %"_ZN18ty_python_semantic5types10class_base137_$LT$impl$u20$core..convert..From$LT$ty_python_semantic..types..class_base..ClassBase$GT$$u20$for$u20$ty_python_semantic..types..Type$GT$4from17h5cfb64321d686991E.exit", %147, %176, %113, %5, %64, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %"_ZN120_$LT$ty_python_semantic..types..Type$u20$as$u20$core..convert..From$LT$ty_python_semantic..types..SuperOwnerKind$GT$$GT$4from17ha0220091c534ec1cE.exit", %68, %"_ZN18ty_python_semantic5types11subclass_of144_$LT$impl$u20$core..convert..From$LT$ty_python_semantic..types..subclass_of..SubclassOfInner$GT$$u20$for$u20$ty_python_semantic..types..Type$GT$4from17hf006cf53ac294ef3E.exit", %28
+  %.sroa.0.0 = phi i1 [ false, %64 ], [ %39, %28 ], [ true, %"_ZN18ty_python_semantic5types10class_base137_$LT$impl$u20$core..convert..From$LT$ty_python_semantic..types..class_base..ClassBase$GT$$u20$for$u20$ty_python_semantic..types..Type$GT$4from17h5cfb64321d686991E.exit" ], [ %63, %"_ZN18ty_python_semantic5types11subclass_of144_$LT$impl$u20$core..convert..From$LT$ty_python_semantic..types..subclass_of..SubclassOfInner$GT$$u20$for$u20$ty_python_semantic..types..Type$GT$4from17hf006cf53ac294ef3E.exit" ], [ false, %26 ], [ %70, %68 ], [ true, %5 ], [ %.not.not.not.i54.not.not.not, %110 ], [ true, %98 ], [ %.not.not.not.i.not.not.not, %50 ], [ false, %149 ], [ %198, %"_ZN120_$LT$ty_python_semantic..types..Type$u20$as$u20$core..convert..From$LT$ty_python_semantic..types..SuperOwnerKind$GT$$GT$4from17ha0220091c534ec1cE.exit" ], [ %152, %151 ], [ false, %26 ], [ false, %113 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ false, %26 ], [ %.not.not.not.i50.not.not.not, %84 ], [ %177, %176 ], [ true, %147 ], [ %.not.not.not.i56.not.not.not, %144 ], [ %.not.not.not.i58.not.not.not, %161 ], [ %.not.not.not.i.not.not.not, %48 ], [ %.not.not.not.i56.not.not.not, %142 ], [ %.not.not.not.i50.not.not.not, %82 ], [ %.not.not.not.i58.not.not.not, %159 ], [ %.not.not.not.i54.not.not.not, %108 ], [ %.not.not.not.i60.not.not.not, %171 ], [ %.not.not.not.i60.not.not.not, %173 ]
   ret i1 %.sroa.0.0
 
 134:                                              ; preds = %64
@@ -23457,8 +23457,8 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_disjoin
   %62 = icmp eq i8 %56, 0
   br i1 %62, label %.thread161, label %63
 
-.thread161:                                       ; preds = %.thread178.thread.thread.thread, %.thread178.thread, %.thread178, %283, %246, %246, %262, %262, %260, %260, %250, %248, %248, %218, %218, %.thread148, %.thread148, %.thread148, %.thread148, %.thread148, %.thread148, %.thread148, %.thread148, %.thread148, %.thread148, %189, %189, %189, %189, %189, %189, %189, %189, %189, %189, %206, %206, %206, %206, %206, %206, %206, %206, %206, %206, %190, %190, %190, %190, %190, %190, %190, %190, %190, %190, %190, %190, %190, %190, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183, %130, %.thread267, %330, %333, %.thread164, %.thread155, %.thread201.thread245, %.thread201.thread245, %.thread201.thread245, %.thread201, %.thread200, %.thread232, %279, %.thread187, %.thread182, %.thread250, %284, %261, %263, %265, %225, %200, %194, %197, %191, %85, %78, %68, %61, %63, %4, %58, %368, %239, %143, %383, %379, %375, %355, %.thread219, %342, %326, %323, %319, %.thread197, %304, %299, %.thread192, %288, %.thread189, %280, %274, %269, %.thread168, %.thread159, %242, %235, %214, %210, %180, %178, %116, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h3335329e1083676bE.exit"
-  %.sroa.0.0 = phi i1 [ true, %78 ], [ true, %4 ], [ %.sroa.0.1.shrunk, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h3335329e1083676bE.exit" ], [ %124, %116 ], [ %.sroa.0.2, %178 ], [ %212, %210 ], [ %216, %214 ], [ %266, %265 ], [ true, %189 ], [ %320, %319 ], [ %324, %323 ], [ %327, %326 ], [ %376, %375 ], [ %384, %383 ], [ %381, %379 ], [ %switch.selectcmp258, %.thread200 ], [ %343, %342 ], [ %352, %.thread219 ], [ %356, %355 ], [ true, %262 ], [ %373, %368 ], [ true, %.thread178.thread ], [ true, %.thread178 ], [ %296, %.thread192 ], [ %301, %299 ], [ %309, %304 ], [ %317, %.thread197 ], [ false, %283 ], [ %286, %.thread189 ], [ %289, %288 ], [ true, %130 ], [ %282, %280 ], [ false, %248 ], [ %268, %.thread168 ], [ %271, %269 ], [ %275, %274 ], [ false, %225 ], [ %257, %.thread159 ], [ %244, %242 ], [ false, %246 ], [ %241, %239 ], [ true, %206 ], [ %238, %235 ], [ false, %194 ], [ true, %183 ], [ false, %191 ], [ false, %85 ], [ %182, %180 ], [ true, %.thread267 ], [ %151, %143 ], [ false, %61 ], [ true, %58 ], [ false, %63 ], [ true, %68 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ %199, %197 ], [ %205, %200 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %206 ], [ true, %206 ], [ true, %206 ], [ true, %206 ], [ true, %206 ], [ true, %206 ], [ true, %206 ], [ true, %206 ], [ true, %206 ], [ false, %248 ], [ false, %250 ], [ %264, %263 ], [ true, %262 ], [ true, %261 ], [ true, %260 ], [ false, %.thread201.thread245 ], [ true, %279 ], [ true, %260 ], [ false, %284 ], [ false, %330 ], [ false, %.thread201.thread245 ], [ true, %.thread155 ], [ %switch.selectcmp, %.thread232 ], [ true, %.thread164 ], [ true, %.thread250 ], [ false, %218 ], [ true, %.thread187 ], [ true, %.thread182 ], [ false, %218 ], [ true, %189 ], [ true, %189 ], [ true, %189 ], [ true, %189 ], [ true, %189 ], [ true, %189 ], [ true, %189 ], [ true, %189 ], [ true, %189 ], [ %switch.selectcmp260, %333 ], [ false, %.thread201.thread245 ], [ false, %246 ], [ false, %.thread201 ], [ true, %.thread178.thread.thread.thread ]
+.thread161:                                       ; preds = %.thread178.thread.thread.thread, %.thread178.thread, %.thread178, %283, %246, %246, %262, %262, %260, %260, %250, %248, %248, %218, %218, %.thread148, %.thread148, %.thread148, %.thread148, %.thread148, %.thread148, %.thread148, %.thread148, %.thread148, %.thread148, %189, %189, %189, %189, %189, %189, %189, %189, %189, %189, %206, %206, %206, %206, %206, %206, %206, %206, %206, %206, %190, %190, %190, %190, %190, %190, %190, %190, %190, %190, %190, %190, %190, %190, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183, %183, %130, %.thread267, %330, %333, %.thread164, %.thread155, %.thread201.thread245, %.thread201.thread245, %.thread201.thread245, %.thread201, %.thread200, %.thread232, %279, %.thread250, %284, %261, %263, %265, %225, %200, %194, %197, %191, %85, %78, %68, %61, %63, %4, %58, %368, %239, %143, %383, %379, %375, %355, %.thread219, %342, %326, %323, %319, %.thread197, %304, %299, %.thread192, %288, %.thread189, %280, %274, %269, %.thread168, %.thread159, %242, %235, %214, %210, %180, %178, %116, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h3335329e1083676bE.exit"
+  %.sroa.0.0 = phi i1 [ true, %78 ], [ true, %4 ], [ %.sroa.0.1.shrunk, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h3335329e1083676bE.exit" ], [ %124, %116 ], [ %.sroa.0.2, %178 ], [ %212, %210 ], [ %216, %214 ], [ %266, %265 ], [ true, %189 ], [ %320, %319 ], [ %324, %323 ], [ %327, %326 ], [ %376, %375 ], [ %384, %383 ], [ %381, %379 ], [ %switch.selectcmp258, %.thread200 ], [ %343, %342 ], [ %352, %.thread219 ], [ %356, %355 ], [ true, %262 ], [ %373, %368 ], [ true, %.thread178.thread ], [ false, %246 ], [ %296, %.thread192 ], [ %301, %299 ], [ %309, %304 ], [ %317, %.thread197 ], [ false, %283 ], [ %286, %.thread189 ], [ %289, %288 ], [ false, %.thread201 ], [ %282, %280 ], [ false, %248 ], [ %268, %.thread168 ], [ %271, %269 ], [ %275, %274 ], [ false, %225 ], [ %257, %.thread159 ], [ %244, %242 ], [ false, %246 ], [ %241, %239 ], [ true, %206 ], [ %238, %235 ], [ false, %194 ], [ true, %183 ], [ false, %191 ], [ false, %85 ], [ %182, %180 ], [ true, %.thread267 ], [ %151, %143 ], [ false, %61 ], [ true, %58 ], [ false, %63 ], [ true, %68 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %190 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ true, %183 ], [ %199, %197 ], [ %205, %200 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %.thread148 ], [ true, %206 ], [ true, %206 ], [ true, %206 ], [ true, %206 ], [ true, %206 ], [ true, %206 ], [ true, %206 ], [ true, %206 ], [ true, %206 ], [ false, %248 ], [ false, %250 ], [ %264, %263 ], [ true, %262 ], [ true, %261 ], [ true, %260 ], [ false, %.thread201.thread245 ], [ true, %279 ], [ true, %260 ], [ false, %284 ], [ false, %330 ], [ false, %.thread201.thread245 ], [ true, %.thread155 ], [ %switch.selectcmp, %.thread232 ], [ true, %.thread164 ], [ true, %.thread250 ], [ false, %218 ], [ true, %.thread178 ], [ true, %130 ], [ false, %218 ], [ true, %189 ], [ true, %189 ], [ true, %189 ], [ true, %189 ], [ true, %189 ], [ true, %189 ], [ true, %189 ], [ true, %189 ], [ true, %189 ], [ %switch.selectcmp260, %333 ], [ false, %.thread201.thread245 ], [ true, %.thread178.thread.thread.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   ret i1 %.sroa.0.0
 
@@ -24115,7 +24115,7 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_disjoin
     i8 12, label %.thread224
     i8 13, label %.thread161
     i8 21, label %.thread267
-    i8 22, label %.thread182
+    i8 22, label %.thread267
     i8 24, label %284
     i8 23, label %283
     i8 15, label %.thread185
@@ -24152,7 +24152,7 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_disjoin
     i8 12, label %.thread224
     i8 13, label %.thread168
     i8 15, label %.thread208.thread
-    i8 22, label %.thread182
+    i8 22, label %.thread267
     i8 26, label %.thread176
     i8 21, label %.thread267
     i8 23, label %283
@@ -24165,7 +24165,7 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_disjoin
     i8 12, label %.thread224
     i8 13, label %.thread237.thread242
     i8 15, label %.thread171
-    i8 22, label %.thread182
+    i8 22, label %.thread267
     i8 26, label %.thread250
     i8 21, label %.thread267
     i8 23, label %283
@@ -24236,7 +24236,7 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_disjoin
   ]
 
 261:                                              ; preds = %245
-  switch i8 %56, label %.thread182 [
+  switch i8 %56, label %.thread267 [
     i8 13, label %269
     i8 22, label %.thread161
   ]
@@ -24309,9 +24309,6 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_disjoin
   %277 = load i32, ptr %276, align 4, !range !669, !noundef !3
   br label %274
 
-.thread182:                                       ; preds = %246, %250, %249, %261
-  br label %.thread161
-
 .thread164:                                       ; preds = %.thread155
   switch i8 %59, label %.thread178 [
     i8 13, label %.thread180
@@ -24338,7 +24335,7 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_disjoin
     i8 5, label %326
   ]
 
-.thread267:                                       ; preds = %246, %250, %249
+.thread267:                                       ; preds = %246, %246, %250, %250, %249, %249, %261, %284
   br label %.thread161
 
 279:                                              ; preds = %.thread164
@@ -24392,14 +24389,11 @@ define hidden noundef zeroext i1 @_ZN18ty_python_semantic5types4Type16is_disjoin
   ]
 
 284:                                              ; preds = %246, %250, %249, %.thread178.thread
-  switch i8 %56, label %.thread187 [
+  switch i8 %56, label %.thread267 [
     i8 23, label %.thread161
     i8 13, label %.thread189
     i8 24, label %288
   ]
-
-.thread187:                                       ; preds = %284
-  br label %.thread161
 
 .thread189:                                       ; preds = %.thread183, %.thread183, %.thread180, %.thread180, %.thread156, %.thread156, %217, %217, %287, %287, %283, %284
   %.pn112 = phi ptr [ %3, %.thread183 ], [ %3, %.thread183 ], [ %0, %287 ], [ %0, %287 ], [ %0, %284 ], [ %0, %283 ], [ %3, %.thread180 ], [ %3, %.thread180 ], [ %3, %.thread156 ], [ %3, %.thread156 ], [ %3, %217 ], [ %3, %217 ]

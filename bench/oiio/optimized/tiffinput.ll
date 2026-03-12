@@ -2883,8 +2883,8 @@ switch.lookup633:                                 ; preds = %311
   %switch.load635 = load i64, ptr %switch.gep634, align 8
   br label %319
 
-319:                                              ; preds = %311, %switch.lookup633, %308, %switch.lookup, %296, %314, %306
-  %.sink = phi i64 [ %., %314 ], [ %switch.load635, %switch.lookup633 ], [ %switch.load, %switch.lookup ], [ 256, %296 ], [ %switch.select, %306 ], [ 256, %308 ], [ 256, %311 ]
+319:                                              ; preds = %308, %311, %switch.lookup633, %switch.lookup, %296, %314, %306
+  %.sink = phi i64 [ %., %314 ], [ %switch.load635, %switch.lookup633 ], [ %switch.load, %switch.lookup ], [ %switch.select, %306 ], [ 256, %296 ], [ 256, %311 ], [ 256, %308 ]
   call void @_ZN11OpenImageIO6v3_1_09ImageSpec10set_formatENS0_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(160) %253, i64 %.sink) #7
   br i1 %1, label %320, label %.loopexit
 

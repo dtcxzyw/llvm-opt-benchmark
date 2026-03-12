@@ -1232,7 +1232,7 @@ detect_encoding.exit.thread:                      ; preds = %4, %75, %87, %9, %2
   br label %detect_encoding.exit
 
 detect_encoding.exit:                             ; preds = %32, %71, %67, %24, %detect_encoding.exit.thread, %60, %56, %47, %43, %20, %16, %12, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %detect_encoding.exit.thread ], [ @.str.773, %56 ], [ @.str.764, %47 ], [ @.str.765, %12 ], [ @.str.777, %16 ], [ @.str.765, %20 ], [ @.str.777, %24 ], [ @.str.780, %43 ], [ @.str.768, %60 ], [ %switch.select9, %32 ], [ @.str.764, %71 ], [ @.str.780, %67 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %detect_encoding.exit.thread ], [ @.str.777, %24 ], [ @.str.764, %47 ], [ @.str.765, %12 ], [ @.str.777, %16 ], [ @.str.765, %20 ], [ @.str.780, %67 ], [ @.str.780, %43 ], [ @.str.768, %60 ], [ %switch.select9, %32 ], [ @.str.764, %71 ], [ @.str.773, %56 ]
   ret ptr %.0
 }
 

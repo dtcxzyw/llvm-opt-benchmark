@@ -6283,7 +6283,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit108: ; preds = %361, %.pre
 
 434:                                              ; preds = %433
   %435 = tail call noundef zeroext i1 @_ZN6Unpack12ReadTables20Ev(ptr noundef nonnull align 8 dereferenceable(59688) %0)
-  br i1 %435, label %.backedgethread-pre-split, label %._ZN6Unpack10UnpReadBufEv.exit83.thread_crit_edge, !llvm.loop !213
+  br i1 %435, label %.backedgethread-pre-split, label %._ZN6Unpack10UnpReadBufEv.exit83.thread_crit_edge134, !llvm.loop !213
 
 436:                                              ; preds = %433
   %437 = load i32, ptr %88, align 4, !tbaa !198
@@ -6544,13 +6544,10 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit119: ; preds = %469, %.pre
   %.not.i125 = icmp eq i32 %596, 0
   br i1 %.not.i125, label %.backedgethread-pre-split, label %593, !llvm.loop !205
 
-._ZN6Unpack10UnpReadBufEv.exit83.thread_crit_edge: ; preds = %434
+._ZN6Unpack10UnpReadBufEv.exit83.thread_crit_edge134: ; preds = %434, %241
   br label %_ZN6Unpack10UnpReadBufEv.exit83.thread, !llvm.loop !213
 
-._ZN6Unpack10UnpReadBufEv.exit83.thread_crit_edge134: ; preds = %241
-  br label %_ZN6Unpack10UnpReadBufEv.exit83.thread, !llvm.loop !213
-
-_ZN6Unpack10UnpReadBufEv.exit83.thread:           ; preds = %.backedge, %_ZN6Unpack10UnpReadBufEv.exit83, %118, %._ZN6Unpack10UnpReadBufEv.exit83.thread_crit_edge134, %._ZN6Unpack10UnpReadBufEv.exit83.thread_crit_edge, %63
+_ZN6Unpack10UnpReadBufEv.exit83.thread:           ; preds = %.backedge, %_ZN6Unpack10UnpReadBufEv.exit83, %118, %._ZN6Unpack10UnpReadBufEv.exit83.thread_crit_edge134, %63
   tail call void @_ZN6Unpack14ReadLastTablesEv(ptr noundef nonnull align 8 dereferenceable(59688) %0)
   %607 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %608 = load i64, ptr %607, align 8, !tbaa !157

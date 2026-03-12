@@ -11002,11 +11002,11 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode8Detector14checkToleranceERNS_
   %30 = tail call noundef float %29(ptr noundef nonnull align 8 dereferenceable(20) %26)
   %31 = fptosi float %30 to i32
   %32 = icmp slt i32 %6, 2
-  br i1 %32, label %33, label %73
+  br i1 %32, label %33, label %72
 
 33:                                               ; preds = %7
   %.not81 = icmp eq i32 %25, %13
-  br i1 %.not81, label %114, label %34
+  br i1 %.not81, label %113, label %34
 
 34:                                               ; preds = %33
   %35 = icmp eq i32 %6, 1
@@ -11039,7 +11039,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode8Detector14checkToleranceERNS_
   %59 = tail call noundef float %58(ptr noundef nonnull align 8 dereferenceable(20) %55)
   %60 = fpext float %59 to double
   %61 = fcmp ogt double %54, %60
-  br i1 %61, label %114, label %62
+  br i1 %61, label %113, label %62
 
 62:                                               ; preds = %34
   %63 = fadd double %48, %sqrt
@@ -11051,66 +11051,63 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode8Detector14checkToleranceERNS_
   %69 = tail call noundef float %68(ptr noundef nonnull align 8 dereferenceable(20) %65)
   %70 = fpext float %69 to double
   %71 = fcmp olt double %64, %70
-  br i1 %71, label %114, label %72
+  br i1 %71, label %113, label %112
 
-72:                                               ; preds = %62
-  br label %114
-
-73:                                               ; preds = %7
+72:                                               ; preds = %7
   %.not = icmp eq i32 %31, %19
-  br i1 %.not, label %114, label %74
+  br i1 %.not, label %113, label %73
 
-74:                                               ; preds = %73
-  %75 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %76 = load i32, ptr %75, align 4, !tbaa !159
-  %77 = icmp eq i32 %6, 3
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %79 = load i32, ptr %78, align 4
-  %80 = select i1 %77, i32 %79, i32 0
-  %.073.in = add nsw i32 %80, %76
+73:                                               ; preds = %72
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %75 = load i32, ptr %74, align 4, !tbaa !159
+  %76 = icmp eq i32 %6, 3
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %78 = load i32, ptr %77, align 4
+  %79 = select i1 %76, i32 %78, i32 0
+  %.073.in = add nsw i32 %79, %75
   %.073 = sitofp i32 %.073.in to double
-  %81 = sub nsw i32 %25, %13
-  %82 = sitofp i32 %81 to double
-  %83 = sub nsw i32 %31, %19
-  %84 = sitofp i32 %83 to double
-  %85 = fdiv double %82, %84
-  %86 = sitofp i32 %25 to double
-  %87 = sitofp i32 %31 to double
-  %88 = fneg double %85
-  %89 = tail call double @llvm.fmuladd.f64(double %88, double %87, double %86)
-  %90 = fmul double %4, 2.500000e+00
-  %91 = fdiv double %90, %85
-  %92 = fmul double %91, %91
-  %93 = tail call double @llvm.fmuladd.f64(double %90, double %90, double %92)
-  %sqrt82 = tail call double @llvm.sqrt.f64(double %93)
-  %94 = fsub double %89, %sqrt82
-  %95 = tail call double @llvm.fmuladd.f64(double %85, double %.073, double %94)
-  %96 = load ptr, ptr %5, align 8, !tbaa !81
-  %97 = load ptr, ptr %96, align 8, !tbaa !8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %99 = load ptr, ptr %98, align 8
-  %100 = tail call noundef float %99(ptr noundef nonnull align 8 dereferenceable(20) %96)
-  %101 = fpext float %100 to double
-  %102 = fcmp ogt double %95, %101
-  br i1 %102, label %114, label %103
+  %80 = sub nsw i32 %25, %13
+  %81 = sitofp i32 %80 to double
+  %82 = sub nsw i32 %31, %19
+  %83 = sitofp i32 %82 to double
+  %84 = fdiv double %81, %83
+  %85 = sitofp i32 %25 to double
+  %86 = sitofp i32 %31 to double
+  %87 = fneg double %84
+  %88 = tail call double @llvm.fmuladd.f64(double %87, double %86, double %85)
+  %89 = fmul double %4, 2.500000e+00
+  %90 = fdiv double %89, %84
+  %91 = fmul double %90, %90
+  %92 = tail call double @llvm.fmuladd.f64(double %89, double %89, double %91)
+  %sqrt82 = tail call double @llvm.sqrt.f64(double %92)
+  %93 = fsub double %88, %sqrt82
+  %94 = tail call double @llvm.fmuladd.f64(double %84, double %.073, double %93)
+  %95 = load ptr, ptr %5, align 8, !tbaa !81
+  %96 = load ptr, ptr %95, align 8, !tbaa !8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
+  %98 = load ptr, ptr %97, align 8
+  %99 = tail call noundef float %98(ptr noundef nonnull align 8 dereferenceable(20) %95)
+  %100 = fpext float %99 to double
+  %101 = fcmp ogt double %94, %100
+  br i1 %101, label %113, label %102
 
-103:                                              ; preds = %74
-  %104 = fadd double %89, %sqrt82
-  %105 = tail call double @llvm.fmuladd.f64(double %85, double %.073, double %104)
-  %106 = load ptr, ptr %5, align 8, !tbaa !81
-  %107 = load ptr, ptr %106, align 8, !tbaa !8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  %109 = load ptr, ptr %108, align 8
-  %110 = tail call noundef float %109(ptr noundef nonnull align 8 dereferenceable(20) %106)
-  %111 = fpext float %110 to double
-  %112 = fcmp olt double %105, %111
-  br i1 %112, label %114, label %113
+102:                                              ; preds = %73
+  %103 = fadd double %88, %sqrt82
+  %104 = tail call double @llvm.fmuladd.f64(double %84, double %.073, double %103)
+  %105 = load ptr, ptr %5, align 8, !tbaa !81
+  %106 = load ptr, ptr %105, align 8, !tbaa !8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
+  %108 = load ptr, ptr %107, align 8
+  %109 = tail call noundef float %108(ptr noundef nonnull align 8 dereferenceable(20) %105)
+  %110 = fpext float %109 to double
+  %111 = fcmp olt double %104, %110
+  br i1 %111, label %113, label %112
 
-113:                                              ; preds = %103
-  br label %114
+112:                                              ; preds = %62, %102
+  br label %113
 
-114:                                              ; preds = %74, %103, %113, %73, %72, %33, %62, %34
-  %.1 = phi i1 [ false, %34 ], [ false, %33 ], [ true, %72 ], [ false, %62 ], [ false, %74 ], [ true, %113 ], [ false, %103 ], [ false, %73 ]
+113:                                              ; preds = %73, %102, %112, %72, %33, %62, %34
+  %.1 = phi i1 [ false, %34 ], [ false, %33 ], [ false, %72 ], [ false, %62 ], [ false, %73 ], [ true, %112 ], [ false, %102 ]
   ret i1 %.1
 }
 

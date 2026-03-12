@@ -133305,7 +133305,7 @@ define internal void @_ZN5tokio7runtime4task3raw4poll17hbc0fa6f7ecb117e1E(ptr no
     i8 0, label %16
     i8 1, label %96
     i8 2, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h55f004a901be93f2E.exit"
-    i8 3, label %129
+    i8 3, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h162904f83ac638a3E.exit.i"
   ]
 
 default.unreachable:                              ; preds = %109, %1
@@ -133578,8 +133578,8 @@ default.unreachable:                              ; preds = %109, %1
   call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %74, i64 noundef range(i64 1, -9223372036854775808) %90, i64 noundef range(i64 1, -9223372036854775807) %92) #41
   br label %common.resume.i
 
-common.resume.i:                                  ; preds = %130, %127, %95, %87
-  %common.resume.op.i = phi { ptr, i32 } [ %131, %130 ], [ %128, %127 ], [ %88, %95 ], [ %88, %87 ]
+common.resume.i:                                  ; preds = %130, %128, %95, %87
+  %common.resume.op.i = phi { ptr, i32 } [ %131, %130 ], [ %129, %128 ], [ %88, %95 ], [ %88, %87 ]
   resume { ptr, i32 } %common.resume.op.i
 
 96:                                               ; preds = %1
@@ -133639,8 +133639,8 @@ _ZN5tokio7runtime4task7harness11cancel_task17hbfe6028bbcae0a35E.exit.i.i: ; pred
   switch i8 %110, label %default.unreachable [
     i8 3, label %112
     i8 0, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h55f004a901be93f2E.exit"
-    i8 1, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h162904f83ac638a3E.exit.i"
-    i8 2, label %129
+    i8 1, label %125
+    i8 2, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h162904f83ac638a3E.exit.i"
   ]
 
 111:                                              ; preds = %86, %79, %73, %.thread.i.i.i
@@ -133698,40 +133698,40 @@ _ZN5tokio7runtime4task7harness11cancel_task17hbfe6028bbcae0a35E.exit9.i.i: ; pre
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17hacd99b0990aa2633E"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h55f004a901be93f2E.exit"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h162904f83ac638a3E.exit.i": ; preds = %109
+125:                                              ; preds = %109
   call void @_ZN5tokio7runtime4task8Schedule9yield_now17hf5d6853a46ef226cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17, ptr noundef nonnull %0)
-  %125 = call noundef zeroext i1 @_ZN5tokio7runtime4task5state5State7ref_dec17h2b2c97c5336f2a2eE(ptr noundef nonnull align 8 %0)
-  br i1 %125, label %126, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h55f004a901be93f2E.exit"
+  %126 = call noundef zeroext i1 @_ZN5tokio7runtime4task5state5State7ref_dec17h2b2c97c5336f2a2eE(ptr noundef nonnull align 8 %0)
+  br i1 %126, label %127, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h55f004a901be93f2E.exit"
 
-126:                                              ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h162904f83ac638a3E.exit.i"
+127:                                              ; preds = %125
   invoke void @"_ZN4core3ptr256drop_in_place$LT$tokio..runtime..task..core..Cell$LT$tokio..runtime..blocking..task..BlockingTask$LT$object_store..GetResult..bytes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h01521daa6c50c58dE"(ptr noundef nonnull align 128 %0)
-          to label %"_ZN4core3ptr281drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..task..core..Cell$LT$tokio..runtime..blocking..task..BlockingTask$LT$object_store..GetResult..bytes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$$GT$17h389a1368913808d9E.exit.i.i" unwind label %127
+          to label %"_ZN4core3ptr281drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..task..core..Cell$LT$tokio..runtime..blocking..task..BlockingTask$LT$object_store..GetResult..bytes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$$GT$17h389a1368913808d9E.exit.i.i" unwind label %128
 
-127:                                              ; preds = %126
-  %128 = landingpad { ptr, i32 }
+128:                                              ; preds = %127
+  %129 = landingpad { ptr, i32 }
           cleanup
   call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %0, i64 noundef 256, i64 noundef 128) #41
   br label %common.resume.i
 
-"_ZN4core3ptr281drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..task..core..Cell$LT$tokio..runtime..blocking..task..BlockingTask$LT$object_store..GetResult..bytes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$$GT$17h389a1368913808d9E.exit.i.i": ; preds = %126
+"_ZN4core3ptr281drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..task..core..Cell$LT$tokio..runtime..blocking..task..BlockingTask$LT$object_store..GetResult..bytes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$$GT$17h389a1368913808d9E.exit.i.i": ; preds = %127
   call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %0, i64 noundef 256, i64 noundef 128) #41
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h55f004a901be93f2E.exit"
 
-129:                                              ; preds = %109, %1
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h162904f83ac638a3E.exit.i": ; preds = %109, %1
   invoke void @"_ZN4core3ptr256drop_in_place$LT$tokio..runtime..task..core..Cell$LT$tokio..runtime..blocking..task..BlockingTask$LT$object_store..GetResult..bytes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17h01521daa6c50c58dE"(ptr noundef nonnull align 128 %0)
           to label %"_ZN4core3ptr281drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..task..core..Cell$LT$tokio..runtime..blocking..task..BlockingTask$LT$object_store..GetResult..bytes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$$GT$17h389a1368913808d9E.exit.i" unwind label %130
 
-130:                                              ; preds = %129
+130:                                              ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h162904f83ac638a3E.exit.i"
   %131 = landingpad { ptr, i32 }
           cleanup
   call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %0, i64 noundef 256, i64 noundef 128) #41
   br label %common.resume.i
 
-"_ZN4core3ptr281drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..task..core..Cell$LT$tokio..runtime..blocking..task..BlockingTask$LT$object_store..GetResult..bytes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$$GT$17h389a1368913808d9E.exit.i": ; preds = %129
+"_ZN4core3ptr281drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..task..core..Cell$LT$tokio..runtime..blocking..task..BlockingTask$LT$object_store..GetResult..bytes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$$GT$17h389a1368913808d9E.exit.i": ; preds = %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h162904f83ac638a3E.exit.i"
   call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %0, i64 noundef 256, i64 noundef 128) #41
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h55f004a901be93f2E.exit"
 
-"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h55f004a901be93f2E.exit": ; preds = %1, %109, %124, %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h162904f83ac638a3E.exit.i", %"_ZN4core3ptr281drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..task..core..Cell$LT$tokio..runtime..blocking..task..BlockingTask$LT$object_store..GetResult..bytes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$$GT$17h389a1368913808d9E.exit.i.i", %"_ZN4core3ptr281drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..task..core..Cell$LT$tokio..runtime..blocking..task..BlockingTask$LT$object_store..GetResult..bytes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$$GT$17h389a1368913808d9E.exit.i"
+"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h55f004a901be93f2E.exit": ; preds = %1, %109, %124, %125, %"_ZN4core3ptr281drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..task..core..Cell$LT$tokio..runtime..blocking..task..BlockingTask$LT$object_store..GetResult..bytes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$$GT$17h389a1368913808d9E.exit.i.i", %"_ZN4core3ptr281drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..task..core..Cell$LT$tokio..runtime..blocking..task..BlockingTask$LT$object_store..GetResult..bytes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$$GT$17h389a1368913808d9E.exit.i"
   ret void
 }
 

@@ -7257,21 +7257,21 @@ row_read_column_number.exit:                      ; preds = %25, %zend_string_eq
   %40 = trunc nuw nsw i64 %.sink49 to i32
   call fastcc void @fetch_value(ptr noundef nonnull %8, ptr noundef nonnull %6, i32 noundef %40, ptr noundef null)
   %.not14 = icmp eq i32 %2, 0
-  br i1 %.not14, label %79, label %.preheader
+  br i1 %.not14, label %77, label %.preheader
 
-.preheader:                                       ; preds = %row_read_column_number.exit, %76
-  %.011.i = phi ptr [ %78, %76 ], [ %6, %row_read_column_number.exit ]
+.preheader:                                       ; preds = %row_read_column_number.exit, %74
+  %.011.i = phi ptr [ %76, %74 ], [ %6, %row_read_column_number.exit ]
   %41 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %42 = load i8, ptr %41, align 8, !tbaa !37
-  switch i8 %42, label %i_zend_is_true.exit.loopexit [
-    i8 3, label %i_zend_is_true.exit
+  switch i8 %42, label %i_zend_is_true.exit [
+    i8 3, label %i_zend_is_true.exit.loopexit50
     i8 4, label %43
     i8 5, label %45
-    i8 6, label %49
-    i8 7, label %59
-    i8 8, label %63
-    i8 9, label %72
-    i8 10, label %76
+    i8 6, label %48
+    i8 7, label %57
+    i8 8, label %61
+    i8 9, label %70
+    i8 10, label %74
   ]
 
 43:                                               ; preds = %.preheader
@@ -7282,100 +7282,94 @@ row_read_column_number.exit:                      ; preds = %25, %zend_string_eq
 45:                                               ; preds = %.preheader
   %46 = load double, ptr %.011.i, align 8, !tbaa !37
   %47 = fcmp une double %46, 0.000000e+00
-  br i1 %47, label %48, label %i_zend_is_true.exit
+  br i1 %47, label %i_zend_is_true.exit.loopexit50, label %i_zend_is_true.exit
 
-48:                                               ; preds = %45
+48:                                               ; preds = %.preheader
+  %49 = load ptr, ptr %.011.i, align 8, !tbaa !37
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = load i64, ptr %50, align 8, !tbaa !74
+  %52 = icmp ugt i64 %51, 1
+  br i1 %52, label %i_zend_is_true.exit.loopexit50, label %53
+
+53:                                               ; preds = %48
+  %.not14.i = icmp eq i64 %51, 0
+  br i1 %.not14.i, label %i_zend_is_true.exit, label %54
+
+54:                                               ; preds = %53
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %56 = load i8, ptr %55, align 8, !tbaa !37
+  %.not15.i = icmp eq i8 %56, 48
+  br i1 %.not15.i, label %i_zend_is_true.exit, label %i_zend_is_true.exit.loopexit50
+
+57:                                               ; preds = %.preheader
+  %58 = load ptr, ptr %.011.i, align 8, !tbaa !37
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
+  %60 = load i32, ptr %59, align 4, !tbaa !120
+  %.not13.i = icmp ne i32 %60, 0
   br label %i_zend_is_true.exit
 
-49:                                               ; preds = %.preheader
-  %50 = load ptr, ptr %.011.i, align 8, !tbaa !37
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %52 = load i64, ptr %51, align 8, !tbaa !74
-  %53 = icmp ugt i64 %52, 1
-  br i1 %53, label %58, label %54
+61:                                               ; preds = %.preheader
+  %62 = load ptr, ptr %.011.i, align 8, !tbaa !37
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
+  %64 = load ptr, ptr %63, align 8, !tbaa !184
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 136
+  %66 = load ptr, ptr %65, align 8, !tbaa !185
+  %67 = icmp eq ptr %66, @zend_std_cast_object_tostring
+  br i1 %67, label %i_zend_is_true.exit, label %68, !prof !81
 
-54:                                               ; preds = %49
-  %.not14.i = icmp eq i64 %52, 0
-  br i1 %.not14.i, label %i_zend_is_true.exit, label %55
-
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %57 = load i8, ptr %56, align 8, !tbaa !37
-  %.not15.i = icmp eq i8 %57, 48
-  br i1 %.not15.i, label %i_zend_is_true.exit, label %58
-
-58:                                               ; preds = %55, %49
+68:                                               ; preds = %61
+  %69 = call zeroext i1 @zend_object_is_true(ptr noundef nonnull %.011.i) #17
   br label %i_zend_is_true.exit
 
-59:                                               ; preds = %.preheader
-  %60 = load ptr, ptr %.011.i, align 8, !tbaa !37
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 28
-  %62 = load i32, ptr %61, align 4, !tbaa !120
-  %.not13.i = icmp ne i32 %62, 0
+70:                                               ; preds = %.preheader
+  %71 = load ptr, ptr %.011.i, align 8, !tbaa !37
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = load i64, ptr %72, align 8, !tbaa !186
+  %.not.i15 = icmp ne i64 %73, 0
   br label %i_zend_is_true.exit
 
-63:                                               ; preds = %.preheader
-  %64 = load ptr, ptr %.011.i, align 8, !tbaa !37
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %66 = load ptr, ptr %65, align 8, !tbaa !184
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 136
-  %68 = load ptr, ptr %67, align 8, !tbaa !185
-  %69 = icmp eq ptr %68, @zend_std_cast_object_tostring
-  br i1 %69, label %i_zend_is_true.exit, label %70, !prof !81
-
-70:                                               ; preds = %63
-  %71 = call zeroext i1 @zend_object_is_true(ptr noundef nonnull %.011.i) #17
-  br label %i_zend_is_true.exit
-
-72:                                               ; preds = %.preheader
-  %73 = load ptr, ptr %.011.i, align 8, !tbaa !37
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %75 = load i64, ptr %74, align 8, !tbaa !186
-  %.not.i15 = icmp ne i64 %75, 0
-  br label %i_zend_is_true.exit
-
-76:                                               ; preds = %.preheader
-  %77 = load ptr, ptr %.011.i, align 8, !tbaa !37
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+74:                                               ; preds = %.preheader
+  %75 = load ptr, ptr %.011.i, align 8, !tbaa !37
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   br label %.preheader
 
-79:                                               ; preds = %row_read_column_number.exit
-  %80 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %81 = load i8, ptr %80, align 8, !tbaa !37
-  %82 = icmp ne i8 %81, 1
+77:                                               ; preds = %row_read_column_number.exit
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %79 = load i8, ptr %78, align 8, !tbaa !37
+  %80 = icmp ne i8 %79, 1
   br label %i_zend_is_true.exit
 
-i_zend_is_true.exit.loopexit:                     ; preds = %.preheader
+i_zend_is_true.exit.loopexit50:                   ; preds = %.preheader, %48, %54, %45
   br label %i_zend_is_true.exit
 
-i_zend_is_true.exit:                              ; preds = %.preheader, %i_zend_is_true.exit.loopexit, %72, %70, %63, %59, %58, %55, %54, %48, %45, %43, %79
-  %.in = phi i1 [ %82, %79 ], [ %.not13.i, %59 ], [ false, %i_zend_is_true.exit.loopexit ], [ %71, %70 ], [ %.not.i15, %72 ], [ true, %48 ], [ false, %45 ], [ true, %58 ], [ false, %55 ], [ false, %54 ], [ %.not16.i, %43 ], [ true, %63 ], [ true, %.preheader ]
-  %83 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %84 = load i8, ptr %83, align 1, !tbaa !37
-  %.not.i = icmp eq i8 %84, 0
-  br i1 %.not.i, label %zval_ptr_dtor_nogc.exit, label %85
+i_zend_is_true.exit:                              ; preds = %.preheader, %i_zend_is_true.exit.loopexit50, %70, %68, %61, %57, %54, %53, %45, %43, %77
+  %.in = phi i1 [ %80, %77 ], [ %.not13.i, %57 ], [ true, %i_zend_is_true.exit.loopexit50 ], [ %69, %68 ], [ %.not.i15, %70 ], [ true, %61 ], [ false, %45 ], [ %.not16.i, %43 ], [ false, %54 ], [ false, %53 ], [ false, %.preheader ]
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  %82 = load i8, ptr %81, align 1, !tbaa !37
+  %.not.i = icmp eq i8 %82, 0
+  br i1 %.not.i, label %zval_ptr_dtor_nogc.exit, label %83
 
-85:                                               ; preds = %i_zend_is_true.exit
-  %86 = load ptr, ptr %6, align 8, !tbaa !37
-  %87 = load i32, ptr %86, align 4, !tbaa !38
-  %88 = icmp ne i32 %87, 0
-  call void @llvm.assume(i1 %88)
-  %89 = add i32 %87, -1
-  store i32 %89, ptr %86, align 4, !tbaa !38
-  %.not3.i = icmp eq i32 %89, 0
-  br i1 %.not3.i, label %90, label %zval_ptr_dtor_nogc.exit
+83:                                               ; preds = %i_zend_is_true.exit
+  %84 = load ptr, ptr %6, align 8, !tbaa !37
+  %85 = load i32, ptr %84, align 4, !tbaa !38
+  %86 = icmp ne i32 %85, 0
+  call void @llvm.assume(i1 %86)
+  %87 = add i32 %85, -1
+  store i32 %87, ptr %84, align 4, !tbaa !38
+  %.not3.i = icmp eq i32 %87, 0
+  br i1 %.not3.i, label %88, label %zval_ptr_dtor_nogc.exit
 
-90:                                               ; preds = %85
-  %91 = load ptr, ptr %6, align 8, !tbaa !37
-  call void @rc_dtor_func(ptr noundef %91) #17
+88:                                               ; preds = %83
+  %89 = load ptr, ptr %6, align 8, !tbaa !37
+  call void @rc_dtor_func(ptr noundef %89) #17
   br label %zval_ptr_dtor_nogc.exit
 
-zval_ptr_dtor_nogc.exit:                          ; preds = %i_zend_is_true.exit, %85, %90
-  %92 = zext i1 %.in to i32
+zval_ptr_dtor_nogc.exit:                          ; preds = %i_zend_is_true.exit, %83, %88
+  %90 = zext i1 %.in to i32
   br label %row_read_column_number.exit.thread
 
 row_read_column_number.exit.thread:               ; preds = %zend_string_equals.exit.thread13.i, %19, %14, %11, %zval_ptr_dtor_nogc.exit
-  %.0 = phi i32 [ %92, %zval_ptr_dtor_nogc.exit ], [ 0, %11 ], [ 0, %14 ], [ 0, %19 ], [ 0, %zend_string_equals.exit.thread13.i ]
+  %.0 = phi i32 [ %90, %zval_ptr_dtor_nogc.exit ], [ 0, %11 ], [ 0, %14 ], [ 0, %19 ], [ 0, %zend_string_equals.exit.thread13.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -7491,7 +7485,7 @@ define internal range(i32 0, 2) i32 @row_dim_exists(ptr noundef readonly capture
   %.0.i31.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 9
   switch i8 %6, label %zval_try_get_string.exit [
     i8 4, label %7
-    i8 6, label %76
+    i8 6, label %74
   ], !prof !188
 
 7:                                                ; preds = %3
@@ -7530,19 +7524,19 @@ define internal range(i32 0, 2) i32 @row_dim_exists(ptr noundef readonly capture
   call fastcc void @fetch_value(ptr noundef nonnull %9, ptr noundef nonnull %4, i32 noundef %27, ptr noundef null)
   br label %28
 
-28:                                               ; preds = %64, %26
-  %.011.i = phi ptr [ %4, %26 ], [ %66, %64 ]
+28:                                               ; preds = %62, %26
+  %.011.i = phi ptr [ %4, %26 ], [ %64, %62 ]
   %29 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %30 = load i8, ptr %29, align 8, !tbaa !37
-  switch i8 %30, label %i_zend_is_true.exit.loopexit [
-    i8 3, label %i_zend_is_true.exit
+  switch i8 %30, label %i_zend_is_true.exit [
+    i8 3, label %i_zend_is_true.exit.loopexit66
     i8 4, label %31
     i8 5, label %33
-    i8 6, label %37
-    i8 7, label %47
-    i8 8, label %51
-    i8 9, label %60
-    i8 10, label %64
+    i8 6, label %36
+    i8 7, label %45
+    i8 8, label %49
+    i8 9, label %58
+    i8 10, label %62
   ]
 
 31:                                               ; preds = %28
@@ -7553,143 +7547,137 @@ define internal range(i32 0, 2) i32 @row_dim_exists(ptr noundef readonly capture
 33:                                               ; preds = %28
   %34 = load double, ptr %.011.i, align 8, !tbaa !37
   %35 = fcmp une double %34, 0.000000e+00
-  br i1 %35, label %36, label %i_zend_is_true.exit
+  br i1 %35, label %i_zend_is_true.exit.loopexit66, label %i_zend_is_true.exit
 
-36:                                               ; preds = %33
+36:                                               ; preds = %28
+  %37 = load ptr, ptr %.011.i, align 8, !tbaa !37
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %39 = load i64, ptr %38, align 8, !tbaa !74
+  %40 = icmp ugt i64 %39, 1
+  br i1 %40, label %i_zend_is_true.exit.loopexit66, label %41
+
+41:                                               ; preds = %36
+  %.not14.i = icmp eq i64 %39, 0
+  br i1 %.not14.i, label %i_zend_is_true.exit, label %42
+
+42:                                               ; preds = %41
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %44 = load i8, ptr %43, align 8, !tbaa !37
+  %.not15.i = icmp eq i8 %44, 48
+  br i1 %.not15.i, label %i_zend_is_true.exit, label %i_zend_is_true.exit.loopexit66
+
+45:                                               ; preds = %28
+  %46 = load ptr, ptr %.011.i, align 8, !tbaa !37
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 28
+  %48 = load i32, ptr %47, align 4, !tbaa !120
+  %.not13.i = icmp ne i32 %48, 0
   br label %i_zend_is_true.exit
 
-37:                                               ; preds = %28
-  %38 = load ptr, ptr %.011.i, align 8, !tbaa !37
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %40 = load i64, ptr %39, align 8, !tbaa !74
-  %41 = icmp ugt i64 %40, 1
-  br i1 %41, label %46, label %42
+49:                                               ; preds = %28
+  %50 = load ptr, ptr %.011.i, align 8, !tbaa !37
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %52 = load ptr, ptr %51, align 8, !tbaa !184
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 136
+  %54 = load ptr, ptr %53, align 8, !tbaa !185
+  %55 = icmp eq ptr %54, @zend_std_cast_object_tostring
+  br i1 %55, label %i_zend_is_true.exit, label %56, !prof !81
 
-42:                                               ; preds = %37
-  %.not14.i = icmp eq i64 %40, 0
-  br i1 %.not14.i, label %i_zend_is_true.exit, label %43
-
-43:                                               ; preds = %42
-  %44 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %45 = load i8, ptr %44, align 8, !tbaa !37
-  %.not15.i = icmp eq i8 %45, 48
-  br i1 %.not15.i, label %i_zend_is_true.exit, label %46
-
-46:                                               ; preds = %43, %37
+56:                                               ; preds = %49
+  %57 = call zeroext i1 @zend_object_is_true(ptr noundef nonnull %.011.i) #17
   br label %i_zend_is_true.exit
 
-47:                                               ; preds = %28
-  %48 = load ptr, ptr %.011.i, align 8, !tbaa !37
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
-  %50 = load i32, ptr %49, align 4, !tbaa !120
-  %.not13.i = icmp ne i32 %50, 0
+58:                                               ; preds = %28
+  %59 = load ptr, ptr %.011.i, align 8, !tbaa !37
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %61 = load i64, ptr %60, align 8, !tbaa !186
+  %.not.i29 = icmp ne i64 %61, 0
   br label %i_zend_is_true.exit
 
-51:                                               ; preds = %28
-  %52 = load ptr, ptr %.011.i, align 8, !tbaa !37
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %54 = load ptr, ptr %53, align 8, !tbaa !184
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 136
-  %56 = load ptr, ptr %55, align 8, !tbaa !185
-  %57 = icmp eq ptr %56, @zend_std_cast_object_tostring
-  br i1 %57, label %i_zend_is_true.exit, label %58, !prof !81
-
-58:                                               ; preds = %51
-  %59 = call zeroext i1 @zend_object_is_true(ptr noundef nonnull %.011.i) #17
-  br label %i_zend_is_true.exit
-
-60:                                               ; preds = %28
-  %61 = load ptr, ptr %.011.i, align 8, !tbaa !37
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %63 = load i64, ptr %62, align 8, !tbaa !186
-  %.not.i29 = icmp ne i64 %63, 0
-  br label %i_zend_is_true.exit
-
-64:                                               ; preds = %28
-  %65 = load ptr, ptr %.011.i, align 8, !tbaa !37
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+62:                                               ; preds = %28
+  %63 = load ptr, ptr %.011.i, align 8, !tbaa !37
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   br label %28
 
-i_zend_is_true.exit.loopexit:                     ; preds = %28
+i_zend_is_true.exit.loopexit66:                   ; preds = %28, %33, %42, %36
   br label %i_zend_is_true.exit
 
-i_zend_is_true.exit:                              ; preds = %28, %i_zend_is_true.exit.loopexit, %31, %33, %36, %42, %43, %46, %47, %51, %58, %60
-  %.0.i = phi i1 [ %.not13.i, %47 ], [ false, %i_zend_is_true.exit.loopexit ], [ %59, %58 ], [ %.not.i29, %60 ], [ true, %36 ], [ false, %33 ], [ true, %46 ], [ false, %43 ], [ false, %42 ], [ %.not16.i, %31 ], [ true, %51 ], [ true, %28 ]
-  %67 = load i8, ptr %.0.i31.sroa.gep, align 1, !tbaa !37
-  %.not.i = icmp eq i8 %67, 0
-  br i1 %.not.i, label %zval_ptr_dtor_nogc.exit, label %68
+i_zend_is_true.exit:                              ; preds = %28, %i_zend_is_true.exit.loopexit66, %31, %33, %41, %42, %45, %49, %56, %58
+  %.0.i = phi i1 [ %.not13.i, %45 ], [ true, %i_zend_is_true.exit.loopexit66 ], [ %57, %56 ], [ %.not.i29, %58 ], [ %.not16.i, %31 ], [ false, %33 ], [ true, %49 ], [ false, %42 ], [ false, %41 ], [ false, %28 ]
+  %65 = load i8, ptr %.0.i31.sroa.gep, align 1, !tbaa !37
+  %.not.i = icmp eq i8 %65, 0
+  br i1 %.not.i, label %zval_ptr_dtor_nogc.exit, label %66
 
-68:                                               ; preds = %i_zend_is_true.exit
-  %69 = load ptr, ptr %4, align 8, !tbaa !37
-  %70 = load i32, ptr %69, align 4, !tbaa !38
-  %71 = icmp ne i32 %70, 0
-  call void @llvm.assume(i1 %71)
-  %72 = add i32 %70, -1
-  store i32 %72, ptr %69, align 4, !tbaa !38
-  %.not3.i = icmp eq i32 %72, 0
-  br i1 %.not3.i, label %73, label %zval_ptr_dtor_nogc.exit
+66:                                               ; preds = %i_zend_is_true.exit
+  %67 = load ptr, ptr %4, align 8, !tbaa !37
+  %68 = load i32, ptr %67, align 4, !tbaa !38
+  %69 = icmp ne i32 %68, 0
+  call void @llvm.assume(i1 %69)
+  %70 = add i32 %68, -1
+  store i32 %70, ptr %67, align 4, !tbaa !38
+  %.not3.i = icmp eq i32 %70, 0
+  br i1 %.not3.i, label %71, label %zval_ptr_dtor_nogc.exit
 
-73:                                               ; preds = %68
-  %74 = load ptr, ptr %4, align 8, !tbaa !37
-  call void @rc_dtor_func(ptr noundef %74) #17
+71:                                               ; preds = %66
+  %72 = load ptr, ptr %4, align 8, !tbaa !37
+  call void @rc_dtor_func(ptr noundef %72) #17
   br label %zval_ptr_dtor_nogc.exit
 
-zval_ptr_dtor_nogc.exit:                          ; preds = %i_zend_is_true.exit, %68, %73
-  %75 = zext i1 %.0.i to i32
+zval_ptr_dtor_nogc.exit:                          ; preds = %i_zend_is_true.exit, %66, %71
+  %73 = zext i1 %.0.i to i32
   br label %row_read_column_number.exit.thread
 
 row_read_column_number.exit.thread:               ; preds = %19, %21, %zval_ptr_dtor_nogc.exit
-  %.1 = phi i32 [ %75, %zval_ptr_dtor_nogc.exit ], [ 0, %21 ], [ 0, %19 ]
+  %.1 = phi i32 [ %73, %zval_ptr_dtor_nogc.exit ], [ 0, %21 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %zend_string_release_ex.exit
 
-76:                                               ; preds = %3
-  %77 = load ptr, ptr %1, align 8, !tbaa !37
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
-  %79 = load i32, ptr %78, align 4, !tbaa !37
-  %80 = and i32 %79, 64
-  %.not.i.i = icmp eq i32 %80, 0
-  br i1 %.not.i.i, label %81, label %zval_try_get_string.exit.thread
+74:                                               ; preds = %3
+  %75 = load ptr, ptr %1, align 8, !tbaa !37
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  %77 = load i32, ptr %76, align 4, !tbaa !37
+  %78 = and i32 %77, 64
+  %.not.i.i = icmp eq i32 %78, 0
+  br i1 %.not.i.i, label %79, label %zval_try_get_string.exit.thread
 
-81:                                               ; preds = %76
-  %82 = load i32, ptr %77, align 4, !tbaa !38
-  %83 = add i32 %82, 1
-  store i32 %83, ptr %77, align 4, !tbaa !38
+79:                                               ; preds = %74
+  %80 = load i32, ptr %75, align 4, !tbaa !38
+  %81 = add i32 %80, 1
+  store i32 %81, ptr %75, align 4, !tbaa !38
   br label %zval_try_get_string.exit.thread
 
-zval_try_get_string.exit.thread:                  ; preds = %76, %81
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %77) ]
-  br label %85
+zval_try_get_string.exit.thread:                  ; preds = %74, %79
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %75) ]
+  br label %83
 
 zval_try_get_string.exit:                         ; preds = %3
-  %84 = tail call ptr @zval_try_get_string_func(ptr noundef nonnull %1) #17
-  %.not = icmp eq ptr %84, null
-  br i1 %.not, label %zend_string_release_ex.exit, label %85
+  %82 = tail call ptr @zval_try_get_string_func(ptr noundef nonnull %1) #17
+  %.not = icmp eq ptr %82, null
+  br i1 %.not, label %zend_string_release_ex.exit, label %83
 
-85:                                               ; preds = %zval_try_get_string.exit.thread, %zval_try_get_string.exit
-  %.0.i3040 = phi ptr [ %77, %zval_try_get_string.exit.thread ], [ %84, %zval_try_get_string.exit ]
-  %86 = tail call i32 @row_prop_exists(ptr noundef %0, ptr noundef nonnull %.0.i3040, i32 noundef %2, ptr poison)
-  %87 = getelementptr inbounds nuw i8, ptr %.0.i3040, i64 4
-  %88 = load i32, ptr %87, align 4, !tbaa !37
-  %89 = and i32 %88, 64
-  %.not.i28 = icmp eq i32 %89, 0
-  br i1 %.not.i28, label %90, label %zend_string_release_ex.exit
+83:                                               ; preds = %zval_try_get_string.exit.thread, %zval_try_get_string.exit
+  %.0.i3040 = phi ptr [ %75, %zval_try_get_string.exit.thread ], [ %82, %zval_try_get_string.exit ]
+  %84 = tail call i32 @row_prop_exists(ptr noundef %0, ptr noundef nonnull %.0.i3040, i32 noundef %2, ptr poison)
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i3040, i64 4
+  %86 = load i32, ptr %85, align 4, !tbaa !37
+  %87 = and i32 %86, 64
+  %.not.i28 = icmp eq i32 %87, 0
+  br i1 %.not.i28, label %88, label %zend_string_release_ex.exit
 
-90:                                               ; preds = %85
-  %91 = load i32, ptr %.0.i3040, align 4, !tbaa !38
-  %92 = icmp ne i32 %91, 0
-  tail call void @llvm.assume(i1 %92)
-  %93 = add i32 %91, -1
-  store i32 %93, ptr %.0.i3040, align 4, !tbaa !38
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %95, label %zend_string_release_ex.exit
+88:                                               ; preds = %83
+  %89 = load i32, ptr %.0.i3040, align 4, !tbaa !38
+  %90 = icmp ne i32 %89, 0
+  tail call void @llvm.assume(i1 %90)
+  %91 = add i32 %89, -1
+  store i32 %91, ptr %.0.i3040, align 4, !tbaa !38
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %93, label %zend_string_release_ex.exit
 
-95:                                               ; preds = %90
+93:                                               ; preds = %88
   tail call void @_efree(ptr noundef nonnull %.0.i3040) #17
   br label %zend_string_release_ex.exit
 
-zend_string_release_ex.exit:                      ; preds = %95, %90, %85, %zval_try_get_string.exit, %row_read_column_number.exit.thread, %13, %11
-  %.2 = phi i32 [ %18, %13 ], [ %.1, %row_read_column_number.exit.thread ], [ 0, %11 ], [ 0, %zval_try_get_string.exit ], [ %86, %85 ], [ %86, %90 ], [ %86, %95 ]
+zend_string_release_ex.exit:                      ; preds = %93, %88, %83, %zval_try_get_string.exit, %row_read_column_number.exit.thread, %13, %11
+  %.2 = phi i32 [ %18, %13 ], [ %.1, %row_read_column_number.exit.thread ], [ 0, %11 ], [ 0, %zval_try_get_string.exit ], [ %84, %83 ], [ %84, %88 ], [ %84, %93 ]
   ret i32 %.2
 }
 

@@ -9245,7 +9245,7 @@ define internal void @"_ZN4core3ptr158drop_in_place$LT$$LT$languages..tailwind..
     i8 6, label %75
   ]
 
-common.ret.sink.split:                            ; preds = %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$languages..tailwind..TailwindLspAdapter$GT$$GT$17hba77b8757a774acdE.exit32", %.noexc41, %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$languages..tailwind..TailwindLspAdapter$GT$$GT$17hba77b8757a774acdE.exit", %.noexc28
+common.ret.sink.split:                            ; preds = %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$languages..tailwind..TailwindLspAdapter$GT$$GT$17hba77b8757a774acdE.exit32", %.noexc41, %.noexc28, %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$languages..tailwind..TailwindLspAdapter$GT$$GT$17hba77b8757a774acdE.exit"
   %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.sink = load ptr, ptr %.sink.in, align 8, !nonnull !11, !align !44, !noundef !11
   call void @"_ZN12futures_util4lock5mutex14Mutex$LT$T$GT$6unlock17h6c58a88339131001E"(ptr noundef nonnull align 8 %.sink), !noalias !11

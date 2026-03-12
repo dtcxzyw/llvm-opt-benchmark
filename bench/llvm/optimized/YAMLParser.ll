@@ -5591,7 +5591,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner15scanStreamStartEv(pt
     i8 0, label %14
     i8 -1, label %32
     i8 -2, label %48
-    i8 -17, label %54
+    i8 -17, label %53
   ]
 
 14:                                               ; preds = %12
@@ -5607,7 +5607,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner15scanStreamStartEv(pt
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %22 = load i8, ptr %21, align 1, !tbaa !23
-  switch i8 %22, label %.thread144.thread.i [
+  switch i8 %22, label %63 [
     i8 -2, label %23
     i8 0, label %27
   ]
@@ -5616,26 +5616,23 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner15scanStreamStartEv(pt
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %25 = load i8, ptr %24, align 1, !tbaa !23
   %26 = icmp eq i8 %25, -1
-  br i1 %26, label %_ZL18getUnicodeEncodingN4llvm9StringRefE.exit, label %.thread144.thread.i
+  br i1 %26, label %_ZL18getUnicodeEncodingN4llvm9StringRefE.exit, label %63
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %29 = load i8, ptr %28, align 1, !tbaa !23
   %.not.i = icmp eq i8 %29, 0
-  br i1 %.not.i, label %.thread144.thread.i, label %_ZL18getUnicodeEncodingN4llvm9StringRefE.exit
+  br i1 %.not.i, label %63, label %_ZL18getUnicodeEncodingN4llvm9StringRefE.exit
 
 30:                                               ; preds = %14
   %.not151.i = icmp eq i64 %10, 1
-  br i1 %.not151.i, label %.thread144.thread.i, label %.thread144.i
+  br i1 %.not151.i, label %63, label %.thread144.i
 
 .thread144.i:                                     ; preds = %30
   %.phi.trans.insert153.i = getelementptr inbounds nuw i8, ptr %5, i64 1
   %.pre154.i = load i8, ptr %.phi.trans.insert153.i, align 1, !tbaa !23
   %31 = icmp eq i8 %.pre154.i, 0
-  br i1 %31, label %.thread144.thread.i, label %_ZL18getUnicodeEncodingN4llvm9StringRefE.exit
-
-.thread144.thread.i:                              ; preds = %.thread144.i, %30, %27, %23, %20
-  br label %_ZL18getUnicodeEncodingN4llvm9StringRefE.exit
+  br i1 %31, label %63, label %_ZL18getUnicodeEncodingN4llvm9StringRefE.exit
 
 32:                                               ; preds = %12
   %33 = icmp ugt i64 %10, 3
@@ -5645,7 +5642,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner15scanStreamStartEv(pt
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %36 = load i8, ptr %35, align 1, !tbaa !23
   %37 = icmp eq i8 %36, -2
-  br i1 %37, label %38, label %.thread146.thread163.i
+  br i1 %37, label %38, label %63
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -5661,7 +5658,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner15scanStreamStartEv(pt
 
 46:                                               ; preds = %32
   %.not150.i = icmp eq i64 %10, 1
-  br i1 %.not150.i, label %.thread146.thread163.i, label %.thread146.i
+  br i1 %.not150.i, label %63, label %.thread146.i
 
 .thread146.thread.i:                              ; preds = %42, %38
   br label %_ZL18getUnicodeEncodingN4llvm9StringRefE.exit
@@ -5670,71 +5667,65 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner15scanStreamStartEv(pt
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %5, i64 1
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !23
   %47 = icmp eq i8 %.pre.i, -2
-  br i1 %47, label %_ZL18getUnicodeEncodingN4llvm9StringRefE.exit, label %.thread146.thread163.i
-
-.thread146.thread163.i:                           ; preds = %.thread146.i, %46, %34
-  br label %_ZL18getUnicodeEncodingN4llvm9StringRefE.exit
+  br i1 %47, label %_ZL18getUnicodeEncodingN4llvm9StringRefE.exit, label %63
 
 48:                                               ; preds = %12
   %.not149.i = icmp eq i64 %10, 1
-  br i1 %.not149.i, label %53, label %49
+  br i1 %.not149.i, label %63, label %49
 
 49:                                               ; preds = %48
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %51 = load i8, ptr %50, align 1, !tbaa !23
   %52 = icmp eq i8 %51, -1
-  br i1 %52, label %_ZL18getUnicodeEncodingN4llvm9StringRefE.exit, label %53
+  br i1 %52, label %_ZL18getUnicodeEncodingN4llvm9StringRefE.exit, label %63
 
-53:                                               ; preds = %49, %48
+53:                                               ; preds = %12
+  %54 = icmp ugt i64 %10, 2
+  br i1 %54, label %55, label %63
+
+55:                                               ; preds = %53
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %57 = load i8, ptr %56, align 1, !tbaa !23
+  %58 = icmp eq i8 %57, -69
+  br i1 %58, label %59, label %63
+
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %61 = load i8, ptr %60, align 1, !tbaa !23
+  %62 = icmp eq i8 %61, -65
+  br i1 %62, label %_ZL18getUnicodeEncodingN4llvm9StringRefE.exit, label %63
+
+63:                                               ; preds = %59, %55, %53, %49, %48, %.thread146.i, %46, %34, %.thread144.i, %30, %27, %23, %20
   br label %_ZL18getUnicodeEncodingN4llvm9StringRefE.exit
 
-54:                                               ; preds = %12
-  %55 = icmp ugt i64 %10, 2
-  br i1 %55, label %56, label %64
-
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %58 = load i8, ptr %57, align 1, !tbaa !23
-  %59 = icmp eq i8 %58, -69
-  br i1 %59, label %60, label %64
-
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %62 = load i8, ptr %61, align 1, !tbaa !23
-  %63 = icmp eq i8 %62, -65
-  br i1 %63, label %_ZL18getUnicodeEncodingN4llvm9StringRefE.exit, label %64
-
-64:                                               ; preds = %60, %56, %54
-  br label %_ZL18getUnicodeEncodingN4llvm9StringRefE.exit
-
-_ZL18getUnicodeEncodingN4llvm9StringRefE.exit:    ; preds = %12, %1, %16, %23, %27, %.thread144.i, %.thread144.thread.i, %42, %.thread146.thread.i, %.thread146.i, %.thread146.thread163.i, %49, %53, %60, %64
-  %.sroa.16.0.i = phi i64 [ 0, %64 ], [ 3, %60 ], [ 2, %.thread146.thread.i ], [ 0, %16 ], [ 0, %1 ], [ 0, %.thread144.thread.i ], [ 0, %27 ], [ 4, %23 ], [ 0, %.thread144.i ], [ 4, %42 ], [ 0, %.thread146.thread163.i ], [ 2, %.thread146.i ], [ 0, %53 ], [ 2, %49 ], [ 0, %12 ]
+_ZL18getUnicodeEncodingN4llvm9StringRefE.exit:    ; preds = %12, %1, %16, %23, %27, %.thread144.i, %42, %.thread146.thread.i, %.thread146.i, %49, %59, %63
+  %.sroa.16.0.i = phi i64 [ 0, %63 ], [ 3, %59 ], [ 2, %.thread146.i ], [ 2, %49 ], [ 0, %1 ], [ 0, %16 ], [ 0, %27 ], [ 4, %23 ], [ 0, %.thread144.i ], [ 4, %42 ], [ 2, %.thread146.thread.i ], [ 0, %12 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %65 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %67 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr %67, ptr %66, align 8, !tbaa !52
-  %68 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i64 0, ptr %68, align 8, !tbaa !53
-  store i8 0, ptr %67, align 8, !tbaa !23
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store ptr %66, ptr %65, align 8, !tbaa !52
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i64 0, ptr %67, align 8, !tbaa !53
+  store i8 0, ptr %66, align 8, !tbaa !23
   store i32 1, ptr %2, align 8, !tbaa !3
-  store ptr %5, ptr %65, align 8, !tbaa !20
+  store ptr %5, ptr %64, align 8, !tbaa !20
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %.sroa.16.0.i, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !21
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %71 = call ptr @_ZN4llvm13AllocatorListINS_4yaml5TokenENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE6insertENS6_12IteratorImplIS2_NS_14ilist_iteratorINS_12ilist_detail12node_optionsINS6_4NodeELb0ELb0EvLb0EvEELb0ELb0EEEEERKS2_(ptr noundef nonnull align 8 dereferenceable(112) %69, ptr nonnull %70, ptr noundef nonnull align 8 dereferenceable(56) %2)
-  %72 = load ptr, ptr %4, align 8, !tbaa !119
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 %.sroa.16.0.i
-  store ptr %73, ptr %4, align 8, !tbaa !119
-  %74 = load ptr, ptr %66, align 8, !tbaa !22
-  %75 = icmp eq ptr %74, %67
-  br i1 %75, label %_ZN4llvm4yaml5TokenD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %70 = call ptr @_ZN4llvm13AllocatorListINS_4yaml5TokenENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE6insertENS6_12IteratorImplIS2_NS_14ilist_iteratorINS_12ilist_detail12node_optionsINS6_4NodeELb0ELb0EvLb0EvEELb0ELb0EEEEERKS2_(ptr noundef nonnull align 8 dereferenceable(112) %68, ptr nonnull %69, ptr noundef nonnull align 8 dereferenceable(56) %2)
+  %71 = load ptr, ptr %4, align 8, !tbaa !119
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %.sroa.16.0.i
+  store ptr %72, ptr %4, align 8, !tbaa !119
+  %73 = load ptr, ptr %65, align 8, !tbaa !22
+  %74 = icmp eq ptr %73, %66
+  br i1 %74, label %_ZN4llvm4yaml5TokenD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZL18getUnicodeEncodingN4llvm9StringRefE.exit
-  %76 = load i64, ptr %67, align 8, !tbaa !23
-  %77 = add i64 %76, 1
-  call void @_ZdlPvm(ptr noundef %74, i64 noundef %77) #30
+  %75 = load i64, ptr %66, align 8, !tbaa !23
+  %76 = add i64 %75, 1
+  call void @_ZdlPvm(ptr noundef %73, i64 noundef %76) #30
   br label %_ZN4llvm4yaml5TokenD2Ev.exit
 
 _ZN4llvm4yaml5TokenD2Ev.exit:                     ; preds = %_ZL18getUnicodeEncodingN4llvm9StringRefE.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i

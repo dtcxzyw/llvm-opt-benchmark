@@ -3059,7 +3059,7 @@ switch.lookup:                                    ; preds = %173
   br label %_get_tres_state_reason.exit
 
 _get_tres_state_reason.exit:                      ; preds = %switch.lookup, %193, %186, %178
-  %.0.i = phi i32 [ %spec.select306, %193 ], [ 100, %178 ], [ %switch.load, %switch.lookup ], [ 106, %186 ]
+  %.0.i = phi i32 [ 100, %178 ], [ %spec.select306, %193 ], [ %switch.load, %switch.lookup ], [ 106, %186 ]
   store i32 %.0.i, ptr %23, align 8
   %201 = call i32 @get_log_level() #15
   %202 = icmp sgt i32 %201, 5
@@ -3133,7 +3133,7 @@ switch.lookup606:                                 ; preds = %221
   br label %_get_tres_state_reason.exit206
 
 _get_tres_state_reason.exit206:                   ; preds = %switch.lookup606, %241, %234, %226
-  %.0.i202 = phi i32 [ %spec.select307, %241 ], [ 100, %226 ], [ %switch.load608, %switch.lookup606 ], [ 106, %234 ]
+  %.0.i202 = phi i32 [ 100, %226 ], [ %spec.select307, %241 ], [ %switch.load608, %switch.lookup606 ], [ 106, %234 ]
   store i32 %.0.i202, ptr %23, align 8
   %249 = call i32 @get_log_level() #15
   %250 = icmp sgt i32 %249, 5
@@ -3207,7 +3207,7 @@ switch.lookup609:                                 ; preds = %269
   br label %_get_tres_state_reason.exit211
 
 _get_tres_state_reason.exit211:                   ; preds = %switch.lookup609, %289, %282, %274
-  %.0.i207 = phi i32 [ %spec.select308, %289 ], [ 100, %274 ], [ %switch.load611, %switch.lookup609 ], [ 106, %282 ]
+  %.0.i207 = phi i32 [ 100, %274 ], [ %spec.select308, %289 ], [ %switch.load611, %switch.lookup609 ], [ 106, %282 ]
   store i32 %.0.i207, ptr %23, align 8
   %297 = call i32 @get_log_level() #15
   %298 = icmp sgt i32 %297, 5
@@ -4272,7 +4272,7 @@ switch.lookup450:                                 ; preds = %252
   br label %_get_tres_state_reason.exit265
 
 _get_tres_state_reason.exit265:                   ; preds = %switch.lookup450, %270, %263, %255
-  %.0.i261 = phi i32 [ 152, %263 ], [ %switch.load452, %switch.lookup450 ], [ 144, %255 ], [ %spec.select325, %270 ]
+  %.0.i261 = phi i32 [ 152, %263 ], [ %spec.select325, %270 ], [ %switch.load452, %switch.lookup450 ], [ 144, %255 ]
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store i32 %.0.i261, ptr %277, align 8
   %278 = call i32 @get_log_level() #15
@@ -4341,7 +4341,7 @@ switch.lookup453:                                 ; preds = %292
   br label %_get_tres_state_reason.exit270
 
 _get_tres_state_reason.exit270:                   ; preds = %switch.lookup453, %310, %303, %295
-  %.0.i266 = phi i32 [ 152, %303 ], [ %switch.load455, %switch.lookup453 ], [ 144, %295 ], [ %spec.select326, %310 ]
+  %.0.i266 = phi i32 [ 152, %303 ], [ %spec.select326, %310 ], [ %switch.load455, %switch.lookup453 ], [ 144, %295 ]
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store i32 %.0.i266, ptr %317, align 8
   %318 = call i32 @get_log_level() #15
@@ -5099,18 +5099,18 @@ _validate_tres_limits_for_qos.exit283:            ; preds = %551
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 40, 219) i32 @_get_tres_state_reason(i32 noundef %0, i32 noundef range(i32 78, 219) %1) unnamed_addr #0 {
-  switch i32 %0, label %91 [
+  switch i32 %0, label %86 [
     i32 0, label %3
-    i32 1, label %21
-    i32 2, label %39
-    i32 3, label %57
-    i32 4, label %73
+    i32 1, label %20
+    i32 2, label %37
+    i32 3, label %54
+    i32 4, label %69
   ]
 
 3:                                                ; preds = %2
   %trunc25 = trunc nuw i32 %1 to i8
-  switch i8 %trunc25, label %20 [
-    i8 78, label %165
+  switch i8 %trunc25, label %157 [
+    i8 78, label %158
     i8 79, label %4
     i8 80, label %5
     i8 81, label %6
@@ -5130,584 +5130,563 @@ define internal fastcc range(i32 40, 219) i32 @_get_tres_state_reason(i32 nounde
   ]
 
 4:                                                ; preds = %3
-  br label %165
+  br label %158
 
 5:                                                ; preds = %3
-  br label %165
+  br label %158
 
 6:                                                ; preds = %3
-  br label %165
+  br label %158
 
 7:                                                ; preds = %3
-  br label %165
+  br label %158
 
 8:                                                ; preds = %3
-  br label %165
+  br label %158
 
 9:                                                ; preds = %3
-  br label %165
+  br label %158
 
 10:                                               ; preds = %3
-  br label %165
+  br label %158
 
 11:                                               ; preds = %3
-  br label %165
+  br label %158
 
 12:                                               ; preds = %3
-  br label %165
+  br label %158
 
 13:                                               ; preds = %3
-  br label %165
+  br label %158
 
 14:                                               ; preds = %3
-  br label %165
+  br label %158
 
 15:                                               ; preds = %3
-  br label %165
+  br label %158
 
 16:                                               ; preds = %3
-  br label %165
+  br label %158
 
 17:                                               ; preds = %3
-  br label %165
+  br label %158
 
 18:                                               ; preds = %3
-  br label %165
+  br label %158
 
 19:                                               ; preds = %3
-  br label %165
+  br label %158
 
-20:                                               ; preds = %3
-  br label %165
-
-21:                                               ; preds = %2
+20:                                               ; preds = %2
   %trunc24 = trunc nuw i32 %1 to i8
-  switch i8 %trunc24, label %38 [
-    i8 78, label %165
-    i8 79, label %22
-    i8 80, label %23
-    i8 81, label %24
-    i8 83, label %25
-    i8 82, label %26
-    i8 116, label %27
-    i8 117, label %28
-    i8 118, label %29
-    i8 119, label %30
-    i8 120, label %31
-    i8 -81, label %32
-    i8 121, label %33
-    i8 122, label %34
-    i8 -47, label %35
-    i8 -38, label %36
-    i8 123, label %37
+  switch i8 %trunc24, label %157 [
+    i8 78, label %158
+    i8 79, label %21
+    i8 80, label %22
+    i8 81, label %23
+    i8 83, label %24
+    i8 82, label %25
+    i8 116, label %26
+    i8 117, label %27
+    i8 118, label %28
+    i8 119, label %29
+    i8 120, label %30
+    i8 -81, label %31
+    i8 121, label %32
+    i8 122, label %33
+    i8 -47, label %34
+    i8 -38, label %35
+    i8 123, label %36
   ]
 
-22:                                               ; preds = %21
-  br label %165
+21:                                               ; preds = %20
+  br label %158
 
-23:                                               ; preds = %21
-  br label %165
+22:                                               ; preds = %20
+  br label %158
 
-24:                                               ; preds = %21
-  br label %165
+23:                                               ; preds = %20
+  br label %158
 
-25:                                               ; preds = %21
-  br label %165
+24:                                               ; preds = %20
+  br label %158
 
-26:                                               ; preds = %21
-  br label %165
+25:                                               ; preds = %20
+  br label %158
 
-27:                                               ; preds = %21
-  br label %165
+26:                                               ; preds = %20
+  br label %158
 
-28:                                               ; preds = %21
-  br label %165
+27:                                               ; preds = %20
+  br label %158
 
-29:                                               ; preds = %21
-  br label %165
+28:                                               ; preds = %20
+  br label %158
 
-30:                                               ; preds = %21
-  br label %165
+29:                                               ; preds = %20
+  br label %158
 
-31:                                               ; preds = %21
-  br label %165
+30:                                               ; preds = %20
+  br label %158
 
-32:                                               ; preds = %21
-  br label %165
+31:                                               ; preds = %20
+  br label %158
 
-33:                                               ; preds = %21
-  br label %165
+32:                                               ; preds = %20
+  br label %158
 
-34:                                               ; preds = %21
-  br label %165
+33:                                               ; preds = %20
+  br label %158
 
-35:                                               ; preds = %21
-  br label %165
+34:                                               ; preds = %20
+  br label %158
 
-36:                                               ; preds = %21
-  br label %165
+35:                                               ; preds = %20
+  br label %158
 
-37:                                               ; preds = %21
-  br label %165
+36:                                               ; preds = %20
+  br label %158
 
-38:                                               ; preds = %21
-  br label %165
-
-39:                                               ; preds = %2
+37:                                               ; preds = %2
   %trunc23 = trunc nuw i32 %1 to i8
-  switch i8 %trunc23, label %56 [
-    i8 78, label %165
-    i8 79, label %40
-    i8 80, label %41
-    i8 81, label %42
-    i8 83, label %43
-    i8 82, label %44
-    i8 116, label %45
-    i8 117, label %46
-    i8 118, label %47
-    i8 119, label %48
-    i8 120, label %49
-    i8 -81, label %50
-    i8 121, label %51
-    i8 122, label %52
-    i8 -47, label %53
-    i8 -38, label %54
-    i8 123, label %55
+  switch i8 %trunc23, label %157 [
+    i8 78, label %158
+    i8 79, label %38
+    i8 80, label %39
+    i8 81, label %40
+    i8 83, label %41
+    i8 82, label %42
+    i8 116, label %43
+    i8 117, label %44
+    i8 118, label %45
+    i8 119, label %46
+    i8 120, label %47
+    i8 -81, label %48
+    i8 121, label %49
+    i8 122, label %50
+    i8 -47, label %51
+    i8 -38, label %52
+    i8 123, label %53
   ]
 
-40:                                               ; preds = %39
-  br label %165
+38:                                               ; preds = %37
+  br label %158
 
-41:                                               ; preds = %39
-  br label %165
+39:                                               ; preds = %37
+  br label %158
 
-42:                                               ; preds = %39
-  br label %165
+40:                                               ; preds = %37
+  br label %158
 
-43:                                               ; preds = %39
-  br label %165
+41:                                               ; preds = %37
+  br label %158
 
-44:                                               ; preds = %39
-  br label %165
+42:                                               ; preds = %37
+  br label %158
 
-45:                                               ; preds = %39
-  br label %165
+43:                                               ; preds = %37
+  br label %158
 
-46:                                               ; preds = %39
-  br label %165
+44:                                               ; preds = %37
+  br label %158
 
-47:                                               ; preds = %39
-  br label %165
+45:                                               ; preds = %37
+  br label %158
 
-48:                                               ; preds = %39
-  br label %165
+46:                                               ; preds = %37
+  br label %158
 
-49:                                               ; preds = %39
-  br label %165
+47:                                               ; preds = %37
+  br label %158
 
-50:                                               ; preds = %39
-  br label %165
+48:                                               ; preds = %37
+  br label %158
 
-51:                                               ; preds = %39
-  br label %165
+49:                                               ; preds = %37
+  br label %158
 
-52:                                               ; preds = %39
-  br label %165
+50:                                               ; preds = %37
+  br label %158
 
-53:                                               ; preds = %39
-  br label %165
+51:                                               ; preds = %37
+  br label %158
 
-54:                                               ; preds = %39
-  br label %165
+52:                                               ; preds = %37
+  br label %158
 
-55:                                               ; preds = %39
-  br label %165
+53:                                               ; preds = %37
+  br label %158
 
-56:                                               ; preds = %39
-  br label %165
-
-57:                                               ; preds = %2
+54:                                               ; preds = %2
   %trunc22 = trunc nuw i32 %1 to i8
-  switch i8 %trunc22, label %72 [
-    i8 78, label %165
-    i8 79, label %58
-    i8 80, label %59
-    i8 81, label %60
-    i8 83, label %61
-    i8 116, label %62
-    i8 117, label %63
-    i8 118, label %64
-    i8 119, label %65
-    i8 -81, label %66
-    i8 121, label %67
-    i8 122, label %68
-    i8 -47, label %69
-    i8 -38, label %70
-    i8 123, label %71
+  switch i8 %trunc22, label %157 [
+    i8 78, label %158
+    i8 79, label %55
+    i8 80, label %56
+    i8 81, label %57
+    i8 83, label %58
+    i8 116, label %59
+    i8 117, label %60
+    i8 118, label %61
+    i8 119, label %62
+    i8 -81, label %63
+    i8 121, label %64
+    i8 122, label %65
+    i8 -47, label %66
+    i8 -38, label %67
+    i8 123, label %68
   ]
 
-58:                                               ; preds = %57
-  br label %165
+55:                                               ; preds = %54
+  br label %158
 
-59:                                               ; preds = %57
-  br label %165
+56:                                               ; preds = %54
+  br label %158
 
-60:                                               ; preds = %57
-  br label %165
+57:                                               ; preds = %54
+  br label %158
 
-61:                                               ; preds = %57
-  br label %165
+58:                                               ; preds = %54
+  br label %158
 
-62:                                               ; preds = %57
-  br label %165
+59:                                               ; preds = %54
+  br label %158
 
-63:                                               ; preds = %57
-  br label %165
+60:                                               ; preds = %54
+  br label %158
 
-64:                                               ; preds = %57
-  br label %165
+61:                                               ; preds = %54
+  br label %158
 
-65:                                               ; preds = %57
-  br label %165
+62:                                               ; preds = %54
+  br label %158
 
-66:                                               ; preds = %57
-  br label %165
+63:                                               ; preds = %54
+  br label %158
 
-67:                                               ; preds = %57
-  br label %165
+64:                                               ; preds = %54
+  br label %158
 
-68:                                               ; preds = %57
-  br label %165
+65:                                               ; preds = %54
+  br label %158
 
-69:                                               ; preds = %57
-  br label %165
+66:                                               ; preds = %54
+  br label %158
 
-70:                                               ; preds = %57
-  br label %165
+67:                                               ; preds = %54
+  br label %158
 
-71:                                               ; preds = %57
-  br label %165
+68:                                               ; preds = %54
+  br label %158
 
-72:                                               ; preds = %57
-  br label %165
-
-73:                                               ; preds = %2
+69:                                               ; preds = %2
   %trunc = trunc nuw i32 %1 to i8
-  switch i8 %trunc, label %90 [
-    i8 78, label %165
-    i8 79, label %74
-    i8 80, label %75
-    i8 81, label %76
-    i8 83, label %77
-    i8 82, label %78
-    i8 116, label %79
-    i8 117, label %80
-    i8 118, label %81
-    i8 119, label %82
-    i8 120, label %83
-    i8 -81, label %84
-    i8 121, label %85
-    i8 122, label %86
-    i8 -47, label %87
-    i8 -38, label %88
-    i8 123, label %89
+  switch i8 %trunc, label %157 [
+    i8 78, label %158
+    i8 79, label %70
+    i8 80, label %71
+    i8 81, label %72
+    i8 83, label %73
+    i8 82, label %74
+    i8 116, label %75
+    i8 117, label %76
+    i8 118, label %77
+    i8 119, label %78
+    i8 120, label %79
+    i8 -81, label %80
+    i8 121, label %81
+    i8 122, label %82
+    i8 -47, label %83
+    i8 -38, label %84
+    i8 123, label %85
   ]
 
-74:                                               ; preds = %73
-  br label %165
+70:                                               ; preds = %69
+  br label %158
 
-75:                                               ; preds = %73
-  br label %165
+71:                                               ; preds = %69
+  br label %158
 
-76:                                               ; preds = %73
-  br label %165
+72:                                               ; preds = %69
+  br label %158
 
-77:                                               ; preds = %73
-  br label %165
+73:                                               ; preds = %69
+  br label %158
 
-78:                                               ; preds = %73
-  br label %165
+74:                                               ; preds = %69
+  br label %158
 
-79:                                               ; preds = %73
-  br label %165
+75:                                               ; preds = %69
+  br label %158
 
-80:                                               ; preds = %73
-  br label %165
+76:                                               ; preds = %69
+  br label %158
 
-81:                                               ; preds = %73
-  br label %165
+77:                                               ; preds = %69
+  br label %158
 
-82:                                               ; preds = %73
-  br label %165
+78:                                               ; preds = %69
+  br label %158
 
-83:                                               ; preds = %73
-  br label %165
+79:                                               ; preds = %69
+  br label %158
 
-84:                                               ; preds = %73
-  br label %165
+80:                                               ; preds = %69
+  br label %158
 
-85:                                               ; preds = %73
-  br label %165
+81:                                               ; preds = %69
+  br label %158
 
-86:                                               ; preds = %73
-  br label %165
+82:                                               ; preds = %69
+  br label %158
 
-87:                                               ; preds = %73
-  br label %165
+83:                                               ; preds = %69
+  br label %158
 
-88:                                               ; preds = %73
-  br label %165
+84:                                               ; preds = %69
+  br label %158
 
-89:                                               ; preds = %73
-  br label %165
+85:                                               ; preds = %69
+  br label %158
 
-90:                                               ; preds = %73
-  br label %165
+86:                                               ; preds = %2
+  %87 = load ptr, ptr @assoc_mgr_tres_array, align 8
+  %88 = sext i32 %0 to i64
+  %89 = getelementptr inbounds [8 x i8], ptr %87, i64 %88
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 40
+  %92 = load ptr, ptr %91, align 8
+  %93 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.104, ptr noundef %92) #15
+  %.not = icmp eq i32 %93, 0
+  br i1 %.not, label %94, label %111
 
-91:                                               ; preds = %2
-  %92 = load ptr, ptr @assoc_mgr_tres_array, align 8
-  %93 = sext i32 %0 to i64
-  %94 = getelementptr inbounds [8 x i8], ptr %92, i64 %93
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
-  %97 = load ptr, ptr %96, align 8
-  %98 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.104, ptr noundef %97) #15
-  %.not = icmp eq i32 %98, 0
-  br i1 %.not, label %99, label %117
-
-99:                                               ; preds = %91
+94:                                               ; preds = %86
   %trunc26 = trunc nuw i32 %1 to i8
-  switch i8 %trunc26, label %116 [
-    i8 78, label %165
-    i8 79, label %100
-    i8 80, label %101
-    i8 81, label %102
-    i8 83, label %103
-    i8 82, label %104
-    i8 116, label %105
-    i8 117, label %106
-    i8 118, label %107
-    i8 119, label %108
-    i8 120, label %109
-    i8 -81, label %110
-    i8 121, label %111
-    i8 122, label %112
-    i8 -47, label %113
-    i8 -38, label %114
-    i8 123, label %115
+  switch i8 %trunc26, label %157 [
+    i8 78, label %158
+    i8 79, label %95
+    i8 80, label %96
+    i8 81, label %97
+    i8 83, label %98
+    i8 82, label %99
+    i8 116, label %100
+    i8 117, label %101
+    i8 118, label %102
+    i8 119, label %103
+    i8 120, label %104
+    i8 -81, label %105
+    i8 121, label %106
+    i8 122, label %107
+    i8 -47, label %108
+    i8 -38, label %109
+    i8 123, label %110
   ]
 
-100:                                              ; preds = %99
-  br label %165
+95:                                               ; preds = %94
+  br label %158
 
-101:                                              ; preds = %99
-  br label %165
+96:                                               ; preds = %94
+  br label %158
 
-102:                                              ; preds = %99
-  br label %165
+97:                                               ; preds = %94
+  br label %158
 
-103:                                              ; preds = %99
-  br label %165
+98:                                               ; preds = %94
+  br label %158
 
-104:                                              ; preds = %99
-  br label %165
+99:                                               ; preds = %94
+  br label %158
 
-105:                                              ; preds = %99
-  br label %165
+100:                                              ; preds = %94
+  br label %158
 
-106:                                              ; preds = %99
-  br label %165
+101:                                              ; preds = %94
+  br label %158
 
-107:                                              ; preds = %99
-  br label %165
+102:                                              ; preds = %94
+  br label %158
 
-108:                                              ; preds = %99
-  br label %165
+103:                                              ; preds = %94
+  br label %158
 
-109:                                              ; preds = %99
-  br label %165
+104:                                              ; preds = %94
+  br label %158
 
-110:                                              ; preds = %99
-  br label %165
+105:                                              ; preds = %94
+  br label %158
 
-111:                                              ; preds = %99
-  br label %165
+106:                                              ; preds = %94
+  br label %158
 
-112:                                              ; preds = %99
-  br label %165
+107:                                              ; preds = %94
+  br label %158
 
-113:                                              ; preds = %99
-  br label %165
+108:                                              ; preds = %94
+  br label %158
 
-114:                                              ; preds = %99
-  br label %165
+109:                                              ; preds = %94
+  br label %158
 
-115:                                              ; preds = %99
-  br label %165
+110:                                              ; preds = %94
+  br label %158
 
-116:                                              ; preds = %99
-  br label %165
+111:                                              ; preds = %86
+  %112 = load ptr, ptr @assoc_mgr_tres_array, align 8
+  %113 = getelementptr inbounds [8 x i8], ptr %112, i64 %88
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 40
+  %116 = load ptr, ptr %115, align 8
+  %117 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.105, ptr noundef %116) #15
+  %.not27 = icmp eq i32 %117, 0
+  br i1 %.not27, label %118, label %133
 
-117:                                              ; preds = %91
-  %118 = load ptr, ptr @assoc_mgr_tres_array, align 8
-  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %93
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  %122 = load ptr, ptr %121, align 8
-  %123 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.105, ptr noundef %122) #15
-  %.not27 = icmp eq i32 %123, 0
-  br i1 %.not27, label %124, label %140
-
-124:                                              ; preds = %117
+118:                                              ; preds = %111
   %trunc28 = trunc nuw i32 %1 to i8
-  switch i8 %trunc28, label %139 [
-    i8 78, label %165
-    i8 79, label %125
-    i8 80, label %126
-    i8 81, label %127
-    i8 83, label %128
-    i8 116, label %129
-    i8 117, label %130
-    i8 118, label %131
-    i8 119, label %132
-    i8 -81, label %133
-    i8 121, label %134
-    i8 122, label %135
-    i8 -47, label %136
-    i8 -38, label %137
-    i8 123, label %138
+  switch i8 %trunc28, label %157 [
+    i8 78, label %158
+    i8 79, label %119
+    i8 80, label %120
+    i8 81, label %121
+    i8 83, label %122
+    i8 116, label %123
+    i8 117, label %124
+    i8 118, label %125
+    i8 119, label %126
+    i8 -81, label %127
+    i8 121, label %128
+    i8 122, label %129
+    i8 -47, label %130
+    i8 -38, label %131
+    i8 123, label %132
   ]
 
-125:                                              ; preds = %124
-  br label %165
+119:                                              ; preds = %118
+  br label %158
 
-126:                                              ; preds = %124
-  br label %165
+120:                                              ; preds = %118
+  br label %158
 
-127:                                              ; preds = %124
-  br label %165
+121:                                              ; preds = %118
+  br label %158
 
-128:                                              ; preds = %124
-  br label %165
+122:                                              ; preds = %118
+  br label %158
 
-129:                                              ; preds = %124
-  br label %165
+123:                                              ; preds = %118
+  br label %158
 
-130:                                              ; preds = %124
-  br label %165
+124:                                              ; preds = %118
+  br label %158
 
-131:                                              ; preds = %124
-  br label %165
+125:                                              ; preds = %118
+  br label %158
 
-132:                                              ; preds = %124
-  br label %165
+126:                                              ; preds = %118
+  br label %158
 
-133:                                              ; preds = %124
-  br label %165
+127:                                              ; preds = %118
+  br label %158
 
-134:                                              ; preds = %124
-  br label %165
+128:                                              ; preds = %118
+  br label %158
 
-135:                                              ; preds = %124
-  br label %165
+129:                                              ; preds = %118
+  br label %158
 
-136:                                              ; preds = %124
-  br label %165
+130:                                              ; preds = %118
+  br label %158
 
-137:                                              ; preds = %124
-  br label %165
+131:                                              ; preds = %118
+  br label %158
 
-138:                                              ; preds = %124
-  br label %165
+132:                                              ; preds = %118
+  br label %158
 
-139:                                              ; preds = %124
-  br label %165
+133:                                              ; preds = %111
+  %134 = load ptr, ptr @assoc_mgr_tres_array, align 8
+  %135 = getelementptr inbounds [8 x i8], ptr %134, i64 %88
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 40
+  %138 = load ptr, ptr %137, align 8
+  %139 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.106, ptr noundef %138) #15
+  %.not29 = icmp eq i32 %139, 0
+  br i1 %.not29, label %140, label %158
 
-140:                                              ; preds = %117
-  %141 = load ptr, ptr @assoc_mgr_tres_array, align 8
-  %142 = getelementptr inbounds [8 x i8], ptr %141, i64 %93
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 40
-  %145 = load ptr, ptr %144, align 8
-  %146 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.106, ptr noundef %145) #15
-  %.not29 = icmp eq i32 %146, 0
-  br i1 %.not29, label %147, label %165
+140:                                              ; preds = %133
+  %trunc30 = trunc nuw i32 %1 to i8
+  switch i8 %trunc30, label %157 [
+    i8 78, label %158
+    i8 79, label %141
+    i8 80, label %142
+    i8 81, label %143
+    i8 83, label %144
+    i8 82, label %145
+    i8 116, label %146
+    i8 117, label %147
+    i8 118, label %148
+    i8 119, label %149
+    i8 120, label %150
+    i8 -81, label %151
+    i8 121, label %152
+    i8 122, label %153
+    i8 -47, label %154
+    i8 -38, label %155
+    i8 123, label %156
+  ]
+
+141:                                              ; preds = %140
+  br label %158
+
+142:                                              ; preds = %140
+  br label %158
+
+143:                                              ; preds = %140
+  br label %158
+
+144:                                              ; preds = %140
+  br label %158
+
+145:                                              ; preds = %140
+  br label %158
+
+146:                                              ; preds = %140
+  br label %158
 
 147:                                              ; preds = %140
-  %trunc30 = trunc nuw i32 %1 to i8
-  switch i8 %trunc30, label %164 [
-    i8 78, label %165
-    i8 79, label %148
-    i8 80, label %149
-    i8 81, label %150
-    i8 83, label %151
-    i8 82, label %152
-    i8 116, label %153
-    i8 117, label %154
-    i8 118, label %155
-    i8 119, label %156
-    i8 120, label %157
-    i8 -81, label %158
-    i8 121, label %159
-    i8 122, label %160
-    i8 -47, label %161
-    i8 -38, label %162
-    i8 123, label %163
-  ]
+  br label %158
 
-148:                                              ; preds = %147
-  br label %165
+148:                                              ; preds = %140
+  br label %158
 
-149:                                              ; preds = %147
-  br label %165
+149:                                              ; preds = %140
+  br label %158
 
-150:                                              ; preds = %147
-  br label %165
+150:                                              ; preds = %140
+  br label %158
 
-151:                                              ; preds = %147
-  br label %165
+151:                                              ; preds = %140
+  br label %158
 
-152:                                              ; preds = %147
-  br label %165
+152:                                              ; preds = %140
+  br label %158
 
-153:                                              ; preds = %147
-  br label %165
+153:                                              ; preds = %140
+  br label %158
 
-154:                                              ; preds = %147
-  br label %165
+154:                                              ; preds = %140
+  br label %158
 
-155:                                              ; preds = %147
-  br label %165
+155:                                              ; preds = %140
+  br label %158
 
-156:                                              ; preds = %147
-  br label %165
+156:                                              ; preds = %140
+  br label %158
 
-157:                                              ; preds = %147
-  br label %165
+157:                                              ; preds = %3, %20, %37, %54, %69, %94, %118, %140
+  br label %158
 
-158:                                              ; preds = %147
-  br label %165
-
-159:                                              ; preds = %147
-  br label %165
-
-160:                                              ; preds = %147
-  br label %165
-
-161:                                              ; preds = %147
-  br label %165
-
-162:                                              ; preds = %147
-  br label %165
-
-163:                                              ; preds = %147
-  br label %165
-
-164:                                              ; preds = %147
-  br label %165
-
-165:                                              ; preds = %140, %147, %124, %99, %73, %57, %39, %21, %3, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.0 = phi i32 [ 110, %147 ], [ %1, %164 ], [ 105, %124 ], [ 111, %148 ], [ 112, %149 ], [ 113, %150 ], [ 115, %151 ], [ 114, %152 ], [ 159, %153 ], [ 160, %154 ], [ 161, %155 ], [ 162, %156 ], [ 163, %157 ], [ 168, %158 ], [ 164, %159 ], [ 165, %160 ], [ 201, %161 ], [ 210, %162 ], [ 166, %163 ], [ %1, %139 ], [ 99, %99 ], [ 106, %125 ], [ 107, %126 ], [ 108, %127 ], [ 109, %128 ], [ 152, %129 ], [ 153, %130 ], [ 154, %131 ], [ 155, %132 ], [ 173, %133 ], [ 156, %134 ], [ 157, %135 ], [ 207, %136 ], [ 216, %137 ], [ 158, %138 ], [ %1, %116 ], [ 183, %73 ], [ 100, %100 ], [ 101, %101 ], [ 102, %102 ], [ 104, %103 ], [ 103, %104 ], [ 144, %105 ], [ 145, %106 ], [ 146, %107 ], [ 147, %108 ], [ 148, %109 ], [ 171, %110 ], [ 149, %111 ], [ 150, %112 ], [ 205, %113 ], [ 214, %114 ], [ 151, %115 ], [ %1, %20 ], [ 197, %89 ], [ 58, %4 ], [ 59, %5 ], [ 66, %6 ], [ 67, %7 ], [ 84, %8 ], [ 40, %9 ], [ 41, %10 ], [ 42, %11 ], [ 48, %12 ], [ 124, %13 ], [ 169, %14 ], [ 52, %15 ], [ 49, %16 ], [ 203, %17 ], [ 212, %18 ], [ 56, %19 ], [ %1, %38 ], [ 57, %3 ], [ 85, %22 ], [ 86, %23 ], [ 87, %24 ], [ 89, %25 ], [ 88, %26 ], [ 44, %27 ], [ 125, %28 ], [ 126, %29 ], [ 128, %30 ], [ 129, %31 ], [ 174, %32 ], [ 130, %33 ], [ 127, %34 ], [ 208, %35 ], [ 217, %36 ], [ 131, %37 ], [ %1, %56 ], [ 61, %21 ], [ 94, %40 ], [ 95, %41 ], [ 96, %42 ], [ 98, %43 ], [ 97, %44 ], [ 132, %45 ], [ 133, %46 ], [ 134, %47 ], [ 135, %48 ], [ 136, %49 ], [ 170, %50 ], [ 137, %51 ], [ 138, %52 ], [ 204, %53 ], [ 213, %54 ], [ 139, %55 ], [ %1, %72 ], [ 93, %39 ], [ 90, %58 ], [ 91, %59 ], [ 68, %60 ], [ 92, %61 ], [ 45, %62 ], [ 140, %63 ], [ 141, %64 ], [ 50, %65 ], [ 172, %66 ], [ 54, %67 ], [ 142, %68 ], [ 206, %69 ], [ 215, %70 ], [ 143, %71 ], [ %1, %90 ], [ 62, %57 ], [ 184, %74 ], [ 185, %75 ], [ 186, %76 ], [ 188, %77 ], [ 187, %78 ], [ 189, %79 ], [ 190, %80 ], [ 191, %81 ], [ 192, %82 ], [ 193, %83 ], [ 196, %84 ], [ 194, %85 ], [ 195, %86 ], [ 202, %87 ], [ 211, %88 ], [ %1, %140 ]
+158:                                              ; preds = %133, %140, %118, %94, %69, %54, %37, %20, %3, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
+  %.0 = phi i32 [ 110, %140 ], [ %1, %157 ], [ 105, %118 ], [ 111, %141 ], [ 112, %142 ], [ 113, %143 ], [ 115, %144 ], [ 114, %145 ], [ 159, %146 ], [ 160, %147 ], [ 161, %148 ], [ 162, %149 ], [ 163, %150 ], [ 168, %151 ], [ 164, %152 ], [ 165, %153 ], [ 201, %154 ], [ 210, %155 ], [ 166, %156 ], [ 193, %79 ], [ 99, %94 ], [ 106, %119 ], [ 107, %120 ], [ 108, %121 ], [ 109, %122 ], [ 152, %123 ], [ 153, %124 ], [ 154, %125 ], [ 155, %126 ], [ 173, %127 ], [ 156, %128 ], [ 157, %129 ], [ 207, %130 ], [ 216, %131 ], [ 158, %132 ], [ 196, %80 ], [ 183, %69 ], [ 100, %95 ], [ 101, %96 ], [ 102, %97 ], [ 104, %98 ], [ 103, %99 ], [ 144, %100 ], [ 145, %101 ], [ 146, %102 ], [ 147, %103 ], [ 148, %104 ], [ 171, %105 ], [ 149, %106 ], [ 150, %107 ], [ 205, %108 ], [ 214, %109 ], [ 151, %110 ], [ %1, %133 ], [ 197, %85 ], [ 58, %4 ], [ 59, %5 ], [ 66, %6 ], [ 67, %7 ], [ 84, %8 ], [ 40, %9 ], [ 41, %10 ], [ 42, %11 ], [ 48, %12 ], [ 124, %13 ], [ 169, %14 ], [ 52, %15 ], [ 49, %16 ], [ 203, %17 ], [ 212, %18 ], [ 56, %19 ], [ 211, %84 ], [ 57, %3 ], [ 85, %21 ], [ 86, %22 ], [ 87, %23 ], [ 89, %24 ], [ 88, %25 ], [ 44, %26 ], [ 125, %27 ], [ 126, %28 ], [ 128, %29 ], [ 129, %30 ], [ 174, %31 ], [ 130, %32 ], [ 127, %33 ], [ 208, %34 ], [ 217, %35 ], [ 131, %36 ], [ 202, %83 ], [ 61, %20 ], [ 94, %38 ], [ 95, %39 ], [ 96, %40 ], [ 98, %41 ], [ 97, %42 ], [ 132, %43 ], [ 133, %44 ], [ 134, %45 ], [ 135, %46 ], [ 136, %47 ], [ 170, %48 ], [ 137, %49 ], [ 138, %50 ], [ 204, %51 ], [ 213, %52 ], [ 139, %53 ], [ 195, %82 ], [ 93, %37 ], [ 90, %55 ], [ 91, %56 ], [ 68, %57 ], [ 92, %58 ], [ 45, %59 ], [ 140, %60 ], [ 141, %61 ], [ 50, %62 ], [ 172, %63 ], [ 54, %64 ], [ 142, %65 ], [ 206, %66 ], [ 215, %67 ], [ 143, %68 ], [ 194, %81 ], [ 62, %54 ], [ 184, %70 ], [ 185, %71 ], [ 186, %72 ], [ 188, %73 ], [ 187, %74 ], [ 189, %75 ], [ 190, %76 ], [ 191, %77 ], [ 192, %78 ]
   ret i32 %.0
 }
 
@@ -10033,7 +10012,7 @@ switch.lookup28:                                  ; preds = %271
   br label %_get_tres_state_reason.exit250
 
 _get_tres_state_reason.exit250:                   ; preds = %switch.lookup28, %288, %281, %273
-  %.0.i246 = phi i32 [ %spec.select353, %288 ], [ 100, %273 ], [ %switch.load30, %switch.lookup28 ], [ 106, %281 ]
+  %.0.i246 = phi i32 [ 100, %273 ], [ %spec.select353, %288 ], [ %switch.load30, %switch.lookup28 ], [ 106, %281 ]
   store i32 %.0.i246, ptr %5, align 4
   br label %295
 
@@ -10468,7 +10447,7 @@ switch.lookup34:                                  ; preds = %488
   br label %_get_tres_state_reason.exit295
 
 _get_tres_state_reason.exit295:                   ; preds = %switch.lookup34, %505, %498, %490
-  %.0.i291 = phi i32 [ 102, %490 ], [ %switch.load36, %switch.lookup34 ], [ 108, %498 ], [ %spec.select355, %505 ]
+  %.0.i291 = phi i32 [ 102, %490 ], [ %spec.select355, %505 ], [ 108, %498 ], [ %switch.load36, %switch.lookup34 ]
   store i32 %.0.i291, ptr %5, align 4
   br label %513
 
@@ -10553,8 +10532,8 @@ switch.lookup37:                                  ; preds = %538
   %switch.load39 = load i32, ptr %switch.gep38, align 4
   br label %_get_tres_state_reason.exit300
 
-_get_tres_state_reason.exit300:                   ; preds = %switch.lookup37, %556, %549, %541
-  %.0.i296 = phi i32 [ %switch.load39, %switch.lookup37 ], [ 103, %541 ], [ 82, %549 ], [ %spec.select356, %556 ]
+_get_tres_state_reason.exit300:                   ; preds = %549, %switch.lookup37, %556, %541
+  %.0.i296 = phi i32 [ 103, %541 ], [ %spec.select356, %556 ], [ %switch.load39, %switch.lookup37 ], [ 82, %549 ]
   store i32 %.0.i296, ptr %5, align 4
   br label %564
 
@@ -10948,7 +10927,7 @@ switch.lookup:                                    ; preds = %55
   br label %_get_tres_state_reason.exit
 
 _get_tres_state_reason.exit:                      ; preds = %switch.lookup, %71, %64, %57
-  %.0.i = phi i32 [ 173, %64 ], [ 171, %57 ], [ %switch.load, %switch.lookup ], [ %spec.select, %71 ]
+  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ %spec.select, %71 ], [ 173, %64 ], [ 171, %57 ]
   store i32 %.0.i, ptr %5, align 4
   br label %78
 
@@ -11052,7 +11031,7 @@ switch.lookup559:                                 ; preds = %118
   br label %_get_tres_state_reason.exit289
 
 _get_tres_state_reason.exit289:                   ; preds = %switch.lookup559, %134, %127, %120
-  %.0.i285 = phi i32 [ %switch.load561, %switch.lookup559 ], [ 149, %120 ], [ %spec.select425, %134 ], [ 156, %127 ]
+  %.0.i285 = phi i32 [ %switch.load561, %switch.lookup559 ], [ 149, %120 ], [ 156, %127 ], [ %spec.select425, %134 ]
   store i32 %.0.i285, ptr %5, align 4
   br label %142
 
@@ -11131,7 +11110,7 @@ switch.lookup562:                                 ; preds = %165
   br label %_get_tres_state_reason.exit294
 
 _get_tres_state_reason.exit294:                   ; preds = %switch.lookup562, %181, %174, %167
-  %.0.i290 = phi i32 [ 152, %174 ], [ %switch.load564, %switch.lookup562 ], [ 144, %167 ], [ %spec.select426, %181 ]
+  %.0.i290 = phi i32 [ 152, %174 ], [ %spec.select426, %181 ], [ %switch.load564, %switch.lookup562 ], [ 144, %167 ]
   store i32 %.0.i290, ptr %5, align 4
   br label %189
 
@@ -12121,7 +12100,7 @@ switch.lookup571:                                 ; preds = %664
   br label %_get_tres_state_reason.exit389
 
 _get_tres_state_reason.exit389:                   ; preds = %switch.lookup571, %681, %674, %666
-  %.0.i385 = phi i32 [ %spec.select429, %681 ], [ %switch.load573, %switch.lookup571 ], [ 147, %666 ], [ 155, %674 ]
+  %.0.i385 = phi i32 [ %switch.load573, %switch.lookup571 ], [ %spec.select429, %681 ], [ 147, %666 ], [ 155, %674 ]
   store i32 %.0.i385, ptr %5, align 4
   br label %688
 

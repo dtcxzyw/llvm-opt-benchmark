@@ -2440,7 +2440,7 @@ _ZL7hasBcmpRKN4llvm6TripleE.exit.i.i:             ; preds = %113, %_ZL16hasSinCo
   br label %_ZL7hasBcmpRKN4llvm6TripleE.exit.thread.i.i
 
 _ZL7hasBcmpRKN4llvm6TripleE.exit.thread.i.i:      ; preds = %_ZL7hasBcmpRKN4llvm6TripleE.exit.i.i, %_ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i, %_ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i
-  %117 = phi i32 [ %.val.i.i, %_ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i ], [ %.val.i.i, %_ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i ], [ %.pre.i.i, %_ZL7hasBcmpRKN4llvm6TripleE.exit.i.i ]
+  %117 = phi i32 [ %.pre.i.i, %_ZL7hasBcmpRKN4llvm6TripleE.exit.i.i ], [ %.val.i.i, %_ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i ], [ %.val.i.i, %_ZL16hasSinCosPiStretRKN4llvm6TripleE.exit.i.i ]
   %118 = and i32 %117, -9
   %spec.select.i556.i.i = icmp eq i32 %118, 1
   br i1 %spec.select.i556.i.i, label %119, label %thread-pre-split.i.i

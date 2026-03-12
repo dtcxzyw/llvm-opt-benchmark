@@ -6499,7 +6499,7 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit86:            ; preds = %_ZNSt12_Vector_base
   %168 = icmp ugt i64 %.045, 2305843009213693951
   br i1 %168, label %.invoke153, label %169
 
-.invoke153:                                       ; preds = %_ZNSt6vectorIiSaIiEE7reserveEm.exit, %140, %167
+.invoke153:                                       ; preds = %140, %_ZNSt6vectorIiSaIiEE7reserveEm.exit, %167
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.90) #25
           to label %.cont154 unwind label %161
 

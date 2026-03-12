@@ -285,7 +285,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ruby_array__create_semaphore = external global i16, section ".probes", align 2
 @.str.179 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @rb_cHash = external local_unnamed_addr global i64, align 8
-@vm_exec_core.insns_address_table = internal constant [220 x ptr] [ptr blockaddress(@vm_exec_core, %69), ptr blockaddress(@vm_exec_core, %71), ptr blockaddress(@vm_exec_core, %90), ptr blockaddress(@vm_exec_core, %118), ptr blockaddress(@vm_exec_core, %170), ptr blockaddress(@vm_exec_core, %200), ptr blockaddress(@vm_exec_core, %249), ptr blockaddress(@vm_exec_core, %308), ptr blockaddress(@vm_exec_core, %325), ptr blockaddress(@vm_exec_core, %416), ptr blockaddress(@vm_exec_core, %431), ptr blockaddress(@vm_exec_core, %465), ptr blockaddress(@vm_exec_core, %512), ptr blockaddress(@vm_exec_core, %521), ptr blockaddress(@vm_exec_core, %536), ptr blockaddress(@vm_exec_core, %566), ptr blockaddress(@vm_exec_core, %574), ptr blockaddress(@vm_exec_core, %585), ptr blockaddress(@vm_exec_core, %590), ptr blockaddress(@vm_exec_core, %597), ptr blockaddress(@vm_exec_core, %604), ptr blockaddress(@vm_exec_core, %636), ptr blockaddress(@vm_exec_core, %644), ptr blockaddress(@vm_exec_core, %652), ptr blockaddress(@vm_exec_core, %665), ptr blockaddress(@vm_exec_core, %677), ptr blockaddress(@vm_exec_core, %695), ptr blockaddress(@vm_exec_core, %704), ptr blockaddress(@vm_exec_core, %717), ptr blockaddress(@vm_exec_core, %743), ptr blockaddress(@vm_exec_core, %765), ptr blockaddress(@vm_exec_core, %790), ptr blockaddress(@vm_exec_core, %889), ptr blockaddress(@vm_exec_core, %915), ptr blockaddress(@vm_exec_core, %932), ptr blockaddress(@vm_exec_core, %946), ptr blockaddress(@vm_exec_core, %964), ptr blockaddress(@vm_exec_core, %979), ptr blockaddress(@vm_exec_core, %1001), ptr blockaddress(@vm_exec_core, %1016), ptr blockaddress(@vm_exec_core, %1021), ptr blockaddress(@vm_exec_core, %1028), ptr blockaddress(@vm_exec_core, %1042), ptr blockaddress(@vm_exec_core, %1050), ptr blockaddress(@vm_exec_core, %1066), ptr blockaddress(@vm_exec_core, %1077), ptr blockaddress(@vm_exec_core, %1088), ptr blockaddress(@vm_exec_core, %1096), ptr blockaddress(@vm_exec_core, %1111), ptr blockaddress(@vm_exec_core, %1207), ptr blockaddress(@vm_exec_core, %1249), ptr blockaddress(@vm_exec_core, %1276), ptr blockaddress(@vm_exec_core, %1304), ptr blockaddress(@vm_exec_core, %1454), ptr blockaddress(@vm_exec_core, %1460), ptr blockaddress(@vm_exec_core, %1470), ptr blockaddress(@vm_exec_core, %1584), ptr blockaddress(@vm_exec_core, %vm_objtostring.exit.thread), ptr blockaddress(@vm_exec_core, %1828), ptr blockaddress(@vm_exec_core, %1945), ptr blockaddress(@vm_exec_core, %1977), ptr blockaddress(@vm_exec_core, %2012), ptr blockaddress(@vm_exec_core, %2030), ptr blockaddress(@vm_exec_core, %2080), ptr blockaddress(@vm_exec_core, %2098), ptr blockaddress(@vm_exec_core, %2117), ptr blockaddress(@vm_exec_core, %2199), ptr blockaddress(@vm_exec_core, %2258), ptr blockaddress(@vm_exec_core, %2333), ptr blockaddress(@vm_exec_core, %2433), ptr blockaddress(@vm_exec_core, %2494), ptr blockaddress(@vm_exec_core, %2503), ptr blockaddress(@vm_exec_core, %2512), ptr blockaddress(@vm_exec_core, %2530), ptr blockaddress(@vm_exec_core, %2548), ptr blockaddress(@vm_exec_core, %2566), ptr blockaddress(@vm_exec_core, %2616), ptr blockaddress(@vm_exec_core, %2679), ptr blockaddress(@vm_exec_core, %2831), ptr blockaddress(@vm_exec_core, %2955), ptr blockaddress(@vm_exec_core, %3083), ptr blockaddress(@vm_exec_core, %3161), ptr blockaddress(@vm_exec_core, %3292), ptr blockaddress(@vm_exec_core, %3345), ptr blockaddress(@vm_exec_core, %3430), ptr blockaddress(@vm_exec_core, %3514), ptr blockaddress(@vm_exec_core, %3599), ptr blockaddress(@vm_exec_core, %3683), ptr blockaddress(@vm_exec_core, %3769), ptr blockaddress(@vm_exec_core, %3817), ptr blockaddress(@vm_exec_core, %3830), ptr blockaddress(@vm_exec_core, %3846), ptr blockaddress(@vm_exec_core, %3917), ptr blockaddress(@vm_exec_core, %3958), ptr blockaddress(@vm_exec_core, %3995), ptr blockaddress(@vm_exec_core, %4031), ptr blockaddress(@vm_exec_core, %4043), ptr blockaddress(@vm_exec_core, %4055), ptr blockaddress(@vm_exec_core, %4066), ptr blockaddress(@vm_exec_core, %4102), ptr blockaddress(@vm_exec_core, %4148), ptr blockaddress(@vm_exec_core, %4204), ptr blockaddress(@vm_exec_core, %4225), ptr blockaddress(@vm_exec_core, %4261), ptr blockaddress(@vm_exec_core, %4307), ptr blockaddress(@vm_exec_core, %.lr.ph.i2737), ptr blockaddress(@vm_exec_core, %4334), ptr blockaddress(@vm_exec_core, %.lr.ph.i2747), ptr blockaddress(@vm_exec_core, %4379), ptr blockaddress(@vm_exec_core, %4384), ptr blockaddress(@vm_exec_core, %4389), ptr blockaddress(@vm_exec_core, %4390), ptr blockaddress(@vm_exec_core, %4391), ptr blockaddress(@vm_exec_core, %4392), ptr blockaddress(@vm_exec_core, %4393), ptr blockaddress(@vm_exec_core, %4394), ptr blockaddress(@vm_exec_core, %4395), ptr blockaddress(@vm_exec_core, %4396), ptr blockaddress(@vm_exec_core, %4397), ptr blockaddress(@vm_exec_core, %4398), ptr blockaddress(@vm_exec_core, %4399), ptr blockaddress(@vm_exec_core, %4400), ptr blockaddress(@vm_exec_core, %4401), ptr blockaddress(@vm_exec_core, %4402), ptr blockaddress(@vm_exec_core, %4403), ptr blockaddress(@vm_exec_core, %4404), ptr blockaddress(@vm_exec_core, %4405), ptr blockaddress(@vm_exec_core, %4406), ptr blockaddress(@vm_exec_core, %4407), ptr blockaddress(@vm_exec_core, %4408), ptr blockaddress(@vm_exec_core, %4409), ptr blockaddress(@vm_exec_core, %4410), ptr blockaddress(@vm_exec_core, %4411), ptr blockaddress(@vm_exec_core, %4412), ptr blockaddress(@vm_exec_core, %4413), ptr blockaddress(@vm_exec_core, %4414), ptr blockaddress(@vm_exec_core, %4415), ptr blockaddress(@vm_exec_core, %4416), ptr blockaddress(@vm_exec_core, %4417), ptr blockaddress(@vm_exec_core, %4418), ptr blockaddress(@vm_exec_core, %4419), ptr blockaddress(@vm_exec_core, %4420), ptr blockaddress(@vm_exec_core, %4421), ptr blockaddress(@vm_exec_core, %4422), ptr blockaddress(@vm_exec_core, %4423), ptr blockaddress(@vm_exec_core, %4424), ptr blockaddress(@vm_exec_core, %4425), ptr blockaddress(@vm_exec_core, %4426), ptr blockaddress(@vm_exec_core, %4427), ptr blockaddress(@vm_exec_core, %4428), ptr blockaddress(@vm_exec_core, %4429), ptr blockaddress(@vm_exec_core, %4430), ptr blockaddress(@vm_exec_core, %4431), ptr blockaddress(@vm_exec_core, %4432), ptr blockaddress(@vm_exec_core, %4433), ptr blockaddress(@vm_exec_core, %4434), ptr blockaddress(@vm_exec_core, %4435), ptr blockaddress(@vm_exec_core, %4436), ptr blockaddress(@vm_exec_core, %4437), ptr blockaddress(@vm_exec_core, %4438), ptr blockaddress(@vm_exec_core, %4439), ptr blockaddress(@vm_exec_core, %4440), ptr blockaddress(@vm_exec_core, %4441), ptr blockaddress(@vm_exec_core, %4442), ptr blockaddress(@vm_exec_core, %4443), ptr blockaddress(@vm_exec_core, %4444), ptr blockaddress(@vm_exec_core, %4445), ptr blockaddress(@vm_exec_core, %4446), ptr blockaddress(@vm_exec_core, %4447), ptr blockaddress(@vm_exec_core, %4448), ptr blockaddress(@vm_exec_core, %4449), ptr blockaddress(@vm_exec_core, %4450), ptr blockaddress(@vm_exec_core, %4451), ptr blockaddress(@vm_exec_core, %4452), ptr blockaddress(@vm_exec_core, %4453), ptr blockaddress(@vm_exec_core, %4454), ptr blockaddress(@vm_exec_core, %4455), ptr blockaddress(@vm_exec_core, %4456), ptr blockaddress(@vm_exec_core, %4457), ptr blockaddress(@vm_exec_core, %4458), ptr blockaddress(@vm_exec_core, %4459), ptr blockaddress(@vm_exec_core, %4460), ptr blockaddress(@vm_exec_core, %4461), ptr blockaddress(@vm_exec_core, %4462), ptr blockaddress(@vm_exec_core, %4463), ptr blockaddress(@vm_exec_core, %4464), ptr blockaddress(@vm_exec_core, %4465), ptr blockaddress(@vm_exec_core, %4466), ptr blockaddress(@vm_exec_core, %4467), ptr blockaddress(@vm_exec_core, %4468), ptr blockaddress(@vm_exec_core, %4469), ptr blockaddress(@vm_exec_core, %4470), ptr blockaddress(@vm_exec_core, %4471), ptr blockaddress(@vm_exec_core, %4472), ptr blockaddress(@vm_exec_core, %4474), ptr blockaddress(@vm_exec_core, %4475), ptr blockaddress(@vm_exec_core, %4476), ptr blockaddress(@vm_exec_core, %4477), ptr blockaddress(@vm_exec_core, %4478), ptr blockaddress(@vm_exec_core, %4479), ptr blockaddress(@vm_exec_core, %4480), ptr blockaddress(@vm_exec_core, %4481), ptr blockaddress(@vm_exec_core, %4482), ptr blockaddress(@vm_exec_core, %4483), ptr blockaddress(@vm_exec_core, %4484), ptr blockaddress(@vm_exec_core, %4485), ptr blockaddress(@vm_exec_core, %4486), ptr blockaddress(@vm_exec_core, %4487), ptr blockaddress(@vm_exec_core, %4488), ptr blockaddress(@vm_exec_core, %4489), ptr blockaddress(@vm_exec_core, %4490), ptr blockaddress(@vm_exec_core, %4491), ptr blockaddress(@vm_exec_core, %4492), ptr blockaddress(@vm_exec_core, %4493), ptr blockaddress(@vm_exec_core, %4494), ptr blockaddress(@vm_exec_core, %4495), ptr blockaddress(@vm_exec_core, %4496), ptr blockaddress(@vm_exec_core, %4497), ptr blockaddress(@vm_exec_core, %4498), ptr blockaddress(@vm_exec_core, %4499)], align 16
+@vm_exec_core.insns_address_table = internal constant [220 x ptr] [ptr blockaddress(@vm_exec_core, %69), ptr blockaddress(@vm_exec_core, %71), ptr blockaddress(@vm_exec_core, %90), ptr blockaddress(@vm_exec_core, %118), ptr blockaddress(@vm_exec_core, %170), ptr blockaddress(@vm_exec_core, %200), ptr blockaddress(@vm_exec_core, %249), ptr blockaddress(@vm_exec_core, %308), ptr blockaddress(@vm_exec_core, %325), ptr blockaddress(@vm_exec_core, %416), ptr blockaddress(@vm_exec_core, %431), ptr blockaddress(@vm_exec_core, %465), ptr blockaddress(@vm_exec_core, %512), ptr blockaddress(@vm_exec_core, %521), ptr blockaddress(@vm_exec_core, %536), ptr blockaddress(@vm_exec_core, %566), ptr blockaddress(@vm_exec_core, %574), ptr blockaddress(@vm_exec_core, %585), ptr blockaddress(@vm_exec_core, %590), ptr blockaddress(@vm_exec_core, %597), ptr blockaddress(@vm_exec_core, %604), ptr blockaddress(@vm_exec_core, %636), ptr blockaddress(@vm_exec_core, %644), ptr blockaddress(@vm_exec_core, %652), ptr blockaddress(@vm_exec_core, %665), ptr blockaddress(@vm_exec_core, %677), ptr blockaddress(@vm_exec_core, %695), ptr blockaddress(@vm_exec_core, %704), ptr blockaddress(@vm_exec_core, %717), ptr blockaddress(@vm_exec_core, %743), ptr blockaddress(@vm_exec_core, %765), ptr blockaddress(@vm_exec_core, %790), ptr blockaddress(@vm_exec_core, %889), ptr blockaddress(@vm_exec_core, %915), ptr blockaddress(@vm_exec_core, %932), ptr blockaddress(@vm_exec_core, %946), ptr blockaddress(@vm_exec_core, %964), ptr blockaddress(@vm_exec_core, %979), ptr blockaddress(@vm_exec_core, %1001), ptr blockaddress(@vm_exec_core, %1016), ptr blockaddress(@vm_exec_core, %1021), ptr blockaddress(@vm_exec_core, %1028), ptr blockaddress(@vm_exec_core, %1042), ptr blockaddress(@vm_exec_core, %1050), ptr blockaddress(@vm_exec_core, %1066), ptr blockaddress(@vm_exec_core, %1077), ptr blockaddress(@vm_exec_core, %1088), ptr blockaddress(@vm_exec_core, %1096), ptr blockaddress(@vm_exec_core, %1111), ptr blockaddress(@vm_exec_core, %1207), ptr blockaddress(@vm_exec_core, %1249), ptr blockaddress(@vm_exec_core, %1276), ptr blockaddress(@vm_exec_core, %1304), ptr blockaddress(@vm_exec_core, %1454), ptr blockaddress(@vm_exec_core, %1460), ptr blockaddress(@vm_exec_core, %1470), ptr blockaddress(@vm_exec_core, %1584), ptr blockaddress(@vm_exec_core, %vm_opt_neq.exit.thread), ptr blockaddress(@vm_exec_core, %1828), ptr blockaddress(@vm_exec_core, %1945), ptr blockaddress(@vm_exec_core, %1977), ptr blockaddress(@vm_exec_core, %2012), ptr blockaddress(@vm_exec_core, %2030), ptr blockaddress(@vm_exec_core, %2080), ptr blockaddress(@vm_exec_core, %2098), ptr blockaddress(@vm_exec_core, %2117), ptr blockaddress(@vm_exec_core, %2199), ptr blockaddress(@vm_exec_core, %2258), ptr blockaddress(@vm_exec_core, %2333), ptr blockaddress(@vm_exec_core, %2433), ptr blockaddress(@vm_exec_core, %2494), ptr blockaddress(@vm_exec_core, %2503), ptr blockaddress(@vm_exec_core, %2512), ptr blockaddress(@vm_exec_core, %2530), ptr blockaddress(@vm_exec_core, %2548), ptr blockaddress(@vm_exec_core, %2566), ptr blockaddress(@vm_exec_core, %2616), ptr blockaddress(@vm_exec_core, %2679), ptr blockaddress(@vm_exec_core, %2831), ptr blockaddress(@vm_exec_core, %2955), ptr blockaddress(@vm_exec_core, %3083), ptr blockaddress(@vm_exec_core, %3161), ptr blockaddress(@vm_exec_core, %3292), ptr blockaddress(@vm_exec_core, %3345), ptr blockaddress(@vm_exec_core, %3430), ptr blockaddress(@vm_exec_core, %3514), ptr blockaddress(@vm_exec_core, %3599), ptr blockaddress(@vm_exec_core, %3683), ptr blockaddress(@vm_exec_core, %3769), ptr blockaddress(@vm_exec_core, %3817), ptr blockaddress(@vm_exec_core, %3830), ptr blockaddress(@vm_exec_core, %3846), ptr blockaddress(@vm_exec_core, %3917), ptr blockaddress(@vm_exec_core, %3958), ptr blockaddress(@vm_exec_core, %3995), ptr blockaddress(@vm_exec_core, %4031), ptr blockaddress(@vm_exec_core, %4043), ptr blockaddress(@vm_exec_core, %4055), ptr blockaddress(@vm_exec_core, %4066), ptr blockaddress(@vm_exec_core, %4102), ptr blockaddress(@vm_exec_core, %4148), ptr blockaddress(@vm_exec_core, %4204), ptr blockaddress(@vm_exec_core, %4225), ptr blockaddress(@vm_exec_core, %4261), ptr blockaddress(@vm_exec_core, %4307), ptr blockaddress(@vm_exec_core, %.lr.ph.i2737), ptr blockaddress(@vm_exec_core, %4334), ptr blockaddress(@vm_exec_core, %.lr.ph.i2747), ptr blockaddress(@vm_exec_core, %4379), ptr blockaddress(@vm_exec_core, %4384), ptr blockaddress(@vm_exec_core, %4389), ptr blockaddress(@vm_exec_core, %4390), ptr blockaddress(@vm_exec_core, %4391), ptr blockaddress(@vm_exec_core, %4392), ptr blockaddress(@vm_exec_core, %4393), ptr blockaddress(@vm_exec_core, %4394), ptr blockaddress(@vm_exec_core, %4395), ptr blockaddress(@vm_exec_core, %4396), ptr blockaddress(@vm_exec_core, %4397), ptr blockaddress(@vm_exec_core, %4398), ptr blockaddress(@vm_exec_core, %4399), ptr blockaddress(@vm_exec_core, %4400), ptr blockaddress(@vm_exec_core, %4401), ptr blockaddress(@vm_exec_core, %4402), ptr blockaddress(@vm_exec_core, %4403), ptr blockaddress(@vm_exec_core, %4404), ptr blockaddress(@vm_exec_core, %4405), ptr blockaddress(@vm_exec_core, %4406), ptr blockaddress(@vm_exec_core, %4407), ptr blockaddress(@vm_exec_core, %4408), ptr blockaddress(@vm_exec_core, %4409), ptr blockaddress(@vm_exec_core, %4410), ptr blockaddress(@vm_exec_core, %4411), ptr blockaddress(@vm_exec_core, %4412), ptr blockaddress(@vm_exec_core, %4413), ptr blockaddress(@vm_exec_core, %4414), ptr blockaddress(@vm_exec_core, %4415), ptr blockaddress(@vm_exec_core, %4416), ptr blockaddress(@vm_exec_core, %4417), ptr blockaddress(@vm_exec_core, %4418), ptr blockaddress(@vm_exec_core, %4419), ptr blockaddress(@vm_exec_core, %4420), ptr blockaddress(@vm_exec_core, %4421), ptr blockaddress(@vm_exec_core, %4422), ptr blockaddress(@vm_exec_core, %4423), ptr blockaddress(@vm_exec_core, %4424), ptr blockaddress(@vm_exec_core, %4425), ptr blockaddress(@vm_exec_core, %4426), ptr blockaddress(@vm_exec_core, %4427), ptr blockaddress(@vm_exec_core, %4428), ptr blockaddress(@vm_exec_core, %4429), ptr blockaddress(@vm_exec_core, %4430), ptr blockaddress(@vm_exec_core, %4431), ptr blockaddress(@vm_exec_core, %4432), ptr blockaddress(@vm_exec_core, %4433), ptr blockaddress(@vm_exec_core, %4434), ptr blockaddress(@vm_exec_core, %4435), ptr blockaddress(@vm_exec_core, %4436), ptr blockaddress(@vm_exec_core, %4437), ptr blockaddress(@vm_exec_core, %4438), ptr blockaddress(@vm_exec_core, %4439), ptr blockaddress(@vm_exec_core, %4440), ptr blockaddress(@vm_exec_core, %4441), ptr blockaddress(@vm_exec_core, %4442), ptr blockaddress(@vm_exec_core, %4443), ptr blockaddress(@vm_exec_core, %4444), ptr blockaddress(@vm_exec_core, %4445), ptr blockaddress(@vm_exec_core, %4446), ptr blockaddress(@vm_exec_core, %4447), ptr blockaddress(@vm_exec_core, %4448), ptr blockaddress(@vm_exec_core, %4449), ptr blockaddress(@vm_exec_core, %4450), ptr blockaddress(@vm_exec_core, %4451), ptr blockaddress(@vm_exec_core, %4452), ptr blockaddress(@vm_exec_core, %4453), ptr blockaddress(@vm_exec_core, %4454), ptr blockaddress(@vm_exec_core, %4455), ptr blockaddress(@vm_exec_core, %4456), ptr blockaddress(@vm_exec_core, %4457), ptr blockaddress(@vm_exec_core, %4458), ptr blockaddress(@vm_exec_core, %4459), ptr blockaddress(@vm_exec_core, %4460), ptr blockaddress(@vm_exec_core, %4461), ptr blockaddress(@vm_exec_core, %4462), ptr blockaddress(@vm_exec_core, %4463), ptr blockaddress(@vm_exec_core, %4464), ptr blockaddress(@vm_exec_core, %4465), ptr blockaddress(@vm_exec_core, %4466), ptr blockaddress(@vm_exec_core, %4467), ptr blockaddress(@vm_exec_core, %4468), ptr blockaddress(@vm_exec_core, %4469), ptr blockaddress(@vm_exec_core, %4470), ptr blockaddress(@vm_exec_core, %4471), ptr blockaddress(@vm_exec_core, %4472), ptr blockaddress(@vm_exec_core, %4474), ptr blockaddress(@vm_exec_core, %4475), ptr blockaddress(@vm_exec_core, %4476), ptr blockaddress(@vm_exec_core, %4477), ptr blockaddress(@vm_exec_core, %4478), ptr blockaddress(@vm_exec_core, %4479), ptr blockaddress(@vm_exec_core, %4480), ptr blockaddress(@vm_exec_core, %4481), ptr blockaddress(@vm_exec_core, %4482), ptr blockaddress(@vm_exec_core, %4483), ptr blockaddress(@vm_exec_core, %4484), ptr blockaddress(@vm_exec_core, %4485), ptr blockaddress(@vm_exec_core, %4486), ptr blockaddress(@vm_exec_core, %4487), ptr blockaddress(@vm_exec_core, %4488), ptr blockaddress(@vm_exec_core, %4489), ptr blockaddress(@vm_exec_core, %4490), ptr blockaddress(@vm_exec_core, %4491), ptr blockaddress(@vm_exec_core, %4492), ptr blockaddress(@vm_exec_core, %4493), ptr blockaddress(@vm_exec_core, %4494), ptr blockaddress(@vm_exec_core, %4495), ptr blockaddress(@vm_exec_core, %4496), ptr blockaddress(@vm_exec_core, %4497), ptr blockaddress(@vm_exec_core, %4498), ptr blockaddress(@vm_exec_core, %4499)], align 16
 @ruby_hash__create_semaphore = external global i16, section ".probes", align 2
 @.str.181 = private unnamed_addr constant [61 x i8] c"not defined at the refinement, but at the outer class/module\00", align 1
 @.str.182 = private unnamed_addr constant [45 x i8] c"putspecialobject insn: unknown value_type %d\00", align 1
@@ -1012,7 +1012,7 @@ define hidden ptr @rb_vm_frame_method_entry(ptr noundef readonly captures(none) 
   br label %check_method_entry.exit
 
 check_method_entry.exit:                          ; preds = %8, %31, %27, %26, %20, %._crit_edge
-  %.0 = phi ptr [ null, %27 ], [ %spec.select.i, %31 ], [ null, %20 ], [ %21, %26 ], [ null, %._crit_edge ], [ %9, %8 ]
+  %.0 = phi ptr [ %spec.select.i, %31 ], [ null, %20 ], [ null, %._crit_edge ], [ %21, %26 ], [ null, %27 ], [ %9, %8 ]
   ret ptr %.0
 }
 
@@ -1328,7 +1328,7 @@ define internal fastcc i64 @vm_get_ev_const(ptr noundef readonly captures(none) 
   %6 = alloca i64, align 8
   %7 = icmp eq i64 %1, 4
   %or.cond = and i1 %7, %3
-  br i1 %or.cond, label %8, label %150
+  br i1 %or.cond, label %8, label %148
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1572,7 +1572,7 @@ rb_ractor_main_p.exit:                            ; preds = %87
 .thread91:                                        ; preds = %84, %rb_ractor_main_p.exit, %.split114.us, %.split.us, %90, %87
   %.2.ph = phi i64 [ %.us-phi110, %rb_ractor_main_p.exit ], [ %.us-phi110, %90 ], [ 1, %.split.us ], [ %.us-phi110, %87 ], [ %86, %.split114.us ], [ 1, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %164
+  br label %162
 
 .split112.us:                                     ; preds = %50, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1645,115 +1645,109 @@ CREF_CLASS.exit80.thread:                         ; preds = %.critedge3.thread
   br label %CREF_CLASS.exit86
 
 119:                                              ; preds = %CREF_CLASS.exit80
-  switch i64 %.0.i7898, label %122 [
+  switch i64 %.0.i7898, label %120 [
     i64 0, label %CREF_CLASS.exit86
-    i64 4, label %120
-    i64 20, label %121
+    i64 4, label %136
+    i64 20, label %137
   ]
 
 120:                                              ; preds = %119
-  br label %CREF_CLASS.exit86
+  %121 = trunc i64 %.0.i7898 to i1
+  br i1 %121, label %CREF_CLASS.exit86, label %122
 
-121:                                              ; preds = %119
-  br label %CREF_CLASS.exit86
-
-122:                                              ; preds = %119
-  %123 = trunc i64 %.0.i7898 to i1
-  br i1 %123, label %CREF_CLASS.exit86, label %124
-
-124:                                              ; preds = %122
-  %125 = and i64 %.0.i7898, 254
-  %126 = icmp eq i64 %125, 12
-  %spec.select.i.i85 = select i1 %126, ptr @rb_cSymbol, ptr @rb_cFloat
+122:                                              ; preds = %120
+  %123 = and i64 %.0.i7898, 254
+  %124 = icmp eq i64 %123, 12
+  %spec.select.i.i85 = select i1 %124, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %CREF_CLASS.exit86
 
 .critedge3.thread168:                             ; preds = %16, %CREF_CLASS.exit80.thread170, %CREF_CLASS.exit80.thread, %CREF_CLASS.exit80
-  %127 = load ptr, ptr %9, align 8, !tbaa !66
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
-  %129 = load i64, ptr %128, align 8, !tbaa !94
-  %130 = icmp eq i64 %129, 0
-  %131 = and i64 %129, 7
-  %132 = icmp ne i64 %131, 0
-  %133 = or i1 %130, %132
-  br i1 %133, label %137, label %134
+  %125 = load ptr, ptr %9, align 8, !tbaa !66
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
+  %127 = load i64, ptr %126, align 8, !tbaa !94
+  %128 = icmp eq i64 %127, 0
+  %129 = and i64 %127, 7
+  %130 = icmp ne i64 %129, 0
+  %131 = or i1 %128, %130
+  br i1 %131, label %135, label %132
 
-134:                                              ; preds = %.critedge3.thread168
-  %135 = inttoptr i64 %129 to ptr
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
+132:                                              ; preds = %.critedge3.thread168
+  %133 = inttoptr i64 %127 to ptr
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   br label %CREF_CLASS.exit86
 
-137:                                              ; preds = %.critedge3.thread168
-  switch i64 %129, label %140 [
+135:                                              ; preds = %.critedge3.thread168
+  switch i64 %127, label %138 [
     i64 0, label %CREF_CLASS.exit86
-    i64 4, label %138
-    i64 20, label %139
+    i64 4, label %136
+    i64 20, label %137
   ]
 
-138:                                              ; preds = %137
+136:                                              ; preds = %119, %135
   br label %CREF_CLASS.exit86
 
-139:                                              ; preds = %137
+137:                                              ; preds = %119, %135
   br label %CREF_CLASS.exit86
 
-140:                                              ; preds = %137
-  %141 = trunc i64 %129 to i1
-  br i1 %141, label %CREF_CLASS.exit86, label %142
+138:                                              ; preds = %135
+  %139 = trunc i64 %127 to i1
+  br i1 %139, label %CREF_CLASS.exit86, label %140
 
-142:                                              ; preds = %140
-  %143 = and i64 %129, 254
-  %144 = icmp eq i64 %143, 12
-  %spec.select.i = select i1 %144, ptr @rb_cSymbol, ptr @rb_cFloat
+140:                                              ; preds = %138
+  %141 = and i64 %127, 254
+  %142 = icmp eq i64 %141, 12
+  %spec.select.i = select i1 %142, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %CREF_CLASS.exit86
 
-CREF_CLASS.exit86:                                ; preds = %142, %140, %139, %138, %137, %134, %124, %122, %121, %120, %119, %.thread173, %CREF_CLASS.exit80.thread
-  %.156.in = phi ptr [ %98, %CREF_CLASS.exit80.thread ], [ %spec.select.i.i85, %124 ], [ %118, %.thread173 ], [ @rb_cNilClass, %120 ], [ @rb_cTrueClass, %121 ], [ @rb_cFalseClass, %119 ], [ @rb_cInteger, %122 ], [ %136, %134 ], [ @rb_cNilClass, %138 ], [ @rb_cTrueClass, %139 ], [ @rb_cFalseClass, %137 ], [ @rb_cInteger, %140 ], [ %spec.select.i, %142 ]
+CREF_CLASS.exit86:                                ; preds = %140, %138, %137, %136, %135, %132, %122, %120, %119, %.thread173, %CREF_CLASS.exit80.thread
+  %.156.in = phi ptr [ %98, %CREF_CLASS.exit80.thread ], [ %spec.select.i.i85, %122 ], [ %118, %.thread173 ], [ %spec.select.i, %140 ], [ @rb_cInteger, %138 ], [ @rb_cFalseClass, %119 ], [ @rb_cInteger, %120 ], [ %134, %132 ], [ @rb_cNilClass, %136 ], [ @rb_cTrueClass, %137 ], [ @rb_cFalseClass, %135 ]
   %.156 = load i64, ptr %.156.in, align 8, !tbaa !7
   %.not69 = icmp eq i32 %4, 0
-  br i1 %.not69, label %148, label %145
+  br i1 %.not69, label %146, label %143
 
-145:                                              ; preds = %CREF_CLASS.exit86
-  %146 = call i32 @rb_const_defined(i64 noundef %.156, i64 noundef %2) #20
-  %147 = sext i32 %146 to i64
-  br label %164
+143:                                              ; preds = %CREF_CLASS.exit86
+  %144 = call i32 @rb_const_defined(i64 noundef %.156, i64 noundef %2) #20
+  %145 = sext i32 %144 to i64
+  br label %162
 
-148:                                              ; preds = %CREF_CLASS.exit86
-  %149 = call i64 @rb_const_get(i64 noundef %.156, i64 noundef %2) #20
-  br label %164
+146:                                              ; preds = %CREF_CLASS.exit86
+  %147 = call i64 @rb_const_get(i64 noundef %.156, i64 noundef %2) #20
+  br label %162
 
-150:                                              ; preds = %5
-  %151 = icmp eq i64 %1, 0
-  %152 = and i64 %1, 7
-  %153 = icmp ne i64 %152, 0
-  %154 = or i1 %151, %153
-  br i1 %154, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit4.i
+148:                                              ; preds = %5
+  %149 = icmp eq i64 %1, 0
+  %150 = and i64 %1, 7
+  %151 = icmp ne i64 %150, 0
+  %152 = or i1 %149, %151
+  br i1 %152, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit4.i
 
-rbimpl_RB_TYPE_P_fastpath.exit4.i:                ; preds = %150
-  %155 = inttoptr i64 %1 to ptr
-  %156 = load i64, ptr %155, align 8, !tbaa !97
-  %157 = and i64 %156, 30
-  %switch.i = icmp eq i64 %157, 2
+rbimpl_RB_TYPE_P_fastpath.exit4.i:                ; preds = %148
+  %153 = inttoptr i64 %1 to ptr
+  %154 = load i64, ptr %153, align 8, !tbaa !97
+  %155 = and i64 %154, 30
+  %switch.i = icmp eq i64 %155, 2
   br i1 %switch.i, label %vm_check_if_namespace.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
 
-rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fastpath.exit4.i, %150
-  %158 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %158, ptr noundef nonnull @.str.132, i64 noundef %1) #36
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fastpath.exit4.i, %148
+  %156 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %156, ptr noundef nonnull @.str.132, i64 noundef %1) #36
   unreachable
 
 vm_check_if_namespace.exit:                       ; preds = %rbimpl_RB_TYPE_P_fastpath.exit4.i
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %162, label %159
+  br i1 %.not, label %160, label %157
 
-159:                                              ; preds = %vm_check_if_namespace.exit
-  %160 = tail call i32 @rb_public_const_defined_from(i64 noundef %1, i64 noundef %2) #20
-  %161 = sext i32 %160 to i64
-  br label %164
+157:                                              ; preds = %vm_check_if_namespace.exit
+  %158 = tail call i32 @rb_public_const_defined_from(i64 noundef %1, i64 noundef %2) #20
+  %159 = sext i32 %158 to i64
+  br label %162
 
-162:                                              ; preds = %vm_check_if_namespace.exit
-  %163 = tail call i64 @rb_public_const_get_from(i64 noundef %1, i64 noundef %2) #20
-  br label %164
+160:                                              ; preds = %vm_check_if_namespace.exit
+  %161 = tail call i64 @rb_public_const_get_from(i64 noundef %1, i64 noundef %2) #20
+  br label %162
 
-164:                                              ; preds = %.thread91, %145, %148, %162, %159
-  %.4 = phi i64 [ %163, %162 ], [ %161, %159 ], [ %.2.ph, %.thread91 ], [ %147, %145 ], [ %149, %148 ]
+162:                                              ; preds = %.thread91, %143, %146, %160, %157
+  %.4 = phi i64 [ %161, %160 ], [ %159, %157 ], [ %.2.ph, %.thread91 ], [ %145, %143 ], [ %147, %146 ]
   ret i64 %.4
 }
 
@@ -3965,7 +3959,7 @@ vm_backref_defined.exit:                          ; preds = %201, %206
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.169) #57
   unreachable
 
-211:                                              ; preds = %._crit_edge.i, %117, %127, %123, %72, %77, %VM_EP_LEP.exit
+211:                                              ; preds = %123, %._crit_edge.i, %117, %127, %72, %77, %VM_EP_LEP.exit
   br label %.thread
 
 .thread:                                          ; preds = %rb_callable_method_entry_with_refinements.exit.thread21.i, %167, %164, %161, %155, %vm_search_normal_superclass.exit, %72, %77, %check_respond_to_missing.exit, %VM_EP_LEP.exit, %211, %vm_backref_defined.exit, %rb_ec_obj_respond_to.exit, %27, %19, %15, %9
@@ -10970,8 +10964,8 @@ rb_obj_write.exit:                                ; preds = %1703, %1699, %1696,
   store ptr %1711, ptr %1592, align 8, !tbaa !93
   br label %.backedge.backedge
 
-vm_objtostring.exit.thread:                       ; preds = %3662, %3668, %3673, %3657, %3652, %3578, %3584, %3589, %3573, %3568, %3493, %3499, %3504, %3488, %3483, %vm_search_method.exit.thread.i.i2621, %vm_method_cfunc_is.exit.i2626, %vm_search_method.exit.i.i2617, %vm_search_method.exit.thread.i.i.i, %vm_search_method.exit.i.i.i, %vm_method_cfunc_is.exit.i.i, %vm_search_method.exit.thread.i.i2605, %vm_search_method.exit.i.i2601, %vm_method_cfunc_is.exit.i2608, %vm_opt_mod.exit, %3244, %3175, %3254, %3249, %3265, %3260, %vm_opt_div.exit, %3129, %3097, %3139, %3134, %3150, %3145, %vm_opt_mult.exit, %3044, %3034, %3039, %3055, %3050, %vm_opt_minus.exit, %2916, %2906, %2911, %2927, %2922, %vm_opt_plus.exit, %2813, %2754, %2759, %2821, %2816, %vm_search_method.exit.i.i, %vm_search_method.exit.thread.i.i, %vm_method_cfunc_is.exit.i, %vm_objtostring.exit, %check_cfunc.exit55.i, %check_cfunc.exit51.i, %check_cfunc.exit47.i, %check_cfunc.exit43.i, %check_cfunc.exit.i, %check_method_basic_definition.exit.i, %vm_search_method.exit.i, %1921, %1877, %1885, %1899, %1910, %1883, %1897, %1908, %1919, %1930, %1932, %.backedge, %4490, %4489, %4488, %4487, %4486, %4485, %4482, %4481, %4480, %4479, %4478, %4477, %4476, %4475, %4474, %4472, %4471, %4470, %4469, %4468, %4467, %4466, %4451, %4446, %vm_opt_regexpmatch2.exit.thread, %vm_opt_not.exit.thread, %vm_opt_succ.exit.thread, %4062, %4051, %4039, %vm_opt_aref_with.exit.thread, %vm_opt_aset_with.exit.thread, %vm_opt_aset.exit.thread, %vm_opt_aref.exit.thread, %vm_opt_or.exit.thread, %vm_opt_and.exit.thread, %vm_opt_ltlt.exit.thread, %3768, %2089, %2021, %2003, %1968
-  %.1 = phi ptr [ %.02229, %.backedge ], [ %.02229, %4490 ], [ %1946, %1968 ], [ %1978, %2003 ], [ %2013, %2021 ], [ %.02229, %vm_objtostring.exit ], [ %2081, %2089 ], [ %.02229, %vm_search_method.exit.i.i ], [ %.02229, %vm_opt_plus.exit ], [ %.02229, %vm_opt_minus.exit ], [ %.02229, %vm_opt_mult.exit ], [ %.02229, %vm_opt_div.exit ], [ %.02229, %vm_opt_mod.exit ], [ %.02229, %vm_search_method.exit.thread.i.i2605 ], [ %3346, %vm_search_method.exit.thread.i.i2621 ], [ %.02229, %3493 ], [ %.02229, %3578 ], [ %.02229, %3768 ], [ %.02229, %vm_opt_ltlt.exit.thread ], [ %.02229, %vm_opt_and.exit.thread ], [ %.02229, %vm_opt_or.exit.thread ], [ %.02229, %vm_opt_aref.exit.thread ], [ %.02229, %vm_opt_aset.exit.thread ], [ %3959, %vm_opt_aset_with.exit.thread ], [ %3996, %vm_opt_aref_with.exit.thread ], [ %.02229, %4039 ], [ %.02229, %4051 ], [ %.02229, %4062 ], [ %.02229, %vm_opt_succ.exit.thread ], [ %.02229, %vm_opt_not.exit.thread ], [ %.02229, %vm_opt_regexpmatch2.exit.thread ], [ %.02229, %4446 ], [ %.02229, %4451 ], [ %.02229, %4466 ], [ %.02229, %4467 ], [ %.02229, %4468 ], [ %.02229, %4469 ], [ %.02229, %4470 ], [ %.02229, %4471 ], [ %4473, %4472 ], [ %.02229, %4474 ], [ %.02229, %4475 ], [ %.02229, %4476 ], [ %.02229, %4477 ], [ %.02229, %4478 ], [ %.02229, %4479 ], [ %.02229, %4480 ], [ %.02229, %4481 ], [ %.02229, %4482 ], [ %.02229, %4485 ], [ %.02229, %4486 ], [ %.02229, %4487 ], [ %.02229, %4488 ], [ %.02229, %4489 ], [ %.02229, %1932 ], [ %.02229, %1930 ], [ %.02229, %1919 ], [ %.02229, %1908 ], [ %.02229, %1897 ], [ %.02229, %1883 ], [ %.02229, %1910 ], [ %.02229, %1899 ], [ %.02229, %1885 ], [ %.02229, %1877 ], [ %.02229, %1921 ], [ %.02229, %vm_search_method.exit.i ], [ %.02229, %check_method_basic_definition.exit.i ], [ %.02229, %check_cfunc.exit.i ], [ %.02229, %check_cfunc.exit43.i ], [ %.02229, %check_cfunc.exit47.i ], [ %.02229, %check_cfunc.exit51.i ], [ %.02229, %check_cfunc.exit55.i ], [ %.02229, %vm_method_cfunc_is.exit.i ], [ %.02229, %vm_search_method.exit.thread.i.i ], [ %.02229, %2816 ], [ %.02229, %2821 ], [ %.02229, %2759 ], [ %.02229, %2754 ], [ %.02229, %2813 ], [ %.02229, %2922 ], [ %.02229, %2927 ], [ %.02229, %2911 ], [ %.02229, %2906 ], [ %.02229, %2916 ], [ %.02229, %3050 ], [ %.02229, %3055 ], [ %.02229, %3039 ], [ %.02229, %3034 ], [ %.02229, %3044 ], [ %.02229, %3145 ], [ %.02229, %3150 ], [ %.02229, %3134 ], [ %.02229, %3139 ], [ %.02229, %3097 ], [ %.02229, %3129 ], [ %.02229, %3260 ], [ %.02229, %3265 ], [ %.02229, %3249 ], [ %.02229, %3254 ], [ %.02229, %3175 ], [ %.02229, %3244 ], [ %.02229, %vm_method_cfunc_is.exit.i2608 ], [ %.02229, %vm_search_method.exit.i.i2601 ], [ %3346, %vm_method_cfunc_is.exit.i.i ], [ %3346, %vm_search_method.exit.i.i.i ], [ %3346, %vm_search_method.exit.thread.i.i.i ], [ %3346, %vm_search_method.exit.i.i2617 ], [ %3346, %vm_method_cfunc_is.exit.i2626 ], [ %.02229, %3483 ], [ %.02229, %3488 ], [ %.02229, %3504 ], [ %.02229, %3499 ], [ %.02229, %3568 ], [ %.02229, %3573 ], [ %.02229, %3589 ], [ %.02229, %3584 ], [ %.02229, %3652 ], [ %.02229, %3657 ], [ %.02229, %3673 ], [ %.02229, %3668 ], [ %.02229, %3662 ]
+vm_opt_neq.exit.thread:                           ; preds = %3662, %3668, %3673, %3657, %3652, %3568, %3573, %3589, %3584, %3578, %3483, %3488, %3504, %3499, %3493, %vm_method_cfunc_is.exit.i2608, %vm_search_method.exit.i.i2601, %vm_search_method.exit.thread.i.i2605, %3260, %3265, %3249, %3254, %3175, %3244, %vm_opt_mod.exit, %3145, %3150, %3134, %3139, %3097, %3129, %vm_opt_div.exit, %3050, %3055, %3039, %3034, %3044, %vm_opt_mult.exit, %2922, %2927, %2911, %2906, %2916, %vm_opt_minus.exit, %2816, %2821, %2759, %2754, %2813, %vm_opt_plus.exit, %vm_method_cfunc_is.exit.i, %vm_search_method.exit.thread.i.i, %vm_search_method.exit.i.i, %1932, %1930, %1919, %1908, %1897, %1883, %1910, %1899, %1885, %1877, %1921, %vm_search_method.exit.i, %check_method_basic_definition.exit.i, %check_cfunc.exit.i, %check_cfunc.exit43.i, %check_cfunc.exit47.i, %check_cfunc.exit51.i, %check_cfunc.exit55.i, %vm_objtostring.exit, %vm_search_method.exit.thread.i.i2621, %vm_method_cfunc_is.exit.i2626, %vm_search_method.exit.i.i2617, %vm_search_method.exit.thread.i.i.i, %vm_search_method.exit.i.i.i, %vm_method_cfunc_is.exit.i.i, %.backedge, %4490, %4489, %4488, %4487, %4486, %4485, %4482, %4481, %4480, %4479, %4478, %4477, %4476, %4475, %4474, %4472, %4471, %4470, %4469, %4468, %4467, %4466, %4451, %4446, %vm_opt_regexpmatch2.exit.thread, %vm_opt_not.exit.thread, %vm_opt_succ.exit.thread, %4062, %4051, %4039, %vm_opt_aref_with.exit.thread, %vm_opt_aset_with.exit.thread, %vm_opt_aset.exit.thread, %vm_opt_aref.exit.thread, %vm_opt_or.exit.thread, %vm_opt_and.exit.thread, %vm_opt_ltlt.exit.thread, %3768, %2089, %2021, %2003, %1968
+  %.1 = phi ptr [ %.02229, %.backedge ], [ %.02229, %4490 ], [ %1946, %1968 ], [ %1978, %2003 ], [ %2013, %2021 ], [ %.02229, %4489 ], [ %2081, %2089 ], [ %.02229, %4488 ], [ %.02229, %4487 ], [ %.02229, %4486 ], [ %.02229, %4485 ], [ %.02229, %4482 ], [ %.02229, %4481 ], [ %.02229, %4480 ], [ %3346, %vm_search_method.exit.thread.i.i2621 ], [ %3346, %vm_method_cfunc_is.exit.i2626 ], [ %3346, %vm_search_method.exit.i.i2617 ], [ %.02229, %3768 ], [ %.02229, %vm_opt_ltlt.exit.thread ], [ %.02229, %vm_opt_and.exit.thread ], [ %.02229, %vm_opt_or.exit.thread ], [ %.02229, %vm_opt_aref.exit.thread ], [ %.02229, %vm_opt_aset.exit.thread ], [ %3959, %vm_opt_aset_with.exit.thread ], [ %3996, %vm_opt_aref_with.exit.thread ], [ %.02229, %4039 ], [ %.02229, %4051 ], [ %.02229, %4062 ], [ %.02229, %vm_opt_succ.exit.thread ], [ %.02229, %vm_opt_not.exit.thread ], [ %.02229, %vm_opt_regexpmatch2.exit.thread ], [ %.02229, %4446 ], [ %.02229, %4451 ], [ %.02229, %4466 ], [ %.02229, %4467 ], [ %.02229, %4468 ], [ %.02229, %4469 ], [ %.02229, %4470 ], [ %.02229, %4471 ], [ %4473, %4472 ], [ %.02229, %4474 ], [ %.02229, %4475 ], [ %.02229, %4476 ], [ %.02229, %4477 ], [ %.02229, %4478 ], [ %.02229, %4479 ], [ %3346, %vm_method_cfunc_is.exit.i.i ], [ %3346, %vm_search_method.exit.i.i.i ], [ %3346, %vm_search_method.exit.thread.i.i.i ], [ %.02229, %vm_objtostring.exit ], [ %.02229, %check_cfunc.exit55.i ], [ %.02229, %check_cfunc.exit51.i ], [ %.02229, %check_cfunc.exit47.i ], [ %.02229, %check_cfunc.exit43.i ], [ %.02229, %check_cfunc.exit.i ], [ %.02229, %check_method_basic_definition.exit.i ], [ %.02229, %vm_search_method.exit.i ], [ %.02229, %1921 ], [ %.02229, %1877 ], [ %.02229, %1885 ], [ %.02229, %1899 ], [ %.02229, %1910 ], [ %.02229, %1883 ], [ %.02229, %1897 ], [ %.02229, %1908 ], [ %.02229, %1919 ], [ %.02229, %1930 ], [ %.02229, %1932 ], [ %.02229, %vm_search_method.exit.i.i ], [ %.02229, %vm_search_method.exit.thread.i.i ], [ %.02229, %vm_method_cfunc_is.exit.i ], [ %.02229, %vm_opt_plus.exit ], [ %.02229, %2813 ], [ %.02229, %2754 ], [ %.02229, %2759 ], [ %.02229, %2821 ], [ %.02229, %2816 ], [ %.02229, %vm_opt_minus.exit ], [ %.02229, %2916 ], [ %.02229, %2906 ], [ %.02229, %2911 ], [ %.02229, %2927 ], [ %.02229, %2922 ], [ %.02229, %vm_opt_mult.exit ], [ %.02229, %3044 ], [ %.02229, %3034 ], [ %.02229, %3039 ], [ %.02229, %3055 ], [ %.02229, %3050 ], [ %.02229, %vm_opt_div.exit ], [ %.02229, %3129 ], [ %.02229, %3097 ], [ %.02229, %3139 ], [ %.02229, %3134 ], [ %.02229, %3150 ], [ %.02229, %3145 ], [ %.02229, %vm_opt_mod.exit ], [ %.02229, %3244 ], [ %.02229, %3175 ], [ %.02229, %3254 ], [ %.02229, %3249 ], [ %.02229, %3265 ], [ %.02229, %3260 ], [ %.02229, %vm_search_method.exit.thread.i.i2605 ], [ %.02229, %vm_search_method.exit.i.i2601 ], [ %.02229, %vm_method_cfunc_is.exit.i2608 ], [ %.02229, %3493 ], [ %.02229, %3499 ], [ %.02229, %3504 ], [ %.02229, %3488 ], [ %.02229, %3483 ], [ %.02229, %3578 ], [ %.02229, %3584 ], [ %.02229, %3589 ], [ %.02229, %3573 ], [ %.02229, %3568 ], [ %.02229, %3652 ], [ %.02229, %3657 ], [ %.02229, %3673 ], [ %.02229, %3668 ], [ %.02229, %3662 ]
   %1712 = getelementptr i8, ptr %.1, i64 8
   %1713 = load i64, ptr %1712, align 8, !tbaa !7
   %1714 = inttoptr i64 %1713 to ptr
@@ -10983,13 +10977,13 @@ vm_objtostring.exit.thread:                       ; preds = %3662, %3668, %3673,
   %.not.i.i.i2459 = trunc i64 %1718 to i1
   br i1 %.not.i.i.i2459, label %1719, label %1723
 
-1719:                                             ; preds = %vm_objtostring.exit.thread
+1719:                                             ; preds = %vm_opt_neq.exit.thread
   %1720 = trunc i64 %1718 to i32
   %1721 = lshr i32 %1720, 1
   %1722 = and i32 %1721, 32767
   br label %vm_ci_argc.exit.i2460
 
-1723:                                             ; preds = %vm_objtostring.exit.thread
+1723:                                             ; preds = %vm_opt_neq.exit.thread
   %1724 = getelementptr inbounds nuw i8, ptr %1717, i64 32
   %1725 = load i64, ptr %1724, align 8, !tbaa !168
   %1726 = trunc i64 %1725 to i32
@@ -11318,7 +11312,7 @@ rb_class_of.exit.i.i:                             ; preds = %1863, %1861, %1860,
 
 vm_search_method.exit.i:                          ; preds = %1875, %1871
   %.0.i.i.i2479 = phi ptr [ %1876, %1875 ], [ %1868, %1871 ]
-  switch i32 %.0.i5759.i, label %vm_objtostring.exit.thread [
+  switch i32 %.0.i5759.i, label %vm_opt_neq.exit.thread [
     i32 20, label %1877
     i32 3, label %1883
     i32 2, label %1883
@@ -11332,13 +11326,13 @@ vm_search_method.exit.i:                          ; preds = %1875, %1871
   %1878 = getelementptr i8, ptr %.0.i.i.i2479, i64 16
   %.val37.i = load ptr, ptr %1878, align 8, !tbaa !218
   %.not.i.i2483 = icmp eq ptr %.val37.i, null
-  br i1 %.not.i.i2483, label %vm_objtostring.exit.thread, label %check_method_basic_definition.exit.i
+  br i1 %.not.i.i2483, label %vm_opt_neq.exit.thread, label %check_method_basic_definition.exit.i
 
 check_method_basic_definition.exit.i:             ; preds = %1877
   %1879 = load i64, ptr %.val37.i, align 8, !tbaa !167
   %1880 = and i64 %1879, 262144
   %.not32.i = icmp eq i64 %1880, 0
-  br i1 %.not32.i, label %vm_objtostring.exit.thread, label %1881
+  br i1 %.not32.i, label %vm_opt_neq.exit.thread, label %1881
 
 1881:                                             ; preds = %check_method_basic_definition.exit.i
   %1882 = call i64 @rb_sym2str(i64 noundef %1835) #20
@@ -11348,7 +11342,7 @@ check_method_basic_definition.exit.i:             ; preds = %1877
   %1884 = getelementptr i8, ptr %.0.i.i.i2479, i64 16
   %.val36.i = load ptr, ptr %1884, align 8, !tbaa !218
   %.not.i38.i = icmp eq ptr %.val36.i, null
-  br i1 %.not.i38.i, label %vm_objtostring.exit.thread, label %1885
+  br i1 %.not.i38.i, label %vm_opt_neq.exit.thread, label %1885
 
 1885:                                             ; preds = %1883
   %1886 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 16
@@ -11356,13 +11350,13 @@ check_method_basic_definition.exit.i:             ; preds = %1877
   %1888 = load i64, ptr %1887, align 8
   %1889 = and i64 %1888, 15
   %.not4.i.i = icmp eq i64 %1889, 1
-  br i1 %.not4.i.i, label %check_cfunc.exit.i, label %vm_objtostring.exit.thread
+  br i1 %.not4.i.i, label %check_cfunc.exit.i, label %vm_opt_neq.exit.thread
 
 check_cfunc.exit.i:                               ; preds = %1885
   %1890 = getelementptr inbounds nuw i8, ptr %1887, i64 8
   %1891 = load ptr, ptr %1890, align 8, !tbaa !26
   %.not75.i = icmp eq ptr %1891, @rb_mod_to_s
-  br i1 %.not75.i, label %1892, label %vm_objtostring.exit.thread
+  br i1 %.not75.i, label %1892, label %vm_opt_neq.exit.thread
 
 1892:                                             ; preds = %check_cfunc.exit.i
   %1893 = call i64 @rb_mod_name(i64 noundef %1835) #20
@@ -11377,7 +11371,7 @@ check_cfunc.exit.i:                               ; preds = %1885
   %1898 = getelementptr i8, ptr %.0.i.i.i2479, i64 16
   %.val35.i = load ptr, ptr %1898, align 8, !tbaa !218
   %.not.i40.i = icmp eq ptr %.val35.i, null
-  br i1 %.not.i40.i, label %vm_objtostring.exit.thread, label %1899
+  br i1 %.not.i40.i, label %vm_opt_neq.exit.thread, label %1899
 
 1899:                                             ; preds = %1897
   %1900 = getelementptr inbounds nuw i8, ptr %.val35.i, i64 16
@@ -11385,13 +11379,13 @@ check_cfunc.exit.i:                               ; preds = %1885
   %1902 = load i64, ptr %1901, align 8
   %1903 = and i64 %1902, 15
   %.not4.i41.i = icmp eq i64 %1903, 1
-  br i1 %.not4.i41.i, label %check_cfunc.exit43.i, label %vm_objtostring.exit.thread
+  br i1 %.not4.i41.i, label %check_cfunc.exit43.i, label %vm_opt_neq.exit.thread
 
 check_cfunc.exit43.i:                             ; preds = %1899
   %1904 = getelementptr inbounds nuw i8, ptr %1901, i64 8
   %1905 = load ptr, ptr %1904, align 8, !tbaa !26
   %.not74.i = icmp eq ptr %1905, @rb_nil_to_s
-  br i1 %.not74.i, label %1906, label %vm_objtostring.exit.thread
+  br i1 %.not74.i, label %1906, label %vm_opt_neq.exit.thread
 
 1906:                                             ; preds = %check_cfunc.exit43.i
   %1907 = call i64 @rb_nil_to_s(i64 noundef %1835) #20
@@ -11401,7 +11395,7 @@ check_cfunc.exit43.i:                             ; preds = %1899
   %1909 = getelementptr i8, ptr %.0.i.i.i2479, i64 16
   %.val34.i = load ptr, ptr %1909, align 8, !tbaa !218
   %.not.i44.i = icmp eq ptr %.val34.i, null
-  br i1 %.not.i44.i, label %vm_objtostring.exit.thread, label %1910
+  br i1 %.not.i44.i, label %vm_opt_neq.exit.thread, label %1910
 
 1910:                                             ; preds = %1908
   %1911 = getelementptr inbounds nuw i8, ptr %.val34.i, i64 16
@@ -11409,13 +11403,13 @@ check_cfunc.exit43.i:                             ; preds = %1899
   %1913 = load i64, ptr %1912, align 8
   %1914 = and i64 %1913, 15
   %.not4.i45.i = icmp eq i64 %1914, 1
-  br i1 %.not4.i45.i, label %check_cfunc.exit47.i, label %vm_objtostring.exit.thread
+  br i1 %.not4.i45.i, label %check_cfunc.exit47.i, label %vm_opt_neq.exit.thread
 
 check_cfunc.exit47.i:                             ; preds = %1910
   %1915 = getelementptr inbounds nuw i8, ptr %1912, i64 8
   %1916 = load ptr, ptr %1915, align 8, !tbaa !26
   %.not73.i = icmp eq ptr %1916, @rb_true_to_s
-  br i1 %.not73.i, label %1917, label %vm_objtostring.exit.thread
+  br i1 %.not73.i, label %1917, label %vm_opt_neq.exit.thread
 
 1917:                                             ; preds = %check_cfunc.exit47.i
   %1918 = call i64 @rb_true_to_s(i64 noundef %1835) #20
@@ -11425,7 +11419,7 @@ check_cfunc.exit47.i:                             ; preds = %1910
   %1920 = getelementptr i8, ptr %.0.i.i.i2479, i64 16
   %.val33.i = load ptr, ptr %1920, align 8, !tbaa !218
   %.not.i48.i = icmp eq ptr %.val33.i, null
-  br i1 %.not.i48.i, label %vm_objtostring.exit.thread, label %1921
+  br i1 %.not.i48.i, label %vm_opt_neq.exit.thread, label %1921
 
 1921:                                             ; preds = %1919
   %1922 = getelementptr inbounds nuw i8, ptr %.val33.i, i64 16
@@ -11433,13 +11427,13 @@ check_cfunc.exit47.i:                             ; preds = %1910
   %1924 = load i64, ptr %1923, align 8
   %1925 = and i64 %1924, 15
   %.not4.i49.i = icmp eq i64 %1925, 1
-  br i1 %.not4.i49.i, label %check_cfunc.exit51.i, label %vm_objtostring.exit.thread
+  br i1 %.not4.i49.i, label %check_cfunc.exit51.i, label %vm_opt_neq.exit.thread
 
 check_cfunc.exit51.i:                             ; preds = %1921
   %1926 = getelementptr inbounds nuw i8, ptr %1923, i64 8
   %1927 = load ptr, ptr %1926, align 8, !tbaa !26
   %.not72.i = icmp eq ptr %1927, @rb_false_to_s
-  br i1 %.not72.i, label %1928, label %vm_objtostring.exit.thread
+  br i1 %.not72.i, label %1928, label %vm_opt_neq.exit.thread
 
 1928:                                             ; preds = %check_cfunc.exit51.i
   %1929 = call i64 @rb_false_to_s(i64 noundef %1835) #20
@@ -11449,7 +11443,7 @@ check_cfunc.exit51.i:                             ; preds = %1921
   %1931 = getelementptr i8, ptr %.0.i.i.i2479, i64 16
   %.val.i2480 = load ptr, ptr %1931, align 8, !tbaa !218
   %.not.i52.i = icmp eq ptr %.val.i2480, null
-  br i1 %.not.i52.i, label %vm_objtostring.exit.thread, label %1932
+  br i1 %.not.i52.i, label %vm_opt_neq.exit.thread, label %1932
 
 1932:                                             ; preds = %1930
   %1933 = getelementptr inbounds nuw i8, ptr %.val.i2480, i64 16
@@ -11457,13 +11451,13 @@ check_cfunc.exit51.i:                             ; preds = %1921
   %1935 = load i64, ptr %1934, align 8
   %1936 = and i64 %1935, 15
   %.not4.i53.i = icmp eq i64 %1936, 1
-  br i1 %.not4.i53.i, label %check_cfunc.exit55.i, label %vm_objtostring.exit.thread
+  br i1 %.not4.i53.i, label %check_cfunc.exit55.i, label %vm_opt_neq.exit.thread
 
 check_cfunc.exit55.i:                             ; preds = %1932
   %1937 = getelementptr inbounds nuw i8, ptr %1934, i64 8
   %1938 = load ptr, ptr %1937, align 8, !tbaa !26
   %.not.i2482 = icmp eq ptr %1938, @rb_int_to_s
-  br i1 %.not.i2482, label %1939, label %vm_objtostring.exit.thread
+  br i1 %.not.i2482, label %1939, label %vm_opt_neq.exit.thread
 
 1939:                                             ; preds = %check_cfunc.exit55.i
   %1940 = call i64 @rb_fix_to_s(i64 noundef %1835) #20
@@ -11472,7 +11466,7 @@ check_cfunc.exit55.i:                             ; preds = %1932
 vm_objtostring.exit:                              ; preds = %rb_type.exit.i, %1881, %1892, %1895, %1906, %1917, %1928, %1939
   %.0.i2481 = phi i64 [ %1835, %rb_type.exit.i ], [ %1893, %1892 ], [ %1882, %1881 ], [ %1940, %1939 ], [ %1907, %1906 ], [ %1918, %1917 ], [ %1929, %1928 ], [ %1896, %1895 ]
   %1941 = icmp eq i64 %.0.i2481, 36
-  br i1 %1941, label %vm_objtostring.exit.thread, label %1942
+  br i1 %1941, label %vm_opt_neq.exit.thread, label %1942
 
 1942:                                             ; preds = %vm_objtostring.exit
   %1943 = load ptr, ptr %1832, align 8, !tbaa !93
@@ -11532,7 +11526,7 @@ rb_array_len.exit2488:                            ; preds = %1961, %1964
   store i64 %1969, ptr %1971, align 8, !tbaa !7
   %1972 = getelementptr i8, ptr %1971, i64 8
   store ptr %1972, ptr %1970, align 8, !tbaa !93
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 1973:                                             ; preds = %1945
   %1974 = getelementptr inbounds nuw i8, ptr %.02230, i64 8
@@ -11597,7 +11591,7 @@ RHASH_SIZE.exit2492:                              ; preds = %1993, %1996
   store i64 %2004, ptr %2006, align 8, !tbaa !7
   %2007 = getelementptr i8, ptr %2006, i64 8
   store ptr %2007, ptr %2005, align 8, !tbaa !93
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 2008:                                             ; preds = %1977
   %2009 = getelementptr inbounds nuw i8, ptr %.02230, i64 8
@@ -11626,7 +11620,7 @@ RHASH_SIZE.exit2492:                              ; preds = %1993, %1996
   store i64 %2022, ptr %2024, align 8, !tbaa !7
   %2025 = getelementptr i8, ptr %2024, i64 8
   store ptr %2025, ptr %2023, align 8, !tbaa !93
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 2026:                                             ; preds = %2012
   %2027 = getelementptr inbounds nuw i8, ptr %.02230, i64 8
@@ -11712,7 +11706,7 @@ vm_search_method.exit.i.i:                        ; preds = %2066, %rb_class_of.
   %.phi.trans.insert.i.i = getelementptr i8, ptr %2070, i64 16
   %.val.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !218
   %.not.i.i.i2494 = icmp eq ptr %.val.pre.i.i, null
-  br i1 %.not.i.i.i2494, label %vm_objtostring.exit.thread, label %vm_search_method.exit.thread.i.i
+  br i1 %.not.i.i.i2494, label %vm_opt_neq.exit.thread, label %vm_search_method.exit.thread.i.i
 
 vm_search_method.exit.thread.i.i:                 ; preds = %vm_search_method.exit.i.i, %2066
   %.val6.i.i = phi ptr [ %.val.pre.i.i, %vm_search_method.exit.i.i ], [ %.val.i.i.i2497, %2066 ]
@@ -11721,14 +11715,14 @@ vm_search_method.exit.thread.i.i:                 ; preds = %vm_search_method.ex
   %2073 = load i64, ptr %2072, align 8
   %2074 = and i64 %2073, 15
   %.not4.i.i.i = icmp eq i64 %2074, 1
-  br i1 %.not4.i.i.i, label %vm_method_cfunc_is.exit.i, label %vm_objtostring.exit.thread
+  br i1 %.not4.i.i.i, label %vm_method_cfunc_is.exit.i, label %vm_opt_neq.exit.thread
 
 vm_method_cfunc_is.exit.i:                        ; preds = %vm_search_method.exit.thread.i.i
   %2075 = getelementptr inbounds nuw i8, ptr %2072, i64 8
   %2076 = load ptr, ptr %2075, align 8, !tbaa !26
   %.fr.i = freeze ptr %2076
   %.not.i2496 = icmp eq ptr %.fr.i, @rb_false
-  br i1 %.not.i2496, label %vm_method_cfunc_is.exit.i._crit_edge, label %vm_objtostring.exit.thread
+  br i1 %.not.i2496, label %vm_method_cfunc_is.exit.i._crit_edge, label %vm_opt_neq.exit.thread
 
 vm_method_cfunc_is.exit.i._crit_edge:             ; preds = %vm_method_cfunc_is.exit.i
   %.pre3125 = load ptr, ptr %2034, align 8, !tbaa !93
@@ -11760,7 +11754,7 @@ vm_method_cfunc_is.exit.i._crit_edge:             ; preds = %vm_method_cfunc_is.
   store i64 %2090, ptr %2092, align 8, !tbaa !7
   %2093 = getelementptr i8, ptr %2092, i64 8
   store ptr %2093, ptr %2091, align 8, !tbaa !93
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 2094:                                             ; preds = %2080
   %2095 = getelementptr inbounds nuw i8, ptr %.02230, i64 8
@@ -13061,14 +13055,14 @@ rb_float_value_inline.exit30.i:                   ; preds = %2734, %2728, %2727
   %2756 = and i64 %2684, 7
   %2757 = icmp ne i64 %2756, 0
   %2758 = or i1 %2755, %2757
-  br i1 %2758, label %vm_objtostring.exit.thread, label %2759
+  br i1 %2758, label %vm_opt_neq.exit.thread, label %2759
 
 2759:                                             ; preds = %2754
   %2760 = icmp eq i64 %2685, 0
   %2761 = and i64 %2685, 7
   %2762 = icmp ne i64 %2761, 0
   %2763 = or i1 %2760, %2762
-  br i1 %2763, label %vm_objtostring.exit.thread, label %2764
+  br i1 %2763, label %vm_opt_neq.exit.thread, label %2764
 
 2764:                                             ; preds = %2759
   %2765 = inttoptr i64 %2684 to ptr
@@ -13148,20 +13142,20 @@ rb_float_value_inline.exit35.i:                   ; preds = %2775
 2813:                                             ; preds = %2807, %2802, %2799
   %2814 = load i64, ptr @rb_cArray, align 8, !tbaa !7
   %2815 = icmp eq i64 %2767, %2814
-  br i1 %2815, label %2816, label %vm_objtostring.exit.thread
+  br i1 %2815, label %2816, label %vm_opt_neq.exit.thread
 
 2816:                                             ; preds = %2813
   %2817 = inttoptr i64 %2685 to ptr
   %2818 = getelementptr inbounds nuw i8, ptr %2817, i64 8
   %2819 = load i64, ptr %2818, align 8, !tbaa !57
   %2820 = icmp eq i64 %2819, %2767
-  br i1 %2820, label %2821, label %vm_objtostring.exit.thread
+  br i1 %2820, label %2821, label %vm_opt_neq.exit.thread
 
 2821:                                             ; preds = %2816
   %2822 = load i16, ptr @ruby_vm_redefined_flag, align 16, !tbaa !263
   %2823 = and i16 %2822, 8
   %2824 = icmp eq i16 %2823, 0
-  br i1 %2824, label %2825, label %vm_objtostring.exit.thread, !prof !69
+  br i1 %2824, label %2825, label %vm_opt_neq.exit.thread, !prof !69
 
 2825:                                             ; preds = %2821
   %2826 = call i64 @rb_ary_plus(i64 noundef %2684, i64 noundef %2685) #20
@@ -13170,7 +13164,7 @@ rb_float_value_inline.exit35.i:                   ; preds = %2775
 vm_opt_plus.exit:                                 ; preds = %2797, %2693, %2698, %2752, %2811, %2825
   %.0.i2560 = phi i64 [ %2701, %2698 ], [ %2697, %2693 ], [ %2753, %2752 ], [ %2798, %2797 ], [ %2812, %2811 ], [ %2826, %2825 ]
   %2827 = icmp eq i64 %.0.i2560, 36
-  br i1 %2827, label %vm_objtostring.exit.thread, label %vm_opt_plus.exit.vm_opt_plus.exit.thread2822_crit_edge
+  br i1 %2827, label %vm_opt_neq.exit.thread, label %vm_opt_plus.exit.vm_opt_plus.exit.thread2822_crit_edge
 
 vm_opt_plus.exit.vm_opt_plus.exit.thread2822_crit_edge: ; preds = %vm_opt_plus.exit
   %.pre3117 = load ptr, ptr %2680, align 8, !tbaa !93
@@ -13314,14 +13308,14 @@ rb_float_value_inline.exit20.i:                   ; preds = %2886, %2880, %2879
   %2908 = and i64 %2836, 7
   %2909 = icmp ne i64 %2908, 0
   %2910 = or i1 %2907, %2909
-  br i1 %2910, label %vm_objtostring.exit.thread, label %2911
+  br i1 %2910, label %vm_opt_neq.exit.thread, label %2911
 
 2911:                                             ; preds = %2906
   %2912 = icmp eq i64 %2837, 0
   %2913 = and i64 %2837, 7
   %2914 = icmp ne i64 %2913, 0
   %2915 = or i1 %2912, %2914
-  br i1 %2915, label %vm_objtostring.exit.thread, label %2916
+  br i1 %2915, label %vm_opt_neq.exit.thread, label %2916
 
 2916:                                             ; preds = %2911
   %2917 = inttoptr i64 %2836 to ptr
@@ -13329,20 +13323,20 @@ rb_float_value_inline.exit20.i:                   ; preds = %2886, %2880, %2879
   %2919 = load i64, ptr %2918, align 8, !tbaa !57
   %2920 = load i64, ptr @rb_cFloat, align 8, !tbaa !7
   %2921 = icmp eq i64 %2919, %2920
-  br i1 %2921, label %2922, label %vm_objtostring.exit.thread
+  br i1 %2921, label %2922, label %vm_opt_neq.exit.thread
 
 2922:                                             ; preds = %2916
   %2923 = inttoptr i64 %2837 to ptr
   %2924 = getelementptr inbounds nuw i8, ptr %2923, i64 8
   %2925 = load i64, ptr %2924, align 8, !tbaa !57
   %2926 = icmp eq i64 %2925, %2919
-  br i1 %2926, label %2927, label %vm_objtostring.exit.thread
+  br i1 %2926, label %2927, label %vm_opt_neq.exit.thread
 
 2927:                                             ; preds = %2922
   %2928 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 2), align 2, !tbaa !263
   %2929 = and i16 %2928, 2
   %2930 = icmp eq i16 %2929, 0
-  br i1 %2930, label %rb_float_value_inline.exit25.i, label %vm_objtostring.exit.thread, !prof !69
+  br i1 %2930, label %rb_float_value_inline.exit25.i, label %vm_opt_neq.exit.thread, !prof !69
 
 rb_float_value_inline.exit25.i:                   ; preds = %2927
   %2931 = getelementptr inbounds nuw i8, ptr %2917, i64 16
@@ -13379,7 +13373,7 @@ rb_float_value_inline.exit25.i:                   ; preds = %2927
 vm_opt_minus.exit:                                ; preds = %2949, %2845, %2850, %2904
   %.0.i2566 = phi i64 [ %2853, %2850 ], [ %2849, %2845 ], [ %2905, %2904 ], [ %2950, %2949 ]
   %2951 = icmp eq i64 %.0.i2566, 36
-  br i1 %2951, label %vm_objtostring.exit.thread, label %vm_opt_minus.exit.vm_opt_minus.exit.thread2827_crit_edge
+  br i1 %2951, label %vm_opt_neq.exit.thread, label %vm_opt_minus.exit.vm_opt_minus.exit.thread2827_crit_edge
 
 vm_opt_minus.exit.vm_opt_minus.exit.thread2827_crit_edge: ; preds = %vm_opt_minus.exit
   %.pre3116 = load ptr, ptr %2832, align 8, !tbaa !93
@@ -13532,14 +13526,14 @@ rb_float_value_inline.exit19.i:                   ; preds = %3014, %3008, %3007
   %3036 = and i64 %2960, 7
   %3037 = icmp ne i64 %3036, 0
   %3038 = or i1 %3035, %3037
-  br i1 %3038, label %vm_objtostring.exit.thread, label %3039
+  br i1 %3038, label %vm_opt_neq.exit.thread, label %3039
 
 3039:                                             ; preds = %3034
   %3040 = icmp eq i64 %2961, 0
   %3041 = and i64 %2961, 7
   %3042 = icmp ne i64 %3041, 0
   %3043 = or i1 %3040, %3042
-  br i1 %3043, label %vm_objtostring.exit.thread, label %3044
+  br i1 %3043, label %vm_opt_neq.exit.thread, label %3044
 
 3044:                                             ; preds = %3039
   %3045 = inttoptr i64 %2960 to ptr
@@ -13547,20 +13541,20 @@ rb_float_value_inline.exit19.i:                   ; preds = %3014, %3008, %3007
   %3047 = load i64, ptr %3046, align 8, !tbaa !57
   %3048 = load i64, ptr @rb_cFloat, align 8, !tbaa !7
   %3049 = icmp eq i64 %3047, %3048
-  br i1 %3049, label %3050, label %vm_objtostring.exit.thread
+  br i1 %3049, label %3050, label %vm_opt_neq.exit.thread
 
 3050:                                             ; preds = %3044
   %3051 = inttoptr i64 %2961 to ptr
   %3052 = getelementptr inbounds nuw i8, ptr %3051, i64 8
   %3053 = load i64, ptr %3052, align 8, !tbaa !57
   %3054 = icmp eq i64 %3053, %3047
-  br i1 %3054, label %3055, label %vm_objtostring.exit.thread
+  br i1 %3054, label %3055, label %vm_opt_neq.exit.thread
 
 3055:                                             ; preds = %3050
   %3056 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 4), align 4, !tbaa !263
   %3057 = and i16 %3056, 2
   %3058 = icmp eq i16 %3057, 0
-  br i1 %3058, label %rb_float_value_inline.exit24.i, label %vm_objtostring.exit.thread, !prof !69
+  br i1 %3058, label %rb_float_value_inline.exit24.i, label %vm_opt_neq.exit.thread, !prof !69
 
 rb_float_value_inline.exit24.i:                   ; preds = %3055
   %3059 = getelementptr inbounds nuw i8, ptr %3045, i64 16
@@ -13597,7 +13591,7 @@ rb_float_value_inline.exit24.i:                   ; preds = %3055
 vm_opt_mult.exit:                                 ; preds = %3077, %2980, %3032
   %.0.i2572 = phi i64 [ %3078, %3077 ], [ %2981, %2980 ], [ %3033, %3032 ]
   %3079 = icmp eq i64 %.0.i2572, 36
-  br i1 %3079, label %vm_objtostring.exit.thread, label %vm_opt_mult.exit.vm_opt_mult.exit.thread2832_crit_edge
+  br i1 %3079, label %vm_opt_neq.exit.thread, label %vm_opt_mult.exit.vm_opt_mult.exit.thread2832_crit_edge
 
 vm_opt_mult.exit.vm_opt_mult.exit.thread2832_crit_edge: ; preds = %vm_opt_mult.exit
   %.pre3115 = load ptr, ptr %2956, align 8, !tbaa !93
@@ -13634,7 +13628,7 @@ vm_opt_mult.exit.thread2832:                      ; preds = %vm_opt_mult.exit.vm
 3097:                                             ; preds = %3093
   %3098 = ashr i64 %3089, 1
   %3099 = icmp eq i64 %3098, 0
-  br i1 %3099, label %vm_objtostring.exit.thread, label %3100
+  br i1 %3099, label %vm_opt_neq.exit.thread, label %3100
 
 3100:                                             ; preds = %3097
   %3101 = ashr i64 %3088, 1
@@ -13694,14 +13688,14 @@ vm_opt_div.exit.thread2836:                       ; preds = %3110, %3112, %3114
   %3131 = and i64 %3088, 7
   %3132 = icmp ne i64 %3131, 0
   %3133 = or i1 %3130, %3132
-  br i1 %3133, label %vm_objtostring.exit.thread, label %3134
+  br i1 %3133, label %vm_opt_neq.exit.thread, label %3134
 
 3134:                                             ; preds = %3129
   %3135 = icmp eq i64 %3089, 0
   %3136 = and i64 %3089, 7
   %3137 = icmp ne i64 %3136, 0
   %3138 = or i1 %3135, %3137
-  br i1 %3138, label %vm_objtostring.exit.thread, label %3139
+  br i1 %3138, label %vm_opt_neq.exit.thread, label %3139
 
 3139:                                             ; preds = %3134
   %3140 = inttoptr i64 %3088 to ptr
@@ -13709,20 +13703,20 @@ vm_opt_div.exit.thread2836:                       ; preds = %3110, %3112, %3114
   %3142 = load i64, ptr %3141, align 8, !tbaa !57
   %3143 = load i64, ptr @rb_cFloat, align 8, !tbaa !7
   %3144 = icmp eq i64 %3142, %3143
-  br i1 %3144, label %3145, label %vm_objtostring.exit.thread
+  br i1 %3144, label %3145, label %vm_opt_neq.exit.thread
 
 3145:                                             ; preds = %3139
   %3146 = inttoptr i64 %3089 to ptr
   %3147 = getelementptr inbounds nuw i8, ptr %3146, i64 8
   %3148 = load i64, ptr %3147, align 8, !tbaa !57
   %3149 = icmp eq i64 %3148, %3142
-  br i1 %3149, label %3150, label %vm_objtostring.exit.thread
+  br i1 %3149, label %3150, label %vm_opt_neq.exit.thread
 
 3150:                                             ; preds = %3145
   %3151 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 6), align 2, !tbaa !263
   %3152 = and i16 %3151, 2
   %3153 = icmp eq i16 %3152, 0
-  br i1 %3153, label %3154, label %vm_objtostring.exit.thread, !prof !69
+  br i1 %3153, label %3154, label %vm_opt_neq.exit.thread, !prof !69
 
 3154:                                             ; preds = %3150
   %3155 = call i64 @rb_flo_div_flo(i64 noundef %3088, i64 noundef %3089) #20
@@ -13731,7 +13725,7 @@ vm_opt_div.exit.thread2836:                       ; preds = %3110, %3112, %3114
 vm_opt_div.exit:                                  ; preds = %3104, %3127, %3154
   %.0.i2580 = phi i64 [ %3105, %3104 ], [ %3128, %3127 ], [ %3155, %3154 ]
   %3156 = icmp eq i64 %.0.i2580, 36
-  br i1 %3156, label %vm_objtostring.exit.thread, label %vm_opt_div.exit._crit_edge
+  br i1 %3156, label %vm_opt_neq.exit.thread, label %vm_opt_div.exit._crit_edge
 
 vm_opt_div.exit._crit_edge:                       ; preds = %vm_opt_div.exit
   %.pre3114 = load ptr, ptr %3084, align 8, !tbaa !93
@@ -13768,7 +13762,7 @@ vm_opt_div.exit._crit_edge:                       ; preds = %vm_opt_div.exit
 3175:                                             ; preds = %3171
   %3176 = ashr i64 %3167, 1
   %3177 = icmp eq i64 %3176, 0
-  br i1 %3177, label %vm_objtostring.exit.thread, label %3178
+  br i1 %3177, label %vm_opt_neq.exit.thread, label %3178
 
 3178:                                             ; preds = %3175
   %3179 = ashr i64 %3166, 1
@@ -13893,14 +13887,14 @@ rb_float_value_inline.exit20.i2586:               ; preds = %3226, %3220, %3219
   %3246 = and i64 %3166, 7
   %3247 = icmp ne i64 %3246, 0
   %3248 = or i1 %3245, %3247
-  br i1 %3248, label %vm_objtostring.exit.thread, label %3249
+  br i1 %3248, label %vm_opt_neq.exit.thread, label %3249
 
 3249:                                             ; preds = %3244
   %3250 = icmp eq i64 %3167, 0
   %3251 = and i64 %3167, 7
   %3252 = icmp ne i64 %3251, 0
   %3253 = or i1 %3250, %3252
-  br i1 %3253, label %vm_objtostring.exit.thread, label %3254
+  br i1 %3253, label %vm_opt_neq.exit.thread, label %3254
 
 3254:                                             ; preds = %3249
   %3255 = inttoptr i64 %3166 to ptr
@@ -13908,20 +13902,20 @@ rb_float_value_inline.exit20.i2586:               ; preds = %3226, %3220, %3219
   %3257 = load i64, ptr %3256, align 8, !tbaa !57
   %3258 = load i64, ptr @rb_cFloat, align 8, !tbaa !7
   %3259 = icmp eq i64 %3257, %3258
-  br i1 %3259, label %3260, label %vm_objtostring.exit.thread
+  br i1 %3259, label %3260, label %vm_opt_neq.exit.thread
 
 3260:                                             ; preds = %3254
   %3261 = inttoptr i64 %3167 to ptr
   %3262 = getelementptr inbounds nuw i8, ptr %3261, i64 8
   %3263 = load i64, ptr %3262, align 8, !tbaa !57
   %3264 = icmp eq i64 %3263, %3257
-  br i1 %3264, label %3265, label %vm_objtostring.exit.thread
+  br i1 %3264, label %3265, label %vm_opt_neq.exit.thread
 
 3265:                                             ; preds = %3260
   %3266 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 8), align 8, !tbaa !263
   %3267 = and i16 %3266, 2
   %3268 = icmp eq i16 %3267, 0
-  br i1 %3268, label %rb_float_value_inline.exit25.i2583, label %vm_objtostring.exit.thread, !prof !69
+  br i1 %3268, label %rb_float_value_inline.exit25.i2583, label %vm_opt_neq.exit.thread, !prof !69
 
 rb_float_value_inline.exit25.i2583:               ; preds = %3265
   %3269 = getelementptr inbounds nuw i8, ptr %3255, i64 16
@@ -13955,7 +13949,7 @@ vm_opt_mod.exit:                                  ; preds = %rb_float_value_inli
   %.sink = phi double [ %3230, %rb_float_value_inline.exit20.i2586 ], [ %3230, %3242 ], [ %3273, %3285 ], [ %3273, %rb_float_value_inline.exit25.i2583 ]
   %3287 = call i64 @rb_float_new_in_heap(double noundef %.sink) #20
   %3288 = icmp eq i64 %3287, 36
-  br i1 %3288, label %vm_objtostring.exit.thread, label %vm_opt_mod.exit.thread2841
+  br i1 %3288, label %vm_opt_neq.exit.thread, label %vm_opt_mod.exit.thread2841
 
 vm_opt_mod.exit.thread2841:                       ; preds = %3285, %3281, %3242, %3238, %3178, %3191, %vm_opt_mod.exit
   %.0.i25822843 = phi i64 [ %3287, %vm_opt_mod.exit ], [ -9223372036854775806, %3285 ], [ %3284, %3281 ], [ -9223372036854775806, %3242 ], [ %3241, %3238 ], [ 1, %3178 ], [ %3193, %3191 ]
@@ -14043,7 +14037,7 @@ vm_search_method.exit.i.i2601:                    ; preds = %3328, %rb_class_of.
   %.phi.trans.insert.i.i2602 = getelementptr i8, ptr %3332, i64 16
   %.val.pre.i.i2603 = load ptr, ptr %.phi.trans.insert.i.i2602, align 8, !tbaa !218
   %.not.i.i.i2604 = icmp eq ptr %.val.pre.i.i2603, null
-  br i1 %.not.i.i.i2604, label %vm_objtostring.exit.thread, label %vm_search_method.exit.thread.i.i2605
+  br i1 %.not.i.i.i2604, label %vm_opt_neq.exit.thread, label %vm_search_method.exit.thread.i.i2605
 
 vm_search_method.exit.thread.i.i2605:             ; preds = %vm_search_method.exit.i.i2601, %3328
   %.val6.i.i2606 = phi ptr [ %.val.pre.i.i2603, %vm_search_method.exit.i.i2601 ], [ %.val.i.i.i2610, %3328 ]
@@ -14052,13 +14046,13 @@ vm_search_method.exit.thread.i.i2605:             ; preds = %vm_search_method.ex
   %3335 = load i64, ptr %3334, align 8
   %3336 = and i64 %3335, 15
   %.not4.i.i.i2607 = icmp eq i64 %3336, 1
-  br i1 %.not4.i.i.i2607, label %vm_method_cfunc_is.exit.i2608, label %vm_objtostring.exit.thread
+  br i1 %.not4.i.i.i2607, label %vm_method_cfunc_is.exit.i2608, label %vm_opt_neq.exit.thread
 
 vm_method_cfunc_is.exit.i2608:                    ; preds = %vm_search_method.exit.thread.i.i2605
   %3337 = getelementptr inbounds nuw i8, ptr %3334, i64 8
   %3338 = load ptr, ptr %3337, align 8, !tbaa !26
   %.not.i2609 = icmp eq ptr %3338, @rb_obj_equal
-  br i1 %.not.i2609, label %3339, label %vm_objtostring.exit.thread
+  br i1 %.not.i2609, label %3339, label %vm_opt_neq.exit.thread
 
 3339:                                             ; preds = %vm_method_cfunc_is.exit.i2608
   %3340 = icmp eq i64 %3300, %3301
@@ -14149,7 +14143,7 @@ vm_search_method.exit.i.i2617:                    ; preds = %3381, %rb_class_of.
   %.phi.trans.insert.i.i2618 = getelementptr i8, ptr %3385, i64 16
   %.val.pre.i.i2619 = load ptr, ptr %.phi.trans.insert.i.i2618, align 8, !tbaa !218
   %.not.i.i.i2620 = icmp eq ptr %.val.pre.i.i2619, null
-  br i1 %.not.i.i.i2620, label %vm_objtostring.exit.thread, label %vm_search_method.exit.thread.i.i2621
+  br i1 %.not.i.i.i2620, label %vm_opt_neq.exit.thread, label %vm_search_method.exit.thread.i.i2621
 
 vm_search_method.exit.thread.i.i2621:             ; preds = %vm_search_method.exit.i.i2617, %3381
   %.val6.i.i2622 = phi ptr [ %.val.pre.i.i2619, %vm_search_method.exit.i.i2617 ], [ %.val.i.i.i2632, %3381 ]
@@ -14158,13 +14152,13 @@ vm_search_method.exit.thread.i.i2621:             ; preds = %vm_search_method.ex
   %3388 = load i64, ptr %3387, align 8
   %3389 = and i64 %3388, 15
   %.not4.i.i.i2623 = icmp eq i64 %3389, 1
-  br i1 %.not4.i.i.i2623, label %vm_method_cfunc_is.exit.i2626, label %vm_objtostring.exit.thread
+  br i1 %.not4.i.i.i2623, label %vm_method_cfunc_is.exit.i2626, label %vm_opt_neq.exit.thread
 
 vm_method_cfunc_is.exit.i2626:                    ; preds = %vm_search_method.exit.thread.i.i2621
   %3390 = getelementptr inbounds nuw i8, ptr %3387, i64 8
   %3391 = load ptr, ptr %3390, align 8, !tbaa !26
   %.not.i2627 = icmp eq ptr %3391, @rb_obj_not_equal
-  br i1 %.not.i2627, label %3392, label %vm_objtostring.exit.thread
+  br i1 %.not.i2627, label %3392, label %vm_opt_neq.exit.thread
 
 3392:                                             ; preds = %vm_method_cfunc_is.exit.i2626
   %3393 = call fastcc i64 @opt_equality_specialized(i64 noundef %3356, i64 noundef %3357)
@@ -14225,7 +14219,7 @@ vm_search_method.exit.i.i.i:                      ; preds = %3411, %rb_class_of.
   %.phi.trans.insert.i.i.i = getelementptr i8, ptr %3415, i64 16
   %.val.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !218
   %.not.i.i.i11.i = icmp eq ptr %.val.pre.i.i.i, null
-  br i1 %.not.i.i.i11.i, label %vm_objtostring.exit.thread, label %vm_search_method.exit.thread.i.i.i
+  br i1 %.not.i.i.i11.i, label %vm_opt_neq.exit.thread, label %vm_search_method.exit.thread.i.i.i
 
 vm_search_method.exit.thread.i.i.i:               ; preds = %vm_search_method.exit.i.i.i, %3411
   %.val6.i.i.i = phi ptr [ %.val.pre.i.i.i, %vm_search_method.exit.i.i.i ], [ %.val.i.i.i.i2630, %3411 ]
@@ -14234,13 +14228,13 @@ vm_search_method.exit.thread.i.i.i:               ; preds = %vm_search_method.ex
   %3418 = load i64, ptr %3417, align 8
   %3419 = and i64 %3418, 15
   %.not4.i.i.i.i = icmp eq i64 %3419, 1
-  br i1 %.not4.i.i.i.i, label %vm_method_cfunc_is.exit.i.i, label %vm_objtostring.exit.thread
+  br i1 %.not4.i.i.i.i, label %vm_method_cfunc_is.exit.i.i, label %vm_opt_neq.exit.thread
 
 vm_method_cfunc_is.exit.i.i:                      ; preds = %vm_search_method.exit.thread.i.i.i
   %3420 = getelementptr inbounds nuw i8, ptr %3417, i64 8
   %3421 = load ptr, ptr %3420, align 8, !tbaa !26
   %.not.i.i2629 = icmp eq ptr %3421, @rb_obj_equal
-  br i1 %.not.i.i2629, label %3422, label %vm_objtostring.exit.thread
+  br i1 %.not.i.i2629, label %3422, label %vm_opt_neq.exit.thread
 
 3422:                                             ; preds = %vm_method_cfunc_is.exit.i.i
   %3423 = icmp eq i64 %3356, %3357
@@ -14355,14 +14349,14 @@ rb_float_value_inline.exit19.i2639:               ; preds = %3478, %3472, %3471
   %3485 = and i64 %3435, 7
   %3486 = icmp ne i64 %3485, 0
   %3487 = or i1 %3484, %3486
-  br i1 %3487, label %vm_objtostring.exit.thread, label %3488
+  br i1 %3487, label %vm_opt_neq.exit.thread, label %3488
 
 3488:                                             ; preds = %3483
   %3489 = icmp eq i64 %3436, 0
   %3490 = and i64 %3436, 7
   %3491 = icmp ne i64 %3490, 0
   %3492 = or i1 %3489, %3491
-  br i1 %3492, label %vm_objtostring.exit.thread, label %3493
+  br i1 %3492, label %vm_opt_neq.exit.thread, label %3493
 
 3493:                                             ; preds = %3488
   %3494 = inttoptr i64 %3435 to ptr
@@ -14370,20 +14364,20 @@ rb_float_value_inline.exit19.i2639:               ; preds = %3478, %3472, %3471
   %3496 = load i64, ptr %3495, align 8, !tbaa !57
   %3497 = load i64, ptr @rb_cFloat, align 8, !tbaa !7
   %3498 = icmp eq i64 %3496, %3497
-  br i1 %3498, label %3499, label %vm_objtostring.exit.thread
+  br i1 %3498, label %3499, label %vm_opt_neq.exit.thread
 
 3499:                                             ; preds = %3493
   %3500 = inttoptr i64 %3436 to ptr
   %3501 = getelementptr inbounds nuw i8, ptr %3500, i64 8
   %3502 = load i64, ptr %3501, align 8, !tbaa !57
   %3503 = icmp eq i64 %3502, %3496
-  br i1 %3503, label %3504, label %vm_objtostring.exit.thread
+  br i1 %3503, label %3504, label %vm_opt_neq.exit.thread
 
 3504:                                             ; preds = %3499
   %3505 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 14), align 2, !tbaa !263
   %3506 = and i16 %3505, 2
   %3507 = icmp eq i16 %3506, 0
-  br i1 %3507, label %rb_float_value_inline.exit23.i, label %vm_objtostring.exit.thread, !prof !69
+  br i1 %3507, label %rb_float_value_inline.exit23.i, label %vm_opt_neq.exit.thread, !prof !69
 
 rb_float_value_inline.exit23.i:                   ; preds = %3504
   %3508 = getelementptr inbounds nuw i8, ptr %3494, i64 16
@@ -14498,14 +14492,14 @@ rb_float_value_inline.exit19.i2650:               ; preds = %3562, %3556, %3555
   %3570 = and i64 %3519, 7
   %3571 = icmp ne i64 %3570, 0
   %3572 = or i1 %3569, %3571
-  br i1 %3572, label %vm_objtostring.exit.thread, label %3573
+  br i1 %3572, label %vm_opt_neq.exit.thread, label %3573
 
 3573:                                             ; preds = %3568
   %3574 = icmp eq i64 %3520, 0
   %3575 = and i64 %3520, 7
   %3576 = icmp ne i64 %3575, 0
   %3577 = or i1 %3574, %3576
-  br i1 %3577, label %vm_objtostring.exit.thread, label %3578
+  br i1 %3577, label %vm_opt_neq.exit.thread, label %3578
 
 3578:                                             ; preds = %3573
   %3579 = inttoptr i64 %3519 to ptr
@@ -14513,20 +14507,20 @@ rb_float_value_inline.exit19.i2650:               ; preds = %3562, %3556, %3555
   %3581 = load i64, ptr %3580, align 8, !tbaa !57
   %3582 = load i64, ptr @rb_cFloat, align 8, !tbaa !7
   %3583 = icmp eq i64 %3581, %3582
-  br i1 %3583, label %3584, label %vm_objtostring.exit.thread
+  br i1 %3583, label %3584, label %vm_opt_neq.exit.thread
 
 3584:                                             ; preds = %3578
   %3585 = inttoptr i64 %3520 to ptr
   %3586 = getelementptr inbounds nuw i8, ptr %3585, i64 8
   %3587 = load i64, ptr %3586, align 8, !tbaa !57
   %3588 = icmp eq i64 %3587, %3581
-  br i1 %3588, label %3589, label %vm_objtostring.exit.thread
+  br i1 %3588, label %3589, label %vm_opt_neq.exit.thread
 
 3589:                                             ; preds = %3584
   %3590 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 16), align 16, !tbaa !263
   %3591 = and i16 %3590, 2
   %3592 = icmp eq i16 %3591, 0
-  br i1 %3592, label %rb_float_value_inline.exit23.i2647, label %vm_objtostring.exit.thread, !prof !69
+  br i1 %3592, label %rb_float_value_inline.exit23.i2647, label %vm_opt_neq.exit.thread, !prof !69
 
 rb_float_value_inline.exit23.i2647:               ; preds = %3589
   %3593 = getelementptr inbounds nuw i8, ptr %3579, i64 16
@@ -14639,14 +14633,14 @@ rb_float_value_inline.exit19.i2662:               ; preds = %3647, %3641, %3640
   %3654 = and i64 %3604, 7
   %3655 = icmp ne i64 %3654, 0
   %3656 = or i1 %3653, %3655
-  br i1 %3656, label %vm_objtostring.exit.thread, label %3657
+  br i1 %3656, label %vm_opt_neq.exit.thread, label %3657
 
 3657:                                             ; preds = %3652
   %3658 = icmp eq i64 %3605, 0
   %3659 = and i64 %3605, 7
   %3660 = icmp ne i64 %3659, 0
   %3661 = or i1 %3658, %3660
-  br i1 %3661, label %vm_objtostring.exit.thread, label %3662
+  br i1 %3661, label %vm_opt_neq.exit.thread, label %3662
 
 3662:                                             ; preds = %3657
   %3663 = inttoptr i64 %3604 to ptr
@@ -14654,20 +14648,20 @@ rb_float_value_inline.exit19.i2662:               ; preds = %3647, %3641, %3640
   %3665 = load i64, ptr %3664, align 8, !tbaa !57
   %3666 = load i64, ptr @rb_cFloat, align 8, !tbaa !7
   %3667 = icmp eq i64 %3665, %3666
-  br i1 %3667, label %3668, label %vm_objtostring.exit.thread
+  br i1 %3667, label %3668, label %vm_opt_neq.exit.thread
 
 3668:                                             ; preds = %3662
   %3669 = inttoptr i64 %3605 to ptr
   %3670 = getelementptr inbounds nuw i8, ptr %3669, i64 8
   %3671 = load i64, ptr %3670, align 8, !tbaa !57
   %3672 = icmp eq i64 %3671, %3665
-  br i1 %3672, label %3673, label %vm_objtostring.exit.thread
+  br i1 %3672, label %3673, label %vm_opt_neq.exit.thread
 
 3673:                                             ; preds = %3668
   %3674 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 34), align 2, !tbaa !263
   %3675 = and i16 %3674, 2
   %3676 = icmp eq i16 %3675, 0
-  br i1 %3676, label %rb_float_value_inline.exit23.i2659, label %vm_objtostring.exit.thread, !prof !69
+  br i1 %3676, label %rb_float_value_inline.exit23.i2659, label %vm_opt_neq.exit.thread, !prof !69
 
 rb_float_value_inline.exit23.i2659:               ; preds = %3673
   %3677 = getelementptr inbounds nuw i8, ptr %3663, i64 16
@@ -14823,7 +14817,7 @@ rb_float_value_inline.exit23.i2670:               ; preds = %3758
 
 3768:                                             ; preds = %3737, %3742, %3758, %3753, %3747
   store ptr %.02229, ptr %.02230, align 8, !tbaa !136
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 vm_opt_ge.exit:                                   ; preds = %rb_float_value_inline.exit23.i2670, %rb_float_value_inline.exit19.i2673, %3697
   %.0.i2669 = phi i64 [ %3698, %3697 ], [ %3736, %rb_float_value_inline.exit19.i2673 ], [ %3767, %rb_float_value_inline.exit23.i2670 ]
@@ -14904,7 +14898,7 @@ vm_opt_ltlt.exit:                                 ; preds = %3800, %rbimpl_RB_TY
 
 vm_opt_ltlt.exit.thread:                          ; preds = %3803, %3806, %3769, %vm_opt_ltlt.exit
   store ptr %.02229, ptr %.02230, align 8, !tbaa !136
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 3813:                                             ; preds = %vm_opt_ltlt.exit
   %3814 = load ptr, ptr %3770, align 8, !tbaa !93
@@ -14933,7 +14927,7 @@ vm_opt_ltlt.exit.thread:                          ; preds = %3803, %3806, %3769,
 
 vm_opt_and.exit.thread:                           ; preds = %3817
   store ptr %.02229, ptr %.02230, align 8, !tbaa !136
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 3829:                                             ; preds = %3817
   store ptr %3820, ptr %3818, align 8, !tbaa !93
@@ -14963,7 +14957,7 @@ vm_opt_and.exit.thread:                           ; preds = %3817
 
 vm_opt_or.exit.thread:                            ; preds = %3840, %3830
   store ptr %.02229, ptr %.02230, align 8, !tbaa !136
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 3845:                                             ; preds = %3840
   store ptr %3833, ptr %3831, align 8, !tbaa !93
@@ -15093,7 +15087,7 @@ vm_opt_aref.exit.vm_opt_aref.exit.thread2856_crit_edge: ; preds = %vm_opt_aref.e
 
 vm_opt_aref.exit.thread:                          ; preds = %3907, %3861, %3904, %3858, %vm_opt_aref.exit
   store ptr %.02229, ptr %.02230, align 8, !tbaa !136
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 vm_opt_aref.exit.thread2856:                      ; preds = %vm_opt_aref.exit.vm_opt_aref.exit.thread2856_crit_edge, %3898, %rb_array_const_ptr.exit.i.i, %3895
   %3914 = phi ptr [ %.pre3113, %vm_opt_aref.exit.vm_opt_aref.exit.thread2856_crit_edge ], [ %3848, %3895 ], [ %3848, %rb_array_const_ptr.exit.i.i ], [ %3848, %3898 ]
@@ -15163,7 +15157,7 @@ vm_opt_aset.exit:                                 ; preds = %3942, %3951
 
 vm_opt_aset.exit.thread:                          ; preds = %3944, %3947, %3917, %vm_opt_aset.exit
   store ptr %.02229, ptr %.02230, align 8, !tbaa !136
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 3954:                                             ; preds = %vm_opt_aset.exit
   %3955 = load ptr, ptr %3918, align 8, !tbaa !93
@@ -15231,7 +15225,7 @@ vm_opt_aset_with.exit.thread:                     ; preds = %3958, %3972, %3978,
   %3994 = getelementptr i8, ptr %3992, i64 8
   store ptr %3994, ptr %3961, align 8, !tbaa !93
   store ptr %3959, ptr %.02230, align 8, !tbaa !136
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 3995:                                             ; preds = %.backedge, %4484
   %3996 = getelementptr i8, ptr %.02229, i64 8
@@ -15288,7 +15282,7 @@ vm_opt_aref_with.exit.thread:                     ; preds = %3995, %4007, %4013,
   %4027 = getelementptr i8, ptr %4026, i64 8
   store ptr %4027, ptr %3998, align 8, !tbaa !93
   store ptr %3996, ptr %.02230, align 8, !tbaa !136
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4028:                                             ; preds = %vm_opt_aref_with.exit
   %4029 = load ptr, ptr %3998, align 8, !tbaa !93
@@ -15309,7 +15303,7 @@ vm_opt_aref_with.exit.thread:                     ; preds = %3995, %4007, %4013,
 
 4039:                                             ; preds = %4031
   store ptr %.02229, ptr %.02230, align 8, !tbaa !136
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4040:                                             ; preds = %4031
   %4041 = load ptr, ptr %4032, align 8, !tbaa !93
@@ -15330,7 +15324,7 @@ vm_opt_aref_with.exit.thread:                     ; preds = %3995, %4007, %4013,
 
 4051:                                             ; preds = %4043
   store ptr %.02229, ptr %.02230, align 8, !tbaa !136
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4052:                                             ; preds = %4043
   %4053 = load ptr, ptr %4044, align 8, !tbaa !93
@@ -15351,7 +15345,7 @@ vm_opt_aref_with.exit.thread:                     ; preds = %3995, %4007, %4013,
 
 4062:                                             ; preds = %4055
   store ptr %.02229, ptr %.02230, align 8, !tbaa !136
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4063:                                             ; preds = %4055
   %switch.selectcmp.i = icmp eq i64 %4061, 1
@@ -15427,7 +15421,7 @@ vm_opt_succ.exit.vm_opt_succ.exit.thread2863_crit_edge: ; preds = %vm_opt_succ.e
 
 vm_opt_succ.exit.thread:                          ; preds = %4093, %4082, %4087, %vm_opt_succ.exit
   store ptr %.02229, ptr %.02230, align 8, !tbaa !136
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 vm_opt_succ.exit.thread2863:                      ; preds = %vm_opt_succ.exit.vm_opt_succ.exit.thread2863_crit_edge, %4077
   %4100 = phi ptr [ %.pre3112, %vm_opt_succ.exit.vm_opt_succ.exit.thread2863_crit_edge ], [ %4068, %4077 ]
@@ -15534,7 +15528,7 @@ vm_opt_not.exit:                                  ; preds = %vm_method_cfunc_is.
 
 vm_opt_not.exit.thread:                           ; preds = %vm_search_method.exit.thread.i.i2704, %vm_search_method.exit.i.i2700, %vm_method_cfunc_is.exit.i2709
   store ptr %.02229, ptr %.02230, align 8, !tbaa !136
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4148:                                             ; preds = %.backedge
   %4149 = getelementptr inbounds nuw i8, ptr %.02230, i64 8
@@ -15637,7 +15631,7 @@ vm_opt_regexpmatch2.exit:                         ; preds = %4188, %4197
 
 vm_opt_regexpmatch2.exit.thread:                  ; preds = %4190, %4193, %4148, %vm_opt_regexpmatch2.exit
   store ptr %.02229, ptr %.02230, align 8, !tbaa !136
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4200:                                             ; preds = %vm_opt_regexpmatch2.exit
   %4201 = load ptr, ptr %4149, align 8, !tbaa !93
@@ -16168,7 +16162,7 @@ vm_env_write.exit2754:                            ; preds = %4373, %4376
 
 4446:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4447:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
@@ -16188,7 +16182,7 @@ vm_env_write.exit2754:                            ; preds = %4373, %4376
 
 4451:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4452:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
@@ -16248,69 +16242,69 @@ vm_env_write.exit2754:                            ; preds = %4373, %4376
 
 4466:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4467:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4468:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4469:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4470:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4471:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4472:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
   %4473 = getelementptr i8, ptr %.02229, i64 8
   store ptr %4473, ptr %.02230, align 8, !tbaa !136
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4474:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4475:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4476:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4477:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4478:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4479:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4480:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4481:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4482:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4483:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
@@ -16322,27 +16316,27 @@ vm_env_write.exit2754:                            ; preds = %4373, %4376
 
 4485:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4486:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4487:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4488:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4489:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4490:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %vm_objtostring.exit.thread
+  br label %vm_opt_neq.exit.thread
 
 4491:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
@@ -16389,7 +16383,7 @@ vm_env_write.exit2754:                            ; preds = %4373, %4376
   %.02229 = phi ptr [ %37, %34 ], [ %.02229.be, %.backedge.backedge ]
   %.in = load i64, ptr %.02229, align 8, !tbaa !7
   %4500 = inttoptr i64 %.in to ptr
-  indirectbr ptr %4500, [label %69, label %71, label %90, label %118, label %170, label %200, label %249, label %308, label %325, label %416, label %431, label %465, label %512, label %521, label %536, label %566, label %574, label %585, label %590, label %597, label %604, label %636, label %644, label %652, label %665, label %677, label %695, label %704, label %717, label %743, label %765, label %790, label %889, label %915, label %932, label %946, label %964, label %979, label %1001, label %1016, label %1021, label %1028, label %1042, label %1050, label %1066, label %1077, label %1088, label %1096, label %1111, label %1207, label %1249, label %1276, label %1304, label %1454, label %1460, label %1470, label %1584, label %vm_objtostring.exit.thread, label %1828, label %1945, label %1977, label %2012, label %2030, label %2080, label %2098, label %2117, label %2199, label %2258, label %2333, label %2433, label %2494, label %2503, label %2512, label %2530, label %2548, label %2566, label %2616, label %2679, label %2831, label %2955, label %3083, label %3161, label %3292, label %3345, label %3430, label %3514, label %3599, label %3683, label %3769, label %3817, label %3830, label %3846, label %3917, label %3958, label %3995, label %4031, label %4043, label %4055, label %4066, label %4102, label %4148, label %4204, label %4225, label %4261, label %4307, label %.lr.ph.i2737, label %4334, label %.lr.ph.i2747, label %4379, label %4384, label %4389, label %4390, label %4391, label %4392, label %4393, label %4394, label %4395, label %4396, label %4397, label %4398, label %4399, label %4400, label %4401, label %4402, label %4403, label %4404, label %4405, label %4406, label %4407, label %4408, label %4409, label %4410, label %4411, label %4412, label %4413, label %4414, label %4415, label %4416, label %4417, label %4418, label %4419, label %4420, label %4421, label %4422, label %4423, label %4424, label %4425, label %4426, label %4427, label %4428, label %4429, label %4430, label %4431, label %4432, label %4433, label %4434, label %4435, label %4436, label %4437, label %4438, label %4439, label %4440, label %4441, label %4442, label %4443, label %4444, label %4445, label %4446, label %4447, label %4448, label %4449, label %4450, label %4451, label %4452, label %4453, label %4454, label %4455, label %4456, label %4457, label %4458, label %4459, label %4460, label %4461, label %4462, label %4463, label %4464, label %4465, label %4466, label %4467, label %4468, label %4469, label %4470, label %4471, label %4472, label %4474, label %4475, label %4476, label %4477, label %4478, label %4479, label %4480, label %4481, label %4482, label %4483, label %4484, label %4485, label %4486, label %4487, label %4488, label %4489, label %4490, label %4491, label %4492, label %4493, label %4494, label %4495, label %4496, label %4497, label %4498, label %4499]
+  indirectbr ptr %4500, [label %69, label %71, label %90, label %118, label %170, label %200, label %249, label %308, label %325, label %416, label %431, label %465, label %512, label %521, label %536, label %566, label %574, label %585, label %590, label %597, label %604, label %636, label %644, label %652, label %665, label %677, label %695, label %704, label %717, label %743, label %765, label %790, label %889, label %915, label %932, label %946, label %964, label %979, label %1001, label %1016, label %1021, label %1028, label %1042, label %1050, label %1066, label %1077, label %1088, label %1096, label %1111, label %1207, label %1249, label %1276, label %1304, label %1454, label %1460, label %1470, label %1584, label %vm_opt_neq.exit.thread, label %1828, label %1945, label %1977, label %2012, label %2030, label %2080, label %2098, label %2117, label %2199, label %2258, label %2333, label %2433, label %2494, label %2503, label %2512, label %2530, label %2548, label %2566, label %2616, label %2679, label %2831, label %2955, label %3083, label %3161, label %3292, label %3345, label %3430, label %3514, label %3599, label %3683, label %3769, label %3817, label %3830, label %3846, label %3917, label %3958, label %3995, label %4031, label %4043, label %4055, label %4066, label %4102, label %4148, label %4204, label %4225, label %4261, label %4307, label %.lr.ph.i2737, label %4334, label %.lr.ph.i2747, label %4379, label %4384, label %4389, label %4390, label %4391, label %4392, label %4393, label %4394, label %4395, label %4396, label %4397, label %4398, label %4399, label %4400, label %4401, label %4402, label %4403, label %4404, label %4405, label %4406, label %4407, label %4408, label %4409, label %4410, label %4411, label %4412, label %4413, label %4414, label %4415, label %4416, label %4417, label %4418, label %4419, label %4420, label %4421, label %4422, label %4423, label %4424, label %4425, label %4426, label %4427, label %4428, label %4429, label %4430, label %4431, label %4432, label %4433, label %4434, label %4435, label %4436, label %4437, label %4438, label %4439, label %4440, label %4441, label %4442, label %4443, label %4444, label %4445, label %4446, label %4447, label %4448, label %4449, label %4450, label %4451, label %4452, label %4453, label %4454, label %4455, label %4456, label %4457, label %4458, label %4459, label %4460, label %4461, label %4462, label %4463, label %4464, label %4465, label %4466, label %4467, label %4468, label %4469, label %4470, label %4471, label %4472, label %4474, label %4475, label %4476, label %4477, label %4478, label %4479, label %4480, label %4481, label %4482, label %4483, label %4484, label %4485, label %4486, label %4487, label %4488, label %4489, label %4490, label %4491, label %4492, label %4493, label %4494, label %4495, label %4496, label %4497, label %4498, label %4499]
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -21400,8 +21394,8 @@ CREF_CLASS.exit:                                  ; preds = %.loopexit, %64, %67
   %. = select i1 %.not13, ptr %55, ptr null
   br label %vm_env_cref_by_cref.exit
 
-vm_env_cref_by_cref.exit:                         ; preds = %11, %._crit_edge.i, %rbimpl_RB_TYPE_P_fastpath.exit.i7.i, %41, %45, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i, %2, %CREF_CLASS.exit, %rb_vm_get_ruby_level_next_cfp.exit
-  %.0 = phi ptr [ null, %45 ], [ %., %CREF_CLASS.exit ], [ null, %rb_vm_get_ruby_level_next_cfp.exit ], [ null, %._crit_edge.i ], [ null, %2 ], [ null, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i ], [ null, %41 ], [ null, %rbimpl_RB_TYPE_P_fastpath.exit.i7.i ], [ null, %11 ]
+vm_env_cref_by_cref.exit:                         ; preds = %11, %2, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i, %45, %41, %rbimpl_RB_TYPE_P_fastpath.exit.i7.i, %._crit_edge.i, %CREF_CLASS.exit, %rb_vm_get_ruby_level_next_cfp.exit
+  %.0 = phi ptr [ null, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i ], [ %., %CREF_CLASS.exit ], [ null, %rb_vm_get_ruby_level_next_cfp.exit ], [ null, %._crit_edge.i ], [ null, %rbimpl_RB_TYPE_P_fastpath.exit.i7.i ], [ null, %41 ], [ null, %45 ], [ null, %2 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -21534,8 +21528,8 @@ rb_vm_get_ruby_level_next_cfp.exit.i:             ; preds = %.lr.ph.i.i, %.loope
   %58 = zext nneg i8 %57 to i32
   br label %vm_env_cref_by_cref.exit
 
-vm_env_cref_by_cref.exit:                         ; preds = %._crit_edge.i, %rbimpl_RB_TYPE_P_fastpath.exit.i7.i, %37, %41, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i, %rb_vm_get_ruby_level_next_cfp.exit.i
-  %.0 = phi i32 [ %58, %rb_vm_get_ruby_level_next_cfp.exit.i ], [ 1, %41 ], [ 1, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i ], [ 1, %37 ], [ 1, %rbimpl_RB_TYPE_P_fastpath.exit.i7.i ], [ 1, %._crit_edge.i ]
+vm_env_cref_by_cref.exit:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i, %41, %37, %rbimpl_RB_TYPE_P_fastpath.exit.i7.i, %._crit_edge.i, %rb_vm_get_ruby_level_next_cfp.exit.i
+  %.0 = phi i32 [ %58, %rb_vm_get_ruby_level_next_cfp.exit.i ], [ 1, %._crit_edge.i ], [ 1, %rbimpl_RB_TYPE_P_fastpath.exit.i7.i ], [ 1, %37 ], [ 1, %41 ], [ 1, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i ]
   ret i32 %.0
 }
 
@@ -21669,8 +21663,8 @@ rb_vm_get_ruby_level_next_cfp.exit.i:             ; preds = %.lr.ph.i.i, %.loope
   %59 = zext nneg i8 %58 to i32
   br label %vm_env_cref_by_cref.exit
 
-vm_env_cref_by_cref.exit:                         ; preds = %._crit_edge.i, %rbimpl_RB_TYPE_P_fastpath.exit.i7.i, %37, %41, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i, %rb_vm_get_ruby_level_next_cfp.exit.i
-  %.0 = phi i32 [ %59, %rb_vm_get_ruby_level_next_cfp.exit.i ], [ 0, %41 ], [ 0, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i ], [ 0, %37 ], [ 0, %rbimpl_RB_TYPE_P_fastpath.exit.i7.i ], [ 0, %._crit_edge.i ]
+vm_env_cref_by_cref.exit:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i, %41, %37, %rbimpl_RB_TYPE_P_fastpath.exit.i7.i, %._crit_edge.i, %rb_vm_get_ruby_level_next_cfp.exit.i
+  %.0 = phi i32 [ %59, %rb_vm_get_ruby_level_next_cfp.exit.i ], [ 0, %._crit_edge.i ], [ 0, %rbimpl_RB_TYPE_P_fastpath.exit.i7.i ], [ 0, %37 ], [ 0, %41 ], [ 0, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i ]
   ret i32 %.0
 }
 
@@ -24744,7 +24738,7 @@ pass_passed_block_handler.exit:                   ; preds = %.lr.ph.i.i.i.i.i, %
   br label %rb_vm_frame_method_entry.exit.i
 
 rb_vm_frame_method_entry.exit.i:                  ; preds = %24, %47, %43, %42, %36, %._crit_edge.i.i
-  %.0.i.i = phi ptr [ null, %43 ], [ %spec.select.i.i.i, %47 ], [ null, %36 ], [ %37, %42 ], [ null, %._crit_edge.i.i ], [ %25, %24 ]
+  %.0.i.i = phi ptr [ %spec.select.i.i.i, %47 ], [ null, %36 ], [ null, %._crit_edge.i.i ], [ %37, %42 ], [ null, %43 ], [ %25, %24 ]
   %51 = and i64 %16, 128
   %.not.not.i = icmp eq i64 %51, 0
   br i1 %.not.not.i, label %52, label %53
@@ -30405,8 +30399,8 @@ rb_ec_frame_method_id_and_class.exit.thread.sink.split: ; preds = %rb_source_loc
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %rb_ec_frame_method_id_and_class.exit.thread
 
-rb_ec_frame_method_id_and_class.exit.thread:      ; preds = %rb_ec_frame_method_id_and_class.exit.thread.sink.split, %29, %39, %35, %._crit_edge.i.i.i, %RCLASS_SINGLETON_P.exit.thread, %59, %rb_ec_frame_method_id_and_class.exit
-  %.0 = phi i32 [ 0, %59 ], [ 0, %39 ], [ 0, %rb_ec_frame_method_id_and_class.exit ], [ 0, %29 ], [ 0, %RCLASS_SINGLETON_P.exit.thread ], [ 0, %._crit_edge.i.i.i ], [ 0, %35 ], [ %.0.ph, %rb_ec_frame_method_id_and_class.exit.thread.sink.split ]
+rb_ec_frame_method_id_and_class.exit.thread:      ; preds = %rb_ec_frame_method_id_and_class.exit.thread.sink.split, %._crit_edge.i.i.i, %29, %39, %35, %RCLASS_SINGLETON_P.exit.thread, %59, %rb_ec_frame_method_id_and_class.exit
+  %.0 = phi i32 [ 0, %59 ], [ 0, %29 ], [ 0, %rb_ec_frame_method_id_and_class.exit ], [ 0, %._crit_edge.i.i.i ], [ 0, %RCLASS_SINGLETON_P.exit.thread ], [ 0, %35 ], [ 0, %39 ], [ %.0.ph, %rb_ec_frame_method_id_and_class.exit.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -30510,7 +30504,7 @@ rb_vm_frame_method_entry.exit.i:                  ; preds = %13, %35, %25
   br label %rb_vm_control_frame_id_and_class.exit
 
 rb_vm_control_frame_id_and_class.exit:            ; preds = %._crit_edge.i.i, %25, %31, %35, %48, %49
-  %.0.i = phi i32 [ 1, %48 ], [ 1, %49 ], [ 0, %31 ], [ 0, %35 ], [ 0, %25 ], [ 0, %._crit_edge.i.i ]
+  %.0.i = phi i32 [ 1, %48 ], [ 1, %49 ], [ 0, %35 ], [ 0, %25 ], [ 0, %._crit_edge.i.i ], [ 0, %31 ]
   ret i32 %.0.i
 }
 
@@ -30687,7 +30681,7 @@ define hidden void @rb_vm_pop_cfunc_frame() local_unnamed_addr #2 {
   br label %rb_vm_frame_method_entry.exit
 
 rb_vm_frame_method_entry.exit:                    ; preds = %13, %._crit_edge.i, %25, %31, %32, %36
-  %.0.i = phi ptr [ null, %32 ], [ %spec.select.i.i, %36 ], [ null, %25 ], [ %26, %31 ], [ null, %._crit_edge.i ], [ %14, %13 ]
+  %.0.i = phi ptr [ %spec.select.i.i, %36 ], [ null, %25 ], [ null, %._crit_edge.i ], [ %26, %31 ], [ null, %32 ], [ %14, %13 ]
   %40 = getelementptr i8, ptr %4, i64 48
   %.val18 = load ptr, ptr %40, align 8, !tbaa !29, !nonnull !60, !noundef !60
   %41 = getelementptr inbounds nuw i8, ptr %.val18, i64 24
@@ -33768,20 +33762,20 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i.i:             ; preds = %.lr.ph.i.i
   %31 = and i64 %29, 7
   %32 = icmp ne i64 %31, 0
   %33 = or i1 %30, %32
-  br i1 %33, label %rbimpl_RB_TYPE_P_fastpath.exit.i.thread.i.i.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i7.i.i
+  br i1 %33, label %141, label %rbimpl_RB_TYPE_P_fastpath.exit.i7.i.i
 
 rbimpl_RB_TYPE_P_fastpath.exit.i7.i.i:            ; preds = %._crit_edge.i.i
   %34 = inttoptr i64 %29 to ptr
   %35 = load i64, ptr %34, align 8, !tbaa !97
   %36 = and i64 %35, 31
   %37 = icmp eq i64 %36, 26
-  br i1 %37, label %38, label %rbimpl_RB_TYPE_P_fastpath.exit.i.thread.i.i.i
+  br i1 %37, label %38, label %141
 
 38:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i7.i.i
   %39 = trunc i64 %35 to i32
   %40 = lshr i32 %39, 12
   %41 = and i32 %40, 15
-  switch i32 %41, label %rbimpl_RB_TYPE_P_fastpath.exit.i.thread.i.i.i [
+  switch i32 %41, label %141 [
     i32 1, label %vm_env_cref_by_cref.exit.i
     i32 2, label %42
   ]
@@ -33793,14 +33787,14 @@ rbimpl_RB_TYPE_P_fastpath.exit.i7.i.i:            ; preds = %._crit_edge.i.i
   %46 = and i64 %44, 7
   %47 = icmp ne i64 %46, 0
   %48 = or i1 %45, %47
-  br i1 %48, label %rbimpl_RB_TYPE_P_fastpath.exit.i.thread.i.i.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i.i
+  br i1 %48, label %141, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i.i
 
 rbimpl_RB_TYPE_P_fastpath.exit.i.i.i.i:           ; preds = %42
   %49 = inttoptr i64 %44 to ptr
   %50 = load i64, ptr %49, align 8, !tbaa !97
   %51 = and i64 %50, 61471
   %or.cond.i.i.i = icmp eq i64 %51, 4122
-  br i1 %or.cond.i.i.i, label %vm_env_cref_by_cref.exit.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i.thread.i.i.i
+  br i1 %or.cond.i.i.i, label %vm_env_cref_by_cref.exit.i, label %141
 
 vm_env_cref_by_cref.exit.i:                       ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i, %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i.i, %38
   %52 = trunc i64 %.0.val14.i.i to i32
@@ -33989,7 +33983,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i25.i:           ; preds = %116
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.249) #57
   unreachable
 
-rbimpl_RB_TYPE_P_fastpath.exit.i.thread.i.i.i:    ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i.i, %42, %38, %rbimpl_RB_TYPE_P_fastpath.exit.i7.i.i, %._crit_edge.i.i
+141:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i.i, %42, %38, %rbimpl_RB_TYPE_P_fastpath.exit.i7.i.i, %._crit_edge.i.i
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.248) #57
   unreachable
 
@@ -34882,8 +34876,8 @@ rb_vm_frame_method_entry.exit:                    ; preds = %11, %33, %23
   store i64 %49, ptr %3, align 8, !tbaa !7
   br label %rb_vm_frame_method_entry.exit.thread
 
-rb_vm_frame_method_entry.exit.thread:             ; preds = %._crit_edge.i, %23, %33, %29, %46, %47
-  %.0 = phi i32 [ 1, %46 ], [ 1, %47 ], [ 0, %29 ], [ 0, %33 ], [ 0, %23 ], [ 0, %._crit_edge.i ]
+rb_vm_frame_method_entry.exit.thread:             ; preds = %29, %._crit_edge.i, %23, %33, %46, %47
+  %.0 = phi i32 [ 1, %46 ], [ 1, %47 ], [ 0, %33 ], [ 0, %23 ], [ 0, %._crit_edge.i ], [ 0, %29 ]
   ret i32 %.0
 }
 
@@ -34979,7 +34973,7 @@ rb_vm_frame_method_entry.exit.i.i:                ; preds = %13, %35, %25
   br label %rb_ec_frame_method_id_and_class.exit
 
 rb_ec_frame_method_id_and_class.exit:             ; preds = %._crit_edge.i.i.i, %25, %31, %35, %44, %45
-  %.0.i.i = phi i32 [ 1, %44 ], [ 1, %45 ], [ 0, %31 ], [ 0, %35 ], [ 0, %25 ], [ 0, %._crit_edge.i.i.i ]
+  %.0.i.i = phi i32 [ 1, %44 ], [ 1, %45 ], [ 0, %35 ], [ 0, %25 ], [ 0, %._crit_edge.i.i.i ], [ 0, %31 ]
   ret i32 %.0.i.i
 }
 
@@ -53539,7 +53533,7 @@ define internal fastcc void @vm_trace(ptr noundef nonnull %0, ptr noundef captur
   br label %rb_vm_frame_method_entry.exit
 
 rb_vm_frame_method_entry.exit:                    ; preds = %42, %._crit_edge.i, %58
-  %.0.i = phi ptr [ %54, %._crit_edge.i ], [ %62, %58 ], [ %43, %42 ]
+  %.0.i = phi ptr [ %62, %58 ], [ %54, %._crit_edge.i ], [ %43, %42 ]
   %63 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !101
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
@@ -62245,7 +62239,7 @@ rb_ec_ractor_hooks.exit103:                       ; preds = %frame_return_value.
   br label %rb_vm_frame_method_entry.exit
 
 rb_vm_frame_method_entry.exit:                    ; preds = %152, %171, %._crit_edge.i, %164, %170
-  %.0.i104 = phi ptr [ %174, %171 ], [ null, %._crit_edge.i ], [ null, %164 ], [ %165, %170 ], [ %153, %152 ]
+  %.0.i104 = phi ptr [ %174, %171 ], [ null, %164 ], [ null, %._crit_edge.i ], [ %165, %170 ], [ %153, %152 ]
   %.val93 = load ptr, ptr %112, align 8, !tbaa !29, !nonnull !60, !noundef !60
   %175 = getelementptr inbounds nuw i8, ptr %.val93, i64 24
   %176 = load ptr, ptr %175, align 8, !tbaa !251

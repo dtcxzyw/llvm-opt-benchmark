@@ -3439,8 +3439,8 @@ switch.hole_check:                                ; preds = %77
   %82 = call ptr @proto_tree_add_bits_item(ptr noundef %55, i32 noundef %79, ptr noundef %0, i32 noundef %81, i32 noundef 2, i32 noundef 0)
   br label %90
 
-.thread:                                          ; preds = %switch.hole_check, %77, %76, %72, %71
-  %.0549653 = phi i32 [ %68, %71 ], [ %68, %72 ], [ -1, %76 ], [ -1, %77 ], [ -1, %switch.hole_check ]
+.thread:                                          ; preds = %switch.hole_check, %77, %76, %71, %72
+  %.0549653 = phi i32 [ %68, %71 ], [ %68, %72 ], [ -1, %77 ], [ -1, %76 ], [ -1, %switch.hole_check ]
   %83 = load i32, ptr @hf_mac_nr_subheader_reserved, align 4
   %84 = load i32, ptr %8, align 4
   %85 = shl i32 %84, 3

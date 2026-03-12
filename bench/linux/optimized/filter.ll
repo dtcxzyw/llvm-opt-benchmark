@@ -16757,9 +16757,9 @@ define internal zeroext i1 @sock_filter_is_valid_access(i32 noundef %0, i32 noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @sock_addr_func_proto(i32 noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
-  switch i32 %0, label %31 [
+  switch i32 %0, label %29 [
     i32 64, label %3
-    i32 46, label %39
+    i32 46, label %37
     i32 122, label %9
     i32 25, label %10
     i32 84, label %11
@@ -16769,15 +16769,15 @@ define internal ptr @sock_addr_func_proto(i32 noundef %0, ptr noundef readonly c
     i32 107, label %15
     i32 108, label %16
     i32 49, label %17
-    i32 57, label %21
-    i32 136, label %32
-    i32 137, label %25
-    i32 138, label %26
-    i32 139, label %27
-    i32 140, label %28
-    i32 178, label %29
-    i32 196, label %30
-    i32 160, label %38
+    i32 57, label %20
+    i32 136, label %30
+    i32 137, label %23
+    i32 138, label %24
+    i32 139, label %25
+    i32 140, label %26
+    i32 178, label %27
+    i32 196, label %28
+    i32 160, label %36
   ]
 
 3:                                                ; preds = %2
@@ -16786,121 +16786,115 @@ define internal ptr @sock_addr_func_proto(i32 noundef %0, ptr noundef readonly c
   %6 = and i32 %5, -2
   %7 = icmp eq i32 %6, 10
   %8 = select i1 %7, ptr @bpf_bind_proto, ptr null
-  br label %39
+  br label %37
 
 9:                                                ; preds = %2
-  br label %39
+  br label %37
 
 10:                                               ; preds = %2
-  br label %39
+  br label %37
 
 11:                                               ; preds = %2
-  br label %39
+  br label %37
 
 12:                                               ; preds = %2
-  br label %39
+  br label %37
 
 13:                                               ; preds = %2
-  br label %39
+  br label %37
 
 14:                                               ; preds = %2
-  br label %39
+  br label %37
 
 15:                                               ; preds = %2
-  br label %39
+  br label %37
 
 16:                                               ; preds = %2
-  br label %39
+  br label %37
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i32, ptr %18, align 8
-  switch i32 %19, label %20 [
-    i32 8, label %39
-    i32 9, label %39
-    i32 10, label %39
-    i32 11, label %39
-    i32 49, label %39
-    i32 19, label %39
-    i32 20, label %39
-    i32 51, label %39
-    i32 14, label %39
-    i32 15, label %39
-    i32 50, label %39
-    i32 29, label %39
-    i32 30, label %39
-    i32 52, label %39
-    i32 31, label %39
-    i32 32, label %39
-    i32 53, label %39
+  switch i32 %19, label %29 [
+    i32 8, label %37
+    i32 9, label %37
+    i32 10, label %37
+    i32 11, label %37
+    i32 49, label %37
+    i32 19, label %37
+    i32 20, label %37
+    i32 51, label %37
+    i32 14, label %37
+    i32 15, label %37
+    i32 50, label %37
+    i32 29, label %37
+    i32 30, label %37
+    i32 52, label %37
+    i32 31, label %37
+    i32 32, label %37
+    i32 53, label %37
   ]
 
-20:                                               ; preds = %17
-  br label %39
-
-21:                                               ; preds = %2
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = load i32, ptr %22, align 8
-  switch i32 %23, label %24 [
-    i32 8, label %39
-    i32 9, label %39
-    i32 10, label %39
-    i32 11, label %39
-    i32 49, label %39
-    i32 19, label %39
-    i32 20, label %39
-    i32 51, label %39
-    i32 14, label %39
-    i32 15, label %39
-    i32 50, label %39
-    i32 29, label %39
-    i32 30, label %39
-    i32 52, label %39
-    i32 31, label %39
-    i32 32, label %39
-    i32 53, label %39
+20:                                               ; preds = %2
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = load i32, ptr %21, align 8
+  switch i32 %22, label %29 [
+    i32 8, label %37
+    i32 9, label %37
+    i32 10, label %37
+    i32 11, label %37
+    i32 49, label %37
+    i32 19, label %37
+    i32 20, label %37
+    i32 51, label %37
+    i32 14, label %37
+    i32 15, label %37
+    i32 50, label %37
+    i32 29, label %37
+    i32 30, label %37
+    i32 52, label %37
+    i32 31, label %37
+    i32 32, label %37
+    i32 53, label %37
   ]
 
-24:                                               ; preds = %21
-  br label %39
+23:                                               ; preds = %2
+  br label %30
+
+24:                                               ; preds = %2
+  br label %30
 
 25:                                               ; preds = %2
-  br label %32
+  br label %30
 
 26:                                               ; preds = %2
-  br label %32
+  br label %30
 
 27:                                               ; preds = %2
-  br label %32
+  br label %30
 
 28:                                               ; preds = %2
-  br label %32
+  br label %30
 
-29:                                               ; preds = %2
-  br label %32
+29:                                               ; preds = %17, %20, %2
+  br label %37
 
-30:                                               ; preds = %2
-  br label %32
+30:                                               ; preds = %28, %27, %26, %25, %24, %23, %2
+  %31 = phi ptr [ @bpf_skc_to_mptcp_sock_proto, %28 ], [ @bpf_skc_to_unix_sock_proto, %27 ], [ @bpf_skc_to_udp6_sock_proto, %26 ], [ @bpf_skc_to_tcp_request_sock_proto, %25 ], [ @bpf_skc_to_tcp_timewait_sock_proto, %24 ], [ @bpf_skc_to_tcp_sock_proto, %23 ], [ @bpf_skc_to_tcp6_sock_proto, %2 ]
+  %32 = tail call zeroext i1 @capable(i32 noundef 38) #35
+  br i1 %32, label %37, label %33
 
-31:                                               ; preds = %2
-  br label %39
+33:                                               ; preds = %30
+  %34 = tail call zeroext i1 @capable(i32 noundef 21) #35
+  %35 = select i1 %34, ptr %31, ptr null
+  br label %37
 
-32:                                               ; preds = %30, %29, %28, %27, %26, %25, %2
-  %33 = phi ptr [ @bpf_skc_to_mptcp_sock_proto, %30 ], [ @bpf_skc_to_unix_sock_proto, %29 ], [ @bpf_skc_to_udp6_sock_proto, %28 ], [ @bpf_skc_to_tcp_request_sock_proto, %27 ], [ @bpf_skc_to_tcp_timewait_sock_proto, %26 ], [ @bpf_skc_to_tcp_sock_proto, %25 ], [ @bpf_skc_to_tcp6_sock_proto, %2 ]
-  %34 = tail call zeroext i1 @capable(i32 noundef 38) #35
-  br i1 %34, label %39, label %35
+36:                                               ; preds = %2
+  br label %37
 
-35:                                               ; preds = %32
-  %36 = tail call zeroext i1 @capable(i32 noundef 21) #35
-  %37 = select i1 %36, ptr %33, ptr null
-  br label %39
-
-38:                                               ; preds = %2
-  br label %39
-
-39:                                               ; preds = %38, %35, %32, %31, %24, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %20, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %16, %15, %14, %13, %12, %11, %10, %9, %3, %2
-  %40 = phi ptr [ null, %24 ], [ null, %20 ], [ @bpf_sk_storage_delete_proto, %16 ], [ @bpf_sk_storage_get_proto, %15 ], [ @bpf_sock_addr_skc_lookup_tcp_proto, %14 ], [ @bpf_sk_release_proto, %13 ], [ @bpf_sock_addr_sk_lookup_udp_proto, %12 ], [ @bpf_sock_addr_sk_lookup_tcp_proto, %11 ], [ @bpf_event_output_data_proto, %10 ], [ @bpf_get_netns_cookie_sock_addr_proto, %9 ], [ %8, %3 ], [ @bpf_get_socket_cookie_sock_addr_proto, %2 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_getsockopt_proto, %21 ], [ @bpf_sock_addr_getsockopt_proto, %21 ], [ @bpf_sock_addr_getsockopt_proto, %21 ], [ @bpf_sock_addr_getsockopt_proto, %21 ], [ @bpf_sock_addr_getsockopt_proto, %21 ], [ @bpf_sock_addr_getsockopt_proto, %21 ], [ @bpf_sock_addr_getsockopt_proto, %21 ], [ @bpf_sock_addr_getsockopt_proto, %21 ], [ @bpf_sock_addr_getsockopt_proto, %21 ], [ @bpf_sock_addr_getsockopt_proto, %21 ], [ @bpf_sock_addr_getsockopt_proto, %21 ], [ @bpf_sock_addr_getsockopt_proto, %21 ], [ @bpf_sock_addr_getsockopt_proto, %21 ], [ @bpf_sock_addr_getsockopt_proto, %21 ], [ @bpf_sock_addr_getsockopt_proto, %21 ], [ @bpf_sock_addr_getsockopt_proto, %21 ], [ @bpf_sock_addr_getsockopt_proto, %21 ], [ null, %31 ], [ %33, %32 ], [ %37, %35 ], [ @bpf_ktime_get_coarse_ns_proto, %38 ]
-  ret ptr %40
+37:                                               ; preds = %36, %33, %30, %29, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %16, %15, %14, %13, %12, %11, %10, %9, %3, %2
+  %38 = phi ptr [ %35, %33 ], [ @bpf_ktime_get_coarse_ns_proto, %36 ], [ @bpf_sk_storage_delete_proto, %16 ], [ @bpf_sk_storage_get_proto, %15 ], [ @bpf_sock_addr_skc_lookup_tcp_proto, %14 ], [ @bpf_sk_release_proto, %13 ], [ @bpf_sock_addr_sk_lookup_udp_proto, %12 ], [ @bpf_sock_addr_sk_lookup_tcp_proto, %11 ], [ @bpf_event_output_data_proto, %10 ], [ @bpf_get_netns_cookie_sock_addr_proto, %9 ], [ %8, %3 ], [ @bpf_get_socket_cookie_sock_addr_proto, %2 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_setsockopt_proto, %17 ], [ @bpf_sock_addr_getsockopt_proto, %20 ], [ @bpf_sock_addr_getsockopt_proto, %20 ], [ @bpf_sock_addr_getsockopt_proto, %20 ], [ @bpf_sock_addr_getsockopt_proto, %20 ], [ @bpf_sock_addr_getsockopt_proto, %20 ], [ @bpf_sock_addr_getsockopt_proto, %20 ], [ @bpf_sock_addr_getsockopt_proto, %20 ], [ @bpf_sock_addr_getsockopt_proto, %20 ], [ @bpf_sock_addr_getsockopt_proto, %20 ], [ @bpf_sock_addr_getsockopt_proto, %20 ], [ @bpf_sock_addr_getsockopt_proto, %20 ], [ @bpf_sock_addr_getsockopt_proto, %20 ], [ @bpf_sock_addr_getsockopt_proto, %20 ], [ @bpf_sock_addr_getsockopt_proto, %20 ], [ @bpf_sock_addr_getsockopt_proto, %20 ], [ @bpf_sock_addr_getsockopt_proto, %20 ], [ @bpf_sock_addr_getsockopt_proto, %20 ], [ null, %29 ], [ %31, %30 ]
+  ret ptr %38
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)

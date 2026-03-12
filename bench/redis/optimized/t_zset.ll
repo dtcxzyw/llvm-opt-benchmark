@@ -8841,7 +8841,7 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
 200:                                              ; preds = %195
   %201 = fadd double %.0352431, %199
   %202 = fcmp uno double %201, 0.000000e+00
-  br i1 %202, label %.sink.split.i, label %zunionInterAggregate.exit
+  br i1 %202, label %.sink.split.i316, label %zunionInterAggregate.exit
 
 203:                                              ; preds = %195
   %204 = fcmp olt double %199, %.0352431
@@ -8851,9 +8851,6 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
 205:                                              ; preds = %195
   %206 = fcmp ogt double %199, %.0352431
   %.20.i = select i1 %206, double %199, double %.0352431
-  br label %zunionInterAggregate.exit
-
-.sink.split.i:                                    ; preds = %200
   br label %zunionInterAggregate.exit
 
 207:                                              ; preds = %.lr.ph434
@@ -8891,11 +8888,11 @@ define dso_local void @zunionInterDiffGenericCommand(ptr noundef %0, ptr noundef
   %.20.i319 = select i1 %220, double %213, double %.0352431
   br label %zunionInterAggregate.exit
 
-.sink.split.i316:                                 ; preds = %214
+.sink.split.i316:                                 ; preds = %200, %214
   br label %zunionInterAggregate.exit
 
-zunionInterAggregate.exit:                        ; preds = %.sink.split.i316, %214, %219, %217, %.sink.split.i, %200, %205, %203
-  %.1353 = phi double [ 0.000000e+00, %.sink.split.i ], [ %201, %200 ], [ %..i, %203 ], [ %.20.i, %205 ], [ %215, %214 ], [ %..i315, %217 ], [ %.20.i319, %219 ], [ 0.000000e+00, %.sink.split.i316 ]
+zunionInterAggregate.exit:                        ; preds = %.sink.split.i316, %214, %219, %217, %200, %205, %203
+  %.1353 = phi double [ 0.000000e+00, %.sink.split.i316 ], [ %201, %200 ], [ %..i, %203 ], [ %.20.i, %205 ], [ %215, %214 ], [ %..i315, %217 ], [ %.20.i319, %219 ]
   %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 1
   %221 = load i64, ptr %6, align 8, !tbaa !26
   %222 = icmp sgt i64 %221, %indvars.iv.next487

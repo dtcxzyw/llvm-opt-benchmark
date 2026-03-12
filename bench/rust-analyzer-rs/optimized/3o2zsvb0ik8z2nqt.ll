@@ -34951,13 +34951,13 @@ define hidden void @"_ZN11ide_assists14assist_context7Assists3add28_$u7b$$u7b$cl
 184:                                              ; preds = %174
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !11146
   store ptr %175, ptr %5, align 8, !noalias !11146
-  br label %.noexc134.i
+  br label %.backedge.i
 
-.noexc134.i:                                      ; preds = %.noexc134.i.backedge, %184
+.backedge.i:                                      ; preds = %.backedge.i.backedge, %184
   %185 = invoke { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h118db53183861e4aE.llvm.18082005449963326646(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
           to label %.noexc133.i unwind label %.loopexit.i
 
-.noexc133.i:                                      ; preds = %.noexc134.i
+.noexc133.i:                                      ; preds = %.backedge.i
   %186 = extractvalue { i64, ptr } %185, 0
   %187 = extractvalue { i64, ptr } %185, 1
   switch i64 %186, label %default.unreachable.i.i.i.i.i.i [
@@ -34977,14 +34977,14 @@ default.unreachable.i.i.i.i.i.i:                  ; preds = %.noexc133.i
   %191 = add i32 %190, -1
   store i32 %191, ptr %189, align 4, !noalias !11312
   %192 = icmp eq i32 %191, 0
-  br i1 %192, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h9d932d369b230eb5E.exit.sink.split.i.i.i.i.i.i.i", label %.noexc134.i.backedge
+  br i1 %192, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h9d932d369b230eb5E.exit.sink.split.i.i.i.i.i.i.i", label %.backedge.i.backedge
+
+.backedge.i.backedge:                             ; preds = %188, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h9d932d369b230eb5E.exit.sink.split.i.i.i.i.i.i.i", %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h9d932d369b230eb5E.exit.sink.split.i159.i", %268, %267
+  br label %.backedge.i
 
 "_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h9d932d369b230eb5E.exit.sink.split.i.i.i.i.i.i.i": ; preds = %188
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %187)
-          to label %.noexc134.i.backedge unwind label %.loopexit.i
-
-.noexc134.i.backedge:                             ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h9d932d369b230eb5E.exit.sink.split.i.i.i.i.i.i.i", %188, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h9d932d369b230eb5E.exit.sink.split.i159.i", %268, %267
-  br label %.noexc134.i
+          to label %.backedge.i.backedge unwind label %.loopexit.i
 
 "_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h9d932d369b230eb5E.exit.i": ; preds = %"_ZN4core3ptr65drop_in_place$LT$syntax..ast..generated..nodes..TypeBoundList$GT$17h89444e8ab69fc3ccE.exit.i", %248, %241, %234, %227, %.loopexit.split-lp.i, %.loopexit.i
   %.pn79.i = phi { ptr, i32 } [ %242, %241 ], [ %228, %234 ], [ %228, %227 ], [ %259, %"_ZN4core3ptr65drop_in_place$LT$syntax..ast..generated..nodes..TypeBoundList$GT$17h89444e8ab69fc3ccE.exit.i" ], [ %242, %248 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
@@ -35009,7 +35009,7 @@ default.unreachable.i.i.i.i.i.i:                  ; preds = %.noexc133.i
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %193)
           to label %"_ZN4core3ptr288drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..GenericParam$GT$$C$syntax..ast..node_ext..$LT$impl$u20$syntax..ast..generated..nodes..GenericParamList$GT$..type_or_const_params..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd9451990065f3dddE.exit.i" unwind label %70
 
-.loopexit.i:                                      ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h9d932d369b230eb5E.exit.sink.split.i.i.i.i.i.i.i", %.noexc134.i
+.loopexit.i:                                      ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h9d932d369b230eb5E.exit.sink.split.i.i.i.i.i.i.i", %.backedge.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h9d932d369b230eb5E.exit.i"
@@ -35205,7 +35205,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h3f9d4add5f309cbdE.exit.thread.
 
 267:                                              ; preds = %266, %260, %.noexc147.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11146
-  br label %.noexc134.i.backedge
+  br label %.backedge.i.backedge
 
 268:                                              ; preds = %.noexc133.i
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %187) ]
@@ -35214,11 +35214,11 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h3f9d4add5f309cbdE.exit.thread.
   %271 = add i32 %270, -1
   store i32 %271, ptr %269, align 4, !noalias !23
   %272 = icmp eq i32 %271, 0
-  br i1 %272, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h9d932d369b230eb5E.exit.sink.split.i159.i", label %.noexc134.i.backedge
+  br i1 %272, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h9d932d369b230eb5E.exit.sink.split.i159.i", label %.backedge.i.backedge
 
 "_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17h9d932d369b230eb5E.exit.sink.split.i159.i": ; preds = %268
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %187)
-          to label %.noexc134.i.backedge unwind label %.loopexit.split-lp.i
+          to label %.backedge.i.backedge unwind label %.loopexit.split-lp.i
 
 273:                                              ; preds = %156
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !11146

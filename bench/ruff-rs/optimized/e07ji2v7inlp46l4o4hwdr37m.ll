@@ -33089,7 +33089,7 @@ _ZN11ruff_server6server10connection10Connection11make_sender17hd80ffbba15a3fab5E
           to label %950 unwind label %.loopexit394.i, !noalias !1863
 
 .invoke.i30:                                      ; preds = %1059, %1029, %1136, %1106, %938, %908
-  %949 = phi ptr [ @anon.7f75cdad41e00ea52382aa5791ea0cff.319, %1136 ], [ @anon.7f75cdad41e00ea52382aa5791ea0cff.319, %1106 ], [ @anon.7f75cdad41e00ea52382aa5791ea0cff.308, %908 ], [ @anon.7f75cdad41e00ea52382aa5791ea0cff.308, %938 ], [ @anon.7f75cdad41e00ea52382aa5791ea0cff.316, %1029 ], [ @anon.7f75cdad41e00ea52382aa5791ea0cff.316, %1059 ]
+  %949 = phi ptr [ @anon.7f75cdad41e00ea52382aa5791ea0cff.308, %938 ], [ @anon.7f75cdad41e00ea52382aa5791ea0cff.319, %1106 ], [ @anon.7f75cdad41e00ea52382aa5791ea0cff.319, %1136 ], [ @anon.7f75cdad41e00ea52382aa5791ea0cff.308, %908 ], [ @anon.7f75cdad41e00ea52382aa5791ea0cff.316, %1029 ], [ @anon.7f75cdad41e00ea52382aa5791ea0cff.316, %1059 ]
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.7f75cdad41e00ea52382aa5791ea0cff.166, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %949) #21
           to label %.cont.i31 unwind label %.loopexit.split-lp.i.loopexit.split-lp, !noalias !1863
 

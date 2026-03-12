@@ -5175,10 +5175,7 @@ define linkonce_odr hidden void @_ZN2lp9bijection9erase_valEj(ptr noundef nonnul
   %34 = zext i32 %33 to i64
   %35 = urem i64 %34, %18
   %.not19.i.i.i.i.i = icmp eq i64 %35, %19
-  br i1 %.not19.i.i.i.i.i, label %28, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !288
-
-..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %31
-  br label %_ZN2lp8containsISt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEEjEEbRKT_T0_.exit.thread, !llvm.loop !288
+  br i1 %.not19.i.i.i.i.i, label %28, label %..loopexit_crit_edge21.i.i.i.i.i8, !llvm.loop !288
 
 _ZN2lp8containsISt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEEjEEbRKT_T0_.exit.loopexit: ; preds = %11
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -5303,10 +5300,10 @@ _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEEixERS5_.exit: ; 
   %.not19.i.i.i.i.i7 = icmp eq i64 %89, %73
   br i1 %.not19.i.i.i.i.i7, label %82, label %..loopexit_crit_edge21.i.i.i.i.i8, !llvm.loop !288
 
-..loopexit_crit_edge21.i.i.i.i.i8:                ; preds = %85
+..loopexit_crit_edge21.i.i.i.i.i8:                ; preds = %31, %85
   br label %_ZN2lp8containsISt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEEjEEbRKT_T0_.exit.thread, !llvm.loop !288
 
-_ZN2lp8containsISt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEEjEEbRKT_T0_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %9, %.lr.ph.i.i.i.i.i4, %63, %69, %..loopexit_crit_edge21.i.i.i.i.i8, %15, %..loopexit_crit_edge21.i.i.i.i.i
+_ZN2lp8containsISt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEEjEEbRKT_T0_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %9, %.lr.ph.i.i.i.i.i4, %63, %69, %..loopexit_crit_edge21.i.i.i.i.i8, %15
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.6, i32 noundef 81, ptr noundef nonnull @.str.8)
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   br label %_ZN2lp8containsISt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEEjEEbRKT_T0_.exit12
@@ -34549,7 +34546,7 @@ _ZN8rationalD2Ev.exit17:                          ; preds = %.noexc.i16
   %43 = load ptr, ptr %42, align 8, !tbaa !144
   %44 = load i32, ptr %1, align 8, !tbaa !744
   %45 = call noundef zeroext i1 @_ZNK2lp10lar_solver15column_is_fixedEj(ptr noundef nonnull align 8 dereferenceable(2128) %43, i32 noundef %44)
-  br i1 %45, label %46, label %83
+  br i1 %45, label %46, label %..loopexit_crit_edge21.i.i.i.i.i
 
 46:                                               ; preds = %41
   %47 = load i32, ptr %1, align 8, !tbaa !744
@@ -34611,7 +34608,7 @@ _ZN8rationalD2Ev.exit17:                          ; preds = %.noexc.i16
   %.not19.i.i.i.i.i = icmp eq i64 %79, %63
   br i1 %.not19.i.i.i.i.i, label %72, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !288
 
-..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %75
+..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %75, %41, %.loopexit
   br label %.thread, !llvm.loop !288
 
 .loopexit:                                        ; preds = %72, %54, %67
@@ -34620,13 +34617,10 @@ _ZN8rationalD2Ev.exit17:                          ; preds = %.noexc.i16
   %81 = load i32, ptr %80, align 4, !tbaa !328
   %82 = call noundef i32 @_ZN2lp8dioph_eq3imp7fix_varEj(ptr noundef nonnull align 8 dereferenceable(1300) %0, i32 noundef %81)
   %.not = icmp eq i32 %82, 3
-  br i1 %.not, label %.thread, label %83
+  br i1 %.not, label %.thread, label %..loopexit_crit_edge21.i.i.i.i.i
 
-83:                                               ; preds = %.loopexit, %41
-  br label %.thread
-
-.thread:                                          ; preds = %.lr.ph.i.i.i.i.i, %52, %..loopexit_crit_edge21.i.i.i.i.i, %58, %.loopexit, %83
-  %.1 = phi i32 [ 5, %83 ], [ 3, %.loopexit ], [ 5, %52 ], [ 5, %58 ], [ 5, %..loopexit_crit_edge21.i.i.i.i.i ], [ 5, %.lr.ph.i.i.i.i.i ]
+.thread:                                          ; preds = %.lr.ph.i.i.i.i.i, %52, %..loopexit_crit_edge21.i.i.i.i.i, %58, %.loopexit
+  %.1 = phi i32 [ 5, %52 ], [ 3, %.loopexit ], [ 5, %..loopexit_crit_edge21.i.i.i.i.i ], [ 5, %58 ], [ 5, %.lr.ph.i.i.i.i.i ]
   ret i32 %.1
 }
 

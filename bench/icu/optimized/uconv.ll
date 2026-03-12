@@ -2249,8 +2249,8 @@ sub_2:                                            ; preds = %sub_1
   %54 = load ptr, ptr %52, align 8, !tbaa !30
   br label %391
 
-.invoke:                                          ; preds = %387, %372, %293, %253, %222, %.tail493, %.tail498, %209, %189, %148, %147, %141, %137, %102, %82, %68, %51
-  %55 = phi i32 [ 1, %372 ], [ 1, %51 ], [ 1, %68 ], [ 1, %82 ], [ 1, %102 ], [ 1, %137 ], [ 1, %141 ], [ 1, %147 ], [ 1, %148 ], [ 1, %189 ], [ 0, %.tail493 ], [ 1, %222 ], [ 1, %253 ], [ 1, %293 ], [ 1, %387 ], [ 0, %209 ], [ 0, %.tail498 ]
+.invoke:                                          ; preds = %387, %372, %293, %253, %222, %189, %148, %147, %141, %137, %102, %82, %68, %.tail493, %.tail498, %209, %51
+  %55 = phi i32 [ 0, %.tail493 ], [ 1, %51 ], [ 1, %387 ], [ 0, %209 ], [ 0, %.tail498 ], [ 1, %68 ], [ 1, %82 ], [ 1, %102 ], [ 1, %137 ], [ 1, %141 ], [ 1, %147 ], [ 1, %148 ], [ 1, %189 ], [ 1, %222 ], [ 1, %253 ], [ 1, %293 ], [ 1, %372 ]
   invoke fastcc void @_ZL5usagePKci(ptr noundef nonnull %.0230, i32 noundef %55)
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

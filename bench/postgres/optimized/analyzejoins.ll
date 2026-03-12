@@ -1716,12 +1716,12 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %5, align 4
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph148, label %.critedge99
+  br i1 %10, label %.lr.ph149, label %.critedge99
 
-.lr.ph148:                                        ; preds = %.lr.ph, %49
+.lr.ph149:                                        ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ 0, %.lr.ph ]
-  %.078135146 = phi ptr [ %.280, %49 ], [ null, %.lr.ph ]
-  %.075136145 = phi ptr [ %.176, %49 ], [ %2, %.lr.ph ]
+  %.078136147 = phi ptr [ %.280, %49 ], [ null, %.lr.ph ]
+  %.075137146 = phi ptr [ %.176, %49 ], [ %2, %.lr.ph ]
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
@@ -1738,7 +1738,7 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   %16 = icmp slt i32 %15, 2
   br i1 %16, label %.loopexit, label %53
 
-17:                                               ; preds = %.lr.ph148
+17:                                               ; preds = %.lr.ph149
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = load ptr, ptr %7, align 8
@@ -1776,14 +1776,14 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   br i1 %.not97, label %49, label %42
 
 42:                                               ; preds = %39
-  %43 = tail call ptr @bms_add_member(ptr noundef %.078135146, i32 noundef %19) #6
+  %43 = tail call ptr @bms_add_member(ptr noundef %.078136147, i32 noundef %19) #6
   br label %49
 
-44:                                               ; preds = %.lr.ph148
-  %45 = tail call fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %.075136145)
+44:                                               ; preds = %.lr.ph149
+  %45 = tail call fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %.075137146)
   br label %49
 
-.split:                                           ; preds = %.lr.ph148
+.split:                                           ; preds = %.lr.ph149
   %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %47 = load i32, ptr %13, align 4
   %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %47) #6
@@ -1791,13 +1791,13 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   unreachable
 
 49:                                               ; preds = %17, %27, %31, %35, %39, %42, %44
-  %.280 = phi ptr [ %.078135146, %44 ], [ %43, %42 ], [ %.078135146, %39 ], [ %.078135146, %35 ], [ %.078135146, %31 ], [ %.078135146, %27 ], [ %.078135146, %17 ]
-  %.176 = phi ptr [ %45, %44 ], [ %.075136145, %42 ], [ %.075136145, %39 ], [ %.075136145, %35 ], [ %.075136145, %31 ], [ %.075136145, %27 ], [ %.075136145, %17 ]
+  %.280 = phi ptr [ %.078136147, %44 ], [ %43, %42 ], [ %.078136147, %39 ], [ %.078136147, %35 ], [ %.078136147, %31 ], [ %.078136147, %27 ], [ %.078136147, %17 ]
+  %.176 = phi ptr [ %45, %44 ], [ %.075137146, %42 ], [ %.075137146, %39 ], [ %.075137146, %35 ], [ %.075137146, %31 ], [ %.075137146, %27 ], [ %.075137146, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i32, ptr %5, align 4
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %.lr.ph148, label %.critedge99
+  br i1 %52, label %.lr.ph149, label %.critedge99
 
 53:                                               ; preds = %.critedge99
   %54 = zext nneg i32 %15 to i64
@@ -1805,16 +1805,16 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   %56 = tail call ptr @palloc(i64 noundef %55) #6
   %57 = tail call i32 @bms_next_member(ptr noundef %.078.lcssa, i32 noundef -1) #6
   %58 = icmp sgt i32 %57, -1
-  br i1 %58, label %.lr.ph151, label %._crit_edge
+  br i1 %58, label %.lr.ph152, label %._crit_edge
 
-.lr.ph151:                                        ; preds = %53
+.lr.ph152:                                        ; preds = %53
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %60
 
-60:                                               ; preds = %.lr.ph151, %60
-  %61 = phi i32 [ %57, %.lr.ph151 ], [ %72, %60 ]
-  %.087150 = phi i32 [ 0, %.lr.ph151 ], [ %71, %60 ]
-  %62 = sext i32 %.087150 to i64
+60:                                               ; preds = %.lr.ph152, %60
+  %61 = phi i32 [ %57, %.lr.ph152 ], [ %72, %60 ]
+  %.087151 = phi i32 [ 0, %.lr.ph152 ], [ %71, %60 ]
+  %62 = sext i32 %.087151 to i64
   %63 = getelementptr inbounds [8 x i8], ptr %56, i64 %62
   store i32 %61, ptr %63, align 4
   %64 = load ptr, ptr %59, align 8
@@ -1825,7 +1825,7 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   %69 = load i32, ptr %68, align 4
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store i32 %69, ptr %70, align 4
-  %71 = add i32 %.087150, 1
+  %71 = add i32 %.087151, 1
   %72 = tail call i32 @bms_next_member(ptr noundef %.078.lcssa, i32 noundef %61) #6
   %73 = icmp sgt i32 %72, -1
   br i1 %73, label %60, label %._crit_edge, !llvm.loop !15
@@ -1834,9 +1834,9 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   tail call void @pg_qsort(ptr noundef %56, i64 noundef %54, i64 noundef 8, ptr noundef nonnull @self_join_candidates_cmp) #6
   %74 = add nuw i32 %15, 1
   %75 = icmp sgt i32 %74, 1
-  br i1 %75, label %.lr.ph170, label %.loopexit
+  br i1 %75, label %.lr.ph171, label %.loopexit
 
-.lr.ph170:                                        ; preds = %._crit_edge
+.lr.ph171:                                        ; preds = %._crit_edge
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -1849,19 +1849,19 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   %wide.trip.count = zext nneg i32 %74 to i64
   br label %85
 
-85:                                               ; preds = %.lr.ph170, %704
-  %indvars.iv193 = phi i64 [ 1, %.lr.ph170 ], [ %indvars.iv.next194, %704 ]
-  %.2168 = phi ptr [ %.075.lcssa, %.lr.ph170 ], [ %.4, %704 ]
-  %.381167 = phi ptr [ %.078.lcssa, %.lr.ph170 ], [ %.482, %704 ]
-  %.184166 = phi i32 [ 0, %.lr.ph170 ], [ %.386, %704 ]
-  %86 = icmp eq i64 %indvars.iv193, %54
+85:                                               ; preds = %.lr.ph171, %704
+  %indvars.iv195 = phi i64 [ 1, %.lr.ph171 ], [ %indvars.iv.next196, %704 ]
+  %.2169 = phi ptr [ %.075.lcssa, %.lr.ph171 ], [ %.4, %704 ]
+  %.381168 = phi ptr [ %.078.lcssa, %.lr.ph171 ], [ %.482, %704 ]
+  %.184167 = phi i32 [ 0, %.lr.ph171 ], [ %.386, %704 ]
+  %86 = icmp eq i64 %indvars.iv195, %54
   br i1 %86, label %95, label %87
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv193
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv195
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load i32, ptr %89, align 4
-  %91 = sext i32 %.184166 to i64
+  %91 = sext i32 %.184167 to i64
   %92 = getelementptr inbounds [8 x i8], ptr %56, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %94 = load i32, ptr %93, align 4
@@ -1869,40 +1869,40 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   br i1 %.not95, label %704, label %95
 
 95:                                               ; preds = %87, %85
-  %96 = trunc nuw nsw i64 %indvars.iv193 to i32
-  %97 = sub i32 %96, %.184166
+  %96 = trunc nuw nsw i64 %indvars.iv195 to i32
+  %97 = sub i32 %96, %.184167
   %98 = icmp sgt i32 %97, 1
-  %99 = sext i32 %.184166 to i64
+  %99 = sext i32 %.184167 to i64
   br i1 %98, label %.preheader, label %700
 
 .preheader:                                       ; preds = %95
-  %100 = icmp sgt i64 %indvars.iv193, %99
-  br i1 %100, label %.lr.ph154, label %._crit_edge155
+  %100 = icmp sgt i64 %indvars.iv195, %99
+  br i1 %100, label %.lr.ph155, label %._crit_edge156
 
-.lr.ph154:                                        ; preds = %.preheader, %.lr.ph154
-  %indvars.iv190 = phi i64 [ %indvars.iv.next191, %.lr.ph154 ], [ %99, %.preheader ]
-  %.074153 = phi ptr [ %103, %.lr.ph154 ], [ null, %.preheader ]
-  %101 = getelementptr inbounds [8 x i8], ptr %56, i64 %indvars.iv190
+.lr.ph155:                                        ; preds = %.preheader, %.lr.ph155
+  %indvars.iv192 = phi i64 [ %indvars.iv.next193, %.lr.ph155 ], [ %99, %.preheader ]
+  %.074154 = phi ptr [ %103, %.lr.ph155 ], [ null, %.preheader ]
+  %101 = getelementptr inbounds [8 x i8], ptr %56, i64 %indvars.iv192
   %102 = load i32, ptr %101, align 4
-  %103 = call ptr @bms_add_member(ptr noundef %.074153, i32 noundef %102) #6
-  %indvars.iv.next191 = add nsw i64 %indvars.iv190, 1
-  %104 = and i64 %indvars.iv.next191, 4294967295
-  %exitcond.not = icmp eq i64 %104, %indvars.iv193
-  br i1 %exitcond.not, label %._crit_edge155.loopexit, label %.lr.ph154, !llvm.loop !16
+  %103 = call ptr @bms_add_member(ptr noundef %.074154, i32 noundef %102) #6
+  %indvars.iv.next193 = add nsw i64 %indvars.iv192, 1
+  %104 = and i64 %indvars.iv.next193, 4294967295
+  %exitcond.not = icmp eq i64 %104, %indvars.iv195
+  br i1 %exitcond.not, label %._crit_edge156.loopexit, label %.lr.ph155, !llvm.loop !16
 
-._crit_edge155.loopexit:                          ; preds = %.lr.ph154
-  %lftr.wideiv = trunc i64 %indvars.iv.next191 to i32
-  br label %._crit_edge155
+._crit_edge156.loopexit:                          ; preds = %.lr.ph155
+  %lftr.wideiv = trunc i64 %indvars.iv.next193 to i32
+  br label %._crit_edge156
 
-._crit_edge155:                                   ; preds = %._crit_edge155.loopexit, %.preheader
-  %.285.lcssa = phi i32 [ %.184166, %.preheader ], [ %lftr.wideiv, %._crit_edge155.loopexit ]
-  %.074.lcssa = phi ptr [ null, %.preheader ], [ %103, %._crit_edge155.loopexit ]
-  %105 = call ptr @bms_del_members(ptr noundef %.381167, ptr noundef %.074.lcssa) #6
+._crit_edge156:                                   ; preds = %._crit_edge156.loopexit, %.preheader
+  %.285.lcssa = phi i32 [ %.184167, %.preheader ], [ %lftr.wideiv, %._crit_edge156.loopexit ]
+  %.074.lcssa = phi ptr [ null, %.preheader ], [ %103, %._crit_edge156.loopexit ]
+  %105 = call ptr @bms_del_members(ptr noundef %.381168, ptr noundef %.074.lcssa) #6
   br label %106
 
-106:                                              ; preds = %697, %._crit_edge155
-  %.3 = phi ptr [ %.2168, %._crit_edge155 ], [ %694, %697 ]
-  %.1 = phi ptr [ %.074.lcssa, %._crit_edge155 ], [ %695, %697 ]
+106:                                              ; preds = %697, %._crit_edge156
+  %.3 = phi ptr [ %.2169, %._crit_edge156 ], [ %694, %697 ]
+  %.1 = phi ptr [ %.074.lcssa, %._crit_edge156 ], [ %695, %697 ]
   %107 = call i32 @bms_next_member(ptr noundef %.1, i32 noundef -1) #6
   %108 = icmp sgt i32 %107, 0
   br i1 %108, label %.lr.ph215.i, label %remove_self_joins_one_group.exit
@@ -2345,7 +2345,7 @@ get_leftop.exit89.i.i:                            ; preds = %331, %list_length.e
   %340 = load i32, ptr %298, align 4
   %341 = sext i32 %340 to i64
   %342 = icmp slt i64 %indvars.iv.next.i116.i, %341
-  br i1 %342, label %302, label %.match_unique_clauses.exit.loopexit_crit_edge.i, !llvm.loop !17
+  br i1 %342, label %302, label %.lr.ph.i114.match_unique_clauses.exit.loopexit_crit_edge.i, !llvm.loop !17
 
 .critedge3.i.i:                                   ; preds = %337
   %indvars.iv.next26.i.i = add nuw nsw i64 %indvars.iv25.i189.i, 1
@@ -2424,12 +2424,12 @@ get_leftop.exit89.i.i:                            ; preds = %331, %list_length.e
 .preheader.i104.preheader:                        ; preds = %.split198.us.i.i
   %377 = load i32, ptr %375, align 4
   %378 = icmp sgt i32 %377, 0
-  br i1 %378, label %.lr.ph161, label %add_non_redundant_clauses.exit114
+  br i1 %378, label %.lr.ph162, label %add_non_redundant_clauses.exit114
 
-.lr.ph161:                                        ; preds = %.preheader.i104.preheader, %.critedge64.i108
-  %indvars.iv66.i105160 = phi i64 [ %indvars.iv.next67.i109, %.critedge64.i108 ], [ 0, %.preheader.i104.preheader ]
+.lr.ph162:                                        ; preds = %.preheader.i104.preheader, %.critedge64.i108
+  %indvars.iv66.i105161 = phi i64 [ %indvars.iv.next67.i109, %.critedge64.i108 ], [ 0, %.preheader.i104.preheader ]
   %379 = load ptr, ptr %376, align 8
-  %380 = getelementptr inbounds nuw [8 x i8], ptr %379, i64 %indvars.iv66.i105160
+  %380 = getelementptr inbounds nuw [8 x i8], ptr %379, i64 %indvars.iv66.i105161
   %381 = load ptr, ptr %380, align 8
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 40
   %383 = getelementptr inbounds nuw i8, ptr %381, i64 104
@@ -2438,7 +2438,7 @@ get_leftop.exit89.i.i:                            ; preds = %331, %list_length.e
   %386 = icmp eq ptr %385, null
   br i1 %386, label %.critedge2.i107, label %.lr.ph.i106
 
-.lr.ph.i106:                                      ; preds = %.lr.ph161
+.lr.ph.i106:                                      ; preds = %.lr.ph162
   %387 = getelementptr inbounds nuw i8, ptr %385, i64 4
   %388 = getelementptr inbounds nuw i8, ptr %385, i64 16
   %389 = load i32, ptr %387, align 4
@@ -2487,16 +2487,16 @@ get_leftop.exit89.i.i:                            ; preds = %331, %list_length.e
   %414 = icmp slt i64 %indvars.iv.next.i112, %413
   br i1 %414, label %.lr.ph53.i110, label %.critedge2.i107
 
-.critedge2.i107:                                  ; preds = %411, %.lr.ph.i106, %.lr.ph161
+.critedge2.i107:                                  ; preds = %411, %.lr.ph.i106, %.lr.ph162
   call void @distribute_restrictinfo_to_rels(ptr noundef nonnull %0, ptr noundef %381) #6
   br label %.critedge64.i108
 
 .critedge64.i108:                                 ; preds = %406, %402, %398, %.critedge2.i107
-  %indvars.iv.next67.i109 = add nuw nsw i64 %indvars.iv66.i105160, 1
+  %indvars.iv.next67.i109 = add nuw nsw i64 %indvars.iv66.i105161, 1
   %415 = load i32, ptr %375, align 4
   %416 = sext i32 %415 to i64
   %417 = icmp slt i64 %indvars.iv.next67.i109, %416
-  br i1 %417, label %.lr.ph161, label %add_non_redundant_clauses.exit114, !llvm.loop !20
+  br i1 %417, label %.lr.ph162, label %add_non_redundant_clauses.exit114, !llvm.loop !20
 
 add_non_redundant_clauses.exit114:                ; preds = %.critedge64.i108, %.preheader.i104.preheader, %.split198.us.i.i
   %418 = getelementptr inbounds nuw i8, ptr %124, i64 328
@@ -2508,12 +2508,12 @@ add_non_redundant_clauses.exit114:                ; preds = %.critedge64.i108, %
 .preheader.i.preheader:                           ; preds = %add_non_redundant_clauses.exit114
   %421 = load i32, ptr %419, align 4
   %422 = icmp sgt i32 %421, 0
-  br i1 %422, label %.lr.ph163, label %add_non_redundant_clauses.exit
+  br i1 %422, label %.lr.ph164, label %add_non_redundant_clauses.exit
 
-.lr.ph163:                                        ; preds = %.preheader.i.preheader, %.critedge64.i
-  %indvars.iv66.i162 = phi i64 [ %indvars.iv.next67.i, %.critedge64.i ], [ 0, %.preheader.i.preheader ]
+.lr.ph164:                                        ; preds = %.preheader.i.preheader, %.critedge64.i
+  %indvars.iv66.i163 = phi i64 [ %indvars.iv.next67.i, %.critedge64.i ], [ 0, %.preheader.i.preheader ]
   %423 = load ptr, ptr %420, align 8
-  %424 = getelementptr inbounds nuw [8 x i8], ptr %423, i64 %indvars.iv66.i162
+  %424 = getelementptr inbounds nuw [8 x i8], ptr %423, i64 %indvars.iv66.i163
   %425 = load ptr, ptr %424, align 8
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 40
   %427 = getelementptr inbounds nuw i8, ptr %425, i64 104
@@ -2522,7 +2522,7 @@ add_non_redundant_clauses.exit114:                ; preds = %.critedge64.i108, %
   %430 = icmp eq ptr %429, null
   br i1 %430, label %.critedge2.i, label %.lr.ph.i100
 
-.lr.ph.i100:                                      ; preds = %.lr.ph163
+.lr.ph.i100:                                      ; preds = %.lr.ph164
   %431 = getelementptr inbounds nuw i8, ptr %429, i64 4
   %432 = getelementptr inbounds nuw i8, ptr %429, i64 16
   %433 = load i32, ptr %431, align 4
@@ -2571,16 +2571,16 @@ add_non_redundant_clauses.exit114:                ; preds = %.critedge64.i108, %
   %458 = icmp slt i64 %indvars.iv.next.i102, %457
   br i1 %458, label %.lr.ph53.i, label %.critedge2.i
 
-.critedge2.i:                                     ; preds = %455, %.lr.ph.i100, %.lr.ph163
+.critedge2.i:                                     ; preds = %455, %.lr.ph.i100, %.lr.ph164
   call void @distribute_restrictinfo_to_rels(ptr noundef nonnull %0, ptr noundef %425) #6
   br label %.critedge64.i
 
 .critedge64.i:                                    ; preds = %450, %446, %442, %.critedge2.i
-  %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i162, 1
+  %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i163, 1
   %459 = load i32, ptr %419, align 4
   %460 = sext i32 %459 to i64
   %461 = icmp slt i64 %indvars.iv.next67.i, %460
-  br i1 %461, label %.lr.ph163, label %add_non_redundant_clauses.exit, !llvm.loop !20
+  br i1 %461, label %.lr.ph164, label %add_non_redundant_clauses.exit, !llvm.loop !20
 
 add_non_redundant_clauses.exit:                   ; preds = %.critedge64.i, %.preheader.i.preheader, %add_non_redundant_clauses.exit114
   call void @list_free(ptr noundef %.us-phi199.i.i) #6
@@ -2990,13 +2990,10 @@ match_unique_clauses.exit.thread127.i:            ; preds = %663, %660, %._crit_
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit132.i
 
-.lr.ph.i114.match_unique_clauses.exit.loopexit_crit_edge.i: ; preds = %.lr.ph.i114.i
+.lr.ph.i114.match_unique_clauses.exit.loopexit_crit_edge.i: ; preds = %.lr.ph.i114.i, %339
   br label %match_unique_clauses.exit.i, !llvm.loop !17
 
-.match_unique_clauses.exit.loopexit_crit_edge.i:  ; preds = %339
-  br label %match_unique_clauses.exit.i, !llvm.loop !17
-
-match_unique_clauses.exit.i:                      ; preds = %143, %.lr.ph161.i, %get_leftop.exit71.i.i, %.match_unique_clauses.exit.loopexit_crit_edge.i, %.lr.ph.i114.match_unique_clauses.exit.loopexit_crit_edge.i, %list_length.exit.i, %.critedge110.thread.i, %170
+match_unique_clauses.exit.i:                      ; preds = %143, %.lr.ph161.i, %get_leftop.exit71.i.i, %.lr.ph.i114.match_unique_clauses.exit.loopexit_crit_edge.i, %list_length.exit.i, %.critedge110.thread.i, %170
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %690 = call i32 @bms_next_member(ptr noundef %.1, i32 noundef %120) #6
   %691 = icmp sgt i32 %690, 0
@@ -3028,16 +3025,16 @@ remove_self_joins_one_group.exit:                 ; preds = %.loopexit132.i, %10
 700:                                              ; preds = %95
   %701 = getelementptr inbounds [8 x i8], ptr %56, i64 %99
   %702 = load i32, ptr %701, align 4
-  %703 = call ptr @bms_del_member(ptr noundef %.381167, i32 noundef %702) #6
+  %703 = call ptr @bms_del_member(ptr noundef %.381168, i32 noundef %702) #6
   br label %704
 
 704:                                              ; preds = %87, %700, %.critedge
-  %.386 = phi i32 [ %.285.lcssa, %.critedge ], [ %96, %700 ], [ %.184166, %87 ]
-  %.482 = phi ptr [ %105, %.critedge ], [ %703, %700 ], [ %.381167, %87 ]
-  %.4 = phi ptr [ %694, %.critedge ], [ %.2168, %700 ], [ %.2168, %87 ]
-  %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
-  %exitcond196.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count
-  br i1 %exitcond196.not, label %.loopexit, label %85, !llvm.loop !25
+  %.386 = phi i32 [ %.285.lcssa, %.critedge ], [ %96, %700 ], [ %.184167, %87 ]
+  %.482 = phi ptr [ %105, %.critedge ], [ %703, %700 ], [ %.381168, %87 ]
+  %.4 = phi ptr [ %694, %.critedge ], [ %.2169, %700 ], [ %.2169, %87 ]
+  %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
+  %exitcond198.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count
+  br i1 %exitcond198.not, label %.loopexit, label %85, !llvm.loop !25
 
 .loopexit:                                        ; preds = %704, %._crit_edge, %.critedge99
   %.0 = phi ptr [ %.075.lcssa, %.critedge99 ], [ %.075.lcssa, %._crit_edge ], [ %.4, %704 ]

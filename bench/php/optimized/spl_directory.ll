@@ -4619,15 +4619,15 @@ define hidden void @zim_RecursiveDirectoryIterator_hasChildren(ptr noundef %0, p
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load i8, ptr %13, align 8, !tbaa !18
   switch i8 %14, label %zend_parse_arg_bool_ex.exit [
-    i8 3, label %.thread82
-    i8 2, label %.thread82.fold.split
+    i8 3, label %.thread81
+    i8 2, label %.thread81.fold.split
   ], !prof !72
 
-.thread82.fold.split:                             ; preds = %12
-  br label %.thread82
+.thread81.fold.split:                             ; preds = %12
+  br label %.thread81
 
-.thread82:                                        ; preds = %12, %.thread82.fold.split
-  %storemerge.i = phi i8 [ 1, %12 ], [ 0, %.thread82.fold.split ]
+.thread81:                                        ; preds = %12, %.thread81.fold.split
+  %storemerge.i = phi i8 [ 1, %12 ], [ 0, %.thread81.fold.split ]
   store i8 %storemerge.i, ptr %3, align 1, !tbaa !44
   br label %.critedge
 
@@ -4645,10 +4645,10 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %12
   call void @zend_wrong_parameter_error(i32 noundef %.04979, i32 noundef %.05078, ptr noundef null, i32 noundef %.05177, ptr noundef %.05276) #18
   br label %58
 
-.critedge:                                        ; preds = %zend_parse_arg_bool_ex.exit, %.thread82, %10
+.critedge:                                        ; preds = %zend_parse_arg_bool_ex.exit, %.thread81, %10
   %18 = getelementptr inbounds i8, ptr %5, i64 -4104
   %19 = load i8, ptr %18, align 1, !tbaa !18
-  switch i8 %19, label %spl_filesystem_is_invalid_or_dot.exit.thread81 [
+  switch i8 %19, label %spl_filesystem_is_invalid_or_dot.exit.thread80 [
     i8 0, label %spl_filesystem_is_invalid_or_dot.exit.thread
     i8 46, label %.tail.i.i
   ]
@@ -4656,7 +4656,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %12
 .tail.i.i:                                        ; preds = %.critedge
   %20 = getelementptr inbounds i8, ptr %5, i64 -4103
   %21 = load i8, ptr %20, align 1
-  switch i8 %21, label %spl_filesystem_is_invalid_or_dot.exit.thread81 [
+  switch i8 %21, label %spl_filesystem_is_invalid_or_dot.exit.thread80 [
     i8 0, label %spl_filesystem_is_invalid_or_dot.exit.thread
     i8 46, label %spl_filesystem_is_invalid_or_dot.exit
   ]
@@ -4665,14 +4665,14 @@ spl_filesystem_is_invalid_or_dot.exit:            ; preds = %.tail.i.i
   %22 = getelementptr inbounds i8, ptr %5, i64 -4102
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %spl_filesystem_is_invalid_or_dot.exit.thread, label %spl_filesystem_is_invalid_or_dot.exit.thread81
+  br i1 %24, label %spl_filesystem_is_invalid_or_dot.exit.thread, label %spl_filesystem_is_invalid_or_dot.exit.thread80
 
 spl_filesystem_is_invalid_or_dot.exit.thread:     ; preds = %.tail.i.i, %.critedge, %spl_filesystem_is_invalid_or_dot.exit
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %25, align 8, !tbaa !18
   br label %58
 
-spl_filesystem_is_invalid_or_dot.exit.thread81:   ; preds = %.tail.i.i, %.critedge, %spl_filesystem_is_invalid_or_dot.exit
+spl_filesystem_is_invalid_or_dot.exit.thread80:   ; preds = %.tail.i.i, %.critedge, %spl_filesystem_is_invalid_or_dot.exit
   %26 = getelementptr inbounds i8, ptr %5, i64 -8
   %27 = load i8, ptr %26, align 8, !tbaa !18
   switch i8 %27, label %32 [
@@ -4680,17 +4680,17 @@ spl_filesystem_is_invalid_or_dot.exit.thread81:   ; preds = %.tail.i.i, %.crited
     i8 8, label %30
   ]
 
-28:                                               ; preds = %spl_filesystem_is_invalid_or_dot.exit.thread81
+28:                                               ; preds = %spl_filesystem_is_invalid_or_dot.exit.thread80
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %29, align 8, !tbaa !18
   br label %58
 
-30:                                               ; preds = %spl_filesystem_is_invalid_or_dot.exit.thread81
+30:                                               ; preds = %spl_filesystem_is_invalid_or_dot.exit.thread80
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %31, align 8, !tbaa !18
   br label %58
 
-32:                                               ; preds = %spl_filesystem_is_invalid_or_dot.exit.thread81
+32:                                               ; preds = %spl_filesystem_is_invalid_or_dot.exit.thread80
   %33 = call fastcc i32 @spl_filesystem_object_get_file_name(ptr noundef nonnull %6)
   %34 = icmp eq i32 %33, -1
   br i1 %34, label %58, label %35

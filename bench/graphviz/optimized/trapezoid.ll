@@ -1655,8 +1655,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %29 = fcmp ogt double %27, %28
   br i1 %29, label %tailrecurse.backedge, label %31
 
-tailrecurse.backedge:                             ; preds = %26, %16, %is_left_of.exit99, %171, %180, %204, %196, %is_left_of.exit, %106, %115, %140, %132, %86, %31, %35, %46, %41, %49, %is_left_of.exit.thread105, %is_left_of.exit99.thread113
-  %.sink = phi i64 [ 32, %is_left_of.exit99 ], [ 36, %is_left_of.exit99.thread113 ], [ 32, %49 ], [ 36, %46 ], [ %., %86 ], [ 32, %31 ], [ 32, %35 ], [ 36, %is_left_of.exit.thread105 ], [ 32, %is_left_of.exit ], [ 36, %41 ], [ 32, %132 ], [ 32, %140 ], [ 32, %115 ], [ 32, %106 ], [ 32, %196 ], [ 32, %204 ], [ 32, %180 ], [ 32, %171 ], [ 36, %16 ], [ 36, %26 ]
+tailrecurse.backedge:                             ; preds = %26, %16, %is_left_of.exit99, %171, %180, %204, %196, %is_left_of.exit, %106, %115, %140, %132, %86, %31, %35, %46, %41, %49, %is_left_of.exit.thread105
+  %.sink = phi i64 [ 32, %is_left_of.exit99 ], [ 36, %26 ], [ 32, %49 ], [ 36, %46 ], [ %., %86 ], [ 32, %31 ], [ 32, %35 ], [ 36, %is_left_of.exit.thread105 ], [ 32, %is_left_of.exit ], [ 36, %41 ], [ 32, %132 ], [ 32, %140 ], [ 32, %115 ], [ 32, %106 ], [ 32, %196 ], [ 32, %204 ], [ 32, %180 ], [ 32, %171 ], [ 36, %16 ]
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink
   %.tr116.be = load i32, ptr %30, align 4, !tbaa !12
   br label %tailrecurse
@@ -1841,7 +1841,7 @@ is_left_of.exit:                                  ; preds = %118, %144
   %155 = fcmp ogt double %.0.i, 0.000000e+00
   br i1 %155, label %tailrecurse.backedge, label %is_left_of.exit.thread105
 
-is_left_of.exit.thread105:                        ; preds = %132, %140, %115, %106, %is_left_of.exit
+is_left_of.exit.thread105:                        ; preds = %is_left_of.exit99, %171, %180, %204, %196, %132, %140, %115, %106, %is_left_of.exit
   br label %tailrecurse.backedge
 
 156:                                              ; preds = %73, %67
@@ -1871,7 +1871,7 @@ is_left_of.exit.thread105:                        ; preds = %132, %140, %115, %1
   %172 = load double, ptr %0, align 8, !tbaa !19
   %173 = load double, ptr %157, align 8, !tbaa !58
   %174 = fcmp olt double %172, %173
-  br i1 %174, label %tailrecurse.backedge, label %is_left_of.exit99.thread113
+  br i1 %174, label %tailrecurse.backedge, label %is_left_of.exit.thread105
 
 175:                                              ; preds = %167
   %176 = fsub double %57, %51
@@ -1883,7 +1883,7 @@ is_left_of.exit.thread105:                        ; preds = %132, %140, %115, %1
 180:                                              ; preds = %175
   %181 = load double, ptr %0, align 8, !tbaa !19
   %182 = fcmp olt double %181, %179
-  br i1 %182, label %tailrecurse.backedge, label %is_left_of.exit99.thread113
+  br i1 %182, label %tailrecurse.backedge, label %is_left_of.exit.thread105
 
 183:                                              ; preds = %175
   %184 = load double, ptr %157, align 8, !tbaa !58
@@ -1906,7 +1906,7 @@ is_left_of.exit.thread105:                        ; preds = %132, %140, %115, %1
   %197 = load double, ptr %0, align 8, !tbaa !19
   %198 = load double, ptr %157, align 8, !tbaa !58
   %199 = fcmp olt double %197, %198
-  br i1 %199, label %tailrecurse.backedge, label %is_left_of.exit99.thread113
+  br i1 %199, label %tailrecurse.backedge, label %is_left_of.exit.thread105
 
 200:                                              ; preds = %192
   %201 = fsub double %57, %51
@@ -1918,7 +1918,7 @@ is_left_of.exit.thread105:                        ; preds = %132, %140, %115, %1
   %205 = load double, ptr %0, align 8, !tbaa !19
   %206 = load double, ptr %55, align 8, !tbaa !59
   %207 = fcmp olt double %205, %206
-  br i1 %207, label %tailrecurse.backedge, label %is_left_of.exit99.thread113
+  br i1 %207, label %tailrecurse.backedge, label %is_left_of.exit.thread105
 
 208:                                              ; preds = %200
   %209 = load double, ptr %55, align 8, !tbaa !59
@@ -1935,10 +1935,7 @@ is_left_of.exit.thread105:                        ; preds = %132, %140, %115, %1
 is_left_of.exit99:                                ; preds = %183, %208
   %.0.i95 = phi double [ %191, %183 ], [ %217, %208 ]
   %218 = fcmp ogt double %.0.i95, 0.000000e+00
-  br i1 %218, label %tailrecurse.backedge, label %is_left_of.exit99.thread113
-
-is_left_of.exit99.thread113:                      ; preds = %196, %204, %180, %171, %is_left_of.exit99
-  br label %tailrecurse.backedge
+  br i1 %218, label %tailrecurse.backedge, label %is_left_of.exit.thread105
 
 219:                                              ; preds = %tailrecurse
   %220 = load ptr, ptr @stderr, align 8, !tbaa !9

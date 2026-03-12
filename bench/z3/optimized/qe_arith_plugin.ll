@@ -7704,12 +7704,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2qe12arith_plugin16is_uninterp
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !209
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %_ZNK3app13get_decl_kindEv.exit.thread, label %_ZNK3app13get_decl_kindEv.exit
+  br i1 %7, label %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.thread, label %_ZNK3app13get_decl_kindEv.exit
 
 _ZNK3app13get_decl_kindEv.exit:                   ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !214
-  switch i32 %9, label %_ZNK3app13get_decl_kindEv.exit.thread [
+  switch i32 %9, label %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.thread [
     i32 0, label %_ZNK10arith_util10is_numeralEPK4expr.exit.thread
     i32 2, label %_ZNK10arith_util10is_numeralEPK4expr.exit.thread
     i32 4, label %_ZNK10arith_util10is_numeralEPK4expr.exit.thread
@@ -7820,14 +7820,11 @@ _ZNK10arith_util10is_numeralEPK4expr.exit12:      ; preds = %63
   %73 = select i1 %69, i1 %72, i1 false
   br i1 %73, label %_ZNK10arith_util10is_numeralEPK4expr.exit.thread, label %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.thread
 
-_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.thread: ; preds = %63, %_ZNK10arith_util10is_numeralEPK4expr.exit10.thread, %28, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i, %35, %_ZNK10arith_util10is_numeralEPK4expr.exit12
+_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.thread: ; preds = %_ZNK3app13get_decl_kindEv.exit, %2, %63, %_ZNK10arith_util10is_numeralEPK4expr.exit10.thread, %28, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i, %35, %_ZNK10arith_util10is_numeralEPK4expr.exit12
   br label %_ZNK10arith_util10is_numeralEPK4expr.exit.thread
 
-_ZNK3app13get_decl_kindEv.exit.thread:            ; preds = %2, %_ZNK3app13get_decl_kindEv.exit
-  br label %_ZNK10arith_util10is_numeralEPK4expr.exit.thread
-
-_ZNK10arith_util10is_numeralEPK4expr.exit.thread: ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit, %17, %10, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.thread, %_ZNK10arith_util10is_numeralEPK4expr.exit12, %_ZNK10arith_util10is_numeralEPK4expr.exit10, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit.thread
-  %.0 = phi i1 [ true, %_ZNK3app13get_decl_kindEv.exit.thread ], [ false, %_ZNK10arith_util10is_numeralEPK4expr.exit10 ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ true, %17 ], [ %not.cond.fr, %_ZNK10arith_util10is_numeralEPK4expr.exit ], [ true, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.thread ], [ false, %_ZNK10arith_util10is_numeralEPK4expr.exit12 ], [ true, %10 ]
+_ZNK10arith_util10is_numeralEPK4expr.exit.thread: ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit, %17, %10, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.thread, %_ZNK10arith_util10is_numeralEPK4expr.exit12, %_ZNK10arith_util10is_numeralEPK4expr.exit10, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit
+  %.0 = phi i1 [ true, %10 ], [ false, %_ZNK10arith_util10is_numeralEPK4expr.exit10 ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ true, %17 ], [ %not.cond.fr, %_ZNK10arith_util10is_numeralEPK4expr.exit ], [ true, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.thread ], [ false, %_ZNK10arith_util10is_numeralEPK4expr.exit12 ]
   ret i1 %.0
 }
 

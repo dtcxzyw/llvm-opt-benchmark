@@ -8412,7 +8412,7 @@ define hidden void @_ZN9ty_server6server10connection10Connection15handle_shutdow
           to label %278 unwind label %.loopexit394
 
 .invoke:                                          ; preds = %430, %460, %236, %266, %358, %390
-  %277 = phi ptr [ @anon.371c52bf24696e894bc435f77c095309.177, %358 ], [ @anon.371c52bf24696e894bc435f77c095309.177, %390 ], [ @anon.371c52bf24696e894bc435f77c095309.180, %460 ], [ @anon.371c52bf24696e894bc435f77c095309.169, %266 ], [ @anon.371c52bf24696e894bc435f77c095309.169, %236 ], [ @anon.371c52bf24696e894bc435f77c095309.180, %430 ]
+  %277 = phi ptr [ @anon.371c52bf24696e894bc435f77c095309.177, %390 ], [ @anon.371c52bf24696e894bc435f77c095309.177, %358 ], [ @anon.371c52bf24696e894bc435f77c095309.169, %266 ], [ @anon.371c52bf24696e894bc435f77c095309.169, %236 ], [ @anon.371c52bf24696e894bc435f77c095309.180, %460 ], [ @anon.371c52bf24696e894bc435f77c095309.180, %430 ]
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.371c52bf24696e894bc435f77c095309.15, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %277) #25
           to label %.cont unwind label %.loopexit.split-lp
 

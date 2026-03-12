@@ -5400,9 +5400,9 @@ freearc.exit84.i.i:                               ; preds = %919, %918
   %936 = getelementptr inbounds nuw i8, ptr %482, i64 16
   br label %937
 
-937:                                              ; preds = %combine.exit.thread9.i, %.lr.ph166.i.i
-  %.13.i = phi ptr [ %.0232.i, %.lr.ph166.i.i ], [ %.4.i63, %combine.exit.thread9.i ]
-  %.068164.i.i = phi ptr [ %933, %.lr.ph166.i.i ], [ %943, %combine.exit.thread9.i ]
+937:                                              ; preds = %combine.exit.thread.i, %.lr.ph166.i.i
+  %.13.i = phi ptr [ %.0232.i, %.lr.ph166.i.i ], [ %.4.i63, %combine.exit.thread.i ]
+  %.068164.i.i = phi ptr [ %933, %.lr.ph166.i.i ], [ %943, %combine.exit.thread.i ]
   %938 = load ptr, ptr %55, align 8
   %939 = getelementptr inbounds nuw i8, ptr %938, i64 24
   %940 = load i32, ptr %939, align 8
@@ -5447,7 +5447,7 @@ freearc.exit84.i.i:                               ; preds = %919, %918
   %950 = getelementptr inbounds nuw i8, ptr %.068164.i.i, i64 4
   %951 = load i16, ptr %950, align 4
   %952 = icmp eq i16 %949, %951
-  br i1 %952, label %combine.exit.thread9.i, label %953
+  br i1 %952, label %combine.exit.thread.i, label %953
 
 953:                                              ; preds = %948
   %954 = icmp eq i16 %949, -2
@@ -5463,7 +5463,7 @@ freearc.exit84.i.i:                               ; preds = %919, %918
   %962 = load i32, ptr %961, align 4
   %963 = and i32 %962, 2
   %.not26.i115.i = icmp eq i32 %963, 0
-  br i1 %.not26.i115.i, label %combine.exit.thread9.i, label %1013
+  br i1 %.not26.i115.i, label %combine.exit.thread.i, label %1013
 
 964:                                              ; preds = %953
   %965 = icmp eq i16 %951, -2
@@ -5486,14 +5486,14 @@ freearc.exit84.i.i:                               ; preds = %919, %918
   %977 = getelementptr inbounds nuw i8, ptr %.068164.i.i, i64 4
   %978 = load i16, ptr %977, align 4
   %979 = icmp eq i16 %976, %978
-  br i1 %979, label %combine.exit.thread9.i, label %1013
+  br i1 %979, label %combine.exit.thread.i, label %1013
 
 980:                                              ; preds = %941, %941
   %981 = load i16, ptr %934, align 4
   %982 = getelementptr inbounds nuw i8, ptr %.068164.i.i, i64 4
   %983 = load i16, ptr %982, align 4
   %984 = icmp eq i16 %981, %983
-  br i1 %984, label %combine.exit.thread9.i, label %985
+  br i1 %984, label %combine.exit.thread.i, label %985
 
 985:                                              ; preds = %980
   %986 = icmp eq i16 %981, -2
@@ -5509,7 +5509,7 @@ freearc.exit84.i.i:                               ; preds = %919, %918
   %994 = load i32, ptr %993, align 4
   %995 = and i32 %994, 2
   %.not24.i112.i = icmp eq i32 %995, 0
-  br i1 %.not24.i112.i, label %combine.exit.thread9.i, label %1013
+  br i1 %.not24.i112.i, label %combine.exit.thread.i, label %1013
 
 996:                                              ; preds = %985
   %997 = icmp eq i16 %983, -2
@@ -5544,7 +5544,7 @@ freearc.exit84.i.i:                               ; preds = %919, %918
   br label %1046
 
 1013:                                             ; preds = %996, %987, %975, %964, %955, %._crit_edge66.i
-  %1014 = phi i16 [ %.pre67.i, %._crit_edge66.i ], [ %983, %987 ], [ %983, %996 ], [ %951, %955 ], [ %951, %964 ], [ %978, %975 ]
+  %1014 = phi i16 [ %.pre67.i, %._crit_edge66.i ], [ %951, %955 ], [ %951, %964 ], [ %983, %987 ], [ %983, %996 ], [ %978, %975 ]
   %1015 = getelementptr inbounds nuw i8, ptr %.068164.i.i, i64 8
   %1016 = load ptr, ptr %1015, align 8
   %1017 = getelementptr inbounds nuw i8, ptr %.068164.i.i, i64 16
@@ -6905,15 +6905,15 @@ freearc.exit143.i.i:                              ; preds = %1671, %1670
 .sink.split.i.i:                                  ; preds = %freearc.exit143.i.i, %freearc.exit134.i.i, %freearc.exit90.i.i
   %.3.i62 = phi ptr [ %.13.i, %freearc.exit90.i.i ], [ %.13.i, %freearc.exit143.i.i ], [ %.24.i, %freearc.exit134.i.i ]
   store ptr %.068164.i.i, ptr %457, align 8
-  br label %combine.exit.thread9.i
+  br label %combine.exit.thread.i
 
-combine.exit.thread9.i:                           ; preds = %.sink.split.i.i, %987, %980, %975, %955, %948
+combine.exit.thread.i:                            ; preds = %.sink.split.i.i, %987, %980, %975, %955, %948
   %.4.i63 = phi ptr [ %.3.i62, %.sink.split.i.i ], [ %.13.i, %980 ], [ %.13.i, %948 ], [ %.13.i, %955 ], [ %.13.i, %987 ], [ %.13.i, %975 ]
   %.not73.i.i = icmp eq ptr %943, null
   br i1 %.not73.i.i, label %.critedge.i.i, label %937, !llvm.loop !51
 
-.critedge.i.i:                                    ; preds = %combine.exit.thread9.i, %937, %931
-  %.5.i = phi ptr [ %.0232.i, %931 ], [ %.4.i63, %combine.exit.thread9.i ], [ %.13.i, %937 ]
+.critedge.i.i:                                    ; preds = %combine.exit.thread.i, %937, %931
+  %.5.i = phi ptr [ %.0232.i, %931 ], [ %.4.i63, %combine.exit.thread.i ], [ %.13.i, %937 ]
   tail call fastcc void @moveins(ptr noundef nonnull %0, ptr noundef %.070.i.i, ptr noundef %482)
   %1677 = getelementptr inbounds nuw i8, ptr %.069.i.i, i64 8
   %1678 = load ptr, ptr %1677, align 8
@@ -8320,9 +8320,9 @@ freearc.exit84.i.i184:                            ; preds = %2338, %2337
   %.0.in30.i.i.i108 = getelementptr inbounds nuw i8, ptr %1903, i64 24
   br label %2355
 
-2355:                                             ; preds = %combine.exit.thread162.i.i, %.lr.ph183.i.i
-  %.13.i109 = phi ptr [ %.0223.i, %.lr.ph183.i.i ], [ %.5.i130, %combine.exit.thread162.i.i ]
-  %.068181.i.i = phi ptr [ %2352, %.lr.ph183.i.i ], [ %2361, %combine.exit.thread162.i.i ]
+2355:                                             ; preds = %combine.exit.thread.i.i, %.lr.ph183.i.i
+  %.13.i109 = phi ptr [ %.0223.i, %.lr.ph183.i.i ], [ %.5.i130, %combine.exit.thread.i.i ]
+  %.068181.i.i = phi ptr [ %2352, %.lr.ph183.i.i ], [ %2361, %combine.exit.thread.i.i ]
   %2356 = load ptr, ptr %55, align 8
   %2357 = getelementptr inbounds nuw i8, ptr %2356, i64 24
   %2358 = load i32, ptr %2357, align 8
@@ -8367,7 +8367,7 @@ freearc.exit84.i.i184:                            ; preds = %2338, %2337
   %2368 = getelementptr inbounds nuw i8, ptr %.068181.i.i, i64 4
   %2369 = load i16, ptr %2368, align 4
   %2370 = icmp eq i16 %2367, %2369
-  br i1 %2370, label %combine.exit.thread162.i.i, label %2371
+  br i1 %2370, label %combine.exit.thread.i.i, label %2371
 
 2371:                                             ; preds = %2366
   %2372 = icmp eq i16 %2367, -2
@@ -8383,7 +8383,7 @@ freearc.exit84.i.i184:                            ; preds = %2338, %2337
   %2380 = load i32, ptr %2379, align 4
   %2381 = and i32 %2380, 2
   %.not26.i.i.i166 = icmp eq i32 %2381, 0
-  br i1 %.not26.i.i.i166, label %combine.exit.thread162.i.i, label %2430
+  br i1 %.not26.i.i.i166, label %combine.exit.thread.i.i, label %2430
 
 2382:                                             ; preds = %2371
   %2383 = icmp eq i16 %2369, -2
@@ -8406,14 +8406,14 @@ freearc.exit84.i.i184:                            ; preds = %2338, %2337
   %2395 = getelementptr inbounds nuw i8, ptr %.068181.i.i, i64 4
   %2396 = load i16, ptr %2395, align 4
   %2397 = icmp eq i16 %2394, %2396
-  br i1 %2397, label %combine.exit.thread162.i.i, label %2430
+  br i1 %2397, label %combine.exit.thread.i.i, label %2430
 
 2398:                                             ; preds = %2359, %2359
   %2399 = load i16, ptr %2353, align 4
   %2400 = getelementptr inbounds nuw i8, ptr %.068181.i.i, i64 4
   %2401 = load i16, ptr %2400, align 4
   %2402 = icmp eq i16 %2399, %2401
-  br i1 %2402, label %combine.exit.thread162.i.i, label %2403
+  br i1 %2402, label %combine.exit.thread.i.i, label %2403
 
 2403:                                             ; preds = %2398
   %2404 = icmp eq i16 %2399, -2
@@ -8429,7 +8429,7 @@ freearc.exit84.i.i184:                            ; preds = %2338, %2337
   %2412 = load i32, ptr %2411, align 4
   %2413 = and i32 %2412, 2
   %.not24.i.i.i164 = icmp eq i32 %2413, 0
-  br i1 %.not24.i.i.i164, label %combine.exit.thread162.i.i, label %2430
+  br i1 %.not24.i.i.i164, label %combine.exit.thread.i.i, label %2430
 
 2414:                                             ; preds = %2403
   %2415 = icmp eq i16 %2401, -2
@@ -8463,7 +8463,7 @@ combine.exit.i.i:                                 ; preds = %2359, %2359, %2359,
   br label %2463
 
 2430:                                             ; preds = %2414, %2405, %2393, %2382, %2373, %._crit_edge195.i.i
-  %2431 = phi i16 [ %.pre197.i.i, %._crit_edge195.i.i ], [ %2401, %2405 ], [ %2401, %2414 ], [ %2369, %2373 ], [ %2369, %2382 ], [ %2396, %2393 ]
+  %2431 = phi i16 [ %.pre197.i.i, %._crit_edge195.i.i ], [ %2369, %2373 ], [ %2369, %2382 ], [ %2401, %2405 ], [ %2401, %2414 ], [ %2396, %2393 ]
   %2432 = getelementptr inbounds nuw i8, ptr %.068181.i.i, i64 8
   %2433 = load ptr, ptr %2432, align 8
   %2434 = getelementptr inbounds nuw i8, ptr %.068181.i.i, i64 16
@@ -8567,7 +8567,7 @@ uncolorchain.exit.i92.i.i:                        ; preds = %2460, %2458
 
 2487:                                             ; preds = %2485, %2483
   %.not44.i90.i.i = icmp eq ptr %2482, null
-  br i1 %.not44.i90.i.i, label %combine.exit.thread162.sink.split.i.i, label %combine.exit.thread162.sink.split.sink.split.i.i
+  br i1 %.not44.i90.i.i, label %combine.exit.thread.sink.split.i.i, label %combine.exit.thread.sink.split.sink.split.i.i
 
 2488:                                             ; preds = %2501, %.lr.ph.i.i112
   %.0179.i.i = phi ptr [ %.13.i109, %.lr.ph.i.i112 ], [ %.0.i.i113, %2501 ]
@@ -9398,7 +9398,7 @@ uncolorchain.exit.i136.i.i:                       ; preds = %2869, %2867
 
 2893:                                             ; preds = %2891, %2889
   %.not44.i134.i.i = icmp eq ptr %2888, null
-  br i1 %.not44.i134.i.i, label %combine.exit.thread162.sink.split.i.i, label %combine.exit.thread162.sink.split.sink.split.i.i
+  br i1 %.not44.i134.i.i, label %combine.exit.thread.sink.split.i.i, label %combine.exit.thread.sink.split.sink.split.i.i
 
 select.unfold.i.i:                                ; preds = %2416, %2384
   %2894 = phi i16 [ %2399, %2416 ], [ %2367, %2384 ]
@@ -9584,9 +9584,9 @@ uncolorchain.exit.i150.i.i:                       ; preds = %2958, %2956
 
 2982:                                             ; preds = %2980, %2978
   %.not44.i148.i.i = icmp eq ptr %2977, null
-  br i1 %.not44.i148.i.i, label %combine.exit.thread162.sink.split.i.i, label %combine.exit.thread162.sink.split.sink.split.i.i
+  br i1 %.not44.i148.i.i, label %combine.exit.thread.sink.split.i.i, label %combine.exit.thread.sink.split.sink.split.i.i
 
-combine.exit.thread162.sink.split.sink.split.i.i: ; preds = %2982, %2893, %2487
+combine.exit.thread.sink.split.sink.split.i.i:    ; preds = %2982, %2893, %2487
   %.3.i128 = phi ptr [ %.13.i109, %2487 ], [ %.13.i109, %2982 ], [ %.24.i124, %2893 ]
   %.sink259.i.i = phi ptr [ %2482, %2487 ], [ %2977, %2982 ], [ %2888, %2893 ]
   %.sink257.i.i = phi ptr [ %2479, %2487 ], [ %2974, %2982 ], [ %2885, %2893 ]
@@ -9594,12 +9594,12 @@ combine.exit.thread162.sink.split.sink.split.i.i: ; preds = %2982, %2893, %2487
   %.sink.ph.i.i = phi ptr [ %2466, %2487 ], [ %2928, %2982 ], [ %2840, %2893 ]
   %2983 = getelementptr inbounds nuw i8, ptr %.sink259.i.i, i64 48
   store ptr %.sink257.i.i, ptr %2983, align 8
-  br label %combine.exit.thread162.sink.split.i.i
+  br label %combine.exit.thread.sink.split.i.i
 
-combine.exit.thread162.sink.split.i.i:            ; preds = %combine.exit.thread162.sink.split.sink.split.i.i, %2982, %2893, %2487
-  %.4.i129 = phi ptr [ %.13.i109, %2487 ], [ %.3.i128, %combine.exit.thread162.sink.split.sink.split.i.i ], [ %.13.i109, %2982 ], [ %.24.i124, %2893 ]
-  %.sink256.i.i = phi ptr [ %2464, %2487 ], [ %.sink256.ph.i.i, %combine.exit.thread162.sink.split.sink.split.i.i ], [ %2930, %2982 ], [ %2842, %2893 ]
-  %.sink.i.i = phi ptr [ %2466, %2487 ], [ %.sink.ph.i.i, %combine.exit.thread162.sink.split.sink.split.i.i ], [ %2928, %2982 ], [ %2840, %2893 ]
+combine.exit.thread.sink.split.i.i:               ; preds = %combine.exit.thread.sink.split.sink.split.i.i, %2982, %2893, %2487
+  %.4.i129 = phi ptr [ %.13.i109, %2487 ], [ %.3.i128, %combine.exit.thread.sink.split.sink.split.i.i ], [ %.13.i109, %2982 ], [ %.24.i124, %2893 ]
+  %.sink256.i.i = phi ptr [ %2464, %2487 ], [ %.sink256.ph.i.i, %combine.exit.thread.sink.split.sink.split.i.i ], [ %2930, %2982 ], [ %2842, %2893 ]
+  %.sink.i.i = phi ptr [ %2466, %2487 ], [ %.sink.ph.i.i, %combine.exit.thread.sink.split.sink.split.i.i ], [ %2928, %2982 ], [ %2840, %2893 ]
   %2984 = getelementptr inbounds nuw i8, ptr %.sink256.i.i, i64 8
   %2985 = load i32, ptr %2984, align 8
   %2986 = add i32 %2985, -1
@@ -9609,15 +9609,15 @@ combine.exit.thread162.sink.split.i.i:            ; preds = %combine.exit.thread
   %2987 = load ptr, ptr %1763, align 8
   store ptr %2987, ptr %2360, align 8
   store ptr %.068181.i.i, ptr %1763, align 8
-  br label %combine.exit.thread162.i.i
+  br label %combine.exit.thread.i.i
 
-combine.exit.thread162.i.i:                       ; preds = %combine.exit.thread162.sink.split.i.i, %2405, %2398, %2393, %2373, %2366
-  %.5.i130 = phi ptr [ %.4.i129, %combine.exit.thread162.sink.split.i.i ], [ %.13.i109, %2366 ], [ %.13.i109, %2373 ], [ %.13.i109, %2393 ], [ %.13.i109, %2398 ], [ %.13.i109, %2405 ]
+combine.exit.thread.i.i:                          ; preds = %combine.exit.thread.sink.split.i.i, %2405, %2398, %2393, %2373, %2366
+  %.5.i130 = phi ptr [ %.4.i129, %combine.exit.thread.sink.split.i.i ], [ %.13.i109, %2366 ], [ %.13.i109, %2373 ], [ %.13.i109, %2393 ], [ %.13.i109, %2398 ], [ %.13.i109, %2405 ]
   %.not73.i.i131 = icmp eq ptr %2361, null
   br i1 %.not73.i.i131, label %.critedge.i.i111, label %2355, !llvm.loop !60
 
-.critedge.i.i111:                                 ; preds = %combine.exit.thread162.i.i, %2355, %2350
-  %.6.i = phi ptr [ %.0223.i, %2350 ], [ %.5.i130, %combine.exit.thread162.i.i ], [ %.13.i109, %2355 ]
+.critedge.i.i111:                                 ; preds = %combine.exit.thread.i.i, %2355, %2350
+  %.6.i = phi ptr [ %.0223.i, %2350 ], [ %.5.i130, %combine.exit.thread.i.i ], [ %.13.i109, %2355 ]
   tail call fastcc void @moveouts(ptr noundef nonnull %0, ptr noundef %.069.i.i107, ptr noundef %1903)
   %2988 = getelementptr inbounds nuw i8, ptr %.070.i.i106, i64 8
   %2989 = load ptr, ptr %2988, align 8

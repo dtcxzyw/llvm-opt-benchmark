@@ -7875,7 +7875,7 @@ _ZN8markdown15MarkdownElement13load_language17h0622ece75c7e9421E.exit: ; preds =
   %.not755 = icmp eq ptr %710, %268
   br i1 %.not755, label %._crit_edge, label %709
 
-.invoke857:                                       ; preds = %1686, %1679, %1682, %747, %747, %1735
+.invoke857:                                       ; preds = %1686, %1682, %1679, %747, %747, %1735
   invoke fastcc void @_ZN8markdown22MarkdownElementBuilder7pop_div17h4211b62d83d36409E(ptr noalias noundef align 8 dereferenceable(384) %123)
           to label %1723 unwind label %.loopexit
 

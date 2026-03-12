@@ -11995,7 +11995,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$12par
   %or.cond = icmp eq i32 %53, 48
   br i1 %or.cond, label %57, label %55
 
-54:                                               ; preds = %658, %_ZN12regex_syntax23is_escapeable_character17h7765be5dc862e0e7E.exit.thread579, %687, %659, %663, %664, %665, %666, %667, %668, %669, %670, %674, %675, %676, %680, %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$11parse_octal17h257ac4b0d9b75006E.exit", %689, %644, %643, %641, %640, %639, %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$16parse_perl_class17hd0aae6526ad56bd5E.exit", %45
+54:                                               ; preds = %658, %_ZN12regex_syntax23is_escapeable_character17h7765be5dc862e0e7E.exit.thread579, %687, %680, %676, %675, %674, %670, %669, %668, %667, %666, %665, %664, %663, %659, %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$11parse_octal17h257ac4b0d9b75006E.exit", %689, %644, %643, %641, %640, %639, %"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$16parse_perl_class17hd0aae6526ad56bd5E.exit", %45
   ret void
 
 55:                                               ; preds = %50

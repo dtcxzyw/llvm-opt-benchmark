@@ -40966,6 +40966,9 @@ define hidden void @_ZN18ty_python_semantic5types5class12ClassLiteral21class_mem
     i32 3, label %.outer.backedge
   ]
 
+.outer.backedge:                                  ; preds = %24, %24, %51, %55, %57
+  br label %.outer
+
 .loopexit:                                        ; preds = %57, %23
   %27 = load i64, ptr %20, align 8, !range !88, !alias.scope !4449, !noundef !3
   %28 = icmp eq i64 %27, 2
@@ -41049,9 +41052,6 @@ define hidden void @_ZN18ty_python_semantic5types5class12ClassLiteral21class_mem
 
 55:                                               ; preds = %53
   br i1 %54, label %.outer.backedge, label %56
-
-.outer.backedge:                                  ; preds = %55, %51, %24, %24, %57
-  br label %.outer
 
 56:                                               ; preds = %52, %55
   call void @llvm.lifetime.start.p0(ptr nonnull %10)

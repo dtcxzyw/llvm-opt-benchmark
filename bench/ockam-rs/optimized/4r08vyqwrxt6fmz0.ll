@@ -536,7 +536,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$
   store i8 10, ptr %.sroa.35.0..sroa_idx, align 8
   br label %36
 
-36:                                               ; preds = %69, %71, %49, %54, %27, %33
+36:                                               ; preds = %69, %71, %54, %49, %27, %33
   ret void
 
 37:                                               ; preds = %13

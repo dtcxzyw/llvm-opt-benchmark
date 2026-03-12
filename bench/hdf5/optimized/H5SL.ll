@@ -13363,7 +13363,7 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %38 = icmp eq i32 %36, %37
   br i1 %38, label %274, label %.thread
 
-.thread:                                          ; preds = %._crit_edge380, %34
+.thread:                                          ; preds = %268, %._crit_edge, %238, %._crit_edge338, %211, %206, %._crit_edge344, %172, %._crit_edge350, %146, %._crit_edge356, %120, %._crit_edge362, %95, %91, %._crit_edge368, %60, %._crit_edge374, %._crit_edge380, %34
   br label %274
 
 39:                                               ; preds = %9
@@ -13415,17 +13415,14 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %58 = load ptr, ptr %57, align 8, !tbaa !27
   %59 = load ptr, ptr %58, align 8, !tbaa !30
   %.not274 = icmp eq ptr %59, null
-  br i1 %.not274, label %.thread297, label %60
+  br i1 %.not274, label %.thread, label %60
 
 60:                                               ; preds = %._crit_edge374
   %61 = load ptr, ptr %59, align 8, !tbaa !34
   %62 = load i64, ptr %61, align 8, !tbaa !13
   %63 = load i64, ptr %1, align 8, !tbaa !13
   %64 = icmp eq i64 %62, %63
-  br i1 %64, label %274, label %.thread297
-
-.thread297:                                       ; preds = %._crit_edge374, %60
-  br label %274
+  br i1 %64, label %274, label %.thread
 
 65:                                               ; preds = %9
   %66 = tail call i32 @H5_hash_string(ptr noundef %1) #9
@@ -13486,22 +13483,19 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %89 = load ptr, ptr %88, align 8, !tbaa !27
   %90 = load ptr, ptr %89, align 8, !tbaa !30
   %.not271 = icmp eq ptr %90, null
-  br i1 %.not271, label %.thread300, label %91
+  br i1 %.not271, label %.thread, label %91
 
 91:                                               ; preds = %._crit_edge368
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %93 = load i32, ptr %92, align 8, !tbaa !37
   %94 = icmp eq i32 %93, %66
-  br i1 %94, label %95, label %.thread300
+  br i1 %94, label %95, label %.thread
 
 95:                                               ; preds = %91
   %96 = load ptr, ptr %90, align 8, !tbaa !34
   %97 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %96, ptr noundef nonnull dereferenceable(1) %1) #10
   %98 = icmp eq i32 %97, 0
-  br i1 %98, label %274, label %.thread300
-
-.thread300:                                       ; preds = %._crit_edge368, %91, %95
-  br label %274
+  br i1 %98, label %274, label %.thread
 
 99:                                               ; preds = %9
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13552,17 +13546,14 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %118 = load ptr, ptr %117, align 8, !tbaa !27
   %119 = load ptr, ptr %118, align 8, !tbaa !30
   %.not269 = icmp eq ptr %119, null
-  br i1 %.not269, label %.thread303, label %120
+  br i1 %.not269, label %.thread, label %120
 
 120:                                              ; preds = %._crit_edge362
   %121 = load ptr, ptr %119, align 8, !tbaa !34
   %122 = load i64, ptr %121, align 8, !tbaa !13
   %123 = load i64, ptr %1, align 8, !tbaa !13
   %124 = icmp eq i64 %122, %123
-  br i1 %124, label %274, label %.thread303
-
-.thread303:                                       ; preds = %._crit_edge362, %120
-  br label %274
+  br i1 %124, label %274, label %.thread
 
 125:                                              ; preds = %9
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13613,17 +13604,14 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %144 = load ptr, ptr %143, align 8, !tbaa !27
   %145 = load ptr, ptr %144, align 8, !tbaa !30
   %.not267 = icmp eq ptr %145, null
-  br i1 %.not267, label %.thread306, label %146
+  br i1 %.not267, label %.thread, label %146
 
 146:                                              ; preds = %._crit_edge356
   %147 = load ptr, ptr %145, align 8, !tbaa !34
   %148 = load i32, ptr %147, align 4, !tbaa !39
   %149 = load i32, ptr %1, align 4, !tbaa !39
   %150 = icmp eq i32 %148, %149
-  br i1 %150, label %274, label %.thread306
-
-.thread306:                                       ; preds = %._crit_edge356, %146
-  br label %274
+  br i1 %150, label %274, label %.thread
 
 151:                                              ; preds = %9
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13674,17 +13662,14 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %170 = load ptr, ptr %169, align 8, !tbaa !27
   %171 = load ptr, ptr %170, align 8, !tbaa !30
   %.not265 = icmp eq ptr %171, null
-  br i1 %.not265, label %.thread309, label %172
+  br i1 %.not265, label %.thread, label %172
 
 172:                                              ; preds = %._crit_edge350
   %173 = load ptr, ptr %171, align 8, !tbaa !34
   %174 = load i64, ptr %173, align 8, !tbaa !13
   %175 = load i64, ptr %1, align 8, !tbaa !13
   %176 = icmp eq i64 %174, %175
-  br i1 %176, label %274, label %.thread309
-
-.thread309:                                       ; preds = %._crit_edge350, %172
-  br label %274
+  br i1 %176, label %274, label %.thread
 
 177:                                              ; preds = %9
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13747,14 +13732,14 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %204 = load ptr, ptr %203, align 8, !tbaa !27
   %205 = load ptr, ptr %204, align 8, !tbaa !30
   %.not263 = icmp eq ptr %205, null
-  br i1 %.not263, label %.thread312, label %206
+  br i1 %.not263, label %.thread, label %206
 
 206:                                              ; preds = %._crit_edge344
   %207 = load ptr, ptr %205, align 8, !tbaa !34
   %208 = load i64, ptr %207, align 8, !tbaa !46
   %209 = load i64, ptr %1, align 8, !tbaa !46
   %210 = icmp eq i64 %208, %209
-  br i1 %210, label %211, label %.thread312
+  br i1 %210, label %211, label %.thread
 
 211:                                              ; preds = %206
   %212 = getelementptr inbounds nuw i8, ptr %207, i64 8
@@ -13762,10 +13747,7 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %215 = load i64, ptr %214, align 8, !tbaa !48
   %216 = icmp eq i64 %213, %215
-  br i1 %216, label %274, label %.thread312
-
-.thread312:                                       ; preds = %._crit_edge344, %206, %211
-  br label %274
+  br i1 %216, label %274, label %.thread
 
 217:                                              ; preds = %9
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13816,17 +13798,14 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %236 = load ptr, ptr %235, align 8, !tbaa !27
   %237 = load ptr, ptr %236, align 8, !tbaa !30
   %.not261 = icmp eq ptr %237, null
-  br i1 %.not261, label %.thread315, label %238
+  br i1 %.not261, label %.thread, label %238
 
 238:                                              ; preds = %._crit_edge338
   %239 = load ptr, ptr %237, align 8, !tbaa !34
   %240 = load i64, ptr %239, align 8, !tbaa !13
   %241 = load i64, ptr %1, align 8, !tbaa !13
   %242 = icmp eq i64 %240, %241
-  br i1 %242, label %274, label %.thread315
-
-.thread315:                                       ; preds = %._crit_edge338, %238
-  br label %274
+  br i1 %242, label %274, label %.thread
 
 243:                                              ; preds = %9
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13881,7 +13860,7 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %266 = load ptr, ptr %265, align 8, !tbaa !27
   %267 = load ptr, ptr %266, align 8, !tbaa !30
   %.not = icmp eq ptr %267, null
-  br i1 %.not, label %.thread318, label %268
+  br i1 %.not, label %.thread, label %268
 
 268:                                              ; preds = %._crit_edge
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13889,13 +13868,10 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %271 = load ptr, ptr %267, align 8, !tbaa !34
   %272 = tail call i32 %270(ptr noundef %271, ptr noundef %1) #9
   %273 = icmp eq i32 %272, 0
-  br i1 %273, label %274, label %.thread318
+  br i1 %273, label %274, label %.thread
 
-.thread318:                                       ; preds = %._crit_edge, %268
-  br label %274
-
-274:                                              ; preds = %9, %.thread, %.thread297, %.thread300, %.thread303, %.thread306, %.thread309, %.thread312, %.thread315, %.thread318, %268, %238, %211, %172, %146, %120, %95, %60, %34, %2
-  %.0218 = phi ptr [ %267, %268 ], [ null, %2 ], [ %33, %34 ], [ %59, %60 ], [ %90, %95 ], [ %119, %120 ], [ %145, %146 ], [ %171, %172 ], [ %205, %211 ], [ %237, %238 ], [ null, %.thread318 ], [ null, %.thread315 ], [ null, %.thread312 ], [ null, %.thread309 ], [ null, %.thread306 ], [ null, %.thread303 ], [ null, %.thread300 ], [ null, %.thread297 ], [ null, %.thread ], [ null, %9 ]
+274:                                              ; preds = %9, %.thread, %268, %238, %211, %172, %146, %120, %95, %60, %34, %2
+  %.0218 = phi ptr [ %267, %268 ], [ null, %2 ], [ %33, %34 ], [ %59, %60 ], [ %90, %95 ], [ %119, %120 ], [ %145, %146 ], [ %171, %172 ], [ %205, %211 ], [ %237, %238 ], [ null, %.thread ], [ null, %9 ]
   ret ptr %.0218
 }
 

@@ -43757,7 +43757,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %85 = icmp slt i64 %84, 0
   br i1 %85, label %.noexc.i.i.i.i56.invoke, label %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE5AllocEmPKv.exit.i.i.i.i.i52, !prof !30
 
-.noexc.i.i.i.i56.invoke:                          ; preds = %128, %106, %83, %62, %40
+.noexc.i.i.i.i56.invoke:                          ; preds = %106, %128, %83, %62, %40
   invoke void @_ZSt17__throw_bad_allocv() #32
           to label %.noexc.i.i.i.i56.cont unwind label %152
 

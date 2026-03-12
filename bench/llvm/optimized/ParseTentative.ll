@@ -512,86 +512,86 @@ define dso_local noundef i32 @_ZN5clang6Parser25isCXXDeclarationSpecifierENS_23I
   br label %tailrecurse.outer
 
 tailrecurse.outer:                                ; preds = %tailrecurse.outer.backedge, %4
-  %.tr189.ph = phi i32 [ %1, %4 ], [ %.tr189.ph.be, %tailrecurse.outer.backedge ]
+  %.tr190.ph = phi i32 [ %1, %4 ], [ %.tr190.ph.be, %tailrecurse.outer.backedge ]
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.outer, %162
   %16 = load i16, ptr %14, align 8, !tbaa !3
-  switch i16 %16, label %656 [
+  switch i16 %16, label %.thread178 [
     i16 5, label %17
     i16 149, label %105
     i16 76, label %107
     i16 72, label %146
     i16 325, label %162
     i16 161, label %162
-    i16 134, label %common.ret351
-    i16 105, label %common.ret351
-    i16 160, label %common.ret351
-    i16 171, label %common.ret351
-    i16 172, label %common.ret351
-    i16 96, label %common.ret351
-    i16 102, label %common.ret351
-    i16 87, label %common.ret351
-    i16 135, label %common.ret351
-    i16 206, label %common.ret351
-    i16 165, label %common.ret351
-    i16 120, label %common.ret351
-    i16 155, label %common.ret351
-    i16 152, label %common.ret351
-    i16 131, label %common.ret351
-    i16 314, label %common.ret351
-    i16 411, label %common.ret351
-    i16 127, label %common.ret351
-    i16 103, label %common.ret351
-    i16 106, label %common.ret351
-    i16 396, label %common.ret351
-    i16 86, label %common.ret351
-    i16 80, label %common.ret351
-    i16 109, label %common.ret351
+    i16 134, label %common.ret343
+    i16 105, label %common.ret343
+    i16 160, label %common.ret343
+    i16 171, label %common.ret343
+    i16 172, label %common.ret343
+    i16 96, label %common.ret343
+    i16 102, label %common.ret343
+    i16 87, label %common.ret343
+    i16 135, label %common.ret343
+    i16 206, label %common.ret343
+    i16 165, label %common.ret343
+    i16 120, label %common.ret343
+    i16 155, label %common.ret343
+    i16 152, label %common.ret343
+    i16 131, label %common.ret343
+    i16 314, label %common.ret343
+    i16 411, label %common.ret343
+    i16 127, label %common.ret343
+    i16 103, label %common.ret343
+    i16 106, label %common.ret343
+    i16 396, label %common.ret343
+    i16 86, label %common.ret343
+    i16 80, label %common.ret343
+    i16 109, label %common.ret343
     i16 139, label %164
-    i16 329, label %.loopexit
-    i16 327, label %.loopexit
-    i16 326, label %.loopexit
-    i16 328, label %.loopexit
-    i16 330, label %.loopexit
-    i16 332, label %.loopexit
-    i16 333, label %.loopexit
-    i16 334, label %.loopexit
-    i16 349, label %.loopexit
-    i16 354, label %.loopexit
-    i16 355, label %.loopexit
-    i16 356, label %.loopexit
-    i16 357, label %.loopexit
-    i16 154, label %.loopexit
-    i16 115, label %.loopexit
-    i16 187, label %.loopexit
-    i16 209, label %.loopexit
-    i16 316, label %common.ret351
-    i16 317, label %common.ret351
-    i16 318, label %common.ret351
-    i16 319, label %common.ret351
-    i16 320, label %common.ret351
-    i16 321, label %common.ret351
-    i16 322, label %common.ret351
-    i16 385, label %common.ret351
-    i16 383, label %common.ret351
-    i16 384, label %common.ret351
-    i16 381, label %common.ret351
-    i16 382, label %common.ret351
-    i16 323, label %common.ret351
-    i16 324, label %common.ret351
-    i16 376, label %common.ret351
-    i16 377, label %common.ret351
-    i16 378, label %common.ret351
-    i16 379, label %common.ret351
-    i16 375, label %common.ret351
-    i16 380, label %common.ret351
-    i16 363, label %common.ret351
-    i16 364, label %common.ret351
+    i16 329, label %common.ret343
+    i16 327, label %common.ret343
+    i16 326, label %common.ret343
+    i16 328, label %common.ret343
+    i16 330, label %common.ret343
+    i16 332, label %common.ret343
+    i16 333, label %common.ret343
+    i16 334, label %common.ret343
+    i16 349, label %common.ret343
+    i16 354, label %common.ret343
+    i16 355, label %common.ret343
+    i16 356, label %common.ret343
+    i16 357, label %common.ret343
+    i16 154, label %common.ret343
+    i16 115, label %common.ret343
+    i16 187, label %common.ret343
+    i16 209, label %common.ret343
+    i16 316, label %common.ret343
+    i16 317, label %common.ret343
+    i16 318, label %common.ret343
+    i16 319, label %common.ret343
+    i16 320, label %common.ret343
+    i16 321, label %common.ret343
+    i16 322, label %common.ret343
+    i16 385, label %common.ret343
+    i16 383, label %common.ret343
+    i16 384, label %common.ret343
+    i16 381, label %common.ret343
+    i16 382, label %common.ret343
+    i16 323, label %common.ret343
+    i16 324, label %common.ret343
+    i16 376, label %common.ret343
+    i16 377, label %common.ret343
+    i16 378, label %common.ret343
+    i16 379, label %common.ret343
+    i16 375, label %common.ret343
+    i16 380, label %common.ret343
+    i16 363, label %common.ret343
+    i16 364, label %common.ret343
     i16 145, label %171
     i16 414, label %200
     i16 412, label %239
-    i16 413, label %.loopexit192
+    i16 413, label %.loopexit
     i16 79, label %.loopexit193.loopexit
     i16 153, label %.loopexit193.loopexit
     i16 175, label %.loopexit193.loopexit
@@ -632,24 +632,24 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
     i16 348, label %.loopexit193.loopexit
     i16 358, label %.loopexit193.loopexit
     i16 177, label %555
-    i16 256, label %common.ret351
-    i16 257, label %common.ret351
-    i16 258, label %common.ret351
-    i16 259, label %common.ret351
-    i16 260, label %common.ret351
-    i16 261, label %common.ret351
-    i16 262, label %common.ret351
-    i16 263, label %common.ret351
-    i16 264, label %common.ret351
-    i16 265, label %common.ret351
-    i16 266, label %common.ret351
-    i16 267, label %common.ret351
-    i16 268, label %common.ret351
-    i16 269, label %common.ret351
-    i16 270, label %common.ret351
-    i16 271, label %common.ret351
-    i16 111, label %common.ret351
-    i16 113, label %common.ret351
+    i16 256, label %common.ret343
+    i16 257, label %common.ret343
+    i16 258, label %common.ret343
+    i16 259, label %common.ret343
+    i16 260, label %common.ret343
+    i16 261, label %common.ret343
+    i16 262, label %common.ret343
+    i16 263, label %common.ret343
+    i16 264, label %common.ret343
+    i16 265, label %common.ret343
+    i16 266, label %common.ret343
+    i16 267, label %common.ret343
+    i16 268, label %common.ret343
+    i16 269, label %common.ret343
+    i16 270, label %common.ret343
+    i16 271, label %common.ret343
+    i16 111, label %common.ret343
+    i16 113, label %common.ret343
     i16 94, label %604
     i16 93, label %604
   ]
@@ -670,16 +670,16 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
 
 27:                                               ; preds = %22
   %28 = tail call noundef zeroext i1 @_ZN5clang6Parser27TryAnnotateTypeOrScopeTokenENS_23ImplicitTypenameContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef 0) #10
-  br i1 %28, label %common.ret351, label %29
+  br i1 %28, label %common.ret343, label %29
 
 29:                                               ; preds = %27
   %30 = load i16, ptr %14, align 8, !tbaa !3
   %31 = icmp eq i16 %30, 5
-  br i1 %31, label %common.ret351, label %tailrecurse.outer.backedge
+  br i1 %31, label %common.ret343, label %tailrecurse.outer.backedge
 
 32:                                               ; preds = %22, %17
   %33 = tail call noundef zeroext i1 @_ZN5clang6Parser21TryAltiVecVectorTokenEv(ptr noundef nonnull align 8 dereferenceable(2936) %0)
-  br i1 %33, label %common.ret351, label %34
+  br i1 %33, label %common.ret343, label %34
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr %15, align 8, !tbaa !99
@@ -699,11 +699,11 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
 
 46:                                               ; preds = %34
   %47 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZN5clang12Preprocessor9PeekAheadEj(ptr noundef nonnull align 8 dereferenceable(3288) %35, i32 noundef 1) #10
-  %.pre256 = load ptr, ptr %15, align 8, !tbaa !99
+  %.pre252 = load ptr, ptr %15, align 8, !tbaa !99
   br label %_ZN5clang6Parser9NextTokenEv.exit
 
 _ZN5clang6Parser9NextTokenEv.exit:                ; preds = %42, %46
-  %48 = phi ptr [ %35, %42 ], [ %.pre256, %46 ]
+  %48 = phi ptr [ %35, %42 ], [ %.pre252, %46 ]
   %.0.i.i = phi ptr [ %45, %42 ], [ %47, %46 ]
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %50 = load ptr, ptr %49, align 8, !tbaa !963
@@ -713,8 +713,8 @@ _ZN5clang6Parser9NextTokenEv.exit:                ; preds = %42, %46
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %54 = load i16, ptr %53, align 8, !tbaa !3
   %55 = icmp eq i16 %54, 5
-  %or.cond305 = select i1 %.not113, i1 %55, i1 false
-  br i1 %or.cond305, label %common.ret351, label %_ZN5clang6Parser9NextTokenEv.exit._crit_edge
+  %or.cond300 = select i1 %.not113, i1 %55, i1 false
+  br i1 %or.cond300, label %common.ret343, label %_ZN5clang6Parser9NextTokenEv.exit._crit_edge
 
 _ZN5clang6Parser9NextTokenEv.exit._crit_edge:     ; preds = %_ZN5clang6Parser9NextTokenEv.exit
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
@@ -726,8 +726,8 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %_ZN5clang6Parser9Ne
   %59 = load ptr, ptr %58, align 8, !tbaa !100
   %60 = load i64, ptr %59, align 8
   %61 = and i64 %60, 34359738368
-  %.not187 = icmp eq i64 %61, 0
-  br i1 %.not187, label %thread-pre-split.thread, label %_ZNK5clang5Token17getIdentifierInfoEv.exit126
+  %.not188 = icmp eq i64 %61, 0
+  br i1 %.not188, label %thread-pre-split.thread, label %_ZNK5clang5Token17getIdentifierInfoEv.exit126
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit126:    ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
   %62 = load i16, ptr %14, align 8, !tbaa !3
@@ -739,7 +739,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit126:    ; preds = %_ZNK5clang5Token17g
   %64 = select i1 %63, i1 %switch.lobit, i1 false
   %.0.i125 = select i1 %64, ptr null, ptr %59
   %65 = tail call noundef zeroext i1 @_ZN5clang6Parser21isRevertibleTypeTraitEPKNS_14IdentifierInfoEPNS_3tok9TokenKindE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef %.0.i125, ptr noundef null) #10
-  br i1 %65, label %common.ret351, label %_ZNK5clang5Token17getIdentifierInfoEv.exit126.thread-pre-split_crit_edge
+  br i1 %65, label %common.ret343, label %_ZNK5clang5Token17getIdentifierInfoEv.exit126.thread-pre-split_crit_edge
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit126.thread-pre-split_crit_edge: ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit126
   %.pr.pre = load i16, ptr %56, align 8, !tbaa !3
@@ -803,13 +803,13 @@ _ZN12_GLOBAL__N_117TentativeParseCCCC2ERKN5clang5TokenE.exit: ; preds = %thread-
   br i1 %.not115, label %91, label %87
 
 87:                                               ; preds = %81
-  %88 = call noundef zeroext i1 @_ZN5clang6Parser27TryAnnotateTypeOrScopeTokenENS_23ImplicitTypenameContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %.tr189.ph) #10
+  %88 = call noundef zeroext i1 @_ZN5clang6Parser27TryAnnotateTypeOrScopeTokenENS_23ImplicitTypenameContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %.tr190.ph) #10
   br i1 %88, label %.thread, label %89
 
 89:                                               ; preds = %87
   %90 = load i16, ptr %14, align 8, !tbaa !3
-  %.not188 = icmp eq i16 %90, 5
-  br i1 %.not188, label %91, label %97
+  %.not189 = icmp eq i16 %90, 5
+  br i1 %.not189, label %91, label %97
 
 91:                                               ; preds = %89, %81
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 984
@@ -826,31 +826,31 @@ _ZN12_GLOBAL__N_117TentativeParseCCCC2ERKN5clang5TokenE.exit: ; preds = %thread-
 .thread:                                          ; preds = %95, %80, %_ZN12_GLOBAL__N_117TentativeParseCCCC2ERKN5clang5TokenE.exit, %91, %87
   %.2.ph = phi i32 [ 3, %87 ], [ %not.116, %91 ], [ 3, %_ZN12_GLOBAL__N_117TentativeParseCCCC2ERKN5clang5TokenE.exit ], [ 1, %80 ], [ %96, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %common.ret351
+  br label %common.ret343
 
 97:                                               ; preds = %_ZN12_GLOBAL__N_117TentativeParseCCCC2ERKN5clang5TokenE.exit, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %103
 
 98:                                               ; preds = %thread-pre-split, %thread-pre-split
-  %99 = tail call noundef zeroext i1 @_ZN5clang6Parser27TryAnnotateTypeOrScopeTokenENS_23ImplicitTypenameContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %.tr189.ph) #10
-  br i1 %99, label %common.ret351, label %100
+  %99 = tail call noundef zeroext i1 @_ZN5clang6Parser27TryAnnotateTypeOrScopeTokenENS_23ImplicitTypenameContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %.tr190.ph) #10
+  br i1 %99, label %common.ret343, label %100
 
 100:                                              ; preds = %98
   %101 = load i16, ptr %14, align 8, !tbaa !3
   %102 = icmp eq i16 %101, 5
-  br i1 %102, label %common.ret351, label %103
+  br i1 %102, label %common.ret343, label %103
 
 103:                                              ; preds = %97, %100
-  %104 = call noundef i32 @_ZN5clang6Parser25isCXXDeclarationSpecifierENS_23ImplicitTypenameContextENS0_8TPResultEPb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %.tr189.ph, i32 noundef %2, ptr noundef %3)
-  br label %common.ret351
+  %104 = call noundef i32 @_ZN5clang6Parser25isCXXDeclarationSpecifierENS_23ImplicitTypenameContextENS0_8TPResultEPb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %.tr190.ph, i32 noundef %2, ptr noundef %3)
+  br label %common.ret343
 
 105:                                              ; preds = %tailrecurse
   %106 = tail call noundef zeroext i1 @_ZN5clang6Parser27TryAnnotateTypeOrScopeTokenENS_23ImplicitTypenameContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef 1) #10
-  br i1 %106, label %common.ret351, label %tailrecurse.outer.backedge
+  br i1 %106, label %common.ret343, label %tailrecurse.outer.backedge
 
 tailrecurse.outer.backedge:                       ; preds = %105, %29
-  %.tr189.ph.be = phi i32 [ 0, %29 ], [ 1, %105 ]
+  %.tr190.ph.be = phi i32 [ 0, %29 ], [ 1, %105 ]
   br label %tailrecurse.outer
 
 107:                                              ; preds = %tailrecurse
@@ -860,7 +860,7 @@ tailrecurse.outer.backedge:                       ; preds = %105, %29
   %111 = load i64, ptr %110, align 8
   %112 = and i64 %111, 65536
   %.not112 = icmp eq i64 %112, 0
-  br i1 %.not112, label %common.ret351, label %113
+  br i1 %.not112, label %common.ret343, label %113
 
 113:                                              ; preds = %107
   %114 = getelementptr inbounds nuw i8, ptr %108, i64 2928
@@ -886,7 +886,7 @@ _ZN5clang6Parser9NextTokenEv.exit128:             ; preds = %120, %124
   %126 = getelementptr inbounds nuw i8, ptr %.0.i.i127, i64 16
   %127 = load i16, ptr %126, align 8, !tbaa !3
   %128 = icmp eq i16 %127, 24
-  br i1 %128, label %common.ret351, label %129
+  br i1 %128, label %common.ret343, label %129
 
 129:                                              ; preds = %_ZN5clang6Parser9NextTokenEv.exit128
   %130 = load ptr, ptr %15, align 8, !tbaa !99
@@ -914,7 +914,7 @@ _ZN5clang6Parser9NextTokenEv.exit130:             ; preds = %137, %141
   %144 = load i16, ptr %143, align 8, !tbaa !3
   %145 = icmp eq i16 %144, 22
   %. = select i1 %145, i32 2, i32 0
-  br label %common.ret351
+  br label %common.ret343
 
 146:                                              ; preds = %tailrecurse
   %147 = load ptr, ptr %15, align 8, !tbaa !99
@@ -941,13 +941,13 @@ _ZN5clang6Parser9NextTokenEv.exit132:             ; preds = %154, %158
   %160 = getelementptr inbounds nuw i8, ptr %.0.i.i131, i64 16
   %161 = load i16, ptr %160, align 8, !tbaa !3
   switch i16 %161, label %162 [
-    i16 137, label %common.ret351
-    i16 129, label %common.ret351
+    i16 137, label %common.ret343
+    i16 129, label %common.ret343
   ]
 
 162:                                              ; preds = %_ZN5clang6Parser9NextTokenEv.exit132, %tailrecurse, %tailrecurse
-  %163 = tail call noundef zeroext i1 @_ZN5clang6Parser27TryAnnotateTypeOrScopeTokenENS_23ImplicitTypenameContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %.tr189.ph) #10
-  br i1 %163, label %common.ret351, label %tailrecurse
+  %163 = tail call noundef zeroext i1 @_ZN5clang6Parser27TryAnnotateTypeOrScopeTokenENS_23ImplicitTypenameContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %.tr190.ph) #10
+  br i1 %163, label %common.ret343, label %tailrecurse
 
 164:                                              ; preds = %tailrecurse
   %165 = load ptr, ptr %15, align 8, !tbaa !99
@@ -957,10 +957,8 @@ _ZN5clang6Parser9NextTokenEv.exit132:             ; preds = %154, %158
   %169 = load i64, ptr %168, align 8
   %170 = and i64 %169, 2305843009213693952
   %.not111 = icmp eq i64 %170, 0
-  br i1 %.not111, label %common.ret351, label %.loopexit
-
-.loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %164
-  br label %common.ret351
+  %spec.select = zext i1 %.not111 to i32
+  br label %common.ret343
 
 171:                                              ; preds = %tailrecurse
   %172 = load ptr, ptr %15, align 8, !tbaa !99
@@ -969,11 +967,11 @@ _ZN5clang6Parser9NextTokenEv.exit132:             ; preds = %154, %158
   %175 = load i64, ptr %174, align 8
   %176 = and i64 %175, 2048
   %.not110 = icmp eq i64 %176, 0
-  br i1 %.not110, label %common.ret351, label %177
+  br i1 %.not110, label %common.ret343, label %177
 
-common.ret351:                                    ; preds = %279, %_ZN5clang6Parser9NextTokenEv.exit140, %209, %230, %228, %_ZN5clang6Parser9NextTokenEv.exit134, %.thread, %_ZN5clang6Parser9NextTokenEv.exit163, %_ZN5clang6Parser9NextTokenEv.exit161, %553, %_ZN5clang6Parser9NextTokenEv.exit159, %_ZN5clang6Parser9NextTokenEv.exit157, %239, %171, %164, %_ZN5clang6Parser9NextTokenEv.exit130, %_ZN5clang6Parser9NextTokenEv.exit128, %107, %103, %_ZNK5clang5Token17getIdentifierInfoEv.exit126, %98, %100, %32, %298, %_ZN5clang12CXXScopeSpecD2Ev.exit153, %656, %655, %603, %514, %.thread178, %.loopexit, %_ZN5clang6Parser9NextTokenEv.exit, %_ZN5clang6Parser9NextTokenEv.exit132, %_ZN5clang6Parser9NextTokenEv.exit132, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %162, %105, %29, %27, %177
-  %common.ret351.op = phi i32 [ %199, %177 ], [ 0, %tailrecurse ], [ 1, %656 ], [ %.11, %655 ], [ %.8, %_ZN5clang12CXXScopeSpecD2Ev.exit153 ], [ 0, %298 ], [ 1, %_ZNK5clang5Token17getIdentifierInfoEv.exit126 ], [ 0, %32 ], [ 1, %100 ], [ 2, %_ZN5clang6Parser9NextTokenEv.exit140 ], [ 0, %107 ], [ %., %_ZN5clang6Parser9NextTokenEv.exit130 ], [ 1, %_ZN5clang6Parser9NextTokenEv.exit128 ], [ %.10, %603 ], [ 3, %98 ], [ 3, %279 ], [ 0, %_ZN5clang6Parser9NextTokenEv.exit161 ], [ 0, %228 ], [ 0, %.loopexit ], [ 3, %_ZN5clang6Parser9NextTokenEv.exit163 ], [ 1, %164 ], [ 1, %230 ], [ 0, %_ZN5clang6Parser9NextTokenEv.exit ], [ %104, %103 ], [ 2, %_ZN5clang6Parser9NextTokenEv.exit134 ], [ %.2.ph, %.thread ], [ %.9, %514 ], [ 3, %239 ], [ 2, %_ZN5clang6Parser9NextTokenEv.exit157 ], [ %.120, %553 ], [ %2, %_ZN5clang6Parser9NextTokenEv.exit159 ], [ 3, %209 ], [ 1, %171 ], [ 1, %.thread178 ], [ 1, %_ZN5clang6Parser9NextTokenEv.exit132 ], [ 1, %_ZN5clang6Parser9NextTokenEv.exit132 ], [ 3, %162 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 3, %27 ], [ 1, %29 ], [ 3, %105 ]
-  ret i32 %common.ret351.op
+common.ret343:                                    ; preds = %279, %_ZN5clang6Parser9NextTokenEv.exit140, %209, %230, %228, %_ZN5clang6Parser9NextTokenEv.exit134, %.thread, %164, %_ZN5clang6Parser9NextTokenEv.exit163, %_ZN5clang6Parser9NextTokenEv.exit161, %553, %_ZN5clang6Parser9NextTokenEv.exit159, %_ZN5clang6Parser9NextTokenEv.exit157, %239, %171, %_ZN5clang6Parser9NextTokenEv.exit130, %_ZN5clang6Parser9NextTokenEv.exit128, %107, %103, %_ZNK5clang5Token17getIdentifierInfoEv.exit126, %98, %100, %32, %298, %_ZN5clang12CXXScopeSpecD2Ev.exit153, %655, %603, %514, %.thread178, %_ZN5clang6Parser9NextTokenEv.exit, %_ZN5clang6Parser9NextTokenEv.exit132, %_ZN5clang6Parser9NextTokenEv.exit132, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %162, %105, %29, %27, %177
+  %common.ret343.op = phi i32 [ %199, %177 ], [ 0, %tailrecurse ], [ 1, %171 ], [ %.11, %655 ], [ 1, %.thread178 ], [ %.8, %_ZN5clang12CXXScopeSpecD2Ev.exit153 ], [ 0, %298 ], [ 0, %32 ], [ 1, %100 ], [ 2, %_ZN5clang6Parser9NextTokenEv.exit140 ], [ 0, %107 ], [ %., %_ZN5clang6Parser9NextTokenEv.exit130 ], [ 1, %_ZN5clang6Parser9NextTokenEv.exit128 ], [ 1, %_ZNK5clang5Token17getIdentifierInfoEv.exit126 ], [ 3, %98 ], [ 3, %279 ], [ %.10, %603 ], [ 0, %_ZN5clang6Parser9NextTokenEv.exit161 ], [ 3, %_ZN5clang6Parser9NextTokenEv.exit163 ], [ %spec.select, %164 ], [ 1, %230 ], [ 0, %228 ], [ 0, %_ZN5clang6Parser9NextTokenEv.exit ], [ %104, %103 ], [ 2, %_ZN5clang6Parser9NextTokenEv.exit134 ], [ %.2.ph, %.thread ], [ %.9, %514 ], [ 3, %239 ], [ 2, %_ZN5clang6Parser9NextTokenEv.exit157 ], [ %.120, %553 ], [ %2, %_ZN5clang6Parser9NextTokenEv.exit159 ], [ 3, %209 ], [ 1, %_ZN5clang6Parser9NextTokenEv.exit132 ], [ 1, %_ZN5clang6Parser9NextTokenEv.exit132 ], [ 3, %162 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 1, %29 ], [ 3, %105 ], [ 3, %27 ]
+  ret i32 %common.ret343.op
 
 177:                                              ; preds = %171
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1009,10 +1007,10 @@ common.ret351:                                    ; preds = %279, %_ZN5clang6Par
   store i32 %196, ptr %197, align 8, !tbaa !14
   %198 = load ptr, ptr %15, align 8, !tbaa !99
   tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %198, ptr noundef nonnull align 8 dereferenceable(20) %178) #10
-  %199 = tail call noundef i32 @_ZN5clang6Parser25isCXXDeclarationSpecifierENS_23ImplicitTypenameContextENS0_8TPResultEPb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %.tr189.ph, i32 noundef %2, ptr noundef %3)
+  %199 = tail call noundef i32 @_ZN5clang6Parser25isCXXDeclarationSpecifierENS_23ImplicitTypenameContextENS0_8TPResultEPb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %.tr190.ph, i32 noundef %2, ptr noundef %3)
   call void @_ZN5clang6Parser31RevertingTentativeParsingActionD2Ev(ptr noundef nonnull align 8 dereferenceable(79) %7) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %common.ret351
+  br label %common.ret343
 
 200:                                              ; preds = %tailrecurse
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1030,7 +1028,7 @@ common.ret351:                                    ; preds = %279, %_ZN5clang6Par
 
 209:                                              ; preds = %200
   %.old6.not = icmp eq ptr %3, null
-  br i1 %.old6.not, label %common.ret351, label %210
+  br i1 %.old6.not, label %common.ret343, label %210
 
 210:                                              ; preds = %206, %209
   %211 = load ptr, ptr %15, align 8, !tbaa !99
@@ -1059,21 +1057,21 @@ _ZN5clang6Parser9NextTokenEv.exit134:             ; preds = %218, %222
   %226 = icmp eq i16 %225, 22
   %227 = zext i1 %226 to i8
   store i8 %227, ptr %3, align 1, !tbaa !12
-  br label %common.ret351
+  br label %common.ret343
 
 228:                                              ; preds = %206
   %229 = tail call fastcc noundef zeroext i1 @"_ZZN5clang6Parser25isCXXDeclarationSpecifierENS_23ImplicitTypenameContextENS0_8TPResultEPbENK3$_0clEPNS_20TemplateIdAnnotationEi"(ptr nonnull %0, ptr noundef nonnull %202, i32 noundef 0)
-  br i1 %229, label %common.ret351, label %230
+  br i1 %229, label %common.ret343, label %230
 
 230:                                              ; preds = %228
   %231 = load i32, ptr %203, align 8, !tbaa !971
   %.not107 = icmp eq i32 %231, 2
-  br i1 %.not107, label %232, label %common.ret351
+  br i1 %.not107, label %232, label %common.ret343
 
 232:                                              ; preds = %230
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
-  call void @_ZN5clang6Parser29AnnotateTemplateIdTokenAsTypeERNS_12CXXScopeSpecENS_23ImplicitTypenameContextEb(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(48) %8, i32 noundef %.tr189.ph, i1 noundef zeroext false) #10
+  call void @_ZN5clang6Parser29AnnotateTemplateIdTokenAsTypeERNS_12CXXScopeSpecENS_23ImplicitTypenameContextEb(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(48) %8, i32 noundef %.tr190.ph, i1 noundef zeroext false) #10
   %233 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %234 = load i32, ptr %233, align 4, !tbaa !949
   %.not.i.i = icmp eq i32 %234, 0
@@ -1091,8 +1089,8 @@ _ZN5clang6Parser9NextTokenEv.exit134:             ; preds = %218, %222
 
 239:                                              ; preds = %tailrecurse
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %241 = tail call noundef zeroext i1 @_ZN5clang6Parser27TryAnnotateTypeOrScopeTokenENS_23ImplicitTypenameContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %.tr189.ph) #10
-  br i1 %241, label %common.ret351, label %242
+  %241 = tail call noundef zeroext i1 @_ZN5clang6Parser27TryAnnotateTypeOrScopeTokenENS_23ImplicitTypenameContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %.tr190.ph) #10
+  br i1 %241, label %common.ret343, label %242
 
 242:                                              ; preds = %239
   %243 = load i16, ptr %14, align 8, !tbaa !3
@@ -1158,7 +1156,7 @@ _ZN5clang6Parser9NextTokenEv.exit138:             ; preds = %269, %273
 
 279:                                              ; preds = %_ZN5clang6Parser9NextTokenEv.exit138
   %.not100 = icmp eq ptr %3, null
-  br i1 %.not100, label %common.ret351, label %280
+  br i1 %.not100, label %common.ret343, label %280
 
 280:                                              ; preds = %279
   %281 = load ptr, ptr %15, align 8, !tbaa !99
@@ -1187,11 +1185,11 @@ _ZN5clang6Parser9NextTokenEv.exit140:             ; preds = %288, %292
   %296 = icmp eq i16 %295, 22
   %297 = zext i1 %296 to i8
   store i8 %297, ptr %3, align 1, !tbaa !12
-  br label %common.ret351
+  br label %common.ret343
 
 298:                                              ; preds = %_ZN5clang6Parser9NextTokenEv.exit138
   %299 = tail call fastcc noundef zeroext i1 @"_ZZN5clang6Parser25isCXXDeclarationSpecifierENS_23ImplicitTypenameContextENS0_8TPResultEPbENK3$_0clEPNS_20TemplateIdAnnotationEi"(ptr nonnull %0, ptr noundef nonnull %275, i32 noundef 1)
-  br i1 %299, label %common.ret351, label %300
+  br i1 %299, label %common.ret343, label %300
 
 300:                                              ; preds = %298, %_ZN5clang6Parser9NextTokenEv.exit136
   %.pr177 = load i16, ptr %14, align 8, !tbaa !3
@@ -1297,7 +1295,7 @@ _ZN5clang6Parser9NextTokenEv.exit142:             ; preds = %310, %314
   br i1 %359, label %.critedge, label %switch.early.test
 
 switch.early.test:                                ; preds = %332
-  %360 = call noundef i32 @_ZN5clang6Parser25isCXXDeclarationSpecifierENS_23ImplicitTypenameContextENS0_8TPResultEPb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %.tr189.ph, i32 noundef %2, ptr noundef %3)
+  %360 = call noundef i32 @_ZN5clang6Parser25isCXXDeclarationSpecifierENS_23ImplicitTypenameContextENS0_8TPResultEPb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %.tr190.ph, i32 noundef %2, ptr noundef %3)
   switch i32 %360, label %361 [
     i32 3, label %.critedge
     i32 0, label %.critedge
@@ -1427,7 +1425,7 @@ _ZN5clang6Parser9NextTokenEv.exit151:             ; preds = %415, %419
   br label %453
 
 426:                                              ; preds = %330, %319
-  %427 = call noundef i32 @_ZN5clang6Parser15TryAnnotateNameEPNS_27CorrectionCandidateCallbackENS_23ImplicitTypenameContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef null, i32 noundef %.tr189.ph) #10
+  %427 = call noundef i32 @_ZN5clang6Parser15TryAnnotateNameEPNS_27CorrectionCandidateCallbackENS_23ImplicitTypenameContextE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef null, i32 noundef %.tr190.ph) #10
   switch i32 %427, label %451 [
     i32 0, label %453
     i32 1, label %428
@@ -1445,9 +1443,9 @@ _ZN5clang6Parser9NextTokenEv.exit151:             ; preds = %415, %419
   %433 = load i64, ptr %432, align 8
   %434 = and i64 %433, 16384
   %.not103 = icmp eq i64 %434, 0
-  br i1 %.not103, label %.thread287, label %439
+  br i1 %.not103, label %.thread283, label %439
 
-.thread287:                                       ; preds = %429
+.thread283:                                       ; preds = %429
   %435 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %436 = load i8, ptr %435, align 8, !range !961
   %437 = xor i8 %436, 1
@@ -1460,22 +1458,22 @@ _ZN5clang6Parser9NextTokenEv.exit151:             ; preds = %415, %419
 
 441:                                              ; preds = %439
   %442 = load i16, ptr %14, align 8, !tbaa !3
-  %.not186 = icmp eq i16 %442, 412
-  br i1 %.not186, label %443, label %451
+  %.not187 = icmp eq i16 %442, 412
+  br i1 %.not187, label %443, label %451
 
 443:                                              ; preds = %441
   %.pre = load ptr, ptr %15, align 8, !tbaa !99
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 56
-  %.pre252 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !963
-  %.pre253 = load i64, ptr %.pre252, align 8
-  %.pre253.fr = freeze i64 %.pre253
-  %.pre261 = and i64 %.pre253.fr, 16384
-  %444 = icmp eq i64 %.pre261, 0
+  %.pre248 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !963
+  %.pre249 = load i64, ptr %.pre248, align 8
+  %.pre249.fr = freeze i64 %.pre249
+  %.pre257 = and i64 %.pre249.fr, 16384
+  %444 = icmp eq i64 %.pre257, 0
   %445 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %446 = load i8, ptr %445, align 8, !range !961
   %447 = xor i8 %446, 1
   %448 = zext nneg i8 %447 to i32
-  %spec.select306 = select i1 %444, i32 %448, i32 0
+  %spec.select301 = select i1 %444, i32 %448, i32 0
   br label %453
 
 449:                                              ; preds = %426
@@ -1484,12 +1482,12 @@ _ZN5clang6Parser9NextTokenEv.exit151:             ; preds = %415, %419
   br label %453
 
 451:                                              ; preds = %441, %426
-  %452 = call noundef i32 @_ZN5clang6Parser25isCXXDeclarationSpecifierENS_23ImplicitTypenameContextENS0_8TPResultEPb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %.tr189.ph, i32 noundef %2, ptr noundef %3)
+  %452 = call noundef i32 @_ZN5clang6Parser25isCXXDeclarationSpecifierENS_23ImplicitTypenameContextENS0_8TPResultEPb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %.tr190.ph, i32 noundef %2, ptr noundef %3)
   br label %453
 
-453:                                              ; preds = %443, %.thread287, %439, %426, %.critedge, %451, %449, %428
-  %.596 = phi i1 [ %425, %.critedge ], [ false, %451 ], [ false, %449 ], [ false, %428 ], [ false, %426 ], [ false, %439 ], [ false, %.thread287 ], [ false, %443 ]
-  %.8 = phi i32 [ %.7, %.critedge ], [ %452, %451 ], [ %450, %449 ], [ 1, %428 ], [ 3, %426 ], [ 3, %439 ], [ %438, %.thread287 ], [ %spec.select306, %443 ]
+453:                                              ; preds = %443, %.thread283, %439, %426, %.critedge, %451, %449, %428
+  %.596 = phi i1 [ %425, %.critedge ], [ false, %451 ], [ false, %449 ], [ false, %428 ], [ false, %426 ], [ false, %439 ], [ false, %.thread283 ], [ false, %443 ]
+  %.8 = phi i32 [ %.7, %.critedge ], [ %452, %451 ], [ %450, %449 ], [ 1, %428 ], [ 3, %426 ], [ 3, %439 ], [ %438, %.thread283 ], [ %spec.select301, %443 ]
   %454 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %455 = load i32, ptr %454, align 4, !tbaa !949
   %.not.i.i152 = icmp eq i32 %455, 0
@@ -1503,17 +1501,17 @@ _ZN5clang6Parser9NextTokenEv.exit151:             ; preds = %415, %419
 
 _ZN5clang12CXXScopeSpecD2Ev.exit153:              ; preds = %453, %456
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.596, label %.thread178, label %common.ret351
+  br i1 %.596, label %.thread178, label %common.ret343
 
-.thread178:                                       ; preds = %242, %_ZN5clang12CXXScopeSpecD2Ev.exit153, %_ZN5clang6Parser9NextTokenEv.exit142, %300
-  br label %common.ret351
+.thread178:                                       ; preds = %tailrecurse, %242, %_ZN5clang12CXXScopeSpecD2Ev.exit153, %_ZN5clang6Parser9NextTokenEv.exit142, %300
+  br label %common.ret343
 
-.loopexit192:                                     ; preds = %tailrecurse
+.loopexit:                                        ; preds = %tailrecurse
   %459 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %460
 
-460:                                              ; preds = %.loopexit192, %242, %238
-  %461 = phi ptr [ %459, %.loopexit192 ], [ %240, %242 ], [ %201, %238 ]
+460:                                              ; preds = %.loopexit, %242, %238
+  %461 = phi ptr [ %459, %.loopexit ], [ %240, %242 ], [ %201, %238 ]
   %462 = load ptr, ptr %15, align 8, !tbaa !99
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 56
   %464 = load ptr, ptr %463, align 8, !tbaa !963
@@ -1539,11 +1537,11 @@ _ZN5clang12CXXScopeSpecD2Ev.exit153:              ; preds = %453, %456
 
 478:                                              ; preds = %467
   %479 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZN5clang12Preprocessor9PeekAheadEj(ptr noundef nonnull align 8 dereferenceable(3288) %462, i32 noundef 1) #10
-  %.pre255.pre = load ptr, ptr %15, align 8, !tbaa !99
+  %.pre251.pre = load ptr, ptr %15, align 8, !tbaa !99
   br label %_ZN5clang6Parser9NextTokenEv.exit155
 
 _ZN5clang6Parser9NextTokenEv.exit155:             ; preds = %474, %478
-  %.pre255 = phi ptr [ %462, %474 ], [ %.pre255.pre, %478 ]
+  %.pre251 = phi ptr [ %462, %474 ], [ %.pre251.pre, %478 ]
   %.0.i.i154 = phi ptr [ %477, %474 ], [ %479, %478 ]
   %480 = getelementptr inbounds nuw i8, ptr %.0.i.i154, i64 16
   %481 = load i16, ptr %480, align 8, !tbaa !3
@@ -1575,7 +1573,7 @@ _ZN5clang6Parser9NextTokenEv.exit155:             ; preds = %474, %478
   %498 = load i16, ptr %497, align 4, !tbaa !98
   %499 = getelementptr inbounds nuw i8, ptr %11, i64 76
   store i16 %498, ptr %499, align 4, !tbaa !959
-  call void @_ZN5clang12Preprocessor24EnableBacktrackAtThisPosEb(ptr noundef nonnull align 8 dereferenceable(3288) %.pre255, i1 noundef zeroext false) #10
+  call void @_ZN5clang12Preprocessor24EnableBacktrackAtThisPosEb(ptr noundef nonnull align 8 dereferenceable(3288) %.pre251, i1 noundef zeroext false) #10
   %500 = getelementptr inbounds nuw i8, ptr %11, i64 78
   store i8 1, ptr %500, align 2, !tbaa !960
   %501 = call i32 @_ZN5clang6Parser15ConsumeAnyTokenEb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i1 noundef zeroext false)
@@ -1603,14 +1601,14 @@ _ZN5clang6Parser9NextTokenEv.exit155:             ; preds = %474, %478
   %.9 = phi i32 [ %.119, %506 ], [ %.mux, %483 ]
   call void @_ZN5clang6Parser31RevertingTentativeParsingActionD2Ev(ptr noundef nonnull align 8 dereferenceable(79) %11) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %common.ret351
+  br label %common.ret343
 
 .loopexit193.loopexit:                            ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
-  %.pre254 = load ptr, ptr %15, align 8, !tbaa !99
+  %.pre250 = load ptr, ptr %15, align 8, !tbaa !99
   br label %.loopexit193
 
 .loopexit193:                                     ; preds = %.loopexit193.loopexit, %460, %_ZN5clang6Parser9NextTokenEv.exit155
-  %515 = phi ptr [ %.pre254, %.loopexit193.loopexit ], [ %462, %460 ], [ %.pre255, %_ZN5clang6Parser9NextTokenEv.exit155 ]
+  %515 = phi ptr [ %.pre250, %.loopexit193.loopexit ], [ %462, %460 ], [ %.pre251, %_ZN5clang6Parser9NextTokenEv.exit155 ]
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 2928
   %517 = load i64, ptr %516, align 8, !tbaa !754
   %518 = getelementptr inbounds nuw i8, ptr %515, i64 2896
@@ -1634,7 +1632,7 @@ _ZN5clang6Parser9NextTokenEv.exit157:             ; preds = %522, %526
   %528 = getelementptr inbounds nuw i8, ptr %.0.i.i156, i64 16
   %529 = load i16, ptr %528, align 8, !tbaa !3
   %530 = icmp eq i16 %529, 22
-  br i1 %530, label %common.ret351, label %531
+  br i1 %530, label %common.ret343, label %531
 
 531:                                              ; preds = %_ZN5clang6Parser9NextTokenEv.exit157
   %532 = load ptr, ptr %15, align 8, !tbaa !99
@@ -1669,12 +1667,12 @@ _ZN5clang6Parser9NextTokenEv.exit159:             ; preds = %544, %548
   %550 = getelementptr inbounds nuw i8, ptr %.0.i.i158, i64 16
   %551 = load i16, ptr %550, align 8, !tbaa !3
   %552 = icmp eq i16 %551, 24
-  br i1 %552, label %common.ret351, label %553
+  br i1 %552, label %common.ret343, label %553
 
 553:                                              ; preds = %_ZN5clang6Parser9NextTokenEv.exit159, %531
   %554 = call noundef zeroext i1 @_ZN5clang6Parser43isStartOfObjCClassMessageMissingOpenBracketEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) #10
   %.120 = zext i1 %554 to i32
-  br label %common.ret351
+  br label %common.ret343
 
 555:                                              ; preds = %tailrecurse
   %556 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1701,8 +1699,8 @@ _ZN5clang6Parser9NextTokenEv.exit161:             ; preds = %564, %568
   %.0.i.i160 = phi ptr [ %567, %564 ], [ %569, %568 ]
   %570 = getelementptr inbounds nuw i8, ptr %.0.i.i160, i64 16
   %571 = load i16, ptr %570, align 8, !tbaa !3
-  %.not184 = icmp eq i16 %571, 22
-  br i1 %.not184, label %572, label %common.ret351
+  %.not185 = icmp eq i16 %571, 22
+  br i1 %.not185, label %572, label %common.ret343
 
 572:                                              ; preds = %_ZN5clang6Parser9NextTokenEv.exit161
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -1757,7 +1755,7 @@ _ZN5clang6Parser9NextTokenEv.exit161:             ; preds = %564, %568
   %.10 = phi i32 [ %.121, %595 ], [ %.mux123, %572 ]
   call void @_ZN5clang6Parser31RevertingTentativeParsingActionD2Ev(ptr noundef nonnull align 8 dereferenceable(79) %12) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %common.ret351
+  br label %common.ret343
 
 604:                                              ; preds = %tailrecurse, %tailrecurse
   %605 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1784,8 +1782,8 @@ _ZN5clang6Parser9NextTokenEv.exit163:             ; preds = %613, %617
   %.0.i.i162 = phi ptr [ %616, %613 ], [ %618, %617 ]
   %619 = getelementptr inbounds nuw i8, ptr %.0.i.i162, i64 16
   %620 = load i16, ptr %619, align 8, !tbaa !3
-  %.not183 = icmp eq i16 %620, 22
-  br i1 %.not183, label %621, label %common.ret351
+  %.not184 = icmp eq i16 %620, 22
+  br i1 %.not184, label %621, label %common.ret343
 
 621:                                              ; preds = %_ZN5clang6Parser9NextTokenEv.exit163
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -1842,17 +1840,14 @@ _ZN5clang6Parser9NextTokenEv.exit163:             ; preds = %613, %617
   %.not = icmp ne i64 %653, 0
   %654 = icmp eq i16 %646, 24
   %or.cond182 = and i1 %654, %.not
-  %spec.select = select i1 %or.cond182, i32 %2, i32 0
+  %spec.select183 = select i1 %or.cond182, i32 %2, i32 0
   br label %655
 
 655:                                              ; preds = %648, %645, %621
-  %.11 = phi i32 [ 3, %621 ], [ 2, %645 ], [ %spec.select, %648 ]
+  %.11 = phi i32 [ 3, %621 ], [ 2, %645 ], [ %spec.select183, %648 ]
   call void @_ZN5clang6Parser31RevertingTentativeParsingActionD2Ev(ptr noundef nonnull align 8 dereferenceable(79) %13) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %common.ret351
-
-656:                                              ; preds = %tailrecurse
-  br label %common.ret351
+  br label %common.ret343
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -5835,8 +5835,8 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler10build_ma
   invoke void @_ZN14regex_automata3nfa8thompson7builder7Builder5clear17h2e5863433b020d86E(ptr noalias noundef nonnull align 8 dereferenceable(112) %60)
           to label %64 unwind label %62, !noalias !814
 
-.invoke:                                          ; preds = %264, %254, %201, %187, %167, %118, %64, %54
-  %61 = phi ptr [ @anon.93414e78877ac8c524c991426ed90868.38.llvm.17489849572920684177, %254 ], [ @anon.5a48a2ebb7f06f3dffebe9420965407a.122, %54 ], [ @anon.5a48a2ebb7f06f3dffebe9420965407a.121, %64 ], [ @anon.93414e78877ac8c524c991426ed90868.41.llvm.17489849572920684177, %118 ], [ @anon.93414e78877ac8c524c991426ed90868.49.llvm.17489849572920684177, %167 ], [ @anon.93414e78877ac8c524c991426ed90868.45.llvm.17489849572920684177, %187 ], [ @anon.93414e78877ac8c524c991426ed90868.41.llvm.17489849572920684177, %201 ], [ @anon.5a48a2ebb7f06f3dffebe9420965407a.117, %264 ]
+.invoke:                                          ; preds = %264, %254, %201, %118, %187, %167, %64, %54
+  %61 = phi ptr [ @anon.93414e78877ac8c524c991426ed90868.38.llvm.17489849572920684177, %254 ], [ @anon.5a48a2ebb7f06f3dffebe9420965407a.122, %54 ], [ @anon.5a48a2ebb7f06f3dffebe9420965407a.121, %64 ], [ @anon.93414e78877ac8c524c991426ed90868.41.llvm.17489849572920684177, %201 ], [ @anon.93414e78877ac8c524c991426ed90868.49.llvm.17489849572920684177, %167 ], [ @anon.93414e78877ac8c524c991426ed90868.45.llvm.17489849572920684177, %187 ], [ @anon.93414e78877ac8c524c991426ed90868.41.llvm.17489849572920684177, %118 ], [ @anon.5a48a2ebb7f06f3dffebe9420965407a.117, %264 ]
   invoke void @_ZN4core4cell22panic_already_borrowed17h3ef59d0d58797532E(ptr noalias noundef readonly align 8 dereferenceable(24) %61) #26
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

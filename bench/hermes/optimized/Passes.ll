@@ -167,7 +167,7 @@ entry:
   ]
 
 if.then12:                                        ; preds = %entry
-  switch i32 %opIndex, label %if.end19 [
+  switch i32 %opIndex, label %if.end48 [
     i32 0, label %return
     i32 1, label %land.rhs
   ]
@@ -176,10 +176,7 @@ land.rhs:                                         ; preds = %if.then12
   %call16 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %Inst, i32 noundef 1) #13
   %1 = load i8, ptr %call16, align 8
   %cmp.i.i.i.i.i.i = icmp eq i8 %1, 121
-  br i1 %cmp.i.i.i.i.i.i, label %return, label %if.end19
-
-if.end19:                                         ; preds = %if.then12, %land.rhs
-  br label %return
+  br i1 %cmp.i.i.i.i.i.i, label %return, label %if.end48
 
 if.end20:                                         ; preds = %entry
   %cmp.i.i.i.i.i.i.i49 = icmp eq i8 %0, 80
@@ -225,7 +222,7 @@ land.rhs37:                                       ; preds = %if.then35
   %or.cond.i.i = and i1 %cmp2.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %return, label %if.end48
 
-if.end48:                                         ; preds = %if.then35, %if.end31, %land.rhs37, %if.then26
+if.end48:                                         ; preds = %land.rhs, %if.then12, %if.then35, %if.end31, %land.rhs37, %if.then26
   br label %return
 
 if.end49:                                         ; preds = %if.end24
@@ -320,8 +317,8 @@ if.end122:                                        ; preds = %if.end107
   %or.cond12 = and i1 %cmp62104114, %cmp.i.i.i.i.i.i.i77
   br label %return
 
-return:                                           ; preds = %entry, %entry, %entry, %entry, %if.end122, %if.end107, %if.end102, %land.lhs.true97, %land.lhs.true97, %if.end87, %if.end79, %land.rhs73, %land.rhs63, %land.rhs53, %if.then26, %land.rhs37, %if.then28, %if.end20, %land.rhs, %if.then12, %if.end48, %if.end19
-  %retval.0 = phi i1 [ %or.cond12, %if.end122 ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %if.then12 ], [ false, %if.end19 ], [ true, %land.rhs ], [ true, %if.end20 ], [ true, %if.then28 ], [ true, %land.rhs37 ], [ false, %if.end48 ], [ true, %land.lhs.true97 ], [ true, %land.rhs53 ], [ true, %land.rhs63 ], [ true, %land.rhs73 ], [ true, %if.end79 ], [ true, %if.then26 ], [ true, %if.end87 ], [ true, %land.lhs.true97 ], [ true, %if.end102 ], [ true, %if.end107 ]
+return:                                           ; preds = %entry, %entry, %entry, %entry, %if.end122, %if.end107, %if.end102, %land.lhs.true97, %land.lhs.true97, %if.end87, %if.end79, %land.rhs73, %land.rhs63, %land.rhs53, %if.then26, %land.rhs37, %if.then28, %if.end20, %land.rhs, %if.then12, %if.end48
+  %retval.0 = phi i1 [ %or.cond12, %if.end122 ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %if.then12 ], [ true, %if.end107 ], [ true, %land.rhs ], [ true, %if.end20 ], [ true, %if.then28 ], [ true, %land.rhs37 ], [ false, %if.end48 ], [ true, %land.lhs.true97 ], [ true, %land.rhs53 ], [ true, %land.rhs63 ], [ true, %land.rhs73 ], [ true, %if.end79 ], [ true, %if.then26 ], [ true, %if.end87 ], [ true, %land.lhs.true97 ], [ true, %if.end102 ]
   ret i1 %retval.0
 }
 

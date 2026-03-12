@@ -21628,12 +21628,12 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %.idx.i.i29 = shl nuw nsw i64 %51, 3
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx.i.i29
   %.not.not9.i.i = icmp eq i32 %50, 0
-  br i1 %.not.not9.i.i, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit.thread, label %.lr.ph.i.i30
+  br i1 %.not.not9.i.i, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit67.thread, label %.lr.ph.i.i30
 
 53:                                               ; preds = %.lr.ph.i.i30
   %54 = getelementptr inbounds nuw i8, ptr %.0810.i.i, i64 8
   %.not.not.i.i = icmp eq ptr %54, %52
-  br i1 %.not.not.i.i, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit.thread, label %.lr.ph.i.i30, !llvm.loop !1742
+  br i1 %.not.not.i.i, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit67.thread, label %.lr.ph.i.i30, !llvm.loop !1742
 
 .lr.ph.i.i30:                                     ; preds = %47, %53
   %.0810.i.i = phi ptr [ %54, %53 ], [ %48, %47 ]
@@ -21644,10 +21644,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
 _ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit: ; preds = %43
   %57 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %1, ptr noundef %19) #22
   %.not = icmp eq ptr %57, null
-  br i1 %.not, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit.thread, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit.thread77
-
-_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit.thread: ; preds = %53, %47, %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit
-  br label %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit.thread77
+  br i1 %.not, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit67.thread, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit.thread77
 
 58:                                               ; preds = %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -21680,9 +21677,9 @@ _ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit.thread: ; p
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %71 = load i32, ptr %70, align 8, !tbaa !1433, !noalias !1743
   %72 = icmp ult i32 %65, %71
-  br i1 %72, label %.critedge107, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i31
+  br i1 %72, label %.critedge108, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i31
 
-.critedge107:                                     ; preds = %._crit_edge.i.i55
+.critedge108:                                     ; preds = %._crit_edge.i.i55
   %73 = add nuw i32 %65, 1
   store i32 %73, ptr %64, align 4, !tbaa !1434, !noalias !1743
   store ptr %19, ptr %67, align 8, !tbaa !1740, !noalias !1743
@@ -21694,7 +21691,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i31: ; preds = %._crit_edge.i
   %76 = trunc nuw i8 %75 to i1
   br i1 %76, label %77, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit.thread77
 
-77:                                               ; preds = %.critedge107, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i31
+77:                                               ; preds = %.critedge108, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i31
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 172
   %80 = load i8, ptr %79, align 4, !tbaa !1436, !range !694, !noundef !695
@@ -21727,11 +21724,11 @@ _ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit67: ; preds 
   %.not86 = icmp eq ptr %92, null
   br i1 %.not86, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit67.thread, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit.thread77
 
-_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit67.thread: ; preds = %88, %82, %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit67
+_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit67.thread: ; preds = %88, %53, %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit, %47, %82, %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit67
   br label %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit.thread77
 
-_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit.thread77: ; preds = %.lr.ph.i.i50, %.lr.ph.i.i64, %.lr.ph.i.i, %.lr.ph.i.i30, %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit67.thread, %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit67, %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit.thread, %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i31, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
-  %.0 = phi i32 [ 1, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i31 ], [ 2, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %.lr.ph.i.i64 ], [ 0, %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit.thread ], [ 1, %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit ], [ 0, %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit67.thread ], [ 1, %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit67 ], [ 2, %.lr.ph.i.i ], [ 1, %.lr.ph.i.i30 ], [ 1, %.lr.ph.i.i50 ]
+_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit.thread77: ; preds = %.lr.ph.i.i50, %.lr.ph.i.i64, %.lr.ph.i.i, %.lr.ph.i.i30, %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit67.thread, %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit67, %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i31, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+  %.0 = phi i32 [ 1, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i31 ], [ 2, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit67 ], [ 1, %.lr.ph.i.i64 ], [ 1, %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit ], [ 0, %_ZNK4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE5countES4_.exit67.thread ], [ 2, %.lr.ph.i.i ], [ 1, %.lr.ph.i.i30 ], [ 1, %.lr.ph.i.i50 ]
   %93 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %94 = load ptr, ptr %93, align 8, !tbaa !814
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 96

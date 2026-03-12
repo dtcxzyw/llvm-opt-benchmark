@@ -89,79 +89,73 @@ define internal fastcc range(i32 0, 5) i32 @PGSharedMemoryAttach(i32 noundef %0,
   store ptr null, ptr %1, align 8
   %5 = call i32 @shmctl(i32 noundef %0, i32 noundef 2, ptr noundef nonnull %3) #10
   %6 = icmp slt i32 %5, 0
-  br i1 %6, label %7, label %12
+  br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
   %8 = tail call ptr @__errno_location() #11
   %9 = load i32, ptr %8, align 4
-  switch i32 %9, label %11 [
-    i32 22, label %40
-    i32 13, label %10
-    i32 43, label %40
+  switch i32 %9, label %21 [
+    i32 22, label %38
+    i32 13, label %20
+    i32 43, label %38
   ]
 
-10:                                               ; preds = %7
-  br label %40
+10:                                               ; preds = %2
+  %11 = load ptr, ptr @DataDir, align 8
+  %12 = call i32 @stat(ptr noundef %11, ptr noundef nonnull %4) #10
+  %13 = icmp slt i32 %12, 0
+  br i1 %13, label %38, label %14
 
-11:                                               ; preds = %7
-  br label %40
+14:                                               ; preds = %10
+  %15 = call ptr @shmat(i32 noundef %0, ptr noundef null, i32 noundef 0) #10
+  %16 = icmp eq ptr %15, inttoptr (i64 -1 to ptr)
+  br i1 %16, label %17, label %22
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr @DataDir, align 8
-  %14 = call i32 @stat(ptr noundef %13, ptr noundef nonnull %4) #10
-  %15 = icmp slt i32 %14, 0
-  br i1 %15, label %40, label %16
-
-16:                                               ; preds = %12
-  %17 = call ptr @shmat(i32 noundef %0, ptr noundef null, i32 noundef 0) #10
-  %18 = icmp eq ptr %17, inttoptr (i64 -1 to ptr)
-  br i1 %18, label %19, label %24
-
-19:                                               ; preds = %16
-  %20 = tail call ptr @__errno_location() #11
-  %21 = load i32, ptr %20, align 4
-  switch i32 %21, label %23 [
-    i32 22, label %40
-    i32 13, label %22
-    i32 43, label %40
+17:                                               ; preds = %14
+  %18 = tail call ptr @__errno_location() #11
+  %19 = load i32, ptr %18, align 4
+  switch i32 %19, label %21 [
+    i32 22, label %38
+    i32 13, label %20
+    i32 43, label %38
   ]
 
-22:                                               ; preds = %19
-  br label %40
+20:                                               ; preds = %7, %17
+  br label %38
 
-23:                                               ; preds = %19
-  br label %40
+21:                                               ; preds = %7, %17
+  br label %38
 
-24:                                               ; preds = %16
-  store ptr %17, ptr %1, align 8
-  %25 = load i32, ptr %17, align 8
-  %.not = icmp eq i32 %25, 679834894
-  br i1 %.not, label %26, label %40
+22:                                               ; preds = %14
+  store ptr %15, ptr %1, align 8
+  %23 = load i32, ptr %15, align 8
+  %.not = icmp eq i32 %23, 679834894
+  br i1 %.not, label %24, label %38
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %28 = load i64, ptr %27, align 8
-  %29 = load i64, ptr %4, align 8
-  %.not13 = icmp eq i64 %28, %29
-  br i1 %.not13, label %30, label %40
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %26 = load i64, ptr %25, align 8
+  %27 = load i64, ptr %4, align 8
+  %.not13 = icmp eq i64 %26, %27
+  br i1 %.not13, label %28, label %38
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %17, i64 48
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %30 = load i64, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %34 = load i64, ptr %33, align 8
-  %.not14 = icmp eq i64 %32, %34
-  br i1 %.not14, label %35, label %40
+  %.not14 = icmp eq i64 %30, %32
+  br i1 %.not14, label %33, label %38
 
-35:                                               ; preds = %30
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %37 = load i64, ptr %36, align 8
-  %38 = icmp eq i64 %37, 0
-  %39 = select i1 %38, i32 4, i32 1
-  br label %40
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %35 = load i64, ptr %34, align 8
+  %36 = icmp eq i64 %35, 0
+  %37 = select i1 %36, i32 4, i32 1
+  br label %38
 
-40:                                               ; preds = %24, %26, %30, %19, %19, %12, %7, %7, %35, %23, %22, %11, %10
-  %.0 = phi i32 [ %39, %35 ], [ 3, %10 ], [ 2, %7 ], [ 0, %11 ], [ 2, %7 ], [ 0, %12 ], [ 3, %22 ], [ 2, %19 ], [ 0, %23 ], [ 2, %19 ], [ 3, %30 ], [ 3, %26 ], [ 3, %24 ]
+38:                                               ; preds = %22, %24, %28, %17, %17, %10, %7, %7, %33, %21, %20
+  %.0 = phi i32 [ %37, %33 ], [ 3, %22 ], [ 2, %7 ], [ 3, %24 ], [ 2, %7 ], [ 0, %10 ], [ 3, %20 ], [ 2, %17 ], [ 0, %21 ], [ 2, %17 ], [ 3, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

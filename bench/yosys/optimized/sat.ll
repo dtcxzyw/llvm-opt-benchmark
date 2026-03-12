@@ -9153,7 +9153,7 @@ _ZN12_GLOBAL__N_19SatHelper16invalidate_modelEb.exit: ; preds = %2916, %2918
           to label %.invoke3955 unwind label %.loopexit.split-lp1449
 
 .invoke3955:                                      ; preds = %.invoke3958, %.invoke3957, %2958, %2955
-  %2939 = phi ptr [ @.str.197, %2958 ], [ @.str.203, %.invoke3957 ], [ @.str.196, %.invoke3958 ], [ @.str.206, %2955 ]
+  %2939 = phi ptr [ @.str.196, %.invoke3958 ], [ @.str.203, %.invoke3957 ], [ @.str.197, %2958 ], [ @.str.206, %2955 ]
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull %2939) #31
           to label %.cont3956 unwind label %.loopexit.split-lp1449
 

@@ -851,9 +851,9 @@ read_metadata_block_data_streaminfo_cb_.exit.i.i: ; preds = %unpack_uint64_.exit
   %100 = tail call noundef i32 @fseeko64(ptr noundef %23, i64 noundef %99, i32 noundef 1)
   %.not.i31.i.i = icmp eq i32 %100, 0
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  br i1 %.not.i31.i.i, label %read_metadata_block_data_.exit.thread149, label %read_metadata_block_data_.exit.thread152
+  br i1 %.not.i31.i.i, label %read_metadata_block_data_.exit.thread148, label %read_metadata_block_data_.exit.thread151
 
-read_metadata_block_data_.exit.thread152:         ; preds = %98
+read_metadata_block_data_.exit.thread151:         ; preds = %98
   store i32 7, ptr %101, align 8, !tbaa !30
   br label %614
 
@@ -875,7 +875,7 @@ read_metadata_block_data_.exit.thread152:         ; preds = %98
 111:                                              ; preds = %109
   %112 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr null, ptr %112, align 8, !tbaa !49
-  br label %read_metadata_block_data_.exit.thread23
+  br label %read_metadata_block_data_.exit.thread22
 
 113:                                              ; preds = %109
   %114 = sub nuw i32 %21, %105
@@ -889,7 +889,7 @@ read_metadata_block_data_.exit.thread152:         ; preds = %98
 119:                                              ; preds = %113
   %120 = tail call i64 @fread(ptr noundef nonnull %116, i64 noundef 1, i64 noundef %115, ptr noundef %23) #33
   %.not22.i.i.i = icmp eq i64 %120, %115
-  br i1 %.not22.i.i.i, label %read_metadata_block_data_.exit.thread23, label %read_metadata_block_data_.exit.thread
+  br i1 %.not22.i.i.i, label %read_metadata_block_data_.exit.thread22, label %read_metadata_block_data_.exit.thread
 
 121:                                              ; preds = %16
   %122 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -2035,7 +2035,7 @@ read_metadata_block_data_picture_cb_.exit.i.i:    ; preds = %read_metadata_block
 
 604:                                              ; preds = %601
   store ptr null, ptr %602, align 8, !tbaa !90
-  br label %read_metadata_block_data_.exit.thread23
+  br label %read_metadata_block_data_.exit.thread22
 
 605:                                              ; preds = %601
   %606 = zext i32 %21 to i64
@@ -2047,20 +2047,20 @@ read_metadata_block_data_picture_cb_.exit.i.i:    ; preds = %read_metadata_block
 609:                                              ; preds = %605
   %610 = tail call i64 @fread(ptr noundef nonnull %607, i64 noundef 1, i64 noundef %606, ptr noundef %23) #33
   %.not.i82.i.i = icmp eq i64 %610, %606
-  br i1 %.not.i82.i.i, label %read_metadata_block_data_.exit.thread23, label %read_metadata_block_data_.exit.thread
+  br i1 %.not.i82.i.i, label %read_metadata_block_data_.exit.thread22, label %read_metadata_block_data_.exit.thread
 
-read_metadata_block_data_.exit.thread:            ; preds = %119, %113, %102, %605, %609
-  %.0.i.i.ph = phi i32 [ 6, %609 ], [ 11, %605 ], [ 6, %102 ], [ 11, %113 ], [ 6, %119 ]
+read_metadata_block_data_.exit.thread22:          ; preds = %111, %119, %604, %609
   %611 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 %.0.i.i.ph, ptr %611, align 8, !tbaa !30
-  br label %614
-
-read_metadata_block_data_.exit.thread23:          ; preds = %119, %111, %609, %604
-  %612 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 0, ptr %612, align 8, !tbaa !30
+  store i32 0, ptr %611, align 8, !tbaa !30
   br label %615
 
-read_metadata_block_data_.exit.thread149:         ; preds = %98
+read_metadata_block_data_.exit.thread:            ; preds = %119, %113, %102, %609, %605
+  %.0.i.i.ph = phi i32 [ 11, %605 ], [ 6, %609 ], [ 6, %102 ], [ 11, %113 ], [ 6, %119 ]
+  %612 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i32 %.0.i.i.ph, ptr %612, align 8, !tbaa !30
+  br label %614
+
+read_metadata_block_data_.exit.thread148:         ; preds = %98
   store i32 0, ptr %101, align 8, !tbaa !30
   br label %615
 
@@ -2068,15 +2068,15 @@ read_metadata_block_data_.exit:                   ; preds = %read_metadata_block
   %.0.i.i = phi i32 [ %.0.i50.i.i, %read_metadata_block_data_cuesheet_cb_.exit.i.i ], [ %.0.i.i.i, %read_metadata_block_data_streaminfo_cb_.exit.i.i ], [ %.0.i42.i.i, %read_metadata_block_data_vorbis_comment_cb_.exit.i.i ], [ %.0.i65.i.i, %read_metadata_block_data_picture_cb_.exit.i.i ], [ %.018.i.i.i, %read_metadata_block_data_seektable_cb_.exit.i.i ]
   %613 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 %.0.i.i, ptr %613, align 8, !tbaa !30
-  %.not26 = icmp eq i32 %.0.i.i, 0
-  br i1 %.not26, label %615, label %614
+  %.not25 = icmp eq i32 %.0.i.i, 0
+  br i1 %.not25, label %615, label %614
 
-614:                                              ; preds = %read_metadata_block_data_.exit.thread152, %read_metadata_block_data_.exit.thread, %read_metadata_block_data_.exit
+614:                                              ; preds = %read_metadata_block_data_.exit.thread151, %read_metadata_block_data_.exit.thread, %read_metadata_block_data_.exit
   call void @FLAC__metadata_object_delete(ptr noundef nonnull %15) #33
   br label %629
 
-615:                                              ; preds = %read_metadata_block_data_.exit.thread149, %read_metadata_block_data_.exit.thread23, %read_metadata_block_data_.exit
-  %616 = phi ptr [ %612, %read_metadata_block_data_.exit.thread23 ], [ %613, %read_metadata_block_data_.exit ], [ %101, %read_metadata_block_data_.exit.thread149 ]
+615:                                              ; preds = %read_metadata_block_data_.exit.thread148, %read_metadata_block_data_.exit.thread22, %read_metadata_block_data_.exit
+  %616 = phi ptr [ %611, %read_metadata_block_data_.exit.thread22 ], [ %613, %read_metadata_block_data_.exit ], [ %101, %read_metadata_block_data_.exit.thread148 ]
   %617 = load ptr, ptr %0, align 8, !tbaa !24
   %618 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %619 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -6096,7 +6096,7 @@ read_metadata_block_data_picture_cb_.exit.i.i:    ; preds = %read_metadata_block
   br i1 %.not.i82.i.i, label %read_metadata_block_data_cb_.exit.thread92.i, label %read_metadata_block_data_cb_.exit.thread.i
 
 read_metadata_block_data_cb_.exit.thread.i:       ; preds = %690, %686, %290, %284, %276, %273
-  %.0.i62.ph.i = phi i32 [ 6, %690 ], [ 11, %686 ], [ 6, %276 ], [ 11, %284 ], [ 7, %273 ], [ 6, %290 ]
+  %.0.i62.ph.i = phi i32 [ 11, %686 ], [ 6, %690 ], [ 6, %276 ], [ 11, %284 ], [ 7, %273 ], [ 6, %290 ]
   store i32 %.0.i62.ph.i, ptr %171, align 4, !tbaa !108
   br label %.loopexit.i
 
@@ -7572,7 +7572,7 @@ read_metadata_block_data_picture_cb_.exit.i.i:    ; preds = %unpack_uint32_.exit
   br i1 %.not.i82.i.i, label %read_metadata_block_data_cb_.exit.thread92.i, label %read_metadata_block_data_cb_.exit.thread.i
 
 read_metadata_block_data_cb_.exit.thread.i:       ; preds = %589, %585, %286, %280, %272, %269
-  %.0.i62.ph.i = phi i32 [ 6, %589 ], [ 11, %585 ], [ 6, %272 ], [ 11, %280 ], [ 7, %269 ], [ 6, %286 ]
+  %.0.i62.ph.i = phi i32 [ 11, %585 ], [ 6, %589 ], [ 6, %272 ], [ 11, %280 ], [ 7, %269 ], [ 6, %286 ]
   store i32 %.0.i62.ph.i, ptr %174, align 4, !tbaa !108
   br label %.loopexit.i
 

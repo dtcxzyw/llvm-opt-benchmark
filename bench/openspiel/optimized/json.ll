@@ -3734,7 +3734,7 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i: ; preds = %_ZN
   br i1 %14, label %.invoke, label %22
 
 .invoke:                                          ; preds = %33, %32, %20
-  %21 = phi i8 [ %12, %33 ], [ 34, %20 ], [ %12, %32 ]
+  %21 = phi i8 [ 34, %20 ], [ %12, %33 ], [ %12, %32 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef signext %21)
           to label %39 unwind label %.loopexit
 

@@ -605,7 +605,7 @@ _ZN6Assimp6VertexC2EPK6aiMeshj.exit:              ; preds = %_ZNK6aiMesh16HasTex
 
 164:                                              ; preds = %.lr.ph.i.i.i
   %165 = fcmp olt float %162, %155
-  br i1 %165, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.i
+  br i1 %165, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i
 
 166:                                              ; preds = %.lr.ph.i.i.i
   %167 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 36
@@ -621,10 +621,7 @@ _ZN6Assimp6VertexC2EPK6aiMeshj.exit:              ; preds = %_ZNK6aiMesh16HasTex
 
 _ZNK10aiVector3tIfEltERKS0_.exit.i:               ; preds = %166
   %174 = fcmp olt float %168, %156
-  br i1 %174, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.i
-
-_ZNK10aiVector3tIfEneERKS0_.exit.thread.i:        ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit.i, %164
-  br label %.noexc124
+  br i1 %174, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i
 
 _ZNK10aiVector3tIfEneERKS0_.exit.i:               ; preds = %170
   %175 = fcmp une float %172, %157
@@ -638,7 +635,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit.i:               ; preds = %170
 
 180:                                              ; preds = %176
   %181 = fcmp olt float %178, %158
-  br i1 %181, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit29.thread.i
+  br i1 %181, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i
 
 182:                                              ; preds = %176
   %183 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
@@ -654,10 +651,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit.i:               ; preds = %170
 
 _ZNK10aiVector3tIfEltERKS0_.exit28.i:             ; preds = %182
   %190 = fcmp olt float %184, %159
-  br i1 %190, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit29.thread.i
-
-_ZNK10aiVector3tIfEneERKS0_.exit29.thread.i:      ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit28.i, %180
-  br label %.noexc124
+  br i1 %190, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i
 
 _ZNK10aiVector3tIfEneERKS0_.exit29.i:             ; preds = %186
   %191 = fcmp une float %188, %160
@@ -709,7 +703,7 @@ _ZNK10aiVector3tIfEltERKS0_.exit30.i:             ; preds = %203
   %215 = fcmp olt float %205, %207
   br i1 %215, label %.noexc124, label %_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i
 
-_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i:      ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit30.i, %201
+_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i:      ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit30.i, %201, %_ZNK10aiVector3tIfEltERKS0_.exit28.i, %180, %_ZNK10aiVector3tIfEltERKS0_.exit.i, %164
   br label %.noexc124
 
 _ZNK10aiVector3tIfEneERKS0_.exit31.i:             ; preds = %209
@@ -792,9 +786,9 @@ _ZNK9aiColor4tIfEneERKS0_.exit.i:                 ; preds = %253
   %or.cond.i = select i1 %263, i1 true, i1 %exitcond69.not.i
   br i1 %or.cond.i, label %.noexc124, label %217, !llvm.loop !12
 
-.noexc124:                                        ; preds = %209, %_ZNK10aiVector3tIfEneERKS0_.exit31.i, %_ZNK9aiColor4tIfEltERKS0_.exit.i, %217, %225, %233, %_ZNK9aiColor4tIfEneERKS0_.exit.i, %253, %247, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41.i, %_ZNK10aiVector3tIfEltERKS0_.exit30.i, %201, %186, %180, %170, %164, %_ZNK10aiVector3tIfEltERKS0_.exit28.i, %_ZNK10aiVector3tIfEltERKS0_.exit.i, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i, %_ZNK10aiVector3tIfEneERKS0_.exit29.i, %_ZNK10aiVector3tIfEneERKS0_.exit29.thread.i, %_ZNK10aiVector3tIfEneERKS0_.exit.i, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.i
-  %264 = phi ptr [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit.i ], [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.i ], [ %.0811.i.i.i, %180 ], [ %.0811.i.i.i, %186 ], [ %.0811.i.i.i, %201 ], [ %.0811.i.i.i, %_ZNK10aiVector3tIfEltERKS0_.exit30.i ], [ %.0811.i.i.i, %170 ], [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i ], [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit29.i ], [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit29.thread.i ], [ %.012.i.i.i, %_ZNK9aiColor4tIfEneERKS0_.exit.i ], [ %.0811.i.i.i, %_ZNK10aiVector3tIfEltERKS0_.exit.i ], [ %.0811.i.i.i, %_ZNK10aiVector3tIfEltERKS0_.exit28.i ], [ %.0811.i.i.i, %164 ], [ %.0811.i.i.i, %_ZNK9aiColor4tIfEltERKS0_.exit.i ], [ %.0811.i.i.i, %217 ], [ %.0811.i.i.i, %225 ], [ %.0811.i.i.i, %233 ], [ %.012.i.i.i, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41.i ], [ %.012.i.i.i, %247 ], [ %.012.i.i.i, %253 ], [ %.0811.i.i.i, %209 ], [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit31.i ]
-  %265 = phi i64 [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit.i ], [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit.thread.i ], [ 24, %180 ], [ 24, %186 ], [ 24, %201 ], [ 24, %_ZNK10aiVector3tIfEltERKS0_.exit30.i ], [ 24, %170 ], [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i ], [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit29.i ], [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit29.thread.i ], [ 16, %_ZNK9aiColor4tIfEneERKS0_.exit.i ], [ 24, %_ZNK10aiVector3tIfEltERKS0_.exit.i ], [ 24, %_ZNK10aiVector3tIfEltERKS0_.exit28.i ], [ 24, %164 ], [ 24, %_ZNK9aiColor4tIfEltERKS0_.exit.i ], [ 24, %217 ], [ 24, %225 ], [ 24, %233 ], [ 16, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41.i ], [ 16, %247 ], [ 16, %253 ], [ 24, %209 ], [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit31.i ]
+.noexc124:                                        ; preds = %209, %_ZNK10aiVector3tIfEneERKS0_.exit31.i, %_ZNK9aiColor4tIfEltERKS0_.exit.i, %217, %225, %233, %_ZNK9aiColor4tIfEneERKS0_.exit.i, %253, %247, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41.i, %_ZNK10aiVector3tIfEltERKS0_.exit30.i, %201, %186, %180, %170, %164, %_ZNK10aiVector3tIfEltERKS0_.exit28.i, %_ZNK10aiVector3tIfEltERKS0_.exit.i, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i, %_ZNK10aiVector3tIfEneERKS0_.exit29.i, %_ZNK10aiVector3tIfEneERKS0_.exit.i
+  %264 = phi ptr [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit29.i ], [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit.i ], [ %.0811.i.i.i, %170 ], [ %.0811.i.i.i, %180 ], [ %.0811.i.i.i, %186 ], [ %.0811.i.i.i, %201 ], [ %.0811.i.i.i, %164 ], [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i ], [ %.0811.i.i.i, %_ZNK10aiVector3tIfEltERKS0_.exit30.i ], [ %.0811.i.i.i, %_ZNK10aiVector3tIfEltERKS0_.exit.i ], [ %.0811.i.i.i, %_ZNK10aiVector3tIfEltERKS0_.exit28.i ], [ %.012.i.i.i, %_ZNK9aiColor4tIfEneERKS0_.exit.i ], [ %.0811.i.i.i, %_ZNK9aiColor4tIfEltERKS0_.exit.i ], [ %.0811.i.i.i, %217 ], [ %.0811.i.i.i, %225 ], [ %.0811.i.i.i, %233 ], [ %.012.i.i.i, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41.i ], [ %.012.i.i.i, %247 ], [ %.012.i.i.i, %253 ], [ %.0811.i.i.i, %209 ], [ %.012.i.i.i, %_ZNK10aiVector3tIfEneERKS0_.exit31.i ]
+  %265 = phi i64 [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit29.i ], [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit.i ], [ 24, %170 ], [ 24, %180 ], [ 24, %186 ], [ 24, %201 ], [ 24, %164 ], [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread.i ], [ 24, %_ZNK10aiVector3tIfEltERKS0_.exit30.i ], [ 24, %_ZNK10aiVector3tIfEltERKS0_.exit.i ], [ 24, %_ZNK10aiVector3tIfEltERKS0_.exit28.i ], [ 16, %_ZNK9aiColor4tIfEneERKS0_.exit.i ], [ 24, %_ZNK9aiColor4tIfEltERKS0_.exit.i ], [ 24, %217 ], [ 24, %225 ], [ 24, %233 ], [ 16, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41.i ], [ 16, %247 ], [ 16, %253 ], [ 24, %209 ], [ 16, %_ZNK10aiVector3tIfEneERKS0_.exit31.i ]
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %265
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
@@ -3535,7 +3529,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6Assimp6VertexltERKS0_(ptr no
 
 6:                                                ; preds = %2
   %7 = fcmp olt float %3, %4
-  br i1 %7, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread
+  br i1 %7, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit31.thread
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3555,10 +3549,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6Assimp6VertexltERKS0_(ptr no
 
 _ZNK10aiVector3tIfEltERKS0_.exit:                 ; preds = %8
   %20 = fcmp olt float %10, %12
-  br i1 %20, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread
-
-_ZNK10aiVector3tIfEneERKS0_.exit.thread:          ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit, %6
-  br label %.thread37
+  br i1 %20, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit31.thread
 
 _ZNK10aiVector3tIfEneERKS0_.exit:                 ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3578,7 +3569,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit:                 ; preds = %14
 
 32:                                               ; preds = %26
   %33 = fcmp olt float %29, %30
-  br i1 %33, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit29.thread
+  br i1 %33, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit31.thread
 
 34:                                               ; preds = %26
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3598,10 +3589,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit:                 ; preds = %14
 
 _ZNK10aiVector3tIfEltERKS0_.exit28:               ; preds = %34
   %46 = fcmp olt float %36, %38
-  br i1 %46, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit29.thread
-
-_ZNK10aiVector3tIfEneERKS0_.exit29.thread:        ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit28, %32
-  br label %.thread37
+  br i1 %46, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit31.thread
 
 _ZNK10aiVector3tIfEneERKS0_.exit29:               ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -3659,7 +3647,7 @@ _ZNK10aiVector3tIfEltERKS0_.exit30:               ; preds = %65
   %77 = fcmp olt float %67, %69
   br i1 %77, label %.thread37, label %_ZNK10aiVector3tIfEneERKS0_.exit31.thread
 
-_ZNK10aiVector3tIfEneERKS0_.exit31.thread:        ; preds = %_ZNK10aiVector3tIfEltERKS0_.exit30, %63
+_ZNK10aiVector3tIfEneERKS0_.exit31.thread:        ; preds = %6, %_ZNK10aiVector3tIfEltERKS0_.exit, %32, %_ZNK10aiVector3tIfEltERKS0_.exit28, %_ZNK10aiVector3tIfEltERKS0_.exit30, %63
   br label %.thread37
 
 _ZNK10aiVector3tIfEneERKS0_.exit31:               ; preds = %71
@@ -3746,8 +3734,8 @@ _ZNK9aiColor4tIfEneERKS0_.exit:                   ; preds = %119
   %or.cond = select i1 %129, i1 true, i1 %exitcond69.not
   br i1 %or.cond, label %.thread37, label %83, !llvm.loop !12
 
-.thread37:                                        ; preds = %71, %_ZNK10aiVector3tIfEneERKS0_.exit31, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41, %113, %119, %99, %91, %83, %_ZNK9aiColor4tIfEneERKS0_.exit, %_ZNK9aiColor4tIfEltERKS0_.exit, %_ZNK10aiVector3tIfEltERKS0_.exit30, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread, %63, %_ZNK10aiVector3tIfEneERKS0_.exit29.thread, %40, %32, %_ZNK10aiVector3tIfEneERKS0_.exit.thread, %14, %6, %_ZNK10aiVector3tIfEneERKS0_.exit29, %_ZNK10aiVector3tIfEltERKS0_.exit28, %_ZNK10aiVector3tIfEneERKS0_.exit, %_ZNK10aiVector3tIfEltERKS0_.exit
-  %.025 = phi i1 [ true, %99 ], [ true, %_ZNK10aiVector3tIfEltERKS0_.exit ], [ false, %_ZNK10aiVector3tIfEneERKS0_.exit ], [ true, %_ZNK10aiVector3tIfEltERKS0_.exit28 ], [ false, %_ZNK10aiVector3tIfEneERKS0_.exit29 ], [ false, %_ZNK10aiVector3tIfEneERKS0_.exit29.thread ], [ true, %6 ], [ true, %14 ], [ false, %_ZNK10aiVector3tIfEneERKS0_.exit.thread ], [ true, %32 ], [ true, %40 ], [ true, %63 ], [ false, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread ], [ true, %_ZNK10aiVector3tIfEltERKS0_.exit30 ], [ false, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41 ], [ false, %113 ], [ false, %119 ], [ true, %91 ], [ true, %83 ], [ false, %_ZNK9aiColor4tIfEneERKS0_.exit ], [ true, %_ZNK9aiColor4tIfEltERKS0_.exit ], [ %76, %_ZNK10aiVector3tIfEneERKS0_.exit31 ], [ %76, %71 ]
+.thread37:                                        ; preds = %71, %_ZNK10aiVector3tIfEneERKS0_.exit31, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41, %113, %119, %99, %91, %83, %_ZNK9aiColor4tIfEneERKS0_.exit, %_ZNK9aiColor4tIfEltERKS0_.exit, %_ZNK10aiVector3tIfEltERKS0_.exit30, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread, %63, %40, %32, %14, %6, %_ZNK10aiVector3tIfEneERKS0_.exit29, %_ZNK10aiVector3tIfEltERKS0_.exit28, %_ZNK10aiVector3tIfEneERKS0_.exit, %_ZNK10aiVector3tIfEltERKS0_.exit
+  %.025 = phi i1 [ true, %_ZNK10aiVector3tIfEltERKS0_.exit30 ], [ true, %_ZNK10aiVector3tIfEltERKS0_.exit ], [ false, %_ZNK10aiVector3tIfEneERKS0_.exit ], [ true, %_ZNK10aiVector3tIfEltERKS0_.exit28 ], [ false, %_ZNK10aiVector3tIfEneERKS0_.exit29 ], [ false, %_ZNK10aiVector3tIfEneERKS0_.exit31.thread ], [ true, %6 ], [ true, %14 ], [ true, %99 ], [ true, %32 ], [ true, %40 ], [ true, %63 ], [ false, %_ZNK9aiColor4tIfEltERKS0_.exit.thread41 ], [ false, %113 ], [ false, %119 ], [ true, %91 ], [ true, %83 ], [ false, %_ZNK9aiColor4tIfEneERKS0_.exit ], [ true, %_ZNK9aiColor4tIfEltERKS0_.exit ], [ %76, %_ZNK10aiVector3tIfEneERKS0_.exit31 ], [ %76, %71 ]
   ret i1 %.025
 }
 

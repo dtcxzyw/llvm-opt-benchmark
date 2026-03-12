@@ -405,7 +405,7 @@ define internal fastcc noundef zeroext i1 @pm_regexp_parse_item(ptr noundef nonn
   store i8 3, ptr %130, align 1, !tbaa !46
   br label %133
 
-133:                                              ; preds = %127, %132
+133:                                              ; preds = %132, %127
   %134 = getelementptr i8, ptr %.val146.i101103, i64 1
   store ptr %134, ptr %4, align 8, !tbaa !16
   %exitcond.not = icmp eq ptr %134, %.val4.i60
@@ -604,7 +604,7 @@ pm_regexp_char_expect.exit:                       ; preds = %179
   tail call void %.val154.i(ptr noundef %16, ptr noundef %178, ptr noundef nonnull @.str.4, ptr noundef %.val155.i) #5
   br label %pm_regexp_parse_group.exit.thread
 
-pm_regexp_parse_group.exit.thread:                ; preds = %133, %127, %125, %144, %142, %pm_regexp_options_remove.exit, %83, %67, %56, %.loopexit87, %73, %29, %36, %122, %89, %183, %.loopexit, %96, %113
+pm_regexp_parse_group.exit.thread:                ; preds = %133, %127, %125, %142, %144, %pm_regexp_options_remove.exit, %83, %67, %56, %.loopexit87, %73, %29, %36, %122, %89, %183, %.loopexit, %96, %113
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %242
 

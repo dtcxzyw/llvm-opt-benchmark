@@ -2840,7 +2840,7 @@ egcb_get_type.exit61.i:                           ; preds = %62, %58, %56
   %66 = icmp eq i32 %45, 0
   %67 = icmp eq i32 %65, 0
   %or.cond.i = select i1 %66, i1 %67, i1 false
-  br i1 %or.cond.i, label %unicode_egcb_is_break_2code.exit.thread69, label %68
+  br i1 %or.cond.i, label %egcb_get_type.exit.thread, label %68
 
 68:                                               ; preds = %egcb_get_type.exit61.i
   %69 = icmp eq i32 %45, 1
@@ -2854,7 +2854,7 @@ egcb_get_type.exit61.i:                           ; preds = %62, %58, %56
   %73 = add i32 %65, -1
   %or.cond7.i = icmp ult i32 %73, 3
   %or.cond55.i = select i1 %or.cond5.i, i1 true, i1 %or.cond7.i
-  br i1 %or.cond55.i, label %unicode_egcb_is_break_2code.exit.thread69, label %74
+  br i1 %or.cond55.i, label %egcb_get_type.exit.thread, label %74
 
 74:                                               ; preds = %71
   %75 = icmp ugt i32 %45, 12
@@ -2884,7 +2884,7 @@ egcb_get_type.exit61.i:                           ; preds = %62, %58, %56
   %85 = add i32 %45, -15
   %or.cond17.i = icmp ult i32 %85, 2
   %or.cond54.i = select i1 %84, i1 %or.cond17.i, i1 false
-  br i1 %or.cond54.i, label %unicode_egcb_is_break_2code.exit.thread, label %unicode_egcb_is_break_2code.exit.thread69
+  br i1 %or.cond54.i, label %unicode_egcb_is_break_2code.exit.thread, label %egcb_get_type.exit.thread
 
 86:                                               ; preds = %74
   switch i32 %65, label %87 [
@@ -2902,21 +2902,18 @@ egcb_get_type.exit61.i:                           ; preds = %62, %58, %56
 88:                                               ; preds = %87
   %89 = tail call i32 @onig_is_in_code_range(ptr noundef nonnull @CR_Extended_Pictographic, i32 noundef %18) #10
   %.not.i = icmp eq i32 %89, 0
-  br i1 %.not.i, label %unicode_egcb_is_break_2code.exit.thread69, label %unicode_egcb_is_break_2code.exit
+  br i1 %.not.i, label %egcb_get_type.exit.thread, label %unicode_egcb_is_break_2code.exit
 
 90:                                               ; preds = %87
   %91 = icmp eq i32 %45, 6
   %92 = icmp eq i32 %65, 6
   %or.cond21.i = select i1 %91, i1 %92, i1 false
-  br i1 %or.cond21.i, label %.critedge.preheader, label %unicode_egcb_is_break_2code.exit.thread69
+  br i1 %or.cond21.i, label %.critedge.preheader, label %egcb_get_type.exit.thread
 
 .critedge.preheader:                              ; preds = %90
   %93 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %.043) #10
   %.not5274 = icmp eq ptr %93, null
   br i1 %.not5274, label %unicode_egcb_is_break_2code.exit.thread, label %.lr.ph
-
-unicode_egcb_is_break_2code.exit.thread69:        ; preds = %egcb_get_type.exit61.i, %83, %88, %90, %71
-  br label %unicode_egcb_is_break_2code.exit.thread
 
 unicode_egcb_is_break_2code.exit:                 ; preds = %88, %egcb_get_type.exit
   %.144 = phi ptr [ %94, %egcb_get_type.exit ], [ %.043, %88 ]
@@ -3016,11 +3013,11 @@ egcb_get_type.exit66.thread:                      ; preds = %.critedge, %egcb_ge
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %unicode_egcb_is_break_2code.exit.thread, label %egcb_get_type.exit.thread
 
-egcb_get_type.exit.thread:                        ; preds = %108, %110, %unicode_egcb_is_break_2code.exit, %egcb_get_type.exit, %egcb_get_type.exit66.thread
+egcb_get_type.exit.thread:                        ; preds = %108, %110, %unicode_egcb_is_break_2code.exit, %egcb_get_type.exit, %71, %90, %88, %83, %egcb_get_type.exit61.i, %egcb_get_type.exit66.thread
   br label %unicode_egcb_is_break_2code.exit.thread
 
-unicode_egcb_is_break_2code.exit.thread:          ; preds = %95, %.critedge.preheader, %87, %86, %86, %86, %83, %81, %77, %68, %10, %5, %egcb_get_type.exit66.thread, %egcb_get_type.exit.thread, %unicode_egcb_is_break_2code.exit.thread69, %22
-  %.042 = phi i32 [ %26, %22 ], [ 1, %5 ], [ 0, %86 ], [ 1, %egcb_get_type.exit.thread ], [ 1, %10 ], [ 1, %unicode_egcb_is_break_2code.exit.thread69 ], [ 0, %87 ], [ 0, %egcb_get_type.exit66.thread ], [ 0, %68 ], [ 0, %77 ], [ 0, %81 ], [ 0, %83 ], [ 0, %86 ], [ 0, %86 ], [ 0, %.critedge.preheader ], [ 0, %95 ]
+unicode_egcb_is_break_2code.exit.thread:          ; preds = %95, %.critedge.preheader, %87, %86, %86, %86, %83, %81, %77, %68, %10, %5, %egcb_get_type.exit66.thread, %egcb_get_type.exit.thread, %22
+  %.042 = phi i32 [ %26, %22 ], [ 1, %5 ], [ 0, %86 ], [ 1, %egcb_get_type.exit.thread ], [ 1, %10 ], [ 0, %.critedge.preheader ], [ 0, %87 ], [ 0, %egcb_get_type.exit66.thread ], [ 0, %68 ], [ 0, %77 ], [ 0, %81 ], [ 0, %83 ], [ 0, %86 ], [ 0, %86 ], [ 0, %95 ]
   ret i32 %.042
 }
 

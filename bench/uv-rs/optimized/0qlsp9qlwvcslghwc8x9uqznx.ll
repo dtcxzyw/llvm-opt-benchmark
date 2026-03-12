@@ -5864,7 +5864,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr43drop
   %.not1059 = icmp eq i64 %446, 1
   br i1 %.not1059, label %.invoke, label %454
 
-.invoke:                                          ; preds = %1146, %1136, %574, %564, %517, %507, %485, %475, %452, %442
+.invoke:                                          ; preds = %1136, %1146, %564, %574, %507, %517, %475, %485, %452, %442
   %453 = phi ptr [ @anon.b37f6cce9f31628e61a67e320ac2c6bf.172, %442 ], [ @anon.b37f6cce9f31628e61a67e320ac2c6bf.182, %574 ], [ @anon.b37f6cce9f31628e61a67e320ac2c6bf.176, %475 ], [ @anon.b37f6cce9f31628e61a67e320ac2c6bf.172, %452 ], [ @anon.b37f6cce9f31628e61a67e320ac2c6bf.179, %507 ], [ @anon.b37f6cce9f31628e61a67e320ac2c6bf.176, %485 ], [ @anon.b37f6cce9f31628e61a67e320ac2c6bf.182, %564 ], [ @anon.b37f6cce9f31628e61a67e320ac2c6bf.179, %517 ], [ @anon.b37f6cce9f31628e61a67e320ac2c6bf.187, %1136 ], [ @anon.b37f6cce9f31628e61a67e320ac2c6bf.187, %1146 ]
   invoke void @_ZN4core6option13expect_failed17h653f5dbca1fa5fc0E(ptr noalias noundef nonnull readonly align 1 @anon.b37f6cce9f31628e61a67e320ac2c6bf.116, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %453) #22
           to label %.cont unwind label %.thread777.loopexit.split-lp

@@ -18575,8 +18575,8 @@ switch.lookup:                                    ; preds = %55
   %85 = load i32, ptr %84, align 4
   switch i32 %85, label %.thread.thread [
     i32 14, label %98
-    i32 21, label %90
-    i32 16, label %91
+    i32 21, label %96
+    i32 16, label %90
     i32 25, label %.thread
   ]
 
@@ -18592,25 +18592,25 @@ switch.lookup:                                    ; preds = %55
   ret ptr %.051.lcssa
 
 90:                                               ; preds = %.lr.ph39
+  %91 = getelementptr inbounds nuw i8, ptr %83, i64 32
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
+  %94 = load i32, ptr %93, align 4
+  %switch.tableidx4 = add i32 %94, -1
+  %95 = icmp ult i32 %switch.tableidx4, 8
+  br i1 %95, label %switch.lookup5, label %98
+
+96:                                               ; preds = %.lr.ph39
   br label %98
 
-91:                                               ; preds = %.lr.ph39
-  %92 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
-  %95 = load i32, ptr %94, align 4
-  %switch.tableidx4 = add i32 %95, -1
-  %96 = icmp ult i32 %switch.tableidx4, 8
-  br i1 %96, label %switch.lookup5, label %98
-
-switch.lookup5:                                   ; preds = %91
+switch.lookup5:                                   ; preds = %90
   %97 = zext nneg i32 %switch.tableidx4 to i64
   %switch.gep6 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ATParseTransformCmd.24, i64 %97
   %switch.load7 = load i32, ptr %switch.gep6, align 4
   br label %98
 
-98:                                               ; preds = %91, %switch.lookup5, %.lr.ph39, %90
-  %.0 = phi i32 [ 9, %.lr.ph39 ], [ %switch.load7, %switch.lookup5 ], [ 8, %90 ], [ 10, %91 ]
+98:                                               ; preds = %90, %switch.lookup5, %.lr.ph39, %96
+  %.0 = phi i32 [ 8, %96 ], [ %switch.load7, %switch.lookup5 ], [ 9, %.lr.ph39 ], [ 10, %90 ]
   %99 = icmp slt i32 %.0, %4
   br i1 %99, label %.split.us, label %.thread
 

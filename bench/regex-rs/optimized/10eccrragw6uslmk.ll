@@ -555,7 +555,7 @@ _ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit253: ; preds = %
   %142 = getelementptr inbounds nuw i8, ptr %23, i64 408
   br i1 %141, label %144, label %143
 
-_ZN12aho_corasick9automaton16try_find_fwd_imp17h889709206aa12ccaE.exit: ; preds = %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit281, %395, %357, %._crit_edge, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit273, %275, %325, %324, %267, %234, %215, %149, %200, %199, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit309, %562, %._crit_edge766, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit301, %509, %469, %._crit_edge759, %403, %137, %108, %._crit_edge775, %87, %39, %33
+_ZN12aho_corasick9automaton16try_find_fwd_imp17h889709206aa12ccaE.exit: ; preds = %267, %234, %215, %149, %200, %199, %324, %325, %275, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit273, %._crit_edge, %357, %395, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit281, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit309, %562, %._crit_edge766, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit301, %509, %469, %._crit_edge759, %403, %137, %108, %._crit_edge775, %87, %39, %33
   ret void
 
 143:                                              ; preds = %138
@@ -2079,7 +2079,7 @@ _ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit330: ; preds = %
   %162 = getelementptr inbounds nuw i8, ptr %29, i64 424
   br i1 %161, label %164, label %163
 
-_ZN12aho_corasick9automaton16try_find_fwd_imp17h73e320dde146f984E.exit: ; preds = %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit378, %435, %408, %._crit_edge1064, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit362, %343, %342, %300, %271, %222, %207, %206, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit426, %636, %._crit_edge1100, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit410, %525, %._crit_edge1082, %157, %.thread1626, %._crit_edge1108, %85, %39
+_ZN12aho_corasick9automaton16try_find_fwd_imp17h73e320dde146f984E.exit: ; preds = %300, %271, %222, %207, %206, %342, %343, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit362, %._crit_edge1064, %408, %435, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit378, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit426, %636, %._crit_edge1100, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit410, %525, %._crit_edge1082, %157, %.thread1626, %._crit_edge1108, %85, %39
   ret void
 
 163:                                              ; preds = %158
@@ -4036,7 +4036,7 @@ _ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit455: ; preds = %
   %243 = getelementptr inbounds nuw i8, ptr %23, i64 368
   br i1 %242, label %245, label %244
 
-_ZN12aho_corasick9automaton16try_find_fwd_imp17h385fd259893979d0E.exit: ; preds = %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit505, %717, %659, %._crit_edge1591, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit485, %555, %554, %479, %424, %334, %320, %319, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit555, %1086, %._crit_edge1633, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit535, %880, %._crit_edge1612, %238, %.thread, %._crit_edge1641, %104, %33
+_ZN12aho_corasick9automaton16try_find_fwd_imp17h385fd259893979d0E.exit: ; preds = %479, %424, %334, %320, %319, %554, %555, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit485, %._crit_edge1591, %659, %717, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit505, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit555, %1086, %._crit_edge1633, %_ZN12aho_corasick4util6search5Match3new17h7d470bca2fe4b7baE.exit535, %880, %._crit_edge1612, %238, %.thread, %._crit_edge1641, %104, %33
   ret void
 
 244:                                              ; preds = %239

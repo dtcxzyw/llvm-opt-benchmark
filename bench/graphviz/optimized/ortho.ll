@@ -1048,16 +1048,13 @@ gv_alloc.exit.i:                                  ; preds = %.critedge.i
   %474 = load ptr, ptr %473, align 8, !tbaa !66
   %475 = load ptr, ptr %474, align 8, !tbaa !67
   %.not35.i = icmp eq ptr %475, null
-  br i1 %.not35.i, label %..critedge2.i.loopexit_crit_edge281, label %.lr.ph.i176, !llvm.loop !101
+  br i1 %.not35.i, label %.lr.ph.i176..critedge2.i.loopexit_crit_edge, label %.lr.ph.i176, !llvm.loop !101
 
-..critedge2.i.loopexit_crit_edge281:              ; preds = %.lr.ph457
+.lr.ph.i176..critedge2.i.loopexit_crit_edge:      ; preds = %.lr.ph457, %.lr.ph.i176
   br label %.critedge2.i, !llvm.loop !101
 
-.lr.ph.i176..critedge2.i.loopexit_crit_edge:      ; preds = %.lr.ph.i176
-  br label %.critedge2.i, !llvm.loop !101
-
-.critedge2.i:                                     ; preds = %.lr.ph278, %.lr.ph278.preheader, %.lr.ph.i176..critedge2.i.loopexit_crit_edge, %.lr.ph.i176.preheader, %..critedge2.i.loopexit_crit_edge281, %gv_alloc.exit.i
-  %.1.lcssa.i = phi ptr [ %.0.i, %gv_alloc.exit.i ], [ %.0.i, %.lr.ph.i176.preheader ], [ %471, %..critedge2.i.loopexit_crit_edge281 ], [ %.0.i, %.lr.ph278.preheader ], [ %471, %.lr.ph.i176..critedge2.i.loopexit_crit_edge ], [ %471, %.lr.ph278 ]
+.critedge2.i:                                     ; preds = %.lr.ph278, %.lr.ph278.preheader, %.lr.ph.i176..critedge2.i.loopexit_crit_edge, %.lr.ph.i176.preheader, %gv_alloc.exit.i
+  %.1.lcssa.i = phi ptr [ %.0.i, %gv_alloc.exit.i ], [ %.0.i, %.lr.ph.i176.preheader ], [ %471, %.lr.ph.i176..critedge2.i.loopexit_crit_edge ], [ %.0.i, %.lr.ph278.preheader ], [ %471, %.lr.ph278 ]
   %476 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 88
   %477 = load double, ptr %476, align 8, !tbaa !80
   %478 = getelementptr inbounds nuw i8, ptr %450, i64 24
@@ -1179,16 +1176,13 @@ gv_alloc.exit.i190:                               ; preds = %.critedge.i189
   %533 = getelementptr inbounds nuw i8, ptr %532, i64 8
   %534 = load ptr, ptr %533, align 8, !tbaa !67
   %.not35.i199 = icmp eq ptr %534, null
-  br i1 %.not35.i199, label %..critedge2.i196.loopexit_crit_edge288, label %.lr.ph.i192, !llvm.loop !106
+  br i1 %.not35.i199, label %.lr.ph.i192..critedge2.i196.loopexit_crit_edge, label %.lr.ph.i192, !llvm.loop !106
 
-..critedge2.i196.loopexit_crit_edge288:           ; preds = %.lr.ph460
+.lr.ph.i192..critedge2.i196.loopexit_crit_edge:   ; preds = %.lr.ph460, %.lr.ph.i192
   br label %.critedge2.i196, !llvm.loop !106
 
-.lr.ph.i192..critedge2.i196.loopexit_crit_edge:   ; preds = %.lr.ph.i192
-  br label %.critedge2.i196, !llvm.loop !106
-
-.critedge2.i196:                                  ; preds = %.lr.ph285, %.lr.ph285.preheader, %.lr.ph.i192..critedge2.i196.loopexit_crit_edge, %.lr.ph.i192.preheader, %..critedge2.i196.loopexit_crit_edge288, %gv_alloc.exit.i190
-  %.1.lcssa.i197 = phi ptr [ %.0.i185, %gv_alloc.exit.i190 ], [ %.0.i185, %.lr.ph.i192.preheader ], [ %529, %..critedge2.i196.loopexit_crit_edge288 ], [ %.0.i185, %.lr.ph285.preheader ], [ %529, %.lr.ph.i192..critedge2.i196.loopexit_crit_edge ], [ %529, %.lr.ph285 ]
+.critedge2.i196:                                  ; preds = %.lr.ph285, %.lr.ph285.preheader, %.lr.ph.i192..critedge2.i196.loopexit_crit_edge, %.lr.ph.i192.preheader, %gv_alloc.exit.i190
+  %.1.lcssa.i197 = phi ptr [ %.0.i185, %gv_alloc.exit.i190 ], [ %.0.i185, %.lr.ph.i192.preheader ], [ %529, %.lr.ph.i192..critedge2.i196.loopexit_crit_edge ], [ %.0.i185, %.lr.ph285.preheader ], [ %529, %.lr.ph285 ]
   %535 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i197, i64 96
   %536 = load double, ptr %535, align 8, !tbaa !79
   %537 = getelementptr inbounds nuw i8, ptr %507, i64 24
@@ -3549,11 +3543,11 @@ define internal fastcc range(i32 -1, 2) i32 @segCmp(ptr noundef readonly capture
   %17 = fcmp olt double %12, %8
   %18 = fcmp olt double %8, %6
   %or.cond = and i1 %18, %17
-  br i1 %or.cond, label %19, label %70
+  br i1 %or.cond, label %19, label %68
 
 19:                                               ; preds = %16
   %20 = fcmp olt double %6, %14
-  br i1 %20, label %21, label %36
+  br i1 %20, label %21, label %35
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -3569,422 +3563,404 @@ define internal fastcc range(i32 -1, 2) i32 @segCmp(ptr noundef readonly capture
 
 29:                                               ; preds = %25, %21
   %30 = icmp eq i32 %23, %3
-  br i1 %30, label %31, label %35
+  br i1 %30, label %31, label %103
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %33 = load i32, ptr %32, align 8, !tbaa !163
   %34 = icmp eq i32 %33, %2
-  br i1 %34, label %overlapSeg.exit, label %35
+  br i1 %34, label %overlapSeg.exit, label %103
 
-35:                                               ; preds = %31, %29
-  br label %overlapSeg.exit
+35:                                               ; preds = %19
+  %36 = fcmp ogt double %6, %14
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %38 = load i32, ptr %37, align 8, !tbaa !163
+  %39 = icmp eq i32 %38, %3
+  br i1 %36, label %40, label %51
 
-36:                                               ; preds = %19
-  %37 = fcmp ogt double %6, %14
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %39 = load i32, ptr %38, align 8, !tbaa !163
-  %40 = icmp eq i32 %39, %3
-  br i1 %37, label %41, label %53
+40:                                               ; preds = %35
+  br i1 %39, label %41, label %45
 
-41:                                               ; preds = %36
-  br i1 %40, label %42, label %46
+41:                                               ; preds = %40
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %43 = load i32, ptr %42, align 4, !tbaa !164
+  %44 = icmp eq i32 %43, %3
+  br i1 %44, label %overlapSeg.exit, label %45
 
-42:                                               ; preds = %41
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %44 = load i32, ptr %43, align 4, !tbaa !164
-  %45 = icmp eq i32 %44, %3
-  br i1 %45, label %overlapSeg.exit, label %46
+45:                                               ; preds = %41, %40
+  %46 = icmp eq i32 %38, %2
+  br i1 %46, label %47, label %103
 
-46:                                               ; preds = %42, %41
-  %47 = icmp eq i32 %39, %2
-  br i1 %47, label %48, label %52
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %49 = load i32, ptr %48, align 4, !tbaa !164
+  %50 = icmp eq i32 %49, %2
+  br i1 %50, label %overlapSeg.exit, label %103
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %50 = load i32, ptr %49, align 4, !tbaa !164
-  %51 = icmp eq i32 %50, %2
-  br i1 %51, label %overlapSeg.exit, label %52
+51:                                               ; preds = %35
+  br i1 %39, label %52, label %60
 
-52:                                               ; preds = %48, %46
-  br label %overlapSeg.exit
-
-53:                                               ; preds = %36
-  br i1 %40, label %54, label %62
-
-54:                                               ; preds = %53
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 36
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %54 = load i32, ptr %53, align 4, !tbaa !164
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %56 = load i32, ptr %55, align 4, !tbaa !164
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %58 = load i32, ptr %57, align 4, !tbaa !164
-  %59 = icmp ne i32 %56, %3
-  %.not.i.i = icmp eq i32 %58, %3
-  %or.cond.i.i = or i1 %59, %.not.i.i
-  %60 = icmp ne i32 %56, 0
-  %61 = icmp ne i32 %58, %2
-  %or.cond9.not.i.i = or i1 %60, %61
+  %57 = icmp ne i32 %54, %3
+  %.not.i.i = icmp eq i32 %56, %3
+  %or.cond.i.i = or i1 %57, %.not.i.i
+  %58 = icmp ne i32 %54, 0
+  %59 = icmp ne i32 %56, %2
+  %or.cond9.not.i.i = or i1 %58, %59
   %narrow.i.i = and i1 %or.cond9.not.i.i, %or.cond.i.i
   %.0.i.i = sext i1 %narrow.i.i to i32
   br label %overlapSeg.exit
 
-62:                                               ; preds = %53
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 36
+60:                                               ; preds = %51
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %62 = load i32, ptr %61, align 4, !tbaa !164
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %64 = load i32, ptr %63, align 4, !tbaa !164
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %66 = load i32, ptr %65, align 4, !tbaa !164
-  %67 = icmp ne i32 %64, %3
-  %.not.i34.i = icmp eq i32 %66, %3
-  %or.cond.i35.i = or i1 %67, %.not.i34.i
-  %68 = icmp ne i32 %64, 0
-  %69 = icmp ne i32 %66, %2
-  %or.cond9.not.i36.i = or i1 %68, %69
+  %65 = icmp ne i32 %62, %3
+  %.not.i34.i = icmp eq i32 %64, %3
+  %or.cond.i35.i = or i1 %65, %.not.i34.i
+  %66 = icmp ne i32 %62, 0
+  %67 = icmp ne i32 %64, %2
+  %or.cond9.not.i36.i = or i1 %66, %67
   %narrow.i37.i = and i1 %or.cond9.not.i36.i, %or.cond.i35.i
   %.0.i38.neg.i = zext i1 %narrow.i37.i to i32
   br label %overlapSeg.exit
 
-70:                                               ; preds = %16
-  %71 = fcmp olt double %8, %12
-  %72 = fcmp olt double %12, %14
-  %or.cond186 = and i1 %71, %72
-  br i1 %or.cond186, label %73, label %124
+68:                                               ; preds = %16
+  %69 = fcmp olt double %8, %12
+  %70 = fcmp olt double %12, %14
+  %or.cond186 = and i1 %69, %70
+  br i1 %or.cond186, label %71, label %121
 
-73:                                               ; preds = %70
-  %74 = fcmp olt double %14, %6
-  br i1 %74, label %75, label %90
+71:                                               ; preds = %68
+  %72 = fcmp olt double %14, %6
+  br i1 %72, label %73, label %87
 
-75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %77 = load i32, ptr %76, align 4, !tbaa !164
-  %78 = icmp eq i32 %77, %2
-  br i1 %78, label %79, label %83
+73:                                               ; preds = %71
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %75 = load i32, ptr %74, align 4, !tbaa !164
+  %76 = icmp eq i32 %75, %2
+  br i1 %76, label %77, label %81
 
-79:                                               ; preds = %75
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %81 = load i32, ptr %80, align 8, !tbaa !163
-  %82 = icmp eq i32 %81, %3
-  br i1 %82, label %overlapSeg.exit, label %83
+77:                                               ; preds = %73
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %79 = load i32, ptr %78, align 8, !tbaa !163
+  %80 = icmp eq i32 %79, %3
+  br i1 %80, label %overlapSeg.exit, label %81
 
-83:                                               ; preds = %79, %75
-  %84 = icmp eq i32 %77, %3
-  br i1 %84, label %85, label %89
+81:                                               ; preds = %77, %73
+  %82 = icmp eq i32 %75, %3
+  br i1 %82, label %83, label %103
 
-85:                                               ; preds = %83
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %87 = load i32, ptr %86, align 8, !tbaa !163
-  %88 = icmp eq i32 %87, %2
-  br i1 %88, label %overlapSeg.exit, label %89
+83:                                               ; preds = %81
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %85 = load i32, ptr %84, align 8, !tbaa !163
+  %86 = icmp eq i32 %85, %2
+  br i1 %86, label %overlapSeg.exit, label %103
 
-89:                                               ; preds = %85, %83
+87:                                               ; preds = %71
+  %88 = fcmp ogt double %14, %6
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %90 = load i32, ptr %89, align 8, !tbaa !163
+  %91 = icmp eq i32 %90, %3
+  br i1 %88, label %92, label %104
+
+92:                                               ; preds = %87
+  br i1 %91, label %93, label %97
+
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %95 = load i32, ptr %94, align 4, !tbaa !164
+  %96 = icmp eq i32 %95, %3
+  br i1 %96, label %overlapSeg.exit, label %97
+
+97:                                               ; preds = %93, %92
+  %98 = icmp eq i32 %90, %2
+  br i1 %98, label %99, label %103
+
+99:                                               ; preds = %97
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %101 = load i32, ptr %100, align 4, !tbaa !164
+  %102 = icmp eq i32 %101, %2
+  br i1 %102, label %overlapSeg.exit, label %103
+
+103:                                              ; preds = %148, %149, %158, %157, %167, %166, %29, %31, %45, %47, %99, %97, %83, %81
   br label %overlapSeg.exit
 
-90:                                               ; preds = %73
-  %91 = fcmp ogt double %14, %6
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %93 = load i32, ptr %92, align 8, !tbaa !163
-  %94 = icmp eq i32 %93, %3
-  br i1 %91, label %95, label %107
+104:                                              ; preds = %87
+  br i1 %91, label %105, label %113
 
-95:                                               ; preds = %90
-  br i1 %94, label %96, label %100
-
-96:                                               ; preds = %95
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %98 = load i32, ptr %97, align 4, !tbaa !164
-  %99 = icmp eq i32 %98, %3
-  br i1 %99, label %overlapSeg.exit, label %100
-
-100:                                              ; preds = %96, %95
-  %101 = icmp eq i32 %93, %2
-  br i1 %101, label %102, label %106
-
-102:                                              ; preds = %100
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %104 = load i32, ptr %103, align 4, !tbaa !164
-  %105 = icmp eq i32 %104, %2
-  br i1 %105, label %overlapSeg.exit, label %106
-
-106:                                              ; preds = %102, %100
-  br label %overlapSeg.exit
-
-107:                                              ; preds = %90
-  br i1 %94, label %108, label %116
-
-108:                                              ; preds = %107
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %110 = load i32, ptr %109, align 4, !tbaa !164
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %112 = load i32, ptr %111, align 4, !tbaa !164
-  %113 = icmp ne i32 %110, %3
-  %.not.i.i153 = icmp eq i32 %112, %3
-  %or.cond.i.i154 = or i1 %113, %.not.i.i153
-  %114 = icmp ne i32 %110, 0
-  %115 = icmp ne i32 %112, %2
-  %or.cond9.not.i.i155 = or i1 %114, %115
+105:                                              ; preds = %104
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %107 = load i32, ptr %106, align 4, !tbaa !164
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %109 = load i32, ptr %108, align 4, !tbaa !164
+  %110 = icmp ne i32 %107, %3
+  %.not.i.i153 = icmp eq i32 %109, %3
+  %or.cond.i.i154 = or i1 %110, %.not.i.i153
+  %111 = icmp ne i32 %107, 0
+  %112 = icmp ne i32 %109, %2
+  %or.cond9.not.i.i155 = or i1 %111, %112
   %narrow.i.i156 = and i1 %or.cond9.not.i.i155, %or.cond.i.i154
   %.0.i.i157.neg = zext i1 %narrow.i.i156 to i32
   br label %overlapSeg.exit
 
-116:                                              ; preds = %107
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %118 = load i32, ptr %117, align 4, !tbaa !164
-  %119 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %120 = load i32, ptr %119, align 4, !tbaa !164
-  %121 = icmp ne i32 %118, %3
-  %.not.i34.i147 = icmp eq i32 %120, %3
-  %or.cond.i35.i148 = or i1 %121, %.not.i34.i147
-  %122 = icmp ne i32 %118, 0
-  %123 = icmp ne i32 %120, %2
-  %or.cond9.not.i36.i149 = or i1 %122, %123
+113:                                              ; preds = %104
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %115 = load i32, ptr %114, align 4, !tbaa !164
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %117 = load i32, ptr %116, align 4, !tbaa !164
+  %118 = icmp ne i32 %115, %3
+  %.not.i34.i147 = icmp eq i32 %117, %3
+  %or.cond.i35.i148 = or i1 %118, %.not.i34.i147
+  %119 = icmp ne i32 %115, 0
+  %120 = icmp ne i32 %117, %2
+  %or.cond9.not.i36.i149 = or i1 %119, %120
   %narrow.i37.i150 = and i1 %or.cond9.not.i36.i149, %or.cond.i35.i148
   %.0.i38.neg.i151.neg = sext i1 %narrow.i37.i150 to i32
   br label %overlapSeg.exit
 
-124:                                              ; preds = %70
-  %125 = fcmp oeq double %12, %8
-  br i1 %125, label %126, label %225
+121:                                              ; preds = %68
+  %122 = fcmp oeq double %12, %8
+  br i1 %122, label %123, label %219
 
-126:                                              ; preds = %124
-  %127 = fcmp oeq double %6, %14
-  br i1 %127, label %128, label %197
+123:                                              ; preds = %121
+  %124 = fcmp oeq double %6, %14
+  br i1 %124, label %125, label %191
 
-128:                                              ; preds = %126
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %130 = load i32, ptr %129, align 8, !tbaa !163
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %132 = load i32, ptr %131, align 8, !tbaa !163
-  %133 = icmp eq i32 %130, %132
-  br i1 %133, label %134, label %._crit_edge
+125:                                              ; preds = %123
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %127 = load i32, ptr %126, align 8, !tbaa !163
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %129 = load i32, ptr %128, align 8, !tbaa !163
+  %130 = icmp eq i32 %127, %129
+  br i1 %130, label %131, label %._crit_edge
 
-._crit_edge:                                      ; preds = %128
+._crit_edge:                                      ; preds = %125
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 36
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !164
-  br label %140
+  br label %137
 
-134:                                              ; preds = %128
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %136 = load i32, ptr %135, align 4, !tbaa !164
-  %137 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %138 = load i32, ptr %137, align 4, !tbaa !164
-  %139 = icmp eq i32 %136, %138
-  br i1 %139, label %overlapSeg.exit, label %140
+131:                                              ; preds = %125
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %133 = load i32, ptr %132, align 4, !tbaa !164
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %135 = load i32, ptr %134, align 4, !tbaa !164
+  %136 = icmp eq i32 %133, %135
+  br i1 %136, label %overlapSeg.exit, label %137
 
-140:                                              ; preds = %._crit_edge, %134
-  %141 = phi i32 [ %.pre, %._crit_edge ], [ %138, %134 ]
-  %142 = icmp eq i32 %132, %141
-  %143 = icmp eq i32 %132, %2
-  br i1 %142, label %144, label %156
+137:                                              ; preds = %._crit_edge, %131
+  %138 = phi i32 [ %.pre, %._crit_edge ], [ %135, %131 ]
+  %139 = icmp eq i32 %129, %138
+  %140 = icmp eq i32 %129, %2
+  br i1 %139, label %141, label %152
 
-144:                                              ; preds = %140
-  br i1 %143, label %overlapSeg.exit, label %145
+141:                                              ; preds = %137
+  br i1 %140, label %overlapSeg.exit, label %142
+
+142:                                              ; preds = %141
+  %143 = icmp eq i32 %129, %3
+  br i1 %143, label %overlapSeg.exit, label %144
+
+144:                                              ; preds = %142
+  %.not141 = icmp eq i32 %127, %2
+  br i1 %.not141, label %148, label %145
 
 145:                                              ; preds = %144
-  %146 = icmp eq i32 %132, %3
-  br i1 %146, label %overlapSeg.exit, label %147
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %147 = load i32, ptr %146, align 4, !tbaa !164
+  %.not142 = icmp eq i32 %147, %2
+  br i1 %.not142, label %148, label %overlapSeg.exit
 
-147:                                              ; preds = %145
-  %.not141 = icmp eq i32 %130, %2
-  br i1 %.not141, label %151, label %148
+148:                                              ; preds = %145, %144
+  %.not143 = icmp eq i32 %127, %3
+  br i1 %.not143, label %103, label %149
 
-148:                                              ; preds = %147
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %150 = load i32, ptr %149, align 4, !tbaa !164
-  %.not142 = icmp eq i32 %150, %2
-  br i1 %.not142, label %151, label %overlapSeg.exit
+149:                                              ; preds = %148
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %151 = load i32, ptr %150, align 4, !tbaa !164
+  %.not144 = icmp eq i32 %151, %3
+  br i1 %.not144, label %103, label %overlapSeg.exit
 
-151:                                              ; preds = %148, %147
-  %.not143 = icmp eq i32 %130, %3
-  br i1 %.not143, label %155, label %152
+152:                                              ; preds = %137
+  %153 = icmp eq i32 %138, %3
+  %or.cond145 = and i1 %140, %153
+  br i1 %or.cond145, label %154, label %159
 
-152:                                              ; preds = %151
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %154 = load i32, ptr %153, align 4, !tbaa !164
-  %.not144 = icmp eq i32 %154, %3
-  br i1 %.not144, label %155, label %overlapSeg.exit
+154:                                              ; preds = %152
+  %.not139 = icmp eq i32 %127, %2
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %156 = load i32, ptr %155, align 4, !tbaa !164
+  %.not140 = icmp eq i32 %156, %3
+  br i1 %.not139, label %158, label %157
 
-155:                                              ; preds = %152, %151
-  br label %overlapSeg.exit
+157:                                              ; preds = %154
+  br i1 %.not140, label %overlapSeg.exit, label %103
 
-156:                                              ; preds = %140
-  %157 = icmp eq i32 %141, %3
-  %or.cond145 = and i1 %143, %157
-  br i1 %or.cond145, label %158, label %164
+158:                                              ; preds = %154
+  br i1 %.not140, label %103, label %overlapSeg.exit
 
-158:                                              ; preds = %156
-  %.not139 = icmp eq i32 %130, %2
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %160 = load i32, ptr %159, align 4, !tbaa !164
-  %.not140 = icmp eq i32 %160, %3
-  br i1 %.not139, label %162, label %161
+159:                                              ; preds = %152
+  %160 = icmp eq i32 %138, %2
+  br i1 %160, label %161, label %.thread183
 
-161:                                              ; preds = %158
-  br i1 %.not140, label %overlapSeg.exit, label %163
+161:                                              ; preds = %159
+  %162 = icmp eq i32 %129, %3
+  br i1 %162, label %163, label %168
 
-162:                                              ; preds = %158
-  br i1 %.not140, label %163, label %overlapSeg.exit
+163:                                              ; preds = %161
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %165 = load i32, ptr %164, align 4, !tbaa !164
+  %.not = icmp eq i32 %165, %2
+  %.not138 = icmp eq i32 %127, %3
+  br i1 %.not, label %167, label %166
 
-163:                                              ; preds = %161, %162
-  br label %overlapSeg.exit
+166:                                              ; preds = %163
+  br i1 %.not138, label %overlapSeg.exit, label %103
 
-164:                                              ; preds = %156
-  %165 = icmp eq i32 %141, %2
-  br i1 %165, label %166, label %.thread183
+167:                                              ; preds = %163
+  br i1 %.not138, label %103, label %overlapSeg.exit
 
-166:                                              ; preds = %164
-  %167 = icmp eq i32 %132, %3
-  br i1 %167, label %168, label %174
+168:                                              ; preds = %161
+  %169 = icmp eq i32 %129, 0
+  br i1 %169, label %171, label %.thread185.thread
 
-168:                                              ; preds = %166
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %170 = load i32, ptr %169, align 4, !tbaa !164
-  %.not = icmp eq i32 %170, %2
-  %.not138 = icmp eq i32 %130, %3
-  br i1 %.not, label %172, label %171
+.thread183:                                       ; preds = %159
+  %170 = icmp eq i32 %129, 0
+  %brmerge.not = and i1 %170, %153
+  br i1 %brmerge.not, label %176, label %.thread185
 
 171:                                              ; preds = %168
-  br i1 %.not138, label %overlapSeg.exit, label %173
-
-172:                                              ; preds = %168
-  br i1 %.not138, label %173, label %overlapSeg.exit
-
-173:                                              ; preds = %171, %172
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %173 = load i32, ptr %172, align 4, !tbaa !164
+  %174 = icmp eq i32 %127, %2
+  %175 = icmp eq i32 %173, %2
+  %..i = sext i1 %175 to i32
+  %.0.i159 = select i1 %174, i32 %..i, i32 1
   br label %overlapSeg.exit
 
-174:                                              ; preds = %166
-  %175 = icmp eq i32 %132, 0
-  br i1 %175, label %177, label %.thread185.thread
-
-.thread183:                                       ; preds = %164
-  %176 = icmp eq i32 %132, 0
-  %brmerge.not = and i1 %176, %157
-  br i1 %brmerge.not, label %182, label %.thread185
-
-177:                                              ; preds = %174
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %179 = load i32, ptr %178, align 4, !tbaa !164
-  %180 = icmp eq i32 %130, %2
-  %181 = icmp eq i32 %179, %2
-  %..i = sext i1 %181 to i32
-  %.0.i159 = select i1 %180, i32 %..i, i32 1
-  br label %overlapSeg.exit
-
-182:                                              ; preds = %.thread183
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %184 = load i32, ptr %183, align 4, !tbaa !164
-  %185 = icmp eq i32 %130, %3
-  %186 = icmp eq i32 %184, %3
-  %..i160.neg = zext i1 %186 to i32
-  %.0.i161.neg = select i1 %185, i32 %..i160.neg, i32 -1
+176:                                              ; preds = %.thread183
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %178 = load i32, ptr %177, align 4, !tbaa !164
+  %179 = icmp eq i32 %127, %3
+  %180 = icmp eq i32 %178, %3
+  %..i160.neg = zext i1 %180 to i32
+  %.0.i161.neg = select i1 %179, i32 %..i160.neg, i32 -1
   br label %overlapSeg.exit
 
 .thread185:                                       ; preds = %.thread183
-  %187 = icmp eq i32 %141, 0
-  %or.cond189 = and i1 %143, %187
-  br i1 %or.cond189, label %188, label %.thread185.thread
+  %181 = icmp eq i32 %138, 0
+  %or.cond189 = and i1 %140, %181
+  br i1 %or.cond189, label %182, label %.thread185.thread
 
-188:                                              ; preds = %.thread185
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %190 = load i32, ptr %189, align 4, !tbaa !164
-  %191 = icmp eq i32 %190, %2
-  %192 = icmp eq i32 %130, %2
-  %..i162 = sext i1 %192 to i32
-  %.0.i163 = select i1 %191, i32 %..i162, i32 1
+182:                                              ; preds = %.thread185
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %184 = load i32, ptr %183, align 4, !tbaa !164
+  %185 = icmp eq i32 %184, %2
+  %186 = icmp eq i32 %127, %2
+  %..i162 = sext i1 %186 to i32
+  %.0.i163 = select i1 %185, i32 %..i162, i32 1
   br label %overlapSeg.exit
 
-.thread185.thread:                                ; preds = %174, %.thread185
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %194 = load i32, ptr %193, align 4, !tbaa !164
-  %195 = icmp eq i32 %194, %3
-  %196 = icmp eq i32 %130, %3
-  %..i164.neg = zext i1 %196 to i32
-  %.0.i165.neg = select i1 %195, i32 %..i164.neg, i32 -1
+.thread185.thread:                                ; preds = %168, %.thread185
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %188 = load i32, ptr %187, align 4, !tbaa !164
+  %189 = icmp eq i32 %188, %3
+  %190 = icmp eq i32 %127, %3
+  %..i164.neg = zext i1 %190 to i32
+  %.0.i165.neg = select i1 %189, i32 %..i164.neg, i32 -1
   br label %overlapSeg.exit
 
-197:                                              ; preds = %126
-  %198 = fcmp olt double %6, %14
-  br i1 %198, label %199, label %212
+191:                                              ; preds = %123
+  %192 = fcmp olt double %6, %14
+  br i1 %192, label %193, label %206
 
-199:                                              ; preds = %197
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %201 = load i32, ptr %200, align 4, !tbaa !164
-  %202 = icmp eq i32 %201, %2
-  %203 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %204 = load i32, ptr %203, align 8, !tbaa !163
-  %205 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %206 = load i32, ptr %205, align 8, !tbaa !163
-  %207 = icmp ne i32 %204, %3
-  %.not.i = icmp eq i32 %206, %3
-  %or.cond.i = or i1 %207, %.not.i
-  %208 = icmp ne i32 %204, 0
-  %209 = icmp ne i32 %206, %2
-  %or.cond9.not.i = or i1 %208, %209
+193:                                              ; preds = %191
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %195 = load i32, ptr %194, align 4, !tbaa !164
+  %196 = icmp eq i32 %195, %2
+  %197 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %198 = load i32, ptr %197, align 8, !tbaa !163
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %200 = load i32, ptr %199, align 8, !tbaa !163
+  %201 = icmp ne i32 %198, %3
+  %.not.i = icmp eq i32 %200, %3
+  %or.cond.i = or i1 %201, %.not.i
+  %202 = icmp ne i32 %198, 0
+  %203 = icmp ne i32 %200, %2
+  %or.cond9.not.i = or i1 %202, %203
   %narrow.i = and i1 %or.cond9.not.i, %or.cond.i
-  br i1 %202, label %210, label %211
+  br i1 %196, label %204, label %205
 
-210:                                              ; preds = %199
+204:                                              ; preds = %193
   %.0.i166 = sext i1 %narrow.i to i32
   br label %overlapSeg.exit
 
-211:                                              ; preds = %199
+205:                                              ; preds = %193
   %.0.i171.neg = zext i1 %narrow.i to i32
   br label %overlapSeg.exit
 
-212:                                              ; preds = %197
-  %213 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %214 = load i32, ptr %213, align 4, !tbaa !164
-  %215 = icmp eq i32 %214, %3
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %217 = load i32, ptr %216, align 8, !tbaa !163
-  %218 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %219 = load i32, ptr %218, align 8, !tbaa !163
-  %220 = icmp ne i32 %217, %3
-  %.not.i172 = icmp eq i32 %219, %3
-  %or.cond.i173 = or i1 %220, %.not.i172
-  %221 = icmp ne i32 %217, 0
-  %222 = icmp ne i32 %219, %2
-  %or.cond9.not.i174 = or i1 %221, %222
+206:                                              ; preds = %191
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %208 = load i32, ptr %207, align 4, !tbaa !164
+  %209 = icmp eq i32 %208, %3
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %211 = load i32, ptr %210, align 8, !tbaa !163
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %213 = load i32, ptr %212, align 8, !tbaa !163
+  %214 = icmp ne i32 %211, %3
+  %.not.i172 = icmp eq i32 %213, %3
+  %or.cond.i173 = or i1 %214, %.not.i172
+  %215 = icmp ne i32 %211, 0
+  %216 = icmp ne i32 %213, %2
+  %or.cond9.not.i174 = or i1 %215, %216
   %narrow.i175 = and i1 %or.cond9.not.i174, %or.cond.i173
-  br i1 %215, label %223, label %224
+  br i1 %209, label %217, label %218
 
-223:                                              ; preds = %212
+217:                                              ; preds = %206
   %.0.i176 = sext i1 %narrow.i175 to i32
   br label %overlapSeg.exit
 
-224:                                              ; preds = %212
+218:                                              ; preds = %206
   %.0.i181.neg = zext i1 %narrow.i175 to i32
   br label %overlapSeg.exit
 
-225:                                              ; preds = %124
-  %226 = fcmp oeq double %6, %8
-  br i1 %226, label %227, label %235
+219:                                              ; preds = %121
+  %220 = fcmp oeq double %6, %8
+  br i1 %220, label %221, label %229
 
-227:                                              ; preds = %225
-  %228 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %229 = load i32, ptr %228, align 4, !tbaa !164
-  %230 = getelementptr inbounds nuw i8, ptr %1, i64 32
+221:                                              ; preds = %219
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %223 = load i32, ptr %222, align 4, !tbaa !164
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %225 = load i32, ptr %224, align 8, !tbaa !163
+  %226 = icmp eq i32 %223, %225
+  br i1 %226, label %overlapSeg.exit, label %227
+
+227:                                              ; preds = %221
+  %228 = icmp eq i32 %223, %3
+  %. = select i1 %228, i32 1, i32 -1
+  br label %overlapSeg.exit
+
+229:                                              ; preds = %219
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %231 = load i32, ptr %230, align 8, !tbaa !163
-  %232 = icmp eq i32 %229, %231
-  br i1 %232, label %overlapSeg.exit, label %233
+  %232 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %233 = load i32, ptr %232, align 4, !tbaa !164
+  %234 = icmp eq i32 %231, %233
+  br i1 %234, label %overlapSeg.exit, label %235
 
-233:                                              ; preds = %227
-  %234 = icmp eq i32 %229, %3
-  %. = select i1 %234, i32 1, i32 -1
+235:                                              ; preds = %229
+  %236 = icmp eq i32 %231, %3
+  %.146 = select i1 %236, i32 1, i32 -1
   br label %overlapSeg.exit
 
-235:                                              ; preds = %225
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %237 = load i32, ptr %236, align 8, !tbaa !163
-  %238 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %239 = load i32, ptr %238, align 4, !tbaa !164
-  %240 = icmp eq i32 %237, %239
-  br i1 %240, label %overlapSeg.exit, label %241
-
-241:                                              ; preds = %235
-  %242 = icmp eq i32 %237, %3
-  %.146 = select i1 %242, i32 1, i32 -1
-  br label %overlapSeg.exit
-
-overlapSeg.exit:                                  ; preds = %116, %108, %106, %102, %96, %89, %85, %79, %62, %54, %52, %48, %42, %35, %31, %25, %241, %235, %233, %227, %172, %171, %162, %161, %152, %148, %145, %144, %134, %4, %10, %224, %223, %211, %210, %.thread185.thread, %188, %182, %177, %173, %163, %155
-  %.0 = phi i32 [ 0, %235 ], [ %.146, %241 ], [ 1, %48 ], [ 0, %4 ], [ 0, %134 ], [ 1, %144 ], [ -1, %145 ], [ 1, %148 ], [ 0, %155 ], [ -1, %152 ], [ 1, %161 ], [ 0, %163 ], [ -1, %162 ], [ 1, %171 ], [ 0, %173 ], [ %.0.i159, %177 ], [ %.0.i161.neg, %182 ], [ %.0.i163, %188 ], [ %.0.i165.neg, %.thread185.thread ], [ %.0.i166, %210 ], [ %.0.i171.neg, %211 ], [ %.0.i176, %223 ], [ %.0.i181.neg, %224 ], [ -1, %172 ], [ %., %233 ], [ 0, %227 ], [ 0, %10 ], [ %.0.i38.neg.i, %62 ], [ -1, %25 ], [ 0, %35 ], [ 1, %31 ], [ -1, %42 ], [ 0, %52 ], [ %.0.i.i, %54 ], [ %.0.i38.neg.i151.neg, %116 ], [ 1, %79 ], [ 0, %89 ], [ -1, %85 ], [ 1, %96 ], [ 0, %106 ], [ %.0.i.i157.neg, %108 ], [ -1, %102 ]
+overlapSeg.exit:                                  ; preds = %113, %105, %103, %99, %93, %83, %77, %60, %52, %47, %41, %31, %25, %235, %229, %227, %221, %167, %166, %158, %157, %149, %145, %142, %141, %131, %4, %10, %218, %217, %205, %204, %.thread185.thread, %182, %176, %171
+  %.0 = phi i32 [ 0, %229 ], [ %.146, %235 ], [ %.0.i.i, %52 ], [ 0, %4 ], [ 0, %131 ], [ 1, %141 ], [ -1, %142 ], [ 1, %145 ], [ 0, %103 ], [ -1, %149 ], [ 1, %157 ], [ 1, %93 ], [ -1, %158 ], [ 1, %166 ], [ -1, %83 ], [ %.0.i159, %171 ], [ %.0.i161.neg, %176 ], [ %.0.i163, %182 ], [ %.0.i165.neg, %.thread185.thread ], [ %.0.i166, %204 ], [ %.0.i171.neg, %205 ], [ %.0.i176, %217 ], [ %.0.i181.neg, %218 ], [ -1, %167 ], [ %., %227 ], [ 0, %221 ], [ 0, %10 ], [ %.0.i38.neg.i, %60 ], [ -1, %25 ], [ 1, %47 ], [ 1, %31 ], [ -1, %41 ], [ %.0.i.i157.neg, %105 ], [ %.0.i38.neg.i151.neg, %113 ], [ 1, %77 ], [ -1, %99 ]
   ret i32 %.0
 }
 

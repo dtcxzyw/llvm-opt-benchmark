@@ -3656,7 +3656,7 @@ indentation.exit690:                              ; preds = %723, %725
   %.not631 = icmp eq ptr %728, null
   br i1 %.not631, label %.thread, label %realloc_and_append.exit.thread
 
-.thread:                                          ; preds = %572, %560, %563, %566, %569, %620, %630, %638, %641, %indentation.exit690, %715, %indentation.exit689, %657, %659, %666, %671, %673, %684, %688, %691, %694, %699, %701, %708, %713, %705, %663, %644, %635, %indentation.exit688, %606, %indentation.exit687, %591, %indentation.exit, %727
+.thread:                                          ; preds = %768, %indentation.exit691, %740, %indentation.exit692, %758, %indentation.exit693, %572, %560, %563, %566, %569, %620, %630, %638, %641, %indentation.exit690, %715, %indentation.exit689, %657, %659, %666, %671, %673, %684, %688, %691, %694, %699, %701, %708, %713, %705, %663, %644, %635, %indentation.exit688, %606, %indentation.exit687, %591, %indentation.exit, %727
   br label %realloc_and_append.exit.thread
 
 729:                                              ; preds = %51
@@ -3684,14 +3684,14 @@ indentation.exit691:                              ; preds = %736, %738
   %739 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.036.i710, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %.not606 = icmp eq ptr %739, null
-  br i1 %.not606, label %.thread715, label %740
+  br i1 %.not606, label %.thread, label %740
 
 740:                                              ; preds = %indentation.exit691
   %741 = call i64 @H5Tget_size(i64 noundef %0) #21
   %742 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %25, i64 noundef 256, ptr noundef nonnull @.str.56, i64 noundef %741) #21
   %743 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %739, ptr noundef nonnull %25)
   %.not607 = icmp eq ptr %743, null
-  br i1 %.not607, label %.thread715, label %744
+  br i1 %.not607, label %.thread, label %744
 
 744:                                              ; preds = %740
   %745 = load i64, ptr @indent, align 8, !tbaa !15
@@ -3714,7 +3714,7 @@ indentation.exit692:                              ; preds = %748, %750
   %751 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %743, ptr noundef nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %.not608 = icmp eq ptr %751, null
-  br i1 %.not608, label %.thread715, label %752
+  br i1 %.not608, label %.thread, label %752
 
 752:                                              ; preds = %indentation.exit692
   %753 = call ptr @H5Tget_tag(i64 noundef %0) #21
@@ -3733,7 +3733,7 @@ indentation.exit692:                              ; preds = %748, %750
 758:                                              ; preds = %757, %754
   %759 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %751, ptr noundef nonnull %25)
   %.not610 = icmp eq ptr %759, null
-  br i1 %.not610, label %.thread715, label %760
+  br i1 %.not610, label %.thread, label %760
 
 760:                                              ; preds = %758
   %761 = load i64, ptr @indent, align 8, !tbaa !15
@@ -3757,16 +3757,13 @@ indentation.exit693:                              ; preds = %764, %766
   %767 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %759, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.not611 = icmp eq ptr %767, null
-  br i1 %.not611, label %.thread715, label %768
+  br i1 %.not611, label %.thread, label %768
 
 768:                                              ; preds = %indentation.exit693
   store i16 125, ptr %25, align 16
   %769 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %767, ptr noundef nonnull %25)
   %.not612 = icmp eq ptr %769, null
-  br i1 %.not612, label %.thread715, label %realloc_and_append.exit.thread
-
-.thread715:                                       ; preds = %indentation.exit693, %758, %indentation.exit692, %740, %indentation.exit691, %768
-  br label %realloc_and_append.exit.thread
+  br i1 %.not612, label %.thread, label %realloc_and_append.exit.thread
 
 770:                                              ; preds = %51
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
@@ -4465,8 +4462,8 @@ indentation.exit704:                              ; preds = %1008, %1010
   %1037 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.036.i710, i64 noundef %1036, ptr noundef nonnull @.str.74) #21
   br label %realloc_and_append.exit.thread
 
-realloc_and_append.exit.thread:                   ; preds = %32, %44, %45, %realloc_and_append.exit, %48, %.thread, %.thread715, %.thread720, %.thread725, %.thread730, %.thread736, %.thread741, %1014, %974, %905, %852, %812, %768, %727, %1015, %1035, %77, %105, %133, %161, %189, %217, %245, %273, %301, %329, %357, %385, %414, %416, %399, %371, %343, %315, %287, %259, %231, %203, %175, %147, %119, %91, %63, %443, %471, %499, %527, %556, %558, %541, %513, %485, %457, %429, %1033, %1031, %51
-  %.0 = phi ptr [ %769, %768 ], [ %.036.i710, %1035 ], [ %.036.i710, %63 ], [ %.036.i710, %77 ], [ %.036.i710, %91 ], [ %.036.i710, %105 ], [ %.036.i710, %119 ], [ %.036.i710, %133 ], [ %.036.i710, %147 ], [ %.036.i710, %161 ], [ %.036.i710, %175 ], [ %.036.i710, %189 ], [ %.036.i710, %203 ], [ %.036.i710, %217 ], [ %.036.i710, %231 ], [ %.036.i710, %245 ], [ %.036.i710, %259 ], [ %.036.i710, %273 ], [ %.036.i710, %287 ], [ %.036.i710, %301 ], [ %.036.i710, %315 ], [ %.036.i710, %329 ], [ %.036.i710, %343 ], [ %.036.i710, %357 ], [ %.036.i710, %371 ], [ %.036.i710, %385 ], [ %.036.i710, %399 ], [ %.036.i710, %414 ], [ %.036.i710, %416 ], [ %.036.i710, %429 ], [ %.036.i710, %443 ], [ %.036.i710, %457 ], [ %.036.i710, %471 ], [ %.036.i710, %485 ], [ %.036.i710, %499 ], [ %.036.i710, %513 ], [ %.036.i710, %527 ], [ %.036.i710, %541 ], [ %.036.i710, %556 ], [ %.036.i710, %558 ], [ %.036.i710, %1033 ], [ %728, %727 ], [ %811, %812 ], [ %851, %852 ], [ %904, %905 ], [ %973, %974 ], [ %1013, %1014 ], [ %.036.i710, %1015 ], [ %.036.i710, %51 ], [ %.036.i710, %1031 ], [ null, %.thread741 ], [ null, %.thread736 ], [ null, %.thread730 ], [ null, %.thread725 ], [ null, %.thread720 ], [ null, %.thread715 ], [ null, %.thread ], [ null, %45 ], [ null, %48 ], [ null, %realloc_and_append.exit ], [ null, %44 ], [ null, %32 ]
+realloc_and_append.exit.thread:                   ; preds = %32, %44, %45, %realloc_and_append.exit, %48, %.thread, %.thread720, %.thread725, %.thread730, %.thread736, %.thread741, %1014, %974, %905, %852, %812, %768, %727, %1015, %1035, %77, %105, %133, %161, %189, %217, %245, %273, %301, %329, %357, %385, %414, %416, %399, %371, %343, %315, %287, %259, %231, %203, %175, %147, %119, %91, %63, %443, %471, %499, %527, %556, %558, %541, %513, %485, %457, %429, %1033, %1031, %51
+  %.0 = phi ptr [ %769, %768 ], [ %.036.i710, %1035 ], [ %.036.i710, %63 ], [ %.036.i710, %77 ], [ %.036.i710, %91 ], [ %.036.i710, %105 ], [ %.036.i710, %119 ], [ %.036.i710, %133 ], [ %.036.i710, %147 ], [ %.036.i710, %161 ], [ %.036.i710, %175 ], [ %.036.i710, %189 ], [ %.036.i710, %203 ], [ %.036.i710, %217 ], [ %.036.i710, %231 ], [ %.036.i710, %245 ], [ %.036.i710, %259 ], [ %.036.i710, %273 ], [ %.036.i710, %287 ], [ %.036.i710, %301 ], [ %.036.i710, %315 ], [ %.036.i710, %329 ], [ %.036.i710, %343 ], [ %.036.i710, %357 ], [ %.036.i710, %371 ], [ %.036.i710, %385 ], [ %.036.i710, %399 ], [ %.036.i710, %414 ], [ %.036.i710, %416 ], [ %.036.i710, %429 ], [ %.036.i710, %443 ], [ %.036.i710, %457 ], [ %.036.i710, %471 ], [ %.036.i710, %485 ], [ %.036.i710, %499 ], [ %.036.i710, %513 ], [ %.036.i710, %527 ], [ %.036.i710, %541 ], [ %.036.i710, %556 ], [ %.036.i710, %558 ], [ %.036.i710, %1033 ], [ %728, %727 ], [ %811, %812 ], [ %851, %852 ], [ %904, %905 ], [ %973, %974 ], [ %1013, %1014 ], [ %.036.i710, %1015 ], [ %.036.i710, %51 ], [ %.036.i710, %1031 ], [ null, %.thread741 ], [ null, %.thread736 ], [ null, %.thread730 ], [ null, %.thread725 ], [ null, %.thread720 ], [ null, %32 ], [ null, %.thread ], [ null, %45 ], [ null, %48 ], [ null, %realloc_and_append.exit ], [ null, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   ret ptr %.0
 }

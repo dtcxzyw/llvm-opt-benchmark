@@ -6107,7 +6107,7 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal i32 @compute_epb_option_size(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3) #9 {
-  switch i32 %1, label %23 [
+  switch i32 %1, label %.thread.i [
     i32 2, label %pcapng_compute_packet_verdict_option_size.exit
     i32 4, label %5
     i32 5, label %5
@@ -6137,7 +6137,7 @@ define internal i32 @compute_epb_option_size(ptr readnone captures(none) %0, i32
   %13 = add i32 %.fr.i, 1
   br i1 %.not.i, label %.thread.i, label %pcapng_compute_packet_verdict_option_size.exit
 
-.thread.i:                                        ; preds = %8, %6
+.thread.i:                                        ; preds = %4, %8, %6
   br label %pcapng_compute_packet_verdict_option_size.exit
 
 14:                                               ; preds = %4
@@ -6154,17 +6154,14 @@ define internal i32 @compute_epb_option_size(ptr readnone captures(none) %0, i32
   %22 = add i32 %21, 1
   br label %pcapng_compute_packet_verdict_option_size.exit
 
-23:                                               ; preds = %4
-  br label %pcapng_compute_packet_verdict_option_size.exit
-
 switch.lookup:                                    ; preds = %14
-  %24 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.write_wtap_epb_option, i64 %24
+  %23 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.write_wtap_epb_option, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %pcapng_compute_packet_verdict_option_size.exit
 
-pcapng_compute_packet_verdict_option_size.exit:   ; preds = %switch.lookup, %17, %.thread.i, %8, %6, %6, %4, %4, %23, %5
-  %.0 = phi i32 [ 0, %23 ], [ 9, %6 ], [ 8, %5 ], [ 4, %4 ], [ 4, %4 ], [ 0, %.thread.i ], [ %13, %8 ], [ 9, %6 ], [ %22, %17 ], [ %switch.load, %switch.lookup ]
+pcapng_compute_packet_verdict_option_size.exit:   ; preds = %switch.lookup, %17, %.thread.i, %8, %6, %6, %4, %4, %5
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 9, %6 ], [ 8, %5 ], [ 4, %4 ], [ 4, %4 ], [ 0, %.thread.i ], [ %13, %8 ], [ 9, %6 ], [ %22, %17 ]
   ret i32 %.0
 }
 

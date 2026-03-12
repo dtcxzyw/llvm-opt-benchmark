@@ -441,6 +441,9 @@ select.unfold:                                    ; preds = %47, %42
   %.not91 = icmp eq i32 %49, 0
   br i1 %.not91, label %.split178, label %.lr.ph.split.backedge
 
+.lr.ph.split.backedge:                            ; preds = %select.unfold, %194, %196
+  br label %.lr.ph.split
+
 .split178:                                        ; preds = %33, %select.unfold, %47, %45, %select.unfold.us.us, %75, %73, %.lr.ph225
   %.us-phi = phi i8 [ 10, %75 ], [ 13, %select.unfold.us.us ], [ %66, %.lr.ph225 ], [ %66, %73 ], [ 10, %47 ], [ 13, %select.unfold ], [ %37, %33 ], [ %37, %45 ]
   %50 = getelementptr inbounds nuw i8, ptr %.078.ph231, i64 1
@@ -796,9 +799,6 @@ up_irq_restore.exit24.i124:                       ; preds = %171, %161
 196:                                              ; preds = %194
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %.lr.ph.split.backedge
-
-.lr.ph.split.backedge:                            ; preds = %196, %194, %select.unfold
-  br label %.lr.ph.split
 
 197:                                              ; preds = %188
   %198 = call i32 @nxsem_wait(ptr noundef nonnull %23) #5

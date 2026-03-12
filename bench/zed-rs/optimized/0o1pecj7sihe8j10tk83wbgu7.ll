@@ -17880,7 +17880,7 @@ thread-pre-split:                                 ; preds = %"_ZN14ordered_strea
   store i64 3, ptr %0, align 8
   br label %118
 
-118:                                              ; preds = %157, %161, %140, %144, %109, %139, %148, %149, %152, %155, %156, %170, %128, %127, %126, %125, %117
+118:                                              ; preds = %140, %144, %161, %157, %109, %139, %148, %149, %152, %155, %156, %170, %128, %127, %126, %125, %117
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void

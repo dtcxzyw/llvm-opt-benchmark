@@ -368,7 +368,7 @@ define internal fastcc void @acpi_sleep_run_lps0_dsm(i32 noundef range(i32 2, 7)
   %7 = shl nuw nsw i32 1, %0
   %8 = and i32 %7, %1
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %38, label %10
+  br i1 %9, label %36, label %10
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr @lps0_device_handle, align 8
@@ -379,7 +379,7 @@ define internal fastcc void @acpi_sleep_run_lps0_dsm(i32 noundef range(i32 2, 7)
   call void @kfree(ptr noundef %15) #8
   %16 = load i8, ptr @pm_debug_messages_on, align 1, !range !8, !noundef !9
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %38, label %18
+  br i1 %17, label %36, label %18
 
 18:                                               ; preds = %10
   %19 = load ptr, ptr @lps0_device_handle, align 8
@@ -390,51 +390,45 @@ define internal fastcc void @acpi_sleep_run_lps0_dsm(i32 noundef range(i32 2, 7)
   %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
   %25 = icmp eq i8 %24, 2
   %26 = select i1 %23, i1 %25, i1 false
-  br i1 %26, label %31, label %27
+  br i1 %26, label %29, label %27
 
 27:                                               ; preds = %18
-  switch i32 %0, label %35 [
-    i32 3, label %36
+  switch i32 %0, label %33 [
+    i32 3, label %34
     i32 4, label %28
-    i32 5, label %29
-    i32 6, label %30
+    i32 5, label %31
+    i32 6, label %32
   ]
 
 28:                                               ; preds = %27
-  br label %36
+  br label %34
 
-29:                                               ; preds = %27
-  br label %36
-
-30:                                               ; preds = %27
-  br label %36
-
-31:                                               ; preds = %18
-  switch i32 %0, label %35 [
-    i32 5, label %36
-    i32 4, label %32
-    i32 2, label %33
-    i32 3, label %34
+29:                                               ; preds = %18
+  switch i32 %0, label %33 [
+    i32 5, label %34
+    i32 4, label %30
+    i32 2, label %31
+    i32 3, label %32
   ]
 
-32:                                               ; preds = %31
+30:                                               ; preds = %29
+  br label %34
+
+31:                                               ; preds = %27, %29
+  br label %34
+
+32:                                               ; preds = %27, %29
+  br label %34
+
+33:                                               ; preds = %29, %27
+  br label %34
+
+34:                                               ; preds = %33, %32, %31, %30, %29, %28, %27
+  %35 = phi ptr [ @.str.12, %33 ], [ @.str.6, %27 ], [ @.str.7, %29 ], [ @.str.8, %31 ], [ @.str.6, %30 ], [ @.str.7, %28 ], [ @.str.9, %32 ]
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %19, ptr noundef nonnull @.str.3, ptr noundef nonnull %21, ptr noundef nonnull %35) #8
   br label %36
 
-33:                                               ; preds = %31
-  br label %36
-
-34:                                               ; preds = %31
-  br label %36
-
-35:                                               ; preds = %31, %27
-  br label %36
-
-36:                                               ; preds = %35, %34, %33, %32, %31, %30, %29, %28, %27
-  %37 = phi ptr [ @.str.12, %35 ], [ @.str.6, %27 ], [ @.str.7, %31 ], [ @.str.9, %30 ], [ @.str.8, %29 ], [ @.str.7, %28 ], [ @.str.9, %34 ], [ @.str.8, %33 ], [ @.str.6, %32 ]
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %19, ptr noundef nonnull @.str.3, ptr noundef nonnull %21, ptr noundef nonnull %37) #8
-  br label %38
-
-38:                                               ; preds = %36, %10, %4
+36:                                               ; preds = %34, %10, %4
   ret void
 }
 

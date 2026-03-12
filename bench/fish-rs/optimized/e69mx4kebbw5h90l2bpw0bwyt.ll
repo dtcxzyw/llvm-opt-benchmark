@@ -2223,7 +2223,7 @@ define internal fastcc void @_ZN11fish_printf6fmt_fp10format_e_f17h4e0ea5ae4b0a4
 127:                                              ; preds = %124
   br i1 %126, label %.invoke410.invoke, label %123
 
-.invoke410.invoke:                                ; preds = %127, %.noexc166, %.noexc200, %505, %120
+.invoke410.invoke:                                ; preds = %127, %505, %.noexc166, %.noexc200, %120
   %128 = invoke noundef i8 @"_ZN95_$LT$fish_printf..printf_impl..Error$u20$as$u20$core..convert..From$LT$core..fmt..Error$GT$$GT$4from17hbe12c4e5fdbf2cd3E"()
           to label %121 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

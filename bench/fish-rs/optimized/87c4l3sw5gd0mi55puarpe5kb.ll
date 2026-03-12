@@ -2460,8 +2460,8 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
   %36 = add nsw i8 %35, %32
   switch i8 %36, label %default.unreachable [
     i8 -1, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit"
-    i8 0, label %40
-    i8 1, label %39
+    i8 0, label %39
+    i8 1, label %63
   ]
 
 37:                                               ; preds = %19
@@ -2472,47 +2472,47 @@ default.unreachable:                              ; preds = %111, %68, %25
   unreachable
 
 39:                                               ; preds = %25
-  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit"
-
-40:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !349)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !352)
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 16
-  %42 = load i64, ptr %41, align 8, !alias.scope !354, !noalias !355, !noundef !6
-  %43 = icmp ult i64 %42, 2305843009213693952
-  tail call void @llvm.assume(i1 %43)
-  %44 = icmp eq i64 %42, 0
-  br i1 %44, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit", label %45
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 16
+  %41 = load i64, ptr %40, align 8, !alias.scope !354, !noalias !355, !noundef !6
+  %42 = icmp ult i64 %41, 2305843009213693952
+  tail call void @llvm.assume(i1 %42)
+  %43 = icmp eq i64 %41, 0
+  br i1 %43, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit", label %44
 
-45:                                               ; preds = %40
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.04.0, i64 16
-  %47 = load i64, ptr %46, align 8, !alias.scope !355, !noalias !354, !noundef !6
-  %48 = icmp ult i64 %47, 2305843009213693952
-  tail call void @llvm.assume(i1 %48)
-  %49 = icmp eq i64 %47, 0
-  br i1 %49, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit", label %switch.lookup.i.i
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.04.0, i64 16
+  %46 = load i64, ptr %45, align 8, !alias.scope !355, !noalias !354, !noundef !6
+  %47 = icmp ult i64 %46, 2305843009213693952
+  tail call void @llvm.assume(i1 %47)
+  %48 = icmp eq i64 %46, 0
+  br i1 %48, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit", label %switch.lookup.i.i
 
-switch.lookup.i.i:                                ; preds = %45
-  %50 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !356
-  %51 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.sroa.0.0), !noalias !355
-  %52 = extractvalue { ptr, i64 } %51, 0
-  %53 = extractvalue { ptr, i64 } %51, 1
-  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %53
-  %55 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %50, ptr noundef nonnull %52, ptr noundef %54), !noalias !355
-  %56 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !359
-  %57 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.sroa.04.0)
-  %58 = extractvalue { ptr, i64 } %57, 0
-  %59 = extractvalue { ptr, i64 } %57, 1
-  %60 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %59
-  %61 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %56, ptr noundef nonnull %58, ptr noundef %60)
-  %62 = xor i1 %55, true
-  %63 = and i1 %61, %62
+switch.lookup.i.i:                                ; preds = %44
+  %49 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !356
+  %50 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.sroa.0.0), !noalias !355
+  %51 = extractvalue { ptr, i64 } %50, 0
+  %52 = extractvalue { ptr, i64 } %50, 1
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %52
+  %54 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %49, ptr noundef nonnull %51, ptr noundef %53), !noalias !355
+  %55 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !359
+  %56 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.sroa.04.0)
+  %57 = extractvalue { ptr, i64 } %56, 0
+  %58 = extractvalue { ptr, i64 } %56, 1
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %58
+  %60 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %55, ptr noundef nonnull %57, ptr noundef %59)
+  %61 = xor i1 %54, true
+  %62 = and i1 %60, %61
   %.pre = load i8, ptr %20, align 8, !range !346, !alias.scope !362, !noalias !367
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit"
 
-"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit": ; preds = %25, %37, %39, %40, %45, %switch.lookup.i.i
-  %64 = phi i8 [ %21, %37 ], [ %21, %25 ], [ %21, %39 ], [ %21, %45 ], [ %21, %40 ], [ %.pre, %switch.lookup.i.i ]
-  %.sroa.0.0.i.i = phi i1 [ %38, %37 ], [ true, %25 ], [ false, %39 ], [ false, %45 ], [ false, %40 ], [ %63, %switch.lookup.i.i ]
+63:                                               ; preds = %25
+  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit"
+
+"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit": ; preds = %25, %37, %39, %44, %switch.lookup.i.i, %63
+  %64 = phi i8 [ %21, %37 ], [ %21, %25 ], [ %21, %44 ], [ %21, %63 ], [ %21, %39 ], [ %.pre, %switch.lookup.i.i ]
+  %.sroa.0.0.i.i = phi i1 [ %38, %37 ], [ true, %25 ], [ false, %44 ], [ false, %63 ], [ false, %39 ], [ %62, %switch.lookup.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !370)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !371)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !372)
@@ -2618,8 +2618,8 @@ switch.lookup.i.i13:                              ; preds = %87
   %122 = add nsw i8 %121, %118
   switch i8 %122, label %default.unreachable [
     i8 -1, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit19"
-    i8 0, label %126
-    i8 1, label %125
+    i8 0, label %125
+    i8 1, label %149
   ]
 
 123:                                              ; preds = %107
@@ -2627,45 +2627,45 @@ switch.lookup.i.i13:                              ; preds = %87
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit19"
 
 125:                                              ; preds = %111
-  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit19"
-
-126:                                              ; preds = %111
   tail call void @llvm.experimental.noalias.scope.decl(metadata !399)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !402)
-  %127 = getelementptr inbounds nuw i8, ptr %.sroa.04.0, i64 16
-  %128 = load i64, ptr %127, align 8, !alias.scope !404, !noalias !405, !noundef !6
-  %129 = icmp ult i64 %128, 2305843009213693952
-  tail call void @llvm.assume(i1 %129)
-  %130 = icmp eq i64 %128, 0
-  br i1 %130, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit19", label %131
+  %126 = getelementptr inbounds nuw i8, ptr %.sroa.04.0, i64 16
+  %127 = load i64, ptr %126, align 8, !alias.scope !404, !noalias !405, !noundef !6
+  %128 = icmp ult i64 %127, 2305843009213693952
+  tail call void @llvm.assume(i1 %128)
+  %129 = icmp eq i64 %127, 0
+  br i1 %129, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit19", label %130
 
-131:                                              ; preds = %126
-  %132 = getelementptr inbounds nuw i8, ptr %.sroa.08.0, i64 16
-  %133 = load i64, ptr %132, align 8, !alias.scope !405, !noalias !404, !noundef !6
-  %134 = icmp ult i64 %133, 2305843009213693952
-  tail call void @llvm.assume(i1 %134)
-  %135 = icmp eq i64 %133, 0
-  br i1 %135, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit19", label %switch.lookup.i.i17
+130:                                              ; preds = %125
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.08.0, i64 16
+  %132 = load i64, ptr %131, align 8, !alias.scope !405, !noalias !404, !noundef !6
+  %133 = icmp ult i64 %132, 2305843009213693952
+  tail call void @llvm.assume(i1 %133)
+  %134 = icmp eq i64 %132, 0
+  br i1 %134, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit19", label %switch.lookup.i.i17
 
-switch.lookup.i.i17:                              ; preds = %131
-  %136 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !406
-  %137 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.sroa.04.0), !noalias !405
-  %138 = extractvalue { ptr, i64 } %137, 0
-  %139 = extractvalue { ptr, i64 } %137, 1
-  %140 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %139
-  %141 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %136, ptr noundef nonnull %138, ptr noundef %140), !noalias !405
-  %142 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !409
-  %143 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.sroa.08.0)
-  %144 = extractvalue { ptr, i64 } %143, 0
-  %145 = extractvalue { ptr, i64 } %143, 1
-  %146 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %145
-  %147 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %142, ptr noundef nonnull %144, ptr noundef %146)
-  %148 = xor i1 %141, true
-  %149 = and i1 %147, %148
+switch.lookup.i.i17:                              ; preds = %130
+  %135 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !406
+  %136 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.sroa.04.0), !noalias !405
+  %137 = extractvalue { ptr, i64 } %136, 0
+  %138 = extractvalue { ptr, i64 } %136, 1
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %138
+  %140 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %135, ptr noundef nonnull %137, ptr noundef %139), !noalias !405
+  %141 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !409
+  %142 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %.sroa.08.0)
+  %143 = extractvalue { ptr, i64 } %142, 0
+  %144 = extractvalue { ptr, i64 } %142, 1
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %143, i64 %144
+  %146 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %141, ptr noundef nonnull %143, ptr noundef %145)
+  %147 = xor i1 %140, true
+  %148 = and i1 %146, %147
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit19"
 
-"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit19": ; preds = %111, %123, %125, %126, %131, %switch.lookup.i.i17
-  %.sroa.0.0.i.i16 = phi i1 [ %124, %123 ], [ true, %111 ], [ false, %125 ], [ false, %131 ], [ false, %126 ], [ %149, %switch.lookup.i.i17 ]
+149:                                              ; preds = %111
+  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit19"
+
+"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit19": ; preds = %111, %123, %125, %130, %switch.lookup.i.i17, %149
+  %.sroa.0.0.i.i16 = phi i1 [ %124, %123 ], [ true, %111 ], [ false, %130 ], [ false, %149 ], [ false, %125 ], [ %148, %switch.lookup.i.i17 ]
   %150 = xor i1 %.sroa.0.0.i.i, %.sroa.0.0.i.i16
   %..i = select i1 %150, ptr %.sroa.08.0, ptr %.sroa.04.0
   br label %_ZN4core5slice4sort6shared5pivot7median317h2c44bc9a1109285cE.exit
@@ -4100,8 +4100,8 @@ define hidden noundef range(i64 0, 329406144173384851) i64 @_ZN4core5slice4sort6
   %30 = add nsw i8 %29, %26
   switch i8 %30, label %default.unreachable [
     i8 -1, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit"
-    i8 0, label %34
-    i8 1, label %33
+    i8 0, label %33
+    i8 1, label %57
   ]
 
 31:                                               ; preds = %13
@@ -4112,45 +4112,45 @@ default.unreachable:                              ; preds = %102, %61, %19
   unreachable
 
 33:                                               ; preds = %19
-  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit"
-
-34:                                               ; preds = %19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !585)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !588)
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = load i64, ptr %35, align 8, !alias.scope !590, !noalias !591, !noundef !6
-  %37 = icmp ult i64 %36, 2305843009213693952
-  tail call void @llvm.assume(i1 %37)
-  %38 = icmp eq i64 %36, 0
-  br i1 %38, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit", label %39
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = load i64, ptr %34, align 8, !alias.scope !590, !noalias !591, !noundef !6
+  %36 = icmp ult i64 %35, 2305843009213693952
+  tail call void @llvm.assume(i1 %36)
+  %37 = icmp eq i64 %35, 0
+  br i1 %37, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit", label %38
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %41 = load i64, ptr %40, align 8, !alias.scope !591, !noalias !590, !noundef !6
-  %42 = icmp ult i64 %41, 2305843009213693952
-  tail call void @llvm.assume(i1 %42)
-  %43 = icmp eq i64 %41, 0
-  br i1 %43, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit", label %switch.lookup.i.i
+38:                                               ; preds = %33
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %40 = load i64, ptr %39, align 8, !alias.scope !591, !noalias !590, !noundef !6
+  %41 = icmp ult i64 %40, 2305843009213693952
+  tail call void @llvm.assume(i1 %41)
+  %42 = icmp eq i64 %40, 0
+  br i1 %42, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit", label %switch.lookup.i.i
 
-switch.lookup.i.i:                                ; preds = %39
-  %44 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !592
-  %45 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0), !noalias !591
-  %46 = extractvalue { ptr, i64 } %45, 0
-  %47 = extractvalue { ptr, i64 } %45, 1
-  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %47
-  %49 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %44, ptr noundef nonnull %46, ptr noundef %48), !noalias !591
-  %50 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !595
-  %51 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %7)
-  %52 = extractvalue { ptr, i64 } %51, 0
-  %53 = extractvalue { ptr, i64 } %51, 1
-  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %53
-  %55 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %50, ptr noundef nonnull %52, ptr noundef %54)
-  %56 = xor i1 %49, true
-  %57 = and i1 %55, %56
+switch.lookup.i.i:                                ; preds = %38
+  %43 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !592
+  %44 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0), !noalias !591
+  %45 = extractvalue { ptr, i64 } %44, 0
+  %46 = extractvalue { ptr, i64 } %44, 1
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %46
+  %48 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %43, ptr noundef nonnull %45, ptr noundef %47), !noalias !591
+  %49 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !595
+  %50 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %7)
+  %51 = extractvalue { ptr, i64 } %50, 0
+  %52 = extractvalue { ptr, i64 } %50, 1
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %52
+  %54 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %49, ptr noundef nonnull %51, ptr noundef %53)
+  %55 = xor i1 %48, true
+  %56 = and i1 %54, %55
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit"
 
-"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit": ; preds = %19, %31, %33, %34, %39, %switch.lookup.i.i
-  %.sroa.0.0.i.i = phi i1 [ %32, %31 ], [ true, %19 ], [ false, %33 ], [ false, %39 ], [ false, %34 ], [ %57, %switch.lookup.i.i ]
+57:                                               ; preds = %19
+  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit"
+
+"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit": ; preds = %19, %31, %33, %38, %switch.lookup.i.i, %57
+  %.sroa.0.0.i.i = phi i1 [ %32, %31 ], [ true, %19 ], [ false, %38 ], [ false, %57 ], [ false, %33 ], [ %56, %switch.lookup.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !598)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !601)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !603)
@@ -4250,8 +4250,8 @@ switch.lookup.i.i3:                               ; preds = %80
   %113 = add nsw i8 %112, %109
   switch i8 %113, label %default.unreachable [
     i8 -1, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit9"
-    i8 0, label %117
-    i8 1, label %116
+    i8 0, label %116
+    i8 1, label %140
   ]
 
 114:                                              ; preds = %100
@@ -4259,45 +4259,45 @@ switch.lookup.i.i3:                               ; preds = %80
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit9"
 
 116:                                              ; preds = %102
-  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit9"
-
-117:                                              ; preds = %102
   tail call void @llvm.experimental.noalias.scope.decl(metadata !635)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !638)
-  %118 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %119 = load i64, ptr %118, align 8, !alias.scope !640, !noalias !641, !noundef !6
-  %120 = icmp ult i64 %119, 2305843009213693952
-  tail call void @llvm.assume(i1 %120)
-  %121 = icmp eq i64 %119, 0
-  br i1 %121, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit9", label %122
+  %117 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %118 = load i64, ptr %117, align 8, !alias.scope !640, !noalias !641, !noundef !6
+  %119 = icmp ult i64 %118, 2305843009213693952
+  tail call void @llvm.assume(i1 %119)
+  %120 = icmp eq i64 %118, 0
+  br i1 %120, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit9", label %121
 
-122:                                              ; preds = %117
-  %123 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %124 = load i64, ptr %123, align 8, !alias.scope !641, !noalias !640, !noundef !6
-  %125 = icmp ult i64 %124, 2305843009213693952
-  tail call void @llvm.assume(i1 %125)
-  %126 = icmp eq i64 %124, 0
-  br i1 %126, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit9", label %switch.lookup.i.i7
+121:                                              ; preds = %116
+  %122 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %123 = load i64, ptr %122, align 8, !alias.scope !641, !noalias !640, !noundef !6
+  %124 = icmp ult i64 %123, 2305843009213693952
+  tail call void @llvm.assume(i1 %124)
+  %125 = icmp eq i64 %123, 0
+  br i1 %125, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit9", label %switch.lookup.i.i7
 
-switch.lookup.i.i7:                               ; preds = %122
-  %127 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !642
-  %128 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %7), !noalias !641
-  %129 = extractvalue { ptr, i64 } %128, 0
-  %130 = extractvalue { ptr, i64 } %128, 1
-  %131 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %130
-  %132 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %127, ptr noundef nonnull %129, ptr noundef %131), !noalias !641
-  %133 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !645
-  %134 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %8)
-  %135 = extractvalue { ptr, i64 } %134, 0
-  %136 = extractvalue { ptr, i64 } %134, 1
-  %137 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %136
-  %138 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %133, ptr noundef nonnull %135, ptr noundef %137)
-  %139 = xor i1 %132, true
-  %140 = and i1 %138, %139
+switch.lookup.i.i7:                               ; preds = %121
+  %126 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !642
+  %127 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %7), !noalias !641
+  %128 = extractvalue { ptr, i64 } %127, 0
+  %129 = extractvalue { ptr, i64 } %127, 1
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %129
+  %131 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %126, ptr noundef nonnull %128, ptr noundef %130), !noalias !641
+  %132 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !645
+  %133 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %8)
+  %134 = extractvalue { ptr, i64 } %133, 0
+  %135 = extractvalue { ptr, i64 } %133, 1
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %135
+  %137 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %132, ptr noundef nonnull %134, ptr noundef %136)
+  %138 = xor i1 %131, true
+  %139 = and i1 %137, %138
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit9"
 
-"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit9": ; preds = %102, %114, %116, %117, %122, %switch.lookup.i.i7
-  %.sroa.0.0.i.i6 = phi i1 [ %115, %114 ], [ true, %102 ], [ false, %116 ], [ false, %122 ], [ false, %117 ], [ %140, %switch.lookup.i.i7 ]
+140:                                              ; preds = %102
+  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit9"
+
+"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit9": ; preds = %102, %114, %116, %121, %switch.lookup.i.i7, %140
+  %.sroa.0.0.i.i6 = phi i1 [ %115, %114 ], [ true, %102 ], [ false, %121 ], [ false, %140 ], [ false, %116 ], [ %139, %switch.lookup.i.i7 ]
   %141 = xor i1 %.sroa.0.0.i.i, %.sroa.0.0.i.i6
   %..i = select i1 %141, ptr %8, ptr %7
   br label %_ZN4core5slice4sort6shared5pivot7median317h2c44bc9a1109285cE.exit
@@ -8136,8 +8136,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %20 = add nsw i8 %19, %16
   switch i8 %20, label %default.unreachable [
     i8 -1, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit"
-    i8 0, label %24
-    i8 1, label %23
+    i8 0, label %23
+    i8 1, label %47
   ]
 
 21:                                               ; preds = %2
@@ -8148,45 +8148,45 @@ default.unreachable:                              ; preds = %233, %171, %127, %5
   unreachable
 
 23:                                               ; preds = %9
-  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit"
-
-24:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1049)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1052)
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %26 = load i64, ptr %25, align 8, !alias.scope !1054, !noalias !1055, !noundef !6
-  %27 = icmp ult i64 %26, 2305843009213693952
-  tail call void @llvm.assume(i1 %27)
-  %28 = icmp eq i64 %26, 0
-  br i1 %28, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit", label %29
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %25 = load i64, ptr %24, align 8, !alias.scope !1054, !noalias !1055, !noundef !6
+  %26 = icmp ult i64 %25, 2305843009213693952
+  tail call void @llvm.assume(i1 %26)
+  %27 = icmp eq i64 %25, 0
+  br i1 %27, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit", label %28
 
-29:                                               ; preds = %24
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = load i64, ptr %30, align 8, !alias.scope !1055, !noalias !1054, !noundef !6
-  %32 = icmp ult i64 %31, 2305843009213693952
-  tail call void @llvm.assume(i1 %32)
-  %33 = icmp eq i64 %31, 0
-  br i1 %33, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit", label %switch.lookup.i.i
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %30 = load i64, ptr %29, align 8, !alias.scope !1055, !noalias !1054, !noundef !6
+  %31 = icmp ult i64 %30, 2305843009213693952
+  tail call void @llvm.assume(i1 %31)
+  %32 = icmp eq i64 %30, 0
+  br i1 %32, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit", label %switch.lookup.i.i
 
-switch.lookup.i.i:                                ; preds = %29
-  %34 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !1056
-  %35 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %3), !noalias !1055
-  %36 = extractvalue { ptr, i64 } %35, 0
-  %37 = extractvalue { ptr, i64 } %35, 1
-  %38 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %37
-  %39 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %34, ptr noundef nonnull %36, ptr noundef %38), !noalias !1055
-  %40 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !1059
-  %41 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0)
-  %42 = extractvalue { ptr, i64 } %41, 0
-  %43 = extractvalue { ptr, i64 } %41, 1
-  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
-  %45 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %40, ptr noundef nonnull %42, ptr noundef %44)
-  %46 = xor i1 %39, true
-  %47 = and i1 %45, %46
+switch.lookup.i.i:                                ; preds = %28
+  %33 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !1056
+  %34 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %3), !noalias !1055
+  %35 = extractvalue { ptr, i64 } %34, 0
+  %36 = extractvalue { ptr, i64 } %34, 1
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
+  %38 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %33, ptr noundef nonnull %35, ptr noundef %37), !noalias !1055
+  %39 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !1059
+  %40 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %0)
+  %41 = extractvalue { ptr, i64 } %40, 0
+  %42 = extractvalue { ptr, i64 } %40, 1
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %42
+  %44 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %39, ptr noundef nonnull %41, ptr noundef %43)
+  %45 = xor i1 %38, true
+  %46 = and i1 %44, %45
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit"
 
-"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit": ; preds = %9, %21, %23, %24, %29, %switch.lookup.i.i
-  %.sroa.0.0.i.i = phi i1 [ %22, %21 ], [ true, %9 ], [ false, %23 ], [ false, %29 ], [ false, %24 ], [ %47, %switch.lookup.i.i ]
+47:                                               ; preds = %9
+  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit"
+
+"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit": ; preds = %9, %21, %23, %28, %switch.lookup.i.i, %47
+  %.sroa.0.0.i.i = phi i1 [ %22, %21 ], [ true, %9 ], [ false, %28 ], [ false, %47 ], [ false, %23 ], [ %46, %switch.lookup.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1062)
@@ -8319,8 +8319,8 @@ switch.lookup.i.i:                                ; preds = %29
   %138 = add nsw i8 %137, %134
   switch i8 %138, label %default.unreachable [
     i8 -1, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit12"
-    i8 0, label %142
-    i8 1, label %141
+    i8 0, label %141
+    i8 1, label %165
   ]
 
 139:                                              ; preds = %116
@@ -8328,45 +8328,45 @@ switch.lookup.i.i:                                ; preds = %29
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit12"
 
 141:                                              ; preds = %127
-  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit12"
-
-142:                                              ; preds = %127
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1099)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1102)
-  %143 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %144 = load i64, ptr %143, align 8, !alias.scope !1104, !noalias !1105, !noundef !6
-  %145 = icmp ult i64 %144, 2305843009213693952
-  tail call void @llvm.assume(i1 %145)
-  %146 = icmp eq i64 %144, 0
-  br i1 %146, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit12", label %147
+  %142 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  %143 = load i64, ptr %142, align 8, !alias.scope !1104, !noalias !1105, !noundef !6
+  %144 = icmp ult i64 %143, 2305843009213693952
+  tail call void @llvm.assume(i1 %144)
+  %145 = icmp eq i64 %143, 0
+  br i1 %145, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit12", label %146
 
-147:                                              ; preds = %142
-  %148 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  %149 = load i64, ptr %148, align 8, !alias.scope !1105, !noalias !1104, !noundef !6
-  %150 = icmp ult i64 %149, 2305843009213693952
-  tail call void @llvm.assume(i1 %150)
-  %151 = icmp eq i64 %149, 0
-  br i1 %151, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit12", label %switch.lookup.i.i10
+146:                                              ; preds = %141
+  %147 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  %148 = load i64, ptr %147, align 8, !alias.scope !1105, !noalias !1104, !noundef !6
+  %149 = icmp ult i64 %148, 2305843009213693952
+  tail call void @llvm.assume(i1 %149)
+  %150 = icmp eq i64 %148, 0
+  br i1 %150, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit12", label %switch.lookup.i.i10
 
-switch.lookup.i.i10:                              ; preds = %147
-  %152 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !1106
-  %153 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %117), !noalias !1105
-  %154 = extractvalue { ptr, i64 } %153, 0
-  %155 = extractvalue { ptr, i64 } %153, 1
-  %156 = getelementptr inbounds nuw [4 x i8], ptr %154, i64 %155
-  %157 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %152, ptr noundef nonnull %154, ptr noundef %156), !noalias !1105
-  %158 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !1109
-  %159 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %118)
-  %160 = extractvalue { ptr, i64 } %159, 0
-  %161 = extractvalue { ptr, i64 } %159, 1
-  %162 = getelementptr inbounds nuw [4 x i8], ptr %160, i64 %161
-  %163 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %158, ptr noundef nonnull %160, ptr noundef %162)
-  %164 = xor i1 %157, true
-  %165 = and i1 %163, %164
+switch.lookup.i.i10:                              ; preds = %146
+  %151 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !1106
+  %152 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %117), !noalias !1105
+  %153 = extractvalue { ptr, i64 } %152, 0
+  %154 = extractvalue { ptr, i64 } %152, 1
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %154
+  %156 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %151, ptr noundef nonnull %153, ptr noundef %155), !noalias !1105
+  %157 = tail call noundef i32 @"_ZN54_$LT$char$u20$as$u20$fish..wchar_ext..IntoCharIter$GT$5chars17h96f1d991e41cdb08E"(i32 noundef 126), !noalias !1109
+  %158 = tail call { ptr, i64 } @"_ZN76_$LT$widestring..utfstring..Utf32String$u20$as$u20$fish..wchar_ext..WExt$GT$13as_char_slice17h2254c92d308bd512E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %118)
+  %159 = extractvalue { ptr, i64 } %158, 0
+  %160 = extractvalue { ptr, i64 } %158, 1
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %159, i64 %160
+  %162 = tail call noundef zeroext i1 @_ZN4fish9wchar_ext18iter_prefixes_iter17h7b00d0324c6a614cE(i32 noundef %157, ptr noundef nonnull %159, ptr noundef %161)
+  %163 = xor i1 %156, true
+  %164 = and i1 %162, %163
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit12"
 
-"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit12": ; preds = %127, %139, %141, %142, %147, %switch.lookup.i.i10
-  %.sroa.0.0.i.i9 = phi i1 [ %140, %139 ], [ true, %127 ], [ false, %141 ], [ false, %147 ], [ false, %142 ], [ %165, %switch.lookup.i.i10 ]
+165:                                              ; preds = %127
+  br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit12"
+
+"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17he829fc24a695b2e5E.exit12": ; preds = %127, %139, %141, %146, %switch.lookup.i.i10, %165
+  %.sroa.0.0.i.i9 = phi i1 [ %140, %139 ], [ true, %127 ], [ false, %146 ], [ false, %165 ], [ false, %141 ], [ %164, %switch.lookup.i.i10 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1112)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1115)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1117)

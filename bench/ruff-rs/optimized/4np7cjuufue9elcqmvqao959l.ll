@@ -10192,7 +10192,7 @@ _ZN7ruff_db6system4path10SystemPath11starts_with17ha13982f78e7daa1dE.exit.thread
           to label %1259 unwind label %.thread953.thread999
 
 .invoke1138:                                      ; preds = %1283, %1315, %1209, %1241
-  %1258 = phi ptr [ @anon.c2bde000cd339b5f1f8744e67e9805a2.180, %1315 ], [ @anon.c2bde000cd339b5f1f8744e67e9805a2.177, %1241 ], [ @anon.c2bde000cd339b5f1f8744e67e9805a2.177, %1209 ], [ @anon.c2bde000cd339b5f1f8744e67e9805a2.180, %1283 ]
+  %1258 = phi ptr [ @anon.c2bde000cd339b5f1f8744e67e9805a2.177, %1209 ], [ @anon.c2bde000cd339b5f1f8744e67e9805a2.177, %1241 ], [ @anon.c2bde000cd339b5f1f8744e67e9805a2.180, %1315 ], [ @anon.c2bde000cd339b5f1f8744e67e9805a2.180, %1283 ]
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.c2bde000cd339b5f1f8744e67e9805a2.153, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %1258) #28
           to label %.cont1139 unwind label %.thread953.thread999
 

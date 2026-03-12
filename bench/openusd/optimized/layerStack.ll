@@ -2491,7 +2491,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
   br i1 %284, label %.invoke.i, label %.noexc33.i.i
 
 .invoke.i:                                        ; preds = %.noexc38.i.i, %.noexc36.i.i, %.noexc35.i.i, %.noexc34.i.i, %.noexc104.i, %.noexc101.i, %.noexc98.i, %.noexc113.i, %.noexc110.i, %.noexc107.i, %275
-  %285 = phi ptr [ @.str.13, %.noexc36.i.i ], [ @.str.30, %.noexc107.i ], [ %.str.31..str.32.i, %.noexc110.i ], [ @.str.31, %.noexc104.i ], [ @.str.31, %.noexc113.i ], [ @.str.30, %.noexc98.i ], [ %.str.31..str.32614.i, %.noexc101.i ], [ @.str.12, %.noexc35.i.i ], [ @.str.11, %.noexc34.i.i ], [ @.str.10, %275 ], [ @.str.35, %.noexc38.i.i ]
+  %285 = phi ptr [ @.str.13, %.noexc36.i.i ], [ @.str.30, %.noexc107.i ], [ %.str.31..str.32.i, %.noexc110.i ], [ @.str.31, %.noexc104.i ], [ %spec.select.i, %.noexc101.i ], [ @.str.35, %.noexc38.i.i ], [ @.str.30, %.noexc98.i ], [ @.str.31, %.noexc113.i ], [ @.str.12, %.noexc35.i.i ], [ @.str.11, %.noexc34.i.i ], [ @.str.10, %275 ]
   %286 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull %285)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__25Pcp_IsValidRelocatesEntryERKNS_7SdfPathES2_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i.i.i unwind label %440
 
@@ -2519,7 +2519,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
           to label %.noexc101.i unwind label %440
 
 .noexc101.i:                                      ; preds = %292
-  %.str.31..str.32614.i = select i1 %293, ptr @.str.31, ptr @.str.32
+  %spec.select.i = select i1 %293, ptr @.str.31, ptr @.str.32
   br label %.invoke.i
 
 294:                                              ; preds = %.noexc100.i

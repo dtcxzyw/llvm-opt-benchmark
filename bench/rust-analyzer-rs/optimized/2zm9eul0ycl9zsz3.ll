@@ -28500,8 +28500,8 @@ _ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit
 
-_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit: ; preds = %39, %37, %31, %26, %24, %18, %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.i, %._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread_crit_edge.i, %10, %10, %27, %40, %1, %1, %4, %4, %4, %51, %44
-  %.0.shrunk = phi i1 [ false, %1 ], [ %16, %._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread_crit_edge.i ], [ true, %18 ], [ false, %1 ], [ %50, %44 ], [ %54, %51 ], [ true, %27 ], [ false, %4 ], [ false, %4 ], [ false, %4 ], [ true, %40 ], [ false, %10 ], [ %spec.select.i.i, %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.i ], [ false, %10 ], [ false, %26 ], [ %spec.select.i, %24 ], [ true, %39 ], [ false, %31 ], [ %38, %37 ]
+_ZN14ide_completion7context12TypeLocation18complete_self_type17h9e7c3a966f0ae01aE.exit: ; preds = %39, %37, %31, %26, %24, %18, %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.i, %._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread_crit_edge.i, %10, %10, %27, %40, %1, %4, %4, %4, %1, %51, %44
+  %.0.shrunk = phi i1 [ false, %4 ], [ %16, %._ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.thread_crit_edge.i ], [ true, %18 ], [ false, %1 ], [ %50, %44 ], [ %54, %51 ], [ true, %27 ], [ false, %1 ], [ false, %4 ], [ false, %4 ], [ true, %40 ], [ false, %10 ], [ %spec.select.i.i, %_ZN14ide_completion7context12TypeLocation14complete_types17hd11c65f8ad9682e7E.exit.i ], [ false, %10 ], [ %spec.select.i, %24 ], [ false, %26 ], [ true, %39 ], [ false, %31 ], [ %38, %37 ]
   ret i1 %.0.shrunk
 
 51:                                               ; preds = %7

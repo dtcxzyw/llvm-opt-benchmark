@@ -1639,7 +1639,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2ERKS5_.exit: ; preds 
           to label %26 unwind label %27
 
 26:                                               ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2ERKS5_.exit
-  switch i32 %25, label %95 [
+  switch i32 %25, label %67 [
     i32 0, label %switch.edge
     i32 1, label %switch.edge
     i32 71, label %switch.edge
@@ -1765,12 +1765,12 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2ERKS5_.exit: ; preds 
     i32 13, label %34
     i32 130, label %53
     i32 113, label %60
-    i32 114, label %67
-    i32 4, label %82
-    i32 5, label %88
+    i32 114, label %68
+    i32 4, label %83
+    i32 5, label %89
   ]
 
-27:                                               ; preds = %91, %88, %82, %31, %29, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2ERKS5_.exit
+27:                                               ; preds = %92, %89, %83, %31, %29, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2ERKS5_.exit
   %28 = landingpad { ptr, i32 }
           cleanup
   br label %111
@@ -1834,7 +1834,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2ERKS5_.exit: ; preds 
   %58 = and i32 %57, 1023
   %switch.tableidx = add nsw i32 %58, -44
   %59 = icmp ult i32 %switch.tableidx, 39
-  br i1 %59, label %switch.lookup, label %switch.edge
+  br i1 %59, label %switch.lookup, label %67
 
 60:                                               ; preds = %26
   %61 = load ptr, ptr %.pr.i, align 8, !tbaa !100
@@ -1844,66 +1844,66 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2ERKS5_.exit: ; preds 
   %65 = and i32 %64, 1023
   %switch.tableidx97 = add nsw i32 %65, -318
   %66 = icmp ult i32 %switch.tableidx97, 28
-  br i1 %66, label %switch.lookup98, label %switch.edge
+  br i1 %66, label %switch.lookup98, label %67
 
-67:                                               ; preds = %26
-  %68 = load ptr, ptr %.pr.i, align 8, !tbaa !100
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = load i64, ptr %69, align 8
-  %71 = trunc i64 %70 to i32
-  %72 = and i32 %71, 1023
-  %73 = add nsw i32 %72, -335
-  %or.cond15 = icmp ult i32 %73, 2
-  br i1 %or.cond15, label %74, label %80
-
-74:                                               ; preds = %67
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %76 = load ptr, ptr %75, align 8, !tbaa !308
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %78 = load i64, ptr %77, align 8, !tbaa !309
-  %79 = icmp eq i64 %78, 196608
+67:                                               ; preds = %81, %60, %53, %86, %95, %91, %26
   br label %switch.edge
 
-80:                                               ; preds = %67
-  %switch.tableidx103 = add nsw i32 %72, -316
-  %81 = icmp ult i32 %switch.tableidx103, 19
-  br i1 %81, label %switch.lookup104, label %switch.edge
+68:                                               ; preds = %26
+  %69 = load ptr, ptr %.pr.i, align 8, !tbaa !100
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %71 = load i64, ptr %70, align 8
+  %72 = trunc i64 %71 to i32
+  %73 = and i32 %72, 1023
+  %74 = add nsw i32 %73, -335
+  %or.cond15 = icmp ult i32 %74, 2
+  br i1 %or.cond15, label %75, label %81
 
-82:                                               ; preds = %26
+75:                                               ; preds = %68
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %77 = load ptr, ptr %76, align 8, !tbaa !308
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %79 = load i64, ptr %78, align 8, !tbaa !309
+  %80 = icmp eq i64 %79, 196608
+  br label %switch.edge
+
+81:                                               ; preds = %68
+  %switch.tableidx103 = add nsw i32 %73, -316
+  %82 = icmp ult i32 %switch.tableidx103, 19
+  br i1 %82, label %switch.lookup104, label %67
+
+83:                                               ; preds = %26
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %.pr.i)
-          to label %83 unwind label %27
+          to label %84 unwind label %27
 
-83:                                               ; preds = %82
-  %84 = invoke noundef zeroext i1 @_ZN4cvc58internal5proof10AlfPrinter11canEvaluateENS0_12NodeTemplateILb1EEE(ptr noundef nonnull %6)
-          to label %85 unwind label %86
+84:                                               ; preds = %83
+  %85 = invoke noundef zeroext i1 @_ZN4cvc58internal5proof10AlfPrinter11canEvaluateENS0_12NodeTemplateILb1EEE(ptr noundef nonnull %6)
+          to label %86 unwind label %87
 
-85:                                               ; preds = %83
+86:                                               ; preds = %84
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #28
-  br i1 %84, label %switch.edge, label %95
+  br i1 %85, label %switch.edge, label %67
 
-86:                                               ; preds = %83
-  %87 = landingpad { ptr, i32 }
+87:                                               ; preds = %84
+  %88 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #28
   br label %111
 
-88:                                               ; preds = %26
-  %89 = invoke noundef zeroext i1 @_ZN4cvc58internal5proof10AlfPrinter23isHandledDistinctValuesERKNS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %.pr.i)
-          to label %90 unwind label %27
+89:                                               ; preds = %26
+  %90 = invoke noundef zeroext i1 @_ZN4cvc58internal5proof10AlfPrinter23isHandledDistinctValuesERKNS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %.pr.i)
+          to label %91 unwind label %27
 
-90:                                               ; preds = %88
-  br i1 %89, label %91, label %95
+91:                                               ; preds = %89
+  br i1 %90, label %92, label %67
 
-91:                                               ; preds = %90
-  %92 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 8
-  %93 = invoke noundef zeroext i1 @_ZN4cvc58internal5proof10AlfPrinter23isHandledDistinctValuesERKNS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %92)
-          to label %94 unwind label %27
+92:                                               ; preds = %91
+  %93 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 8
+  %94 = invoke noundef zeroext i1 @_ZN4cvc58internal5proof10AlfPrinter23isHandledDistinctValuesERKNS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %93)
+          to label %95 unwind label %27
 
-94:                                               ; preds = %91
-  br i1 %93, label %switch.edge, label %95
-
-95:                                               ; preds = %26, %90, %94, %85
-  br label %switch.edge
+95:                                               ; preds = %92
+  br i1 %94, label %switch.edge, label %67
 
 switch.lookup:                                    ; preds = %53
   %switch.cast = zext nneg i32 %switch.tableidx to i39
@@ -1917,14 +1917,14 @@ switch.lookup98:                                  ; preds = %60
   %switch.masked102 = trunc i28 %switch.downshift101 to i1
   br label %switch.edge
 
-switch.lookup104:                                 ; preds = %80
+switch.lookup104:                                 ; preds = %81
   %switch.cast105 = trunc nuw nsw i32 %switch.tableidx103 to i19
   %switch.downshift107 = lshr i19 -261343, %switch.cast105
   %switch.masked108 = trunc i19 %switch.downshift107 to i1
   br label %switch.edge
 
-switch.edge:                                      ; preds = %80, %switch.lookup104, %60, %switch.lookup98, %53, %switch.lookup, %94, %85, %74, %31, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %95, %47
-  %.0 = phi i1 [ false, %95 ], [ true, %85 ], [ true, %26 ], [ %46, %47 ], [ %33, %31 ], [ %switch.masked108, %switch.lookup104 ], [ %switch.masked, %switch.lookup ], [ %switch.masked102, %switch.lookup98 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ false, %53 ], [ true, %94 ], [ %79, %74 ], [ false, %60 ], [ false, %80 ]
+switch.edge:                                      ; preds = %switch.lookup104, %switch.lookup98, %switch.lookup, %95, %86, %67, %75, %31, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %47
+  %.0 = phi i1 [ %switch.masked102, %switch.lookup98 ], [ true, %86 ], [ true, %26 ], [ %46, %47 ], [ %33, %31 ], [ %switch.masked108, %switch.lookup104 ], [ %switch.masked, %switch.lookup ], [ false, %67 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %26 ], [ true, %95 ], [ %80, %75 ]
   %.not4.i.i.i.i = icmp eq ptr %.pr.i, %20
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -1973,8 +1973,8 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 
-111:                                              ; preds = %86, %52, %27
-  %.pn70 = phi { ptr, i32 } [ %28, %27 ], [ %.pn68, %52 ], [ %87, %86 ]
+111:                                              ; preds = %87, %52, %27
+  %.pn70 = phi { ptr, i32 } [ %28, %27 ], [ %.pn68, %52 ], [ %88, %87 ]
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume

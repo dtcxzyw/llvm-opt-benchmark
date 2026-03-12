@@ -1060,7 +1060,7 @@ _ZNK4llvm9StringRef10drop_whileENS_12function_refIFbcEEE.exit193: ; preds = %424
   store ptr %428, ptr %18, align 8, !tbaa !62
   store i64 %429, ptr %71, align 8, !tbaa !26
   %430 = icmp eq i64 %429, 0
-  br i1 %430, label %..critedge2.loopexit388_crit_edge398, label %374, !llvm.loop !93
+  br i1 %430, label %..critedge2.loopexit388_crit_edge, label %374, !llvm.loop !93
 
 431:                                              ; preds = %.critedge
   %432 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr nonnull @.str.10, i64 14, i64 noundef 0) #15
@@ -1190,13 +1190,10 @@ _ZNK4llvm9StringRef10drop_whileENS_12function_refIFbcEEE.exit225: ; preds = %489
   %495 = icmp eq i64 %494, 0
   br i1 %495, label %.critedge2, label %.lr.ph401, !llvm.loop !94
 
-..critedge2.loopexit388_crit_edge:                ; preds = %374
+..critedge2.loopexit388_crit_edge:                ; preds = %_ZNK4llvm9StringRef10drop_whileENS_12function_refIFbcEEE.exit193, %374
   br label %.critedge2, !llvm.loop !60
 
-..critedge2.loopexit388_crit_edge398:             ; preds = %_ZNK4llvm9StringRef10drop_whileENS_12function_refIFbcEEE.exit193
-  br label %.critedge2, !llvm.loop !60
-
-.critedge2:                                       ; preds = %_ZNK4llvm9StringRef10drop_whileENS_12function_refIFbcEEE.exit225, %.lr.ph401, %367, %..critedge2.loopexit388_crit_edge, %..critedge2.loopexit388_crit_edge398, %433, %270, %276, %207, %213, %176, %182, %_ZL13parseUnsignedRN4llvm9StringRefERy.exit124.thread, %.critedge.i134, %.critedge.i102, %.critedge.i, %431, %_ZN5clang20LayoutOverrideSource6LayoutD2Ev.exit87, %115, %_ZN5clang20LayoutOverrideSource6LayoutD2Ev.exit
+.critedge2:                                       ; preds = %_ZNK4llvm9StringRef10drop_whileENS_12function_refIFbcEEE.exit225, %.lr.ph401, %367, %..critedge2.loopexit388_crit_edge, %433, %270, %276, %207, %213, %176, %182, %_ZL13parseUnsignedRN4llvm9StringRefERy.exit124.thread, %.critedge.i134, %.critedge.i102, %.critedge.i, %431, %_ZN5clang20LayoutOverrideSource6LayoutD2Ev.exit87, %115, %_ZN5clang20LayoutOverrideSource6LayoutD2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %496 = load ptr, ptr %17, align 8, !tbaa !27
   %497 = icmp eq ptr %496, %69

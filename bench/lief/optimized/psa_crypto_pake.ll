@@ -286,124 +286,112 @@ define hidden range(i32 -153, 1) i32 @mbedtls_psa_pake_output(ptr noundef %0, i3
 8:                                                ; preds = %5
   switch i32 %1, label %._crit_edge.i [
     i32 1, label %9
-    i32 7, label %18
+    i32 7, label %14
   ]
 
 ._crit_edge.i:                                    ; preds = %8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 376
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !19
-  br label %34
+  br label %30
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %13 = tail call i32 @mbedtls_ecjpake_write_round_one(ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef 336, ptr noundef nonnull %12, ptr noundef nonnull @mbedtls_psa_get_random, ptr noundef null) #8
-  switch i32 %13, label %17 [
-    i32 0, label %27
+  switch i32 %13, label %22 [
+    i32 0, label %23
     i32 -4, label %mbedtls_psa_pake_output_internal.exit
     i32 -20352, label %mbedtls_psa_pake_output_internal.exit
     i32 -19584, label %mbedtls_psa_pake_output_internal.exit
     i32 -19968, label %mbedtls_psa_pake_output_internal.exit
-    i32 -8, label %14
-    i32 -20224, label %14
-    i32 -20608, label %15
-    i32 -110, label %16
+    i32 -8, label %19
+    i32 -20224, label %19
+    i32 -20608, label %20
+    i32 -110, label %21
   ]
 
-14:                                               ; preds = %9, %9
-  br label %mbedtls_psa_pake_output_internal.exit
-
-15:                                               ; preds = %9
-  br label %mbedtls_psa_pake_output_internal.exit
-
-16:                                               ; preds = %9
-  br label %mbedtls_psa_pake_output_internal.exit
-
-17:                                               ; preds = %9
-  br label %mbedtls_psa_pake_output_internal.exit
-
-18:                                               ; preds = %8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %22 = tail call i32 @mbedtls_ecjpake_write_round_two(ptr noundef nonnull %19, ptr noundef nonnull %20, i64 noundef 336, ptr noundef nonnull %21, ptr noundef nonnull @mbedtls_psa_get_random, ptr noundef null) #8
-  switch i32 %22, label %26 [
-    i32 0, label %29
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %18 = tail call i32 @mbedtls_ecjpake_write_round_two(ptr noundef nonnull %15, ptr noundef nonnull %16, i64 noundef 336, ptr noundef nonnull %17, ptr noundef nonnull @mbedtls_psa_get_random, ptr noundef null) #8
+  switch i32 %18, label %22 [
+    i32 0, label %25
     i32 -4, label %mbedtls_psa_pake_output_internal.exit
     i32 -20352, label %mbedtls_psa_pake_output_internal.exit
     i32 -19584, label %mbedtls_psa_pake_output_internal.exit
     i32 -19968, label %mbedtls_psa_pake_output_internal.exit
-    i32 -8, label %23
-    i32 -20224, label %23
-    i32 -20608, label %24
-    i32 -110, label %25
+    i32 -8, label %19
+    i32 -20224, label %19
+    i32 -20608, label %20
+    i32 -110, label %21
   ]
 
-23:                                               ; preds = %18, %18
+19:                                               ; preds = %14, %14, %9, %9
   br label %mbedtls_psa_pake_output_internal.exit
 
-24:                                               ; preds = %18
+20:                                               ; preds = %14, %9
   br label %mbedtls_psa_pake_output_internal.exit
 
-25:                                               ; preds = %18
+21:                                               ; preds = %14, %9
   br label %mbedtls_psa_pake_output_internal.exit
 
-26:                                               ; preds = %18
+22:                                               ; preds = %14, %9
   br label %mbedtls_psa_pake_output_internal.exit
 
-27:                                               ; preds = %9
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store i64 0, ptr %28, align 8, !tbaa !19
-  br label %34
+23:                                               ; preds = %9
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  store i64 0, ptr %24, align 8, !tbaa !19
+  br label %30
 
-29:                                               ; preds = %18
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %32 = load i32, ptr %31, align 8, !tbaa !18
-  %33 = icmp eq i32 %32, 1
-  %spec.store.select.i = select i1 %33, i64 3, i64 0
-  store i64 %spec.store.select.i, ptr %30, align 8
-  br label %34
+25:                                               ; preds = %14
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %28 = load i32, ptr %27, align 8, !tbaa !18
+  %29 = icmp eq i32 %28, 1
+  %spec.store.select.i = select i1 %29, i64 3, i64 0
+  store i64 %spec.store.select.i, ptr %26, align 8
+  br label %30
 
-34:                                               ; preds = %29, %27, %._crit_edge.i
-  %35 = phi i64 [ %.pre.i, %._crit_edge.i ], [ 0, %27 ], [ %spec.store.select.i, %29 ]
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %35
-  %39 = load i8, ptr %38, align 1, !tbaa !20
-  %40 = zext i8 %39 to i64
-  %41 = add i64 %35, 1
-  store i64 %41, ptr %37, align 8, !tbaa !19
-  %42 = add i64 %41, %40
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %44 = load i64, ptr %43, align 8, !tbaa !21
-  %45 = icmp ugt i64 %42, %44
-  br i1 %45, label %mbedtls_psa_pake_output_internal.exit, label %46
+30:                                               ; preds = %25, %23, %._crit_edge.i
+  %31 = phi i64 [ %.pre.i, %._crit_edge.i ], [ 0, %23 ], [ %spec.store.select.i, %25 ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %31
+  %35 = load i8, ptr %34, align 1, !tbaa !20
+  %36 = zext i8 %35 to i64
+  %37 = add i64 %31, 1
+  store i64 %37, ptr %33, align 8, !tbaa !19
+  %38 = add i64 %37, %36
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %40 = load i64, ptr %39, align 8, !tbaa !21
+  %41 = icmp ugt i64 %38, %40
+  br i1 %41, label %mbedtls_psa_pake_output_internal.exit, label %42
 
-46:                                               ; preds = %34
-  %47 = icmp ult i64 %3, %40
-  br i1 %47, label %mbedtls_psa_pake_output_internal.exit, label %48
+42:                                               ; preds = %30
+  %43 = icmp ult i64 %3, %36
+  br i1 %43, label %mbedtls_psa_pake_output_internal.exit, label %44
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %36, i64 %41
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %49, i64 %40, i1 false)
-  store i64 %40, ptr %4, align 8, !tbaa !3
-  %50 = load i64, ptr %37, align 8, !tbaa !19
-  %51 = add i64 %50, %40
-  store i64 %51, ptr %37, align 8, !tbaa !19
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 %37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %45, i64 %36, i1 false)
+  store i64 %36, ptr %4, align 8, !tbaa !3
+  %46 = load i64, ptr %33, align 8, !tbaa !19
+  %47 = add i64 %46, %36
+  store i64 %47, ptr %33, align 8, !tbaa !19
   switch i32 %1, label %mbedtls_psa_pake_output_internal.exit [
-    i32 9, label %52
-    i32 6, label %52
+    i32 9, label %48
+    i32 6, label %48
   ]
 
-52:                                               ; preds = %48, %48
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %36, i64 noundef 336) #8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
+48:                                               ; preds = %44, %44
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %32, i64 noundef 336) #8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   br label %mbedtls_psa_pake_output_internal.exit
 
-mbedtls_psa_pake_output_internal.exit:            ; preds = %5, %9, %9, %9, %9, %14, %15, %16, %17, %18, %18, %18, %18, %23, %24, %25, %26, %34, %46, %48, %52
-  %.0.i = phi i32 [ -134, %5 ], [ 0, %52 ], [ -152, %34 ], [ -138, %46 ], [ -153, %9 ], [ 0, %48 ], [ -132, %17 ], [ -151, %16 ], [ -138, %14 ], [ -134, %15 ], [ -153, %9 ], [ -153, %9 ], [ -153, %9 ], [ -132, %26 ], [ -151, %25 ], [ -138, %23 ], [ -134, %24 ], [ -153, %18 ], [ -153, %18 ], [ -153, %18 ], [ -153, %18 ]
+mbedtls_psa_pake_output_internal.exit:            ; preds = %5, %9, %9, %9, %9, %14, %14, %14, %14, %19, %20, %21, %22, %30, %42, %44, %48
+  %.0.i = phi i32 [ -134, %5 ], [ 0, %48 ], [ -152, %30 ], [ -138, %42 ], [ -153, %9 ], [ 0, %44 ], [ -153, %14 ], [ -153, %14 ], [ -153, %14 ], [ -153, %14 ], [ -153, %9 ], [ -153, %9 ], [ -153, %9 ], [ -132, %22 ], [ -151, %21 ], [ -138, %19 ], [ -134, %20 ]
   ret i32 %.0.i
 }
 
@@ -462,7 +450,7 @@ define hidden range(i32 -153, 1) i32 @mbedtls_psa_pake_input(ptr noundef %0, i32
   store i64 %37, ptr %24, align 8, !tbaa !21
   switch i32 %1, label %mbedtls_psa_pake_input_internal.exit [
     i32 6, label %38
-    i32 12, label %45
+    i32 12, label %41
   ]
 
 38:                                               ; preds = %29
@@ -470,67 +458,52 @@ define hidden range(i32 -153, 1) i32 @mbedtls_psa_pake_input(ptr noundef %0, i32
   %40 = tail call i32 @mbedtls_ecjpake_read_round_one(ptr noundef nonnull %39, ptr noundef nonnull %31, i64 noundef %37) #8
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %31, i64 noundef 336) #8
   store i64 0, ptr %24, align 8, !tbaa !21
-  switch i32 %40, label %44 [
-    i32 0, label %mbedtls_psa_pake_input_internal.exit
-    i32 -4, label %.critedge.fold.split.i
-    i32 -20352, label %.critedge.fold.split.i
-    i32 -19584, label %.critedge.fold.split.i
-    i32 -19968, label %.critedge.fold.split.i
-    i32 -8, label %41
-    i32 -20224, label %41
-    i32 -20608, label %42
-    i32 -110, label %43
-  ]
-
-41:                                               ; preds = %38, %38
-  br label %mbedtls_psa_pake_input_internal.exit
-
-42:                                               ; preds = %38
-  br label %mbedtls_psa_pake_input_internal.exit
-
-43:                                               ; preds = %38
-  br label %mbedtls_psa_pake_input_internal.exit
-
-44:                                               ; preds = %38
-  br label %mbedtls_psa_pake_input_internal.exit
-
-45:                                               ; preds = %29
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %47 = tail call i32 @mbedtls_ecjpake_read_round_two(ptr noundef nonnull %46, ptr noundef nonnull %31, i64 noundef %37) #8
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %31, i64 noundef 336) #8
-  store i64 0, ptr %24, align 8, !tbaa !21
-  switch i32 %47, label %51 [
+  switch i32 %40, label %47 [
     i32 0, label %mbedtls_psa_pake_input_internal.exit
     i32 -4, label %.critedge.fold.split43.i
     i32 -20352, label %.critedge.fold.split43.i
     i32 -19584, label %.critedge.fold.split43.i
     i32 -19968, label %.critedge.fold.split43.i
-    i32 -8, label %48
-    i32 -20224, label %48
-    i32 -20608, label %49
-    i32 -110, label %50
+    i32 -8, label %44
+    i32 -20224, label %44
+    i32 -20608, label %45
+    i32 -110, label %46
   ]
 
-48:                                               ; preds = %45, %45
+41:                                               ; preds = %29
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %43 = tail call i32 @mbedtls_ecjpake_read_round_two(ptr noundef nonnull %42, ptr noundef nonnull %31, i64 noundef %37) #8
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %31, i64 noundef 336) #8
+  store i64 0, ptr %24, align 8, !tbaa !21
+  switch i32 %43, label %47 [
+    i32 0, label %mbedtls_psa_pake_input_internal.exit
+    i32 -4, label %.critedge.fold.split43.i
+    i32 -20352, label %.critedge.fold.split43.i
+    i32 -19584, label %.critedge.fold.split43.i
+    i32 -19968, label %.critedge.fold.split43.i
+    i32 -8, label %44
+    i32 -20224, label %44
+    i32 -20608, label %45
+    i32 -110, label %46
+  ]
+
+44:                                               ; preds = %41, %41, %38, %38
   br label %mbedtls_psa_pake_input_internal.exit
 
-49:                                               ; preds = %45
+45:                                               ; preds = %41, %38
   br label %mbedtls_psa_pake_input_internal.exit
 
-50:                                               ; preds = %45
+46:                                               ; preds = %41, %38
   br label %mbedtls_psa_pake_input_internal.exit
 
-51:                                               ; preds = %45
+47:                                               ; preds = %41, %38
   br label %mbedtls_psa_pake_input_internal.exit
 
-.critedge.fold.split.i:                           ; preds = %38, %38, %38, %38
+.critedge.fold.split43.i:                         ; preds = %41, %41, %41, %41, %38, %38, %38, %38
   br label %mbedtls_psa_pake_input_internal.exit
 
-.critedge.fold.split43.i:                         ; preds = %45, %45, %45, %45
-  br label %mbedtls_psa_pake_input_internal.exit
-
-mbedtls_psa_pake_input_internal.exit:             ; preds = %4, %13, %23, %29, %38, %41, %42, %43, %44, %45, %48, %49, %50, %51, %.critedge.fold.split.i, %.critedge.fold.split43.i
-  %.1.i = phi i32 [ -134, %4 ], [ %47, %45 ], [ -138, %23 ], [ -151, %50 ], [ -138, %13 ], [ %40, %38 ], [ 0, %29 ], [ -132, %44 ], [ -151, %43 ], [ -138, %41 ], [ -134, %42 ], [ -138, %48 ], [ -134, %49 ], [ -153, %.critedge.fold.split.i ], [ -132, %51 ], [ -153, %.critedge.fold.split43.i ]
+mbedtls_psa_pake_input_internal.exit:             ; preds = %4, %13, %23, %29, %38, %41, %44, %45, %46, %47, %.critedge.fold.split43.i
+  %.1.i = phi i32 [ -134, %4 ], [ %43, %41 ], [ -138, %23 ], [ -151, %46 ], [ -138, %13 ], [ %40, %38 ], [ 0, %29 ], [ -134, %45 ], [ -138, %44 ], [ -153, %.critedge.fold.split43.i ], [ -132, %47 ]
   ret i32 %.1.i
 }
 

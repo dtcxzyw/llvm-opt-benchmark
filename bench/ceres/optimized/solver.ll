@@ -17943,7 +17943,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZN
   %.pre = load i32, ptr %17, align 4
   br label %_ZN5ceres12_GLOBAL__N_127IsNestedDissectionAvailableENS_30SparseLinearAlgebraLibraryTypeE.exit.thread
 
-_ZN5ceres12_GLOBAL__N_127IsNestedDissectionAvailableENS_30SparseLinearAlgebraLibraryTypeE.exit: ; preds = %166, %167
+_ZN5ceres12_GLOBAL__N_127IsNestedDissectionAvailableENS_30SparseLinearAlgebraLibraryTypeE.exit: ; preds = %167, %166
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %169 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #32
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !544

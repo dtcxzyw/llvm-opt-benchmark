@@ -150833,7 +150833,7 @@ define hidden void @"_ZN97_$LT$$RF$mut$u20$zvariant..dbus..de..Deserializer$LT$F
 57:                                               ; preds = %54
   br i1 %55, label %.invoke, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7d2e751bdef811d4E.exit.i"
 
-.invoke:                                          ; preds = %135, %134, %57, %56
+.invoke:                                          ; preds = %134, %135, %57, %56
   %58 = phi i64 [ %53, %56 ], [ %131, %134 ], [ %53, %57 ], [ %131, %135 ]
   %59 = phi ptr [ @anon.327305a79cbaf3066e6f1dc61a87637c.88, %56 ], [ @anon.327305a79cbaf3066e6f1dc61a87637c.85, %134 ], [ @anon.327305a79cbaf3066e6f1dc61a87637c.88, %57 ], [ @anon.327305a79cbaf3066e6f1dc61a87637c.85, %135 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h87b545b7962eada9E(i64 noundef 4, i64 noundef %58, ptr noalias noundef readonly align 8 dereferenceable(24) %59) #37

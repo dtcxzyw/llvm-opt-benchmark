@@ -103167,8 +103167,8 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   br i1 %.sroa.0.0.i.i.i, label %_ZN4gpui3app10entity_map9EntityMap4read17h20c743c981fb4edcE.exit.i, label %.invoke.i
 
 .invoke.i:                                        ; preds = %.noexc41.i, %.noexc27.i, %.noexc18.i, %.noexc14.i
-  %77 = phi ptr [ @anon.50e73ffbc815108deb73bdb9d87d3223.126.llvm.5196727410964091947, %.noexc27.i ], [ @anon.50e73ffbc815108deb73bdb9d87d3223.125.llvm.5196727410964091947, %.noexc14.i ], [ @anon.50e73ffbc815108deb73bdb9d87d3223.126.llvm.5196727410964091947, %.noexc18.i ], [ @anon.50e73ffbc815108deb73bdb9d87d3223.126.llvm.5196727410964091947, %.noexc41.i ]
-  %78 = phi i64 [ 6, %.noexc27.i ], [ 4, %.noexc14.i ], [ 6, %.noexc18.i ], [ 6, %.noexc41.i ]
+  %77 = phi ptr [ @anon.50e73ffbc815108deb73bdb9d87d3223.125.llvm.5196727410964091947, %.noexc14.i ], [ @anon.50e73ffbc815108deb73bdb9d87d3223.126.llvm.5196727410964091947, %.noexc18.i ], [ @anon.50e73ffbc815108deb73bdb9d87d3223.126.llvm.5196727410964091947, %.noexc27.i ], [ @anon.50e73ffbc815108deb73bdb9d87d3223.126.llvm.5196727410964091947, %.noexc41.i ]
+  %78 = phi i64 [ 4, %.noexc14.i ], [ 6, %.noexc18.i ], [ 6, %.noexc27.i ], [ 6, %.noexc41.i ]
   invoke void @_ZN4gpui3app10entity_map18double_lease_panic17h749e38a2bc9fc4b8E.llvm.5196727410964091947(ptr noalias noundef nonnull readonly align 1 %77, i64 noundef %78) #39
           to label %.cont.i unwind label %.body.thread55.i
 

@@ -748,45 +748,45 @@ define dso_local noundef range(i32 -22, 1) i32 @kstrtobool(ptr noundef readonly 
     i8 116, label %15
     i8 84, label %15
     i8 49, label %15
-    i8 110, label %6
-    i8 78, label %6
-    i8 102, label %6
-    i8 70, label %6
-    i8 48, label %6
-    i8 111, label %7
-    i8 79, label %7
+    i8 110, label %13
+    i8 78, label %13
+    i8 102, label %13
+    i8 70, label %13
+    i8 48, label %13
+    i8 111, label %6
+    i8 79, label %6
   ]
 
-6:                                                ; preds = %4, %4, %4, %4, %4
-  br label %15
-
-7:                                                ; preds = %4, %4
-  %8 = getelementptr i8, ptr %0, i64 1
-  %9 = load i8, ptr %8, align 1
-  %10 = zext i8 %9 to i32
-  %11 = add nsw i32 %10, -70
-  %12 = tail call i32 @llvm.fshl.i32(i32 %11, i32 %11, i32 29)
-  %13 = icmp ult i32 %12, 6
-  %switch.maskindex = trunc i32 %12 to i8
+6:                                                ; preds = %4, %4
+  %7 = getelementptr i8, ptr %0, i64 1
+  %8 = load i8, ptr %7, align 1
+  %9 = zext i8 %8 to i32
+  %10 = add nsw i32 %9, -70
+  %11 = tail call i32 @llvm.fshl.i32(i32 %10, i32 %10, i32 29)
+  %12 = icmp ult i32 %11, 6
+  %switch.maskindex = trunc i32 %11 to i8
   %switch.shifted = lshr i8 51, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %13, i1 %switch.lobit, i1 false
+  %or.cond = select i1 %12, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %switch.lookup, label %17
 
-switch.lookup:                                    ; preds = %7
-  %14 = shl nuw nsw i32 %12, 3
+13:                                               ; preds = %4, %4, %4, %4, %4
+  br label %15
+
+switch.lookup:                                    ; preds = %6
+  %14 = shl nuw nsw i32 %11, 3
   %switch.shiftamt = zext nneg i32 %14 to i48
   %switch.downshift = lshr i48 1099511628032, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i8
   br label %15
 
-15:                                               ; preds = %switch.lookup, %6, %4, %4, %4, %4, %4
-  %16 = phi i8 [ %switch.masked, %switch.lookup ], [ 0, %6 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ]
+15:                                               ; preds = %switch.lookup, %13, %4, %4, %4, %4, %4
+  %16 = phi i8 [ 0, %13 ], [ %switch.masked, %switch.lookup ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ]
   store i8 %16, ptr %1, align 1
   br label %17
 
-17:                                               ; preds = %7, %15, %4, %2
-  %18 = phi i32 [ -22, %2 ], [ -22, %4 ], [ -22, %7 ], [ 0, %15 ]
+17:                                               ; preds = %6, %15, %4, %2
+  %18 = phi i32 [ -22, %2 ], [ -22, %4 ], [ -22, %6 ], [ 0, %15 ]
   ret i32 %18
 }
 
@@ -810,45 +810,45 @@ define dso_local noundef range(i32 -22, 1) i32 @kstrtobool_from_user(ptr noundef
     i8 116, label %20
     i8 84, label %20
     i8 49, label %20
-    i8 110, label %11
-    i8 78, label %11
-    i8 102, label %11
-    i8 70, label %11
-    i8 48, label %11
-    i8 111, label %12
-    i8 79, label %12
+    i8 110, label %18
+    i8 78, label %18
+    i8 102, label %18
+    i8 70, label %18
+    i8 48, label %18
+    i8 111, label %11
+    i8 79, label %11
   ]
 
-11:                                               ; preds = %8, %8, %8, %8, %8
-  br label %20
-
-12:                                               ; preds = %8, %8
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %14 = load i8, ptr %13, align 1
-  %15 = zext i8 %14 to i32
-  %16 = add nsw i32 %15, -70
-  %17 = call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 29)
-  %18 = icmp ult i32 %17, 6
-  %switch.maskindex = trunc i32 %17 to i8
+11:                                               ; preds = %8, %8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %13 = load i8, ptr %12, align 1
+  %14 = zext i8 %13 to i32
+  %15 = add nsw i32 %14, -70
+  %16 = call i32 @llvm.fshl.i32(i32 %15, i32 %15, i32 29)
+  %17 = icmp ult i32 %16, 6
+  %switch.maskindex = trunc i32 %16 to i8
   %switch.shifted = lshr i8 51, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %18, i1 %switch.lobit, i1 false
+  %or.cond = select i1 %17, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %switch.lookup, label %kstrtobool.exit
 
-switch.lookup:                                    ; preds = %12
-  %19 = shl nuw nsw i32 %17, 3
+18:                                               ; preds = %8, %8, %8, %8, %8
+  br label %20
+
+switch.lookup:                                    ; preds = %11
+  %19 = shl nuw nsw i32 %16, 3
   %switch.shiftamt = zext nneg i32 %19 to i48
   %switch.downshift = lshr i48 1099511628032, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i8
   br label %20
 
-20:                                               ; preds = %switch.lookup, %11, %8, %8, %8, %8, %8
-  %21 = phi i8 [ %switch.masked, %switch.lookup ], [ 0, %11 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ]
+20:                                               ; preds = %switch.lookup, %18, %8, %8, %8, %8, %8
+  %21 = phi i8 [ 0, %18 ], [ %switch.masked, %switch.lookup ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ]
   store i8 %21, ptr %2, align 1
   br label %kstrtobool.exit
 
-kstrtobool.exit:                                  ; preds = %12, %20, %8, %3
-  %22 = phi i32 [ -14, %3 ], [ 0, %20 ], [ -22, %8 ], [ -22, %12 ]
+kstrtobool.exit:                                  ; preds = %11, %20, %8, %3
+  %22 = phi i32 [ -14, %3 ], [ 0, %20 ], [ -22, %8 ], [ -22, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %22
 }

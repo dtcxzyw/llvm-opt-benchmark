@@ -49441,7 +49441,7 @@ _ZN7hir_def4body4Body13shrink_to_fit17hc79073ce8f237d7aE.exit: ; preds = %"_ZN5a
     i64 0, label %.invoke236
   ]
 
-.invoke236:                                       ; preds = %.noexc93, %.noexc90, %.noexc87, %.noexc84, %.noexc81, %.noexc117, %.noexc111, %.noexc106, %.noexc101
+.invoke236:                                       ; preds = %.noexc81, %.noexc84, %.noexc87, %.noexc90, %.noexc93, %.noexc117, %.noexc111, %.noexc106, %.noexc101
   invoke void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #38
           to label %.cont237 unwind label %366
 

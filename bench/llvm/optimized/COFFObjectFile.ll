@@ -7051,19 +7051,19 @@ define dso_local { ptr, i64 } @_ZNK4llvm6object14COFFObjectFile21getRelocationTy
 
 7:                                                ; preds = %2
   %8 = icmp ult i16 %1, 17
-  br i1 %8, label %switch.lookup, label %39
+  br i1 %8, label %switch.lookup, label %30
 
 9:                                                ; preds = %2
   %10 = icmp ult i16 %1, 23
-  br i1 %10, label %switch.lookup7, label %39
+  br i1 %10, label %switch.lookup7, label %30
 
 11:                                               ; preds = %2
   %12 = icmp ult i16 %1, 18
-  br i1 %12, label %switch.lookup12, label %39
+  br i1 %12, label %switch.lookup12, label %30
 
 13:                                               ; preds = %2
   %14 = icmp ult i16 %1, 21
-  br i1 %14, label %switch.lookup17, label %39
+  br i1 %14, label %switch.lookup17, label %30
 
 15:                                               ; preds = %2
   switch i16 %1, label %30 [
@@ -7126,7 +7126,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm6object14COFFObjectFile21getRelocationTy
 29:                                               ; preds = %15
   br label %39
 
-30:                                               ; preds = %15
+30:                                               ; preds = %13, %11, %9, %7, %15
   br label %39
 
 switch.lookup:                                    ; preds = %7
@@ -7165,9 +7165,9 @@ switch.lookup17:                                  ; preds = %13
   %switch.load21 = load ptr, ptr %switch.gep20, align 8
   br label %39
 
-39:                                               ; preds = %13, %switch.lookup17, %11, %switch.lookup12, %9, %switch.lookup7, %7, %switch.lookup, %2, %15, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16
-  %.sroa.85.0 = phi i64 [ 23, %15 ], [ %switch.load9, %switch.lookup7 ], [ 19, %29 ], [ 7, %2 ], [ 24, %28 ], [ 24, %27 ], [ 23, %26 ], [ 23, %25 ], [ 21, %24 ], [ 22, %23 ], [ 22, %22 ], [ 20, %21 ], [ 20, %20 ], [ 20, %19 ], [ 22, %18 ], [ 22, %17 ], [ 22, %16 ], [ %switch.load19, %switch.lookup17 ], [ 7, %30 ], [ 7, %9 ], [ %switch.load, %switch.lookup ], [ 7, %7 ], [ 7, %11 ], [ %switch.load14, %switch.lookup12 ], [ 7, %13 ]
-  %.sroa.0.0 = phi ptr [ @.str.103, %15 ], [ %switch.load11, %switch.lookup7 ], [ @.str.117, %29 ], [ @.str.56, %2 ], [ @.str.116, %28 ], [ @.str.115, %27 ], [ @.str.114, %26 ], [ @.str.113, %25 ], [ @.str.112, %24 ], [ @.str.111, %23 ], [ @.str.110, %22 ], [ @.str.109, %21 ], [ @.str.108, %20 ], [ @.str.107, %19 ], [ @.str.106, %18 ], [ @.str.105, %17 ], [ @.str.104, %16 ], [ %switch.load21, %switch.lookup17 ], [ @.str.56, %30 ], [ @.str.56, %9 ], [ %switch.load6, %switch.lookup ], [ @.str.56, %7 ], [ @.str.56, %11 ], [ %switch.load16, %switch.lookup12 ], [ @.str.56, %13 ]
+39:                                               ; preds = %switch.lookup17, %switch.lookup12, %switch.lookup7, %switch.lookup, %2, %15, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16
+  %.sroa.85.0 = phi i64 [ 23, %15 ], [ 7, %2 ], [ 19, %29 ], [ 23, %25 ], [ 21, %24 ], [ 22, %23 ], [ 22, %22 ], [ 20, %21 ], [ 20, %20 ], [ 20, %19 ], [ 22, %18 ], [ 22, %17 ], [ 22, %16 ], [ %switch.load19, %switch.lookup17 ], [ 7, %30 ], [ 24, %27 ], [ %switch.load9, %switch.lookup7 ], [ %switch.load14, %switch.lookup12 ], [ 23, %26 ], [ 24, %28 ], [ %switch.load, %switch.lookup ]
+  %.sroa.0.0 = phi ptr [ @.str.103, %15 ], [ @.str.56, %2 ], [ @.str.117, %29 ], [ @.str.113, %25 ], [ @.str.112, %24 ], [ @.str.111, %23 ], [ @.str.110, %22 ], [ @.str.109, %21 ], [ @.str.108, %20 ], [ @.str.107, %19 ], [ @.str.106, %18 ], [ @.str.105, %17 ], [ @.str.104, %16 ], [ %switch.load21, %switch.lookup17 ], [ @.str.56, %30 ], [ @.str.115, %27 ], [ %switch.load11, %switch.lookup7 ], [ %switch.load16, %switch.lookup12 ], [ @.str.114, %26 ], [ @.str.116, %28 ], [ %switch.load6, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.85.0, 1
   ret { ptr, i64 } %.fca.1.insert

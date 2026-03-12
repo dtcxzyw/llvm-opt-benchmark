@@ -897,7 +897,7 @@ define range(i32 -32768, 32768) i32 @usearch_getAttribute_77(ptr noundef readonl
   br label %19
 
 19:                                               ; preds = %2, %3, %14, %9, %4
-  %.0 = phi i32 [ -1, %2 ], [ %8, %4 ], [ %13, %9 ], [ %.1, %14 ], [ -1, %3 ]
+  %.0 = phi i32 [ %.1, %14 ], [ %8, %4 ], [ %13, %9 ], [ -1, %3 ], [ -1, %2 ]
   ret i32 %.0
 }
 

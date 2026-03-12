@@ -3525,15 +3525,15 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear26FCSimpl
   %..i = select i1 %2, i32 5, i32 6
   %.0.i = select i1 %6, i32 %..i, i32 %5
   %7 = icmp eq i32 %.0.i, %1
-  br i1 %7, label %8, label %32
+  br i1 %7, label %8, label %31
 
 8:                                                ; preds = %3
-  switch i32 %1, label %32 [
+  switch i32 %1, label %31 [
     i32 0, label %9
     i32 1, label %13
     i32 2, label %21
-    i32 6, label %30
-    i32 5, label %29
+    i32 6, label %29
+    i32 5, label %32
   ]
 
 9:                                                ; preds = %8
@@ -3575,14 +3575,14 @@ _ZNK4cvc58internal6theory5arith6linear10UpdateInfo14focusDirectionEv.exit: ; pre
   br label %32
 
 29:                                               ; preds = %8
+  %30 = xor i1 %2, true
   br label %32
 
-30:                                               ; preds = %8
-  %31 = xor i1 %2, true
+31:                                               ; preds = %8, %3
   br label %32
 
-32:                                               ; preds = %3, %8, %30, %29, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo14focusDirectionEv.exit, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit, %9
-  %.0 = phi i1 [ false, %3 ], [ %12, %9 ], [ %20, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit ], [ %28, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo14focusDirectionEv.exit ], [ %31, %30 ], [ false, %8 ], [ %2, %29 ]
+32:                                               ; preds = %8, %31, %29, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo14focusDirectionEv.exit, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit, %9
+  %.0 = phi i1 [ false, %31 ], [ %12, %9 ], [ %20, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo12errorsChangeEv.exit ], [ %28, %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo14focusDirectionEv.exit ], [ %2, %8 ], [ %30, %29 ]
   ret i1 %.0
 }
 

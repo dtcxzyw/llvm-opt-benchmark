@@ -36180,7 +36180,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx1
   %177 = icmp eq i64 %176, 9223372036854775800
   br i1 %177, label %.invoke, label %_ZNKSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12_M_check_lenEmPKc.exit.i.i61
 
-.invoke:                                          ; preds = %63, %39, %87, %172, %148, %124
+.invoke:                                          ; preds = %39, %63, %87, %172, %148, %124
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #25
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 

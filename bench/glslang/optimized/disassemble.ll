@@ -2106,8 +2106,8 @@ switch.lookup340:                                 ; preds = %775
   %switch.load342 = load ptr, ptr %switch.gep341, align 8
   br label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
 
-_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit:      ; preds = %772, %775, %switch.lookup340, %766, %switch.lookup336, %761, %switch.lookup332, %771
-  %.0.i162 = phi ptr [ %switch.load338, %switch.lookup336 ], [ @.str.71, %761 ], [ %switch.load342, %switch.lookup340 ], [ @.str.71, %766 ], [ %switch.load334, %switch.lookup332 ], [ %.str.81..str.71.i, %771 ], [ @.str.71, %775 ], [ @.str.71, %772 ]
+_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit:      ; preds = %772, %761, %766, %775, %switch.lookup340, %switch.lookup336, %switch.lookup332, %771
+  %.0.i162 = phi ptr [ %switch.load342, %switch.lookup340 ], [ %switch.load334, %switch.lookup332 ], [ %.str.81..str.71.i, %771 ], [ %switch.load338, %switch.lookup336 ], [ @.str.71, %775 ], [ @.str.71, %766 ], [ @.str.71, %761 ], [ @.str.71, %772 ]
   %780 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %758, ptr noundef nonnull %.0.i162) #20
   %781 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %780, ptr noundef nonnull @.str.13) #20
   br label %.thread224

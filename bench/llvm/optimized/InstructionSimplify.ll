@@ -33967,15 +33967,15 @@ _ZL12getCompareTyPN4llvm5ValueE.exit:             ; preds = %37, %45
 
 59:                                               ; preds = %"_ZZL25haveNonOverlappingStoragePKN4llvm5ValueES2_ENK3$_0clES2_.exit.i"
   %60 = load i8, ptr %35, align 8, !tbaa !3
-  switch i8 %60, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread [
-    i8 60, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148
-    i8 3, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148
+  switch i8 %60, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148 [
+    i8 60, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread
+    i8 3, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread
     i8 22, label %61
   ]
 
 61:                                               ; preds = %59
   %62 = call noundef zeroext i1 @_ZNK4llvm8Argument12hasByValAttrEv(ptr noundef nonnull align 8 dereferenceable(40) %35) #20
-  br i1 %62, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread
+  br i1 %62, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148
 
 "_ZZL25haveNonOverlappingStoragePKN4llvm5ValueES2_ENK3$_0clES2_.exit.thread.i": ; preds = %"_ZZL25haveNonOverlappingStoragePKN4llvm5ValueES2_ENK3$_0clES2_.exit.i", %56
   %63 = load i8, ptr %35, align 8, !tbaa !3
@@ -33992,40 +33992,40 @@ _ZL12getCompareTyPN4llvm5ValueE.exit:             ; preds = %37, %45
   br i1 %64, label %65, label %"_ZZL25haveNonOverlappingStoragePKN4llvm5ValueES2_ENK3$_0clES2_.exit4.thread.i"
 
 65:                                               ; preds = %"_ZZL25haveNonOverlappingStoragePKN4llvm5ValueES2_ENK3$_0clES2_.exit4.i"
-  switch i8 %.pre17.i, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread [
-    i8 60, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148
-    i8 3, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148
+  switch i8 %.pre17.i, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148 [
+    i8 60, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread
+    i8 3, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread
     i8 22, label %66
   ]
 
 66:                                               ; preds = %65
   %67 = call noundef zeroext i1 @_ZNK4llvm8Argument12hasByValAttrEv(ptr noundef nonnull align 8 dereferenceable(40) %34) #20
-  br i1 %67, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread
+  br i1 %67, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148
 
 "_ZZL25haveNonOverlappingStoragePKN4llvm5ValueES2_ENK3$_0clES2_.exit4.thread.i": ; preds = %"_ZZL25haveNonOverlappingStoragePKN4llvm5ValueES2_ENK3$_0clES2_.exit4.i", %"_ZZL25haveNonOverlappingStoragePKN4llvm5ValueES2_ENK3$_0clES2_.exit.thread._ZZL25haveNonOverlappingStoragePKN4llvm5ValueES2_ENK3$_0clES2_.exit4.thread_crit_edge.i"
   %68 = phi i8 [ %.pre.i, %"_ZZL25haveNonOverlappingStoragePKN4llvm5ValueES2_ENK3$_0clES2_.exit.thread._ZZL25haveNonOverlappingStoragePKN4llvm5ValueES2_ENK3$_0clES2_.exit4.thread_crit_edge.i" ], [ %.pre17.i, %"_ZZL25haveNonOverlappingStoragePKN4llvm5ValueES2_ENK3$_0clES2_.exit4.i" ]
   %69 = icmp eq i8 %68, 60
-  br i1 %69, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread
+  br i1 %69, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148
 
 _ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit: ; preds = %"_ZZL25haveNonOverlappingStoragePKN4llvm5ValueES2_ENK3$_0clES2_.exit4.thread.i"
   %70 = load i8, ptr %35, align 8, !tbaa !3
-  switch i8 %70, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread [
-    i8 60, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148
-    i8 3, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148
+  switch i8 %70, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148 [
+    i8 60, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread
+    i8 3, label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread
   ]
 
-_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148: ; preds = %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit, %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit, %65, %65, %59, %59, %66, %61
+_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread: ; preds = %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit, %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit, %65, %65, %59, %59, %66, %61
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %71 = load i8, ptr %34, align 8, !tbaa !3
   %72 = icmp ugt i8 %71, 28
   br i1 %72, label %73, label %75
 
-73:                                               ; preds = %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148
+73:                                               ; preds = %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread
   %74 = call noundef ptr @_ZNK4llvm11Instruction11getFunctionEv(ptr noundef nonnull align 8 dereferenceable(72) %34) #20
   br label %"_ZZL18computePointerICmpN4llvm12CmpPredicateEPNS_5ValueES2_RKNS_13SimplifyQueryEENK3$_0clES2_.exit"
 
-75:                                               ; preds = %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148
+75:                                               ; preds = %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread
   %.not.i = icmp eq i8 %71, 22
   br i1 %.not.i, label %76, label %"_ZZL18computePointerICmpN4llvm12CmpPredicateEPNS_5ValueES2_RKNS_13SimplifyQueryEENK3$_0clES2_.exit.thread"
 
@@ -34266,16 +34266,16 @@ _ZNK4llvm5APInt3ultEm.exit.thread.thread:         ; preds = %.critedge, %148, %_
 .thread:                                          ; preds = %85, %"_ZZL18computePointerICmpN4llvm12CmpPredicateEPNS_5ValueES2_RKNS_13SimplifyQueryEENK3$_0clES2_.exit.thread"
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread
+  br label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148
 
 174:                                              ; preds = %173, %170, %_ZNK4llvm5APInt3ultEm.exit.thread.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %not., label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread, label %256
+  br i1 %not., label %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148, label %256
 
-_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread: ; preds = %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit, %65, %59, %"_ZZL25haveNonOverlappingStoragePKN4llvm5ValueES2_ENK3$_0clES2_.exit4.thread.i", %.thread, %66, %61, %174
-  %.2 = phi ptr [ %.4, %174 ], [ undef, %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit ], [ undef, %.thread ], [ undef, %61 ], [ undef, %66 ], [ undef, %"_ZZL25haveNonOverlappingStoragePKN4llvm5ValueES2_ENK3$_0clES2_.exit4.thread.i" ], [ undef, %59 ], [ undef, %65 ]
+_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148: ; preds = %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit, %59, %65, %"_ZZL25haveNonOverlappingStoragePKN4llvm5ValueES2_ENK3$_0clES2_.exit4.thread.i", %.thread, %66, %61, %174
+  %.2 = phi ptr [ %.4, %174 ], [ undef, %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit ], [ undef, %.thread ], [ undef, %61 ], [ undef, %66 ], [ undef, %"_ZZL25haveNonOverlappingStoragePKN4llvm5ValueES2_ENK3$_0clES2_.exit4.thread.i" ], [ undef, %65 ], [ undef, %59 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %175 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %175, ptr %15, align 8, !tbaa !204
@@ -34298,14 +34298,14 @@ _ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread: ; preds = %_ZL25ha
   %184 = call fastcc noundef zeroext i1 @"_ZZL18computePointerICmpN4llvm12CmpPredicateEPNS_5ValueES2_RKNS_13SimplifyQueryEENK3$_1clENS_8ArrayRefIPKS1_EE"(ptr %181, i64 %183)
   br i1 %184, label %185, label %190
 
-185:                                              ; preds = %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread
+185:                                              ; preds = %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148
   %186 = load ptr, ptr %16, align 8, !tbaa !204
   %187 = load i32, ptr %179, align 8, !tbaa !206
   %188 = zext i32 %187 to i64
   %189 = call fastcc noundef zeroext i1 @"_ZZL18computePointerICmpN4llvm12CmpPredicateEPNS_5ValueES2_RKNS_13SimplifyQueryEENK3$_2clENS_8ArrayRefIPKS1_EE"(ptr %186, i64 %188)
   br i1 %189, label %200, label %190
 
-190:                                              ; preds = %185, %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread
+190:                                              ; preds = %185, %_ZL25haveNonOverlappingStoragePKN4llvm5ValueES2_.exit.thread148
   %191 = load ptr, ptr %16, align 8, !tbaa !204
   %192 = load i32, ptr %179, align 8, !tbaa !206
   %193 = zext i32 %192 to i64

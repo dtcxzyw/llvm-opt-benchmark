@@ -1502,7 +1502,7 @@ define internal range(i32 0, 2) i32 @zend_weakmap_has_dimension(ptr noundef %0, 
 
 12:                                               ; preds = %10
   tail call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.5) #8
-  br label %62
+  br label %60
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 -56
@@ -1516,21 +1516,21 @@ define internal range(i32 0, 2) i32 @zend_weakmap_has_dimension(ptr noundef %0, 
 
 19:                                               ; preds = %13
   %.not13 = icmp eq i32 %2, 0
-  br i1 %.not13, label %58, label %.preheader
+  br i1 %.not13, label %56, label %.preheader
 
-.preheader:                                       ; preds = %19, %55
-  %.011.i = phi ptr [ %57, %55 ], [ %18, %19 ]
+.preheader:                                       ; preds = %19, %53
+  %.011.i = phi ptr [ %55, %53 ], [ %18, %19 ]
   %20 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %21 = load i8, ptr %20, align 8, !tbaa !4
-  switch i8 %21, label %i_zend_is_true.exit.loopexit [
-    i8 3, label %i_zend_is_true.exit
+  switch i8 %21, label %i_zend_is_true.exit [
+    i8 3, label %i_zend_is_true.exit.loopexit39
     i8 4, label %22
     i8 5, label %24
-    i8 6, label %28
-    i8 7, label %38
-    i8 8, label %42
-    i8 9, label %51
-    i8 10, label %55
+    i8 6, label %27
+    i8 7, label %36
+    i8 8, label %40
+    i8 9, label %49
+    i8 10, label %53
   ]
 
 22:                                               ; preds = %.preheader
@@ -1541,78 +1541,72 @@ define internal range(i32 0, 2) i32 @zend_weakmap_has_dimension(ptr noundef %0, 
 24:                                               ; preds = %.preheader
   %25 = load double, ptr %.011.i, align 8, !tbaa !4
   %26 = fcmp une double %25, 0.000000e+00
-  br i1 %26, label %27, label %i_zend_is_true.exit
+  br i1 %26, label %i_zend_is_true.exit.loopexit39, label %i_zend_is_true.exit
 
-27:                                               ; preds = %24
+27:                                               ; preds = %.preheader
+  %28 = load ptr, ptr %.011.i, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %30 = load i64, ptr %29, align 8, !tbaa !51
+  %31 = icmp ugt i64 %30, 1
+  br i1 %31, label %i_zend_is_true.exit.loopexit39, label %32
+
+32:                                               ; preds = %27
+  %.not14.i = icmp eq i64 %30, 0
+  br i1 %.not14.i, label %i_zend_is_true.exit, label %33
+
+33:                                               ; preds = %32
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %35 = load i8, ptr %34, align 8, !tbaa !4
+  %.not15.i = icmp eq i8 %35, 48
+  br i1 %.not15.i, label %i_zend_is_true.exit, label %i_zend_is_true.exit.loopexit39
+
+36:                                               ; preds = %.preheader
+  %37 = load ptr, ptr %.011.i, align 8, !tbaa !4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 28
+  %39 = load i32, ptr %38, align 4, !tbaa !18
+  %.not13.i = icmp ne i32 %39, 0
   br label %i_zend_is_true.exit
 
-28:                                               ; preds = %.preheader
-  %29 = load ptr, ptr %.011.i, align 8, !tbaa !4
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load i64, ptr %30, align 8, !tbaa !51
-  %32 = icmp ugt i64 %31, 1
-  br i1 %32, label %37, label %33
+40:                                               ; preds = %.preheader
+  %41 = load ptr, ptr %.011.i, align 8, !tbaa !4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %43 = load ptr, ptr %42, align 8, !tbaa !53
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 136
+  %45 = load ptr, ptr %44, align 8, !tbaa !54
+  %46 = icmp eq ptr %45, @zend_std_cast_object_tostring
+  br i1 %46, label %i_zend_is_true.exit, label %47, !prof !28
 
-33:                                               ; preds = %28
-  %.not14.i = icmp eq i64 %31, 0
-  br i1 %.not14.i, label %i_zend_is_true.exit, label %34
-
-34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %36 = load i8, ptr %35, align 8, !tbaa !4
-  %.not15.i = icmp eq i8 %36, 48
-  br i1 %.not15.i, label %i_zend_is_true.exit, label %37
-
-37:                                               ; preds = %34, %28
+47:                                               ; preds = %40
+  %48 = tail call zeroext i1 @zend_object_is_true(ptr noundef nonnull %.011.i) #8
   br label %i_zend_is_true.exit
 
-38:                                               ; preds = %.preheader
-  %39 = load ptr, ptr %.011.i, align 8, !tbaa !4
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 28
-  %41 = load i32, ptr %40, align 4, !tbaa !18
-  %.not13.i = icmp ne i32 %41, 0
+49:                                               ; preds = %.preheader
+  %50 = load ptr, ptr %.011.i, align 8, !tbaa !4
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load i64, ptr %51, align 8, !tbaa !56
+  %.not.i = icmp ne i64 %52, 0
   br label %i_zend_is_true.exit
 
-42:                                               ; preds = %.preheader
-  %43 = load ptr, ptr %.011.i, align 8, !tbaa !4
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !53
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 136
-  %47 = load ptr, ptr %46, align 8, !tbaa !54
-  %48 = icmp eq ptr %47, @zend_std_cast_object_tostring
-  br i1 %48, label %i_zend_is_true.exit, label %49, !prof !28
-
-49:                                               ; preds = %42
-  %50 = tail call zeroext i1 @zend_object_is_true(ptr noundef nonnull %.011.i) #8
-  br label %i_zend_is_true.exit
-
-51:                                               ; preds = %.preheader
-  %52 = load ptr, ptr %.011.i, align 8, !tbaa !4
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load i64, ptr %53, align 8, !tbaa !56
-  %.not.i = icmp ne i64 %54, 0
-  br label %i_zend_is_true.exit
-
-55:                                               ; preds = %.preheader
-  %56 = load ptr, ptr %.011.i, align 8, !tbaa !4
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+53:                                               ; preds = %.preheader
+  %54 = load ptr, ptr %.011.i, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   br label %.preheader
 
-58:                                               ; preds = %19
-  %59 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %60 = load i8, ptr %59, align 8, !tbaa !4
-  %61 = icmp ne i8 %60, 1
+56:                                               ; preds = %19
+  %57 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %58 = load i8, ptr %57, align 8, !tbaa !4
+  %59 = icmp ne i8 %58, 1
   br label %i_zend_is_true.exit
 
-i_zend_is_true.exit.loopexit:                     ; preds = %.preheader
+i_zend_is_true.exit.loopexit39:                   ; preds = %.preheader, %27, %33, %24
   br label %i_zend_is_true.exit
 
-i_zend_is_true.exit:                              ; preds = %.preheader, %i_zend_is_true.exit.loopexit, %51, %49, %42, %38, %37, %34, %33, %27, %24, %22, %13, %58
-  %.1.shrunk = phi i1 [ false, %13 ], [ %61, %58 ], [ %.not13.i, %38 ], [ false, %i_zend_is_true.exit.loopexit ], [ %50, %49 ], [ %.not.i, %51 ], [ true, %27 ], [ false, %24 ], [ true, %37 ], [ false, %34 ], [ false, %33 ], [ %.not16.i, %22 ], [ true, %42 ], [ true, %.preheader ]
+i_zend_is_true.exit:                              ; preds = %.preheader, %i_zend_is_true.exit.loopexit39, %49, %47, %40, %36, %33, %32, %24, %22, %13, %56
+  %.1.shrunk = phi i1 [ false, %13 ], [ %59, %56 ], [ %.not13.i, %36 ], [ true, %i_zend_is_true.exit.loopexit39 ], [ %48, %47 ], [ %.not.i, %49 ], [ true, %40 ], [ false, %24 ], [ %.not16.i, %22 ], [ false, %33 ], [ false, %32 ], [ false, %.preheader ]
   %.1 = zext i1 %.1.shrunk to i32
-  br label %62
+  br label %60
 
-62:                                               ; preds = %i_zend_is_true.exit, %12
+60:                                               ; preds = %i_zend_is_true.exit, %12
   %.0 = phi i32 [ 0, %12 ], [ %.1, %i_zend_is_true.exit ]
   ret i32 %.0
 }

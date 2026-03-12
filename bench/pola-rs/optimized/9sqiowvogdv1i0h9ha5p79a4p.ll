@@ -67884,7 +67884,7 @@ _ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.i.i: ; preds = %
 .noexc9:                                          ; preds = %19
   switch i8 %20, label %.thread26.sink.split [
     i8 2, label %.thread26
-    i8 0, label %.thread31
+    i8 0, label %.thread30
   ]
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h4cf9174c42094651E.exit.i": ; preds = %.noexc, %3
@@ -67894,22 +67894,22 @@ _ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.i.i: ; preds = %
 .noexc10:                                         ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h4cf9174c42094651E.exit.i"
   switch i8 %21, label %.thread26.sink.split [
     i8 2, label %.thread26
-    i8 0, label %.thread31
+    i8 0, label %.thread30
   ]
 
 22:                                               ; preds = %16
   %23 = extractvalue { ptr, i64 } %18, 1
   %24 = extractvalue { ptr, i64 } %18, 0
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %.thread26, label %.thread31, !prof !4758
+  br i1 %.not, label %.thread26, label %.thread30, !prof !4758
 
-.thread31:                                        ; preds = %.noexc10, %.noexc9, %22
-  %.sroa.0.0.i36 = phi ptr [ %24, %22 ], [ @anon.6f2ae9c3f93e65d43ec770523e5a0eea.16, %.noexc9 ], [ @anon.6f2ae9c3f93e65d43ec770523e5a0eea.16, %.noexc10 ]
-  %.sroa.3.0.i35 = phi i64 [ %23, %22 ], [ 65, %.noexc9 ], [ 65, %.noexc10 ]
+.thread30:                                        ; preds = %.noexc10, %.noexc9, %22
+  %.sroa.0.0.i35 = phi ptr [ %24, %22 ], [ @anon.6f2ae9c3f93e65d43ec770523e5a0eea.16, %.noexc9 ], [ @anon.6f2ae9c3f93e65d43ec770523e5a0eea.16, %.noexc10 ]
+  %.sroa.3.0.i34 = phi i64 [ %23, %22 ], [ 65, %.noexc9 ], [ 65, %.noexc10 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store ptr %.sroa.0.0.i36, ptr %7, align 8
+  store ptr %.sroa.0.0.i35, ptr %7, align 8
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %.sroa.3.0.i35, ptr %25, align 8
+  store i64 %.sroa.3.0.i34, ptr %25, align 8
   invoke void @_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_place18panic_cold_display17hb07527212f192fffE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #14
           to label %28 unwind label %84
 
@@ -67922,7 +67922,7 @@ _ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.i.i: ; preds = %
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %32, label %29
 
-28:                                               ; preds = %.thread31
+28:                                               ; preds = %.thread30
   unreachable
 
 29:                                               ; preds = %.thread26
@@ -68094,7 +68094,7 @@ _ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.thread2.i.i.i: ;
   %.pn20 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %lpad.thr_comm, %84 ]
   resume { ptr, i32 } %.pn20
 
-84:                                               ; preds = %.thread31, %32, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h4cf9174c42094651E.exit.i", %_ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.i.i, %16, %19
+84:                                               ; preds = %.thread30, %32, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h4cf9174c42094651E.exit.i", %_ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.i.i, %16, %19
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr141drop_in_place$LT$polars_io..utils..file..async_writeable..AsyncWriteable..close..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdd58756a5ddbe377E"(ptr nonnull %0, ptr nonnull %1) #12
@@ -68139,15 +68139,15 @@ _ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.i.i: ; preds = %
 15:                                               ; preds = %12
   %16 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !4774
   switch i8 %16, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread.sink.split [
-    i8 2, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread27
-    i8 0, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread17
+    i8 2, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread26
+    i8 0, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread16
   ]
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5e6ef94efa31d9b6E.exit.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.i.i, %2
   %17 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !4779
   switch i8 %17, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread.sink.split [
-    i8 2, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread27
-    i8 0, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread17
+    i8 2, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread26
+    i8 0, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread16
   ]
 
 _ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit: ; preds = %12
@@ -68156,24 +68156,24 @@ _ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit: ; preds = %1
   %20 = extractvalue { ptr, i64 } %19, 1
   %21 = extractvalue { ptr, i64 } %19, 0
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread17, !prof !4758
+  br i1 %.not, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread16, !prof !4758
 
-_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread17: ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5e6ef94efa31d9b6E.exit.i", %15, %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit
-  %.sroa.0.0.i22 = phi ptr [ %21, %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit ], [ @anon.6f2ae9c3f93e65d43ec770523e5a0eea.16, %15 ], [ @anon.6f2ae9c3f93e65d43ec770523e5a0eea.16, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5e6ef94efa31d9b6E.exit.i" ]
-  %.sroa.3.0.i21 = phi i64 [ %20, %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit ], [ 65, %15 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5e6ef94efa31d9b6E.exit.i" ]
+_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread16: ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5e6ef94efa31d9b6E.exit.i", %15, %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit
+  %.sroa.0.0.i21 = phi ptr [ %21, %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit ], [ @anon.6f2ae9c3f93e65d43ec770523e5a0eea.16, %15 ], [ @anon.6f2ae9c3f93e65d43ec770523e5a0eea.16, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5e6ef94efa31d9b6E.exit.i" ]
+  %.sroa.3.0.i20 = phi i64 [ %20, %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit ], [ 65, %15 ], [ 65, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5e6ef94efa31d9b6E.exit.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr %.sroa.0.0.i22, ptr %6, align 8
+  store ptr %.sroa.0.0.i21, ptr %6, align 8
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.3.0.i21, ptr %22, align 8
+  store i64 %.sroa.3.0.i20, ptr %22, align 8
   call void @_ZN5tokio7runtime9scheduler12multi_thread6worker14block_in_place18panic_cold_display17hb07527212f192fffE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #14
   unreachable
 
 _ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread: ; preds = %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit
   %.pre = load i8, ptr %8, align 1, !range !280
   %23 = trunc nuw i8 %.pre to i1
-  br i1 %23, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread27
+  br i1 %23, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread26
 
-_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread27: ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5e6ef94efa31d9b6E.exit.i", %15, %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread
+_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread26: ; preds = %15, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5e6ef94efa31d9b6E.exit.i", %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread
   %.sroa.010.0.copyload = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.411.0.copyload = load ptr, ptr %.sroa.411.0..sroa_idx, align 8, !nonnull !3, !noundef !3
@@ -68281,8 +68281,8 @@ _ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.thread2.i.i.i: ;
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #13, !noalias !4789
   unreachable
 
-54:                                               ; preds = %57, %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread27
-  %.sroa.0.0 = phi ptr [ %49, %57 ], [ %27, %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread27 ]
+54:                                               ; preds = %57, %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread26
+  %.sroa.0.0 = phi ptr [ %49, %57 ], [ %27, %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.sroa.0.0

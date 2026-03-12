@@ -54507,7 +54507,7 @@ _ZN6hir_ty5infer5unify14InferenceTable12new_type_var17hbfebd25775aa1702E.exit112
   %3864 = icmp slt i64 %3863, 0
   br i1 %3864, label %.invoke2711, label %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit1131"
 
-.invoke2711:                                      ; preds = %3788, %3783, %3857
+.invoke2711:                                      ; preds = %3783, %3788, %3857
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #56
           to label %.cont2712 unwind label %3794
 
@@ -73560,7 +73560,7 @@ default.unreachable:                              ; preds = %.noexc160, %285
   %290 = icmp slt i64 %289, 0
   br i1 %290, label %.invoke1412, label %_ZN6hir_ty5infer16InferenceContext6err_ty17hf3183a5204e0ca17E.exit
 
-.invoke1412:                                      ; preds = %1744, %"_ZN91_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..chalk_ext..TyExt$GT$6as_adt17had9ca38301d88381E.exit.thread", %.thread991, %1610, %1202, %._crit_edge1166, %812, %751, %663, %634, %462, %458, %441, %307, %291, %287
+.invoke1412:                                      ; preds = %1610, %751, %634, %663, %458, %462, %307, %1744, %"_ZN91_$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$u20$as$u20$hir_ty..chalk_ext..TyExt$GT$6as_adt17had9ca38301d88381E.exit.thread", %.thread991, %1202, %._crit_edge1166, %812, %441, %291, %287
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #56
           to label %.cont1413 unwind label %.loopexit.split-lp
 
@@ -123248,7 +123248,7 @@ _ZN6hir_ty10lang_items6is_box17ha4250877379061c9E.exit: ; preds = %.noexc, %.noe
   %109 = icmp slt i64 %108, 0
   br i1 %109, label %.invoke555, label %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit"
 
-.invoke555:                                       ; preds = %417, %367, %275, %110, %105
+.invoke555:                                       ; preds = %367, %417, %275, %110, %105
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #56
           to label %.cont556 unwind label %.body.thread514
 
@@ -124734,7 +124734,7 @@ _ZN6hir_ty10lang_items6is_box17ha4250877379061c9E.exit: ; preds = %.noexc, %.noe
   %113 = icmp slt i64 %112, 0
   br i1 %113, label %.invoke563, label %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit"
 
-.invoke563:                                       ; preds = %508, %458, %279, %114, %109
+.invoke563:                                       ; preds = %458, %508, %279, %114, %109
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #56
           to label %.cont564 unwind label %.body.thread521
 
@@ -126416,7 +126416,7 @@ _ZN6hir_ty10lang_items6is_box17ha4250877379061c9E.exit: ; preds = %.noexc, %.noe
   %113 = icmp slt i64 %112, 0
   br i1 %113, label %.invoke563, label %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit"
 
-.invoke563:                                       ; preds = %508, %458, %279, %114, %109
+.invoke563:                                       ; preds = %458, %508, %279, %114, %109
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #56
           to label %.cont564 unwind label %.body.thread521
 

@@ -9901,7 +9901,7 @@ _ZN4just5lexer5Lexer5token17hd95a961a99a0c22eE.exit401.i: ; preds = %.noexc119, 
   %650 = select i1 %.not.i.i122, i1 true, i1 %649
   br i1 %650, label %.invoke, label %651
 
-.invoke:                                          ; preds = %._crit_edge533.i, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h855c7a4ec3f5e11aE.exit.i", %.thread474.i, %.thread462.i, %397, %.critedge516.i, %186, %.noexc109, %.preheader
+.invoke:                                          ; preds = %186, %.critedge516.i, %397, %.thread462.i, %.thread474.i, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h855c7a4ec3f5e11aE.exit.i", %._crit_edge533.i, %.noexc109, %.preheader
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.caf4ea2b214629a3b5d633b8bc0e9fab.78) #28
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -13852,7 +13852,7 @@ _ZN4just5lexer5Lexer14open_delimiter17h8624797e90a4a339E.exit: ; preds = %49, %5
   %63 = load i64, ptr %53, align 8, !alias.scope !2473, !noundef !4
   %64 = add i64 %63, 1
   store i64 %64, ptr %53, align 8, !alias.scope !2473
-  br label %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit.thread
+  br label %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit56.thread
 
 65:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2476)
@@ -13885,7 +13885,7 @@ _ZN4just5lexer5Lexer14open_delimiter17h8624797e90a4a339E.exit: ; preds = %49, %5
   %78 = getelementptr inbounds [16 x i8], ptr %77, i64 %73
   %79 = load i8, ptr %78, align 8, !range !1234, !noalias !2486, !noundef !4
   %80 = icmp eq i8 %79, 0
-  br i1 %80, label %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit.thread, label %81
+  br i1 %80, label %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit56.thread, label %81
 
 81:                                               ; preds = %71
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -13912,7 +13912,7 @@ _ZN4just5lexer5Lexer14open_delimiter17h8624797e90a4a339E.exit: ; preds = %49, %5
 _ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit: ; preds = %69, %81
   %.sroa.5.083 = phi i8 [ %.sroa.5.0.copyload59, %69 ], [ %.sroa.5.0.copyload, %81 ]
   %87 = icmp eq i8 %.sroa.5.083, 34
-  br i1 %87, label %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit.thread, label %201
+  br i1 %87, label %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit56.thread, label %201
 
 88:                                               ; preds = %3
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -13940,7 +13940,7 @@ _ZN4just5lexer5Lexer14open_delimiter17h8624797e90a4a339E.exit52: ; preds = %88, 
   %102 = load i64, ptr %92, align 8, !alias.scope !2490, !noundef !4
   %103 = add i64 %102, 1
   store i64 %103, ptr %92, align 8, !alias.scope !2490
-  br label %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit.thread
+  br label %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit56.thread
 
 104:                                              ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2493)
@@ -13973,7 +13973,7 @@ _ZN4just5lexer5Lexer14open_delimiter17h8624797e90a4a339E.exit52: ; preds = %88, 
   %117 = getelementptr inbounds [16 x i8], ptr %116, i64 %112
   %118 = load i8, ptr %117, align 8, !range !1234, !noalias !2503, !noundef !4
   %119 = icmp eq i8 %118, 1
-  br i1 %119, label %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit.thread, label %120
+  br i1 %119, label %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit56.thread, label %120
 
 120:                                              ; preds = %110
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
@@ -14000,7 +14000,7 @@ _ZN4just5lexer5Lexer14open_delimiter17h8624797e90a4a339E.exit52: ; preds = %88, 
 _ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit53: ; preds = %108, %120
   %.sroa.562.0 = phi i8 [ %.sroa.562.0.copyload64, %108 ], [ %.sroa.562.0.copyload, %120 ]
   %126 = icmp eq i8 %.sroa.562.0, 34
-  br i1 %126, label %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit.thread, label %203
+  br i1 %126, label %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit56.thread, label %203
 
 127:                                              ; preds = %3
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -14028,7 +14028,7 @@ _ZN4just5lexer5Lexer14open_delimiter17h8624797e90a4a339E.exit55: ; preds = %127,
   %141 = load i64, ptr %131, align 8, !alias.scope !2507, !noundef !4
   %142 = add i64 %141, 1
   store i64 %142, ptr %131, align 8, !alias.scope !2507
-  br label %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit.thread
+  br label %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit56.thread
 
 143:                                              ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2510)
@@ -14061,7 +14061,7 @@ _ZN4just5lexer5Lexer14open_delimiter17h8624797e90a4a339E.exit55: ; preds = %127,
   %156 = getelementptr inbounds [16 x i8], ptr %155, i64 %151
   %157 = load i8, ptr %156, align 8, !range !1234, !noalias !2520, !noundef !4
   %158 = icmp eq i8 %157, 2
-  br i1 %158, label %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit.thread, label %159
+  br i1 %158, label %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit56.thread, label %159
 
 159:                                              ; preds = %149
   %160 = getelementptr inbounds nuw i8, ptr %156, i64 8
@@ -14088,9 +14088,9 @@ _ZN4just5lexer5Lexer14open_delimiter17h8624797e90a4a339E.exit55: ; preds = %127,
 _ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit56: ; preds = %147, %159
   %.sroa.568.0 = phi i8 [ %.sroa.568.0.copyload70, %147 ], [ %.sroa.568.0.copyload, %159 ]
   %165 = icmp eq i8 %.sroa.568.0, 34
-  br i1 %165, label %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit.thread, label %204
+  br i1 %165, label %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit56.thread, label %204
 
-_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit.thread: ; preds = %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit56, %149, %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit53, %110, %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit, %71, %_ZN4just5lexer5Lexer14open_delimiter17h8624797e90a4a339E.exit55, %_ZN4just5lexer5Lexer14open_delimiter17h8624797e90a4a339E.exit52, %_ZN4just5lexer5Lexer14open_delimiter17h8624797e90a4a339E.exit
+_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit56.thread: ; preds = %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit56, %149, %110, %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit53, %71, %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit, %_ZN4just5lexer5Lexer14open_delimiter17h8624797e90a4a339E.exit55, %_ZN4just5lexer5Lexer14open_delimiter17h8624797e90a4a339E.exit52, %_ZN4just5lexer5Lexer14open_delimiter17h8624797e90a4a339E.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2521)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2524)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.010.i)
@@ -14102,7 +14102,7 @@ _ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit.thread: ; preds =
   %168 = icmp eq i8 %167, 34
   br i1 %168, label %169, label %200
 
-169:                                              ; preds = %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit.thread
+169:                                              ; preds = %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit56.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2526
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -14163,7 +14163,7 @@ _ZN4just5lexer5Lexer5token17hd95a961a99a0c22eE.exit.i: ; preds = %191, %169
   store i8 34, ptr %199, align 8, !alias.scope !2521, !noalias !2524
   br label %_ZN4just5lexer5Lexer10lex_single17hba6e1819ab04cf72E.exit
 
-200:                                              ; preds = %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit.thread
+200:                                              ; preds = %_ZN4just5lexer5Lexer15close_delimiter17h3227925d6ee57cbcE.exit56.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.010.i, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !2526
   %.sroa.59.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.312.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.59.0..sroa_idx.i, i64 7, i1 false), !noalias !2526

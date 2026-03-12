@@ -3630,6 +3630,8 @@ erf_update_anchors_from_header.exit:              ; preds = %erf_find_anchor_map
   %238 = load i8, ptr %66, align 8
   %239 = and i8 %238, 127
   switch i8 %239, label %278 [
+    i8 2, label %240
+    i8 11, label %240
     i8 18, label %265
     i8 17, label %252
     i8 12, label %252
@@ -3640,8 +3642,6 @@ erf_update_anchors_from_header.exit:              ; preds = %erf_find_anchor_map
     i8 5, label %252
     i8 20, label %240
     i8 16, label %240
-    i8 11, label %240
-    i8 2, label %240
   ]
 
 240:                                              ; preds = %erf_update_anchors_from_header.exit, %erf_update_anchors_from_header.exit, %erf_update_anchors_from_header.exit, %erf_update_anchors_from_header.exit

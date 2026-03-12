@@ -21875,26 +21875,23 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %3, %8
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 355
   %45 = load i8, ptr %44, align 1, !tbaa !203, !range !149, !noundef !150
   %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit, label %.thread22
+  br i1 %46, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit.fold.split
 
 47:                                               ; preds = %40
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 351
   %49 = load i8, ptr %48, align 1, !tbaa !464, !range !149, !noundef !150
   %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit, label %.thread22
-
-.thread22:                                        ; preds = %47, %43
-  br label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
+  br i1 %50, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit.fold.split
 
 51:                                               ; preds = %40
   %52 = lshr i32 %42, 8
   %53 = tail call range(i32 0, 25) i32 @llvm.ctpop.i32(i32 %52)
   %54 = icmp eq i32 %53, 1
-  br i1 %54, label %.split, label %.fold.split
+  br i1 %54, label %.split, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit.fold.split
 
 .split:                                           ; preds = %51
   %55 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %52, i1 true)
-  switch i32 %55, label %.fold.split [
+  switch i32 %55, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit.fold.split [
     i32 6, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
     i32 5, label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
     i32 4, label %56
@@ -21907,10 +21904,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %3, %8
   %59 = trunc nuw i8 %58 to i1
   br label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
 
-.fold.split:                                      ; preds = %51, %.split
-  br label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
-
-_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit.fold.split: ; preds = %40
+_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit.fold.split: ; preds = %.split, %51, %43, %47, %40
   br label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
 
 switch.lookup:                                    ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i
@@ -21919,8 +21913,8 @@ switch.lookup:                                    ; preds = %_ZNK4llvm4Type13get
   %switch.masked = trunc i49 %switch.downshift to i1
   br label %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit
 
-_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit: ; preds = %switch.lookup, %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %40, %40, %40, %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit.fold.split, %.thread22, %25, %22, %21, %.split, %.split, %.fold.split, %56, %47, %43, %_ZNK4llvm4Type13getScalarTypeEv.exit, %15
-  %.0 = phi i1 [ false, %.fold.split ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ true, %40 ], [ true, %40 ], [ true, %43 ], [ false, %.thread22 ], [ true, %47 ], [ false, %15 ], [ true, %40 ], [ true, %.split ], [ true, %.split ], [ %59, %56 ], [ true, %21 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit.i ], [ false, %22 ], [ false, %25 ], [ %switch.masked, %switch.lookup ], [ false, %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit.fold.split ]
+_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit: ; preds = %switch.lookup, %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %40, %40, %40, %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit.fold.split, %25, %22, %21, %.split, %.split, %56, %47, %43, %_ZNK4llvm4Type13getScalarTypeEv.exit, %15
+  %.0 = phi i1 [ %switch.masked, %switch.lookup ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ true, %40 ], [ true, %40 ], [ true, %43 ], [ false, %_ZNK4llvm10X86TTIImpl30hasConditionalLoadStoreForTypeEPNS_4TypeE.exit.fold.split ], [ true, %47 ], [ false, %15 ], [ true, %40 ], [ true, %.split ], [ true, %.split ], [ %59, %56 ], [ true, %21 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit.i ], [ false, %22 ], [ false, %25 ]
   ret i1 %.0
 }
 
@@ -26201,11 +26195,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm10X86TTIImpl23isLegalMaskedExpandLo
   %24 = lshr i32 %22, 8
   %25 = tail call range(i32 0, 25) i32 @llvm.ctpop.i32(i32 %24)
   %26 = icmp eq i32 %25, 1
-  br i1 %26, label %.split, label %.fold.split
+  br i1 %26, label %.split, label %.fold.split15
 
 .split:                                           ; preds = %23
   %27 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %24, i1 true)
-  switch i32 %27, label %.fold.split [
+  switch i32 %27, label %.fold.split15 [
     i32 6, label %32
     i32 5, label %32
     i32 4, label %28
@@ -26218,14 +26212,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm10X86TTIImpl23isLegalMaskedExpandLo
   %31 = trunc nuw i8 %30 to i1
   br label %32
 
-.fold.split:                                      ; preds = %23, %.split
+.fold.split15:                                    ; preds = %.split, %23, %18
   br label %32
 
-.fold.split15:                                    ; preds = %18
-  br label %32
-
-32:                                               ; preds = %18, %18, %.fold.split15, %.split, %.split, %.fold.split, %28, %14, %8, %3
-  %.0 = phi i1 [ false, %8 ], [ false, %14 ], [ false, %3 ], [ true, %18 ], [ false, %.fold.split ], [ true, %18 ], [ true, %.split ], [ true, %.split ], [ %31, %28 ], [ false, %.fold.split15 ]
+32:                                               ; preds = %18, %18, %.fold.split15, %.split, %.split, %28, %14, %8, %3
+  %.0 = phi i1 [ false, %8 ], [ false, %14 ], [ false, %3 ], [ true, %18 ], [ false, %.fold.split15 ], [ true, %18 ], [ true, %.split ], [ true, %.split ], [ %31, %28 ]
   ret i1 %.0
 }
 
@@ -26268,11 +26259,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm10X86TTIImpl26isLegalMaskedCompress
   %24 = lshr i32 %22, 8
   %25 = tail call range(i32 0, 25) i32 @llvm.ctpop.i32(i32 %24)
   %26 = icmp eq i32 %25, 1
-  br i1 %26, label %.split.i, label %.fold.split.i
+  br i1 %26, label %.split.i, label %.fold.split15.i
 
 .split.i:                                         ; preds = %23
   %27 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %24, i1 true)
-  switch i32 %27, label %.fold.split.i [
+  switch i32 %27, label %.fold.split15.i [
     i32 6, label %_ZN4llvm10X86TTIImpl23isLegalMaskedExpandLoadEPNS_4TypeENS_5AlignE.exit
     i32 5, label %_ZN4llvm10X86TTIImpl23isLegalMaskedExpandLoadEPNS_4TypeENS_5AlignE.exit
     i32 4, label %28
@@ -26285,14 +26276,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm10X86TTIImpl26isLegalMaskedCompress
   %31 = trunc nuw i8 %30 to i1
   br label %_ZN4llvm10X86TTIImpl23isLegalMaskedExpandLoadEPNS_4TypeENS_5AlignE.exit
 
-.fold.split.i:                                    ; preds = %.split.i, %23
+.fold.split15.i:                                  ; preds = %.split.i, %23, %18
   br label %_ZN4llvm10X86TTIImpl23isLegalMaskedExpandLoadEPNS_4TypeENS_5AlignE.exit
 
-.fold.split15.i:                                  ; preds = %18
-  br label %_ZN4llvm10X86TTIImpl23isLegalMaskedExpandLoadEPNS_4TypeENS_5AlignE.exit
-
-_ZN4llvm10X86TTIImpl23isLegalMaskedExpandLoadEPNS_4TypeENS_5AlignE.exit: ; preds = %3, %8, %14, %18, %18, %.split.i, %.split.i, %28, %.fold.split.i, %.fold.split15.i
-  %.0.i = phi i1 [ false, %8 ], [ false, %14 ], [ false, %3 ], [ true, %18 ], [ false, %.fold.split.i ], [ true, %18 ], [ true, %.split.i ], [ true, %.split.i ], [ %31, %28 ], [ false, %.fold.split15.i ]
+_ZN4llvm10X86TTIImpl23isLegalMaskedExpandLoadEPNS_4TypeENS_5AlignE.exit: ; preds = %3, %8, %14, %18, %18, %.split.i, %.split.i, %28, %.fold.split15.i
+  %.0.i = phi i1 [ false, %8 ], [ false, %14 ], [ false, %3 ], [ true, %18 ], [ false, %.fold.split15.i ], [ true, %18 ], [ true, %.split.i ], [ true, %.split.i ], [ %31, %28 ]
   ret i1 %.0.i
 }
 

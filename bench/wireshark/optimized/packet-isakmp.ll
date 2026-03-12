@@ -8673,18 +8673,18 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc zeroext i1 @prepare_decrypt(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %66, label %2
+  br i1 %.not, label %65, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %63
+  br i1 %5, label %6, label %62
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
-  switch i32 %8, label %16 [
+  switch i32 %8, label %15 [
     i32 5, label %ikev1_find_gcry_cipher_algo.exit.i
     i32 1, label %9
     i32 7, label %10
@@ -8708,107 +8708,104 @@ define internal fastcc zeroext i1 @prepare_decrypt(ptr noundef captures(address_
 14:                                               ; preds = %10
   br label %ikev1_find_gcry_cipher_algo.exit.i
 
-15:                                               ; preds = %10
+15:                                               ; preds = %10, %6
   br label %ikev1_find_gcry_cipher_algo.exit.i
 
-16:                                               ; preds = %6
-  br label %ikev1_find_gcry_cipher_algo.exit.i
-
-ikev1_find_gcry_cipher_algo.exit.i:               ; preds = %16, %15, %14, %13, %10, %9, %6
-  %17 = phi i1 [ true, %16 ], [ false, %14 ], [ false, %9 ], [ true, %15 ], [ false, %6 ], [ false, %13 ], [ false, %10 ]
-  %.0.i.i = phi i32 [ 0, %16 ], [ 9, %14 ], [ 302, %9 ], [ 0, %15 ], [ 2, %6 ], [ 8, %13 ], [ 7, %10 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %.0.i.i, ptr %18, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load i32, ptr %19, align 8
-  %switch.tableidx = add i32 %20, -1
-  %21 = icmp ult i32 %switch.tableidx, 6
+ikev1_find_gcry_cipher_algo.exit.i:               ; preds = %15, %14, %13, %10, %9, %6
+  %16 = phi i1 [ true, %15 ], [ false, %14 ], [ false, %9 ], [ false, %10 ], [ false, %6 ], [ false, %13 ]
+  %.0.i.i = phi i32 [ 0, %15 ], [ 9, %14 ], [ 302, %9 ], [ 7, %10 ], [ 2, %6 ], [ 8, %13 ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 %.0.i.i, ptr %17, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %19 = load i32, ptr %18, align 8
+  %switch.tableidx = add i32 %19, -1
+  %20 = icmp ult i32 %switch.tableidx, 6
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 59, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %21, i1 %switch.lobit, i1 false
+  %or.cond = select i1 %20, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %switch.lookup, label %ikev1_find_gcry_md_algo.exit.thread.i
 
 ikev1_find_gcry_md_algo.exit.thread.i:            ; preds = %ikev1_find_gcry_cipher_algo.exit.i
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 0, ptr %22, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 0, ptr %21, align 8
   br label %prepare_decrypt_params.exit.thread
 
 switch.lookup:                                    ; preds = %ikev1_find_gcry_cipher_algo.exit.i
-  %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.prepare_decrypt, i64 %23
+  %22 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.prepare_decrypt, i64 %22
   %switch.load = load i32, ptr %switch.gep, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %switch.load, ptr %24, align 8
-  br i1 %17, label %prepare_decrypt_params.exit.thread, label %25
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 %switch.load, ptr %23, align 8
+  br i1 %16, label %prepare_decrypt_params.exit.thread, label %24
 
-25:                                               ; preds = %switch.lookup
-  %26 = tail call i64 @gcry_cipher_get_algo_keylen(i32 noundef %.0.i.i)
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %26, ptr %27, align 8
-  %28 = load i32, ptr %18, align 4
-  %29 = tail call i64 @gcry_cipher_get_algo_blklen(i32 noundef %28)
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %29, ptr %30, align 8
-  %31 = load i32, ptr %24, align 8
-  %32 = tail call i32 @gcry_md_get_algo_dlen(i32 noundef %31)
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %32, ptr %33, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 364
-  %35 = load i32, ptr %34, align 4
-  %36 = zext i32 %35 to i64
-  %37 = load i64, ptr %27, align 8
-  %38 = icmp ugt i64 %37, %36
-  br i1 %38, label %prepare_decrypt_params.exit.thread, label %39
+24:                                               ; preds = %switch.lookup
+  %25 = tail call i64 @gcry_cipher_get_algo_keylen(i32 noundef %.0.i.i)
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %25, ptr %26, align 8
+  %27 = load i32, ptr %17, align 4
+  %28 = tail call i64 @gcry_cipher_get_algo_blklen(i32 noundef %27)
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %28, ptr %29, align 8
+  %30 = load i32, ptr %23, align 8
+  %31 = tail call i32 @gcry_md_get_algo_dlen(i32 noundef %30)
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i32 %31, ptr %32, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 364
+  %34 = load i32, ptr %33, align 4
+  %35 = zext i32 %34 to i64
+  %36 = load i64, ptr %26, align 8
+  %37 = icmp ugt i64 %36, %35
+  br i1 %37, label %prepare_decrypt_params.exit.thread, label %38
 
-39:                                               ; preds = %25
-  %40 = zext i32 %32 to i64
-  %41 = load i64, ptr %30, align 8
-  %42 = icmp ugt i64 %41, %40
-  br i1 %42, label %prepare_decrypt_params.exit.thread, label %43
+38:                                               ; preds = %24
+  %39 = zext i32 %31 to i64
+  %40 = load i64, ptr %29, align 8
+  %41 = icmp ugt i64 %40, %39
+  br i1 %41, label %prepare_decrypt_params.exit.thread, label %42
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %prepare_decrypt_params.exit.thread, label %prepare_decrypt_params.exit
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %44 = load i32, ptr %43, align 8
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %prepare_decrypt_params.exit.thread, label %prepare_decrypt_params.exit
 
-prepare_decrypt_params.exit:                      ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %48 = load i32, ptr %47, align 8
-  %.not9 = icmp eq i32 %48, 0
-  br i1 %.not9, label %prepare_decrypt_params.exit.thread, label %49
+prepare_decrypt_params.exit:                      ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %47 = load i32, ptr %46, align 8
+  %.not9 = icmp eq i32 %47, 0
+  br i1 %.not9, label %prepare_decrypt_params.exit.thread, label %48
 
-49:                                               ; preds = %prepare_decrypt_params.exit
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %51 = load ptr, ptr %50, align 8
-  %52 = zext i32 %45 to i64
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %54 = load ptr, ptr %53, align 8
-  %55 = zext i32 %48 to i64
-  %56 = load i32, ptr %24, align 8
-  %57 = tail call fastcc ptr @generate_iv(ptr noundef %51, i64 noundef %52, ptr noundef %54, i64 noundef %55, i32 noundef %56, i64 noundef %41)
-  %.not.i.not = icmp eq ptr %57, null
-  br i1 %.not.i.not, label %prepare_decrypt_params.exit.thread, label %58
+48:                                               ; preds = %prepare_decrypt_params.exit
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %50 = load ptr, ptr %49, align 8
+  %51 = zext i32 %44 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %53 = load ptr, ptr %52, align 8
+  %54 = zext i32 %47 to i64
+  %55 = load i32, ptr %23, align 8
+  %56 = tail call fastcc ptr @generate_iv(ptr noundef %50, i64 noundef %51, ptr noundef %53, i64 noundef %54, i32 noundef %55, i64 noundef %40)
+  %.not.i.not = icmp eq ptr %56, null
+  br i1 %.not.i.not, label %prepare_decrypt_params.exit.thread, label %57
 
-58:                                               ; preds = %49
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %60 = load ptr, ptr %59, align 8
-  %61 = tail call i32 @g_hash_table_insert(ptr noundef %60, ptr noundef null, ptr noundef nonnull %57)
+57:                                               ; preds = %48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %59 = load ptr, ptr %58, align 8
+  %60 = tail call i32 @g_hash_table_insert(ptr noundef %59, ptr noundef null, ptr noundef nonnull %56)
   br label %prepare_decrypt_params.exit.thread
 
-prepare_decrypt_params.exit.thread:               ; preds = %58, %49, %ikev1_find_gcry_md_algo.exit.thread.i, %39, %25, %switch.lookup, %43, %prepare_decrypt_params.exit
-  %62 = phi i32 [ 2, %prepare_decrypt_params.exit ], [ 2, %ikev1_find_gcry_md_algo.exit.thread.i ], [ 2, %43 ], [ 2, %switch.lookup ], [ 2, %25 ], [ 2, %39 ], [ 2, %49 ], [ 1, %58 ]
-  store i32 %62, ptr %3, align 8
-  br label %63
+prepare_decrypt_params.exit.thread:               ; preds = %57, %48, %ikev1_find_gcry_md_algo.exit.thread.i, %38, %24, %switch.lookup, %42, %prepare_decrypt_params.exit
+  %61 = phi i32 [ 2, %prepare_decrypt_params.exit ], [ 2, %ikev1_find_gcry_md_algo.exit.thread.i ], [ 2, %42 ], [ 2, %switch.lookup ], [ 2, %24 ], [ 2, %38 ], [ 2, %48 ], [ 1, %57 ]
+  store i32 %61, ptr %3, align 8
+  br label %62
 
-63:                                               ; preds = %prepare_decrypt_params.exit.thread, %2
-  %64 = phi i32 [ %62, %prepare_decrypt_params.exit.thread ], [ %4, %2 ]
-  %65 = icmp eq i32 %64, 1
-  br label %66
+62:                                               ; preds = %prepare_decrypt_params.exit.thread, %2
+  %63 = phi i32 [ %61, %prepare_decrypt_params.exit.thread ], [ %4, %2 ]
+  %64 = icmp eq i32 %63, 1
+  br label %65
 
-66:                                               ; preds = %1, %63
-  %.0 = phi i1 [ %65, %63 ], [ false, %1 ]
+65:                                               ; preds = %1, %62
+  %.0 = phi i1 [ %64, %62 ], [ false, %1 ]
   ret i1 %.0
 }
 

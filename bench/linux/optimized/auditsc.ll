@@ -5176,8 +5176,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1324
   br label %67
 
-.thread46:                                        ; preds = %857, %835, %813, %791, %769, %747, %725, %703, %681, %395, %372, %348, %315, %323, %274, %282, %67, %291, %300, %250, %259, %146, %171, %960
-  %63 = phi i32 [ %962, %960 ], [ %69, %315 ], [ %69, %681 ], [ %69, %813 ], [ %69, %725 ], [ %69, %747 ], [ %69, %372 ], [ %69, %769 ], [ %69, %274 ], [ %69, %791 ], [ %69, %291 ], [ %69, %67 ], [ %69, %348 ], [ %69, %300 ], [ %69, %171 ], [ %69, %146 ], [ %69, %395 ], [ %69, %835 ], [ %69, %703 ], [ %69, %259 ], [ %69, %250 ], [ %69, %282 ], [ %69, %323 ], [ %69, %857 ]
+.thread46:                                        ; preds = %856, %834, %812, %790, %768, %746, %724, %702, %680, %395, %372, %348, %315, %323, %274, %282, %67, %291, %300, %250, %259, %146, %171, %959
+  %63 = phi i32 [ %961, %959 ], [ %69, %315 ], [ %69, %680 ], [ %69, %812 ], [ %69, %724 ], [ %69, %746 ], [ %69, %372 ], [ %69, %768 ], [ %69, %274 ], [ %69, %790 ], [ %69, %291 ], [ %69, %67 ], [ %69, %348 ], [ %69, %300 ], [ %69, %171 ], [ %69, %146 ], [ %69, %395 ], [ %69, %834 ], [ %69, %702 ], [ %69, %259 ], [ %69, %250 ], [ %69, %282 ], [ %69, %323 ], [ %69, %856 ]
   %64 = add nuw i32 %68, 1
   %65 = load i32, ptr %17, align 4
   %66 = icmp ult i32 %64, %65
@@ -5233,8 +5233,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
     i32 203, label %540
     i32 210, label %.thread46
     i32 106, label %552
-    i32 108, label %635
-    i32 111, label %662
+    i32 108, label %634
+    i32 111, label %661
   ]
 
 74:                                               ; preds = %67
@@ -5244,7 +5244,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %79 = load i32, ptr %78, align 8
   %80 = call i32 @audit_comparator(i32 noundef %75, i32 noundef %77, i32 noundef %79) #12
-  br label %960
+  br label %959
 
 81:                                               ; preds = %67
   br i1 %7, label %.thread44, label %82
@@ -5278,7 +5278,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %97 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %98 = load i32, ptr %97, align 8
   %99 = call i32 @audit_comparator(i32 noundef %94, i32 noundef %96, i32 noundef %98) #12
-  br label %960
+  br label %959
 
 100:                                              ; preds = %67
   %101 = load ptr, ptr %58, align 8
@@ -5286,12 +5286,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %103 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %104 = load i32, ptr %103, align 8
   %105 = icmp eq i32 %104, 1
-  br i1 %105, label %106, label %960
+  br i1 %105, label %106, label %959
 
 106:                                              ; preds = %100
   %107 = icmp eq i32 %102, 0
   %108 = zext i1 %107 to i32
-  br label %960
+  br label %959
 
 109:                                              ; preds = %67
   %110 = getelementptr inbounds nuw i8, ptr %72, i64 24
@@ -5300,7 +5300,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %113 = load i32, ptr %30, align 8
   %114 = load i32, ptr %112, align 8
   %115 = call i32 @audit_uid_comparator(i32 %113, i32 noundef %111, i32 %114) #12
-  br label %960
+  br label %959
 
 116:                                              ; preds = %67
   %117 = getelementptr inbounds nuw i8, ptr %72, i64 24
@@ -5309,7 +5309,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %120 = load i32, ptr %28, align 8
   %121 = load i32, ptr %119, align 8
   %122 = call i32 @audit_uid_comparator(i32 %120, i32 noundef %118, i32 %121) #12
-  br label %960
+  br label %959
 
 123:                                              ; preds = %67
   %124 = getelementptr inbounds nuw i8, ptr %72, i64 24
@@ -5318,7 +5318,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %127 = load i32, ptr %26, align 8
   %128 = load i32, ptr %126, align 8
   %129 = call i32 @audit_uid_comparator(i32 %127, i32 noundef %125, i32 %128) #12
-  br label %960
+  br label %959
 
 130:                                              ; preds = %67
   %131 = getelementptr inbounds nuw i8, ptr %72, i64 24
@@ -5327,7 +5327,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %134 = load i32, ptr %27, align 8
   %135 = load i32, ptr %133, align 8
   %136 = call i32 @audit_uid_comparator(i32 %134, i32 noundef %132, i32 %135) #12
-  br label %960
+  br label %959
 
 137:                                              ; preds = %67
   %138 = getelementptr inbounds nuw i8, ptr %72, i64 24
@@ -5348,13 +5348,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %149 = load ptr, ptr %57, align 8
   %150 = load i32, ptr %140, align 8
   %151 = call i32 @groups_search(ptr noundef %149, i32 %150) #12
-  br label %960
+  br label %959
 
 152:                                              ; preds = %137
   %153 = icmp eq i32 %144, 1
   %154 = icmp ne i32 %143, 0
   %155 = select i1 %153, i1 %154, i1 false
-  br i1 %155, label %156, label %960
+  br i1 %155, label %156, label %959
 
 156:                                              ; preds = %152
   %157 = load ptr, ptr %57, align 8
@@ -5362,7 +5362,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %159 = call i32 @groups_search(ptr noundef %157, i32 %158) #12
   %160 = icmp eq i32 %159, 0
   %161 = zext i1 %160 to i32
-  br label %960
+  br label %959
 
 162:                                              ; preds = %67
   %163 = getelementptr inbounds nuw i8, ptr %72, i64 24
@@ -5383,13 +5383,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %174 = load ptr, ptr %57, align 8
   %175 = load i32, ptr %165, align 8
   %176 = call i32 @groups_search(ptr noundef %174, i32 %175) #12
-  br label %960
+  br label %959
 
 177:                                              ; preds = %162
   %178 = icmp eq i32 %169, 1
   %179 = icmp ne i32 %168, 0
   %180 = select i1 %178, i1 %179, i1 false
-  br i1 %180, label %181, label %960
+  br i1 %180, label %181, label %959
 
 181:                                              ; preds = %177
   %182 = load ptr, ptr %57, align 8
@@ -5397,7 +5397,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %184 = call i32 @groups_search(ptr noundef %182, i32 %183) #12
   %185 = icmp eq i32 %184, 0
   %186 = zext i1 %185 to i32
-  br label %960
+  br label %959
 
 187:                                              ; preds = %67
   %188 = getelementptr inbounds nuw i8, ptr %72, i64 24
@@ -5406,7 +5406,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %191 = load i32, ptr %22, align 4
   %192 = load i32, ptr %190, align 8
   %193 = call i32 @audit_gid_comparator(i32 %191, i32 noundef %189, i32 %192) #12
-  br label %960
+  br label %959
 
 194:                                              ; preds = %67
   %195 = getelementptr inbounds nuw i8, ptr %72, i64 24
@@ -5415,7 +5415,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %198 = load i32, ptr %23, align 4
   %199 = load i32, ptr %197, align 8
   %200 = call i32 @audit_gid_comparator(i32 %198, i32 noundef %196, i32 %199) #12
-  br label %960
+  br label %959
 
 201:                                              ; preds = %67
   %202 = load i32, ptr %56, align 4
@@ -5424,7 +5424,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %205 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %206 = load i32, ptr %205, align 8
   %207 = call i32 @audit_comparator(i32 noundef %202, i32 noundef %204, i32 noundef %206) #12
-  br label %960
+  br label %959
 
 208:                                              ; preds = %67
   %209 = load i32, ptr %55, align 8
@@ -5433,7 +5433,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %212 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %213 = load i32, ptr %212, align 8
   %214 = call i32 @audit_comparator(i32 noundef %209, i32 noundef %211, i32 noundef %213) #12
-  br label %960
+  br label %959
 
 215:                                              ; preds = %67
   br i1 %7, label %.thread44, label %216
@@ -5445,7 +5445,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %220 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %221 = load i32, ptr %220, align 8
   %222 = call i32 @audit_comparator(i32 noundef %217, i32 noundef %219, i32 noundef %221) #12
-  br label %960
+  br label %959
 
 223:                                              ; preds = %67
   br i1 %7, label %.thread44, label %224
@@ -5463,7 +5463,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %232 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %233 = load i32, ptr %232, align 8
   %234 = call i32 @audit_comparator(i32 noundef %229, i32 noundef %231, i32 noundef %233) #12
-  br label %960
+  br label %959
 
 235:                                              ; preds = %67
   br i1 %7, label %.thread44, label %236
@@ -5483,11 +5483,11 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
 
 245:                                              ; preds = %239
   %246 = call i32 @audit_comparator(i32 noundef %237, i32 noundef %244, i32 noundef 1) #12
-  br label %960
+  br label %959
 
 247:                                              ; preds = %239
   %248 = call i32 @audit_comparator(i32 noundef %237, i32 noundef %244, i32 noundef 2) #12
-  br label %960
+  br label %959
 
 249:                                              ; preds = %67
   br i1 %31, label %266, label %250
@@ -5614,7 +5614,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %337 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %338 = load i32, ptr %337, align 8
   %339 = call i32 @audit_comparator(i32 noundef %334, i32 noundef %336, i32 noundef %338) #12
-  br label %960
+  br label %959
 
 340:                                              ; preds = %331
   br i1 %7, label %.thread44, label %341
@@ -5650,7 +5650,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %361 = load i32, ptr %34, align 8
   %362 = load i32, ptr %360, align 8
   %363 = call i32 @audit_uid_comparator(i32 %361, i32 noundef %359, i32 %362) #12
-  br label %960
+  br label %959
 
 364:                                              ; preds = %356
   br i1 %7, label %.thread44, label %365
@@ -5685,7 +5685,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %384 = load i32, ptr %32, align 4
   %385 = load i32, ptr %383, align 8
   %386 = call i32 @audit_gid_comparator(i32 %384, i32 noundef %382, i32 %385) #12
-  br label %960
+  br label %959
 
 387:                                              ; preds = %379
   br i1 %7, label %.thread44, label %388
@@ -5721,12 +5721,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %408 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %409 = load i32, ptr %408, align 8
   %410 = icmp eq i32 %409, 1
-  br i1 %410, label %411, label %960
+  br i1 %410, label %411, label %959
 
 411:                                              ; preds = %403
   %412 = icmp eq i32 %407, 0
   %413 = zext i1 %412 to i32
-  br label %960
+  br label %959
 
 414:                                              ; preds = %67
   br i1 %7, label %.thread44, label %415
@@ -5800,7 +5800,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %456 = icmp eq i32 %455, 1
   %457 = zext i1 %456 to i32
   %458 = xor i32 %453, %457
-  br label %960
+  br label %959
 
 459:                                              ; preds = %67
   %460 = load i32, ptr %29, align 64
@@ -5809,7 +5809,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %463 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %464 = load i32, ptr %463, align 8
   %465 = call i32 @audit_uid_comparator(i32 %460, i32 noundef %462, i32 %464) #12
-  br label %960
+  br label %959
 
 466:                                              ; preds = %67
   %467 = load i32, ptr %29, align 64
@@ -5820,7 +5820,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %472 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %473 = load i32, ptr %472, align 8
   %474 = call i32 @audit_comparator(i32 noundef %469, i32 noundef %471, i32 noundef %473) #12
-  br label %960
+  br label %959
 
 475:                                              ; preds = %67
   br i1 %7, label %.thread44, label %476
@@ -5838,7 +5838,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %484 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %485 = load i32, ptr %484, align 8
   %486 = call i32 @audit_comparator(i32 noundef %481, i32 noundef %483, i32 noundef %485) #12
-  br label %960
+  br label %959
 
 487:                                              ; preds = %67, %67, %67, %67, %67
   %488 = getelementptr inbounds nuw i8, ptr %72, i64 16
@@ -5863,7 +5863,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %498 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %499 = load i32, ptr %498, align 8
   %500 = call i32 @security_audit_rule_match(i32 noundef %497, i32 noundef %496, i32 noundef %499, ptr noundef %495) #12
-  br label %960
+  br label %959
 
 501:                                              ; preds = %67, %67, %67, %67, %67
   %502 = getelementptr inbounds nuw i8, ptr %72, i64 16
@@ -5906,12 +5906,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
 
 .loopexit57:                                      ; preds = %518, %514, %506
   %526 = phi i32 [ %510, %506 ], [ 0, %514 ], [ 1, %518 ]
-  br i1 %7, label %960, label %527
+  br i1 %7, label %959, label %527
 
 527:                                              ; preds = %.loopexit57
   %528 = load i32, ptr %42, align 4
   %529 = icmp eq i32 %528, 1303
-  br i1 %529, label %530, label %960
+  br i1 %529, label %530, label %959
 
 530:                                              ; preds = %527
   %531 = load i32, ptr %43, align 4
@@ -5923,7 +5923,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %537 = icmp ne i32 %536, 0
   %538 = zext i1 %537 to i32
   %539 = add i32 %526, %538
-  br label %960
+  br label %959
 
 540:                                              ; preds = %67, %67, %67, %67
   br i1 %7, label %.thread44, label %541
@@ -5939,25 +5939,25 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   %549 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %550 = load i32, ptr %549, align 8
   %551 = call i32 @audit_comparator(i32 noundef %546, i32 noundef %548, i32 noundef %550) #12
-  br label %960
+  br label %959
 
 552:                                              ; preds = %67
   %553 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %554 = load i32, ptr %553, align 8
-  br i1 %7, label %627, label %555, !prof !22
+  br i1 %7, label %626, label %555, !prof !22
 
 555:                                              ; preds = %552
   %556 = load i32, ptr %35, align 4
   %557 = load i32, ptr %36, align 8
   %558 = call i32 @audit_classify_syscall(i32 noundef %557, i32 noundef %556) #12
-  switch i32 %558, label %627 [
+  switch i32 %558, label %626 [
     i32 0, label %559
-    i32 1, label %578
-    i32 2, label %597
-    i32 3, label %604
-    i32 4, label %611
-    i32 5, label %618
-    i32 6, label %620
+    i32 1, label %577
+    i32 2, label %596
+    i32 3, label %603
+    i32 4, label %610
+    i32 5, label %617
+    i32 6, label %619
   ]
 
 559:                                              ; preds = %555
@@ -5968,7 +5968,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
 562:                                              ; preds = %559
   %563 = call i32 @audit_match_class(i32 noundef 6, i32 noundef %556) #12
   %564 = icmp eq i32 %563, 0
-  br i1 %564, label %565, label %627
+  br i1 %564, label %565, label %626
 
 565:                                              ; preds = %562, %559
   %566 = and i32 %554, 4
@@ -5978,616 +5978,613 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
 568:                                              ; preds = %565
   %569 = call i32 @audit_match_class(i32 noundef 4, i32 noundef %556) #12
   %570 = icmp eq i32 %569, 0
-  br i1 %570, label %571, label %627
+  br i1 %570, label %571, label %626
 
 571:                                              ; preds = %568, %565
   %572 = and i32 %554, 8
   %573 = icmp eq i32 %572, 0
-  br i1 %573, label %577, label %574
+  br i1 %573, label %595, label %574
 
 574:                                              ; preds = %571
   %575 = call i32 @audit_match_class(i32 noundef 2, i32 noundef %556) #12
   %576 = icmp eq i32 %575, 0
-  br i1 %576, label %577, label %627
+  br i1 %576, label %595, label %626
 
-577:                                              ; preds = %574, %571
-  br label %627
+577:                                              ; preds = %555
+  %578 = and i32 %554, 2
+  %579 = icmp eq i32 %578, 0
+  br i1 %579, label %583, label %580
 
-578:                                              ; preds = %555
-  %579 = and i32 %554, 2
-  %580 = icmp eq i32 %579, 0
-  br i1 %580, label %584, label %581
+580:                                              ; preds = %577
+  %581 = call i32 @audit_match_class(i32 noundef 7, i32 noundef %556) #12
+  %582 = icmp eq i32 %581, 0
+  br i1 %582, label %583, label %626
 
-581:                                              ; preds = %578
-  %582 = call i32 @audit_match_class(i32 noundef 7, i32 noundef %556) #12
-  %583 = icmp eq i32 %582, 0
-  br i1 %583, label %584, label %627
+583:                                              ; preds = %580, %577
+  %584 = and i32 %554, 4
+  %585 = icmp eq i32 %584, 0
+  br i1 %585, label %589, label %586
 
-584:                                              ; preds = %581, %578
-  %585 = and i32 %554, 4
-  %586 = icmp eq i32 %585, 0
-  br i1 %586, label %590, label %587
+586:                                              ; preds = %583
+  %587 = call i32 @audit_match_class(i32 noundef 5, i32 noundef %556) #12
+  %588 = icmp eq i32 %587, 0
+  br i1 %588, label %589, label %626
 
-587:                                              ; preds = %584
-  %588 = call i32 @audit_match_class(i32 noundef 5, i32 noundef %556) #12
-  %589 = icmp eq i32 %588, 0
-  br i1 %589, label %590, label %627
+589:                                              ; preds = %586, %583
+  %590 = and i32 %554, 8
+  %591 = icmp eq i32 %590, 0
+  br i1 %591, label %595, label %592
 
-590:                                              ; preds = %587, %584
-  %591 = and i32 %554, 8
-  %592 = icmp eq i32 %591, 0
-  br i1 %592, label %596, label %593
+592:                                              ; preds = %589
+  %593 = call i32 @audit_match_class(i32 noundef 3, i32 noundef %556) #12
+  %594 = icmp eq i32 %593, 0
+  br i1 %594, label %595, label %626
 
-593:                                              ; preds = %590
-  %594 = call i32 @audit_match_class(i32 noundef 3, i32 noundef %556) #12
-  %595 = icmp eq i32 %594, 0
-  br i1 %595, label %596, label %627
+595:                                              ; preds = %571, %574, %592, %589
+  br label %626
 
-596:                                              ; preds = %593, %590
-  br label %627
+596:                                              ; preds = %555
+  %597 = load i64, ptr %40, align 8
+  %598 = and i64 %597, 3
+  %599 = getelementptr i8, ptr @.str.12, i64 %598
+  %600 = load i8, ptr %599, align 1
+  %601 = zext i8 %600 to i32
+  %602 = and i32 %554, %601
+  br label %626
 
-597:                                              ; preds = %555
-  %598 = load i64, ptr %40, align 8
-  %599 = and i64 %598, 3
-  %600 = getelementptr i8, ptr @.str.12, i64 %599
-  %601 = load i8, ptr %600, align 1
-  %602 = zext i8 %601 to i32
-  %603 = and i32 %554, %602
-  br label %627
+603:                                              ; preds = %555
+  %604 = load i64, ptr %39, align 8
+  %605 = and i64 %604, 3
+  %606 = getelementptr i8, ptr @.str.12, i64 %605
+  %607 = load i8, ptr %606, align 1
+  %608 = zext i8 %607 to i32
+  %609 = and i32 %554, %608
+  br label %626
 
-604:                                              ; preds = %555
-  %605 = load i64, ptr %39, align 8
-  %606 = and i64 %605, 3
-  %607 = getelementptr i8, ptr @.str.12, i64 %606
-  %608 = load i8, ptr %607, align 1
-  %609 = zext i8 %608 to i32
-  %610 = and i32 %554, %609
-  br label %627
+610:                                              ; preds = %555
+  %611 = and i32 %554, 2
+  %612 = icmp eq i32 %611, 0
+  br i1 %612, label %626, label %613
 
-611:                                              ; preds = %555
-  %612 = and i32 %554, 2
-  %613 = icmp eq i32 %612, 0
-  br i1 %613, label %627, label %614
+613:                                              ; preds = %610
+  %614 = load i64, ptr %38, align 8
+  %615 = icmp eq i64 %614, 2
+  %616 = zext i1 %615 to i32
+  br label %626
 
-614:                                              ; preds = %611
-  %615 = load i64, ptr %38, align 8
-  %616 = icmp eq i64 %615, 2
-  %617 = zext i1 %616 to i32
-  br label %627
+617:                                              ; preds = %555
+  %618 = and i32 %554, 1
+  br label %626
 
-618:                                              ; preds = %555
-  %619 = and i32 %554, 1
-  br label %627
+619:                                              ; preds = %555
+  %620 = load i64, ptr %37, align 8
+  %621 = and i64 %620, 3
+  %622 = getelementptr i8, ptr @.str.12, i64 %621
+  %623 = load i8, ptr %622, align 1
+  %624 = zext i8 %623 to i32
+  %625 = and i32 %554, %624
+  br label %626
 
-620:                                              ; preds = %555
-  %621 = load i64, ptr %37, align 8
-  %622 = and i64 %621, 3
-  %623 = getelementptr i8, ptr @.str.12, i64 %622
-  %624 = load i8, ptr %623, align 1
-  %625 = zext i8 %624 to i32
-  %626 = and i32 %554, %625
-  br label %627
+626:                                              ; preds = %619, %617, %613, %610, %603, %596, %595, %592, %586, %580, %574, %568, %562, %555, %552
+  %627 = phi i32 [ %625, %619 ], [ %618, %617 ], [ %609, %603 ], [ %602, %596 ], [ 0, %595 ], [ 0, %555 ], [ 0, %552 ], [ 1, %562 ], [ 1, %568 ], [ 1, %574 ], [ 1, %580 ], [ 1, %586 ], [ 1, %592 ], [ 0, %610 ], [ %616, %613 ]
+  %628 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %629 = load i32, ptr %628, align 8
+  %630 = icmp eq i32 %629, 1
+  br i1 %630, label %631, label %959
 
-627:                                              ; preds = %620, %618, %614, %611, %604, %597, %596, %593, %587, %581, %577, %574, %568, %562, %555, %552
-  %628 = phi i32 [ %626, %620 ], [ %619, %618 ], [ %610, %604 ], [ %603, %597 ], [ 0, %596 ], [ 0, %577 ], [ 0, %552 ], [ 1, %562 ], [ 1, %568 ], [ 1, %574 ], [ 1, %581 ], [ 1, %587 ], [ 1, %593 ], [ 0, %611 ], [ %617, %614 ], [ 0, %555 ]
-  %629 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %630 = load i32, ptr %629, align 8
-  %631 = icmp eq i32 %630, 1
-  br i1 %631, label %632, label %960
+631:                                              ; preds = %626
+  %632 = icmp eq i32 %627, 0
+  %633 = zext i1 %632 to i32
+  br label %959
 
-632:                                              ; preds = %627
-  %633 = icmp eq i32 %628, 0
-  %634 = zext i1 %633 to i32
-  br label %960
+634:                                              ; preds = %67
+  %635 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %636 = load i32, ptr %635, align 8
+  br i1 %7, label %.loopexit59, label %637, !prof !22
 
-635:                                              ; preds = %67
-  %636 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %637 = load i32, ptr %636, align 8
-  br i1 %7, label %.loopexit59, label %638, !prof !22
+637:                                              ; preds = %634
+  %638 = load ptr, ptr %33, align 8
+  %639 = icmp eq ptr %638, %33
+  br i1 %639, label %.loopexit59, label %640
 
-638:                                              ; preds = %635
-  %639 = load ptr, ptr %33, align 8
-  %640 = icmp eq ptr %639, %33
-  br i1 %640, label %.loopexit59, label %641
+640:                                              ; preds = %637
+  %641 = trunc i32 %636 to i16
+  br label %642
 
-641:                                              ; preds = %638
-  %642 = trunc i32 %637 to i16
-  br label %643
+642:                                              ; preds = %652, %640
+  %643 = phi ptr [ %638, %640 ], [ %653, %652 ]
+  %644 = getelementptr inbounds nuw i8, ptr %643, i64 32
+  %645 = load i64, ptr %644, align 8
+  %646 = icmp eq i64 %645, -1
+  br i1 %646, label %652, label %647
 
-643:                                              ; preds = %653, %641
-  %644 = phi ptr [ %639, %641 ], [ %654, %653 ]
-  %645 = getelementptr inbounds nuw i8, ptr %644, i64 32
-  %646 = load i64, ptr %645, align 8
-  %647 = icmp eq i64 %646, -1
-  br i1 %647, label %653, label %648
+647:                                              ; preds = %642
+  %648 = getelementptr inbounds nuw i8, ptr %643, i64 44
+  %649 = load i16, ptr %648, align 4
+  %650 = and i16 %649, -4096
+  %651 = icmp eq i16 %650, %641
+  br i1 %651, label %.loopexit59, label %652
 
-648:                                              ; preds = %643
-  %649 = getelementptr inbounds nuw i8, ptr %644, i64 44
-  %650 = load i16, ptr %649, align 4
-  %651 = and i16 %650, -4096
-  %652 = icmp eq i16 %651, %642
-  br i1 %652, label %.loopexit59, label %653
+652:                                              ; preds = %647, %642
+  %653 = load ptr, ptr %643, align 8
+  %654 = icmp eq ptr %653, %33
+  br i1 %654, label %.loopexit59, label %642, !llvm.loop !74
 
-653:                                              ; preds = %648, %643
-  %654 = load ptr, ptr %644, align 8
-  %655 = icmp eq ptr %654, %33
-  br i1 %655, label %.loopexit59, label %643, !llvm.loop !74
+.loopexit59:                                      ; preds = %652, %647, %637, %634
+  %655 = phi i32 [ 0, %634 ], [ 0, %637 ], [ 1, %647 ], [ 0, %652 ]
+  %656 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %657 = load i32, ptr %656, align 8
+  %658 = icmp eq i32 %657, 1
+  %659 = zext i1 %658 to i32
+  %660 = xor i32 %655, %659
+  br label %959
 
-.loopexit59:                                      ; preds = %653, %648, %638, %635
-  %656 = phi i32 [ 0, %635 ], [ 0, %638 ], [ 1, %648 ], [ 0, %653 ]
-  %657 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %658 = load i32, ptr %657, align 8
-  %659 = icmp eq i32 %658, 1
-  %660 = zext i1 %659 to i32
-  %661 = xor i32 %656, %660
-  br label %960
-
-662:                                              ; preds = %67
-  %663 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %664 = load i32, ptr %663, align 8
-  switch i32 %664, label %959 [
-    i32 1, label %665
-    i32 2, label %687
-    i32 3, label %709
-    i32 4, label %731
-    i32 5, label %753
-    i32 6, label %775
-    i32 7, label %797
-    i32 8, label %819
-    i32 9, label %841
-    i32 10, label %863
-    i32 11, label %869
-    i32 13, label %875
-    i32 12, label %881
-    i32 16, label %887
-    i32 15, label %893
-    i32 14, label %899
-    i32 17, label %905
-    i32 18, label %911
-    i32 19, label %917
-    i32 20, label %923
-    i32 22, label %929
-    i32 21, label %935
-    i32 24, label %941
-    i32 23, label %947
-    i32 25, label %953
+661:                                              ; preds = %67
+  %662 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %663 = load i32, ptr %662, align 8
+  switch i32 %663, label %958 [
+    i32 1, label %664
+    i32 2, label %686
+    i32 3, label %708
+    i32 4, label %730
+    i32 5, label %752
+    i32 6, label %774
+    i32 7, label %796
+    i32 8, label %818
+    i32 9, label %840
+    i32 10, label %862
+    i32 11, label %868
+    i32 13, label %874
+    i32 12, label %880
+    i32 16, label %886
+    i32 15, label %892
+    i32 14, label %898
+    i32 17, label %904
+    i32 18, label %910
+    i32 19, label %916
+    i32 20, label %922
+    i32 22, label %928
+    i32 21, label %934
+    i32 24, label %940
+    i32 23, label %946
+    i32 25, label %952
   ]
 
-665:                                              ; preds = %662
-  %666 = load i32, ptr %30, align 8
-  br i1 %31, label %674, label %667
-
-667:                                              ; preds = %665
-  %668 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %669 = load i32, ptr %668, align 8
-  %670 = load i32, ptr %34, align 8
-  %671 = call i32 @audit_uid_comparator(i32 %666, i32 noundef %669, i32 %670) #12
-  %672 = icmp ne i32 %671, 0
-  %673 = or i1 %7, %672
-  br i1 %673, label %960, label %675
-
-674:                                              ; preds = %665
-  br i1 %7, label %.thread44, label %675
-
-675:                                              ; preds = %674, %667
-  %676 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  br label %677
-
-677:                                              ; preds = %681, %675
-  %678 = phi ptr [ %33, %675 ], [ %679, %681 ]
-  %679 = load ptr, ptr %678, align 8
-  %680 = icmp eq ptr %679, %33
-  br i1 %680, label %.thread44, label %681
-
-681:                                              ; preds = %677
-  %682 = load i32, ptr %676, align 8
-  %683 = getelementptr inbounds nuw i8, ptr %679, i64 48
-  %684 = load i32, ptr %683, align 8
-  %685 = call i32 @audit_uid_comparator(i32 %666, i32 noundef %682, i32 %684) #12
-  %686 = icmp eq i32 %685, 0
-  br i1 %686, label %677, label %.thread46, !llvm.loop !75
-
-687:                                              ; preds = %662
-  %688 = load i32, ptr %25, align 4
-  br i1 %31, label %696, label %689
-
-689:                                              ; preds = %687
-  %690 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %691 = load i32, ptr %690, align 8
-  %692 = load i32, ptr %32, align 4
-  %693 = call i32 @audit_gid_comparator(i32 %688, i32 noundef %691, i32 %692) #12
-  %694 = icmp ne i32 %693, 0
-  %695 = or i1 %7, %694
-  br i1 %695, label %960, label %697
-
-696:                                              ; preds = %687
-  br i1 %7, label %.thread44, label %697
-
-697:                                              ; preds = %696, %689
-  %698 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  br label %699
-
-699:                                              ; preds = %703, %697
-  %700 = phi ptr [ %33, %697 ], [ %701, %703 ]
-  %701 = load ptr, ptr %700, align 8
-  %702 = icmp eq ptr %701, %33
-  br i1 %702, label %.thread44, label %703
-
-703:                                              ; preds = %699
-  %704 = load i32, ptr %698, align 8
-  %705 = getelementptr inbounds nuw i8, ptr %701, i64 52
-  %706 = load i32, ptr %705, align 4
-  %707 = call i32 @audit_gid_comparator(i32 %688, i32 noundef %704, i32 %706) #12
-  %708 = icmp eq i32 %707, 0
-  br i1 %708, label %699, label %.thread46, !llvm.loop !76
-
-709:                                              ; preds = %662
-  %710 = load i32, ptr %28, align 8
-  br i1 %31, label %718, label %711
-
-711:                                              ; preds = %709
-  %712 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %713 = load i32, ptr %712, align 8
-  %714 = load i32, ptr %34, align 8
-  %715 = call i32 @audit_uid_comparator(i32 %710, i32 noundef %713, i32 %714) #12
-  %716 = icmp ne i32 %715, 0
-  %717 = or i1 %7, %716
-  br i1 %717, label %960, label %719
-
-718:                                              ; preds = %709
-  br i1 %7, label %.thread44, label %719
-
-719:                                              ; preds = %718, %711
-  %720 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  br label %721
-
-721:                                              ; preds = %725, %719
-  %722 = phi ptr [ %33, %719 ], [ %723, %725 ]
-  %723 = load ptr, ptr %722, align 8
-  %724 = icmp eq ptr %723, %33
-  br i1 %724, label %.thread44, label %725
-
-725:                                              ; preds = %721
-  %726 = load i32, ptr %720, align 8
-  %727 = getelementptr inbounds nuw i8, ptr %723, i64 48
-  %728 = load i32, ptr %727, align 8
-  %729 = call i32 @audit_uid_comparator(i32 %710, i32 noundef %726, i32 %728) #12
-  %730 = icmp eq i32 %729, 0
-  br i1 %730, label %721, label %.thread46, !llvm.loop !75
-
-731:                                              ; preds = %662
-  %732 = load i32, ptr %24, align 4
-  br i1 %31, label %740, label %733
-
-733:                                              ; preds = %731
-  %734 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %735 = load i32, ptr %734, align 8
-  %736 = load i32, ptr %32, align 4
-  %737 = call i32 @audit_gid_comparator(i32 %732, i32 noundef %735, i32 %736) #12
-  %738 = icmp ne i32 %737, 0
-  %739 = or i1 %7, %738
-  br i1 %739, label %960, label %741
-
-740:                                              ; preds = %731
-  br i1 %7, label %.thread44, label %741
-
-741:                                              ; preds = %740, %733
-  %742 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  br label %743
-
-743:                                              ; preds = %747, %741
-  %744 = phi ptr [ %33, %741 ], [ %745, %747 ]
-  %745 = load ptr, ptr %744, align 8
-  %746 = icmp eq ptr %745, %33
-  br i1 %746, label %.thread44, label %747
-
-747:                                              ; preds = %743
-  %748 = load i32, ptr %742, align 8
-  %749 = getelementptr inbounds nuw i8, ptr %745, i64 52
-  %750 = load i32, ptr %749, align 4
-  %751 = call i32 @audit_gid_comparator(i32 %732, i32 noundef %748, i32 %750) #12
-  %752 = icmp eq i32 %751, 0
-  br i1 %752, label %743, label %.thread46, !llvm.loop !76
-
-753:                                              ; preds = %662
-  %754 = load i32, ptr %29, align 64
-  br i1 %31, label %762, label %755
-
-755:                                              ; preds = %753
-  %756 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %757 = load i32, ptr %756, align 8
-  %758 = load i32, ptr %34, align 8
-  %759 = call i32 @audit_uid_comparator(i32 %754, i32 noundef %757, i32 %758) #12
-  %760 = icmp ne i32 %759, 0
-  %761 = or i1 %7, %760
-  br i1 %761, label %960, label %763
-
-762:                                              ; preds = %753
-  br i1 %7, label %.thread44, label %763
-
-763:                                              ; preds = %762, %755
-  %764 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  br label %765
-
-765:                                              ; preds = %769, %763
-  %766 = phi ptr [ %33, %763 ], [ %767, %769 ]
-  %767 = load ptr, ptr %766, align 8
-  %768 = icmp eq ptr %767, %33
-  br i1 %768, label %.thread44, label %769
-
-769:                                              ; preds = %765
-  %770 = load i32, ptr %764, align 8
-  %771 = getelementptr inbounds nuw i8, ptr %767, i64 48
-  %772 = load i32, ptr %771, align 8
-  %773 = call i32 @audit_uid_comparator(i32 %754, i32 noundef %770, i32 %772) #12
-  %774 = icmp eq i32 %773, 0
-  br i1 %774, label %765, label %.thread46, !llvm.loop !75
-
-775:                                              ; preds = %662
-  %776 = load i32, ptr %26, align 8
-  br i1 %31, label %784, label %777
-
-777:                                              ; preds = %775
-  %778 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %779 = load i32, ptr %778, align 8
-  %780 = load i32, ptr %34, align 8
-  %781 = call i32 @audit_uid_comparator(i32 %776, i32 noundef %779, i32 %780) #12
-  %782 = icmp ne i32 %781, 0
-  %783 = or i1 %7, %782
-  br i1 %783, label %960, label %785
-
-784:                                              ; preds = %775
-  br i1 %7, label %.thread44, label %785
-
-785:                                              ; preds = %784, %777
-  %786 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  br label %787
-
-787:                                              ; preds = %791, %785
-  %788 = phi ptr [ %33, %785 ], [ %789, %791 ]
-  %789 = load ptr, ptr %788, align 8
-  %790 = icmp eq ptr %789, %33
-  br i1 %790, label %.thread44, label %791
-
-791:                                              ; preds = %787
-  %792 = load i32, ptr %786, align 8
-  %793 = getelementptr inbounds nuw i8, ptr %789, i64 48
-  %794 = load i32, ptr %793, align 8
-  %795 = call i32 @audit_uid_comparator(i32 %776, i32 noundef %792, i32 %794) #12
-  %796 = icmp eq i32 %795, 0
-  br i1 %796, label %787, label %.thread46, !llvm.loop !75
-
-797:                                              ; preds = %662
-  %798 = load i32, ptr %22, align 4
-  br i1 %31, label %806, label %799
-
-799:                                              ; preds = %797
-  %800 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %801 = load i32, ptr %800, align 8
-  %802 = load i32, ptr %32, align 4
-  %803 = call i32 @audit_gid_comparator(i32 %798, i32 noundef %801, i32 %802) #12
-  %804 = icmp ne i32 %803, 0
-  %805 = or i1 %7, %804
-  br i1 %805, label %960, label %807
-
-806:                                              ; preds = %797
-  br i1 %7, label %.thread44, label %807
-
-807:                                              ; preds = %806, %799
-  %808 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  br label %809
-
-809:                                              ; preds = %813, %807
-  %810 = phi ptr [ %33, %807 ], [ %811, %813 ]
-  %811 = load ptr, ptr %810, align 8
-  %812 = icmp eq ptr %811, %33
-  br i1 %812, label %.thread44, label %813
-
-813:                                              ; preds = %809
-  %814 = load i32, ptr %808, align 8
-  %815 = getelementptr inbounds nuw i8, ptr %811, i64 52
-  %816 = load i32, ptr %815, align 4
-  %817 = call i32 @audit_gid_comparator(i32 %798, i32 noundef %814, i32 %816) #12
-  %818 = icmp eq i32 %817, 0
-  br i1 %818, label %809, label %.thread46, !llvm.loop !76
-
-819:                                              ; preds = %662
-  %820 = load i32, ptr %27, align 8
-  br i1 %31, label %828, label %821
-
-821:                                              ; preds = %819
-  %822 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %823 = load i32, ptr %822, align 8
-  %824 = load i32, ptr %34, align 8
-  %825 = call i32 @audit_uid_comparator(i32 %820, i32 noundef %823, i32 %824) #12
-  %826 = icmp ne i32 %825, 0
-  %827 = or i1 %7, %826
-  br i1 %827, label %960, label %829
-
-828:                                              ; preds = %819
-  br i1 %7, label %.thread44, label %829
-
-829:                                              ; preds = %828, %821
-  %830 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  br label %831
-
-831:                                              ; preds = %835, %829
-  %832 = phi ptr [ %33, %829 ], [ %833, %835 ]
-  %833 = load ptr, ptr %832, align 8
-  %834 = icmp eq ptr %833, %33
-  br i1 %834, label %.thread44, label %835
-
-835:                                              ; preds = %831
-  %836 = load i32, ptr %830, align 8
-  %837 = getelementptr inbounds nuw i8, ptr %833, i64 48
-  %838 = load i32, ptr %837, align 8
-  %839 = call i32 @audit_uid_comparator(i32 %820, i32 noundef %836, i32 %838) #12
-  %840 = icmp eq i32 %839, 0
-  br i1 %840, label %831, label %.thread46, !llvm.loop !75
-
-841:                                              ; preds = %662
-  %842 = load i32, ptr %23, align 4
-  br i1 %31, label %850, label %843
-
-843:                                              ; preds = %841
-  %844 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %845 = load i32, ptr %844, align 8
-  %846 = load i32, ptr %32, align 4
-  %847 = call i32 @audit_gid_comparator(i32 %842, i32 noundef %845, i32 %846) #12
-  %848 = icmp ne i32 %847, 0
-  %849 = or i1 %7, %848
-  br i1 %849, label %960, label %851
-
-850:                                              ; preds = %841
-  br i1 %7, label %.thread44, label %851
-
-851:                                              ; preds = %850, %843
-  %852 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  br label %853
-
-853:                                              ; preds = %857, %851
-  %854 = phi ptr [ %33, %851 ], [ %855, %857 ]
-  %855 = load ptr, ptr %854, align 8
-  %856 = icmp eq ptr %855, %33
-  br i1 %856, label %.thread44, label %857
-
-857:                                              ; preds = %853
-  %858 = load i32, ptr %852, align 8
-  %859 = getelementptr inbounds nuw i8, ptr %855, i64 52
-  %860 = load i32, ptr %859, align 4
-  %861 = call i32 @audit_gid_comparator(i32 %842, i32 noundef %858, i32 %860) #12
-  %862 = icmp eq i32 %861, 0
-  br i1 %862, label %853, label %.thread46, !llvm.loop !76
-
-863:                                              ; preds = %662
-  %864 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %865 = load i32, ptr %864, align 8
-  %866 = load i32, ptr %29, align 64
-  %867 = load i32, ptr %30, align 8
-  %868 = call i32 @audit_uid_comparator(i32 %867, i32 noundef %865, i32 %866) #12
-  br label %960
-
-869:                                              ; preds = %662
-  %870 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %871 = load i32, ptr %870, align 8
-  %872 = load i32, ptr %30, align 8
-  %873 = load i32, ptr %28, align 8
-  %874 = call i32 @audit_uid_comparator(i32 %872, i32 noundef %871, i32 %873) #12
-  br label %960
-
-875:                                              ; preds = %662
-  %876 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %877 = load i32, ptr %876, align 8
-  %878 = load i32, ptr %30, align 8
-  %879 = load i32, ptr %26, align 8
-  %880 = call i32 @audit_uid_comparator(i32 %878, i32 noundef %877, i32 %879) #12
-  br label %960
-
-881:                                              ; preds = %662
-  %882 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %883 = load i32, ptr %882, align 8
-  %884 = load i32, ptr %30, align 8
-  %885 = load i32, ptr %27, align 8
-  %886 = call i32 @audit_uid_comparator(i32 %884, i32 noundef %883, i32 %885) #12
-  br label %960
-
-887:                                              ; preds = %662
-  %888 = load i32, ptr %29, align 64
-  %889 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %890 = load i32, ptr %889, align 8
-  %891 = load i32, ptr %28, align 8
-  %892 = call i32 @audit_uid_comparator(i32 %888, i32 noundef %890, i32 %891) #12
-  br label %960
-
-893:                                              ; preds = %662
-  %894 = load i32, ptr %29, align 64
-  %895 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %896 = load i32, ptr %895, align 8
-  %897 = load i32, ptr %26, align 8
-  %898 = call i32 @audit_uid_comparator(i32 %894, i32 noundef %896, i32 %897) #12
-  br label %960
-
-899:                                              ; preds = %662
-  %900 = load i32, ptr %29, align 64
-  %901 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %902 = load i32, ptr %901, align 8
-  %903 = load i32, ptr %27, align 8
-  %904 = call i32 @audit_uid_comparator(i32 %900, i32 noundef %902, i32 %903) #12
-  br label %960
-
-905:                                              ; preds = %662
-  %906 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %907 = load i32, ptr %906, align 8
-  %908 = load i32, ptr %28, align 8
-  %909 = load i32, ptr %26, align 8
-  %910 = call i32 @audit_uid_comparator(i32 %908, i32 noundef %907, i32 %909) #12
-  br label %960
-
-911:                                              ; preds = %662
-  %912 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %913 = load i32, ptr %912, align 8
-  %914 = load i32, ptr %28, align 8
-  %915 = load i32, ptr %27, align 8
-  %916 = call i32 @audit_uid_comparator(i32 %914, i32 noundef %913, i32 %915) #12
-  br label %960
-
-917:                                              ; preds = %662
-  %918 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %919 = load i32, ptr %918, align 8
-  %920 = load i32, ptr %26, align 8
-  %921 = load i32, ptr %27, align 8
-  %922 = call i32 @audit_uid_comparator(i32 %920, i32 noundef %919, i32 %921) #12
-  br label %960
-
-923:                                              ; preds = %662
-  %924 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %925 = load i32, ptr %924, align 8
-  %926 = load i32, ptr %25, align 4
-  %927 = load i32, ptr %24, align 4
-  %928 = call i32 @audit_gid_comparator(i32 %926, i32 noundef %925, i32 %927) #12
-  br label %960
-
-929:                                              ; preds = %662
-  %930 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %931 = load i32, ptr %930, align 8
-  %932 = load i32, ptr %25, align 4
-  %933 = load i32, ptr %22, align 4
-  %934 = call i32 @audit_gid_comparator(i32 %932, i32 noundef %931, i32 %933) #12
-  br label %960
-
-935:                                              ; preds = %662
-  %936 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %937 = load i32, ptr %936, align 8
-  %938 = load i32, ptr %25, align 4
-  %939 = load i32, ptr %23, align 4
-  %940 = call i32 @audit_gid_comparator(i32 %938, i32 noundef %937, i32 %939) #12
-  br label %960
-
-941:                                              ; preds = %662
-  %942 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %943 = load i32, ptr %942, align 8
-  %944 = load i32, ptr %24, align 4
-  %945 = load i32, ptr %22, align 4
-  %946 = call i32 @audit_gid_comparator(i32 %944, i32 noundef %943, i32 %945) #12
-  br label %960
-
-947:                                              ; preds = %662
-  %948 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %949 = load i32, ptr %948, align 8
-  %950 = load i32, ptr %24, align 4
-  %951 = load i32, ptr %23, align 4
-  %952 = call i32 @audit_gid_comparator(i32 %950, i32 noundef %949, i32 %951) #12
-  br label %960
-
-953:                                              ; preds = %662
-  %954 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %955 = load i32, ptr %954, align 8
-  %956 = load i32, ptr %22, align 4
-  %957 = load i32, ptr %23, align 4
-  %958 = call i32 @audit_gid_comparator(i32 %956, i32 noundef %955, i32 %957) #12
-  br label %960
-
-959:                                              ; preds = %662
+664:                                              ; preds = %661
+  %665 = load i32, ptr %30, align 8
+  br i1 %31, label %673, label %666
+
+666:                                              ; preds = %664
+  %667 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %668 = load i32, ptr %667, align 8
+  %669 = load i32, ptr %34, align 8
+  %670 = call i32 @audit_uid_comparator(i32 %665, i32 noundef %668, i32 %669) #12
+  %671 = icmp ne i32 %670, 0
+  %672 = or i1 %7, %671
+  br i1 %672, label %959, label %674
+
+673:                                              ; preds = %664
+  br i1 %7, label %.thread44, label %674
+
+674:                                              ; preds = %673, %666
+  %675 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  br label %676
+
+676:                                              ; preds = %680, %674
+  %677 = phi ptr [ %33, %674 ], [ %678, %680 ]
+  %678 = load ptr, ptr %677, align 8
+  %679 = icmp eq ptr %678, %33
+  br i1 %679, label %.thread44, label %680
+
+680:                                              ; preds = %676
+  %681 = load i32, ptr %675, align 8
+  %682 = getelementptr inbounds nuw i8, ptr %678, i64 48
+  %683 = load i32, ptr %682, align 8
+  %684 = call i32 @audit_uid_comparator(i32 %665, i32 noundef %681, i32 %683) #12
+  %685 = icmp eq i32 %684, 0
+  br i1 %685, label %676, label %.thread46, !llvm.loop !75
+
+686:                                              ; preds = %661
+  %687 = load i32, ptr %25, align 4
+  br i1 %31, label %695, label %688
+
+688:                                              ; preds = %686
+  %689 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %690 = load i32, ptr %689, align 8
+  %691 = load i32, ptr %32, align 4
+  %692 = call i32 @audit_gid_comparator(i32 %687, i32 noundef %690, i32 %691) #12
+  %693 = icmp ne i32 %692, 0
+  %694 = or i1 %7, %693
+  br i1 %694, label %959, label %696
+
+695:                                              ; preds = %686
+  br i1 %7, label %.thread44, label %696
+
+696:                                              ; preds = %695, %688
+  %697 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  br label %698
+
+698:                                              ; preds = %702, %696
+  %699 = phi ptr [ %33, %696 ], [ %700, %702 ]
+  %700 = load ptr, ptr %699, align 8
+  %701 = icmp eq ptr %700, %33
+  br i1 %701, label %.thread44, label %702
+
+702:                                              ; preds = %698
+  %703 = load i32, ptr %697, align 8
+  %704 = getelementptr inbounds nuw i8, ptr %700, i64 52
+  %705 = load i32, ptr %704, align 4
+  %706 = call i32 @audit_gid_comparator(i32 %687, i32 noundef %703, i32 %705) #12
+  %707 = icmp eq i32 %706, 0
+  br i1 %707, label %698, label %.thread46, !llvm.loop !76
+
+708:                                              ; preds = %661
+  %709 = load i32, ptr %28, align 8
+  br i1 %31, label %717, label %710
+
+710:                                              ; preds = %708
+  %711 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %712 = load i32, ptr %711, align 8
+  %713 = load i32, ptr %34, align 8
+  %714 = call i32 @audit_uid_comparator(i32 %709, i32 noundef %712, i32 %713) #12
+  %715 = icmp ne i32 %714, 0
+  %716 = or i1 %7, %715
+  br i1 %716, label %959, label %718
+
+717:                                              ; preds = %708
+  br i1 %7, label %.thread44, label %718
+
+718:                                              ; preds = %717, %710
+  %719 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  br label %720
+
+720:                                              ; preds = %724, %718
+  %721 = phi ptr [ %33, %718 ], [ %722, %724 ]
+  %722 = load ptr, ptr %721, align 8
+  %723 = icmp eq ptr %722, %33
+  br i1 %723, label %.thread44, label %724
+
+724:                                              ; preds = %720
+  %725 = load i32, ptr %719, align 8
+  %726 = getelementptr inbounds nuw i8, ptr %722, i64 48
+  %727 = load i32, ptr %726, align 8
+  %728 = call i32 @audit_uid_comparator(i32 %709, i32 noundef %725, i32 %727) #12
+  %729 = icmp eq i32 %728, 0
+  br i1 %729, label %720, label %.thread46, !llvm.loop !75
+
+730:                                              ; preds = %661
+  %731 = load i32, ptr %24, align 4
+  br i1 %31, label %739, label %732
+
+732:                                              ; preds = %730
+  %733 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %734 = load i32, ptr %733, align 8
+  %735 = load i32, ptr %32, align 4
+  %736 = call i32 @audit_gid_comparator(i32 %731, i32 noundef %734, i32 %735) #12
+  %737 = icmp ne i32 %736, 0
+  %738 = or i1 %7, %737
+  br i1 %738, label %959, label %740
+
+739:                                              ; preds = %730
+  br i1 %7, label %.thread44, label %740
+
+740:                                              ; preds = %739, %732
+  %741 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  br label %742
+
+742:                                              ; preds = %746, %740
+  %743 = phi ptr [ %33, %740 ], [ %744, %746 ]
+  %744 = load ptr, ptr %743, align 8
+  %745 = icmp eq ptr %744, %33
+  br i1 %745, label %.thread44, label %746
+
+746:                                              ; preds = %742
+  %747 = load i32, ptr %741, align 8
+  %748 = getelementptr inbounds nuw i8, ptr %744, i64 52
+  %749 = load i32, ptr %748, align 4
+  %750 = call i32 @audit_gid_comparator(i32 %731, i32 noundef %747, i32 %749) #12
+  %751 = icmp eq i32 %750, 0
+  br i1 %751, label %742, label %.thread46, !llvm.loop !76
+
+752:                                              ; preds = %661
+  %753 = load i32, ptr %29, align 64
+  br i1 %31, label %761, label %754
+
+754:                                              ; preds = %752
+  %755 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %756 = load i32, ptr %755, align 8
+  %757 = load i32, ptr %34, align 8
+  %758 = call i32 @audit_uid_comparator(i32 %753, i32 noundef %756, i32 %757) #12
+  %759 = icmp ne i32 %758, 0
+  %760 = or i1 %7, %759
+  br i1 %760, label %959, label %762
+
+761:                                              ; preds = %752
+  br i1 %7, label %.thread44, label %762
+
+762:                                              ; preds = %761, %754
+  %763 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  br label %764
+
+764:                                              ; preds = %768, %762
+  %765 = phi ptr [ %33, %762 ], [ %766, %768 ]
+  %766 = load ptr, ptr %765, align 8
+  %767 = icmp eq ptr %766, %33
+  br i1 %767, label %.thread44, label %768
+
+768:                                              ; preds = %764
+  %769 = load i32, ptr %763, align 8
+  %770 = getelementptr inbounds nuw i8, ptr %766, i64 48
+  %771 = load i32, ptr %770, align 8
+  %772 = call i32 @audit_uid_comparator(i32 %753, i32 noundef %769, i32 %771) #12
+  %773 = icmp eq i32 %772, 0
+  br i1 %773, label %764, label %.thread46, !llvm.loop !75
+
+774:                                              ; preds = %661
+  %775 = load i32, ptr %26, align 8
+  br i1 %31, label %783, label %776
+
+776:                                              ; preds = %774
+  %777 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %778 = load i32, ptr %777, align 8
+  %779 = load i32, ptr %34, align 8
+  %780 = call i32 @audit_uid_comparator(i32 %775, i32 noundef %778, i32 %779) #12
+  %781 = icmp ne i32 %780, 0
+  %782 = or i1 %7, %781
+  br i1 %782, label %959, label %784
+
+783:                                              ; preds = %774
+  br i1 %7, label %.thread44, label %784
+
+784:                                              ; preds = %783, %776
+  %785 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  br label %786
+
+786:                                              ; preds = %790, %784
+  %787 = phi ptr [ %33, %784 ], [ %788, %790 ]
+  %788 = load ptr, ptr %787, align 8
+  %789 = icmp eq ptr %788, %33
+  br i1 %789, label %.thread44, label %790
+
+790:                                              ; preds = %786
+  %791 = load i32, ptr %785, align 8
+  %792 = getelementptr inbounds nuw i8, ptr %788, i64 48
+  %793 = load i32, ptr %792, align 8
+  %794 = call i32 @audit_uid_comparator(i32 %775, i32 noundef %791, i32 %793) #12
+  %795 = icmp eq i32 %794, 0
+  br i1 %795, label %786, label %.thread46, !llvm.loop !75
+
+796:                                              ; preds = %661
+  %797 = load i32, ptr %22, align 4
+  br i1 %31, label %805, label %798
+
+798:                                              ; preds = %796
+  %799 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %800 = load i32, ptr %799, align 8
+  %801 = load i32, ptr %32, align 4
+  %802 = call i32 @audit_gid_comparator(i32 %797, i32 noundef %800, i32 %801) #12
+  %803 = icmp ne i32 %802, 0
+  %804 = or i1 %7, %803
+  br i1 %804, label %959, label %806
+
+805:                                              ; preds = %796
+  br i1 %7, label %.thread44, label %806
+
+806:                                              ; preds = %805, %798
+  %807 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  br label %808
+
+808:                                              ; preds = %812, %806
+  %809 = phi ptr [ %33, %806 ], [ %810, %812 ]
+  %810 = load ptr, ptr %809, align 8
+  %811 = icmp eq ptr %810, %33
+  br i1 %811, label %.thread44, label %812
+
+812:                                              ; preds = %808
+  %813 = load i32, ptr %807, align 8
+  %814 = getelementptr inbounds nuw i8, ptr %810, i64 52
+  %815 = load i32, ptr %814, align 4
+  %816 = call i32 @audit_gid_comparator(i32 %797, i32 noundef %813, i32 %815) #12
+  %817 = icmp eq i32 %816, 0
+  br i1 %817, label %808, label %.thread46, !llvm.loop !76
+
+818:                                              ; preds = %661
+  %819 = load i32, ptr %27, align 8
+  br i1 %31, label %827, label %820
+
+820:                                              ; preds = %818
+  %821 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %822 = load i32, ptr %821, align 8
+  %823 = load i32, ptr %34, align 8
+  %824 = call i32 @audit_uid_comparator(i32 %819, i32 noundef %822, i32 %823) #12
+  %825 = icmp ne i32 %824, 0
+  %826 = or i1 %7, %825
+  br i1 %826, label %959, label %828
+
+827:                                              ; preds = %818
+  br i1 %7, label %.thread44, label %828
+
+828:                                              ; preds = %827, %820
+  %829 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  br label %830
+
+830:                                              ; preds = %834, %828
+  %831 = phi ptr [ %33, %828 ], [ %832, %834 ]
+  %832 = load ptr, ptr %831, align 8
+  %833 = icmp eq ptr %832, %33
+  br i1 %833, label %.thread44, label %834
+
+834:                                              ; preds = %830
+  %835 = load i32, ptr %829, align 8
+  %836 = getelementptr inbounds nuw i8, ptr %832, i64 48
+  %837 = load i32, ptr %836, align 8
+  %838 = call i32 @audit_uid_comparator(i32 %819, i32 noundef %835, i32 %837) #12
+  %839 = icmp eq i32 %838, 0
+  br i1 %839, label %830, label %.thread46, !llvm.loop !75
+
+840:                                              ; preds = %661
+  %841 = load i32, ptr %23, align 4
+  br i1 %31, label %849, label %842
+
+842:                                              ; preds = %840
+  %843 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %844 = load i32, ptr %843, align 8
+  %845 = load i32, ptr %32, align 4
+  %846 = call i32 @audit_gid_comparator(i32 %841, i32 noundef %844, i32 %845) #12
+  %847 = icmp ne i32 %846, 0
+  %848 = or i1 %7, %847
+  br i1 %848, label %959, label %850
+
+849:                                              ; preds = %840
+  br i1 %7, label %.thread44, label %850
+
+850:                                              ; preds = %849, %842
+  %851 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  br label %852
+
+852:                                              ; preds = %856, %850
+  %853 = phi ptr [ %33, %850 ], [ %854, %856 ]
+  %854 = load ptr, ptr %853, align 8
+  %855 = icmp eq ptr %854, %33
+  br i1 %855, label %.thread44, label %856
+
+856:                                              ; preds = %852
+  %857 = load i32, ptr %851, align 8
+  %858 = getelementptr inbounds nuw i8, ptr %854, i64 52
+  %859 = load i32, ptr %858, align 4
+  %860 = call i32 @audit_gid_comparator(i32 %841, i32 noundef %857, i32 %859) #12
+  %861 = icmp eq i32 %860, 0
+  br i1 %861, label %852, label %.thread46, !llvm.loop !76
+
+862:                                              ; preds = %661
+  %863 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %864 = load i32, ptr %863, align 8
+  %865 = load i32, ptr %29, align 64
+  %866 = load i32, ptr %30, align 8
+  %867 = call i32 @audit_uid_comparator(i32 %866, i32 noundef %864, i32 %865) #12
+  br label %959
+
+868:                                              ; preds = %661
+  %869 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %870 = load i32, ptr %869, align 8
+  %871 = load i32, ptr %30, align 8
+  %872 = load i32, ptr %28, align 8
+  %873 = call i32 @audit_uid_comparator(i32 %871, i32 noundef %870, i32 %872) #12
+  br label %959
+
+874:                                              ; preds = %661
+  %875 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %876 = load i32, ptr %875, align 8
+  %877 = load i32, ptr %30, align 8
+  %878 = load i32, ptr %26, align 8
+  %879 = call i32 @audit_uid_comparator(i32 %877, i32 noundef %876, i32 %878) #12
+  br label %959
+
+880:                                              ; preds = %661
+  %881 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %882 = load i32, ptr %881, align 8
+  %883 = load i32, ptr %30, align 8
+  %884 = load i32, ptr %27, align 8
+  %885 = call i32 @audit_uid_comparator(i32 %883, i32 noundef %882, i32 %884) #12
+  br label %959
+
+886:                                              ; preds = %661
+  %887 = load i32, ptr %29, align 64
+  %888 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %889 = load i32, ptr %888, align 8
+  %890 = load i32, ptr %28, align 8
+  %891 = call i32 @audit_uid_comparator(i32 %887, i32 noundef %889, i32 %890) #12
+  br label %959
+
+892:                                              ; preds = %661
+  %893 = load i32, ptr %29, align 64
+  %894 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %895 = load i32, ptr %894, align 8
+  %896 = load i32, ptr %26, align 8
+  %897 = call i32 @audit_uid_comparator(i32 %893, i32 noundef %895, i32 %896) #12
+  br label %959
+
+898:                                              ; preds = %661
+  %899 = load i32, ptr %29, align 64
+  %900 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %901 = load i32, ptr %900, align 8
+  %902 = load i32, ptr %27, align 8
+  %903 = call i32 @audit_uid_comparator(i32 %899, i32 noundef %901, i32 %902) #12
+  br label %959
+
+904:                                              ; preds = %661
+  %905 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %906 = load i32, ptr %905, align 8
+  %907 = load i32, ptr %28, align 8
+  %908 = load i32, ptr %26, align 8
+  %909 = call i32 @audit_uid_comparator(i32 %907, i32 noundef %906, i32 %908) #12
+  br label %959
+
+910:                                              ; preds = %661
+  %911 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %912 = load i32, ptr %911, align 8
+  %913 = load i32, ptr %28, align 8
+  %914 = load i32, ptr %27, align 8
+  %915 = call i32 @audit_uid_comparator(i32 %913, i32 noundef %912, i32 %914) #12
+  br label %959
+
+916:                                              ; preds = %661
+  %917 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %918 = load i32, ptr %917, align 8
+  %919 = load i32, ptr %26, align 8
+  %920 = load i32, ptr %27, align 8
+  %921 = call i32 @audit_uid_comparator(i32 %919, i32 noundef %918, i32 %920) #12
+  br label %959
+
+922:                                              ; preds = %661
+  %923 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %924 = load i32, ptr %923, align 8
+  %925 = load i32, ptr %25, align 4
+  %926 = load i32, ptr %24, align 4
+  %927 = call i32 @audit_gid_comparator(i32 %925, i32 noundef %924, i32 %926) #12
+  br label %959
+
+928:                                              ; preds = %661
+  %929 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %930 = load i32, ptr %929, align 8
+  %931 = load i32, ptr %25, align 4
+  %932 = load i32, ptr %22, align 4
+  %933 = call i32 @audit_gid_comparator(i32 %931, i32 noundef %930, i32 %932) #12
+  br label %959
+
+934:                                              ; preds = %661
+  %935 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %936 = load i32, ptr %935, align 8
+  %937 = load i32, ptr %25, align 4
+  %938 = load i32, ptr %23, align 4
+  %939 = call i32 @audit_gid_comparator(i32 %937, i32 noundef %936, i32 %938) #12
+  br label %959
+
+940:                                              ; preds = %661
+  %941 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %942 = load i32, ptr %941, align 8
+  %943 = load i32, ptr %24, align 4
+  %944 = load i32, ptr %22, align 4
+  %945 = call i32 @audit_gid_comparator(i32 %943, i32 noundef %942, i32 %944) #12
+  br label %959
+
+946:                                              ; preds = %661
+  %947 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %948 = load i32, ptr %947, align 8
+  %949 = load i32, ptr %24, align 4
+  %950 = load i32, ptr %23, align 4
+  %951 = call i32 @audit_gid_comparator(i32 %949, i32 noundef %948, i32 %950) #12
+  br label %959
+
+952:                                              ; preds = %661
+  %953 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %954 = load i32, ptr %953, align 8
+  %955 = load i32, ptr %22, align 4
+  %956 = load i32, ptr %23, align 4
+  %957 = call i32 @audit_gid_comparator(i32 %955, i32 noundef %954, i32 %956) #12
+  br label %959
+
+958:                                              ; preds = %661
   call void asm sideeffect "483: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 483b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 483) #12, !srcloc !77
   call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.13) #12
   call void asm sideeffect "484: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 484b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 484) #12, !srcloc !78
@@ -6596,53 +6593,53 @@ define internal fastcc noundef range(i32 0, 2) i32 @audit_filter_rules(ptr nound
   call void asm sideeffect "486: nop\0A\09.pushsection .discard.instr_end\0A\09.long 486b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 486) #12, !srcloc !81
   br label %.thread44
 
-960:                                              ; preds = %953, %947, %941, %935, %929, %923, %917, %911, %905, %899, %893, %887, %881, %875, %869, %863, %843, %821, %799, %777, %755, %733, %711, %689, %667, %.loopexit59, %632, %627, %541, %530, %527, %.loopexit57, %494, %479, %466, %459, %.loopexit, %411, %403, %380, %357, %332, %247, %245, %227, %216, %208, %201, %194, %187, %181, %177, %173, %156, %152, %148, %130, %123, %116, %109, %106, %100, %93, %74
-  %961 = phi i32 [ %661, %.loopexit59 ], [ %634, %632 ], [ %628, %627 ], [ %693, %689 ], [ %551, %541 ], [ %715, %711 ], [ %526, %527 ], [ %526, %.loopexit57 ], [ %958, %953 ], [ %500, %494 ], [ %737, %733 ], [ %486, %479 ], [ %952, %947 ], [ %759, %755 ], [ %474, %466 ], [ %465, %459 ], [ %946, %941 ], [ %413, %411 ], [ %407, %403 ], [ %781, %777 ], [ %386, %380 ], [ %940, %935 ], [ %363, %357 ], [ %803, %799 ], [ %339, %332 ], [ %934, %929 ], [ %928, %923 ], [ %825, %821 ], [ %922, %917 ], [ %916, %911 ], [ %847, %843 ], [ %910, %905 ], [ %246, %245 ], [ %248, %247 ], [ %904, %899 ], [ %898, %893 ], [ %234, %227 ], [ %892, %887 ], [ %886, %881 ], [ %222, %216 ], [ %880, %875 ], [ %214, %208 ], [ %207, %201 ], [ %200, %194 ], [ %193, %187 ], [ %874, %869 ], [ %176, %173 ], [ %186, %181 ], [ %168, %177 ], [ %868, %863 ], [ %151, %148 ], [ %161, %156 ], [ %143, %152 ], [ %136, %130 ], [ %129, %123 ], [ %122, %116 ], [ %115, %109 ], [ %108, %106 ], [ %102, %100 ], [ %99, %93 ], [ %671, %667 ], [ %80, %74 ], [ %458, %.loopexit ], [ %539, %530 ]
-  %962 = phi i32 [ %69, %.loopexit59 ], [ %69, %632 ], [ %69, %627 ], [ %69, %689 ], [ %69, %541 ], [ %69, %711 ], [ %69, %527 ], [ %69, %.loopexit57 ], [ %69, %953 ], [ 0, %494 ], [ %69, %733 ], [ %69, %479 ], [ %69, %947 ], [ %69, %755 ], [ %69, %466 ], [ %69, %459 ], [ %69, %941 ], [ %69, %411 ], [ %69, %403 ], [ %69, %777 ], [ %69, %380 ], [ %69, %935 ], [ %69, %357 ], [ %69, %799 ], [ %69, %332 ], [ %69, %929 ], [ %69, %923 ], [ %69, %821 ], [ %69, %917 ], [ %69, %911 ], [ %69, %843 ], [ %69, %905 ], [ %69, %245 ], [ %69, %247 ], [ %69, %899 ], [ %69, %893 ], [ %69, %227 ], [ %69, %887 ], [ %69, %881 ], [ %69, %216 ], [ %69, %875 ], [ %69, %208 ], [ %69, %201 ], [ %69, %194 ], [ %69, %187 ], [ %69, %869 ], [ %69, %173 ], [ %69, %181 ], [ %69, %177 ], [ %69, %863 ], [ %69, %148 ], [ %69, %156 ], [ %69, %152 ], [ %69, %130 ], [ %69, %123 ], [ %69, %116 ], [ %69, %109 ], [ %69, %106 ], [ %69, %100 ], [ %69, %93 ], [ %69, %667 ], [ %69, %74 ], [ %69, %.loopexit ], [ %69, %530 ]
-  %963 = icmp eq i32 %961, 0
-  br i1 %963, label %.thread44, label %.thread46
+959:                                              ; preds = %952, %946, %940, %934, %928, %922, %916, %910, %904, %898, %892, %886, %880, %874, %868, %862, %842, %820, %798, %776, %754, %732, %710, %688, %666, %.loopexit59, %631, %626, %541, %530, %527, %.loopexit57, %494, %479, %466, %459, %.loopexit, %411, %403, %380, %357, %332, %247, %245, %227, %216, %208, %201, %194, %187, %181, %177, %173, %156, %152, %148, %130, %123, %116, %109, %106, %100, %93, %74
+  %960 = phi i32 [ %660, %.loopexit59 ], [ %633, %631 ], [ %627, %626 ], [ %692, %688 ], [ %551, %541 ], [ %714, %710 ], [ %526, %527 ], [ %526, %.loopexit57 ], [ %957, %952 ], [ %500, %494 ], [ %736, %732 ], [ %486, %479 ], [ %951, %946 ], [ %758, %754 ], [ %474, %466 ], [ %465, %459 ], [ %945, %940 ], [ %413, %411 ], [ %407, %403 ], [ %780, %776 ], [ %386, %380 ], [ %939, %934 ], [ %363, %357 ], [ %802, %798 ], [ %339, %332 ], [ %933, %928 ], [ %927, %922 ], [ %824, %820 ], [ %921, %916 ], [ %915, %910 ], [ %846, %842 ], [ %909, %904 ], [ %246, %245 ], [ %248, %247 ], [ %903, %898 ], [ %897, %892 ], [ %234, %227 ], [ %891, %886 ], [ %885, %880 ], [ %222, %216 ], [ %879, %874 ], [ %214, %208 ], [ %207, %201 ], [ %200, %194 ], [ %193, %187 ], [ %873, %868 ], [ %176, %173 ], [ %186, %181 ], [ %168, %177 ], [ %867, %862 ], [ %151, %148 ], [ %161, %156 ], [ %143, %152 ], [ %136, %130 ], [ %129, %123 ], [ %122, %116 ], [ %115, %109 ], [ %108, %106 ], [ %102, %100 ], [ %99, %93 ], [ %670, %666 ], [ %80, %74 ], [ %458, %.loopexit ], [ %539, %530 ]
+  %961 = phi i32 [ %69, %.loopexit59 ], [ %69, %631 ], [ %69, %626 ], [ %69, %688 ], [ %69, %541 ], [ %69, %710 ], [ %69, %527 ], [ %69, %.loopexit57 ], [ %69, %952 ], [ 0, %494 ], [ %69, %732 ], [ %69, %479 ], [ %69, %946 ], [ %69, %754 ], [ %69, %466 ], [ %69, %459 ], [ %69, %940 ], [ %69, %411 ], [ %69, %403 ], [ %69, %776 ], [ %69, %380 ], [ %69, %934 ], [ %69, %357 ], [ %69, %798 ], [ %69, %332 ], [ %69, %928 ], [ %69, %922 ], [ %69, %820 ], [ %69, %916 ], [ %69, %910 ], [ %69, %842 ], [ %69, %904 ], [ %69, %245 ], [ %69, %247 ], [ %69, %898 ], [ %69, %892 ], [ %69, %227 ], [ %69, %886 ], [ %69, %880 ], [ %69, %216 ], [ %69, %874 ], [ %69, %208 ], [ %69, %201 ], [ %69, %194 ], [ %69, %187 ], [ %69, %868 ], [ %69, %173 ], [ %69, %181 ], [ %69, %177 ], [ %69, %862 ], [ %69, %148 ], [ %69, %156 ], [ %69, %152 ], [ %69, %130 ], [ %69, %123 ], [ %69, %116 ], [ %69, %109 ], [ %69, %106 ], [ %69, %100 ], [ %69, %93 ], [ %69, %666 ], [ %69, %74 ], [ %69, %.loopexit ], [ %69, %530 ]
+  %962 = icmp eq i32 %960, 0
+  br i1 %962, label %.thread44, label %.thread46
 
 .loopexit80:                                      ; preds = %.thread46, %14
-  br i1 %7, label %977, label %964
+  br i1 %7, label %976, label %963
 
-964:                                              ; preds = %.loopexit80
-  %965 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %966 = load ptr, ptr %965, align 8
-  %967 = icmp eq ptr %966, null
-  br i1 %967, label %973, label %968
+963:                                              ; preds = %.loopexit80
+  %964 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %965 = load ptr, ptr %964, align 8
+  %966 = icmp eq ptr %965, null
+  br i1 %966, label %972, label %967
 
-968:                                              ; preds = %964
-  %969 = getelementptr inbounds nuw i8, ptr %2, i64 688
-  %970 = load ptr, ptr %969, align 8
-  call void @kfree(ptr noundef %970) #12
-  %971 = load ptr, ptr %965, align 8
-  %972 = call noalias ptr @kstrdup(ptr noundef %971, i32 noundef 2080) #12
-  store ptr %972, ptr %969, align 8
-  br label %973
+967:                                              ; preds = %963
+  %968 = getelementptr inbounds nuw i8, ptr %2, i64 688
+  %969 = load ptr, ptr %968, align 8
+  call void @kfree(ptr noundef %969) #12
+  %970 = load ptr, ptr %964, align 8
+  %971 = call noalias ptr @kstrdup(ptr noundef %970, i32 noundef 2080) #12
+  store ptr %971, ptr %968, align 8
+  br label %972
 
-973:                                              ; preds = %968, %964
-  %974 = getelementptr inbounds nuw i8, ptr %1, i64 368
-  %975 = load i64, ptr %974, align 8
-  %976 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  store i64 %975, ptr %976, align 8
-  br label %977
+972:                                              ; preds = %967, %963
+  %973 = getelementptr inbounds nuw i8, ptr %1, i64 368
+  %974 = load i64, ptr %973, align 8
+  %975 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  store i64 %974, ptr %975, align 8
+  br label %976
 
-977:                                              ; preds = %973, %.loopexit80
-  %978 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %979 = load i32, ptr %978, align 4
-  switch i32 %979, label %.thread44 [
-    i32 0, label %980
-    i32 2, label %980
+976:                                              ; preds = %972, %.loopexit80
+  %977 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %978 = load i32, ptr %977, align 4
+  switch i32 %978, label %.thread44 [
+    i32 0, label %979
+    i32 2, label %979
   ]
 
-980:                                              ; preds = %977, %977
-  store i32 %979, ptr %4, align 4
+979:                                              ; preds = %976, %976
+  store i32 %978, ptr %4, align 4
   br label %.thread44
 
-.thread44:                                        ; preds = %511, %850, %828, %806, %784, %762, %740, %718, %696, %674, %81, %215, %223, %224, %235, %236, %266, %259, %307, %300, %340, %364, %387, %402, %414, %475, %476, %487, %501, %540, %67, %960, %853, %831, %809, %787, %765, %743, %721, %699, %677, %391, %368, %344, %311, %270, %959, %980, %977, %8
-  %981 = phi i32 [ 0, %8 ], [ 1, %977 ], [ 1, %980 ], [ 0, %344 ], [ 0, %368 ], [ 0, %391 ], [ 0, %677 ], [ 0, %699 ], [ 0, %721 ], [ 0, %743 ], [ 0, %959 ], [ 0, %765 ], [ 0, %787 ], [ 0, %809 ], [ 0, %831 ], [ 0, %853 ], [ 0, %270 ], [ 0, %311 ], [ 0, %960 ], [ 0, %67 ], [ 0, %540 ], [ 0, %501 ], [ 0, %487 ], [ 0, %476 ], [ 0, %475 ], [ 0, %414 ], [ 0, %402 ], [ 0, %387 ], [ 0, %364 ], [ 0, %340 ], [ 0, %300 ], [ 0, %307 ], [ 0, %259 ], [ 0, %266 ], [ 0, %236 ], [ 0, %235 ], [ 0, %224 ], [ 0, %223 ], [ 0, %215 ], [ 0, %81 ], [ 0, %674 ], [ 0, %696 ], [ 0, %718 ], [ 0, %740 ], [ 0, %762 ], [ 0, %784 ], [ 0, %806 ], [ 0, %828 ], [ 0, %850 ], [ 0, %511 ]
+.thread44:                                        ; preds = %511, %849, %827, %805, %783, %761, %739, %717, %695, %673, %81, %215, %223, %224, %235, %236, %266, %259, %307, %300, %340, %364, %387, %402, %414, %475, %476, %487, %501, %540, %67, %959, %852, %830, %808, %786, %764, %742, %720, %698, %676, %391, %368, %344, %311, %270, %958, %979, %976, %8
+  %980 = phi i32 [ 0, %8 ], [ 1, %976 ], [ 1, %979 ], [ 0, %344 ], [ 0, %368 ], [ 0, %391 ], [ 0, %676 ], [ 0, %698 ], [ 0, %720 ], [ 0, %742 ], [ 0, %958 ], [ 0, %764 ], [ 0, %786 ], [ 0, %808 ], [ 0, %830 ], [ 0, %852 ], [ 0, %270 ], [ 0, %311 ], [ 0, %959 ], [ 0, %67 ], [ 0, %540 ], [ 0, %501 ], [ 0, %487 ], [ 0, %476 ], [ 0, %475 ], [ 0, %414 ], [ 0, %402 ], [ 0, %387 ], [ 0, %364 ], [ 0, %340 ], [ 0, %300 ], [ 0, %307 ], [ 0, %259 ], [ 0, %266 ], [ 0, %236 ], [ 0, %235 ], [ 0, %224 ], [ 0, %223 ], [ 0, %215 ], [ 0, %81 ], [ 0, %673 ], [ 0, %695 ], [ 0, %717 ], [ 0, %739 ], [ 0, %761 ], [ 0, %783 ], [ 0, %805 ], [ 0, %827 ], [ 0, %849 ], [ 0, %511 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %981
+  ret i32 %980
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -73708,7 +73708,7 @@ _ZN18ruff_python_parser6parser6Parser4bump17h5304758086845b63E.exit68.i: ; preds
   br i1 %165, label %.invoke, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h3d7c544d871e26c4E.exit.i"
 
 .invoke:                                          ; preds = %240, %231, %218, %172, %162
-  %166 = phi i64 [ 30, %231 ], [ 30, %162 ], [ 64, %172 ], [ 64, %218 ], [ 46, %240 ]
+  %166 = phi i64 [ 30, %231 ], [ 30, %162 ], [ 64, %218 ], [ 64, %172 ], [ 46, %240 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef 1, i64 %166, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.252) #39
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -79866,17 +79866,17 @@ default.unreachable3:                             ; preds = %4
 13:                                               ; preds = %4
   switch i8 %.170.val, label %.fold.split [
     i8 20, label %40
-    i8 10, label %41
-    i8 17, label %41
-    i8 21, label %41
-    i8 32, label %41
+    i8 10, label %59
+    i8 17, label %59
+    i8 21, label %59
+    i8 32, label %59
   ]
 
 14:                                               ; preds = %4
   switch i8 %.170.val, label %40 [
-    i8 10, label %42
-    i8 18, label %42
-    i8 23, label %42
+    i8 10, label %41
+    i8 18, label %41
+    i8 23, label %41
   ]
 
 15:                                               ; preds = %4
@@ -79898,11 +79898,11 @@ default.unreachable3:                             ; preds = %4
 
 21:                                               ; preds = %4
   %22 = trunc nuw i8 %1 to i1
-  br i1 %22, label %43, label %47
+  br i1 %22, label %42, label %46
 
 23:                                               ; preds = %4
   %.not = icmp eq i8 %1, 2
-  br i1 %.not, label %52, label %49
+  br i1 %.not, label %51, label %48
 
 24:                                               ; preds = %4
   %25 = icmp eq i8 %.170.val, 36
@@ -79930,86 +79930,83 @@ default.unreachable3:                             ; preds = %4
   %33 = trunc nuw i8 %1 to i1
   %..i = select i1 %33, i8 18, i8 21
   %34 = icmp eq i8 %.170.val, %..i
-  br i1 %34, label %40, label %54
+  br i1 %34, label %40, label %53
 
 35:                                               ; preds = %4
   %36 = icmp eq i8 %1, 0
   %switch.selectcmp29 = icmp eq i8 %.170.val, 21
-  br i1 %36, label %61, label %62
+  br i1 %36, label %60, label %61
 
 37:                                               ; preds = %4
   %38 = trunc nuw i8 %1 to i1
   %..i59 = select i1 %38, i8 36, i8 7
   %39 = icmp eq i8 %.170.val, %..i59
-  br i1 %39, label %40, label %63
+  br i1 %39, label %40, label %62
 
 .fold.split:                                      ; preds = %13
   br label %40
 
-40:                                               ; preds = %13, %.fold.split, %37, %63, %62, %61, %56, %32, %49, %52, %47, %43, %14, %30, %28, %26, %24, %19, %17, %15, %11, %9, %7, %5, %4, %2, %60, %42, %41
-  %.sroa.05.0 = phi i8 [ 0, %37 ], [ 0, %2 ], [ %.19, %28 ], [ %31, %30 ], [ %.17, %24 ], [ %.18, %26 ], [ %.16, %19 ], [ %.15, %17 ], [ %16, %15 ], [ %12, %11 ], [ %10, %9 ], [ 0, %13 ], [ 1, %41 ], [ %.32, %62 ], [ 0, %42 ], [ 2, %14 ], [ %.8, %7 ], [ 2, %4 ], [ %., %5 ], [ %.33, %63 ], [ %switch.select31, %61 ], [ 1, %60 ], [ 0, %32 ], [ %.23, %43 ], [ %.24, %47 ], [ 2, %56 ], [ %53, %52 ], [ %.25, %49 ], [ 2, %.fold.split ]
+40:                                               ; preds = %13, %.fold.split, %37, %62, %61, %60, %55, %32, %48, %51, %46, %42, %14, %30, %28, %26, %24, %19, %17, %15, %11, %9, %7, %5, %4, %2, %59, %41
+  %.sroa.05.0 = phi i8 [ 0, %37 ], [ 0, %2 ], [ %.19, %28 ], [ %31, %30 ], [ %.17, %24 ], [ %.18, %26 ], [ %.16, %19 ], [ %.15, %17 ], [ %16, %15 ], [ %12, %11 ], [ %10, %9 ], [ 0, %13 ], [ 2, %.fold.split ], [ %.32, %61 ], [ 0, %41 ], [ 2, %14 ], [ %.8, %7 ], [ 2, %4 ], [ %., %5 ], [ %.33, %62 ], [ %switch.select31, %60 ], [ 1, %59 ], [ 0, %32 ], [ %.23, %42 ], [ %.24, %46 ], [ 2, %55 ], [ %52, %51 ], [ %.25, %48 ]
   ret i8 %.sroa.05.0
 
-41:                                               ; preds = %13, %13, %13, %13
+41:                                               ; preds = %14, %14, %14
   br label %40
 
-42:                                               ; preds = %14, %14, %14
-  br label %40
-
-43:                                               ; preds = %21
-  %44 = zext nneg i8 %.170.val to i128
-  %45 = shl nuw nsw i128 1, %44
-  %46 = and i128 %45, 26029868521018294539740160
-  %.not2 = icmp eq i128 %46, 0
+42:                                               ; preds = %21
+  %43 = zext nneg i8 %.170.val to i128
+  %44 = shl nuw nsw i128 1, %43
+  %45 = and i128 %44, 26029868521018294539740160
+  %.not2 = icmp eq i128 %45, 0
   %.23 = select i1 %.not2, i8 2, i8 0
   br label %40
 
-47:                                               ; preds = %21
-  %48 = icmp eq i8 %.170.val, 18
-  %.24 = select i1 %48, i8 0, i8 2
+46:                                               ; preds = %21
+  %47 = icmp eq i8 %.170.val, 18
+  %.24 = select i1 %47, i8 0, i8 2
   br label %40
 
-49:                                               ; preds = %23
-  %50 = trunc nuw i8 %1 to i1
-  %..i60 = select i1 %50, i8 20, i8 18
-  %51 = icmp eq i8 %.170.val, %..i60
-  %.25 = select i1 %51, i8 0, i8 2
+48:                                               ; preds = %23
+  %49 = trunc nuw i8 %1 to i1
+  %..i60 = select i1 %49, i8 20, i8 18
+  %50 = icmp eq i8 %.170.val, %..i60
+  %.25 = select i1 %50, i8 0, i8 2
   br label %40
 
-52:                                               ; preds = %23
+51:                                               ; preds = %23
   %switch.selectcmp.case126 = icmp eq i8 %.170.val, 21
   %switch.selectcmp.case227 = icmp eq i8 %.170.val, 82
   %switch.selectcmp28 = or i1 %switch.selectcmp.case126, %switch.selectcmp.case227
-  %53 = select i1 %switch.selectcmp28, i8 0, i8 2
+  %52 = select i1 %switch.selectcmp28, i8 0, i8 2
   br label %40
 
-54:                                               ; preds = %32
-  %55 = icmp eq i8 %.170.val, 62
-  br i1 %55, label %60, label %56
+53:                                               ; preds = %32
+  %54 = icmp eq i8 %.170.val, 62
+  br i1 %54, label %59, label %55
 
-56:                                               ; preds = %54
-  %57 = zext nneg i8 %.170.val to i128
-  %58 = shl nuw nsw i128 1, %57
-  %59 = and i128 %58, 1544954615246027826586732986368
-  %.not1 = icmp eq i128 %59, 0
-  br i1 %.not1, label %40, label %60
+55:                                               ; preds = %53
+  %56 = zext nneg i8 %.170.val to i128
+  %57 = shl nuw nsw i128 1, %56
+  %58 = and i128 %57, 1544954615246027826586732986368
+  %.not1 = icmp eq i128 %58, 0
+  br i1 %.not1, label %40, label %59
 
-60:                                               ; preds = %54, %56
+59:                                               ; preds = %13, %13, %13, %13, %53, %55
   br label %40
 
-61:                                               ; preds = %35
+60:                                               ; preds = %35
   %switch.select = select i1 %switch.selectcmp29, i8 1, i8 2
   %switch.selectcmp30 = icmp eq i8 %.170.val, 18
   %switch.select31 = select i1 %switch.selectcmp30, i8 0, i8 %switch.select
   br label %40
 
-62:                                               ; preds = %35
+61:                                               ; preds = %35
   %.32 = select i1 %switch.selectcmp29, i8 0, i8 2
   br label %40
 
-63:                                               ; preds = %37
-  %64 = icmp eq i8 %.170.val, 10
-  %.33 = select i1 %64, i8 1, i8 2
+62:                                               ; preds = %37
+  %63 = icmp eq i8 %.170.val, 10
+  %.33 = select i1 %63, i8 1, i8 2
   br label %40
 }
 

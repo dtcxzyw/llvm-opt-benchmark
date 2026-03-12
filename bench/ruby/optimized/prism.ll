@@ -17921,8 +17921,8 @@ switch.lookup73:                                  ; preds = %58
   %switch.masked77 = trunc i48 %switch.downshift76 to i1
   br label %switch.edge
 
-switch.edge:                                      ; preds = %58, %switch.lookup73, %46, %switch.lookup67, %29, %switch.lookup62, %26, %switch.lookup56, %13, %switch.lookup, %32, %2, %55, %51, %43, %40, %37, %34, %23, %19, %16, %10, %6, %3
-  %.0 = phi i1 [ %switch, %32 ], [ %5, %3 ], [ %spec.select, %6 ], [ %12, %10 ], [ %switch.masked71, %switch.lookup67 ], [ %18, %16 ], [ %spec.select46, %19 ], [ %25, %23 ], [ false, %2 ], [ %switch.masked, %switch.lookup ], [ %switch.masked60, %switch.lookup56 ], [ %spec.select50, %34 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %switch.masked66, %switch.lookup62 ], [ %spec.select52, %51 ], [ %57, %55 ], [ %switch.masked77, %switch.lookup73 ], [ false, %26 ], [ false, %29 ], [ false, %46 ], [ false, %13 ], [ false, %58 ]
+switch.edge:                                      ; preds = %13, %26, %29, %46, %58, %switch.lookup73, %switch.lookup67, %switch.lookup62, %switch.lookup56, %switch.lookup, %32, %2, %55, %51, %43, %40, %37, %34, %23, %19, %16, %10, %6, %3
+  %.0 = phi i1 [ %switch, %32 ], [ %5, %3 ], [ %spec.select, %6 ], [ %12, %10 ], [ %switch.masked71, %switch.lookup67 ], [ %18, %16 ], [ %spec.select46, %19 ], [ %25, %23 ], [ false, %2 ], [ %switch.masked, %switch.lookup ], [ %switch.masked60, %switch.lookup56 ], [ %spec.select50, %34 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ %switch.masked66, %switch.lookup62 ], [ %spec.select52, %51 ], [ %57, %55 ], [ %switch.masked77, %switch.lookup73 ], [ false, %58 ], [ false, %46 ], [ false, %29 ], [ false, %26 ], [ false, %13 ]
   ret i1 %.0
 }
 
@@ -18028,12 +18028,12 @@ pm_call_node_command_p.exit.thread:               ; preds = %48, %35, %43, %18, 
   %narrow = add nuw nsw i16 %5, 1
   br label %60
 
-60:                                               ; preds = %.lr.ph, %170
-  %.sroa.0.0.copyload108 = phi i32 [ %.sroa.0.0.copyload101, %.lr.ph ], [ %.sroa.0.0.copyload, %170 ]
-  %61 = phi ptr [ %56, %.lr.ph ], [ %173, %170 ]
-  %62 = phi i32 [ %54, %.lr.ph ], [ %171, %170 ]
-  %.071107 = phi i1 [ %2, %.lr.ph ], [ %.172, %170 ]
-  %.074106 = phi ptr [ %19, %.lr.ph ], [ %63, %170 ]
+60:                                               ; preds = %.lr.ph, %169
+  %.sroa.0.0.copyload108 = phi i32 [ %.sroa.0.0.copyload101, %.lr.ph ], [ %.sroa.0.0.copyload, %169 ]
+  %61 = phi ptr [ %56, %.lr.ph ], [ %172, %169 ]
+  %62 = phi i32 [ %54, %.lr.ph ], [ %170, %169 ]
+  %.071107 = phi i1 [ %2, %.lr.ph ], [ %.172, %169 ]
+  %.074106 = phi ptr [ %19, %.lr.ph ], [ %63, %169 ]
   %.sroa.7.0.copyload109.in = getelementptr inbounds nuw i8, ptr %61, i64 9
   %.sroa.7.0.copyload109 = load i8, ptr %.sroa.7.0.copyload109.in, align 1, !tbaa !17
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 4
@@ -18153,12 +18153,12 @@ pm_call_node_command_p.exit.thread:               ; preds = %48, %35, %43, %18, 
   br i1 %.not81, label %129, label %pm_call_node_command_p.exit.thread90
 
 129:                                              ; preds = %120, %125, %91
-  br i1 %.071107, label %130, label %170
+  br i1 %.071107, label %130, label %169
 
 130:                                              ; preds = %129
-  switch i16 %64, label %169 [
+  switch i16 %64, label %168 [
     i16 19, label %131
-    i16 37, label %170
+    i16 37, label %169
   ]
 
 131:                                              ; preds = %130
@@ -18184,7 +18184,7 @@ pm_call_node_command_p.exit.thread:               ; preds = %48, %35, %43, %18, 
   %144 = getelementptr i8, ptr %143, i64 -1
   %145 = load i8, ptr %144, align 1, !tbaa !65
   %146 = icmp eq i8 %145, 93
-  br i1 %146, label %170, label %162
+  br i1 %146, label %169, label %162
 
 147:                                              ; preds = %131
   %148 = getelementptr inbounds nuw i8, ptr %63, i64 88
@@ -18202,13 +18202,13 @@ pm_call_node_command_p.exit.thread:               ; preds = %48, %35, %43, %18, 
   %156 = getelementptr inbounds nuw i8, ptr %63, i64 72
   %157 = load ptr, ptr %156, align 8, !tbaa !268
   %158 = icmp eq ptr %157, null
-  br i1 %158, label %170, label %159
+  br i1 %158, label %169, label %159
 
 159:                                              ; preds = %155, %151, %147
   %160 = getelementptr inbounds nuw i8, ptr %63, i64 72
   %161 = load ptr, ptr %160, align 8, !tbaa !268
   %.not85 = icmp eq ptr %161, null
-  br i1 %.not85, label %162, label %170
+  br i1 %.not85, label %162, label %169
 
 162:                                              ; preds = %135, %138, %141, %159
   %163 = getelementptr inbounds nuw i8, ptr %63, i64 112
@@ -18219,29 +18219,26 @@ pm_call_node_command_p.exit.thread:               ; preds = %48, %35, %43, %18, 
 165:                                              ; preds = %162
   %166 = load i16, ptr %164, align 8, !tbaa !113
   %167 = icmp eq i16 %166, 14
-  br i1 %167, label %170, label %168
+  br i1 %167, label %169, label %168
 
-168:                                              ; preds = %165, %162
-  br label %170
+168:                                              ; preds = %130, %165, %162
+  br label %169
 
-169:                                              ; preds = %130
-  br label %170
-
-170:                                              ; preds = %141, %155, %159, %165, %168, %130, %169, %129
-  %.172 = phi i1 [ false, %169 ], [ false, %129 ], [ true, %130 ], [ true, %141 ], [ true, %155 ], [ true, %159 ], [ true, %165 ], [ false, %168 ]
-  %171 = load i32, ptr %53, align 8, !tbaa !169
-  %172 = zext i32 %171 to i64
-  %173 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %172
-  %.sroa.0.0.copyload = load i32, ptr %173, align 4, !tbaa !7
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %173, i64 8
+169:                                              ; preds = %141, %155, %159, %165, %168, %130, %129
+  %.172 = phi i1 [ false, %168 ], [ false, %129 ], [ true, %130 ], [ true, %141 ], [ true, %155 ], [ true, %159 ], [ true, %165 ]
+  %170 = load i32, ptr %53, align 8, !tbaa !169
+  %171 = zext i32 %170 to i64
+  %172 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %171
+  %.sroa.0.0.copyload = load i32, ptr %172, align 4, !tbaa !7
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %172, i64 8
   %.sroa.6.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !17
-  %174 = icmp ule i32 %1, %.sroa.0.0.copyload
-  %175 = trunc i8 %.sroa.6.0.copyload to i1
-  %176 = select i1 %174, i1 %175, i1 false
-  br i1 %176, label %60, label %pm_call_node_command_p.exit.thread90, !llvm.loop !273
+  %173 = icmp ule i32 %1, %.sroa.0.0.copyload
+  %174 = trunc i8 %.sroa.6.0.copyload to i1
+  %175 = select i1 %173, i1 %174, i1 false
+  br i1 %175, label %60, label %pm_call_node_command_p.exit.thread90, !llvm.loop !273
 
-pm_call_node_command_p.exit.thread90:             ; preds = %65, %75, %85, %125, %120, %170, %pm_call_node_command_p.exit.thread, %43, %18, %21, %pm_call_node_command_p.exit, %pm_symbol_node_label_p.exit, %95, %111, %8
-  %.0 = phi ptr [ %17, %8 ], [ %19, %pm_symbol_node_label_p.exit ], [ %19, %pm_call_node_command_p.exit ], [ %19, %18 ], [ %19, %21 ], [ %63, %95 ], [ %63, %111 ], [ %19, %43 ], [ %19, %pm_call_node_command_p.exit.thread ], [ %63, %170 ], [ %63, %120 ], [ %63, %125 ], [ %63, %85 ], [ %63, %75 ], [ %63, %65 ]
+pm_call_node_command_p.exit.thread90:             ; preds = %65, %75, %85, %125, %120, %169, %pm_call_node_command_p.exit.thread, %43, %18, %21, %pm_call_node_command_p.exit, %pm_symbol_node_label_p.exit, %95, %111, %8
+  %.0 = phi ptr [ %17, %8 ], [ %19, %pm_symbol_node_label_p.exit ], [ %19, %pm_call_node_command_p.exit ], [ %19, %18 ], [ %19, %21 ], [ %63, %95 ], [ %63, %111 ], [ %19, %43 ], [ %19, %pm_call_node_command_p.exit.thread ], [ %63, %169 ], [ %63, %120 ], [ %63, %125 ], [ %63, %85 ], [ %63, %75 ], [ %63, %65 ]
   ret ptr %.0
 }
 
@@ -36512,6 +36509,7 @@ define internal fastcc void @parse_return(ptr noundef %0, ptr noundef nonnull re
   %.0919 = phi ptr [ %.09, %5 ], [ %.0919.ph, %.lr.ph.outer ]
   %4 = load i32, ptr %.0919, align 8, !tbaa !208
   switch i32 %4, label %5 [
+    i32 47, label %.thread
     i32 33, label %.loopexit
     i32 31, label %.loopexit
     i32 32, label %.loopexit
@@ -36537,7 +36535,6 @@ define internal fastcc void @parse_return(ptr noundef %0, ptr noundef nonnull re
     i32 14, label %.loopexit.sink.split
     i32 46, label %.thread
     i32 49, label %.thread
-    i32 47, label %.thread
     i32 48, label %.thread
   ]
 

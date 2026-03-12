@@ -26078,7 +26078,7 @@ _ZNK5clang21HLSLParamModifierAttr7isInOutEv.exit.i39: ; preds = %87, %84
   br label %_ZNK5clang16ParameterABIAttr6getABIEv.exit42
 
 _ZNK5clang16ParameterABIAttr6getABIEv.exit42:     ; preds = %select.unfold, %_ZNK5clang4Decl7getAttrINS_21HLSLParamModifierAttrEEEPT_v.exit, %_ZNK5clang21HLSLParamModifierAttr5isOutEv.exit.i37, %_ZNK5clang21HLSLParamModifierAttr7isInOutEv.exit.i39
-  %.0.i41 = phi i1 [ false, %_ZNK5clang4Decl7getAttrINS_21HLSLParamModifierAttrEEEPT_v.exit ], [ %90, %_ZNK5clang21HLSLParamModifierAttr7isInOutEv.exit.i39 ], [ false, %_ZNK5clang21HLSLParamModifierAttr5isOutEv.exit.i37 ], [ false, %select.unfold ]
+  %.0.i41 = phi i1 [ %90, %_ZNK5clang21HLSLParamModifierAttr7isInOutEv.exit.i39 ], [ false, %_ZNK5clang21HLSLParamModifierAttr5isOutEv.exit.i37 ], [ false, %select.unfold ], [ false, %_ZNK5clang4Decl7getAttrINS_21HLSLParamModifierAttrEEEPT_v.exit ]
   %91 = load i24, ptr %2, align 8
   %92 = and i24 %91, 1536
   %93 = icmp eq i24 %92, 512

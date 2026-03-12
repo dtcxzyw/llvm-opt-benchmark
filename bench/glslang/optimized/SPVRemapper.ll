@@ -9326,7 +9326,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.not17.i.i.i.i.i.i.i.i = icmp eq i64 %65, %49
   br i1 %.not17.i.i.i.i.i.i.i.i, label %58, label %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, !llvm.loop !125
 
-..loopexit_crit_edge21.i.i.i.i.i.i.i.i:           ; preds = %61
+..loopexit_crit_edge21.i.i.i.i.i.i.i.i:           ; preds = %105, %61
   br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !125
 
 .loopexit41.i.i.i:                                ; preds = %58, %40, %53
@@ -9404,10 +9404,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %108 = zext i32 %107 to i64
   %109 = urem i64 %108, %92
   %.not17.i.i.i.i.i22.i.i.i = icmp eq i64 %109, %93
-  br i1 %.not17.i.i.i.i.i22.i.i.i, label %102, label %..loopexit_crit_edge21.i.i.i.i.i23.i.i.i, !llvm.loop !125
-
-..loopexit_crit_edge21.i.i.i.i.i23.i.i.i:         ; preds = %105
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !125
+  br i1 %.not17.i.i.i.i.i22.i.i.i, label %102, label %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, !llvm.loop !125
 
 .loopexit.i.i.i:                                  ; preds = %102, %84, %97
   %110 = phi i32 [ %82, %84 ], [ %89, %97 ], [ %89, %102 ]
@@ -9421,7 +9418,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   tail call void @_ZN3spv10spirvbin_t9stripInstEj(ptr noundef nonnull align 8 dereferenceable(473) %6, i32 noundef %.val4)
   br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %.lr.ph.i.i.i.i.i19.i.i.i, %83, %.lr.ph.i.i.i.i.i.i.i.i, %39, %3, %7, %14, %19, %44, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, %.loopexit41.i.i.i, %88, %..loopexit_crit_edge21.i.i.i.i.i23.i.i.i, %.loopexit.i.i.i
+"_ZSt10__invoke_rIbRZN3spv10spirvbin_t17forwardLoadStoresEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %.lr.ph.i.i.i.i.i19.i.i.i, %83, %.lr.ph.i.i.i.i.i.i.i.i, %39, %3, %7, %14, %19, %44, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, %.loopexit41.i.i.i, %88, %.loopexit.i.i.i
   ret i1 false
 }
 
@@ -10300,7 +10297,7 @@ _ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.thread.i.i.
   %.not17.i.i.i.i.i37.i.i.i = icmp eq i64 %121, %105
   br i1 %.not17.i.i.i.i.i37.i.i.i, label %114, label %..loopexit_crit_edge21.i.i.i.i.i38.i.i.i, !llvm.loop !125
 
-..loopexit_crit_edge21.i.i.i.i.i38.i.i.i:         ; preds = %117
+..loopexit_crit_edge21.i.i.i.i.i38.i.i.i:         ; preds = %254, %117
   br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !125
 
 .loopexit138.i.i.i:                               ; preds = %114, %96, %109
@@ -10548,10 +10545,7 @@ _ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.
   %257 = zext i32 %256 to i64
   %258 = urem i64 %257, %241
   %.not17.i.i.i.i.i63.i.i.i = icmp eq i64 %258, %242
-  br i1 %.not17.i.i.i.i.i63.i.i.i, label %251, label %..loopexit_crit_edge21.i.i.i.i.i64.i.i.i, !llvm.loop !125
-
-..loopexit_crit_edge21.i.i.i.i.i64.i.i.i:         ; preds = %254
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !125
+  br i1 %.not17.i.i.i.i.i63.i.i.i, label %251, label %..loopexit_crit_edge21.i.i.i.i.i38.i.i.i, !llvm.loop !125
 
 .loopexit128.i.i.i:                               ; preds = %251, %233, %246
   %259 = phi i32 [ %231, %233 ], [ %238, %246 ], [ %238, %251 ]
@@ -10745,8 +10739,8 @@ _ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit9
   %364 = call noundef i64 @_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS1_(ptr noundef nonnull align 8 dereferenceable(56) %363, ptr noundef nonnull align 4 dereferenceable(4) %6)
   br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %.lr.ph.i.i.i.i.i60.i.i.i, %232, %.lr.ph.i.i.i.i.i34.i.i.i, %95, %18, %25, %29, %.loopexit141.i.i.i, %_ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.thread.i.i.i, %100, %..loopexit_crit_edge21.i.i.i.i.i38.i.i.i, %.loopexit131.i.i.i, %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.i.i.i, %215, %237, %..loopexit_crit_edge21.i.i.i.i.i64.i.i.i, %.loopexit.i.i.i, %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit95.i.i.i, %360
-  %.0.i.i.i = phi i1 [ true, %29 ], [ true, %.loopexit141.i.i.i ], [ true, %.loopexit.i.i.i ], [ true, %.loopexit131.i.i.i ], [ true, %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.i.i.i ], [ true, %215 ], [ true, %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit95.i.i.i ], [ true, %360 ], [ false, %_ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.thread.i.i.i ], [ false, %100 ], [ false, %95 ], [ false, %25 ], [ false, %18 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i64.i.i.i ], [ false, %..loopexit_crit_edge21.i.i.i.i.i38.i.i.i ], [ false, %237 ], [ false, %232 ], [ false, %.lr.ph.i.i.i.i.i34.i.i.i ], [ false, %.lr.ph.i.i.i.i.i60.i.i.i ]
+"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_0JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %.lr.ph.i.i.i.i.i60.i.i.i, %232, %.lr.ph.i.i.i.i.i34.i.i.i, %95, %18, %25, %29, %.loopexit141.i.i.i, %_ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.thread.i.i.i, %100, %..loopexit_crit_edge21.i.i.i.i.i38.i.i.i, %.loopexit131.i.i.i, %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.i.i.i, %215, %237, %.loopexit.i.i.i, %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit95.i.i.i, %360
+  %.0.i.i.i = phi i1 [ true, %29 ], [ true, %.loopexit141.i.i.i ], [ true, %.loopexit.i.i.i ], [ true, %.loopexit131.i.i.i ], [ true, %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit.i.i.i ], [ true, %215 ], [ true, %_ZNSt13unordered_mapIjiSt4hashIjESt8equal_toIjESaISt4pairIKjiEEE4findERS5_.exit95.i.i.i ], [ true, %360 ], [ false, %_ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.thread.i.i.i ], [ false, %100 ], [ false, %95 ], [ false, %25 ], [ false, %18 ], [ false, %232 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i38.i.i.i ], [ false, %237 ], [ false, %.lr.ph.i.i.i.i.i34.i.i.i ], [ false, %.lr.ph.i.i.i.i.i60.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0.i.i.i
@@ -11470,10 +11464,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %44 = zext i32 %43 to i64
   %45 = urem i64 %44, %28
   %.not17.i.i.i.i.i.i.i.i = icmp eq i64 %45, %29
-  br i1 %.not17.i.i.i.i.i.i.i.i, label %38, label %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, !llvm.loop !125
-
-..loopexit_crit_edge21.i.i.i.i.i.i.i.i:           ; preds = %41
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !125
+  br i1 %.not17.i.i.i.i.i.i.i.i, label %38, label %..loopexit_crit_edge21.i.i.i.i.i16.i.i.i, !llvm.loop !125
 
 46:                                               ; preds = %3
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.val3, i64 8
@@ -11540,7 +11531,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %.not17.i.i.i.i.i15.i.i.i = icmp eq i64 %79, %63
   br i1 %.not17.i.i.i.i.i15.i.i.i, label %72, label %..loopexit_crit_edge21.i.i.i.i.i16.i.i.i, !llvm.loop !125
 
-..loopexit_crit_edge21.i.i.i.i.i16.i.i.i:         ; preds = %75
+..loopexit_crit_edge21.i.i.i.i.i16.i.i.i:         ; preds = %105, %75, %41
   br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !125
 
 80:                                               ; preds = %._crit_edge33.i.i.i
@@ -11595,17 +11586,14 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbN3spv2OpEjEZNS0_
   %108 = zext i32 %107 to i64
   %109 = urem i64 %108, %92
   %.not17.i.i.i.i.i29.i.i.i = icmp eq i64 %109, %93
-  br i1 %.not17.i.i.i.i.i29.i.i.i, label %102, label %..loopexit_crit_edge21.i.i.i.i.i30.i.i.i, !llvm.loop !125
-
-..loopexit_crit_edge21.i.i.i.i.i30.i.i.i:         ; preds = %105
-  br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit", !llvm.loop !125
+  br i1 %.not17.i.i.i.i.i29.i.i.i, label %102, label %..loopexit_crit_edge21.i.i.i.i.i16.i.i.i, !llvm.loop !125
 
 _ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.i.i.i: ; preds = %102, %84, %72, %54, %38, %20, %97, %67, %33
   tail call void @_ZN3spv10spirvbin_t9stripInstEj(ptr noundef nonnull align 8 dereferenceable(473) %.val3, i32 noundef %.val5)
   br label %"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit"
 
-"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %.lr.ph.i.i.i.i.i26.i.i.i, %83, %.lr.ph.i.i.i.i.i12.i.i.i, %53, %.lr.ph.i.i.i.i.i.i.i.i, %19, %3, %24, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, %58, %..loopexit_crit_edge21.i.i.i.i.i16.i.i.i, %88, %..loopexit_crit_edge21.i.i.i.i.i30.i.i.i, %_ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.i.i.i
-  %.0.i.i.i = phi i1 [ true, %_ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.i.i.i ], [ false, %3 ], [ false, %.lr.ph.i.i.i.i.i.i.i.i ], [ false, %58 ], [ false, %83 ], [ false, %24 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i30.i.i.i ], [ false, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i ], [ false, %88 ], [ false, %19 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i16.i.i.i ], [ false, %.lr.ph.i.i.i.i.i12.i.i.i ], [ false, %53 ], [ false, %.lr.ph.i.i.i.i.i26.i.i.i ]
+"_ZSt10__invoke_rIbRZN3spv10spirvbin_t12optLoadStoreEvE3$_3JNS0_2OpEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %.lr.ph.i.i.i.i.i26.i.i.i, %83, %.lr.ph.i.i.i.i.i12.i.i.i, %53, %.lr.ph.i.i.i.i.i.i.i.i, %19, %3, %24, %58, %..loopexit_crit_edge21.i.i.i.i.i16.i.i.i, %88, %_ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.i.i.i
+  %.0.i.i.i = phi i1 [ true, %_ZNKSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE5countERKj.exit.i.i.i ], [ false, %3 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i16.i.i.i ], [ false, %58 ], [ false, %53 ], [ false, %24 ], [ false, %.lr.ph.i.i.i.i.i.i.i.i ], [ false, %83 ], [ false, %88 ], [ false, %19 ], [ false, %.lr.ph.i.i.i.i.i12.i.i.i ], [ false, %.lr.ph.i.i.i.i.i26.i.i.i ]
   ret i1 %.0.i.i.i
 }
 

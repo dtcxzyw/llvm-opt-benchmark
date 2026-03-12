@@ -4953,9 +4953,6 @@ _ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI
   store i64 %152, ptr %122, align 8
   br label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge
 
-_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge: ; preds = %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN13ZHeapIterator13follow_objectILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit.i.i, %176, %163
-  br label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit, !llvm.loop !33
-
 153:                                              ; preds = %_ZNK7oopDesc11is_objArrayEv.exit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %9, align 8
@@ -4985,6 +4982,9 @@ _ZN13ZHeapIterator13follow_objectILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit.
   call void %160(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %.29, ptr noundef %.0.i.i.i.i.i.i) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge
+
+_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge: ; preds = %_ZN13ZHeapIterator13follow_objectILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit.i.i, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i, %176, %163
+  br label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit, !llvm.loop !33
 
 _ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread11: ; preds = %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i, %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit
   %161 = call noundef zeroext i1 @_ZNK20ZHeapIteratorContext15pop_array_chunkER12ObjArrayTask(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(12) %5)
@@ -9831,9 +9831,6 @@ _ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI
   store i64 %152, ptr %122, align 8
   br label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge
 
-_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge: ; preds = %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN13ZHeapIterator13follow_objectILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit.i.i, %176, %163
-  br label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit, !llvm.loop !58
-
 153:                                              ; preds = %_ZNK7oopDesc11is_objArrayEv.exit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %9, align 8
@@ -9863,6 +9860,9 @@ _ZN13ZHeapIterator13follow_objectILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit.
   call void %160(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %.29, ptr noundef %.0.i.i.i.i.i.i) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge
+
+_ZNK20ZHeapIteratorContext10is_drainedEv.exit.backedge: ; preds = %_ZN13ZHeapIterator13follow_objectILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit.i.i, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i, %176, %163
+  br label %_ZNK20ZHeapIteratorContext10is_drainedEv.exit, !llvm.loop !58
 
 _ZNK20ZHeapIteratorContext3popERP7oopDesc.exit.thread11: ; preds = %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i, %_ZNK20ZHeapIteratorContext3popERP7oopDesc.exit
   %161 = call noundef zeroext i1 @_ZNK20ZHeapIteratorContext15pop_array_chunkER12ObjArrayTask(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(12) %5)

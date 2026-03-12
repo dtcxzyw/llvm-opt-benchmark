@@ -3252,10 +3252,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_7SdfPathENS_6TfHashESt
   %329 = load i64, ptr %328, align 8
   %330 = urem i64 %329, %308
   %.not17.i.i.i.i92 = icmp eq i64 %330, %309
-  br i1 %.not17.i.i.i.i92, label %321, label %..loopexit_crit_edge22.i.i.i.i93, !llvm.loop !27
-
-..loopexit_crit_edge22.i.i.i.i93:                 ; preds = %327
-  br label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit.thread, !llvm.loop !27
+  br i1 %.not17.i.i.i.i92, label %321, label %..loopexit_crit_edge22.i.i.i.i.i110, !llvm.loop !27
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit: ; preds = %321, %292, %313
   %.sroa.06.1.i.i94 = phi ptr [ %.sroa.06.0.i.i98, %292 ], [ %314, %313 ], [ %326, %321 ]
@@ -3342,7 +3339,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_43HdGpGener
   %.not17.i.i.i.i.i109 = icmp eq i64 %378, %357
   br i1 %.not17.i.i.i.i.i109, label %369, label %..loopexit_crit_edge22.i.i.i.i.i110, !llvm.loop !14
 
-..loopexit_crit_edge22.i.i.i.i.i110:              ; preds = %375
+..loopexit_crit_edge22.i.i.i.i.i110:              ; preds = %327, %375
   br label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit.thread, !llvm.loop !14
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_mEEE4findERS6_.exit.i113: ; preds = %369, %340, %361
@@ -3399,7 +3396,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS0_6TfHashESt
   %400 = invoke { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_7SdfPathENS_6TfHashESt8equal_toIS1_ELj128EE6insertERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 4 dereferenceable(8) %227)
           to label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit.thread unwind label %287
 
-_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i89, %291, %.lr.ph.i.i.i.i.i106, %339, %343, %..loopexit_crit_edge22.i.i.i.i.i110, %383, %295, %..loopexit_crit_edge22.i.i.i.i93, %399, %398, %.loopexit189, %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_7SdfPathENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit
+_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit.thread: ; preds = %.lr.ph.i.i.i.i89, %291, %.lr.ph.i.i.i.i.i106, %339, %343, %..loopexit_crit_edge22.i.i.i.i.i110, %383, %295, %399, %398, %.loopexit189, %_ZNK32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetINS_7SdfPathENS_6TfHashESt8equal_toIS1_ELj128EE4findERKS1_.exit
   %.sroa.0163.0 = load ptr, ptr %.sroa.0163.0217, align 8
   %.not180 = icmp eq ptr %.sroa.0163.0, null
   br i1 %.not180, label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt13unordered_setIS1_NS0_6TfHashESt8equal_toIS1_ESaIS1_EENS1_4HashES5_SaISt4pairIKS1_S7_EEE4findERSA_.exit.thread.loopexit, label %.lr.ph
@@ -9711,10 +9708,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt13unordered_s
   %202 = load i64, ptr %201, align 8
   %203 = urem i64 %202, %181
   %.not17.i.i.i.i94 = icmp eq i64 %203, %182
-  br i1 %.not17.i.i.i.i94, label %194, label %..loopexit_crit_edge22.i.i.i.i95, !llvm.loop !27
-
-..loopexit_crit_edge22.i.i.i.i95:                 ; preds = %200
-  br label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit103.thread, !llvm.loop !27
+  br i1 %.not17.i.i.i.i94, label %194, label %..loopexit_crit_edge22.i.i.i.i.i, !llvm.loop !27
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit103: ; preds = %194, %165, %186
   %.sroa.06.1.i.i96 = phi ptr [ %.sroa.06.0.i.i100, %165 ], [ %187, %186 ], [ %199, %194 ]
@@ -9801,7 +9795,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_43HdGpGener
   %.not17.i.i.i.i.i = icmp eq i64 %251, %230
   br i1 %.not17.i.i.i.i.i, label %242, label %..loopexit_crit_edge22.i.i.i.i.i, !llvm.loop !14
 
-..loopexit_crit_edge22.i.i.i.i.i:                 ; preds = %248
+..loopexit_crit_edge22.i.i.i.i.i:                 ; preds = %200, %248
   br label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit103.thread, !llvm.loop !14
 
 _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_mEEE4findERS6_.exit.i: ; preds = %242, %213, %234
@@ -9902,7 +9896,7 @@ _ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_14TfDenseHashMapIS1_
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet6insertERKS0_(ptr noundef nonnull align 8 dereferenceable(456) %289, ptr noundef nonnull align 8 dereferenceable(456) %159)
           to label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit103.thread unwind label %.loopexit215
 
-_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit103.thread: ; preds = %.lr.ph.i.i.i.i91, %164, %.lr.ph.i.i.i.i.i, %212, %216, %..loopexit_crit_edge22.i.i.i.i.i, %256, %168, %..loopexit_crit_edge22.i.i.i.i95, %.loopexit210, %290, %268
+_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_43HdGpGenerativeProceduralResolvingSceneIndex10_ProcEntryENS0_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS8_.exit103.thread: ; preds = %.lr.ph.i.i.i.i91, %164, %.lr.ph.i.i.i.i.i, %212, %216, %..loopexit_crit_edge22.i.i.i.i.i, %256, %168, %.loopexit210, %290, %268
   %.sroa.0177.0 = load ptr, ptr %.sroa.0177.0237, align 8
   %.not200 = icmp eq ptr %.sroa.0177.0, null
   br i1 %.not200, label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt13unordered_setIS1_NS0_6TfHashESt8equal_toIS1_ESaIS1_EENS1_4HashES5_SaISt4pairIKS1_S7_EEE4findERSA_.exit.thread, label %160

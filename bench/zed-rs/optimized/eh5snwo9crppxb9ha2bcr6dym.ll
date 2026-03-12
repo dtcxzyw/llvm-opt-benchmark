@@ -24509,7 +24509,7 @@ switch.lookup1909:                                ; preds = %123
   store i64 2, ptr %0, align 8
   br label %"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$tiff..tags..SampleFormat$GT$$GT$17hc5bcbdc49f4b0a2eE.exit1287"
 
-"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$tiff..tags..SampleFormat$GT$$GT$17hc5bcbdc49f4b0a2eE.exit1287": ; preds = %196, %200, %219, %244, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit1289", %516, %205
+"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$tiff..tags..SampleFormat$GT$$GT$17hc5bcbdc49f4b0a2eE.exit1287": ; preds = %219, %244, %200, %196, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit1289", %516, %205
   call void @llvm.experimental.noalias.scope.decl(metadata !4350)
   %207 = load ptr, ptr %53, align 8, !alias.scope !4350, !noundef !4
   %208 = icmp eq ptr %207, null

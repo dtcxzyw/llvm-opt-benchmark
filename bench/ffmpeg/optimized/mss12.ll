@@ -708,7 +708,7 @@ decode_pivot.exit:                                ; preds = %34
   %42 = sub nsw i32 %5, %36
   %43 = tail call i32 @ff_mss12_decode_rect(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %41, i32 noundef %4, i32 noundef %42)
   %.not57 = icmp eq i32 %43, 0
-  br i1 %.not57, label %417, label %decode_region_inter.exit
+  br i1 %.not57, label %copy_rectangles.exit.i, label %decode_region_inter.exit
 
 44:                                               ; preds = %10
   %45 = load ptr, ptr %11, align 8, !tbaa !29
@@ -757,7 +757,7 @@ decode_pivot.exit62:                              ; preds = %63
   %71 = sub nsw i32 %4, %65
   %72 = tail call i32 @ff_mss12_decode_rect(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %70, i32 noundef %3, i32 noundef %71, i32 noundef %5)
   %.not55 = icmp eq i32 %72, 0
-  br i1 %.not55, label %417, label %decode_region_inter.exit
+  br i1 %.not55, label %copy_rectangles.exit.i, label %decode_region_inter.exit
 
 73:                                               ; preds = %10
   %74 = load ptr, ptr %0, align 8, !tbaa !31
@@ -1381,14 +1381,11 @@ copy_rectangles.exit.us.i.i:                      ; preds = %396, %392, %.lr.ph.
   %exitcond147.not.i.i = icmp eq i64 %indvars.iv.next144.i.i, %wide.trip.count146.i.i
   br i1 %exitcond147.not.i.i, label %decode_region_inter.exit, label %.preheader113.us.i.i, !llvm.loop !75
 
-copy_rectangles.exit.i:                           ; preds = %147, %129, %128, %switch.early.test68.i
+copy_rectangles.exit.i:                           ; preds = %147, %40, %69, %129, %128, %switch.early.test68.i
   br label %decode_region_inter.exit
 
-417:                                              ; preds = %69, %40
-  br label %decode_region_inter.exit
-
-decode_region_inter.exit:                         ; preds = %._crit_edge123.us.i.i, %decode_pixel.exit.us.i.i, %365, %311, %308, %304, %301, %295, %292, %291, %225, %63, %53, %34, %24, %copy_rectangles.exit.i, %.preheader113.lr.ph.i.i, %244, %235, %233, %210, %185, %180, %175, %170, %165, %switch.early.test68.i, %switch.early.test.i, %decode_pixel.exit.i, %83, %10, %69, %67, %decode_pivot.exit62, %40, %38, %decode_pivot.exit, %6, %417, %77
-  %.0 = phi i32 [ -1, %34 ], [ -1, %69 ], [ -1094995529, %6 ], [ -1, %decode_pivot.exit ], [ -1, %38 ], [ 0, %417 ], [ -1, %40 ], [ -1, %decode_pivot.exit62 ], [ -1, %67 ], [ %78, %77 ], [ -1, %10 ], [ 0, %225 ], [ -1, %switch.early.test.i ], [ -1094995529, %83 ], [ %234, %233 ], [ %.050.i111.i, %decode_pixel.exit.i ], [ 0, %copy_rectangles.exit.i ], [ -1, %63 ], [ -1, %switch.early.test68.i ], [ -1, %235 ], [ -1, %165 ], [ -1, %185 ], [ -1, %180 ], [ -1, %175 ], [ -1, %170 ], [ 0, %210 ], [ 0, %.preheader113.lr.ph.i.i ], [ -1, %24 ], [ 0, %244 ], [ -1, %53 ], [ %.085.us.i.i, %decode_pixel.exit.us.i.i ], [ -1094995529, %365 ], [ -1, %304 ], [ -1, %308 ], [ -1, %311 ], [ -1, %295 ], [ -1, %292 ], [ -1, %301 ], [ -1, %291 ], [ 0, %._crit_edge123.us.i.i ]
+decode_region_inter.exit:                         ; preds = %._crit_edge123.us.i.i, %decode_pixel.exit.us.i.i, %365, %311, %308, %304, %301, %295, %292, %291, %225, %63, %53, %34, %24, %copy_rectangles.exit.i, %.preheader113.lr.ph.i.i, %244, %235, %233, %210, %185, %180, %175, %170, %165, %switch.early.test68.i, %switch.early.test.i, %decode_pixel.exit.i, %83, %10, %69, %67, %decode_pivot.exit62, %40, %38, %decode_pivot.exit, %6, %77
+  %.0 = phi i32 [ -1, %34 ], [ -1, %69 ], [ -1094995529, %6 ], [ -1, %decode_pivot.exit ], [ -1, %38 ], [ 0, %225 ], [ -1, %40 ], [ -1, %decode_pivot.exit62 ], [ -1, %67 ], [ %78, %77 ], [ -1, %10 ], [ -1, %291 ], [ -1, %switch.early.test.i ], [ -1094995529, %83 ], [ %234, %233 ], [ %.050.i111.i, %decode_pixel.exit.i ], [ 0, %copy_rectangles.exit.i ], [ -1, %63 ], [ -1, %switch.early.test68.i ], [ -1, %235 ], [ -1, %165 ], [ -1, %185 ], [ -1, %180 ], [ -1, %175 ], [ -1, %170 ], [ 0, %210 ], [ 0, %.preheader113.lr.ph.i.i ], [ -1, %24 ], [ 0, %244 ], [ -1, %53 ], [ %.085.us.i.i, %decode_pixel.exit.us.i.i ], [ -1094995529, %365 ], [ -1, %304 ], [ -1, %308 ], [ -1, %311 ], [ -1, %295 ], [ -1, %292 ], [ -1, %301 ], [ 0, %._crit_edge123.us.i.i ]
   ret i32 %.0
 }
 

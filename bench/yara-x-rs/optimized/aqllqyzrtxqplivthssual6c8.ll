@@ -71118,8 +71118,8 @@ define hidden { ptr, i64 } @_ZN6yara_x7modules2pe6parser2PE15dll_name_at_rva17h0
   br label %18
 
 _ZN6yara_x7modules2pe6parser2PE10str_at_rva17h358cadaae9aa27b2E.exit.thread: ; preds = %18, %59, %59, %59, %59, %59, %59, %59, %59, %56, %6, %2
-  %.sroa.5.0 = phi i64 [ undef, %2 ], [ undef, %6 ], [ %13, %18 ], [ undef, %56 ], [ undef, %59 ], [ undef, %59 ], [ undef, %59 ], [ undef, %59 ], [ undef, %59 ], [ undef, %59 ], [ undef, %59 ], [ undef, %59 ]
-  %.sroa.0.0 = phi ptr [ null, %2 ], [ null, %6 ], [ %11, %18 ], [ null, %56 ], [ null, %59 ], [ null, %59 ], [ null, %59 ], [ null, %59 ], [ null, %59 ], [ null, %59 ], [ null, %59 ], [ null, %59 ]
+  %.sroa.5.0 = phi i64 [ undef, %2 ], [ undef, %6 ], [ %13, %18 ], [ undef, %59 ], [ undef, %59 ], [ undef, %59 ], [ undef, %59 ], [ undef, %59 ], [ undef, %59 ], [ undef, %59 ], [ undef, %56 ], [ undef, %59 ]
+  %.sroa.0.0 = phi ptr [ null, %2 ], [ null, %6 ], [ %11, %18 ], [ null, %59 ], [ null, %59 ], [ null, %59 ], [ null, %59 ], [ null, %59 ], [ null, %59 ], [ null, %59 ], [ null, %56 ], [ null, %59 ]
   %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %17 = insertvalue { ptr, i64 } %16, i64 %.sroa.5.0, 1
   ret { ptr, i64 } %17

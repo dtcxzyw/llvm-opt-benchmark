@@ -677,7 +677,7 @@ _ZNKSt6vectorIPN4cvc58internal9ProofNodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i:
   %.not19.i.i.i.i.i.i.i = icmp eq i64 %119, %103
   br i1 %.not19.i.i.i.i.i.i.i, label %112, label %..loopexit_crit_edge21.i.i.i.i.i.i.i, !llvm.loop !84
 
-..loopexit_crit_edge21.i.i.i.i.i.i.i:             ; preds = %115
+..loopexit_crit_edge21.i.i.i.i.i.i.i:             ; preds = %142, %115
   br label %.thread, !llvm.loop !84
 
 .thread571:                                       ; preds = %_ZNKSt6vectorIPN4cvc58internal9ProofNodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -736,12 +736,9 @@ _ZNKSt6vectorIPN4cvc58internal9ProofNodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i:
   %145 = ptrtoint ptr %144 to i64
   %146 = urem i64 %145, %129
   %.not19.i.i.i.i = icmp eq i64 %146, %130
-  br i1 %.not19.i.i.i.i, label %139, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !87
+  br i1 %.not19.i.i.i.i, label %139, label %..loopexit_crit_edge21.i.i.i.i.i.i.i, !llvm.loop !87
 
-..loopexit_crit_edge21.i.i.i.i:                   ; preds = %142
-  br label %.thread, !llvm.loop !87
-
-.thread:                                          ; preds = %.lr.ph.i.i.i.i, %.preheader, %.lr.ph.i.i.i.i.i.i.i, %93, %..loopexit_crit_edge21.i.i.i.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i
+.thread:                                          ; preds = %.lr.ph.i.i.i.i, %.preheader, %.lr.ph.i.i.i.i.i.i.i, %93, %..loopexit_crit_edge21.i.i.i.i.i.i.i
   br i1 %86, label %.thread.thread780, label %.thread.thread
 
 .thread.thread780:                                ; preds = %98, %.thread

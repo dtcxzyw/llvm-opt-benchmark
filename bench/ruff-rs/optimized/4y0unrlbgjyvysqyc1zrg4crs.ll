@@ -25067,7 +25067,7 @@ _ZN18ruff_python_parser15semantic_errors21SemanticSyntaxChecker9add_error17hc692
   %327 = trunc nuw i8 %326 to i1
   br i1 %327, label %.sink.split, label %336
 
-.sink.split:                                      ; preds = %_ZN18ruff_python_parser15semantic_errors21SemanticSyntaxChecker10check_stmt17ha9eaa58292e4ec79E.exit.thread2, %_ZN18ruff_python_parser15semantic_errors21SemanticSyntaxChecker10check_stmt17ha9eaa58292e4ec79E.exit, %336, %324, %173, %181, %223, %232, %_ZN18ruff_python_parser15semantic_errors21SemanticSyntaxChecker9add_error17hc692177920a4f42dE.exit.i, %253, %272, %273, %_ZN18ruff_python_parser15semantic_errors21SemanticSyntaxChecker9add_error17hc692177920a4f42dE.exit17.i, %35, %_ZN18ruff_python_parser15semantic_errors21SemanticSyntaxChecker15debug_shadowing17h9f62e24ffa890e36E.exit.thread.i, %114, %152, %154, %155, %_ZN18ruff_python_parser15semantic_errors21SemanticSyntaxChecker15debug_shadowing17h9f62e24ffa890e36E.exit.i, %330, %321
+.sink.split:                                      ; preds = %_ZN18ruff_python_parser15semantic_errors21SemanticSyntaxChecker10check_stmt17ha9eaa58292e4ec79E.exit, %336, %324, %173, %181, %223, %232, %_ZN18ruff_python_parser15semantic_errors21SemanticSyntaxChecker9add_error17hc692177920a4f42dE.exit.i, %253, %272, %273, %_ZN18ruff_python_parser15semantic_errors21SemanticSyntaxChecker9add_error17hc692177920a4f42dE.exit17.i, %35, %_ZN18ruff_python_parser15semantic_errors21SemanticSyntaxChecker15debug_shadowing17h9f62e24ffa890e36E.exit.thread.i, %114, %152, %154, %155, %_ZN18ruff_python_parser15semantic_errors21SemanticSyntaxChecker15debug_shadowing17h9f62e24ffa890e36E.exit.i, %_ZN18ruff_python_parser15semantic_errors21SemanticSyntaxChecker10check_stmt17ha9eaa58292e4ec79E.exit.thread2, %330, %321
   store i8 1, ptr %0, align 1
   br label %328
 
@@ -72536,19 +72536,19 @@ default.unreachable12:                            ; preds = %3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define noundef range(i8 0, 6) i8 @"_ZN166_$LT$ruff_linter..rules..pyupgrade..rules..native_literals..LiteralType$u20$as$u20$core..convert..TryFrom$LT$ruff_python_ast..expression..LiteralExpressionRef$GT$$GT$8try_from17ha558b5e5c24bdbc4E"(i64 noundef range(i64 0, 6) %0, ptr noundef readonly captures(none) %1) unnamed_addr #11 {
   switch i64 %0, label %default.unreachable2 [
-    i64 0, label %7
+    i64 0, label %6
     i64 1, label %3
     i64 2, label %switch.lookup
     i64 3, label %5
-    i64 4, label %6
-    i64 5, label %6
+    i64 4, label %7
+    i64 5, label %7
   ]
 
 default.unreachable2:                             ; preds = %2
   unreachable
 
 3:                                                ; preds = %2
-  br label %7
+  br label %6
 
 switch.lookup:                                    ; preds = %2
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
@@ -72557,17 +72557,17 @@ switch.lookup:                                    ; preds = %2
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 328450, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
-  br label %7
+  br label %6
 
 5:                                                ; preds = %2
-  br label %7
+  br label %6
 
-6:                                                ; preds = %2, %2
-  br label %7
-
-7:                                                ; preds = %switch.lookup, %2, %6, %5, %3
-  %.sroa.01.0 = phi i8 [ 5, %6 ], [ 1, %3 ], [ 0, %2 ], [ %switch.masked, %switch.lookup ], [ 4, %5 ]
+6:                                                ; preds = %switch.lookup, %2, %7, %5, %3
+  %.sroa.01.0 = phi i8 [ %switch.masked, %switch.lookup ], [ 1, %3 ], [ 0, %2 ], [ 4, %5 ], [ 5, %7 ]
   ret i8 %.sroa.01.0
+
+7:                                                ; preds = %2, %2
+  br label %6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -73096,7 +73096,7 @@ default.unreachable:                              ; preds = %.thread142, %134
   br label %"_ZN166_$LT$ruff_linter..rules..pyupgrade..rules..native_literals..LiteralType$u20$as$u20$core..convert..TryFrom$LT$ruff_python_ast..expression..LiteralExpressionRef$GT$$GT$8try_from17ha558b5e5c24bdbc4E.exit"
 
 "_ZN166_$LT$ruff_linter..rules..pyupgrade..rules..native_literals..LiteralType$u20$as$u20$core..convert..TryFrom$LT$ruff_python_ast..expression..LiteralExpressionRef$GT$$GT$8try_from17ha558b5e5c24bdbc4E.exit": ; preds = %134, %137, %.thread142, %139, %140
-  %.sroa.01.0.i = phi i8 [ 4, %139 ], [ 1, %137 ], [ 0, %134 ], [ 3, %140 ], [ 2, %.thread142 ]
+  %.sroa.01.0.i = phi i8 [ 2, %.thread142 ], [ 1, %137 ], [ 0, %134 ], [ 3, %140 ], [ 4, %139 ]
   %.not53 = icmp eq i8 %.sroa.01.0.i, %.sroa.0.0.i.ph
   br i1 %.not53, label %150, label %"_ZN113_$LT$ruff_linter..rules..pyupgrade..rules..native_literals..LiteralType$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h1519088a500c691eE.exit"
 

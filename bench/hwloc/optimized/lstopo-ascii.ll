@@ -954,110 +954,124 @@ define internal fastcc void @merge(ptr noundef readonly captures(none) %0, i32 n
   %21 = getelementptr i8, ptr %0, i64 16
   %.val = load i32, ptr %21, align 8, !tbaa !59
   %.not.i = icmp eq i32 %.val, 0
-  br i1 %.not.i, label %38, label %22
+  br i1 %.not.i, label %40, label %22
 
 22:                                               ; preds = %12
-  switch i32 %20, label %37 [
-    i32 9484, label %from_directions.exit
-    i32 9488, label %23
-    i32 9492, label %24
-    i32 9496, label %25
-    i32 9472, label %26
-    i32 9474, label %27
-    i32 9591, label %28
-    i32 9589, label %29
-    i32 9590, label %30
-    i32 9588, label %31
-    i32 9500, label %32
-    i32 9508, label %33
-    i32 9516, label %34
-    i32 9524, label %35
-    i32 9532, label %36
+  switch i32 %20, label %from_directions.exit [
+    i32 9484, label %to_directions.exit.thread
+    i32 9488, label %28
+    i32 9492, label %29
+    i32 9496, label %30
+    i32 9472, label %31
+    i32 9474, label %to_directions.exit.thread27
+    i32 9591, label %32
+    i32 9589, label %33
+    i32 9590, label %34
+    i32 9588, label %35
+    i32 9500, label %36
+    i32 9508, label %37
+    i32 9516, label %38
+    i32 9524, label %39
+    i32 9532, label %to_directions.exit.thread32
   ]
 
-23:                                               ; preds = %22
+to_directions.exit.thread32:                      ; preds = %22
+  %23 = xor i32 %4, 15
+  %24 = or i32 %23, %3
   br label %from_directions.exit
 
-24:                                               ; preds = %22
-  br label %from_directions.exit
-
-25:                                               ; preds = %22
-  br label %from_directions.exit
-
-26:                                               ; preds = %22
-  br label %from_directions.exit
-
-27:                                               ; preds = %22
+to_directions.exit.thread27:                      ; preds = %22
+  %25 = and i32 %4, 3
+  %26 = xor i32 %25, 3
+  %27 = or i32 %26, %3
   br label %from_directions.exit
 
 28:                                               ; preds = %22
-  br label %from_directions.exit
+  br label %to_directions.exit.thread
 
 29:                                               ; preds = %22
-  br label %from_directions.exit
+  br label %to_directions.exit.thread
 
 30:                                               ; preds = %22
-  br label %from_directions.exit
+  br label %to_directions.exit.thread
 
 31:                                               ; preds = %22
-  br label %from_directions.exit
+  br label %to_directions.exit.thread
 
 32:                                               ; preds = %22
-  br label %from_directions.exit
+  br label %to_directions.exit.thread
 
 33:                                               ; preds = %22
-  br label %from_directions.exit
+  br label %to_directions.exit.thread
 
 34:                                               ; preds = %22
-  br label %from_directions.exit
+  br label %to_directions.exit.thread
 
 35:                                               ; preds = %22
-  br label %from_directions.exit
+  br label %to_directions.exit.thread
 
 36:                                               ; preds = %22
-  br label %from_directions.exit
+  br label %to_directions.exit.thread
 
 37:                                               ; preds = %22
-  br label %from_directions.exit
+  br label %to_directions.exit.thread
 
-38:                                               ; preds = %12
-  switch i32 %20, label %41 [
-    i32 45, label %from_directions.exit
-    i32 124, label %39
-    i32 47, label %40
-    i32 92, label %40
-    i32 43, label %40
+38:                                               ; preds = %22
+  br label %to_directions.exit.thread
+
+39:                                               ; preds = %22
+  br label %to_directions.exit.thread
+
+40:                                               ; preds = %12
+  switch i32 %20, label %from_directions.exit [
+    i32 45, label %to_directions.exit.thread23
+    i32 124, label %to_directions.exit.thread25
+    i32 47, label %to_directions.exit.thread30
+    i32 92, label %to_directions.exit.thread30
+    i32 43, label %to_directions.exit.thread30
   ]
 
-39:                                               ; preds = %38
+to_directions.exit.thread25:                      ; preds = %40
+  %41 = and i32 %4, 3
+  %42 = xor i32 %41, 3
+  %43 = or i32 %42, %3
   br label %from_directions.exit
 
-40:                                               ; preds = %38, %38, %38
+to_directions.exit.thread23:                      ; preds = %40
+  %44 = and i32 %4, 12
+  %45 = xor i32 %44, 12
+  %46 = or i32 %45, %3
   br label %from_directions.exit
 
-41:                                               ; preds = %38
+to_directions.exit.thread:                        ; preds = %22, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39
+  %.0.i.ph = phi i32 [ 13, %39 ], [ 14, %38 ], [ 7, %37 ], [ 11, %36 ], [ 4, %35 ], [ 8, %34 ], [ 1, %33 ], [ 2, %32 ], [ 12, %31 ], [ 5, %30 ], [ 9, %29 ], [ 6, %28 ], [ 10, %22 ]
+  %47 = xor i32 %4, -1
+  %48 = and i32 %.0.i.ph, %47
+  %49 = or i32 %48, %3
   br label %from_directions.exit
 
-from_directions.exit:                             ; preds = %38, %39, %40, %41, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22
-  %.0.i.sink = phi i32 [ 0, %37 ], [ 10, %22 ], [ 15, %36 ], [ 13, %35 ], [ 14, %34 ], [ 7, %33 ], [ 11, %32 ], [ 4, %31 ], [ 8, %30 ], [ 1, %29 ], [ 2, %28 ], [ 3, %27 ], [ 12, %26 ], [ 5, %25 ], [ 9, %24 ], [ 6, %23 ], [ 0, %41 ], [ 15, %40 ], [ 12, %38 ], [ 3, %39 ]
-  %switch.table.merge.3.sink = phi ptr [ @switch.table.merge, %37 ], [ @switch.table.merge, %22 ], [ @switch.table.merge, %36 ], [ @switch.table.merge, %35 ], [ @switch.table.merge, %34 ], [ @switch.table.merge, %33 ], [ @switch.table.merge, %32 ], [ @switch.table.merge, %31 ], [ @switch.table.merge, %30 ], [ @switch.table.merge, %29 ], [ @switch.table.merge, %28 ], [ @switch.table.merge, %27 ], [ @switch.table.merge, %26 ], [ @switch.table.merge, %25 ], [ @switch.table.merge, %24 ], [ @switch.table.merge, %23 ], [ @switch.table.merge.3, %41 ], [ @switch.table.merge.3, %40 ], [ @switch.table.merge.3, %38 ], [ @switch.table.merge.3, %39 ]
-  %42 = xor i32 %4, -1
-  %43 = and i32 %.0.i.sink, %42
-  %44 = or i32 %43, %3
-  %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr [4 x i8], ptr %switch.table.merge.3.sink, i64 %45
-  %switch.gep27 = getelementptr i8, ptr %46, i64 -4
-  %switch.load28 = load i32, ptr %switch.gep27, align 4
-  store i32 %switch.load28, ptr %19, align 8, !tbaa !51
+to_directions.exit.thread30:                      ; preds = %40, %40, %40
+  %50 = xor i32 %4, 15
+  %51 = or i32 %50, %3
+  br label %from_directions.exit
+
+from_directions.exit:                             ; preds = %to_directions.exit.thread23, %to_directions.exit.thread25, %to_directions.exit.thread30, %40, %to_directions.exit.thread, %to_directions.exit.thread27, %to_directions.exit.thread32, %22
+  %.sink = phi i32 [ %3, %22 ], [ %49, %to_directions.exit.thread ], [ %24, %to_directions.exit.thread32 ], [ %27, %to_directions.exit.thread27 ], [ %46, %to_directions.exit.thread23 ], [ %51, %to_directions.exit.thread30 ], [ %43, %to_directions.exit.thread25 ], [ %3, %40 ]
+  %switch.table.merge.3.sink = phi ptr [ @switch.table.merge, %22 ], [ @switch.table.merge, %to_directions.exit.thread ], [ @switch.table.merge, %to_directions.exit.thread32 ], [ @switch.table.merge, %to_directions.exit.thread27 ], [ @switch.table.merge.3, %to_directions.exit.thread23 ], [ @switch.table.merge.3, %to_directions.exit.thread30 ], [ @switch.table.merge.3, %to_directions.exit.thread25 ], [ @switch.table.merge.3, %40 ]
+  %52 = sext i32 %.sink to i64
+  %53 = getelementptr [4 x i8], ptr %switch.table.merge.3.sink, i64 %52
+  %switch.gep39 = getelementptr i8, ptr %53, i64 -4
+  %switch.load40 = load i32, ptr %switch.gep39, align 4
+  store i32 %switch.load40, ptr %19, align 8, !tbaa !51
   %.not22.i = icmp eq ptr %5, null
-  br i1 %.not22.i, label %put.exit, label %47
+  br i1 %.not22.i, label %put.exit, label %54
 
-47:                                               ; preds = %from_directions.exit
-  %48 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %5, ptr %48, align 8, !tbaa !55
+54:                                               ; preds = %from_directions.exit
+  %55 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store ptr %5, ptr %55, align 8, !tbaa !55
   br label %put.exit
 
-put.exit:                                         ; preds = %47, %from_directions.exit, %6, %9
+put.exit:                                         ; preds = %54, %from_directions.exit, %6, %9
   ret void
 }
 

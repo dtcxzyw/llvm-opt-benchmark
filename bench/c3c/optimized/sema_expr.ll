@@ -28515,14 +28515,14 @@ type_flatten.exit:                                ; preds = %3
 20:                                               ; preds = %type_flatten.exit
   %21 = load i32, ptr %0, align 8
   %22 = icmp ult i32 %21, 41
-  br i1 %22, label %switch.lookup, label %50
+  br i1 %22, label %switch.lookup, label %.fold.split
 
 23:                                               ; preds = %type_flatten.exit, %type_flatten.exit, %type_flatten.exit, %type_flatten.exit, %type_flatten.exit, %type_flatten.exit, %type_flatten.exit, %type_flatten.exit
   br label %50
 
 24:                                               ; preds = %type_flatten.exit
   %25 = icmp ult i32 %6, 38
-  br i1 %25, label %switch.lookup52, label %50
+  br i1 %25, label %switch.lookup52, label %.fold.split
 
 26:                                               ; preds = %type_flatten.exit, %type_flatten.exit
   %27 = add i32 %6, -13
@@ -28546,7 +28546,7 @@ type_flatten.exit:                                ; preds = %3
 
 38:                                               ; preds = %type_flatten.exit
   %39 = icmp ult i32 %6, 30
-  br i1 %39, label %switch.lookup57, label %50
+  br i1 %39, label %switch.lookup57, label %.fold.split
 
 40:                                               ; preds = %type_flatten.exit, %type_flatten.exit
   switch i32 %6, label %.fold.split [
@@ -28561,7 +28561,7 @@ type_flatten.exit:                                ; preds = %3
   %45 = icmp eq i32 %44, 25
   br label %50
 
-.fold.split:                                      ; preds = %40
+.fold.split:                                      ; preds = %38, %24, %20, %40
   br label %50
 
 46:                                               ; preds = %type_flatten.exit
@@ -28591,8 +28591,8 @@ switch.lookup57:                                  ; preds = %38
   %switch.masked61 = trunc i30 %switch.downshift60 to i1
   br label %50
 
-50:                                               ; preds = %38, %switch.lookup57, %24, %switch.lookup52, %20, %switch.lookup, %41, %.fold.split, %40, %26, %29, %type_flatten.exit, %46, %36, %32, %23, %17
-  %.035 = phi i1 [ %48, %46 ], [ %19, %17 ], [ %switch.masked56, %switch.lookup52 ], [ false, %type_flatten.exit ], [ true, %23 ], [ true, %26 ], [ %switch.masked, %switch.lookup ], [ false, %20 ], [ %35, %32 ], [ %37, %36 ], [ false, %24 ], [ %31, %29 ], [ %switch.masked61, %switch.lookup57 ], [ false, %.fold.split ], [ %45, %41 ], [ true, %40 ], [ false, %38 ]
+50:                                               ; preds = %switch.lookup57, %switch.lookup52, %switch.lookup, %41, %.fold.split, %40, %26, %29, %type_flatten.exit, %46, %36, %32, %23, %17
+  %.035 = phi i1 [ %48, %46 ], [ %19, %17 ], [ false, %.fold.split ], [ false, %type_flatten.exit ], [ true, %23 ], [ %45, %41 ], [ %switch.masked, %switch.lookup ], [ %switch.masked56, %switch.lookup52 ], [ %35, %32 ], [ %37, %36 ], [ true, %40 ], [ %31, %29 ], [ %switch.masked61, %switch.lookup57 ], [ true, %26 ]
   ret i1 %.035
 }
 

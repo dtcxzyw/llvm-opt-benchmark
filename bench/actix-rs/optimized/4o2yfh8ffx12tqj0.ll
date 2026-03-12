@@ -8079,8 +8079,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.688.sroa.5.0..sroa.688.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
   br label %163
 
-.invoke:                                          ; preds = %306, %338, %193, %225, %85, %117
-  %137 = phi ptr [ @anon.afe59754709d84d0c0cd79a626bf6bdd.66, %117 ], [ @anon.afe59754709d84d0c0cd79a626bf6bdd.69, %225 ], [ @anon.afe59754709d84d0c0cd79a626bf6bdd.73, %338 ], [ @anon.afe59754709d84d0c0cd79a626bf6bdd.66, %85 ], [ @anon.afe59754709d84d0c0cd79a626bf6bdd.69, %193 ], [ @anon.afe59754709d84d0c0cd79a626bf6bdd.73, %306 ]
+.invoke:                                          ; preds = %338, %306, %193, %225, %85, %117
+  %137 = phi ptr [ @anon.afe59754709d84d0c0cd79a626bf6bdd.66, %117 ], [ @anon.afe59754709d84d0c0cd79a626bf6bdd.69, %193 ], [ @anon.afe59754709d84d0c0cd79a626bf6bdd.73, %338 ], [ @anon.afe59754709d84d0c0cd79a626bf6bdd.66, %85 ], [ @anon.afe59754709d84d0c0cd79a626bf6bdd.69, %225 ], [ @anon.afe59754709d84d0c0cd79a626bf6bdd.73, %306 ]
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.afe59754709d84d0c0cd79a626bf6bdd.36, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %137) #23
           to label %.cont unwind label %397
 

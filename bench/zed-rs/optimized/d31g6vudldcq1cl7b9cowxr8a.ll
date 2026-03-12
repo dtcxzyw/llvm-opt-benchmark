@@ -93052,7 +93052,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN7postage4sync8transfer17Transfer$LT
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 386
   br label %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i"
 
-._crit_edge:                                      ; preds = %31, %2
+._crit_edge:                                      ; preds = %30, %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 385
   %12 = load i8, ptr %11, align 1, !range !666, !noundef !13
   store i8 0, ptr %11, align 1
@@ -93063,15 +93063,15 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN7postage4sync8transfer17Transfer$LT
   call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9d04a8be78f7e133ecb68d0a52af5caa.142.llvm.14379821547474135896) #48
   unreachable
 
-"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i": ; preds = %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i.lr.ph", %31
-  %14 = phi { i8, i1 } [ %9, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i.lr.ph" ], [ %35, %31 ]
+"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i": ; preds = %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i.lr.ph", %30
+  %14 = phi { i8, i1 } [ %9, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i.lr.ph" ], [ %34, %30 ]
   %.sroa.08.0.i.i.i = extractvalue { i8, i1 } %14, 0
   switch i8 %.sroa.08.0.i.i.i, label %15 [
-    i8 4, label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15.loopexit"
+    i8 4, label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15"
     i8 0, label %17
     i8 1, label %17
     i8 2, label %16
-    i8 3, label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15"
+    i8 3, label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15.loopexit28"
   ]
 
 15:                                               ; preds = %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i"
@@ -93081,18 +93081,18 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN7postage4sync8transfer17Transfer$LT
   call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.18f721ccef415aa9c21faff661f5af14.133.llvm.6482399857099888620, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18f721ccef415aa9c21faff661f5af14.514.llvm.6482399857099888620) #48
   unreachable
 
-"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15.loopexit": ; preds = %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i"
+"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15.loopexit28": ; preds = %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i", %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i11", %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i11", %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i11"
   br label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15"
 
-"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15": ; preds = %29, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i", %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15.loopexit", %._crit_edge, %28, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i11", %22
-  %.sroa.0.0 = phi i8 [ 0, %22 ], [ 2, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i" ], [ 0, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i11" ], [ 2, %28 ], [ 0, %._crit_edge ], [ 1, %29 ], [ 0, %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15.loopexit" ]
+"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15": ; preds = %28, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i", %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15.loopexit28", %._crit_edge, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i11", %22
+  %.sroa.0.0 = phi i8 [ 0, %22 ], [ 0, %._crit_edge ], [ 0, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i11" ], [ 2, %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15.loopexit28" ], [ 1, %28 ], [ 0, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i8 %.sroa.0.0
 
 17:                                               ; preds = %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i", %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i"
   %18 = load atomic i8, ptr %10 acquire, align 2
   %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %20, label %29
+  br i1 %19, label %20, label %28
 
 20:                                               ; preds = %17
   %21 = cmpxchg ptr %8, i8 2, i8 3 acq_rel monotonic, align 1
@@ -93114,10 +93114,10 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN7postage4sync8transfer17Transfer$LT
   %.sroa.08.0.i.i.i12 = extractvalue { i8, i1 } %21, 0
   switch i8 %.sroa.08.0.i.i.i12, label %26 [
     i8 4, label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15"
-    i8 0, label %28
-    i8 1, label %28
+    i8 0, label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15.loopexit28"
+    i8 1, label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15.loopexit28"
     i8 2, label %27
-    i8 3, label %28
+    i8 3, label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15.loopexit28"
   ]
 
 26:                                               ; preds = %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i11"
@@ -93127,24 +93127,21 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN7postage4sync8transfer17Transfer$LT
   call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.18f721ccef415aa9c21faff661f5af14.133.llvm.6482399857099888620, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18f721ccef415aa9c21faff661f5af14.514.llvm.6482399857099888620) #48
   unreachable
 
-28:                                               ; preds = %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i11", %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i11", %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i11"
-  br label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15"
-
-29:                                               ; preds = %17
+28:                                               ; preds = %17
   call void @_ZN7postage4sync8notifier8Notifier9subscribe17hc2dd2f4d9cadd432E(ptr noundef nonnull align 128 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
-  %30 = call noundef zeroext i1 @_ZN7postage4sync8notifier17NotificationGuard10is_expired17h911bce5cbddc4a4cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
-  br i1 %30, label %31, label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15"
+  %29 = call noundef zeroext i1 @_ZN7postage4sync8notifier17NotificationGuard10is_expired17h911bce5cbddc4a4cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
+  br i1 %29, label %30, label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h70846a9bd877a301E.exit15"
 
-31:                                               ; preds = %29
+30:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %32 = call { ptr, i64 } @_ZN7postage4sync8notifier8Notifier5guard17ha2a9ab08a0e201a2E(ptr noundef nonnull align 128 %0)
-  %33 = extractvalue { ptr, i64 } %32, 0
-  %34 = extractvalue { ptr, i64 } %32, 1
-  store ptr %33, ptr %3, align 8
-  store i64 %34, ptr %7, align 8
-  %35 = cmpxchg ptr %8, i8 2, i8 3 acq_rel monotonic, align 1
-  %.sroa.18.0.in.i.i.i = extractvalue { i8, i1 } %35, 1
+  %31 = call { ptr, i64 } @_ZN7postage4sync8notifier8Notifier5guard17ha2a9ab08a0e201a2E(ptr noundef nonnull align 128 %0)
+  %32 = extractvalue { ptr, i64 } %31, 0
+  %33 = extractvalue { ptr, i64 } %31, 1
+  store ptr %32, ptr %3, align 8
+  store i64 %33, ptr %7, align 8
+  %34 = cmpxchg ptr %8, i8 2, i8 3 acq_rel monotonic, align 1
+  %.sroa.18.0.in.i.i.i = extractvalue { i8, i1 } %34, 1
   br i1 %.sroa.18.0.in.i.i.i, label %._crit_edge, label %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h6c33b784387291dbE.exit.i"
 }
 

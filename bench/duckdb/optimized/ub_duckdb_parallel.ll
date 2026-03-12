@@ -22351,7 +22351,7 @@ define noundef zeroext i1 @_ZNK6duckdb8Pipeline16IsOrderDependentEv(ptr noundef 
     i8 0, label %14
   ]
 
-14:                                               ; preds = %8
+14:                                               ; preds = %36, %39, %8
   br label %.thread
 
 15:                                               ; preds = %8, %1
@@ -22395,7 +22395,7 @@ define noundef zeroext i1 @_ZNK6duckdb8Pipeline16IsOrderDependentEv(ptr noundef 
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = load ptr, ptr %37, align 8, !tbaa !401
   %.not32 = icmp eq ptr %38, null
-  br i1 %.not32, label %45, label %39
+  br i1 %.not32, label %14, label %39
 
 39:                                               ; preds = %36
   tail call void @_ZNK6duckdb12optional_ptrINS_16PhysicalOperatorELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %37)
@@ -22404,13 +22404,10 @@ define noundef zeroext i1 @_ZNK6duckdb8Pipeline16IsOrderDependentEv(ptr noundef 
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 280
   %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(128) %40)
-  br i1 %44, label %.thread, label %45
+  br i1 %44, label %.thread, label %14
 
-45:                                               ; preds = %39, %36
-  br label %.thread
-
-.thread:                                          ; preds = %.lr.ph, %27, %8, %14, %39, %._crit_edge, %45
-  %.2 = phi i1 [ false, %._crit_edge ], [ false, %45 ], [ true, %39 ], [ false, %14 ], [ true, %8 ], [ %.not38.not, %27 ], [ %.not38.not, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %27, %8, %14, %39, %._crit_edge
+  %.2 = phi i1 [ false, %._crit_edge ], [ true, %8 ], [ true, %39 ], [ false, %14 ], [ %.not38.not, %27 ], [ %.not38.not, %.lr.ph ]
   ret i1 %.2
 }
 

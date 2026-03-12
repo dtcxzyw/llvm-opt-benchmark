@@ -10126,7 +10126,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb
   %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %15) #17
   br i1 %19, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
-20:                                               ; preds = %14, %10
+20:                                               ; preds = %464, %459, %454, %449, %444, %439, %434, %429, %424, %419, %414, %409, %404, %399, %394, %389, %384, %.thread.i.thread, %375, %370, %365, %360, %355, %350, %345, %340, %335, %330, %325, %320, %315, %310, %305, %300, %295, %290, %285, %280, %275, %270, %265, %260, %255, %250, %245, %240, %235, %230, %225, %220, %215, %210, %205, %200, %195, %190, %185, %180, %175, %170, %165, %160, %155, %150, %145, %140, %135, %130, %125, %120, %115, %110, %105, %100, %95, %90, %85, %80, %75, %70, %65, %60, %55, %50, %45, %40, %35, %.thread.i, %14, %10
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 21:                                               ; preds = %6
@@ -10162,7 +10162,7 @@ _ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEE
 
 .thread.i:                                        ; preds = %..thread.i_crit_edge, %21
   %.pre-phi = phi i32 [ %.pre, %..thread.i_crit_edge ], [ %8, %21 ]
-  switch i32 %.pre-phi, label %469 [
+  switch i32 %.pre-phi, label %20 [
     i32 0, label %35
     i32 1, label %40
     i32 2, label %45
@@ -10257,615 +10257,612 @@ _ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEE
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 296
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %39, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %39, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 40:                                               ; preds = %.thread.i
   %41 = load ptr, ptr %0, align 8, !tbaa !376
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 304
   %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %44, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %44, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 45:                                               ; preds = %.thread.i
   %46 = load ptr, ptr %0, align 8, !tbaa !376
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 312
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %49, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %49, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 50:                                               ; preds = %.thread.i
   %51 = load ptr, ptr %0, align 8, !tbaa !376
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 320
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %54, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %54, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 55:                                               ; preds = %.thread.i
   %56 = load ptr, ptr %0, align 8, !tbaa !376
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 328
   %58 = load ptr, ptr %57, align 8
   %59 = tail call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %59, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %59, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 60:                                               ; preds = %.thread.i
   %61 = load ptr, ptr %0, align 8, !tbaa !376
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 336
   %63 = load ptr, ptr %62, align 8
   %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %64, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %64, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 65:                                               ; preds = %.thread.i
   %66 = load ptr, ptr %0, align 8, !tbaa !376
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 344
   %68 = load ptr, ptr %67, align 8
   %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %69, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %69, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 70:                                               ; preds = %.thread.i
   %71 = load ptr, ptr %0, align 8, !tbaa !376
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 352
   %73 = load ptr, ptr %72, align 8
   %74 = tail call noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %74, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %74, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 75:                                               ; preds = %.thread.i
   %76 = load ptr, ptr %0, align 8, !tbaa !376
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 360
   %78 = load ptr, ptr %77, align 8
   %79 = tail call noundef zeroext i1 %78(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %79, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %79, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 80:                                               ; preds = %.thread.i
   %81 = load ptr, ptr %0, align 8, !tbaa !376
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 368
   %83 = load ptr, ptr %82, align 8
   %84 = tail call noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %84, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %84, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 85:                                               ; preds = %.thread.i
   %86 = load ptr, ptr %0, align 8, !tbaa !376
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 376
   %88 = load ptr, ptr %87, align 8
   %89 = tail call noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %89, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %89, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 90:                                               ; preds = %.thread.i
   %91 = load ptr, ptr %0, align 8, !tbaa !376
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 384
   %93 = load ptr, ptr %92, align 8
   %94 = tail call noundef zeroext i1 %93(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %94, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %94, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 95:                                               ; preds = %.thread.i
   %96 = load ptr, ptr %0, align 8, !tbaa !376
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 392
   %98 = load ptr, ptr %97, align 8
   %99 = tail call noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %99, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %99, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 100:                                              ; preds = %.thread.i
   %101 = load ptr, ptr %0, align 8, !tbaa !376
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 400
   %103 = load ptr, ptr %102, align 8
   %104 = tail call noundef zeroext i1 %103(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %104, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %104, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 105:                                              ; preds = %.thread.i
   %106 = load ptr, ptr %0, align 8, !tbaa !376
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 408
   %108 = load ptr, ptr %107, align 8
   %109 = tail call noundef zeroext i1 %108(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %109, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %109, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 110:                                              ; preds = %.thread.i
   %111 = load ptr, ptr %0, align 8, !tbaa !376
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 416
   %113 = load ptr, ptr %112, align 8
   %114 = tail call noundef zeroext i1 %113(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %114, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %114, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 115:                                              ; preds = %.thread.i
   %116 = load ptr, ptr %0, align 8, !tbaa !376
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 424
   %118 = load ptr, ptr %117, align 8
   %119 = tail call noundef zeroext i1 %118(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %119, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %119, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 120:                                              ; preds = %.thread.i
   %121 = load ptr, ptr %0, align 8, !tbaa !376
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 432
   %123 = load ptr, ptr %122, align 8
   %124 = tail call noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %124, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %124, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 125:                                              ; preds = %.thread.i
   %126 = load ptr, ptr %0, align 8, !tbaa !376
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 440
   %128 = load ptr, ptr %127, align 8
   %129 = tail call noundef zeroext i1 %128(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %129, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %129, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 130:                                              ; preds = %.thread.i
   %131 = load ptr, ptr %0, align 8, !tbaa !376
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 448
   %133 = load ptr, ptr %132, align 8
   %134 = tail call noundef zeroext i1 %133(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %134, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %134, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 135:                                              ; preds = %.thread.i
   %136 = load ptr, ptr %0, align 8, !tbaa !376
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 456
   %138 = load ptr, ptr %137, align 8
   %139 = tail call noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %139, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %139, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 140:                                              ; preds = %.thread.i
   %141 = load ptr, ptr %0, align 8, !tbaa !376
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 464
   %143 = load ptr, ptr %142, align 8
   %144 = tail call noundef zeroext i1 %143(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %144, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %144, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 145:                                              ; preds = %.thread.i
   %146 = load ptr, ptr %0, align 8, !tbaa !376
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 472
   %148 = load ptr, ptr %147, align 8
   %149 = tail call noundef zeroext i1 %148(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %149, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %149, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 150:                                              ; preds = %.thread.i
   %151 = load ptr, ptr %0, align 8, !tbaa !376
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 480
   %153 = load ptr, ptr %152, align 8
   %154 = tail call noundef zeroext i1 %153(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %154, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %154, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 155:                                              ; preds = %.thread.i
   %156 = load ptr, ptr %0, align 8, !tbaa !376
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 488
   %158 = load ptr, ptr %157, align 8
   %159 = tail call noundef zeroext i1 %158(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %159, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %159, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 160:                                              ; preds = %.thread.i
   %161 = load ptr, ptr %0, align 8, !tbaa !376
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 496
   %163 = load ptr, ptr %162, align 8
   %164 = tail call noundef zeroext i1 %163(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %164, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %164, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 165:                                              ; preds = %.thread.i
   %166 = load ptr, ptr %0, align 8, !tbaa !376
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 504
   %168 = load ptr, ptr %167, align 8
   %169 = tail call noundef zeroext i1 %168(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %169, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %169, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 170:                                              ; preds = %.thread.i
   %171 = load ptr, ptr %0, align 8, !tbaa !376
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 512
   %173 = load ptr, ptr %172, align 8
   %174 = tail call noundef zeroext i1 %173(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %174, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %174, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 175:                                              ; preds = %.thread.i
   %176 = load ptr, ptr %0, align 8, !tbaa !376
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 520
   %178 = load ptr, ptr %177, align 8
   %179 = tail call noundef zeroext i1 %178(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %179, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %179, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 180:                                              ; preds = %.thread.i
   %181 = load ptr, ptr %0, align 8, !tbaa !376
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 528
   %183 = load ptr, ptr %182, align 8
   %184 = tail call noundef zeroext i1 %183(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %184, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %184, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 185:                                              ; preds = %.thread.i
   %186 = load ptr, ptr %0, align 8, !tbaa !376
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 536
   %188 = load ptr, ptr %187, align 8
   %189 = tail call noundef zeroext i1 %188(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %189, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %189, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 190:                                              ; preds = %.thread.i
   %191 = load ptr, ptr %0, align 8, !tbaa !376
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 544
   %193 = load ptr, ptr %192, align 8
   %194 = tail call noundef zeroext i1 %193(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %194, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %194, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 195:                                              ; preds = %.thread.i
   %196 = load ptr, ptr %0, align 8, !tbaa !376
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 552
   %198 = load ptr, ptr %197, align 8
   %199 = tail call noundef zeroext i1 %198(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %199, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %199, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 200:                                              ; preds = %.thread.i
   %201 = load ptr, ptr %0, align 8, !tbaa !376
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 560
   %203 = load ptr, ptr %202, align 8
   %204 = tail call noundef zeroext i1 %203(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %204, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %204, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 205:                                              ; preds = %.thread.i
   %206 = load ptr, ptr %0, align 8, !tbaa !376
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 568
   %208 = load ptr, ptr %207, align 8
   %209 = tail call noundef zeroext i1 %208(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %209, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %209, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 210:                                              ; preds = %.thread.i
   %211 = load ptr, ptr %0, align 8, !tbaa !376
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 576
   %213 = load ptr, ptr %212, align 8
   %214 = tail call noundef zeroext i1 %213(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %214, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %214, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 215:                                              ; preds = %.thread.i
   %216 = load ptr, ptr %0, align 8, !tbaa !376
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 584
   %218 = load ptr, ptr %217, align 8
   %219 = tail call noundef zeroext i1 %218(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %219, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %219, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 220:                                              ; preds = %.thread.i
   %221 = load ptr, ptr %0, align 8, !tbaa !376
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 592
   %223 = load ptr, ptr %222, align 8
   %224 = tail call noundef zeroext i1 %223(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %224, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %224, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 225:                                              ; preds = %.thread.i
   %226 = load ptr, ptr %0, align 8, !tbaa !376
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 600
   %228 = load ptr, ptr %227, align 8
   %229 = tail call noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %229, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %229, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 230:                                              ; preds = %.thread.i
   %231 = load ptr, ptr %0, align 8, !tbaa !376
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 608
   %233 = load ptr, ptr %232, align 8
   %234 = tail call noundef zeroext i1 %233(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %234, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %234, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 235:                                              ; preds = %.thread.i
   %236 = load ptr, ptr %0, align 8, !tbaa !376
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 616
   %238 = load ptr, ptr %237, align 8
   %239 = tail call noundef zeroext i1 %238(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %239, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %239, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 240:                                              ; preds = %.thread.i
   %241 = load ptr, ptr %0, align 8, !tbaa !376
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 624
   %243 = load ptr, ptr %242, align 8
   %244 = tail call noundef zeroext i1 %243(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %244, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %244, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 245:                                              ; preds = %.thread.i
   %246 = load ptr, ptr %0, align 8, !tbaa !376
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 632
   %248 = load ptr, ptr %247, align 8
   %249 = tail call noundef zeroext i1 %248(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %249, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %249, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 250:                                              ; preds = %.thread.i
   %251 = load ptr, ptr %0, align 8, !tbaa !376
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 640
   %253 = load ptr, ptr %252, align 8
   %254 = tail call noundef zeroext i1 %253(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %254, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %254, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 255:                                              ; preds = %.thread.i
   %256 = load ptr, ptr %0, align 8, !tbaa !376
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 648
   %258 = load ptr, ptr %257, align 8
   %259 = tail call noundef zeroext i1 %258(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %259, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %259, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 260:                                              ; preds = %.thread.i
   %261 = load ptr, ptr %0, align 8, !tbaa !376
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 656
   %263 = load ptr, ptr %262, align 8
   %264 = tail call noundef zeroext i1 %263(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %264, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %264, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 265:                                              ; preds = %.thread.i
   %266 = load ptr, ptr %0, align 8, !tbaa !376
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 664
   %268 = load ptr, ptr %267, align 8
   %269 = tail call noundef zeroext i1 %268(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %269, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %269, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 270:                                              ; preds = %.thread.i
   %271 = load ptr, ptr %0, align 8, !tbaa !376
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 672
   %273 = load ptr, ptr %272, align 8
   %274 = tail call noundef zeroext i1 %273(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %274, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %274, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 275:                                              ; preds = %.thread.i
   %276 = load ptr, ptr %0, align 8, !tbaa !376
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 680
   %278 = load ptr, ptr %277, align 8
   %279 = tail call noundef zeroext i1 %278(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %279, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %279, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 280:                                              ; preds = %.thread.i
   %281 = load ptr, ptr %0, align 8, !tbaa !376
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 688
   %283 = load ptr, ptr %282, align 8
   %284 = tail call noundef zeroext i1 %283(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %284, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %284, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 285:                                              ; preds = %.thread.i
   %286 = load ptr, ptr %0, align 8, !tbaa !376
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 696
   %288 = load ptr, ptr %287, align 8
   %289 = tail call noundef zeroext i1 %288(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %289, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %289, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 290:                                              ; preds = %.thread.i
   %291 = load ptr, ptr %0, align 8, !tbaa !376
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 704
   %293 = load ptr, ptr %292, align 8
   %294 = tail call noundef zeroext i1 %293(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %294, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %294, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 295:                                              ; preds = %.thread.i
   %296 = load ptr, ptr %0, align 8, !tbaa !376
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 712
   %298 = load ptr, ptr %297, align 8
   %299 = tail call noundef zeroext i1 %298(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %299, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %299, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 300:                                              ; preds = %.thread.i
   %301 = load ptr, ptr %0, align 8, !tbaa !376
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 720
   %303 = load ptr, ptr %302, align 8
   %304 = tail call noundef zeroext i1 %303(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %304, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %304, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 305:                                              ; preds = %.thread.i
   %306 = load ptr, ptr %0, align 8, !tbaa !376
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 728
   %308 = load ptr, ptr %307, align 8
   %309 = tail call noundef zeroext i1 %308(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %309, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %309, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 310:                                              ; preds = %.thread.i
   %311 = load ptr, ptr %0, align 8, !tbaa !376
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 736
   %313 = load ptr, ptr %312, align 8
   %314 = tail call noundef zeroext i1 %313(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %314, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %314, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 315:                                              ; preds = %.thread.i
   %316 = load ptr, ptr %0, align 8, !tbaa !376
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 744
   %318 = load ptr, ptr %317, align 8
   %319 = tail call noundef zeroext i1 %318(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %319, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %319, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 320:                                              ; preds = %.thread.i
   %321 = load ptr, ptr %0, align 8, !tbaa !376
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 752
   %323 = load ptr, ptr %322, align 8
   %324 = tail call noundef zeroext i1 %323(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %324, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %324, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 325:                                              ; preds = %.thread.i
   %326 = load ptr, ptr %0, align 8, !tbaa !376
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 760
   %328 = load ptr, ptr %327, align 8
   %329 = tail call noundef zeroext i1 %328(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %329, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %329, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 330:                                              ; preds = %.thread.i
   %331 = load ptr, ptr %0, align 8, !tbaa !376
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 768
   %333 = load ptr, ptr %332, align 8
   %334 = tail call noundef zeroext i1 %333(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %334, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %334, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 335:                                              ; preds = %.thread.i
   %336 = load ptr, ptr %0, align 8, !tbaa !376
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 776
   %338 = load ptr, ptr %337, align 8
   %339 = tail call noundef zeroext i1 %338(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %339, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %339, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 340:                                              ; preds = %.thread.i
   %341 = load ptr, ptr %0, align 8, !tbaa !376
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 784
   %343 = load ptr, ptr %342, align 8
   %344 = tail call noundef zeroext i1 %343(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %344, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %344, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 345:                                              ; preds = %.thread.i
   %346 = load ptr, ptr %0, align 8, !tbaa !376
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 792
   %348 = load ptr, ptr %347, align 8
   %349 = tail call noundef zeroext i1 %348(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %349, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %349, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 350:                                              ; preds = %.thread.i
   %351 = load ptr, ptr %0, align 8, !tbaa !376
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 800
   %353 = load ptr, ptr %352, align 8
   %354 = tail call noundef zeroext i1 %353(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %354, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %354, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 355:                                              ; preds = %.thread.i
   %356 = load ptr, ptr %0, align 8, !tbaa !376
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 808
   %358 = load ptr, ptr %357, align 8
   %359 = tail call noundef zeroext i1 %358(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %359, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %359, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 360:                                              ; preds = %.thread.i
   %361 = load ptr, ptr %0, align 8, !tbaa !376
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 816
   %363 = load ptr, ptr %362, align 8
   %364 = tail call noundef zeroext i1 %363(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %364, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %364, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 365:                                              ; preds = %.thread.i
   %366 = load ptr, ptr %0, align 8, !tbaa !376
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 824
   %368 = load ptr, ptr %367, align 8
   %369 = tail call noundef zeroext i1 %368(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %369, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %369, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 370:                                              ; preds = %.thread.i
   %371 = load ptr, ptr %0, align 8, !tbaa !376
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 832
   %373 = load ptr, ptr %372, align 8
   %374 = tail call noundef zeroext i1 %373(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %374, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %374, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 375:                                              ; preds = %.thread.i
   %376 = load ptr, ptr %0, align 8, !tbaa !376
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 840
   %378 = load ptr, ptr %377, align 8
   %379 = tail call noundef zeroext i1 %378(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %379, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %379, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 .thread.i.thread:                                 ; preds = %22, %_ZNK5clang15DeclarationName11getNameKindEv.exit.i.i, %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit.i, %_ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEEEbRKT0_.exit.i, %.thread.i
   %380 = load ptr, ptr %0, align 8, !tbaa !376
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 848
   %382 = load ptr, ptr %381, align 8
   %383 = tail call noundef zeroext i1 %382(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %383, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %383, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 384:                                              ; preds = %.thread.i
   %385 = load ptr, ptr %0, align 8, !tbaa !376
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 856
   %387 = load ptr, ptr %386, align 8
   %388 = tail call noundef zeroext i1 %387(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %388, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %388, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 389:                                              ; preds = %.thread.i
   %390 = load ptr, ptr %0, align 8, !tbaa !376
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 864
   %392 = load ptr, ptr %391, align 8
   %393 = tail call noundef zeroext i1 %392(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %393, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %393, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 394:                                              ; preds = %.thread.i
   %395 = load ptr, ptr %0, align 8, !tbaa !376
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 872
   %397 = load ptr, ptr %396, align 8
   %398 = tail call noundef zeroext i1 %397(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %398, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %398, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 399:                                              ; preds = %.thread.i
   %400 = load ptr, ptr %0, align 8, !tbaa !376
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 880
   %402 = load ptr, ptr %401, align 8
   %403 = tail call noundef zeroext i1 %402(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %403, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %403, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 404:                                              ; preds = %.thread.i
   %405 = load ptr, ptr %0, align 8, !tbaa !376
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 888
   %407 = load ptr, ptr %406, align 8
   %408 = tail call noundef zeroext i1 %407(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %408, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %408, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 409:                                              ; preds = %.thread.i
   %410 = load ptr, ptr %0, align 8, !tbaa !376
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 896
   %412 = load ptr, ptr %411, align 8
   %413 = tail call noundef zeroext i1 %412(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %413, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %413, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 414:                                              ; preds = %.thread.i
   %415 = load ptr, ptr %0, align 8, !tbaa !376
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 904
   %417 = load ptr, ptr %416, align 8
   %418 = tail call noundef zeroext i1 %417(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %418, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %418, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 419:                                              ; preds = %.thread.i
   %420 = load ptr, ptr %0, align 8, !tbaa !376
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 912
   %422 = load ptr, ptr %421, align 8
   %423 = tail call noundef zeroext i1 %422(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %423, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %423, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 424:                                              ; preds = %.thread.i
   %425 = load ptr, ptr %0, align 8, !tbaa !376
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 920
   %427 = load ptr, ptr %426, align 8
   %428 = tail call noundef zeroext i1 %427(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %428, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %428, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 429:                                              ; preds = %.thread.i
   %430 = load ptr, ptr %0, align 8, !tbaa !376
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 928
   %432 = load ptr, ptr %431, align 8
   %433 = tail call noundef zeroext i1 %432(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %433, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %433, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 434:                                              ; preds = %.thread.i
   %435 = load ptr, ptr %0, align 8, !tbaa !376
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 936
   %437 = load ptr, ptr %436, align 8
   %438 = tail call noundef zeroext i1 %437(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %438, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %438, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 439:                                              ; preds = %.thread.i
   %440 = load ptr, ptr %0, align 8, !tbaa !376
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 944
   %442 = load ptr, ptr %441, align 8
   %443 = tail call noundef zeroext i1 %442(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %443, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %443, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 444:                                              ; preds = %.thread.i
   %445 = load ptr, ptr %0, align 8, !tbaa !376
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 952
   %447 = load ptr, ptr %446, align 8
   %448 = tail call noundef zeroext i1 %447(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %448, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %448, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 449:                                              ; preds = %.thread.i
   %450 = load ptr, ptr %0, align 8, !tbaa !376
   %451 = getelementptr inbounds nuw i8, ptr %450, i64 960
   %452 = load ptr, ptr %451, align 8
   %453 = tail call noundef zeroext i1 %452(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %453, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %453, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 454:                                              ; preds = %.thread.i
   %455 = load ptr, ptr %0, align 8, !tbaa !376
   %456 = getelementptr inbounds nuw i8, ptr %455, i64 968
   %457 = load ptr, ptr %456, align 8
   %458 = tail call noundef zeroext i1 %457(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %458, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %458, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 459:                                              ; preds = %.thread.i
   %460 = load ptr, ptr %0, align 8, !tbaa !376
   %461 = getelementptr inbounds nuw i8, ptr %460, i64 976
   %462 = load ptr, ptr %461, align 8
   %463 = tail call noundef zeroext i1 %462(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %463, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %463, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
 464:                                              ; preds = %.thread.i
   %465 = load ptr, ptr %0, align 8, !tbaa !376
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 984
   %467 = load ptr, ptr %466, align 8
   %468 = tail call noundef zeroext i1 %467(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %468, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %468, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
 
-469:                                              ; preds = %464, %459, %454, %449, %444, %439, %434, %429, %424, %419, %414, %409, %404, %399, %394, %389, %384, %.thread.i.thread, %375, %370, %365, %360, %355, %350, %345, %340, %335, %330, %325, %320, %315, %310, %305, %300, %295, %290, %285, %280, %275, %270, %265, %260, %255, %250, %245, %240, %235, %230, %225, %220, %215, %210, %205, %200, %195, %190, %185, %180, %175, %170, %165, %160, %155, %150, %145, %140, %135, %130, %125, %120, %115, %110, %105, %100, %95, %90, %85, %80, %75, %70, %65, %60, %55, %50, %45, %40, %35, %.thread.i
-  br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit
-
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit: ; preds = %2, %9, %14, %20, %_ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEEEbRKT0_.exit.i, %35, %40, %45, %50, %55, %60, %65, %70, %75, %80, %85, %90, %95, %100, %105, %110, %115, %120, %125, %130, %135, %140, %145, %150, %155, %160, %165, %170, %175, %180, %185, %190, %195, %200, %205, %210, %215, %220, %225, %230, %235, %240, %245, %250, %255, %260, %265, %270, %275, %280, %285, %290, %295, %300, %305, %310, %315, %320, %325, %330, %335, %340, %345, %350, %355, %360, %365, %370, %375, %.thread.i.thread, %384, %389, %394, %399, %404, %409, %414, %419, %424, %429, %434, %439, %444, %449, %454, %459, %464, %469
-  %.0.i = phi i1 [ true, %469 ], [ false, %464 ], [ false, %35 ], [ false, %40 ], [ false, %45 ], [ false, %50 ], [ false, %55 ], [ false, %60 ], [ false, %65 ], [ false, %70 ], [ false, %75 ], [ false, %80 ], [ false, %85 ], [ false, %90 ], [ false, %95 ], [ false, %100 ], [ false, %105 ], [ false, %110 ], [ false, %115 ], [ false, %120 ], [ false, %125 ], [ false, %130 ], [ false, %135 ], [ false, %140 ], [ false, %145 ], [ false, %150 ], [ false, %155 ], [ false, %160 ], [ false, %165 ], [ false, %170 ], [ false, %175 ], [ false, %180 ], [ false, %185 ], [ false, %190 ], [ false, %195 ], [ false, %200 ], [ false, %205 ], [ false, %210 ], [ false, %215 ], [ false, %220 ], [ false, %225 ], [ false, %230 ], [ false, %235 ], [ false, %240 ], [ false, %245 ], [ false, %250 ], [ false, %255 ], [ false, %260 ], [ false, %265 ], [ false, %270 ], [ false, %275 ], [ false, %280 ], [ false, %285 ], [ false, %290 ], [ false, %295 ], [ false, %300 ], [ false, %305 ], [ false, %310 ], [ false, %315 ], [ false, %320 ], [ false, %325 ], [ false, %330 ], [ false, %335 ], [ false, %340 ], [ false, %345 ], [ false, %350 ], [ false, %355 ], [ false, %360 ], [ false, %365 ], [ false, %370 ], [ false, %375 ], [ false, %.thread.i.thread ], [ false, %384 ], [ false, %389 ], [ false, %394 ], [ false, %399 ], [ false, %404 ], [ false, %409 ], [ false, %414 ], [ false, %419 ], [ false, %424 ], [ false, %429 ], [ false, %434 ], [ false, %439 ], [ false, %444 ], [ false, %449 ], [ false, %454 ], [ false, %459 ], [ true, %2 ], [ true, %_ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEEEbRKT0_.exit.i ], [ true, %9 ], [ true, %20 ], [ false, %14 ]
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE12TraverseDeclEPNS_4DeclE.exit: ; preds = %2, %9, %14, %20, %_ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEEEbRKT0_.exit.i, %35, %40, %45, %50, %55, %60, %65, %70, %75, %80, %85, %90, %95, %100, %105, %110, %115, %120, %125, %130, %135, %140, %145, %150, %155, %160, %165, %170, %175, %180, %185, %190, %195, %200, %205, %210, %215, %220, %225, %230, %235, %240, %245, %250, %255, %260, %265, %270, %275, %280, %285, %290, %295, %300, %305, %310, %315, %320, %325, %330, %335, %340, %345, %350, %355, %360, %365, %370, %375, %.thread.i.thread, %384, %389, %394, %399, %404, %409, %414, %419, %424, %429, %434, %439, %444, %449, %454, %459, %464
+  %.0.i = phi i1 [ false, %14 ], [ false, %464 ], [ false, %35 ], [ false, %40 ], [ false, %45 ], [ false, %50 ], [ false, %55 ], [ false, %60 ], [ false, %65 ], [ false, %70 ], [ false, %75 ], [ false, %80 ], [ false, %85 ], [ false, %90 ], [ false, %95 ], [ false, %100 ], [ false, %105 ], [ false, %110 ], [ false, %115 ], [ false, %120 ], [ false, %125 ], [ false, %130 ], [ false, %135 ], [ false, %140 ], [ false, %145 ], [ false, %150 ], [ false, %155 ], [ false, %160 ], [ false, %165 ], [ false, %170 ], [ false, %175 ], [ false, %180 ], [ false, %185 ], [ false, %190 ], [ false, %195 ], [ false, %200 ], [ false, %205 ], [ false, %210 ], [ false, %215 ], [ false, %220 ], [ false, %225 ], [ false, %230 ], [ false, %235 ], [ false, %240 ], [ false, %245 ], [ false, %250 ], [ false, %255 ], [ false, %260 ], [ false, %265 ], [ false, %270 ], [ false, %275 ], [ false, %280 ], [ false, %285 ], [ false, %290 ], [ false, %295 ], [ false, %300 ], [ false, %305 ], [ false, %310 ], [ false, %315 ], [ false, %320 ], [ false, %325 ], [ false, %330 ], [ false, %335 ], [ false, %340 ], [ false, %345 ], [ false, %350 ], [ false, %355 ], [ false, %360 ], [ false, %365 ], [ false, %370 ], [ false, %375 ], [ false, %.thread.i.thread ], [ false, %384 ], [ false, %389 ], [ false, %394 ], [ false, %399 ], [ false, %404 ], [ false, %409 ], [ false, %414 ], [ false, %419 ], [ false, %424 ], [ false, %429 ], [ false, %434 ], [ false, %439 ], [ false, %444 ], [ false, %449 ], [ false, %454 ], [ false, %459 ], [ true, %2 ], [ true, %_ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEEEbRKT0_.exit.i ], [ true, %9 ], [ true, %20 ]
   ret i1 %.0.i
 }
 
@@ -11006,17 +11003,11 @@ define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb
 
 12:                                               ; preds = %6, %3
   %13 = tail call noundef i32 @_ZNK5clang19NestedNameSpecifier7getKindEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #17
-  switch i32 %13, label %25 [
-    i32 0, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE.exit
-    i32 1, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE.exit
-    i32 2, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE.exit
-    i32 5, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE.exit
-    i32 6, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE.exit
-    i32 3, label %14
-    i32 4, label %14
-  ]
+  %.off.i = add i32 %13, -3
+  %switch.i = icmp ult i32 %.off.i, 2
+  br i1 %switch.i, label %14, label %25
 
-14:                                               ; preds = %12, %12
+14:                                               ; preds = %12
   %.0.copyload.i.i.i.i11.i = load i64, ptr %4, align 8
   %15 = and i64 %.0.copyload.i.i.i.i11.i, 4
   %switch.not.i.i = icmp eq i64 %15, 0
@@ -11034,8 +11025,8 @@ define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb
 25:                                               ; preds = %14, %12
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE.exit
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE.exit: ; preds = %2, %6, %12, %12, %12, %12, %12, %14, %25
-  %.0.i = phi i1 [ true, %25 ], [ false, %6 ], [ true, %12 ], [ true, %2 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ false, %14 ]
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE.exit: ; preds = %2, %6, %14, %25
+  %.0.i = phi i1 [ true, %25 ], [ false, %6 ], [ true, %2 ], [ false, %14 ]
   ret i1 %.0.i
 }
 
@@ -11066,17 +11057,11 @@ _ZNK5clang22NestedNameSpecifierLoc9getPrefixEv.exit.i: ; preds = %3
 
 14:                                               ; preds = %8, %_ZNK5clang22NestedNameSpecifierLoc9getPrefixEv.exit.i
   %15 = tail call noundef i32 @_ZNK5clang19NestedNameSpecifier7getKindEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #17
-  switch i32 %15, label %24 [
-    i32 0, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
-    i32 1, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
-    i32 2, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
-    i32 5, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
-    i32 6, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
-    i32 3, label %16
-    i32 4, label %16
-  ]
+  %.off.i = add i32 %15, -3
+  %switch.i = icmp ult i32 %.off.i, 2
+  br i1 %switch.i, label %16, label %24
 
-16:                                               ; preds = %14, %14
+16:                                               ; preds = %14
   %17 = call { ptr, ptr } @_ZNK5clang22NestedNameSpecifierLoc10getTypeLocEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   %18 = extractvalue { ptr, ptr } %17, 0
   %19 = extractvalue { ptr, ptr } %17, 1
@@ -11089,8 +11074,8 @@ _ZNK5clang22NestedNameSpecifierLoc9getPrefixEv.exit.i: ; preds = %3
 24:                                               ; preds = %16, %14
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit: ; preds = %3, %8, %14, %14, %14, %14, %14, %16, %24
-  %.0.i = phi i1 [ true, %24 ], [ true, %3 ], [ true, %14 ], [ false, %16 ], [ true, %14 ], [ true, %14 ], [ true, %14 ], [ true, %14 ], [ false, %8 ]
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit: ; preds = %3, %8, %16, %24
+  %.0.i = phi i1 [ true, %24 ], [ true, %3 ], [ false, %16 ], [ false, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0.i
 }
@@ -85502,7 +85487,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb
   %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %15) #17
   br i1 %19, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
-20:                                               ; preds = %14, %10
+20:                                               ; preds = %464, %459, %454, %449, %444, %439, %434, %429, %424, %419, %414, %409, %404, %399, %394, %389, %384, %.thread.i.thread, %375, %370, %365, %360, %355, %350, %345, %340, %335, %330, %325, %320, %315, %310, %305, %300, %295, %290, %285, %280, %275, %270, %265, %260, %255, %250, %245, %240, %235, %230, %225, %220, %215, %210, %205, %200, %195, %190, %185, %180, %175, %170, %165, %160, %155, %150, %145, %140, %135, %130, %125, %120, %115, %110, %105, %100, %95, %90, %85, %80, %75, %70, %65, %60, %55, %50, %45, %40, %35, %.thread.i, %14, %10
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 21:                                               ; preds = %6
@@ -85538,7 +85523,7 @@ _ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEE
 
 .thread.i:                                        ; preds = %..thread.i_crit_edge, %21
   %.pre-phi = phi i32 [ %.pre, %..thread.i_crit_edge ], [ %8, %21 ]
-  switch i32 %.pre-phi, label %469 [
+  switch i32 %.pre-phi, label %20 [
     i32 0, label %35
     i32 1, label %40
     i32 2, label %45
@@ -85633,615 +85618,612 @@ _ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEE
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 296
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %39, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %39, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 40:                                               ; preds = %.thread.i
   %41 = load ptr, ptr %0, align 8, !tbaa !376
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 304
   %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %44, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %44, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 45:                                               ; preds = %.thread.i
   %46 = load ptr, ptr %0, align 8, !tbaa !376
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 312
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %49, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %49, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 50:                                               ; preds = %.thread.i
   %51 = load ptr, ptr %0, align 8, !tbaa !376
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 320
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %54, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %54, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 55:                                               ; preds = %.thread.i
   %56 = load ptr, ptr %0, align 8, !tbaa !376
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 328
   %58 = load ptr, ptr %57, align 8
   %59 = tail call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %59, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %59, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 60:                                               ; preds = %.thread.i
   %61 = load ptr, ptr %0, align 8, !tbaa !376
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 336
   %63 = load ptr, ptr %62, align 8
   %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %64, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %64, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 65:                                               ; preds = %.thread.i
   %66 = load ptr, ptr %0, align 8, !tbaa !376
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 344
   %68 = load ptr, ptr %67, align 8
   %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %69, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %69, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 70:                                               ; preds = %.thread.i
   %71 = load ptr, ptr %0, align 8, !tbaa !376
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 352
   %73 = load ptr, ptr %72, align 8
   %74 = tail call noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %74, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %74, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 75:                                               ; preds = %.thread.i
   %76 = load ptr, ptr %0, align 8, !tbaa !376
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 360
   %78 = load ptr, ptr %77, align 8
   %79 = tail call noundef zeroext i1 %78(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %79, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %79, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 80:                                               ; preds = %.thread.i
   %81 = load ptr, ptr %0, align 8, !tbaa !376
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 368
   %83 = load ptr, ptr %82, align 8
   %84 = tail call noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %84, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %84, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 85:                                               ; preds = %.thread.i
   %86 = load ptr, ptr %0, align 8, !tbaa !376
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 376
   %88 = load ptr, ptr %87, align 8
   %89 = tail call noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %89, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %89, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 90:                                               ; preds = %.thread.i
   %91 = load ptr, ptr %0, align 8, !tbaa !376
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 384
   %93 = load ptr, ptr %92, align 8
   %94 = tail call noundef zeroext i1 %93(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %94, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %94, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 95:                                               ; preds = %.thread.i
   %96 = load ptr, ptr %0, align 8, !tbaa !376
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 392
   %98 = load ptr, ptr %97, align 8
   %99 = tail call noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %99, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %99, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 100:                                              ; preds = %.thread.i
   %101 = load ptr, ptr %0, align 8, !tbaa !376
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 400
   %103 = load ptr, ptr %102, align 8
   %104 = tail call noundef zeroext i1 %103(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %104, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %104, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 105:                                              ; preds = %.thread.i
   %106 = load ptr, ptr %0, align 8, !tbaa !376
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 408
   %108 = load ptr, ptr %107, align 8
   %109 = tail call noundef zeroext i1 %108(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %109, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %109, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 110:                                              ; preds = %.thread.i
   %111 = load ptr, ptr %0, align 8, !tbaa !376
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 416
   %113 = load ptr, ptr %112, align 8
   %114 = tail call noundef zeroext i1 %113(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %114, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %114, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 115:                                              ; preds = %.thread.i
   %116 = load ptr, ptr %0, align 8, !tbaa !376
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 424
   %118 = load ptr, ptr %117, align 8
   %119 = tail call noundef zeroext i1 %118(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %119, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %119, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 120:                                              ; preds = %.thread.i
   %121 = load ptr, ptr %0, align 8, !tbaa !376
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 432
   %123 = load ptr, ptr %122, align 8
   %124 = tail call noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %124, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %124, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 125:                                              ; preds = %.thread.i
   %126 = load ptr, ptr %0, align 8, !tbaa !376
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 440
   %128 = load ptr, ptr %127, align 8
   %129 = tail call noundef zeroext i1 %128(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %129, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %129, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 130:                                              ; preds = %.thread.i
   %131 = load ptr, ptr %0, align 8, !tbaa !376
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 448
   %133 = load ptr, ptr %132, align 8
   %134 = tail call noundef zeroext i1 %133(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %134, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %134, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 135:                                              ; preds = %.thread.i
   %136 = load ptr, ptr %0, align 8, !tbaa !376
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 456
   %138 = load ptr, ptr %137, align 8
   %139 = tail call noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %139, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %139, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 140:                                              ; preds = %.thread.i
   %141 = load ptr, ptr %0, align 8, !tbaa !376
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 464
   %143 = load ptr, ptr %142, align 8
   %144 = tail call noundef zeroext i1 %143(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %144, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %144, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 145:                                              ; preds = %.thread.i
   %146 = load ptr, ptr %0, align 8, !tbaa !376
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 472
   %148 = load ptr, ptr %147, align 8
   %149 = tail call noundef zeroext i1 %148(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %149, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %149, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 150:                                              ; preds = %.thread.i
   %151 = load ptr, ptr %0, align 8, !tbaa !376
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 480
   %153 = load ptr, ptr %152, align 8
   %154 = tail call noundef zeroext i1 %153(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %154, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %154, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 155:                                              ; preds = %.thread.i
   %156 = load ptr, ptr %0, align 8, !tbaa !376
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 488
   %158 = load ptr, ptr %157, align 8
   %159 = tail call noundef zeroext i1 %158(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %159, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %159, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 160:                                              ; preds = %.thread.i
   %161 = load ptr, ptr %0, align 8, !tbaa !376
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 496
   %163 = load ptr, ptr %162, align 8
   %164 = tail call noundef zeroext i1 %163(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %164, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %164, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 165:                                              ; preds = %.thread.i
   %166 = load ptr, ptr %0, align 8, !tbaa !376
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 504
   %168 = load ptr, ptr %167, align 8
   %169 = tail call noundef zeroext i1 %168(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %169, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %169, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 170:                                              ; preds = %.thread.i
   %171 = load ptr, ptr %0, align 8, !tbaa !376
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 512
   %173 = load ptr, ptr %172, align 8
   %174 = tail call noundef zeroext i1 %173(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %174, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %174, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 175:                                              ; preds = %.thread.i
   %176 = load ptr, ptr %0, align 8, !tbaa !376
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 520
   %178 = load ptr, ptr %177, align 8
   %179 = tail call noundef zeroext i1 %178(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %179, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %179, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 180:                                              ; preds = %.thread.i
   %181 = load ptr, ptr %0, align 8, !tbaa !376
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 528
   %183 = load ptr, ptr %182, align 8
   %184 = tail call noundef zeroext i1 %183(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %184, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %184, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 185:                                              ; preds = %.thread.i
   %186 = load ptr, ptr %0, align 8, !tbaa !376
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 536
   %188 = load ptr, ptr %187, align 8
   %189 = tail call noundef zeroext i1 %188(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %189, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %189, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 190:                                              ; preds = %.thread.i
   %191 = load ptr, ptr %0, align 8, !tbaa !376
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 544
   %193 = load ptr, ptr %192, align 8
   %194 = tail call noundef zeroext i1 %193(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %194, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %194, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 195:                                              ; preds = %.thread.i
   %196 = load ptr, ptr %0, align 8, !tbaa !376
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 552
   %198 = load ptr, ptr %197, align 8
   %199 = tail call noundef zeroext i1 %198(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %199, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %199, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 200:                                              ; preds = %.thread.i
   %201 = load ptr, ptr %0, align 8, !tbaa !376
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 560
   %203 = load ptr, ptr %202, align 8
   %204 = tail call noundef zeroext i1 %203(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %204, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %204, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 205:                                              ; preds = %.thread.i
   %206 = load ptr, ptr %0, align 8, !tbaa !376
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 568
   %208 = load ptr, ptr %207, align 8
   %209 = tail call noundef zeroext i1 %208(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %209, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %209, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 210:                                              ; preds = %.thread.i
   %211 = load ptr, ptr %0, align 8, !tbaa !376
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 576
   %213 = load ptr, ptr %212, align 8
   %214 = tail call noundef zeroext i1 %213(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %214, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %214, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 215:                                              ; preds = %.thread.i
   %216 = load ptr, ptr %0, align 8, !tbaa !376
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 584
   %218 = load ptr, ptr %217, align 8
   %219 = tail call noundef zeroext i1 %218(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %219, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %219, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 220:                                              ; preds = %.thread.i
   %221 = load ptr, ptr %0, align 8, !tbaa !376
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 592
   %223 = load ptr, ptr %222, align 8
   %224 = tail call noundef zeroext i1 %223(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %224, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %224, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 225:                                              ; preds = %.thread.i
   %226 = load ptr, ptr %0, align 8, !tbaa !376
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 600
   %228 = load ptr, ptr %227, align 8
   %229 = tail call noundef zeroext i1 %228(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %229, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %229, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 230:                                              ; preds = %.thread.i
   %231 = load ptr, ptr %0, align 8, !tbaa !376
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 608
   %233 = load ptr, ptr %232, align 8
   %234 = tail call noundef zeroext i1 %233(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %234, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %234, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 235:                                              ; preds = %.thread.i
   %236 = load ptr, ptr %0, align 8, !tbaa !376
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 616
   %238 = load ptr, ptr %237, align 8
   %239 = tail call noundef zeroext i1 %238(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %239, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %239, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 240:                                              ; preds = %.thread.i
   %241 = load ptr, ptr %0, align 8, !tbaa !376
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 624
   %243 = load ptr, ptr %242, align 8
   %244 = tail call noundef zeroext i1 %243(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %244, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %244, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 245:                                              ; preds = %.thread.i
   %246 = load ptr, ptr %0, align 8, !tbaa !376
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 632
   %248 = load ptr, ptr %247, align 8
   %249 = tail call noundef zeroext i1 %248(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %249, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %249, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 250:                                              ; preds = %.thread.i
   %251 = load ptr, ptr %0, align 8, !tbaa !376
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 640
   %253 = load ptr, ptr %252, align 8
   %254 = tail call noundef zeroext i1 %253(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %254, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %254, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 255:                                              ; preds = %.thread.i
   %256 = load ptr, ptr %0, align 8, !tbaa !376
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 648
   %258 = load ptr, ptr %257, align 8
   %259 = tail call noundef zeroext i1 %258(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %259, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %259, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 260:                                              ; preds = %.thread.i
   %261 = load ptr, ptr %0, align 8, !tbaa !376
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 656
   %263 = load ptr, ptr %262, align 8
   %264 = tail call noundef zeroext i1 %263(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %264, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %264, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 265:                                              ; preds = %.thread.i
   %266 = load ptr, ptr %0, align 8, !tbaa !376
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 664
   %268 = load ptr, ptr %267, align 8
   %269 = tail call noundef zeroext i1 %268(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %269, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %269, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 270:                                              ; preds = %.thread.i
   %271 = load ptr, ptr %0, align 8, !tbaa !376
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 672
   %273 = load ptr, ptr %272, align 8
   %274 = tail call noundef zeroext i1 %273(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %274, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %274, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 275:                                              ; preds = %.thread.i
   %276 = load ptr, ptr %0, align 8, !tbaa !376
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 680
   %278 = load ptr, ptr %277, align 8
   %279 = tail call noundef zeroext i1 %278(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %279, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %279, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 280:                                              ; preds = %.thread.i
   %281 = load ptr, ptr %0, align 8, !tbaa !376
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 688
   %283 = load ptr, ptr %282, align 8
   %284 = tail call noundef zeroext i1 %283(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %284, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %284, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 285:                                              ; preds = %.thread.i
   %286 = load ptr, ptr %0, align 8, !tbaa !376
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 696
   %288 = load ptr, ptr %287, align 8
   %289 = tail call noundef zeroext i1 %288(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %289, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %289, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 290:                                              ; preds = %.thread.i
   %291 = load ptr, ptr %0, align 8, !tbaa !376
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 704
   %293 = load ptr, ptr %292, align 8
   %294 = tail call noundef zeroext i1 %293(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %294, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %294, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 295:                                              ; preds = %.thread.i
   %296 = load ptr, ptr %0, align 8, !tbaa !376
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 712
   %298 = load ptr, ptr %297, align 8
   %299 = tail call noundef zeroext i1 %298(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %299, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %299, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 300:                                              ; preds = %.thread.i
   %301 = load ptr, ptr %0, align 8, !tbaa !376
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 720
   %303 = load ptr, ptr %302, align 8
   %304 = tail call noundef zeroext i1 %303(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %304, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %304, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 305:                                              ; preds = %.thread.i
   %306 = load ptr, ptr %0, align 8, !tbaa !376
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 728
   %308 = load ptr, ptr %307, align 8
   %309 = tail call noundef zeroext i1 %308(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %309, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %309, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 310:                                              ; preds = %.thread.i
   %311 = load ptr, ptr %0, align 8, !tbaa !376
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 736
   %313 = load ptr, ptr %312, align 8
   %314 = tail call noundef zeroext i1 %313(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %314, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %314, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 315:                                              ; preds = %.thread.i
   %316 = load ptr, ptr %0, align 8, !tbaa !376
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 744
   %318 = load ptr, ptr %317, align 8
   %319 = tail call noundef zeroext i1 %318(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %319, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %319, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 320:                                              ; preds = %.thread.i
   %321 = load ptr, ptr %0, align 8, !tbaa !376
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 752
   %323 = load ptr, ptr %322, align 8
   %324 = tail call noundef zeroext i1 %323(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %324, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %324, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 325:                                              ; preds = %.thread.i
   %326 = load ptr, ptr %0, align 8, !tbaa !376
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 760
   %328 = load ptr, ptr %327, align 8
   %329 = tail call noundef zeroext i1 %328(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %329, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %329, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 330:                                              ; preds = %.thread.i
   %331 = load ptr, ptr %0, align 8, !tbaa !376
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 768
   %333 = load ptr, ptr %332, align 8
   %334 = tail call noundef zeroext i1 %333(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %334, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %334, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 335:                                              ; preds = %.thread.i
   %336 = load ptr, ptr %0, align 8, !tbaa !376
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 776
   %338 = load ptr, ptr %337, align 8
   %339 = tail call noundef zeroext i1 %338(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %339, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %339, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 340:                                              ; preds = %.thread.i
   %341 = load ptr, ptr %0, align 8, !tbaa !376
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 784
   %343 = load ptr, ptr %342, align 8
   %344 = tail call noundef zeroext i1 %343(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %344, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %344, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 345:                                              ; preds = %.thread.i
   %346 = load ptr, ptr %0, align 8, !tbaa !376
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 792
   %348 = load ptr, ptr %347, align 8
   %349 = tail call noundef zeroext i1 %348(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %349, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %349, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 350:                                              ; preds = %.thread.i
   %351 = load ptr, ptr %0, align 8, !tbaa !376
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 800
   %353 = load ptr, ptr %352, align 8
   %354 = tail call noundef zeroext i1 %353(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %354, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %354, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 355:                                              ; preds = %.thread.i
   %356 = load ptr, ptr %0, align 8, !tbaa !376
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 808
   %358 = load ptr, ptr %357, align 8
   %359 = tail call noundef zeroext i1 %358(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %359, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %359, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 360:                                              ; preds = %.thread.i
   %361 = load ptr, ptr %0, align 8, !tbaa !376
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 816
   %363 = load ptr, ptr %362, align 8
   %364 = tail call noundef zeroext i1 %363(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %364, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %364, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 365:                                              ; preds = %.thread.i
   %366 = load ptr, ptr %0, align 8, !tbaa !376
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 824
   %368 = load ptr, ptr %367, align 8
   %369 = tail call noundef zeroext i1 %368(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %369, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %369, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 370:                                              ; preds = %.thread.i
   %371 = load ptr, ptr %0, align 8, !tbaa !376
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 832
   %373 = load ptr, ptr %372, align 8
   %374 = tail call noundef zeroext i1 %373(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %374, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %374, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 375:                                              ; preds = %.thread.i
   %376 = load ptr, ptr %0, align 8, !tbaa !376
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 840
   %378 = load ptr, ptr %377, align 8
   %379 = tail call noundef zeroext i1 %378(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %379, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %379, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 .thread.i.thread:                                 ; preds = %22, %_ZNK5clang15DeclarationName11getNameKindEv.exit.i.i, %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit.i, %_ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEEEbRKT0_.exit.i, %.thread.i
   %380 = load ptr, ptr %0, align 8, !tbaa !376
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 848
   %382 = load ptr, ptr %381, align 8
   %383 = tail call noundef zeroext i1 %382(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %383, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %383, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 384:                                              ; preds = %.thread.i
   %385 = load ptr, ptr %0, align 8, !tbaa !376
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 856
   %387 = load ptr, ptr %386, align 8
   %388 = tail call noundef zeroext i1 %387(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %388, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %388, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 389:                                              ; preds = %.thread.i
   %390 = load ptr, ptr %0, align 8, !tbaa !376
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 864
   %392 = load ptr, ptr %391, align 8
   %393 = tail call noundef zeroext i1 %392(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %393, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %393, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 394:                                              ; preds = %.thread.i
   %395 = load ptr, ptr %0, align 8, !tbaa !376
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 872
   %397 = load ptr, ptr %396, align 8
   %398 = tail call noundef zeroext i1 %397(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %398, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %398, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 399:                                              ; preds = %.thread.i
   %400 = load ptr, ptr %0, align 8, !tbaa !376
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 880
   %402 = load ptr, ptr %401, align 8
   %403 = tail call noundef zeroext i1 %402(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %403, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %403, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 404:                                              ; preds = %.thread.i
   %405 = load ptr, ptr %0, align 8, !tbaa !376
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 888
   %407 = load ptr, ptr %406, align 8
   %408 = tail call noundef zeroext i1 %407(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %408, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %408, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 409:                                              ; preds = %.thread.i
   %410 = load ptr, ptr %0, align 8, !tbaa !376
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 896
   %412 = load ptr, ptr %411, align 8
   %413 = tail call noundef zeroext i1 %412(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %413, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %413, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 414:                                              ; preds = %.thread.i
   %415 = load ptr, ptr %0, align 8, !tbaa !376
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 904
   %417 = load ptr, ptr %416, align 8
   %418 = tail call noundef zeroext i1 %417(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %418, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %418, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 419:                                              ; preds = %.thread.i
   %420 = load ptr, ptr %0, align 8, !tbaa !376
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 912
   %422 = load ptr, ptr %421, align 8
   %423 = tail call noundef zeroext i1 %422(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %423, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %423, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 424:                                              ; preds = %.thread.i
   %425 = load ptr, ptr %0, align 8, !tbaa !376
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 920
   %427 = load ptr, ptr %426, align 8
   %428 = tail call noundef zeroext i1 %427(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %428, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %428, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 429:                                              ; preds = %.thread.i
   %430 = load ptr, ptr %0, align 8, !tbaa !376
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 928
   %432 = load ptr, ptr %431, align 8
   %433 = tail call noundef zeroext i1 %432(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %433, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %433, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 434:                                              ; preds = %.thread.i
   %435 = load ptr, ptr %0, align 8, !tbaa !376
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 936
   %437 = load ptr, ptr %436, align 8
   %438 = tail call noundef zeroext i1 %437(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %438, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %438, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 439:                                              ; preds = %.thread.i
   %440 = load ptr, ptr %0, align 8, !tbaa !376
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 944
   %442 = load ptr, ptr %441, align 8
   %443 = tail call noundef zeroext i1 %442(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %443, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %443, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 444:                                              ; preds = %.thread.i
   %445 = load ptr, ptr %0, align 8, !tbaa !376
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 952
   %447 = load ptr, ptr %446, align 8
   %448 = tail call noundef zeroext i1 %447(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %448, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %448, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 449:                                              ; preds = %.thread.i
   %450 = load ptr, ptr %0, align 8, !tbaa !376
   %451 = getelementptr inbounds nuw i8, ptr %450, i64 960
   %452 = load ptr, ptr %451, align 8
   %453 = tail call noundef zeroext i1 %452(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %453, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %453, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 454:                                              ; preds = %.thread.i
   %455 = load ptr, ptr %0, align 8, !tbaa !376
   %456 = getelementptr inbounds nuw i8, ptr %455, i64 968
   %457 = load ptr, ptr %456, align 8
   %458 = tail call noundef zeroext i1 %457(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %458, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %458, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 459:                                              ; preds = %.thread.i
   %460 = load ptr, ptr %0, align 8, !tbaa !376
   %461 = getelementptr inbounds nuw i8, ptr %460, i64 976
   %462 = load ptr, ptr %461, align 8
   %463 = tail call noundef zeroext i1 %462(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %463, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %463, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
 464:                                              ; preds = %.thread.i
   %465 = load ptr, ptr %0, align 8, !tbaa !376
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 984
   %467 = load ptr, ptr %466, align 8
   %468 = tail call noundef zeroext i1 %467(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
-  br i1 %468, label %469, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
+  br i1 %468, label %20, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
 
-469:                                              ; preds = %464, %459, %454, %449, %444, %439, %434, %429, %424, %419, %414, %409, %404, %399, %394, %389, %384, %.thread.i.thread, %375, %370, %365, %360, %355, %350, %345, %340, %335, %330, %325, %320, %315, %310, %305, %300, %295, %290, %285, %280, %275, %270, %265, %260, %255, %250, %245, %240, %235, %230, %225, %220, %215, %210, %205, %200, %195, %190, %185, %180, %175, %170, %165, %160, %155, %150, %145, %140, %135, %130, %125, %120, %115, %110, %105, %100, %95, %90, %85, %80, %75, %70, %65, %60, %55, %50, %45, %40, %35, %.thread.i
-  br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit
-
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit: ; preds = %2, %9, %14, %20, %_ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEEEbRKT0_.exit.i, %35, %40, %45, %50, %55, %60, %65, %70, %75, %80, %85, %90, %95, %100, %105, %110, %115, %120, %125, %130, %135, %140, %145, %150, %155, %160, %165, %170, %175, %180, %185, %190, %195, %200, %205, %210, %215, %220, %225, %230, %235, %240, %245, %250, %255, %260, %265, %270, %275, %280, %285, %290, %295, %300, %305, %310, %315, %320, %325, %330, %335, %340, %345, %350, %355, %360, %365, %370, %375, %.thread.i.thread, %384, %389, %394, %399, %404, %409, %414, %419, %424, %429, %434, %439, %444, %449, %454, %459, %464, %469
-  %.0.i = phi i1 [ true, %469 ], [ false, %464 ], [ false, %35 ], [ false, %40 ], [ false, %45 ], [ false, %50 ], [ false, %55 ], [ false, %60 ], [ false, %65 ], [ false, %70 ], [ false, %75 ], [ false, %80 ], [ false, %85 ], [ false, %90 ], [ false, %95 ], [ false, %100 ], [ false, %105 ], [ false, %110 ], [ false, %115 ], [ false, %120 ], [ false, %125 ], [ false, %130 ], [ false, %135 ], [ false, %140 ], [ false, %145 ], [ false, %150 ], [ false, %155 ], [ false, %160 ], [ false, %165 ], [ false, %170 ], [ false, %175 ], [ false, %180 ], [ false, %185 ], [ false, %190 ], [ false, %195 ], [ false, %200 ], [ false, %205 ], [ false, %210 ], [ false, %215 ], [ false, %220 ], [ false, %225 ], [ false, %230 ], [ false, %235 ], [ false, %240 ], [ false, %245 ], [ false, %250 ], [ false, %255 ], [ false, %260 ], [ false, %265 ], [ false, %270 ], [ false, %275 ], [ false, %280 ], [ false, %285 ], [ false, %290 ], [ false, %295 ], [ false, %300 ], [ false, %305 ], [ false, %310 ], [ false, %315 ], [ false, %320 ], [ false, %325 ], [ false, %330 ], [ false, %335 ], [ false, %340 ], [ false, %345 ], [ false, %350 ], [ false, %355 ], [ false, %360 ], [ false, %365 ], [ false, %370 ], [ false, %375 ], [ false, %.thread.i.thread ], [ false, %384 ], [ false, %389 ], [ false, %394 ], [ false, %399 ], [ false, %404 ], [ false, %409 ], [ false, %414 ], [ false, %419 ], [ false, %424 ], [ false, %429 ], [ false, %434 ], [ false, %439 ], [ false, %444 ], [ false, %449 ], [ false, %454 ], [ false, %459 ], [ true, %2 ], [ true, %_ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEEEbRKT0_.exit.i ], [ true, %9 ], [ true, %20 ], [ false, %14 ]
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE12TraverseDeclEPNS_4DeclE.exit: ; preds = %2, %9, %14, %20, %_ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEEEbRKT0_.exit.i, %35, %40, %45, %50, %55, %60, %65, %70, %75, %80, %85, %90, %95, %100, %105, %110, %115, %120, %125, %130, %135, %140, %145, %150, %155, %160, %165, %170, %175, %180, %185, %190, %195, %200, %205, %210, %215, %220, %225, %230, %235, %240, %245, %250, %255, %260, %265, %270, %275, %280, %285, %290, %295, %300, %305, %310, %315, %320, %325, %330, %335, %340, %345, %350, %355, %360, %365, %370, %375, %.thread.i.thread, %384, %389, %394, %399, %404, %409, %414, %419, %424, %429, %434, %439, %444, %449, %454, %459, %464
+  %.0.i = phi i1 [ false, %14 ], [ false, %464 ], [ false, %35 ], [ false, %40 ], [ false, %45 ], [ false, %50 ], [ false, %55 ], [ false, %60 ], [ false, %65 ], [ false, %70 ], [ false, %75 ], [ false, %80 ], [ false, %85 ], [ false, %90 ], [ false, %95 ], [ false, %100 ], [ false, %105 ], [ false, %110 ], [ false, %115 ], [ false, %120 ], [ false, %125 ], [ false, %130 ], [ false, %135 ], [ false, %140 ], [ false, %145 ], [ false, %150 ], [ false, %155 ], [ false, %160 ], [ false, %165 ], [ false, %170 ], [ false, %175 ], [ false, %180 ], [ false, %185 ], [ false, %190 ], [ false, %195 ], [ false, %200 ], [ false, %205 ], [ false, %210 ], [ false, %215 ], [ false, %220 ], [ false, %225 ], [ false, %230 ], [ false, %235 ], [ false, %240 ], [ false, %245 ], [ false, %250 ], [ false, %255 ], [ false, %260 ], [ false, %265 ], [ false, %270 ], [ false, %275 ], [ false, %280 ], [ false, %285 ], [ false, %290 ], [ false, %295 ], [ false, %300 ], [ false, %305 ], [ false, %310 ], [ false, %315 ], [ false, %320 ], [ false, %325 ], [ false, %330 ], [ false, %335 ], [ false, %340 ], [ false, %345 ], [ false, %350 ], [ false, %355 ], [ false, %360 ], [ false, %365 ], [ false, %370 ], [ false, %375 ], [ false, %.thread.i.thread ], [ false, %384 ], [ false, %389 ], [ false, %394 ], [ false, %399 ], [ false, %404 ], [ false, %409 ], [ false, %414 ], [ false, %419 ], [ false, %424 ], [ false, %429 ], [ false, %434 ], [ false, %439 ], [ false, %444 ], [ false, %449 ], [ false, %454 ], [ false, %459 ], [ true, %2 ], [ true, %_ZN4llvm15isa_and_presentIJN5clang21TypeAliasTemplateDeclEEPNS1_12TemplateDeclEEEbRKT0_.exit.i ], [ true, %9 ], [ true, %20 ]
   ret i1 %.0.i
 }
 
@@ -86379,17 +86361,11 @@ define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb
 
 12:                                               ; preds = %6, %3
   %13 = tail call noundef i32 @_ZNK5clang19NestedNameSpecifier7getKindEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #17
-  switch i32 %13, label %25 [
-    i32 0, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE.exit
-    i32 1, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE.exit
-    i32 2, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE.exit
-    i32 5, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE.exit
-    i32 6, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE.exit
-    i32 3, label %14
-    i32 4, label %14
-  ]
+  %.off.i = add i32 %13, -3
+  %switch.i = icmp ult i32 %.off.i, 2
+  br i1 %switch.i, label %14, label %25
 
-14:                                               ; preds = %12, %12
+14:                                               ; preds = %12
   %.0.copyload.i.i.i.i11.i = load i64, ptr %4, align 8
   %15 = and i64 %.0.copyload.i.i.i.i11.i, 4
   %switch.not.i.i = icmp eq i64 %15, 0
@@ -86407,8 +86383,8 @@ define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb
 25:                                               ; preds = %14, %12
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE.exit
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE.exit: ; preds = %2, %6, %12, %12, %12, %12, %12, %14, %25
-  %.0.i = phi i1 [ true, %25 ], [ false, %6 ], [ true, %12 ], [ true, %2 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ false, %14 ]
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE27TraverseNestedNameSpecifierEPNS_19NestedNameSpecifierE.exit: ; preds = %2, %6, %14, %25
+  %.0.i = phi i1 [ true, %25 ], [ false, %6 ], [ true, %2 ], [ false, %14 ]
   ret i1 %.0.i
 }
 
@@ -86439,17 +86415,11 @@ _ZNK5clang22NestedNameSpecifierLoc9getPrefixEv.exit.i: ; preds = %3
 
 14:                                               ; preds = %8, %_ZNK5clang22NestedNameSpecifierLoc9getPrefixEv.exit.i
   %15 = tail call noundef i32 @_ZNK5clang19NestedNameSpecifier7getKindEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #17
-  switch i32 %15, label %24 [
-    i32 0, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
-    i32 1, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
-    i32 2, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
-    i32 5, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
-    i32 6, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
-    i32 3, label %16
-    i32 4, label %16
-  ]
+  %.off.i = add i32 %15, -3
+  %switch.i = icmp ult i32 %.off.i, 2
+  br i1 %switch.i, label %16, label %24
 
-16:                                               ; preds = %14, %14
+16:                                               ; preds = %14
   %17 = call { ptr, ptr } @_ZNK5clang22NestedNameSpecifierLoc10getTypeLocEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   %18 = extractvalue { ptr, ptr } %17, 0
   %19 = extractvalue { ptr, ptr } %17, 1
@@ -86462,8 +86432,8 @@ _ZNK5clang22NestedNameSpecifierLoc9getPrefixEv.exit.i: ; preds = %3
 24:                                               ; preds = %16, %14
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit: ; preds = %3, %8, %14, %14, %14, %14, %14, %16, %24
-  %.0.i = phi i1 [ true, %24 ], [ true, %3 ], [ true, %14 ], [ false, %16 ], [ true, %14 ], [ true, %14 ], [ true, %14 ], [ true, %14 ], [ false, %8 ]
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE.exit: ; preds = %3, %8, %16, %24
+  %.0.i = phi i1 [ true, %24 ], [ true, %3 ], [ false, %16 ], [ false, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0.i
 }

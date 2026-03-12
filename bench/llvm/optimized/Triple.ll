@@ -3810,7 +3810,7 @@ _ZN4llvm12StringSwitchINS_6Triple16ObjectFormatTypeES2_E8EndsWithENS_13StringLit
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc noundef range(i32 1, 9) i32 @_ZL16getDefaultFormatRKN4llvm6TripleE(i32 %.32.val, i32 %.44.val) unnamed_addr #0 {
-  switch i32 %.32.val, label %19 [
+  switch i32 %.32.val, label %18 [
     i32 0, label %1
     i32 3, label %1
     i32 5, label %1
@@ -3861,16 +3861,16 @@ define internal fastcc noundef range(i32 1, 9) i32 @_ZL16getDefaultFormatRKN4llv
     i32 59, label %_ZNK4llvm6Triple10isOSDarwinEv.exit
     i32 39, label %_ZNK4llvm6Triple10isOSDarwinEv.exit
     i32 40, label %_ZNK4llvm6Triple10isOSDarwinEv.exit
-    i32 17, label %6
-    i32 23, label %8
-    i32 21, label %8
-    i32 32, label %14
-    i32 55, label %16
-    i32 56, label %16
-    i32 49, label %17
-    i32 50, label %17
-    i32 51, label %17
-    i32 11, label %18
+    i32 17, label %5
+    i32 23, label %7
+    i32 21, label %7
+    i32 32, label %13
+    i32 55, label %15
+    i32 56, label %15
+    i32 49, label %16
+    i32 50, label %16
+    i32 51, label %16
+    i32 11, label %17
   ]
 
 1:                                                ; preds = %0, %0, %0, %0, %0, %0, %0
@@ -3881,65 +3881,62 @@ define internal fastcc noundef range(i32 1, 9) i32 @_ZL16getDefaultFormatRKN4llv
 2:                                                ; preds = %1
   %3 = and i32 %.44.val, -9
   %spec.select.i.i = icmp eq i32 %3, 1
-  br i1 %spec.select.i.i, label %5, label %4
+  br i1 %spec.select.i.i, label %12, label %4
 
 4:                                                ; preds = %2
   switch i32 %.44.val, label %_ZNK4llvm6Triple10isOSDarwinEv.exit [
-    i32 26, label %5
-    i32 5, label %5
-    i32 27, label %5
-    i32 29, label %5
-    i32 30, label %5
+    i32 26, label %12
+    i32 5, label %12
+    i32 27, label %12
+    i32 29, label %12
+    i32 30, label %12
   ]
 
-5:                                                ; preds = %4, %4, %4, %4, %4, %2
+5:                                                ; preds = %0
+  %6 = icmp eq i32 %.44.val, 14
+  %. = select i1 %6, i32 1, i32 3
   br label %_ZNK4llvm6Triple10isOSDarwinEv.exit
 
-6:                                                ; preds = %0
-  %7 = icmp eq i32 %.44.val, 14
-  %. = select i1 %7, i32 1, i32 3
-  br label %_ZNK4llvm6Triple10isOSDarwinEv.exit
+7:                                                ; preds = %0, %0
+  %8 = icmp eq i32 %.44.val, 19
+  br i1 %8, label %_ZNK4llvm6Triple10isOSDarwinEv.exit, label %9
 
-8:                                                ; preds = %0, %0
-  %9 = icmp eq i32 %.44.val, 19
-  br i1 %9, label %_ZNK4llvm6Triple10isOSDarwinEv.exit, label %10
+9:                                                ; preds = %7
+  %10 = and i32 %.44.val, -9
+  %spec.select.i.i9 = icmp eq i32 %10, 1
+  br i1 %spec.select.i.i9, label %12, label %11
 
-10:                                               ; preds = %8
-  %11 = and i32 %.44.val, -9
-  %spec.select.i.i9 = icmp eq i32 %11, 1
-  br i1 %spec.select.i.i9, label %13, label %12
-
-12:                                               ; preds = %10
+11:                                               ; preds = %9
   switch i32 %.44.val, label %_ZNK4llvm6Triple10isOSDarwinEv.exit [
-    i32 26, label %13
-    i32 5, label %13
-    i32 27, label %13
-    i32 29, label %13
-    i32 30, label %13
+    i32 26, label %12
+    i32 5, label %12
+    i32 27, label %12
+    i32 29, label %12
+    i32 30, label %12
   ]
 
-13:                                               ; preds = %12, %12, %12, %12, %12, %10
+12:                                               ; preds = %2, %4, %4, %4, %4, %4, %11, %11, %11, %11, %11, %9
   br label %_ZNK4llvm6Triple10isOSDarwinEv.exit
 
-14:                                               ; preds = %0
-  %15 = icmp eq i32 %.44.val, 15
-  %.8 = select i1 %15, i32 4, i32 3
+13:                                               ; preds = %0
+  %14 = icmp eq i32 %.44.val, 15
+  %.8 = select i1 %14, i32 4, i32 3
   br label %_ZNK4llvm6Triple10isOSDarwinEv.exit
 
-16:                                               ; preds = %0, %0
+15:                                               ; preds = %0, %0
   br label %_ZNK4llvm6Triple10isOSDarwinEv.exit
 
-17:                                               ; preds = %0, %0, %0
+16:                                               ; preds = %0, %0, %0
+  br label %_ZNK4llvm6Triple10isOSDarwinEv.exit
+
+17:                                               ; preds = %0
   br label %_ZNK4llvm6Triple10isOSDarwinEv.exit
 
 18:                                               ; preds = %0
-  br label %_ZNK4llvm6Triple10isOSDarwinEv.exit
-
-19:                                               ; preds = %0
   unreachable
 
-_ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %13, %12, %5, %4, %14, %8, %6, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %1, %18, %17, %16
-  %.0 = phi i32 [ 3, %0 ], [ 2, %18 ], [ 1, %1 ], [ %., %6 ], [ 3, %0 ], [ 3, %0 ], [ 3, %4 ], [ 8, %8 ], [ %.8, %14 ], [ 3, %0 ], [ 7, %16 ], [ 6, %17 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 5, %5 ], [ 5, %13 ], [ 3, %12 ]
+_ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %12, %11, %4, %13, %7, %5, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %1, %17, %16, %15
+  %.0 = phi i32 [ 3, %0 ], [ 2, %17 ], [ 1, %1 ], [ %., %5 ], [ 3, %0 ], [ 3, %0 ], [ 3, %4 ], [ 8, %7 ], [ %.8, %13 ], [ 3, %0 ], [ 7, %15 ], [ 6, %16 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %0 ], [ 3, %11 ], [ 5, %12 ]
   ret i32 %.0
 }
 

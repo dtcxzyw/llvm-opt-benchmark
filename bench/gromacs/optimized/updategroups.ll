@@ -2208,8 +2208,8 @@ _ZSt17holds_alternativeIN3gmx22IncompatibilityReasonsEJNS0_17RangePartitioningES
 .invoke.loopexit915:                              ; preds = %795, %817
   br label %.invoke
 
-.invoke:                                          ; preds = %817, %795, %.invoke.loopexit915
-  %.str.16.sink = phi ptr [ @.str.16, %795 ], [ @.str.17, %.invoke.loopexit915 ], [ @.str.16, %817 ]
+.invoke:                                          ; preds = %795, %817, %.invoke.loopexit915
+  %.str.16.sink = phi ptr [ @.str.17, %.invoke.loopexit915 ], [ @.str.16, %817 ], [ @.str.16, %795 ]
   %796 = call ptr @__cxa_allocate_exception(i64 16) #25
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %796, align 8, !tbaa !85
   %797 = getelementptr inbounds nuw i8, ptr %796, i64 8

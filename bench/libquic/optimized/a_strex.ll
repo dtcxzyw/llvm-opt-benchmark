@@ -532,7 +532,7 @@ do_hex_dump.exit35.i:                             ; preds = %73, %68
   %87 = icmp slt i32 %86, 0
   br i1 %87, label %do_dump.exit.thread, label %do_dump.exit
 
-do_dump.exit.thread:                              ; preds = %62, %.thread83, %do_hex_dump.exit.i, %do_hex_dump.exit.thread.i, %do_hex_dump.exit35.i, %do_hex_dump.exit35.thread.i
+do_dump.exit.thread:                              ; preds = %62, %.thread83, %do_hex_dump.exit35.i, %do_hex_dump.exit35.thread.i, %do_hex_dump.exit.i, %do_hex_dump.exit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge

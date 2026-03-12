@@ -1256,7 +1256,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %104
   %spec.select.i.i389 = select i1 %.inv.i.i, i32 1, i32 -1
   br i1 %.not.not.i.i, label %.thread.i.i, label %.thread
 
-.thread.i.i:                                      ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %104
+.thread.i.i:                                      ; preds = %266, %.thread418, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %104
   br label %.thread
 
 _ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit: ; preds = %95
@@ -1547,7 +1547,7 @@ _ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit: ; preds = %95
   %255 = zext i16 %254 to i32
   %256 = add nsw i32 %255, -13
   %257 = call i32 @llvm.fshl.i32(i32 %256, i32 %256, i32 31)
-  switch i32 %257, label %.thread424 [
+  switch i32 %257, label %.thread.i.i [
     i32 0, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_12ConstantExprEEEDcPT0_.exit
     i32 1, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_12ConstantExprEEEDcPT0_.exit
     i32 2, label %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_12ConstantExprEEEDcPT0_.exit
@@ -1578,10 +1578,7 @@ _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_12ConstantExprEEEDcPT0_.exi
   %270 = zext nneg i8 %.lobit441 to i64
   %.0.i399 = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %268, i64 %270)
   %.not347 = icmp eq i8 %.lobit440, %.lobit441
-  br i1 %.not347, label %.thread424, label %.thread
-
-.thread424:                                       ; preds = %.thread418, %266
-  br label %.thread
+  br i1 %.not347, label %.thread.i.i, label %.thread
 
 271:                                              ; preds = %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit
   %272 = getelementptr inbounds i8, ptr %1, i64 -64
@@ -1646,8 +1643,8 @@ _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_12ConstantExprEEEDcPT0_.exi
 304:                                              ; preds = %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit
   unreachable
 
-.thread:                                          ; preds = %.lr.ph539, %.lr.ph, %.lr.ph463, %176, %178, %150, %151, %122, %124, %287, %.preheader445, %.preheader442, %.preheader, %24, %24, %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_12ConstantExprEEEDcPT0_.exit, %227, %231, %97, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i, %48, %43, %36, %.thread424, %266, %_ZNK4llvm18FunctionComparator15cmpGlobalValuesEPNS_11GlobalValueES2_.exit, %107, %111, %298, %92, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit, %115, %141, %167, %201, %252, %194, %285, %271, %296, %59, %55, %51, %22
-  %.1 = phi i32 [ %., %22 ], [ -1, %59 ], [ 1, %55 ], [ %14, %51 ], [ %.0.i396, %231 ], [ %.0.i.i388, %97 ], [ %.0.i.i, %_ZNK4llvm18FunctionComparator15cmpGlobalValuesEPNS_11GlobalValueES2_.exit ], [ %.0.i385, %92 ], [ %110, %107 ], [ %114, %111 ], [ %14, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ 0, %285 ], [ %166, %151 ], [ %297, %296 ], [ %276, %271 ], [ %303, %298 ], [ %.0.i, %36 ], [ %14, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %14, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %.0.i390, %115 ], [ 1, %24 ], [ %.0.i391, %141 ], [ 0, %.preheader442 ], [ %.0.i392, %167 ], [ %193, %178 ], [ %.0.i393, %194 ], [ %.0.i394, %201 ], [ 0, %.preheader445 ], [ %.34, %252 ], [ 1, %24 ], [ 0, %.thread424 ], [ %.0.i399, %266 ], [ %.0.i381, %43 ], [ %spec.select367, %48 ], [ 0, %.thread.i.i ], [ %spec.select.i.i389, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %230, %227 ], [ %.0.i398, %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_12ConstantExprEEEDcPT0_.exit ], [ %225, %.lr.ph463 ], [ 0, %.preheader ], [ %140, %124 ], [ -1, %287 ], [ 0, %122 ], [ 0, %150 ], [ 0, %176 ], [ 1, %.lr.ph539 ], [ -1, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph539, %.lr.ph, %.lr.ph463, %176, %178, %150, %151, %122, %124, %287, %.preheader445, %.preheader442, %.preheader, %24, %24, %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_12ConstantExprEEEDcPT0_.exit, %227, %231, %97, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i, %48, %43, %36, %266, %_ZNK4llvm18FunctionComparator15cmpGlobalValuesEPNS_11GlobalValueES2_.exit, %107, %111, %298, %92, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit, %115, %141, %167, %201, %252, %194, %285, %271, %296, %59, %55, %51, %22
+  %.1 = phi i32 [ %., %22 ], [ -1, %59 ], [ 1, %55 ], [ %14, %51 ], [ %.0.i396, %231 ], [ %.0.i.i388, %97 ], [ %.0.i.i, %_ZNK4llvm18FunctionComparator15cmpGlobalValuesEPNS_11GlobalValueES2_.exit ], [ %.0.i385, %92 ], [ %110, %107 ], [ %114, %111 ], [ %14, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ 0, %285 ], [ %166, %151 ], [ %297, %296 ], [ %276, %271 ], [ %303, %298 ], [ %.0.i, %36 ], [ %14, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %14, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %.0.i390, %115 ], [ 1, %24 ], [ %.0.i391, %141 ], [ 0, %.preheader442 ], [ %.0.i392, %167 ], [ 0, %176 ], [ %.0.i393, %194 ], [ %.0.i394, %201 ], [ 0, %.preheader445 ], [ %.34, %252 ], [ 1, %24 ], [ %225, %.lr.ph463 ], [ %.0.i399, %266 ], [ %.0.i381, %43 ], [ %spec.select367, %48 ], [ 0, %.thread.i.i ], [ %spec.select.i.i389, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %230, %227 ], [ %.0.i398, %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_12ConstantExprEEEDcPT0_.exit ], [ %140, %124 ], [ 0, %.preheader ], [ -1, %287 ], [ 0, %122 ], [ 0, %150 ], [ %193, %178 ], [ 1, %.lr.ph539 ], [ -1, %.lr.ph ]
   ret i32 %.1
 }
 

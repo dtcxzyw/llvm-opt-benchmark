@@ -5005,12 +5005,12 @@ land.lhs.true138:                                 ; preds = %if.end133
   %cmp142 = icmp eq i8 %140, 93
   br i1 %cmp142, label %lor.end, label %lor.rhs
 
-lor.rhs.sink.split:                               ; preds = %lor.rhs184.i, %lor.rhs104.i, %lor.rhs134.i, %lor.rhs40.i, %lor.rhs70.i, %sw.bb14.i
-  %.sink468.sink = phi i32 [ 4, %lor.rhs70.i ], [ 11, %sw.bb14.i ], [ 3, %lor.rhs134.i ], [ 7, %lor.rhs40.i ], [ 7, %lor.rhs104.i ], [ 11, %lor.rhs184.i ]
-  store i32 %.sink468.sink, ptr %error.i100.i, align 8
+lor.rhs.sink.split:                               ; preds = %lor.rhs184.i, %lor.rhs134.i, %lor.rhs104.i, %lor.rhs70.i, %lor.rhs40.i, %sw.bb14.i
+  %.sink468.sink.sink = phi i32 [ 11, %sw.bb14.i ], [ 4, %lor.rhs70.i ], [ 3, %lor.rhs134.i ], [ 7, %lor.rhs104.i ], [ 7, %lor.rhs40.i ], [ 11, %lor.rhs184.i ]
+  store i32 %.sink468.sink.sink, ptr %error.i100.i, align 8
   br label %lor.rhs
 
-lor.rhs:                                          ; preds = %lor.rhs.sink.split, %lor.rhs134.i, %lor.rhs104.i, %lor.rhs70.i, %lor.rhs40.i, %lor.rhs184.i, %sw.bb14.i, %land.lhs.true138, %if.end133
+lor.rhs:                                          ; preds = %lor.rhs.sink.split, %lor.rhs70.i, %lor.rhs40.i, %lor.rhs104.i, %lor.rhs134.i, %lor.rhs184.i, %sw.bb14.i, %land.lhs.true138, %if.end133
   %error.i165 = getelementptr inbounds nuw i8, ptr %p, i64 16
   %141 = load i32, ptr %error.i165, align 8
   %cmp.i166 = icmp eq i32 %141, 0

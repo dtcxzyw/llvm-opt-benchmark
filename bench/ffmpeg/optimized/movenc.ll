@@ -6163,7 +6163,7 @@ defined_frame_rate.exit.i.i.i:                    ; preds = %561, %555
   br i1 %brmerge.i.i.i, label %.thread560, label %576
 
 576:                                              ; preds = %572
-  switch i32 %.0.i.i.i.i, label %.fold.split.i.i.i [
+  switch i32 %.0.i.i.i.i, label %.fold.split56.i.i.i [
     i32 24, label %.thread560
     i32 25, label %577
     i32 30, label %578
@@ -6193,7 +6193,7 @@ defined_frame_rate.exit.i.i.i:                    ; preds = %561, %555
   br i1 %560, label %589, label %586
 
 586:                                              ; preds = %585
-  switch i32 %.0.i.i.i.i, label %.fold.split50.i.i.i [
+  switch i32 %.0.i.i.i.i, label %.fold.split56.i.i.i [
     i32 24, label %.thread560
     i32 25, label %587
     i32 30, label %588
@@ -6206,7 +6206,7 @@ defined_frame_rate.exit.i.i.i:                    ; preds = %561, %555
   br label %.thread560
 
 589:                                              ; preds = %585
-  switch i32 %.0.i.i.i.i, label %.fold.split51.i.i.i [
+  switch i32 %.0.i.i.i.i, label %.fold.split56.i.i.i [
     i32 25, label %.thread560
     i32 30, label %590
   ]
@@ -6224,7 +6224,7 @@ defined_frame_rate.exit.i.i.i:                    ; preds = %561, %555
   br i1 %560, label %599, label %596
 
 596:                                              ; preds = %595
-  switch i32 %.0.i.i.i.i, label %.fold.split52.i.i.i [
+  switch i32 %.0.i.i.i.i, label %.fold.split56.i.i.i [
     i32 24, label %.thread560
     i32 25, label %597
     i32 30, label %598
@@ -6237,7 +6237,7 @@ defined_frame_rate.exit.i.i.i:                    ; preds = %561, %555
   br label %.thread560
 
 599:                                              ; preds = %595
-  switch i32 %.0.i.i.i.i, label %.fold.split53.i.i.i [
+  switch i32 %.0.i.i.i.i, label %.fold.split56.i.i.i [
     i32 25, label %.thread560
     i32 30, label %600
   ]
@@ -6261,7 +6261,7 @@ defined_frame_rate.exit.i.i.i:                    ; preds = %561, %555
   br i1 %brmerge5.i.i.i, label %.thread560, label %608
 
 608:                                              ; preds = %604
-  switch i32 %.0.i.i.i.i, label %.fold.split54.i.i.i [
+  switch i32 %.0.i.i.i.i, label %.fold.split56.i.i.i [
     i32 24, label %.thread560
     i32 25, label %609
     i32 30, label %610
@@ -6291,7 +6291,7 @@ defined_frame_rate.exit.i.i.i:                    ; preds = %561, %555
   br i1 %560, label %621, label %618
 
 618:                                              ; preds = %617
-  switch i32 %.0.i.i.i.i, label %.fold.split55.i.i.i [
+  switch i32 %.0.i.i.i.i, label %.fold.split56.i.i.i [
     i32 24, label %.thread560
     i32 25, label %619
     i32 30, label %620
@@ -6312,28 +6312,7 @@ defined_frame_rate.exit.i.i.i:                    ; preds = %561, %555
 622:                                              ; preds = %621
   br label %.thread560
 
-.fold.split.i.i.i:                                ; preds = %576
-  br label %.thread560
-
-.fold.split50.i.i.i:                              ; preds = %586
-  br label %.thread560
-
-.fold.split51.i.i.i:                              ; preds = %589
-  br label %.thread560
-
-.fold.split52.i.i.i:                              ; preds = %596
-  br label %.thread560
-
-.fold.split53.i.i.i:                              ; preds = %599
-  br label %.thread560
-
-.fold.split54.i.i.i:                              ; preds = %608
-  br label %.thread560
-
-.fold.split55.i.i.i:                              ; preds = %618
-  br label %.thread560
-
-.fold.split56.i.i.i:                              ; preds = %621
+.fold.split56.i.i.i:                              ; preds = %621, %618, %608, %599, %596, %589, %586, %576
   br label %.thread560
 
 623:                                              ; preds = %499
@@ -6380,11 +6359,11 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
   %641 = getelementptr inbounds nuw i8, ptr %500, i64 76
   %642 = load i32, ptr %641, align 4, !tbaa !183
   %643 = icmp ne i32 %642, 720
-  %brmerge.i78.i.i = select i1 %643, i1 true, i1 %628
-  br i1 %brmerge.i78.i.i, label %.thread560, label %644
+  %brmerge.i74.i.i = select i1 %643, i1 true, i1 %628
+  br i1 %brmerge.i74.i.i, label %.thread560, label %644
 
 644:                                              ; preds = %640
-  switch i32 %.0.i.i70.i.i, label %.fold.split.i79.i.i [
+  switch i32 %.0.i.i70.i.i, label %.fold.split53.i.i.i [
     i32 24, label %.thread560
     i32 25, label %645
     i32 30, label %.thread560
@@ -6405,7 +6384,7 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
   br i1 %628, label %653, label %651
 
 651:                                              ; preds = %650
-  switch i32 %.0.i.i70.i.i, label %.fold.split49.i.i.i [
+  switch i32 %.0.i.i70.i.i, label %.fold.split53.i.i.i [
     i32 24, label %.thread560
     i32 25, label %652
     i32 30, label %.thread560
@@ -6415,7 +6394,7 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
   br label %.thread560
 
 653:                                              ; preds = %650
-  switch i32 %.0.i.i70.i.i, label %.fold.split50.i77.i.i [
+  switch i32 %.0.i.i70.i.i, label %.fold.split53.i.i.i [
     i32 50, label %.thread560
     i32 60, label %654
   ]
@@ -6442,7 +6421,7 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
   br i1 %brmerge8.i.i.i, label %.thread560, label %662
 
 662:                                              ; preds = %658
-  switch i32 %.0.i.i70.i.i, label %.fold.split51.i76.i.i [
+  switch i32 %.0.i.i70.i.i, label %.fold.split53.i.i.i [
     i32 24, label %.thread560
     i32 25, label %663
     i32 30, label %.thread560
@@ -6463,7 +6442,7 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
   br i1 %628, label %671, label %669
 
 669:                                              ; preds = %668
-  switch i32 %.0.i.i70.i.i, label %.fold.split52.i74.i.i [
+  switch i32 %.0.i.i70.i.i, label %.fold.split53.i.i.i [
     i32 24, label %.thread560
     i32 25, label %670
     i32 30, label %.thread560
@@ -6473,7 +6452,7 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
   br label %.thread560
 
 671:                                              ; preds = %668
-  switch i32 %.0.i.i70.i.i, label %.fold.split53.i75.i.i [
+  switch i32 %.0.i.i70.i.i, label %.fold.split53.i.i.i [
     i32 25, label %.thread560
     i32 50, label %.thread560
     i32 60, label %672
@@ -6503,29 +6482,14 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
 685:                                              ; preds = %681, %677, %673
   br label %.thread560
 
-.fold.split.i79.i.i:                              ; preds = %644
-  br label %.thread560
-
-.fold.split49.i.i.i:                              ; preds = %651
-  br label %.thread560
-
-.fold.split50.i77.i.i:                            ; preds = %653
-  br label %.thread560
-
-.fold.split51.i76.i.i:                            ; preds = %662
-  br label %.thread560
-
-.fold.split52.i74.i.i:                            ; preds = %669
-  br label %.thread560
-
-.fold.split53.i75.i.i:                            ; preds = %671
+.fold.split53.i.i.i:                              ; preds = %671, %669, %662, %653, %651, %644
   br label %.thread560
 
 686:                                              ; preds = %499
   %687 = getelementptr i8, ptr %500, i64 8
   %.val62.val.i.i = load i32, ptr %687, align 8, !tbaa !211
-  %.not.i80.i.i = icmp eq i32 %.val62.val.i.i, 0
-  %spec.select586 = select i1 %.not.i80.i.i, i32 828601957, i32 %.val62.val.i.i
+  %.not.i75.i.i = icmp eq i32 %.val62.val.i.i, 0
+  %spec.select586 = select i1 %.not.i75.i.i, i32 828601957, i32 %.val62.val.i.i
   br label %.thread560
 
 688:                                              ; preds = %499
@@ -6533,8 +6497,8 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
   %.val63.val.i.i = load i32, ptr %689, align 8, !tbaa !216
   %switch.selectcmp.case1.i.i.i = icmp eq i32 %.val63.val.i.i, -99
   %switch.selectcmp.case2.i.i.i = icmp eq i32 %.val63.val.i.i, 0
-  %switch.selectcmp.i82.i.i = or i1 %switch.selectcmp.case1.i.i.i, %switch.selectcmp.case2.i.i.i
-  %690 = select i1 %switch.selectcmp.i82.i.i, i32 1852069441, i32 1751406145
+  %switch.selectcmp.i77.i.i = or i1 %switch.selectcmp.case1.i.i.i, %switch.selectcmp.case2.i.i.i
+  %690 = select i1 %switch.selectcmp.i77.i.i, i32 1852069441, i32 1751406145
   br label %.thread560
 
 691:                                              ; preds = %499
@@ -6643,8 +6607,8 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
   %.not19.i.i = icmp eq ptr %741, null
   br i1 %.not19.i.i, label %.thread564, label %.preheader.i.i
 
-.thread560:                                       ; preds = %686, %658, %515, %553, %572, %688, %693, %700, %701, %708, %513, %517, %522, %548, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %604, %defined_frame_rate.exit.i.i.i, %577, %578, %579, %580, %576, %.fold.split50.i.i.i, %590, %589, %.fold.split.i.i.i, %587, %588, %586, %.fold.split52.i.i.i, %600, %599, %.fold.split51.i.i.i, %597, %598, %596, %591, %569, %581, %.fold.split53.i.i.i, %609, %610, %611, %612, %608, %.fold.split55.i.i.i, %622, %621, %.fold.split54.i.i.i, %619, %620, %618, %613, %601, %.fold.split56.i.i.i, %673, %defined_frame_rate.exit.i69.i.i, %645, %644, %644, %644, %.fold.split53.i75.i.i, %.fold.split.i79.i.i, %651, %651, %654, %653, %652, %.fold.split49.i.i.i, %646, %637, %664, %.fold.split50.i77.i.i, %663, %662, %662, %662, %655, %.fold.split51.i76.i.i, %669, %669, %671, %671, %672, %670, %.fold.split52.i74.i.i, %685, %681, %640, %677
-  %.0.i528.ph = phi i32 [ %spec.store.select.i72.i.i, %658 ], [ %spec.store.select.i72.i.i, %677 ], [ %spec.store.select.i72.i.i, %640 ], [ %spec.store.select.i72.i.i, %681 ], [ 2021026145, %685 ], [ 858876257, %669 ], [ %spec.store.select.i72.i.i, %.fold.split52.i74.i.i ], [ 842099041, %670 ], [ 1882286433, %662 ], [ 892430689, %671 ], [ 909207905, %672 ], [ 892430689, %671 ], [ 858876257, %669 ], [ 1882286433, %662 ], [ %spec.store.select.i72.i.i, %.fold.split51.i76.i.i ], [ %spec.store.select.i72.i.i, %655 ], [ 1882286433, %662 ], [ 1899063649, %663 ], [ %spec.store.select.i72.i.i, %.fold.split50.i77.i.i ], [ %spec.store.select.i72.i.i, %664 ], [ %spec.store.select.i72.i.i, %637 ], [ %spec.store.select.i72.i.i, %646 ], [ 859138401, %651 ], [ %spec.store.select.i72.i.i, %.fold.split49.i.i.i ], [ 842361185, %652 ], [ 1882548577, %644 ], [ 892692833, %653 ], [ 909470049, %654 ], [ 859138401, %651 ], [ 1882548577, %644 ], [ %spec.store.select.i72.i.i, %.fold.split.i79.i.i ], [ %spec.store.select.i72.i.i, %.fold.split53.i75.i.i ], [ 1882548577, %644 ], [ 1899325793, %645 ], [ %spec.store.select.i72.i.i, %defined_frame_rate.exit.i69.i.i ], [ %spec.store.select.i72.i.i, %673 ], [ %spec.store.select.i.i.i, %.fold.split56.i.i.i ], [ %spec.store.select.i.i.i, %601 ], [ %spec.store.select.i.i.i, %613 ], [ 1681220728, %618 ], [ 1714775160, %620 ], [ 1697997944, %619 ], [ %spec.store.select.i.i.i, %.fold.split54.i.i.i ], [ 1664443512, %621 ], [ 1647666296, %622 ], [ %spec.store.select.i.i.i, %.fold.split55.i.i.i ], [ 875914360, %608 ], [ 959800440, %612 ], [ 1630889080, %611 ], [ 825582712, %610 ], [ 892691576, %609 ], [ %spec.store.select.i.i.i, %.fold.split53.i.i.i ], [ %spec.store.select.i.i.i, %581 ], [ %spec.store.select.i.i.i, %569 ], [ %spec.store.select.i.i.i, %591 ], [ 1685480568, %596 ], [ 1719035000, %598 ], [ 1702257784, %597 ], [ %spec.store.select.i.i.i, %.fold.split51.i.i.i ], [ 1668703352, %599 ], [ 1651926136, %600 ], [ %spec.store.select.i.i.i, %.fold.split52.i.i.i ], [ 913728632, %586 ], [ 947283064, %588 ], [ 930505848, %587 ], [ %spec.store.select.i.i.i, %.fold.split.i.i.i ], [ 863396984, %589 ], [ 846619768, %590 ], [ %spec.store.select.i.i.i, %.fold.split50.i.i.i ], [ 880174200, %576 ], [ 964060280, %580 ], [ 1635148920, %579 ], [ 829842552, %578 ], [ 896951416, %577 ], [ %spec.store.select.i.i.i, %defined_frame_rate.exit.i.i.i ], [ %spec.store.select.i.i.i, %604 ], [ 544694642, %switch.early.test.i.i.i ], [ 544694642, %switch.early.test.i.i.i ], [ 544694642, %548 ], [ %.15.i.i.i, %522 ], [ %.14.i.i.i, %517 ], [ %..i.i.i, %513 ], [ %711, %708 ], [ %702, %701 ], [ %699, %700 ], [ %694, %693 ], [ %690, %688 ], [ %spec.select586, %686 ], [ %spec.store.select.i.i.i, %572 ], [ 544694642, %553 ], [ %switch.select17.i.i.i, %515 ]
+.thread560:                                       ; preds = %686, %669, %669, %515, %553, %620, %688, %693, %700, %701, %708, %513, %517, %522, %548, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %604, %defined_frame_rate.exit.i.i.i, %577, %578, %579, %580, %576, %.fold.split56.i.i.i, %590, %589, %572, %587, %588, %586, %613, %600, %599, %601, %597, %598, %596, %591, %569, %581, %618, %609, %610, %611, %612, %608, %619, %622, %621, %673, %defined_frame_rate.exit.i69.i.i, %645, %644, %644, %644, %.fold.split53.i.i.i, %658, %651, %651, %654, %653, %652, %677, %646, %637, %664, %640, %663, %662, %662, %662, %655, %681, %671, %671, %672, %670, %685
+  %.0.i528.ph = phi i32 [ 858876257, %669 ], [ 2021026145, %685 ], [ 842099041, %670 ], [ 1882286433, %662 ], [ 892430689, %671 ], [ 909207905, %672 ], [ 892430689, %671 ], [ 858876257, %669 ], [ 1882286433, %662 ], [ %spec.store.select.i72.i.i, %681 ], [ %spec.store.select.i72.i.i, %655 ], [ 1882286433, %662 ], [ 1899063649, %663 ], [ %spec.store.select.i72.i.i, %640 ], [ %spec.store.select.i72.i.i, %664 ], [ %spec.store.select.i72.i.i, %637 ], [ %spec.store.select.i72.i.i, %646 ], [ 859138401, %651 ], [ %spec.store.select.i72.i.i, %677 ], [ 842361185, %652 ], [ 1882548577, %644 ], [ 892692833, %653 ], [ 909470049, %654 ], [ 859138401, %651 ], [ 1882548577, %644 ], [ %spec.store.select.i72.i.i, %658 ], [ %spec.store.select.i72.i.i, %.fold.split53.i.i.i ], [ 1882548577, %644 ], [ 1899325793, %645 ], [ %spec.store.select.i72.i.i, %defined_frame_rate.exit.i69.i.i ], [ %spec.store.select.i72.i.i, %673 ], [ 1664443512, %621 ], [ 1647666296, %622 ], [ 1697997944, %619 ], [ 875914360, %608 ], [ 959800440, %612 ], [ 1630889080, %611 ], [ 825582712, %610 ], [ 892691576, %609 ], [ 1681220728, %618 ], [ %spec.store.select.i.i.i, %581 ], [ %spec.store.select.i.i.i, %569 ], [ %spec.store.select.i.i.i, %591 ], [ 1685480568, %596 ], [ 1719035000, %598 ], [ 1702257784, %597 ], [ %spec.store.select.i.i.i, %601 ], [ 1668703352, %599 ], [ 1651926136, %600 ], [ %spec.store.select.i.i.i, %613 ], [ 913728632, %586 ], [ 947283064, %588 ], [ 930505848, %587 ], [ %spec.store.select.i.i.i, %572 ], [ 863396984, %589 ], [ 846619768, %590 ], [ %spec.store.select.i.i.i, %.fold.split56.i.i.i ], [ 880174200, %576 ], [ 964060280, %580 ], [ 1635148920, %579 ], [ 829842552, %578 ], [ 896951416, %577 ], [ %spec.store.select.i.i.i, %defined_frame_rate.exit.i.i.i ], [ %spec.store.select.i.i.i, %604 ], [ 544694642, %switch.early.test.i.i.i ], [ 544694642, %switch.early.test.i.i.i ], [ 544694642, %548 ], [ %.15.i.i.i, %522 ], [ %.14.i.i.i, %517 ], [ %..i.i.i, %513 ], [ %711, %708 ], [ %702, %701 ], [ %699, %700 ], [ %694, %693 ], [ %690, %688 ], [ %spec.select586, %686 ], [ 1714775160, %620 ], [ 544694642, %553 ], [ %switch.select17.i.i.i, %515 ]
   store i32 %.0.i528.ph, ptr %459, align 8, !tbaa !96
   br label %.thread557
 

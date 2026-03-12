@@ -444,8 +444,8 @@ zlib_post_call.exit:                              ; preds = %43
     i32 0, label %.backedge.backedge
     i32 1, label %.loopexit22
     i32 -2, label %.loopexit26
-    i32 -6, label %zerr_to_string.exit.loopexit
-    i32 2, label %zerr_to_string.exit
+    i32 -6, label %zerr_to_string.exit
+    i32 2, label %zerr_to_string.exit.loopexit64
     i32 -3, label %.loopexit25
   ]
 
@@ -459,12 +459,9 @@ zlib_post_call.exit:                              ; preds = %43
     i32 1, label %.loopexit22
     i32 -2, label %.loopexit26
     i32 -6, label %zerr_to_string.exit
-    i32 2, label %.loopexit24
+    i32 2, label %zerr_to_string.exit.loopexit64
     i32 -3, label %.loopexit25
   ]
-
-.loopexit24:                                      ; preds = %55
-  br label %zerr_to_string.exit
 
 .loopexit25:                                      ; preds = %54, %55
   br label %zerr_to_string.exit
@@ -475,11 +472,11 @@ zlib_post_call.exit:                              ; preds = %43
 .loopexit:                                        ; preds = %54, %55
   br label %zerr_to_string.exit
 
-zerr_to_string.exit.loopexit:                     ; preds = %54
+zerr_to_string.exit.loopexit64:                   ; preds = %54, %55
   br label %zerr_to_string.exit
 
-zerr_to_string.exit:                              ; preds = %54, %zerr_to_string.exit.loopexit, %55, %.loopexit24, %.loopexit25, %.loopexit26, %.loopexit
-  %.0.i = phi ptr [ @.str.19, %.loopexit ], [ @.str.18, %.loopexit26 ], [ @.str.15, %55 ], [ @.str.15, %zerr_to_string.exit.loopexit ], [ @.str.17, %.loopexit25 ], [ @.str.16, %.loopexit24 ], [ @.str.16, %54 ]
+zerr_to_string.exit:                              ; preds = %54, %zerr_to_string.exit.loopexit64, %55, %.loopexit25, %.loopexit26, %.loopexit
+  %.0.i = phi ptr [ @.str.19, %.loopexit ], [ @.str.18, %.loopexit26 ], [ @.str.15, %55 ], [ @.str.16, %zerr_to_string.exit.loopexit64 ], [ @.str.17, %.loopexit25 ], [ @.str.15, %54 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %57 = load ptr, ptr %56, align 8, !tbaa !25
   %.not21 = icmp eq ptr %57, null
@@ -957,8 +954,8 @@ zlib_post_call.exit:                              ; preds = %43
     i32 0, label %.backedge.backedge
     i32 1, label %.loopexit22
     i32 -2, label %.loopexit26
-    i32 -6, label %zerr_to_string.exit.loopexit
-    i32 2, label %zerr_to_string.exit
+    i32 -6, label %zerr_to_string.exit
+    i32 2, label %zerr_to_string.exit.loopexit64
     i32 -3, label %.loopexit25
   ]
 
@@ -972,12 +969,9 @@ zlib_post_call.exit:                              ; preds = %43
     i32 1, label %.loopexit22
     i32 -2, label %.loopexit26
     i32 -6, label %zerr_to_string.exit
-    i32 2, label %.loopexit24
+    i32 2, label %zerr_to_string.exit.loopexit64
     i32 -3, label %.loopexit25
   ]
-
-.loopexit24:                                      ; preds = %55
-  br label %zerr_to_string.exit
 
 .loopexit25:                                      ; preds = %54, %55
   br label %zerr_to_string.exit
@@ -988,11 +982,11 @@ zlib_post_call.exit:                              ; preds = %43
 .loopexit:                                        ; preds = %54, %55
   br label %zerr_to_string.exit
 
-zerr_to_string.exit.loopexit:                     ; preds = %54
+zerr_to_string.exit.loopexit64:                   ; preds = %54, %55
   br label %zerr_to_string.exit
 
-zerr_to_string.exit:                              ; preds = %54, %zerr_to_string.exit.loopexit, %55, %.loopexit24, %.loopexit25, %.loopexit26, %.loopexit
-  %.0.i = phi ptr [ @.str.19, %.loopexit ], [ @.str.18, %.loopexit26 ], [ @.str.15, %55 ], [ @.str.15, %zerr_to_string.exit.loopexit ], [ @.str.17, %.loopexit25 ], [ @.str.16, %.loopexit24 ], [ @.str.16, %54 ]
+zerr_to_string.exit:                              ; preds = %54, %zerr_to_string.exit.loopexit64, %55, %.loopexit25, %.loopexit26, %.loopexit
+  %.0.i = phi ptr [ @.str.19, %.loopexit ], [ @.str.18, %.loopexit26 ], [ @.str.15, %55 ], [ @.str.16, %zerr_to_string.exit.loopexit64 ], [ @.str.17, %.loopexit25 ], [ @.str.15, %54 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %57 = load ptr, ptr %56, align 8, !tbaa !25
   %.not21 = icmp eq ptr %57, null

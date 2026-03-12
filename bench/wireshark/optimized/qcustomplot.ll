@@ -8836,7 +8836,7 @@ define { double, double } @_ZNK8QCPRange7boundedEdd(ptr noundef readonly align 8
   call void @_ZN8QCPRangeC1Edd(ptr noundef nonnull align 8 dereferenceable_or_null(16) %4, double noundef %6, double noundef %8)
   %9 = load double, ptr %4, align 8
   %10 = fcmp olt double %9, %.016
-  br i1 %10, label %11, label %33
+  br i1 %10, label %11, label %32
 
 11:                                               ; preds = %3
   %12 = load double, ptr %7, align 8
@@ -8844,7 +8844,7 @@ define { double, double } @_ZNK8QCPRange7boundedEdd(ptr noundef readonly align 8
   %14 = fsub double %12, %13
   %15 = fadd double %.016, %14
   %16 = fcmp ogt double %15, %.0
-  br i1 %16, label %32, label %17
+  br i1 %16, label %57, label %17
 
 17:                                               ; preds = %11
   %18 = fsub double %.0, %.016
@@ -8862,49 +8862,46 @@ define { double, double } @_ZNK8QCPRange7boundedEdd(ptr noundef readonly align 8
   %30 = fcmp olt double %26, %29
   %.sroa.speculated.i = select i1 %30, double %26, double %29
   %31 = fcmp ugt double %23, %.sroa.speculated.i
-  br i1 %31, label %59, label %32
+  br i1 %31, label %58, label %57
 
-32:                                               ; preds = %17, %11
-  br label %59
+32:                                               ; preds = %3
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %34 = load double, ptr %33, align 8
+  %35 = fcmp ogt double %34, %.0
+  br i1 %35, label %36, label %58
 
-33:                                               ; preds = %3
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %35 = load double, ptr %34, align 8
-  %36 = fcmp ogt double %35, %.0
-  br i1 %36, label %37, label %59
+36:                                               ; preds = %32
+  %37 = load double, ptr %7, align 8
+  %38 = load double, ptr %0, align 8
+  %39 = fsub double %37, %38
+  %40 = fsub double %.0, %39
+  %41 = fcmp olt double %40, %.016
+  br i1 %41, label %57, label %42
 
-37:                                               ; preds = %33
-  %38 = load double, ptr %7, align 8
-  %39 = load double, ptr %0, align 8
-  %40 = fsub double %38, %39
-  %41 = fsub double %.0, %40
-  %42 = fcmp olt double %41, %.016
-  br i1 %42, label %58, label %43
+42:                                               ; preds = %36
+  %43 = fsub double %.0, %.016
+  %44 = fsub double %39, %43
+  %45 = fcmp ult double %44, 0.000000e+00
+  %46 = fneg double %44
+  %47 = select i1 %45, double %46, double %44
+  %48 = fmul double %47, 1.000000e+12
+  %49 = fcmp ult double %39, 0.000000e+00
+  %50 = fneg double %39
+  %51 = select i1 %49, double %50, double %39
+  %52 = fcmp ult double %43, 0.000000e+00
+  %53 = fneg double %43
+  %54 = select i1 %52, double %53, double %43
+  %55 = fcmp olt double %51, %54
+  %.sroa.speculated.i2 = select i1 %55, double %51, double %54
+  %56 = fcmp ugt double %48, %.sroa.speculated.i2
+  br i1 %56, label %58, label %57
 
-43:                                               ; preds = %37
-  %44 = fsub double %.0, %.016
-  %45 = fsub double %40, %44
-  %46 = fcmp ult double %45, 0.000000e+00
-  %47 = fneg double %45
-  %48 = select i1 %46, double %47, double %45
-  %49 = fmul double %48, 1.000000e+12
-  %50 = fcmp ult double %40, 0.000000e+00
-  %51 = fneg double %40
-  %52 = select i1 %50, double %51, double %40
-  %53 = fcmp ult double %44, 0.000000e+00
-  %54 = fneg double %44
-  %55 = select i1 %53, double %54, double %44
-  %56 = fcmp olt double %52, %55
-  %.sroa.speculated.i2 = select i1 %56, double %52, double %55
-  %57 = fcmp ugt double %49, %.sroa.speculated.i2
-  br i1 %57, label %59, label %58
+57:                                               ; preds = %11, %17, %42, %36
+  br label %58
 
-58:                                               ; preds = %43, %37
-  br label %59
-
-59:                                               ; preds = %33, %58, %43, %17, %32
-  %.fca.1.load = phi double [ %35, %33 ], [ %.0, %58 ], [ %.0, %43 ], [ %15, %17 ], [ %.0, %32 ]
-  %.fca.0.load = phi double [ %9, %33 ], [ %.016, %58 ], [ %41, %43 ], [ %.016, %17 ], [ %.016, %32 ]
+58:                                               ; preds = %32, %57, %42, %17
+  %.fca.1.load = phi double [ %34, %32 ], [ %.0, %57 ], [ %.0, %42 ], [ %15, %17 ]
+  %.fca.0.load = phi double [ %9, %32 ], [ %.016, %57 ], [ %40, %42 ], [ %.016, %17 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.fca.0.load, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.fca.1.load, 1
   ret { double, double } %.fca.1.insert
@@ -36814,7 +36811,7 @@ define noundef range(i32 1, 7) i32 @_ZN13QCPAxisTicker15getSubTickCountEd(ptr re
   br label %23
 
 23:                                               ; preds = %.sink.split, %14, %17
-  %.0 = phi i32 [ 1, %14 ], [ 1, %17 ], [ %switch.load20, %.sink.split ]
+  %.0 = phi i32 [ 1, %14 ], [ %switch.load20, %.sink.split ], [ 1, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -38189,7 +38186,7 @@ _ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split: ; preds = %17, %14
   br label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
 
 _ZN13QCPAxisTicker15getSubTickCountEd.exit:       ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split, %14, %17
-  %.0.i = phi i32 [ 1, %14 ], [ 1, %17 ], [ %switch.load7, %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split ]
+  %.0.i = phi i32 [ 1, %14 ], [ %switch.load7, %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split ], [ 1, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %23 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %1)
   %24 = fadd double %1, %23
@@ -40339,7 +40336,7 @@ _ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split: ; preds = %17, %14
   br label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
 
 _ZN13QCPAxisTicker15getSubTickCountEd.exit:       ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split, %14, %17
-  %.0.i = phi i32 [ 1, %14 ], [ 1, %17 ], [ %switch.load7, %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split ]
+  %.0.i = phi i32 [ 1, %14 ], [ %switch.load7, %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split ], [ 1, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %23 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %1)
   %24 = fadd double %1, %23
@@ -42281,7 +42278,7 @@ _ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split: ; preds = %20, %17
   br label %_ZN13QCPAxisTicker15getSubTickCountEd.exit
 
 _ZN13QCPAxisTicker15getSubTickCountEd.exit:       ; preds = %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split, %17, %20
-  %.0.i = phi i32 [ 1, %17 ], [ 1, %20 ], [ %switch.load5, %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split ]
+  %.0.i = phi i32 [ 1, %17 ], [ %switch.load5, %_ZN13QCPAxisTicker15getSubTickCountEd.exit.sink.split ], [ 1, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
 }
@@ -143481,7 +143478,7 @@ _ZN7QStringD2Ev.exit.i:                           ; preds = %71, %_ZN17QArrayDat
           to label %._ZN6QDebuglsEPKc.exit_crit_edge unwind label %104
 
 ._ZN6QDebuglsEPKc.exit_crit_edge:                 ; preds = %77
-  %.pre281 = load ptr, ptr %8, align 8
+  %.pre280 = load ptr, ptr %8, align 8
   br label %_ZN6QDebuglsEPKc.exit
 
 79:                                               ; preds = %.noexc
@@ -143506,7 +143503,7 @@ _ZN7QStringD2Ev.exit5.i:                          ; preds = %83, %_ZN17QArrayDat
   br label %.body
 
 _ZN6QDebuglsEPKc.exit:                            ; preds = %._ZN6QDebuglsEPKc.exit_crit_edge, %_ZN7QStringD2Ev.exit.i
-  %85 = phi ptr [ %.pre281, %._ZN6QDebuglsEPKc.exit_crit_edge ], [ %73, %_ZN7QStringD2Ev.exit.i ]
+  %85 = phi ptr [ %.pre280, %._ZN6QDebuglsEPKc.exit_crit_edge ], [ %73, %_ZN7QStringD2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, i64 25, ptr nonnull @.str.85)
           to label %.noexc136 unwind label %104
@@ -143711,12 +143708,12 @@ _ZN6QDebuglsEPKc.exit140:                         ; preds = %_ZN7QStringD2Ev.exi
   br label %191
 
 191:                                              ; preds = %.lr.ph, %363
-  %.0110277 = phi i32 [ %.0.i, %.lr.ph ], [ %.0.i161, %363 ]
-  %.sroa.0.0276 = phi ptr [ %162, %.lr.ph ], [ %.sroa.0244.0275, %363 ]
-  %.sroa.0244.0275 = phi ptr [ %159, %.lr.ph ], [ %364, %363 ]
-  %192 = getelementptr inbounds nuw i8, ptr %.sroa.0244.0275, i64 8
+  %.0110276 = phi i32 [ %.0.i, %.lr.ph ], [ %.0.i161, %363 ]
+  %.sroa.0.0275 = phi ptr [ %162, %.lr.ph ], [ %.sroa.0244.0274, %363 ]
+  %.sroa.0244.0274 = phi ptr [ %159, %.lr.ph ], [ %364, %363 ]
+  %192 = getelementptr inbounds nuw i8, ptr %.sroa.0244.0274, i64 8
   %193 = load double, ptr %192, align 8
-  %194 = getelementptr inbounds nuw i8, ptr %.sroa.0244.0275, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %.sroa.0244.0274, i64 16
   %195 = load double, ptr %194, align 8
   %196 = fcmp olt double %193, %120
   br i1 %196, label %197, label %201
@@ -143753,7 +143750,7 @@ _ZN6QDebuglsEPKc.exit140:                         ; preds = %_ZN7QStringD2Ev.exi
 
 _ZNK8QCPCurve9getRegionEdddddd.exit164:           ; preds = %197, %199, %204, %205, %207, %208
   %.0.i161 = phi i32 [ 4, %207 ], [ %..i163, %199 ], [ 1, %197 ], [ %.19.i160, %208 ], [ %.18.i162, %205 ], [ 7, %204 ]
-  %.not116 = icmp eq i32 %.0.i161, %.0110277
+  %.not116 = icmp eq i32 %.0.i161, %.0110276
   br i1 %.not116, label %352, label %210
 
 210:                                              ; preds = %_ZNK8QCPCurve9getRegionEdddddd.exit164
@@ -143765,7 +143762,7 @@ _ZNK8QCPCurve9getRegionEdddddd.exit164:           ; preds = %197, %199, %204, %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) dereferenceable_or_null(16) %13, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) dereferenceable_or_null(16) %14, i8 0, i64 16, i1 false)
-  switch i32 %.0110277, label %default.unreachable310 [
+  switch i32 %.0110276, label %default.unreachable309 [
     i32 5, label %212
     i32 1, label %243
     i32 2, label %244
@@ -143780,9 +143777,9 @@ _ZNK8QCPCurve9getRegionEdddddd.exit164:           ; preds = %197, %199, %204, %2
 212:                                              ; preds = %211
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %213 = load double, ptr %192, align 8
-  %214 = getelementptr inbounds nuw i8, ptr %.sroa.0.0276, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %.sroa.0.0275, i64 8
   %215 = load double, ptr %214, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %.sroa.0.0276, i64 16
+  %216 = getelementptr inbounds nuw i8, ptr %.sroa.0.0275, i64 16
   %217 = load double, ptr %216, align 8
   %218 = call { double, double } @_ZNK8QCPCurve17getOptimizedPointEidddddddd(ptr noundef align 8 dereferenceable_or_null(288) %0, i32 noundef %.0.i161, double noundef %213, double noundef %195, double noundef %215, double noundef %217, double noundef %120, double noundef %147, double noundef %128, double noundef %139)
   %219 = extractvalue { double, double } %218, 0
@@ -143865,92 +143862,92 @@ _ZN5QListI7QPointFED2Ev.exit173:                  ; preds = %241, %_ZN17QArrayDa
   br label %319
 
 243:                                              ; preds = %211
-  switch i32 %.0.i161, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread [
-    i32 4, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
-    i32 7, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
-    i32 2, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
-    i32 3, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
+  switch i32 %.0.i161, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread268 [
+    i32 4, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
+    i32 7, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
+    i32 2, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
+    i32 3, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
   ]
 
 244:                                              ; preds = %211
   %245 = add nsw i32 %.0.i161, -1
   %switch.and.i = and i32 %245, -3
   %switch.selectcmp.i.not = icmp eq i32 %switch.and.i, 0
-  br i1 %switch.selectcmp.i.not, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
+  br i1 %switch.selectcmp.i.not, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread268
 
 246:                                              ; preds = %211
-  switch i32 %.0.i161, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread [
-    i32 1, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
-    i32 2, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
-    i32 6, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
-    i32 9, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
+  switch i32 %.0.i161, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread268 [
+    i32 1, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
+    i32 2, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
+    i32 6, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
+    i32 9, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
   ]
 
 247:                                              ; preds = %211
-  switch i32 %.0.i161, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread [
-    i32 9, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
-    i32 3, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
+  switch i32 %.0.i161, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread268 [
+    i32 9, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
+    i32 3, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
   ]
 
 248:                                              ; preds = %211
-  switch i32 %.0.i161, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread [
-    i32 1, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
-    i32 4, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
-    i32 8, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
-    i32 9, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
+  switch i32 %.0.i161, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread268 [
+    i32 1, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
+    i32 4, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
+    i32 8, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
+    i32 9, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
   ]
 
 249:                                              ; preds = %211
   %250 = add nsw i32 %.0.i161, -7
   %switch.and13.i = and i32 %250, -3
   %switch.selectcmp14.i.not = icmp eq i32 %switch.and13.i, 0
-  br i1 %switch.selectcmp14.i.not, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
+  br i1 %switch.selectcmp14.i.not, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread268
 
 251:                                              ; preds = %211
-  switch i32 %.0.i161, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread [
-    i32 3, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
-    i32 6, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
-    i32 8, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
-    i32 7, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
+  switch i32 %.0.i161, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread268 [
+    i32 3, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
+    i32 6, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
+    i32 8, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
+    i32 7, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
   ]
 
 _ZNK8QCPCurve11mayTraverseEii.exit:               ; preds = %211
-  switch i32 %.0.i161, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread [
-    i32 7, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
-    i32 1, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
+  switch i32 %.0.i161, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread268 [
+    i32 7, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
+    i32 1, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
   ]
 
-default.unreachable310:                           ; preds = %211
+default.unreachable309:                           ; preds = %211
   unreachable
 
-_ZNK8QCPCurve11mayTraverseEii.exit.thread:        ; preds = %_ZNK8QCPCurve11mayTraverseEii.exit, %247, %251, %248, %246, %243, %249, %244
-  %252 = getelementptr inbounds nuw i8, ptr %.sroa.0.0276, i64 8
+_ZNK8QCPCurve11mayTraverseEii.exit.thread268:     ; preds = %_ZNK8QCPCurve11mayTraverseEii.exit, %247, %251, %248, %246, %243, %249, %244
+  %252 = getelementptr inbounds nuw i8, ptr %.sroa.0.0275, i64 8
   %253 = load double, ptr %252, align 8
-  %254 = getelementptr inbounds nuw i8, ptr %.sroa.0.0276, i64 16
+  %254 = getelementptr inbounds nuw i8, ptr %.sroa.0.0275, i64 16
   %255 = load double, ptr %254, align 8
   %256 = load double, ptr %192, align 8
   %257 = invoke noundef zeroext i1 @_ZNK8QCPCurve11getTraverseEddddddddR7QPointFS1_(ptr noundef align 8 dereferenceable_or_null(288) %0, double noundef %253, double noundef %255, double noundef %256, double noundef %195, double noundef %120, double noundef %147, double noundef %128, double noundef %139, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14)
           to label %258 unwind label %270
 
-258:                                              ; preds = %_ZNK8QCPCurve11mayTraverseEii.exit.thread
-  br i1 %257, label %259, label %._ZNK8QCPCurve11mayTraverseEii.exit.thread269_crit_edge
+258:                                              ; preds = %_ZNK8QCPCurve11mayTraverseEii.exit.thread268
+  br i1 %257, label %259, label %._ZNK8QCPCurve11mayTraverseEii.exit.thread_crit_edge
 
-._ZNK8QCPCurve11mayTraverseEii.exit.thread269_crit_edge: ; preds = %258
+._ZNK8QCPCurve11mayTraverseEii.exit.thread_crit_edge: ; preds = %258
   %.pre = load double, ptr %194, align 8
-  br label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
+  br label %_ZNK8QCPCurve11mayTraverseEii.exit.thread
 
 259:                                              ; preds = %258
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %17, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %18, i8 0, i64 24, i1 false)
-  invoke void @_ZNK8QCPCurve23getTraverseCornerPointsEiiddddR5QListI7QPointFES3_(ptr noundef align 8 dereferenceable_or_null(288) %0, i32 noundef %.0110277, i32 noundef %.0.i161, double noundef %120, double noundef %147, double noundef %128, double noundef %139, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  invoke void @_ZNK8QCPCurve23getTraverseCornerPointsEiiddddR5QListI7QPointFES3_(ptr noundef align 8 dereferenceable_or_null(288) %0, i32 noundef %.0110276, i32 noundef %.0.i161, double noundef %120, double noundef %147, double noundef %128, double noundef %139, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18)
           to label %260 unwind label %272
 
 260:                                              ; preds = %259
   %.sroa.02.0.copyload = load ptr, ptr %10, align 8
-  %.not272 = icmp eq ptr %.sroa.0244.0275, %.sroa.02.0.copyload
-  br i1 %.not272, label %282, label %261
+  %.not271 = icmp eq ptr %.sroa.0244.0274, %.sroa.02.0.copyload
+  br i1 %.not271, label %282, label %261
 
 261:                                              ; preds = %260
   %262 = load ptr, ptr %181, align 8
@@ -143976,7 +143973,7 @@ _ZN5QListI7QPointFE6appendERKS0_.exit178:         ; preds = %_ZN5QListI7QPointFE
   invoke void @_ZN9QtPrivate15QCommonArrayOpsI7QPointFE10growAppendEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, ptr noundef %267, ptr noundef %269)
           to label %_ZN5QListI7QPointFElsERKS1_.exit180 unwind label %272
 
-270:                                              ; preds = %_ZNK8QCPCurve11mayTraverseEii.exit.thread
+270:                                              ; preds = %_ZNK8QCPCurve11mayTraverseEii.exit.thread268
   %271 = landingpad { ptr, i32 }
           cleanup
   br label %319
@@ -144077,18 +144074,18 @@ _ZN5QListI7QPointFED2Ev.exit203:                  ; preds = %_ZN5QListI7QPointFE
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %318
 
-_ZNK8QCPCurve11mayTraverseEii.exit.thread269:     ; preds = %._ZNK8QCPCurve11mayTraverseEii.exit.thread269_crit_edge, %_ZNK8QCPCurve11mayTraverseEii.exit, %_ZNK8QCPCurve11mayTraverseEii.exit, %247, %247, %246, %246, %246, %246, %243, %243, %243, %243, %251, %251, %251, %251, %248, %248, %248, %248, %249, %244
-  %299 = phi double [ %.pre, %._ZNK8QCPCurve11mayTraverseEii.exit.thread269_crit_edge ], [ %195, %_ZNK8QCPCurve11mayTraverseEii.exit ], [ %195, %_ZNK8QCPCurve11mayTraverseEii.exit ], [ %195, %247 ], [ %195, %247 ], [ %195, %246 ], [ %195, %246 ], [ %195, %246 ], [ %195, %246 ], [ %195, %243 ], [ %195, %243 ], [ %195, %243 ], [ %195, %243 ], [ %195, %251 ], [ %195, %251 ], [ %195, %251 ], [ %195, %251 ], [ %195, %248 ], [ %195, %248 ], [ %195, %248 ], [ %195, %248 ], [ %195, %249 ], [ %195, %244 ]
+_ZNK8QCPCurve11mayTraverseEii.exit.thread:        ; preds = %._ZNK8QCPCurve11mayTraverseEii.exit.thread_crit_edge, %_ZNK8QCPCurve11mayTraverseEii.exit, %_ZNK8QCPCurve11mayTraverseEii.exit, %247, %247, %246, %246, %246, %246, %243, %243, %243, %243, %248, %248, %248, %248, %251, %251, %251, %251, %249, %244
+  %299 = phi double [ %.pre, %._ZNK8QCPCurve11mayTraverseEii.exit.thread_crit_edge ], [ %195, %_ZNK8QCPCurve11mayTraverseEii.exit ], [ %195, %_ZNK8QCPCurve11mayTraverseEii.exit ], [ %195, %247 ], [ %195, %247 ], [ %195, %246 ], [ %195, %246 ], [ %195, %246 ], [ %195, %246 ], [ %195, %243 ], [ %195, %243 ], [ %195, %243 ], [ %195, %243 ], [ %195, %248 ], [ %195, %248 ], [ %195, %248 ], [ %195, %248 ], [ %195, %251 ], [ %195, %251 ], [ %195, %251 ], [ %195, %251 ], [ %195, %249 ], [ %195, %244 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %300 = getelementptr inbounds nuw i8, ptr %.sroa.0.0276, i64 8
+  %300 = getelementptr inbounds nuw i8, ptr %.sroa.0.0275, i64 8
   %301 = load double, ptr %300, align 8
-  %302 = getelementptr inbounds nuw i8, ptr %.sroa.0.0276, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %.sroa.0.0275, i64 16
   %303 = load double, ptr %302, align 8
   %304 = load double, ptr %192, align 8
-  invoke void @_ZNK8QCPCurve24getOptimizedCornerPointsEiidddddddd(ptr dead_on_unwind nonnull writable sret(%class.QList.190) align 8 %19, ptr noundef align 8 dereferenceable_or_null(288) %0, i32 noundef %.0110277, i32 noundef %.0.i161, double noundef %301, double noundef %303, double noundef %304, double noundef %299, double noundef %120, double noundef %147, double noundef %128, double noundef %139)
+  invoke void @_ZNK8QCPCurve24getOptimizedCornerPointsEiidddddddd(ptr dead_on_unwind nonnull writable sret(%class.QList.190) align 8 %19, ptr noundef align 8 dereferenceable_or_null(288) %0, i32 noundef %.0110276, i32 noundef %.0.i161, double noundef %301, double noundef %303, double noundef %304, double noundef %299, double noundef %120, double noundef %147, double noundef %128, double noundef %139)
           to label %305 unwind label %310
 
-305:                                              ; preds = %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
+305:                                              ; preds = %_ZNK8QCPCurve11mayTraverseEii.exit.thread
   invoke void @_ZN5QListI7QPointFE6appendEOS1_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %19)
           to label %_ZN5QListI7QPointFElsEOS1_.exit205 unwind label %312
 
@@ -144111,7 +144108,7 @@ _ZN5QListI7QPointFED2Ev.exit209:                  ; preds = %_ZN5QListI7QPointFE
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %318
 
-310:                                              ; preds = %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
+310:                                              ; preds = %_ZNK8QCPCurve11mayTraverseEii.exit.thread
   %311 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5QListI7QPointFED2Ev.exit213
@@ -144151,16 +144148,16 @@ _ZN5QListI7QPointFED2Ev.exit213:                  ; preds = %316, %_ZN17QArrayDa
 
 320:                                              ; preds = %210
   %.sroa.0.0.copyload = load ptr, ptr %10, align 8
-  %321 = icmp eq ptr %.sroa.0244.0275, %.sroa.0.0.copyload
-  %322 = getelementptr inbounds nuw i8, ptr %.sroa.0.0276, i64 8
-  %323 = getelementptr inbounds nuw i8, ptr %.sroa.0.0276, i64 16
+  %321 = icmp eq ptr %.sroa.0244.0274, %.sroa.0.0.copyload
+  %322 = getelementptr inbounds nuw i8, ptr %.sroa.0.0275, i64 8
+  %323 = getelementptr inbounds nuw i8, ptr %.sroa.0.0275, i64 16
   br i1 %321, label %324, label %333
 
 324:                                              ; preds = %320
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %325 = load double, ptr %322, align 8
   %326 = load double, ptr %323, align 8
-  %327 = call { double, double } @_ZNK8QCPCurve17getOptimizedPointEidddddddd(ptr noundef align 8 dereferenceable_or_null(288) %0, i32 noundef %.0110277, double noundef %325, double noundef %326, double noundef %193, double noundef %195, double noundef %120, double noundef %147, double noundef %128, double noundef %139)
+  %327 = call { double, double } @_ZNK8QCPCurve17getOptimizedPointEidddddddd(ptr noundef align 8 dereferenceable_or_null(288) %0, i32 noundef %.0110276, double noundef %325, double noundef %326, double noundef %193, double noundef %195, double noundef %120, double noundef %147, double noundef %128, double noundef %139)
   %328 = extractvalue { double, double } %327, 0
   store double %328, ptr %20, align 8
   %329 = extractvalue { double, double } %327, 1
@@ -144183,7 +144180,7 @@ _ZN5QListI7QPointFElsEOS0_.exit:                  ; preds = %324
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %334 = load double, ptr %322, align 8
   %335 = load double, ptr %323, align 8
-  %336 = call { double, double } @_ZNK8QCPCurve17getOptimizedPointEidddddddd(ptr noundef align 8 dereferenceable_or_null(288) %0, i32 noundef %.0110277, double noundef %334, double noundef %335, double noundef %193, double noundef %195, double noundef %120, double noundef %147, double noundef %128, double noundef %139)
+  %336 = call { double, double } @_ZNK8QCPCurve17getOptimizedPointEidddddddd(ptr noundef align 8 dereferenceable_or_null(288) %0, i32 noundef %.0110276, double noundef %334, double noundef %335, double noundef %193, double noundef %195, double noundef %120, double noundef %147, double noundef %128, double noundef %139)
   %337 = extractvalue { double, double } %336, 0
   store double %337, ptr %21, align 8
   %338 = extractvalue { double, double } %336, 1
@@ -144229,7 +144226,7 @@ _ZN5QListI7QPointFE6appendERKS0_.exit218:         ; preds = %346
   br label %372
 
 352:                                              ; preds = %_ZNK8QCPCurve9getRegionEdddddd.exit164
-  %353 = icmp eq i32 %.0110277, 5
+  %353 = icmp eq i32 %.0110276, 5
   br i1 %353, label %354, label %363
 
 354:                                              ; preds = %352
@@ -144258,17 +144255,17 @@ _ZN5QListI7QPointFE6appendERKS0_.exit220:         ; preds = %357
   br label %372
 
 363:                                              ; preds = %_ZN5QListI7QPointFE6appendERKS0_.exit220, %352, %318, %_ZN5QListI7QPointFE6appendERKS0_.exit218
-  %364 = getelementptr i8, ptr %.sroa.0244.0275, i64 24
+  %364 = getelementptr i8, ptr %.sroa.0244.0274, i64 24
   %.sroa.011.0.copyload = load ptr, ptr %11, align 8
-  %.not271 = icmp eq ptr %364, %.sroa.011.0.copyload
-  br i1 %.not271, label %._crit_edge, label %191, !llvm.loop !948
+  %.not270 = icmp eq ptr %364, %.sroa.011.0.copyload
+  br i1 %.not270, label %._crit_edge, label %191, !llvm.loop !948
 
 ._crit_edge:                                      ; preds = %363
-  %.pre280 = load i64, ptr %185, align 8
+  %.pre279 = load i64, ptr %185, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.pre278 = load ptr, ptr %.phi.trans.insert, align 8
-  %365 = getelementptr [16 x i8], ptr %.pre278, i64 %.pre280
-  invoke void @_ZN9QtPrivate15QCommonArrayOpsI7QPointFE10growAppendEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, ptr noundef %.pre278, ptr noundef %365)
+  %.pre277 = load ptr, ptr %.phi.trans.insert, align 8
+  %365 = getelementptr [16 x i8], ptr %.pre277, i64 %.pre279
+  invoke void @_ZN9QtPrivate15QCommonArrayOpsI7QPointFE10growAppendEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %1, ptr noundef %.pre277, ptr noundef %365)
           to label %_ZN5QListI7QPointFElsERKS1_.exit222 unwind label %231
 
 _ZN5QListI7QPointFElsERKS1_.exit222:              ; preds = %._crit_edge
@@ -149184,7 +149181,7 @@ define noundef zeroext i1 @_ZNK8QCPCurve11mayTraverseEii(ptr noundef readnone al
 
 4:                                                ; preds = %3
   %5 = icmp ult i32 %2, 8
-  br i1 %5, label %switch.lookup, label %19
+  br i1 %5, label %switch.lookup, label %18
 
 6:                                                ; preds = %3
   %7 = add i32 %2, -1
@@ -149194,7 +149191,7 @@ define noundef zeroext i1 @_ZNK8QCPCurve11mayTraverseEii(ptr noundef readnone al
 
 8:                                                ; preds = %3
   %9 = icmp ult i32 %2, 10
-  br i1 %9, label %switch.lookup15, label %19
+  br i1 %9, label %switch.lookup15, label %18
 
 10:                                               ; preds = %3
   %switch.selectcmp.case1 = icmp ne i32 %2, 1
@@ -149210,7 +149207,7 @@ define noundef zeroext i1 @_ZNK8QCPCurve11mayTraverseEii(ptr noundef readnone al
 
 12:                                               ; preds = %3
   %13 = icmp ult i32 %2, 10
-  br i1 %13, label %switch.lookup20, label %19
+  br i1 %13, label %switch.lookup20, label %18
 
 14:                                               ; preds = %3
   %15 = add i32 %2, -7
@@ -149220,9 +149217,9 @@ define noundef zeroext i1 @_ZNK8QCPCurve11mayTraverseEii(ptr noundef readnone al
 
 16:                                               ; preds = %3
   %17 = icmp ult i32 %2, 9
-  br i1 %17, label %switch.lookup25, label %19
+  br i1 %17, label %switch.lookup25, label %18
 
-18:                                               ; preds = %3
+18:                                               ; preds = %16, %12, %8, %4, %3
   br label %19
 
 switch.lookup:                                    ; preds = %4
@@ -149249,8 +149246,8 @@ switch.lookup25:                                  ; preds = %16
   %switch.masked29 = trunc i9 %switch.downshift28 to i1
   br label %19
 
-19:                                               ; preds = %16, %switch.lookup25, %12, %switch.lookup20, %8, %switch.lookup15, %4, %switch.lookup, %14, %11, %3, %10, %6, %18
-  %.0 = phi i1 [ true, %18 ], [ %switch.masked29, %switch.lookup25 ], [ %switch.masked24, %switch.lookup20 ], [ %switch.masked, %switch.lookup ], [ %switch.selectcmp, %6 ], [ true, %8 ], [ true, %12 ], [ %switch.masked19, %switch.lookup15 ], [ %switch.selectcmp9.not, %10 ], [ true, %4 ], [ false, %3 ], [ %switch.selectcmp12.not, %11 ], [ %switch.selectcmp14, %14 ], [ true, %16 ]
+19:                                               ; preds = %switch.lookup25, %switch.lookup20, %switch.lookup15, %switch.lookup, %14, %11, %3, %10, %6, %18
+  %.0 = phi i1 [ true, %18 ], [ %switch.masked29, %switch.lookup25 ], [ %switch.masked24, %switch.lookup20 ], [ %switch.masked, %switch.lookup ], [ %switch.selectcmp, %6 ], [ %switch.selectcmp12.not, %11 ], [ %switch.selectcmp14, %14 ], [ %switch.masked19, %switch.lookup15 ], [ %switch.selectcmp9.not, %10 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -201485,7 +201482,7 @@ define noundef double @_ZNK13QCPItemTracer10selectTestERK7QPointFbP8QVariant(ptr
   br label %239
 
 239:                                              ; preds = %33, %54, %120, %191, %153, %176, %181, %185, %236, %105, %94
-  %.1 = phi double [ %168, %176 ], [ %238, %236 ], [ %104, %94 ], [ %119, %105 ], [ -1.000000e+00, %33 ], [ %190, %185 ], [ %168, %153 ], [ %168, %181 ], [ -1.000000e+00, %191 ], [ -1.000000e+00, %120 ], [ -1.000000e+00, %54 ]
+  %.1 = phi double [ %168, %176 ], [ %238, %236 ], [ %104, %94 ], [ %119, %105 ], [ %190, %185 ], [ %168, %153 ], [ %168, %181 ], [ -1.000000e+00, %191 ], [ -1.000000e+00, %120 ], [ -1.000000e+00, %54 ], [ -1.000000e+00, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %240
 

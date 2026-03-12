@@ -3900,7 +3900,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN5clang6driver5tools3arm18getDef
   %5 = tail call noundef i32 @_ZN4llvm3ARM16parseArchVersionENS_9StringRefE(ptr %3, i64 %4) #16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !150
-  switch i32 %7, label %36 [
+  switch i32 %7, label %35 [
     i32 1, label %8
     i32 9, label %8
     i32 5, label %8
@@ -3911,8 +3911,8 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN5clang6driver5tools3arm18getDef
     i32 14, label %16
     i32 10, label %28
     i32 3, label %32
-    i32 16, label %35
-    i32 11, label %35
+    i32 16, label %43
+    i32 11, label %43
   ]
 
 8:                                                ; preds = %1, %1, %1, %1, %1, %1
@@ -3967,30 +3967,30 @@ _ZN5clang6driver5tools3arm16useAAPCSForMachOERKN4llvm6TripleE.exit.thread: ; pre
   %. = select i1 %cond, i32 3, i32 1
   br label %45
 
-35:                                               ; preds = %1, %1
+35:                                               ; preds = %1
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %37 = load i32, ptr %36, align 8, !tbaa !46
+  %38 = icmp eq i32 %37, 49
+  %39 = icmp eq i32 %7, 38
+  %40 = or i1 %39, %38
+  br i1 %40, label %45, label %41
+
+41:                                               ; preds = %35
+  %switch.tableidx = add i32 %37, -5
+  %42 = icmp ult i32 %switch.tableidx, 18
+  br i1 %42, label %switch.lookup, label %45
+
+43:                                               ; preds = %1, %1
   br label %45
 
-36:                                               ; preds = %1
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %38 = load i32, ptr %37, align 8, !tbaa !46
-  %39 = icmp eq i32 %38, 49
-  %40 = icmp eq i32 %7, 38
-  %41 = or i1 %40, %39
-  br i1 %41, label %45, label %42
-
-42:                                               ; preds = %36
-  %switch.tableidx = add i32 %38, -5
-  %43 = icmp ult i32 %switch.tableidx, 18
-  br i1 %43, label %switch.lookup, label %45
-
-switch.lookup:                                    ; preds = %42
+switch.lookup:                                    ; preds = %41
   %44 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang6driver5tools3arm18getDefaultFloatABIERKN4llvm6TripleE, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %45
 
-45:                                               ; preds = %42, %switch.lookup, %36, %32, %28, %_ZN5clang6driver5tools3arm16useAAPCSForMachOERKN4llvm6TripleE.exit, %1, %8, %35, %_ZN5clang6driver5tools3arm16useAAPCSForMachOERKN4llvm6TripleE.exit.thread, %12
-  %.0 = phi i32 [ %., %32 ], [ %31, %28 ], [ 1, %36 ], [ %switch.load, %switch.lookup ], [ 2, %35 ], [ %15, %12 ], [ 3, %8 ], [ 3, %_ZN5clang6driver5tools3arm16useAAPCSForMachOERKN4llvm6TripleE.exit.thread ], [ 3, %1 ], [ 1, %_ZN5clang6driver5tools3arm16useAAPCSForMachOERKN4llvm6TripleE.exit ], [ 0, %42 ]
+45:                                               ; preds = %41, %switch.lookup, %35, %32, %28, %_ZN5clang6driver5tools3arm16useAAPCSForMachOERKN4llvm6TripleE.exit, %1, %8, %43, %_ZN5clang6driver5tools3arm16useAAPCSForMachOERKN4llvm6TripleE.exit.thread, %12
+  %.0 = phi i32 [ %., %32 ], [ %31, %28 ], [ 1, %35 ], [ 2, %43 ], [ %switch.load, %switch.lookup ], [ %15, %12 ], [ 3, %8 ], [ 3, %_ZN5clang6driver5tools3arm16useAAPCSForMachOERKN4llvm6TripleE.exit.thread ], [ 3, %1 ], [ 1, %_ZN5clang6driver5tools3arm16useAAPCSForMachOERKN4llvm6TripleE.exit ], [ 0, %41 ]
   ret i32 %.0
 }
 

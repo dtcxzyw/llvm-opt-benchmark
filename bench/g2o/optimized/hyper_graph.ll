@@ -1038,10 +1038,7 @@ _ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pa
   %40 = sext i32 %39 to i64
   %41 = urem i64 %40, %22
   %.not19.i.i.i.i = icmp eq i64 %41, %23
-  br i1 %.not19.i.i.i.i, label %34, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !59
-
-..loopexit_crit_edge21.i.i.i.i:                   ; preds = %37
-  br label %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit.thread, !llvm.loop !59
+  br i1 %.not19.i.i.i.i, label %34, label %..loopexit_crit_edge21.i.i.i.i31, !llvm.loop !59
 
 _ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit: ; preds = %34, %15
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1106,7 +1103,7 @@ _ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pa
   %.not19.i.i.i.i30 = icmp eq i64 %71, %56
   br i1 %.not19.i.i.i.i30, label %64, label %..loopexit_crit_edge21.i.i.i.i31, !llvm.loop !59
 
-..loopexit_crit_edge21.i.i.i.i31:                 ; preds = %67
+..loopexit_crit_edge21.i.i.i.i31:                 ; preds = %37, %67
   br label %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit.thread, !llvm.loop !59
 
 _ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit36: ; preds = %64, %47, %59
@@ -1263,8 +1260,8 @@ _ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %129
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
 
-_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %14, %.lr.ph.i.i.i.i27, %46, %51, %..loopexit_crit_edge21.i.i.i.i31, %19, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev.exit
-  %.0 = phi i1 [ %.023.lcssa, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev.exit ], [ false, %14 ], [ false, %..loopexit_crit_edge21.i.i.i.i ], [ false, %.lr.ph.i.i.i.i27 ], [ false, %19 ], [ false, %..loopexit_crit_edge21.i.i.i.i31 ], [ false, %46 ], [ false, %51 ], [ false, %.lr.ph.i.i.i.i ]
+_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %14, %.lr.ph.i.i.i.i27, %46, %51, %..loopexit_crit_edge21.i.i.i.i31, %19, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev.exit
+  %.0 = phi i1 [ %.023.lcssa, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev.exit ], [ false, %51 ], [ false, %14 ], [ false, %.lr.ph.i.i.i.i27 ], [ false, %19 ], [ false, %..loopexit_crit_edge21.i.i.i.i31 ], [ false, %46 ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %.0
 }
 

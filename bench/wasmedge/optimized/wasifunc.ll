@@ -6566,7 +6566,7 @@ _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %3
   %.not17.i.i.i.i = icmp eq i64 %40, %24
   br i1 %.not17.i.i.i.i, label %33, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !35
 
-..loopexit_crit_edge21.i.i.i.i:                   ; preds = %36
+..loopexit_crit_edge21.i.i.i.i:                   ; preds = %36, %65
   br label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit, !llvm.loop !35
 
 _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit: ; preds = %33, %16
@@ -6637,10 +6637,7 @@ _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8e
   %68 = sext i32 %67 to i64
   %69 = urem i64 %68, %52
   %.not17.i.i.i.i7 = icmp eq i64 %69, %54
-  br i1 %.not17.i.i.i.i7, label %62, label %..loopexit_crit_edge21.i.i.i.i8, !llvm.loop !35
-
-..loopexit_crit_edge21.i.i.i.i8:                  ; preds = %65
-  br label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit, !llvm.loop !35
+  br i1 %.not17.i.i.i.i7, label %62, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !35
 
 _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit13.loopexit: ; preds = %47
   %.phi.trans.insert74 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -6936,8 +6933,8 @@ _ZNSt19_Node_handle_commonISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeE
   store ptr null, ptr %4, align 8
   br label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit
 
-_ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %.lr.ph.i.i.i.i, %15, %.lr.ph.i.i.i.i4, %46, %..loopexit_crit_edge21.i.i.i.i, %20, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread39, %..loopexit_crit_edge21.i.i.i.i8, %.thread, %_ZNSt19_Node_insert_returnINSt8__detail14_Node_iteratorISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEELb0ELb0EEESt12_Node_handleIiSA_SaINS0_10_Hash_nodeISA_Lb0EEEEEED2Ev.exit, %_ZNSt19_Node_handle_commonISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaINSt8__detail10_Hash_nodeIS8_Lb0EEEEE8_M_resetEv.exit.i.i
-  %.sroa.033.0.insert.insert = phi i32 [ 524288, %46 ], [ 524288, %15 ], [ 1, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread39 ], [ 524288, %..loopexit_crit_edge21.i.i.i.i ], [ 524288, %.lr.ph.i.i.i.i4 ], [ 524288, %20 ], [ 1, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit ], [ 524288, %..loopexit_crit_edge21.i.i.i.i8 ], [ 1, %_ZNSt19_Node_handle_commonISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaINSt8__detail10_Hash_nodeIS8_Lb0EEEEE8_M_resetEv.exit.i.i ], [ 524288, %.thread ], [ 1, %_ZNSt19_Node_insert_returnINSt8__detail14_Node_iteratorISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEELb0ELb0EEESt12_Node_handleIiSA_SaINS0_10_Hash_nodeISA_Lb0EEEEEED2Ev.exit ], [ 524288, %.lr.ph.i.i.i.i ]
+_ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %.lr.ph.i.i.i.i, %15, %.lr.ph.i.i.i.i4, %46, %..loopexit_crit_edge21.i.i.i.i, %20, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread39, %.thread, %_ZNSt19_Node_insert_returnINSt8__detail14_Node_iteratorISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEELb0ELb0EEESt12_Node_handleIiSA_SaINS0_10_Hash_nodeISA_Lb0EEEEEED2Ev.exit, %_ZNSt19_Node_handle_commonISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaINSt8__detail10_Hash_nodeIS8_Lb0EEEEE8_M_resetEv.exit.i.i
+  %.sroa.033.0.insert.insert = phi i32 [ 524288, %46 ], [ 1, %_ZNSt19_Node_insert_returnINSt8__detail14_Node_iteratorISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEELb0ELb0EEESt12_Node_handleIiSA_SaINS0_10_Hash_nodeISA_Lb0EEEEEED2Ev.exit ], [ 1, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread39 ], [ 524288, %..loopexit_crit_edge21.i.i.i.i ], [ 524288, %.lr.ph.i.i.i.i4 ], [ 524288, %20 ], [ 1, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit ], [ 524288, %15 ], [ 1, %_ZNSt19_Node_handle_commonISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaINSt8__detail10_Hash_nodeIS8_Lb0EEEEE8_M_resetEv.exit.i.i ], [ 524288, %.thread ], [ 524288, %.lr.ph.i.i.i.i ]
   %201 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %6) #19
   ret i32 %.sroa.033.0.insert.insert
 

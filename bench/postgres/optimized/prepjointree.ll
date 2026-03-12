@@ -3738,7 +3738,7 @@ define internal fastcc noundef zeroext i1 @jointree_contains_lateral_outer_refs(
   %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = tail call fastcc zeroext i1 @jointree_contains_lateral_outer_refs(ptr noundef %0, ptr noundef %21, i1 noundef zeroext %2, ptr noundef %3)
-  br i1 %22, label %.thread, label %15
+  br i1 %22, label %.thread52, label %15
 
 .critedge:                                        ; preds = %15, %.lr.ph, %8
   br i1 %2, label %23, label %48
@@ -3748,10 +3748,7 @@ define internal fastcc noundef zeroext i1 @jointree_contains_lateral_outer_refs(
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @pull_varnos_of_level(ptr noundef %0, ptr noundef %25, i32 noundef 1) #6
   %27 = tail call zeroext i1 @bms_is_subset(ptr noundef %26, ptr noundef %3) #6
-  br i1 %27, label %48, label %.thread
-
-.thread:                                          ; preds = %.lr.ph57, %23
-  br label %48
+  br i1 %27, label %48, label %.thread52
 
 28:                                               ; preds = %6
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3780,7 +3777,7 @@ define internal fastcc noundef zeroext i1 @jointree_contains_lateral_outer_refs(
   %43 = tail call zeroext i1 @bms_is_subset(ptr noundef %42, ptr noundef %spec.select) #6
   br i1 %43, label %48, label %.thread52
 
-.thread52:                                        ; preds = %34, %28, %39
+.thread52:                                        ; preds = %.lr.ph57, %23, %34, %28, %39
   br label %48
 
 44:                                               ; preds = %6
@@ -3790,8 +3787,8 @@ define internal fastcc noundef zeroext i1 @jointree_contains_lateral_outer_refs(
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2249, ptr noundef nonnull @__func__.jointree_contains_lateral_outer_refs) #6
   unreachable
 
-48:                                               ; preds = %.critedge, %23, %38, %39, %.thread52, %.thread, %6, %4
-  %.0 = phi i1 [ true, %.thread52 ], [ false, %4 ], [ false, %6 ], [ true, %.thread ], [ false, %39 ], [ false, %38 ], [ false, %23 ], [ false, %.critedge ]
+48:                                               ; preds = %.critedge, %23, %38, %39, %.thread52, %6, %4
+  %.0 = phi i1 [ true, %.thread52 ], [ false, %4 ], [ false, %6 ], [ false, %.critedge ], [ false, %39 ], [ false, %38 ], [ false, %23 ]
   ret i1 %.0
 }
 

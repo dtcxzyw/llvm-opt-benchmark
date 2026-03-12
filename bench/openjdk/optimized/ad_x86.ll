@@ -8318,223 +8318,214 @@ define hidden noundef zeroext i1 @_ZN7Matcher34match_rule_supported_vector_maske
   br i1 %.not43, label %_ZL25is_pop_count_instr_target9BasicType.exit, label %13
 
 13:                                               ; preds = %10, %5
-  switch i32 %0, label %85 [
+  switch i32 %0, label %82 [
     i32 387, label %14
     i32 388, label %14
-    i32 389, label %17
-    i32 390, label %17
-    i32 384, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 383, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 346, label %18
-    i32 356, label %20
-    i32 357, label %20
-    i32 366, label %20
-    i32 367, label %20
-    i32 373, label %20
-    i32 402, label %20
-    i32 406, label %20
-    i32 410, label %20
-    i32 376, label %24
-    i32 413, label %28
-    i32 415, label %28
-    i32 417, label %28
-    i32 299, label %28
-    i32 297, label %28
-    i32 477, label %30
-    i32 358, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 360, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 362, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 364, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 368, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 369, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 370, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 371, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 374, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 378, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 380, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 385, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 386, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 398, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 397, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 403, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 404, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 407, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 408, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 411, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 412, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 432, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 433, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 428, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 431, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 420, label %36
-    i32 419, label %36
-    i32 472, label %44
-    i32 476, label %50
-    i32 497, label %61
-    i32 498, label %61
-    i32 499, label %61
-    i32 278, label %67
-    i32 279, label %67
-    i32 496, label %_ZL25is_pop_count_instr_target9BasicType.exit
-    i32 149, label %79
+    i32 389, label %63
+    i32 390, label %63
+    i32 384, label %63
+    i32 383, label %63
+    i32 346, label %17
+    i32 356, label %19
+    i32 357, label %19
+    i32 366, label %19
+    i32 367, label %19
+    i32 373, label %19
+    i32 402, label %19
+    i32 406, label %19
+    i32 410, label %19
+    i32 376, label %23
+    i32 413, label %27
+    i32 415, label %27
+    i32 417, label %27
+    i32 299, label %27
+    i32 297, label %27
+    i32 477, label %29
+    i32 358, label %63
+    i32 360, label %63
+    i32 362, label %63
+    i32 364, label %63
+    i32 368, label %63
+    i32 369, label %63
+    i32 370, label %63
+    i32 371, label %63
+    i32 374, label %63
+    i32 378, label %63
+    i32 380, label %63
+    i32 385, label %63
+    i32 386, label %63
+    i32 398, label %63
+    i32 397, label %63
+    i32 403, label %63
+    i32 404, label %63
+    i32 407, label %63
+    i32 408, label %63
+    i32 411, label %63
+    i32 412, label %63
+    i32 432, label %63
+    i32 433, label %63
+    i32 428, label %63
+    i32 431, label %63
+    i32 420, label %34
+    i32 419, label %34
+    i32 472, label %42
+    i32 476, label %47
+    i32 497, label %58
+    i32 498, label %58
+    i32 499, label %58
+    i32 278, label %64
+    i32 279, label %64
+    i32 496, label %63
+    i32 149, label %76
   ]
 
 14:                                               ; preds = %13, %13
   %15 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %16 = and i64 %15, 4294967296
   %.not55 = icmp eq i64 %16, 0
-  br i1 %.not55, label %_ZL25is_pop_count_instr_target9BasicType.exit, label %17
+  br i1 %.not55, label %_ZL25is_pop_count_instr_target9BasicType.exit, label %63
 
-17:                                               ; preds = %14, %13, %13
+17:                                               ; preds = %13
+  %18 = and i8 %2, -2
+  %or.cond = icmp eq i8 %18, 10
   br label %_ZL25is_pop_count_instr_target9BasicType.exit
 
-18:                                               ; preds = %13
-  %19 = and i8 %2, -2
-  %or.cond = icmp eq i8 %19, 10
+19:                                               ; preds = %13, %13, %13, %13, %13, %13, %13, %13
+  %20 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %21 = and i64 %20, 4294967296
+  %22 = icmp ne i64 %21, 0
   br label %_ZL25is_pop_count_instr_target9BasicType.exit
 
-20:                                               ; preds = %13, %13, %13, %13, %13, %13, %13, %13
-  %21 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %22 = and i64 %21, 4294967296
-  %23 = icmp ne i64 %22, 0
+23:                                               ; preds = %13
+  %24 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %25 = and i64 %24, 268435456
+  %26 = icmp ne i64 %25, 0
   br label %_ZL25is_pop_count_instr_target9BasicType.exit
 
-24:                                               ; preds = %13
-  %25 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %26 = and i64 %25, 268435456
-  %27 = icmp ne i64 %26, 0
+27:                                               ; preds = %13, %13, %13, %13, %13
+  %28 = and i8 %2, -2
+  %or.cond5 = icmp eq i8 %28, 10
   br label %_ZL25is_pop_count_instr_target9BasicType.exit
 
-28:                                               ; preds = %13, %13, %13, %13, %13
-  %29 = and i8 %2, -2
-  %or.cond5 = icmp eq i8 %29, 10
-  br label %_ZL25is_pop_count_instr_target9BasicType.exit
-
-30:                                               ; preds = %13
-  %31 = add i8 %2, -4
-  %switch.and.i = and i8 %31, -6
+29:                                               ; preds = %13
+  %30 = add i8 %2, -4
+  %switch.and.i = and i8 %30, -6
   %switch.selectcmp.i = icmp eq i8 %switch.and.i, 0
-  br i1 %switch.selectcmp.i, label %32, label %35
+  br i1 %switch.selectcmp.i, label %31, label %63
 
-32:                                               ; preds = %30
-  %33 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %34 = and i64 %33, 4294967296
-  %.not54 = icmp eq i64 %34, 0
-  br i1 %.not54, label %_ZL25is_pop_count_instr_target9BasicType.exit, label %35
+31:                                               ; preds = %29
+  %32 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %33 = and i64 %32, 4294967296
+  %.not54 = icmp eq i64 %33, 0
+  br i1 %.not54, label %_ZL25is_pop_count_instr_target9BasicType.exit, label %63
 
-35:                                               ; preds = %32, %30
-  br label %_ZL25is_pop_count_instr_target9BasicType.exit
-
-36:                                               ; preds = %13, %13
-  %37 = add i8 %2, -4
-  %switch.and.i39 = and i8 %37, -6
+34:                                               ; preds = %13, %13
+  %35 = add i8 %2, -4
+  %switch.and.i39 = and i8 %35, -6
   %switch.selectcmp.i40 = icmp eq i8 %switch.and.i39, 0
-  br i1 %switch.selectcmp.i40, label %38, label %41
+  br i1 %switch.selectcmp.i40, label %36, label %39
 
-38:                                               ; preds = %36
-  %39 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %40 = and i64 %39, 4294967296
-  %.not53 = icmp eq i64 %40, 0
-  br i1 %.not53, label %_ZL25is_pop_count_instr_target9BasicType.exit, label %41
+36:                                               ; preds = %34
+  %37 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %38 = and i64 %37, 4294967296
+  %.not53 = icmp eq i64 %38, 0
+  br i1 %.not53, label %_ZL25is_pop_count_instr_target9BasicType.exit, label %39
 
-41:                                               ; preds = %38, %36
-  %42 = and i8 %2, -2
-  %43 = icmp ne i8 %42, 6
+39:                                               ; preds = %36, %34
+  %40 = and i8 %2, -2
+  %41 = icmp ne i8 %40, 6
   br label %_ZL25is_pop_count_instr_target9BasicType.exit
 
-44:                                               ; preds = %13
-  %45 = add i8 %2, -4
-  %switch.and.i41 = and i8 %45, -6
+42:                                               ; preds = %13
+  %43 = add i8 %2, -4
+  %switch.and.i41 = and i8 %43, -6
   %switch.selectcmp.i42 = icmp eq i8 %switch.and.i41, 0
-  br i1 %switch.selectcmp.i42, label %46, label %49
+  br i1 %switch.selectcmp.i42, label %44, label %63
 
-46:                                               ; preds = %44
-  %47 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %48 = and i64 %47, 4294967296
-  %.not52 = icmp eq i64 %48, 0
-  br i1 %.not52, label %_ZL25is_pop_count_instr_target9BasicType.exit, label %49
+44:                                               ; preds = %42
+  %45 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %46 = and i64 %45, 4294967296
+  %.not52 = icmp eq i64 %46, 0
+  br i1 %.not52, label %_ZL25is_pop_count_instr_target9BasicType.exit, label %63
 
-49:                                               ; preds = %46, %44
-  br label %_ZL25is_pop_count_instr_target9BasicType.exit
-
-50:                                               ; preds = %13
-  switch i8 %2, label %57 [
-    i8 9, label %51
-    i8 8, label %54
+47:                                               ; preds = %13
+  switch i8 %2, label %54 [
+    i8 9, label %48
+    i8 8, label %51
   ]
 
-51:                                               ; preds = %50
+48:                                               ; preds = %47
+  %49 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %50 = and i64 %49, 4294967296
+  %.not47 = icmp eq i64 %50, 0
+  br i1 %.not47, label %_ZL25is_pop_count_instr_target9BasicType.exit, label %54
+
+51:                                               ; preds = %47
   %52 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %53 = and i64 %52, 4294967296
-  %.not47 = icmp eq i64 %53, 0
-  br i1 %.not47, label %_ZL25is_pop_count_instr_target9BasicType.exit, label %57
+  %53 = and i64 %52, 35184372088832
+  %.not46 = icmp eq i64 %53, 0
+  br i1 %.not46, label %_ZL25is_pop_count_instr_target9BasicType.exit, label %54
 
-54:                                               ; preds = %50
-  %55 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %56 = and i64 %55, 35184372088832
-  %.not46 = icmp eq i64 %56, 0
-  br i1 %.not46, label %_ZL25is_pop_count_instr_target9BasicType.exit, label %57
-
-57:                                               ; preds = %51, %50, %54
-  %58 = icmp ne i8 %2, 10
-  %59 = icmp ne i8 %2, 6
-  %or.cond8.not51 = and i1 %58, %59
-  %60 = icmp sgt i32 %9, 31
-  %or.cond10.not = or i1 %or.cond8.not51, %60
+54:                                               ; preds = %48, %47, %51
+  %55 = icmp ne i8 %2, 10
+  %56 = icmp ne i8 %2, 6
+  %or.cond8.not51 = and i1 %55, %56
+  %57 = icmp sgt i32 %9, 31
+  %or.cond10.not = or i1 %or.cond8.not51, %57
   br label %_ZL25is_pop_count_instr_target9BasicType.exit
 
-61:                                               ; preds = %13, %13, %13
-  %62 = icmp sgt i32 %1, 16
-  br i1 %62, label %63, label %66
+58:                                               ; preds = %13, %13, %13
+  %59 = icmp sgt i32 %1, 16
+  br i1 %59, label %60, label %63
 
-63:                                               ; preds = %61
-  %64 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %65 = and i64 %64, 4294967296
-  %.not45 = icmp eq i64 %65, 0
-  br i1 %.not45, label %_ZL25is_pop_count_instr_target9BasicType.exit, label %66
+60:                                               ; preds = %58
+  %61 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %62 = and i64 %61, 4294967296
+  %.not45 = icmp eq i64 %62, 0
+  br i1 %.not45, label %_ZL25is_pop_count_instr_target9BasicType.exit, label %63
 
-66:                                               ; preds = %63, %61
+63:                                               ; preds = %14, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %29, %31, %42, %44, %60, %58
   br label %_ZL25is_pop_count_instr_target9BasicType.exit
 
-67:                                               ; preds = %13, %13
-  %68 = add i8 %2, -4
-  %switch.and.i.i = and i8 %68, -6
+64:                                               ; preds = %13, %13
+  %65 = add i8 %2, -4
+  %switch.and.i.i = and i8 %65, -6
   %switch.selectcmp.i.i = icmp eq i8 %switch.and.i.i, 0
-  br i1 %switch.selectcmp.i.i, label %69, label %72
+  br i1 %switch.selectcmp.i.i, label %66, label %69
 
-69:                                               ; preds = %67
-  %70 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %71 = and i64 %70, 4503599627370496
-  %.not.i = icmp eq i64 %71, 0
-  br i1 %.not.i, label %72, label %_ZL25is_pop_count_instr_target9BasicType.exit
+66:                                               ; preds = %64
+  %67 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %68 = and i64 %67, 4503599627370496
+  %.not.i = icmp eq i64 %68, 0
+  br i1 %.not.i, label %69, label %_ZL25is_pop_count_instr_target9BasicType.exit
 
-72:                                               ; preds = %69, %67
-  %73 = and i8 %2, -2
-  %74 = icmp eq i8 %73, 10
-  br i1 %74, label %75, label %_ZL25is_pop_count_instr_target9BasicType.exit
+69:                                               ; preds = %66, %64
+  %70 = and i8 %2, -2
+  %71 = icmp eq i8 %70, 10
+  br i1 %71, label %72, label %_ZL25is_pop_count_instr_target9BasicType.exit
 
-75:                                               ; preds = %72
-  %76 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %77 = and i64 %76, 137438953472
-  %78 = icmp ne i64 %77, 0
+72:                                               ; preds = %69
+  %73 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %74 = and i64 %73, 137438953472
+  %75 = icmp ne i64 %74, 0
   br label %_ZL25is_pop_count_instr_target9BasicType.exit
 
-79:                                               ; preds = %13
-  %80 = and i8 %2, -2
-  %81 = icmp eq i8 %80, 10
-  br i1 %81, label %82, label %85
+76:                                               ; preds = %13
+  %77 = and i8 %2, -2
+  %78 = icmp eq i8 %77, 10
+  br i1 %78, label %79, label %82
 
-82:                                               ; preds = %79
-  %83 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %84 = and i64 %83, 2147483648
-  %.not44 = icmp eq i64 %84, 0
-  br i1 %.not44, label %85, label %_ZL25is_pop_count_instr_target9BasicType.exit
+79:                                               ; preds = %76
+  %80 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %81 = and i64 %80, 2147483648
+  %.not44 = icmp eq i64 %81, 0
+  br i1 %.not44, label %82, label %_ZL25is_pop_count_instr_target9BasicType.exit
 
-85:                                               ; preds = %79, %82, %13
+82:                                               ; preds = %76, %79, %13
   br label %_ZL25is_pop_count_instr_target9BasicType.exit
 
-_ZL25is_pop_count_instr_target9BasicType.exit:    ; preds = %75, %72, %69, %82, %63, %57, %54, %51, %46, %41, %38, %32, %28, %24, %20, %18, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %14, %10, %3, %85, %66, %49, %35, %17
-  %.0 = phi i1 [ false, %85 ], [ true, %17 ], [ false, %10 ], [ false, %14 ], [ %or.cond, %18 ], [ true, %13 ], [ true, %13 ], [ %23, %20 ], [ true, %13 ], [ %27, %24 ], [ %or.cond5, %28 ], [ true, %13 ], [ true, %35 ], [ true, %13 ], [ false, %32 ], [ %43, %41 ], [ false, %38 ], [ true, %13 ], [ true, %49 ], [ true, %13 ], [ %or.cond10.not, %57 ], [ false, %54 ], [ false, %51 ], [ false, %46 ], [ true, %66 ], [ true, %13 ], [ false, %63 ], [ true, %82 ], [ true, %13 ], [ true, %13 ], [ false, %3 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %69 ], [ false, %72 ], [ %78, %75 ]
+_ZL25is_pop_count_instr_target9BasicType.exit:    ; preds = %72, %69, %66, %79, %60, %54, %51, %48, %44, %39, %36, %31, %27, %23, %19, %17, %14, %10, %3, %82, %63
+  %.0 = phi i1 [ false, %82 ], [ %75, %72 ], [ false, %10 ], [ false, %14 ], [ %or.cond, %17 ], [ false, %3 ], [ false, %51 ], [ %22, %19 ], [ false, %48 ], [ %26, %23 ], [ %or.cond5, %27 ], [ true, %79 ], [ false, %69 ], [ false, %60 ], [ false, %31 ], [ %41, %39 ], [ false, %36 ], [ false, %44 ], [ true, %66 ], [ true, %63 ], [ %or.cond10.not, %54 ]
   ret i1 %.0
 }
 

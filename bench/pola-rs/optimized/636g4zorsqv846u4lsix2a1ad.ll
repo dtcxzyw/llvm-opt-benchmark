@@ -14395,9 +14395,9 @@ define hidden void @"_ZN105_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %27
 
-27:                                               ; preds = %105, %.lr.ph.i
-  %.sroa.02.026.i = phi ptr [ %15, %.lr.ph.i ], [ %106, %105 ]
-  %.sroa.13.025.i = phi i64 [ %.sroa.4.0.copyload10, %.lr.ph.i ], [ %28, %105 ]
+27:                                               ; preds = %103, %.lr.ph.i
+  %.sroa.02.026.i = phi ptr [ %15, %.lr.ph.i ], [ %104, %103 ]
+  %.sroa.13.025.i = phi i64 [ %.sroa.4.0.copyload10, %.lr.ph.i ], [ %28, %103 ]
   %28 = add i64 %.sroa.13.025.i, 1
   %29 = load i64, ptr %.sroa.0.sroa.4.0.copyload, align 8, !noalias !2099, !noundef !12
   %30 = load i64, ptr %.sroa.0.sroa.5.0.copyload, align 8, !noalias !2099, !noundef !12
@@ -14533,16 +14533,16 @@ define hidden void @"_ZN105_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow
   %.sroa.022.0.lcssa.i.i.i.i = phi double [ 0.000000e+00, %64 ], [ %.sroa.016.031.i.i.i.i, %.lr.ph.i5.i.i.i ]
   %.sroa.0.0.lcssa.i.i.i.i = phi float [ 0.000000e+00, %64 ], [ %75, %.lr.ph.i5.i.i.i ]
   %80 = fcmp oeq double %69, %.sroa.022.0.lcssa.i.i.i.i
-  br i1 %80, label %105, label %81
+  br i1 %80, label %103, label %81
 
 81:                                               ; preds = %._crit_edge.i.i.i.i
   switch i8 %63, label %default.unreachable [
     i8 0, label %82
-    i8 1, label %86
-    i8 2, label %105
-    i8 3, label %87
-    i8 4, label %90
-    i8 5, label %98
+    i8 1, label %102
+    i8 2, label %103
+    i8 3, label %86
+    i8 4, label %89
+    i8 5, label %97
   ]
 
 default.unreachable:                              ; preds = %81
@@ -14552,74 +14552,68 @@ default.unreachable:                              ; preds = %81
   %83 = fsub double %.sroa.016.0.lcssa.i.i.i.i, %69
   %84 = fsub double %69, %.sroa.022.0.lcssa.i.i.i.i
   %85 = fcmp ogt double %83, %84
-  br i1 %85, label %103, label %105
+  br i1 %85, label %102, label %103
 
 86:                                               ; preds = %81
-  br label %105
+  %87 = fadd float %.sroa.07.0.lcssa.i.i.i.i, %.sroa.0.0.lcssa.i.i.i.i
+  %88 = fmul float %87, 5.000000e-01
+  br label %103
 
-87:                                               ; preds = %81
-  %88 = fadd float %.sroa.07.0.lcssa.i.i.i.i, %.sroa.0.0.lcssa.i.i.i.i
-  %89 = fmul float %88, 5.000000e-01
-  br label %105
+89:                                               ; preds = %81
+  %90 = fsub double %69, %.sroa.022.0.lcssa.i.i.i.i
+  %91 = fsub double %.sroa.016.0.lcssa.i.i.i.i, %.sroa.022.0.lcssa.i.i.i.i
+  %92 = fdiv double %90, %91
+  %93 = fptrunc double %92 to float
+  %94 = fsub float %.sroa.0.0.lcssa.i.i.i.i, %.sroa.07.0.lcssa.i.i.i.i
+  %95 = fmul float %94, %93
+  %96 = fadd float %.sroa.07.0.lcssa.i.i.i.i, %95
+  br label %103
 
-90:                                               ; preds = %81
-  %91 = fsub double %69, %.sroa.022.0.lcssa.i.i.i.i
-  %92 = fsub double %.sroa.016.0.lcssa.i.i.i.i, %.sroa.022.0.lcssa.i.i.i.i
-  %93 = fdiv double %91, %92
-  %94 = fptrunc double %93 to float
-  %95 = fsub float %.sroa.0.0.lcssa.i.i.i.i, %.sroa.07.0.lcssa.i.i.i.i
-  %96 = fmul float %95, %94
-  %97 = fadd float %.sroa.07.0.lcssa.i.i.i.i, %96
-  br label %105
+97:                                               ; preds = %81
+  %98 = fmul double %61, %62
+  %99 = call double @llvm.ceil.f64(double %98)
+  %100 = fadd double %99, -1.000000e+00
+  %101 = fcmp ogt double %.sroa.016.0.lcssa.i.i.i.i, %100
+  br i1 %101, label %103, label %102
 
-98:                                               ; preds = %81
-  %99 = fmul double %61, %62
-  %100 = call double @llvm.ceil.f64(double %99)
-  %101 = fadd double %100, -1.000000e+00
-  %102 = fcmp ogt double %.sroa.016.0.lcssa.i.i.i.i, %101
-  br i1 %102, label %105, label %104
+102:                                              ; preds = %97, %82, %81
+  br label %103
 
-103:                                              ; preds = %82
-  br label %105
-
-104:                                              ; preds = %98
-  br label %105
-
-105:                                              ; preds = %104, %103, %98, %90, %87, %86, %82, %81, %._crit_edge.i.i.i.i
-  %.sroa.3.0.i.ph.i = phi float [ %.sroa.0.0.lcssa.i.i.i.i, %98 ], [ %97, %90 ], [ %89, %87 ], [ %.sroa.0.0.lcssa.i.i.i.i, %81 ], [ %.sroa.07.0.lcssa.i.i.i.i, %86 ], [ %.sroa.0.0.lcssa.i.i.i.i, %82 ], [ %.sroa.07.0.lcssa.i.i.i.i, %103 ], [ %.sroa.07.0.lcssa.i.i.i.i, %104 ], [ %.sroa.07.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+103:                                              ; preds = %102, %97, %89, %86, %82, %81, %._crit_edge.i.i.i.i
+  %.sroa.3.0.i.ph.i = phi float [ %88, %86 ], [ %.sroa.0.0.lcssa.i.i.i.i, %81 ], [ %.sroa.0.0.lcssa.i.i.i.i, %97 ], [ %.sroa.0.0.lcssa.i.i.i.i, %82 ], [ %.sroa.07.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.sroa.07.0.lcssa.i.i.i.i, %102 ], [ %96, %89 ]
   store float %.sroa.3.0.i.ph.i, ptr %.sroa.02.026.i, align 4, !noalias !2132
-  %106 = getelementptr inbounds nuw i8, ptr %.sroa.02.026.i, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.02.026.i, i64 4
   %exitcond.not.i = icmp eq i64 %28, %.sroa.5.0.copyload12
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %27
 
 .loopexit:                                        ; preds = %27, %.noexc4, %57, %58
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %105
 
 .loopexit.split-lp:                               ; preds = %72
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %107
+  br label %105
 
-107:                                              ; preds = %.loopexit.split-lp, %.loopexit
+105:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17hf66a2f99a6b6ac69E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #25
-          to label %110 unwind label %108
+          to label %108 unwind label %106
 
-._crit_edge.loopexit.i:                           ; preds = %105, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h94718001644d3096E.exit.i"
+._crit_edge.loopexit.i:                           ; preds = %103, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h94718001644d3096E.exit.i"
   store i64 %spec.select.i.i, ptr %18, align 8, !alias.scope !2096, !noalias !2132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
-108:                                              ; preds = %107
-  %109 = landingpad { ptr, i32 }
+106:                                              ; preds = %105
+  %107 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #26
   unreachable
 
-110:                                              ; preds = %107
+108:                                              ; preds = %105
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -16669,9 +16663,9 @@ define hidden void @"_ZN105_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %27
 
-27:                                               ; preds = %104, %.lr.ph.i
-  %.sroa.02.026.i = phi ptr [ %15, %.lr.ph.i ], [ %105, %104 ]
-  %.sroa.13.025.i = phi i64 [ %.sroa.4.0.copyload10, %.lr.ph.i ], [ %28, %104 ]
+27:                                               ; preds = %102, %.lr.ph.i
+  %.sroa.02.026.i = phi ptr [ %15, %.lr.ph.i ], [ %103, %102 ]
+  %.sroa.13.025.i = phi i64 [ %.sroa.4.0.copyload10, %.lr.ph.i ], [ %28, %102 ]
   %28 = add i64 %.sroa.13.025.i, 1
   %29 = load i64, ptr %.sroa.0.sroa.4.0.copyload, align 8, !noalias !2422, !noundef !12
   %30 = load i64, ptr %.sroa.0.sroa.5.0.copyload, align 8, !noalias !2422, !noundef !12
@@ -16807,16 +16801,16 @@ define hidden void @"_ZN105_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow
   %.sroa.022.0.lcssa.i.i.i.i = phi double [ 0.000000e+00, %64 ], [ %.sroa.016.031.i.i.i.i, %.lr.ph.i5.i.i.i ]
   %.sroa.0.0.lcssa.i.i.i.i = phi double [ 0.000000e+00, %64 ], [ %75, %.lr.ph.i5.i.i.i ]
   %80 = fcmp oeq double %69, %.sroa.022.0.lcssa.i.i.i.i
-  br i1 %80, label %104, label %81
+  br i1 %80, label %102, label %81
 
 81:                                               ; preds = %._crit_edge.i.i.i.i
   switch i8 %63, label %default.unreachable [
     i8 0, label %82
-    i8 1, label %86
-    i8 2, label %104
-    i8 3, label %87
-    i8 4, label %90
-    i8 5, label %97
+    i8 1, label %101
+    i8 2, label %102
+    i8 3, label %86
+    i8 4, label %89
+    i8 5, label %96
   ]
 
 default.unreachable:                              ; preds = %81
@@ -16826,73 +16820,67 @@ default.unreachable:                              ; preds = %81
   %83 = fsub double %.sroa.016.0.lcssa.i.i.i.i, %69
   %84 = fsub double %69, %.sroa.022.0.lcssa.i.i.i.i
   %85 = fcmp ogt double %83, %84
-  br i1 %85, label %102, label %104
+  br i1 %85, label %101, label %102
 
 86:                                               ; preds = %81
-  br label %104
+  %87 = fadd double %.sroa.07.0.lcssa.i.i.i.i, %.sroa.0.0.lcssa.i.i.i.i
+  %88 = fmul double %87, 5.000000e-01
+  br label %102
 
-87:                                               ; preds = %81
-  %88 = fadd double %.sroa.07.0.lcssa.i.i.i.i, %.sroa.0.0.lcssa.i.i.i.i
-  %89 = fmul double %88, 5.000000e-01
-  br label %104
+89:                                               ; preds = %81
+  %90 = fsub double %69, %.sroa.022.0.lcssa.i.i.i.i
+  %91 = fsub double %.sroa.016.0.lcssa.i.i.i.i, %.sroa.022.0.lcssa.i.i.i.i
+  %92 = fdiv double %90, %91
+  %93 = fsub double %.sroa.0.0.lcssa.i.i.i.i, %.sroa.07.0.lcssa.i.i.i.i
+  %94 = fmul double %92, %93
+  %95 = fadd double %.sroa.07.0.lcssa.i.i.i.i, %94
+  br label %102
 
-90:                                               ; preds = %81
-  %91 = fsub double %69, %.sroa.022.0.lcssa.i.i.i.i
-  %92 = fsub double %.sroa.016.0.lcssa.i.i.i.i, %.sroa.022.0.lcssa.i.i.i.i
-  %93 = fdiv double %91, %92
-  %94 = fsub double %.sroa.0.0.lcssa.i.i.i.i, %.sroa.07.0.lcssa.i.i.i.i
-  %95 = fmul double %93, %94
-  %96 = fadd double %.sroa.07.0.lcssa.i.i.i.i, %95
-  br label %104
+96:                                               ; preds = %81
+  %97 = fmul double %61, %62
+  %98 = call double @llvm.ceil.f64(double %97)
+  %99 = fadd double %98, -1.000000e+00
+  %100 = fcmp ogt double %.sroa.016.0.lcssa.i.i.i.i, %99
+  br i1 %100, label %102, label %101
 
-97:                                               ; preds = %81
-  %98 = fmul double %61, %62
-  %99 = call double @llvm.ceil.f64(double %98)
-  %100 = fadd double %99, -1.000000e+00
-  %101 = fcmp ogt double %.sroa.016.0.lcssa.i.i.i.i, %100
-  br i1 %101, label %104, label %103
+101:                                              ; preds = %96, %82, %81
+  br label %102
 
-102:                                              ; preds = %82
-  br label %104
-
-103:                                              ; preds = %97
-  br label %104
-
-104:                                              ; preds = %103, %102, %97, %90, %87, %86, %82, %81, %._crit_edge.i.i.i.i
-  %.sroa.3.0.i.ph.i = phi double [ %.sroa.0.0.lcssa.i.i.i.i, %97 ], [ %96, %90 ], [ %89, %87 ], [ %.sroa.0.0.lcssa.i.i.i.i, %81 ], [ %.sroa.07.0.lcssa.i.i.i.i, %86 ], [ %.sroa.0.0.lcssa.i.i.i.i, %82 ], [ %.sroa.07.0.lcssa.i.i.i.i, %102 ], [ %.sroa.07.0.lcssa.i.i.i.i, %103 ], [ %.sroa.07.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+102:                                              ; preds = %101, %96, %89, %86, %82, %81, %._crit_edge.i.i.i.i
+  %.sroa.3.0.i.ph.i = phi double [ %88, %86 ], [ %.sroa.0.0.lcssa.i.i.i.i, %81 ], [ %.sroa.0.0.lcssa.i.i.i.i, %96 ], [ %.sroa.0.0.lcssa.i.i.i.i, %82 ], [ %.sroa.07.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.sroa.07.0.lcssa.i.i.i.i, %101 ], [ %95, %89 ]
   store double %.sroa.3.0.i.ph.i, ptr %.sroa.02.026.i, align 8, !noalias !2455
-  %105 = getelementptr inbounds nuw i8, ptr %.sroa.02.026.i, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.02.026.i, i64 8
   %exitcond.not.i = icmp eq i64 %28, %.sroa.5.0.copyload12
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %27
 
 .loopexit:                                        ; preds = %27, %.noexc4, %57, %58
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %104
 
 .loopexit.split-lp:                               ; preds = %72
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %104
 
-106:                                              ; preds = %.loopexit.split-lp, %.loopexit
+104:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f64$GT$$GT$17h8104e5b44dfb3864E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #25
-          to label %109 unwind label %107
+          to label %107 unwind label %105
 
-._crit_edge.loopexit.i:                           ; preds = %104, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h6cc62de0c7983487E.exit.i"
+._crit_edge.loopexit.i:                           ; preds = %102, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h6cc62de0c7983487E.exit.i"
   store i64 %spec.select.i.i, ptr %18, align 8, !alias.scope !2419, !noalias !2455
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
-107:                                              ; preds = %106
-  %108 = landingpad { ptr, i32 }
+105:                                              ; preds = %104
+  %106 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #26
   unreachable
 
-109:                                              ; preds = %106
+107:                                              ; preds = %104
   resume { ptr, i32 } %lpad.phi
 }
 

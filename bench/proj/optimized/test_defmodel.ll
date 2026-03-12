@@ -81471,15 +81471,15 @@ _ZZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8TestBodyEvENK
 179:                                              ; preds = %176
   %180 = icmp eq i32 %166, 1
   %cond = icmp eq i32 %.sroa.speculated28.i, 1
-  %cond435.i = icmp eq i32 %.sroa.speculated.i, 3
-  %or.cond28 = select i1 %cond, i1 %cond435.i, i1 false
+  %or.cond433.i = icmp eq i32 %.sroa.speculated.i, 3
+  %or.cond = select i1 %cond, i1 %or.cond433.i, i1 false
   br i1 %180, label %181, label %182
 
 181:                                              ; preds = %179
-  br i1 %or.cond28, label %_ZZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8TestBodyEvENK4Grid16getLongLatOffsetEiiRdS2_.exit.i, label %_ZN20TestDeformationModel9EvaluatorIZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetZNS2_8TestBodyEvE14EvaluatorIfaceE7forwardERS5_ddddbRdS8_S8_.exit
+  br i1 %or.cond, label %_ZZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8TestBodyEvENK4Grid16getLongLatOffsetEiiRdS2_.exit.i, label %_ZN20TestDeformationModel9EvaluatorIZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetZNS2_8TestBodyEvE14EvaluatorIfaceE7forwardERS5_ddddbRdS8_S8_.exit
 
 182:                                              ; preds = %179
-  br i1 %or.cond28, label %_ZZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8TestBodyEvENK4Grid17getLongLatZOffsetEiiRdS2_S2_.exit.i, label %_ZN20TestDeformationModel9EvaluatorIZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetZNS2_8TestBodyEvE14EvaluatorIfaceE7forwardERS5_ddddbRdS8_S8_.exit
+  br i1 %or.cond, label %_ZZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8TestBodyEvENK4Grid17getLongLatZOffsetEiiRdS2_S2_.exit.i, label %_ZN20TestDeformationModel9EvaluatorIZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetZNS2_8TestBodyEvE14EvaluatorIfaceE7forwardERS5_ddddbRdS8_S8_.exit
 
 _ZZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8TestBodyEvENK4Grid17getLongLatZOffsetEiiRdS2_S2_.exit.i: ; preds = %182
   %183 = fmul double %163, 1.100000e+01
@@ -81862,14 +81862,14 @@ _ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit391.thread.i: ; preds = %3
 cdce.end324.i:                                    ; preds = %337
   %365 = call double @llvm.fabs.f64(double %.2.i)
   %366 = fcmp oeq double %365, 0x7FF0000000000000
-  br i1 %366, label %cdce.call5, label %cdce.end328.i, !prof !956
+  br i1 %366, label %cdce.call11, label %cdce.end328.i, !prof !956
 
-cdce.call5:                                       ; preds = %cdce.end324.i
+cdce.call11:                                      ; preds = %cdce.end324.i
   %367 = call double @sin(double noundef %.2.i) #41, !tbaa !19
   %368 = call double @cos(double noundef %.2.i) #41, !tbaa !19
   br label %cdce.end328.i
 
-cdce.end328.i:                                    ; preds = %cdce.call5, %cdce.end324.i
+cdce.end328.i:                                    ; preds = %cdce.call11, %cdce.end324.i
   call fastcc void @_ZN20TestDeformationModel23EvaluatorIfacePrototypeIZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetE22geographicToGeocentricEddddddRdS6_S6_()
   unreachable
 
@@ -81881,8 +81881,8 @@ cdce.end328.i:                                    ; preds = %cdce.call5, %cdce.e
   store double %371, ptr %6, align 8, !tbaa !68
   br label %_ZN20TestDeformationModel9EvaluatorIZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetZNS2_8TestBodyEvE14EvaluatorIfaceE7forwardERS5_ddddbRdS8_S8_.exit
 
-_ZN20TestDeformationModel9EvaluatorIZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetZNS2_8TestBodyEvE14EvaluatorIfaceE7forwardERS5_ddddbRdS8_S8_.exit: ; preds = %_ZNSt10unique_ptrIZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8TestBodyEvE7GridSetSt14default_deleteIS2_EED2Ev.exit.i, %116, %120, %168, %182, %181, %.loopexit.i, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.i, %48, %52, %.thread274.i, %369
-  %.1.i = phi i1 [ true, %369 ], [ false, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.i ], [ false, %48 ], [ false, %52 ], [ false, %.loopexit.i ], [ false, %.thread274.i ], [ false, %181 ], [ false, %182 ], [ false, %168 ], [ false, %120 ], [ false, %116 ], [ false, %_ZNSt10unique_ptrIZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8TestBodyEvE7GridSetSt14default_deleteIS2_EED2Ev.exit.i ]
+_ZN20TestDeformationModel9EvaluatorIZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8TestBodyEvE4GridZNS2_8TestBodyEvE7GridSetZNS2_8TestBodyEvE14EvaluatorIfaceE7forwardERS5_ddddbRdS8_S8_.exit: ; preds = %181, %_ZNSt10unique_ptrIZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8TestBodyEvE7GridSetSt14default_deleteIS2_EED2Ev.exit.i, %116, %120, %168, %182, %.loopexit.i, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.i, %48, %52, %.thread274.i, %369
+  %.1.i = phi i1 [ true, %369 ], [ false, %_ZN20TestDeformationModelL9bboxCheckERdS0_bdddddd.exit.i ], [ false, %48 ], [ false, %52 ], [ false, %.loopexit.i ], [ false, %.thread274.i ], [ false, %182 ], [ false, %168 ], [ false, %120 ], [ false, %116 ], [ false, %_ZNSt10unique_ptrIZN12_GLOBAL__N_146defmodel_evaluator_horizontal_unit_degree_Test8TestBodyEvE7GridSetSt14default_deleteIS2_EED2Ev.exit.i ], [ false, %181 ]
   ret i1 %.1.i
 }
 

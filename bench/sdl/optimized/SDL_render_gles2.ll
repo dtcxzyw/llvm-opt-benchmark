@@ -3420,7 +3420,7 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
   br label %65
 
 65:                                               ; preds = %.lr.ph252, %SetCopyState.exit.thread
-  %.0142251 = phi ptr [ %1, %.lr.ph252 ], [ %362, %SetCopyState.exit.thread ]
+  %.0142251 = phi ptr [ %1, %.lr.ph252 ], [ %355, %SetCopyState.exit.thread ]
   %66 = load i32, ptr %.0142251, align 8
   switch i32 %66, label %SetCopyState.exit.thread [
     i32 6, label %121
@@ -3676,7 +3676,7 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
   %.0149.lcssa = phi ptr [ %.0142251, %144 ], [ %.0142251, %.lr.ph.preheader ], [ %.0147212269, %173 ], [ %.0149210271, %.lr.ph272 ], [ %.0149210271, %161 ], [ %.0149210271, %164 ], [ %.0149210271, %167 ], [ %.0149210271, %170 ], [ %.0147212269, %.lr.ph ]
   %.0144.lcssa = phi i64 [ %156, %144 ], [ %156, %.lr.ph.preheader ], [ %176, %173 ], [ %.0144211270, %.lr.ph272 ], [ %.0144211270, %161 ], [ %.0144211270, %164 ], [ %.0144211270, %167 ], [ %.0144211270, %170 ], [ %176, %.lr.ph ]
   %.not178 = icmp eq ptr %146, null
-  br i1 %.not178, label %355, label %177
+  br i1 %.not178, label %348, label %177
 
 177:                                              ; preds = %.thread200
   %.val188 = load ptr, ptr %9, align 8
@@ -3684,25 +3684,25 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
   %178 = getelementptr inbounds nuw i8, ptr %146, i64 280
   %179 = load ptr, ptr %178, align 8
   %.not.i190 = icmp eq ptr %.val188, null
-  br i1 %.not.i190, label %200, label %180
+  br i1 %.not.i190, label %193, label %180
 
 180:                                              ; preds = %177
   %181 = load i32, ptr %.val188, align 8
   %182 = load i32, ptr %146, align 8
   %.not99.i = icmp eq i32 %181, %182
-  br i1 %.not99.i, label %211, label %183
+  br i1 %.not99.i, label %204, label %183
 
 183:                                              ; preds = %180
-  switch i32 %182, label %198 [
+  switch i32 %182, label %191 [
     i32 372645892, label %184
     i32 376840196, label %186
     i32 370546692, label %188
-    i32 374740996, label %191
-    i32 1448433993, label %211
-    i32 842094169, label %211
-    i32 842094158, label %195
-    i32 825382478, label %196
-    i32 542328143, label %197
+    i32 374740996, label %189
+    i32 1448433993, label %204
+    i32 842094169, label %204
+    i32 842094158, label %199
+    i32 825382478, label %200
+    i32 542328143, label %201
   ]
 
 184:                                              ; preds = %183
@@ -3710,450 +3710,429 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
   %switch.selectcmp.case2.i = icmp eq i32 %181, 374740996
   %switch.selectcmp.i = or i1 %switch.selectcmp.case1.i, %switch.selectcmp.case2.i
   %185 = select i1 %switch.selectcmp.i, i32 3, i32 2
-  br label %211
+  br label %204
 
 186:                                              ; preds = %183
   %switch.selectcmp.case1104.i = icmp eq i32 %181, 372645892
   %switch.selectcmp.case2105.i = icmp eq i32 %181, 370546692
   %switch.selectcmp106.i = or i1 %switch.selectcmp.case1104.i, %switch.selectcmp.case2105.i
   %187 = select i1 %switch.selectcmp106.i, i32 3, i32 2
-  br label %211
+  br label %204
 
 188:                                              ; preds = %183
-  switch i32 %181, label %211 [
-    i32 376840196, label %189
-    i32 372645892, label %190
-    i32 374740996, label %189
+  switch i32 %181, label %204 [
+    i32 376840196, label %190
+    i32 372645892, label %197
+    i32 374740996, label %190
   ]
 
-189:                                              ; preds = %188, %188
-  br label %211
+189:                                              ; preds = %183
+  switch i32 %181, label %204 [
+    i32 376840196, label %197
+    i32 372645892, label %196
+    i32 370546692, label %190
+  ]
 
-190:                                              ; preds = %188
-  br label %211
+190:                                              ; preds = %189, %188, %188
+  br label %204
 
 191:                                              ; preds = %183
-  switch i32 %181, label %211 [
-    i32 376840196, label %192
-    i32 372645892, label %193
-    i32 370546692, label %194
+  %192 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.94) #10
+  br i1 %192, label %350, label %SetCopyState.exit.thread
+
+193:                                              ; preds = %177
+  %194 = load i32, ptr %146, align 8
+  switch i32 %194, label %202 [
+    i32 372645892, label %204
+    i32 376840196, label %195
+    i32 370546692, label %196
+    i32 374740996, label %197
+    i32 1448433993, label %198
+    i32 842094169, label %198
+    i32 842094158, label %199
+    i32 825382478, label %200
+    i32 542328143, label %201
   ]
 
-192:                                              ; preds = %191
-  br label %211
+195:                                              ; preds = %193
+  br label %204
 
-193:                                              ; preds = %191
-  br label %211
+196:                                              ; preds = %193, %189
+  br label %204
 
-194:                                              ; preds = %191
-  br label %211
+197:                                              ; preds = %193, %189, %188
+  br label %204
 
-195:                                              ; preds = %183
-  br label %211
+198:                                              ; preds = %193, %193
+  br label %204
 
-196:                                              ; preds = %183
-  br label %211
+199:                                              ; preds = %193, %183
+  br label %204
 
-197:                                              ; preds = %183
-  br label %211
+200:                                              ; preds = %193, %183
+  br label %204
 
-198:                                              ; preds = %183
-  %199 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.94) #10
-  br i1 %199, label %357, label %SetCopyState.exit.thread
+201:                                              ; preds = %193, %183
+  br label %204
 
-200:                                              ; preds = %177
-  %201 = load i32, ptr %146, align 8
-  switch i32 %201, label %209 [
-    i32 372645892, label %211
-    i32 376840196, label %202
-    i32 370546692, label %203
-    i32 374740996, label %204
-    i32 1448433993, label %205
-    i32 842094169, label %205
-    i32 842094158, label %206
-    i32 825382478, label %207
-    i32 542328143, label %208
-  ]
+202:                                              ; preds = %193
+  %203 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.94) #10
+  br i1 %203, label %350, label %SetCopyState.exit.thread
 
-202:                                              ; preds = %200
-  br label %211
+204:                                              ; preds = %201, %200, %199, %198, %197, %196, %195, %193, %190, %189, %188, %186, %184, %183, %183, %180
+  %.094.i = phi i32 [ 3, %193 ], [ %185, %184 ], [ 9, %201 ], [ 7, %199 ], [ %187, %186 ], [ 6, %183 ], [ 2, %188 ], [ 5, %197 ], [ 4, %196 ], [ 6, %198 ], [ 2, %189 ], [ 2, %195 ], [ 2, %180 ], [ 3, %190 ], [ 8, %200 ], [ 6, %183 ]
+  %205 = call fastcc zeroext i1 @SetDrawState(ptr noundef %.val189, ptr noundef nonnull readonly %.0142251, i32 noundef %.094.i, ptr noundef %2)
+  %206 = getelementptr inbounds nuw i8, ptr %.val189, i64 608
+  %207 = load ptr, ptr %206, align 8
+  %.not100.i = icmp eq ptr %146, %207
+  br i1 %.not100.i, label %245, label %208
 
-203:                                              ; preds = %200
-  br label %211
+208:                                              ; preds = %204
+  %209 = getelementptr inbounds nuw i8, ptr %179, i64 36
+  %210 = load i8, ptr %209, align 4, !range !5, !noundef !6
+  %211 = trunc nuw i8 %210 to i1
+  br i1 %211, label %212, label %226
 
-204:                                              ; preds = %200
-  br label %211
-
-205:                                              ; preds = %200, %200
-  br label %211
-
-206:                                              ; preds = %200
-  br label %211
-
-207:                                              ; preds = %200
-  br label %211
-
-208:                                              ; preds = %200
-  br label %211
-
-209:                                              ; preds = %200
-  %210 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.94) #10
-  br i1 %210, label %357, label %SetCopyState.exit.thread
-
-211:                                              ; preds = %208, %207, %206, %205, %204, %203, %202, %200, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %186, %184, %183, %183, %180
-  %.094.i = phi i32 [ 3, %200 ], [ %185, %184 ], [ 9, %208 ], [ 7, %206 ], [ %187, %186 ], [ 6, %183 ], [ 2, %188 ], [ 3, %189 ], [ 5, %190 ], [ 6, %205 ], [ 2, %191 ], [ 5, %192 ], [ 4, %193 ], [ 3, %194 ], [ 8, %207 ], [ 7, %195 ], [ 8, %196 ], [ 9, %197 ], [ 6, %183 ], [ 2, %180 ], [ 2, %202 ], [ 4, %203 ], [ 5, %204 ]
-  %212 = call fastcc zeroext i1 @SetDrawState(ptr noundef %.val189, ptr noundef nonnull readonly %.0142251, i32 noundef %.094.i, ptr noundef %2)
-  %213 = getelementptr inbounds nuw i8, ptr %.val189, i64 608
+212:                                              ; preds = %208
+  %213 = getelementptr inbounds nuw i8, ptr %.val189, i64 16
   %214 = load ptr, ptr %213, align 8
-  %.not100.i = icmp eq ptr %146, %214
-  br i1 %.not100.i, label %252, label %215
-
-215:                                              ; preds = %211
-  %216 = getelementptr inbounds nuw i8, ptr %179, i64 36
-  %217 = load i8, ptr %216, align 4, !range !5, !noundef !6
-  %218 = trunc nuw i8 %217 to i1
-  br i1 %218, label %219, label %233
-
-219:                                              ; preds = %215
-  %220 = getelementptr inbounds nuw i8, ptr %.val189, i64 16
-  %221 = load ptr, ptr %220, align 8
-  call void %221(i32 noundef 33986) #10
-  %222 = getelementptr inbounds nuw i8, ptr %.val189, i64 40
-  %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  call void %214(i32 noundef 33986) #10
+  %215 = getelementptr inbounds nuw i8, ptr %.val189, i64 40
+  %216 = load ptr, ptr %215, align 8
+  %217 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  %218 = load i32, ptr %217, align 8
+  %219 = getelementptr inbounds nuw i8, ptr %179, i64 40
+  %220 = load i32, ptr %219, align 8
+  call void %216(i32 noundef %218, i32 noundef %220) #10
+  %221 = load ptr, ptr %213, align 8
+  call void %221(i32 noundef 33985) #10
+  %222 = load ptr, ptr %215, align 8
+  %223 = load i32, ptr %217, align 8
+  %224 = getelementptr inbounds nuw i8, ptr %179, i64 48
   %225 = load i32, ptr %224, align 8
-  %226 = getelementptr inbounds nuw i8, ptr %179, i64 40
-  %227 = load i32, ptr %226, align 8
-  call void %223(i32 noundef %225, i32 noundef %227) #10
-  %228 = load ptr, ptr %220, align 8
-  call void %228(i32 noundef 33985) #10
-  %229 = load ptr, ptr %222, align 8
-  %230 = load i32, ptr %224, align 8
-  %231 = getelementptr inbounds nuw i8, ptr %179, i64 48
-  %232 = load i32, ptr %231, align 8
-  call void %229(i32 noundef %230, i32 noundef %232) #10
+  call void %222(i32 noundef %223, i32 noundef %225) #10
   br label %.sink.split.i
 
-233:                                              ; preds = %215
-  %234 = getelementptr inbounds nuw i8, ptr %179, i64 37
-  %235 = load i8, ptr %234, align 1, !range !5, !noundef !6
-  %236 = trunc nuw i8 %235 to i1
-  br i1 %236, label %237, label %246
+226:                                              ; preds = %208
+  %227 = getelementptr inbounds nuw i8, ptr %179, i64 37
+  %228 = load i8, ptr %227, align 1, !range !5, !noundef !6
+  %229 = trunc nuw i8 %228 to i1
+  br i1 %229, label %230, label %239
 
-237:                                              ; preds = %233
-  %238 = getelementptr inbounds nuw i8, ptr %.val189, i64 16
-  %239 = load ptr, ptr %238, align 8
-  call void %239(i32 noundef 33985) #10
+230:                                              ; preds = %226
+  %231 = getelementptr inbounds nuw i8, ptr %.val189, i64 16
+  %232 = load ptr, ptr %231, align 8
+  call void %232(i32 noundef 33985) #10
+  %233 = getelementptr inbounds nuw i8, ptr %.val189, i64 40
+  %234 = load ptr, ptr %233, align 8
+  %235 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  %236 = load i32, ptr %235, align 8
+  %237 = getelementptr inbounds nuw i8, ptr %179, i64 48
+  %238 = load i32, ptr %237, align 8
+  call void %234(i32 noundef %236, i32 noundef %238) #10
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %230, %212
+  %.sink.in.i = phi ptr [ %231, %230 ], [ %213, %212 ]
+  %.sink.i = load ptr, ptr %.sink.in.i, align 8
+  call void %.sink.i(i32 noundef 33984) #10
+  br label %239
+
+239:                                              ; preds = %.sink.split.i, %226
   %240 = getelementptr inbounds nuw i8, ptr %.val189, i64 40
   %241 = load ptr, ptr %240, align 8
   %242 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %243 = load i32, ptr %242, align 8
-  %244 = getelementptr inbounds nuw i8, ptr %179, i64 48
-  %245 = load i32, ptr %244, align 8
-  call void %241(i32 noundef %243, i32 noundef %245) #10
-  br label %.sink.split.i
+  %244 = load i32, ptr %179, align 8
+  call void %241(i32 noundef %243, i32 noundef %244) #10
+  store ptr %146, ptr %206, align 8
+  br label %245
 
-.sink.split.i:                                    ; preds = %237, %219
-  %.sink.in.i = phi ptr [ %238, %237 ], [ %220, %219 ]
-  %.sink.i = load ptr, ptr %.sink.in.i, align 8
-  call void %.sink.i(i32 noundef 33984) #10
-  br label %246
+245:                                              ; preds = %239, %204
+  %246 = load i32, ptr %149, align 8
+  %247 = getelementptr inbounds nuw i8, ptr %179, i64 72
+  %248 = load i32, ptr %247, align 8
+  %.not101.i = icmp eq i32 %246, %248
+  br i1 %.not101.i, label %295, label %249
 
-246:                                              ; preds = %.sink.split.i, %233
-  %247 = getelementptr inbounds nuw i8, ptr %.val189, i64 40
-  %248 = load ptr, ptr %247, align 8
-  %249 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  %250 = load i32, ptr %249, align 8
-  %251 = load i32, ptr %179, align 8
-  call void %248(i32 noundef %250, i32 noundef %251) #10
-  store ptr %146, ptr %213, align 8
-  br label %252
+249:                                              ; preds = %245
+  %250 = getelementptr inbounds nuw i8, ptr %179, i64 36
+  %251 = load i8, ptr %250, align 4, !range !5, !noundef !6
+  %252 = trunc nuw i8 %251 to i1
+  br i1 %252, label %253, label %269
 
-252:                                              ; preds = %246, %211
-  %253 = load i32, ptr %149, align 8
-  %254 = getelementptr inbounds nuw i8, ptr %179, i64 72
-  %255 = load i32, ptr %254, align 8
-  %.not101.i = icmp eq i32 %253, %255
-  br i1 %.not101.i, label %302, label %256
+253:                                              ; preds = %249
+  %254 = getelementptr inbounds nuw i8, ptr %.val189, i64 16
+  %255 = load ptr, ptr %254, align 8
+  call void %255(i32 noundef 33986) #10
+  %256 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  %257 = load i32, ptr %149, align 8
+  %258 = icmp ult i32 %257, 3
+  br i1 %258, label %switch.lookup, label %SetTextureScaleMode.exit.i
 
-256:                                              ; preds = %252
-  %257 = getelementptr inbounds nuw i8, ptr %179, i64 36
-  %258 = load i8, ptr %257, align 4, !range !5, !noundef !6
-  %259 = trunc nuw i8 %258 to i1
-  br i1 %259, label %260, label %276
+SetTextureScaleMode.exit.i:                       ; preds = %253
+  %259 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.95, i32 noundef %257) #10
+  br i1 %259, label %SetTextureScaleMode.exit.thread.i, label %SetCopyState.exit.thread
 
-260:                                              ; preds = %256
-  %261 = getelementptr inbounds nuw i8, ptr %.val189, i64 16
-  %262 = load ptr, ptr %261, align 8
-  call void %262(i32 noundef 33986) #10
-  %263 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  %264 = load i32, ptr %149, align 8
-  %265 = icmp ult i32 %264, 3
-  br i1 %265, label %switch.lookup, label %SetTextureScaleMode.exit.i
-
-SetTextureScaleMode.exit.i:                       ; preds = %260
-  %266 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.95, i32 noundef %264) #10
-  br i1 %266, label %SetTextureScaleMode.exit.thread.i, label %SetCopyState.exit.thread
-
-switch.lookup:                                    ; preds = %260
-  %267 = load i32, ptr %263, align 8
-  %268 = zext nneg i32 %264 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.GLES2_RunCommandQueue.14, i64 %268
+switch.lookup:                                    ; preds = %253
+  %260 = load i32, ptr %256, align 8
+  %261 = zext nneg i32 %257 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.GLES2_RunCommandQueue.14, i64 %261
   %switch.load = load i32, ptr %switch.gep, align 4
-  %269 = getelementptr inbounds nuw i8, ptr %.val189, i64 304
-  %270 = load ptr, ptr %269, align 8
-  call void %270(i32 noundef %267, i32 noundef 10241, i32 noundef %switch.load) #10
-  %271 = load ptr, ptr %269, align 8
-  call void %271(i32 noundef %267, i32 noundef 10240, i32 noundef %switch.load) #10
+  %262 = getelementptr inbounds nuw i8, ptr %.val189, i64 304
+  %263 = load ptr, ptr %262, align 8
+  call void %263(i32 noundef %260, i32 noundef 10241, i32 noundef %switch.load) #10
+  %264 = load ptr, ptr %262, align 8
+  call void %264(i32 noundef %260, i32 noundef 10240, i32 noundef %switch.load) #10
   br label %SetTextureScaleMode.exit.thread.i
 
 SetTextureScaleMode.exit.thread.i:                ; preds = %switch.lookup, %SetTextureScaleMode.exit.i
-  %272 = load ptr, ptr %261, align 8
-  call void %272(i32 noundef 33985) #10
-  %273 = load i32, ptr %149, align 8
-  %274 = icmp ult i32 %273, 3
-  br i1 %274, label %.sink.split26.i.sink.split, label %SetTextureScaleMode.exit108.i
+  %265 = load ptr, ptr %254, align 8
+  call void %265(i32 noundef 33985) #10
+  %266 = load i32, ptr %149, align 8
+  %267 = icmp ult i32 %266, 3
+  br i1 %267, label %.sink.split26.i.sink.split, label %SetTextureScaleMode.exit108.i
 
 SetTextureScaleMode.exit108.i:                    ; preds = %SetTextureScaleMode.exit.thread.i
-  %275 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.95, i32 noundef %273) #10
-  br i1 %275, label %.sink.split26.i, label %SetCopyState.exit.thread
+  %268 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.95, i32 noundef %266) #10
+  br i1 %268, label %.sink.split26.i, label %SetCopyState.exit.thread
 
-276:                                              ; preds = %256
-  %277 = getelementptr inbounds nuw i8, ptr %179, i64 37
-  %278 = load i8, ptr %277, align 1, !range !5, !noundef !6
-  %279 = trunc nuw i8 %278 to i1
-  br i1 %279, label %280, label %291
+269:                                              ; preds = %249
+  %270 = getelementptr inbounds nuw i8, ptr %179, i64 37
+  %271 = load i8, ptr %270, align 1, !range !5, !noundef !6
+  %272 = trunc nuw i8 %271 to i1
+  br i1 %272, label %273, label %284
 
-280:                                              ; preds = %276
-  %281 = getelementptr inbounds nuw i8, ptr %.val189, i64 16
-  %282 = load ptr, ptr %281, align 8
-  call void %282(i32 noundef 33985) #10
-  %283 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  %284 = load i32, ptr %149, align 8
-  %285 = icmp ult i32 %284, 3
-  br i1 %285, label %.sink.split26.i.sink.split, label %SetTextureScaleMode.exit110.i
+273:                                              ; preds = %269
+  %274 = getelementptr inbounds nuw i8, ptr %.val189, i64 16
+  %275 = load ptr, ptr %274, align 8
+  call void %275(i32 noundef 33985) #10
+  %276 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  %277 = load i32, ptr %149, align 8
+  %278 = icmp ult i32 %277, 3
+  br i1 %278, label %.sink.split26.i.sink.split, label %SetTextureScaleMode.exit110.i
 
-SetTextureScaleMode.exit110.i:                    ; preds = %280
-  %286 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.95, i32 noundef %284) #10
-  br i1 %286, label %.sink.split26.i, label %SetCopyState.exit.thread
+SetTextureScaleMode.exit110.i:                    ; preds = %273
+  %279 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.95, i32 noundef %277) #10
+  br i1 %279, label %.sink.split26.i, label %SetCopyState.exit.thread
 
-.sink.split26.i.sink.split:                       ; preds = %280, %SetTextureScaleMode.exit.thread.i
-  %.sink319 = phi i32 [ %273, %SetTextureScaleMode.exit.thread.i ], [ %284, %280 ]
-  %switch.table.GLES2_RunCommandQueue.13.sink = phi ptr [ @switch.table.GLES2_RunCommandQueue.14, %SetTextureScaleMode.exit.thread.i ], [ @switch.table.GLES2_RunCommandQueue.14, %280 ]
-  %.sink314.in = phi ptr [ %263, %SetTextureScaleMode.exit.thread.i ], [ %283, %280 ]
-  %.sink27.in.i.ph = phi ptr [ %261, %SetTextureScaleMode.exit.thread.i ], [ %281, %280 ]
+.sink.split26.i.sink.split:                       ; preds = %273, %SetTextureScaleMode.exit.thread.i
+  %.sink319 = phi i32 [ %266, %SetTextureScaleMode.exit.thread.i ], [ %277, %273 ]
+  %switch.table.GLES2_RunCommandQueue.13.sink = phi ptr [ @switch.table.GLES2_RunCommandQueue.14, %SetTextureScaleMode.exit.thread.i ], [ @switch.table.GLES2_RunCommandQueue.14, %273 ]
+  %.sink314.in = phi ptr [ %256, %SetTextureScaleMode.exit.thread.i ], [ %276, %273 ]
+  %.sink27.in.i.ph = phi ptr [ %254, %SetTextureScaleMode.exit.thread.i ], [ %274, %273 ]
   %.sink314 = load i32, ptr %.sink314.in, align 8
-  %287 = zext nneg i32 %.sink319 to i64
-  %switch.gep310 = getelementptr inbounds nuw [4 x i8], ptr %switch.table.GLES2_RunCommandQueue.13.sink, i64 %287
+  %280 = zext nneg i32 %.sink319 to i64
+  %switch.gep310 = getelementptr inbounds nuw [4 x i8], ptr %switch.table.GLES2_RunCommandQueue.13.sink, i64 %280
   %switch.load311 = load i32, ptr %switch.gep310, align 4
-  %288 = getelementptr inbounds nuw i8, ptr %.val189, i64 304
-  %289 = load ptr, ptr %288, align 8
-  call void %289(i32 noundef %.sink314, i32 noundef 10241, i32 noundef %switch.load311) #10
-  %290 = load ptr, ptr %288, align 8
-  call void %290(i32 noundef %.sink314, i32 noundef 10240, i32 noundef %switch.load311) #10
+  %281 = getelementptr inbounds nuw i8, ptr %.val189, i64 304
+  %282 = load ptr, ptr %281, align 8
+  call void %282(i32 noundef %.sink314, i32 noundef 10241, i32 noundef %switch.load311) #10
+  %283 = load ptr, ptr %281, align 8
+  call void %283(i32 noundef %.sink314, i32 noundef 10240, i32 noundef %switch.load311) #10
   br label %.sink.split26.i
 
 .sink.split26.i:                                  ; preds = %.sink.split26.i.sink.split, %SetTextureScaleMode.exit110.i, %SetTextureScaleMode.exit108.i
-  %.sink27.in.i = phi ptr [ %261, %SetTextureScaleMode.exit108.i ], [ %281, %SetTextureScaleMode.exit110.i ], [ %.sink27.in.i.ph, %.sink.split26.i.sink.split ]
+  %.sink27.in.i = phi ptr [ %254, %SetTextureScaleMode.exit108.i ], [ %274, %SetTextureScaleMode.exit110.i ], [ %.sink27.in.i.ph, %.sink.split26.i.sink.split ]
   %.sink27.i = load ptr, ptr %.sink27.in.i, align 8
   call void %.sink27.i(i32 noundef 33984) #10
   %.pre253 = load i32, ptr %149, align 8
-  br label %291
+  br label %284
 
-291:                                              ; preds = %.sink.split26.i, %276
-  %292 = phi i32 [ %.pre253, %.sink.split26.i ], [ %253, %276 ]
-  %293 = icmp ult i32 %292, 3
-  br i1 %293, label %switch.lookup320, label %SetTextureScaleMode.exit112.i
+284:                                              ; preds = %.sink.split26.i, %269
+  %285 = phi i32 [ %.pre253, %.sink.split26.i ], [ %246, %269 ]
+  %286 = icmp ult i32 %285, 3
+  br i1 %286, label %switch.lookup320, label %SetTextureScaleMode.exit112.i
 
-SetTextureScaleMode.exit112.i:                    ; preds = %291
-  %294 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.95, i32 noundef %292) #10
-  br i1 %294, label %SetTextureScaleMode.exit112.thread.i, label %SetCopyState.exit.thread
+SetTextureScaleMode.exit112.i:                    ; preds = %284
+  %287 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.95, i32 noundef %285) #10
+  br i1 %287, label %SetTextureScaleMode.exit112.thread.i, label %SetCopyState.exit.thread
 
-switch.lookup320:                                 ; preds = %291
-  %295 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  %296 = load i32, ptr %295, align 8
-  %297 = zext nneg i32 %292 to i64
-  %switch.gep321 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.GLES2_RunCommandQueue.14, i64 %297
+switch.lookup320:                                 ; preds = %284
+  %288 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  %289 = load i32, ptr %288, align 8
+  %290 = zext nneg i32 %285 to i64
+  %switch.gep321 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.GLES2_RunCommandQueue.14, i64 %290
   %switch.load322 = load i32, ptr %switch.gep321, align 4
-  %298 = getelementptr inbounds nuw i8, ptr %.val189, i64 304
-  %299 = load ptr, ptr %298, align 8
-  call void %299(i32 noundef %296, i32 noundef 10241, i32 noundef %switch.load322) #10
-  %300 = load ptr, ptr %298, align 8
-  call void %300(i32 noundef %296, i32 noundef 10240, i32 noundef %switch.load322) #10
+  %291 = getelementptr inbounds nuw i8, ptr %.val189, i64 304
+  %292 = load ptr, ptr %291, align 8
+  call void %292(i32 noundef %289, i32 noundef 10241, i32 noundef %switch.load322) #10
+  %293 = load ptr, ptr %291, align 8
+  call void %293(i32 noundef %289, i32 noundef 10240, i32 noundef %switch.load322) #10
   br label %SetTextureScaleMode.exit112.thread.i
 
 SetTextureScaleMode.exit112.thread.i:             ; preds = %switch.lookup320, %SetTextureScaleMode.exit112.i
-  %301 = load i32, ptr %149, align 8
-  store i32 %301, ptr %254, align 8
-  br label %302
+  %294 = load i32, ptr %149, align 8
+  store i32 %294, ptr %247, align 8
+  br label %295
 
-302:                                              ; preds = %SetTextureScaleMode.exit112.thread.i, %252
-  %303 = load i32, ptr %151, align 4
-  %304 = getelementptr inbounds nuw i8, ptr %179, i64 76
-  %305 = load i32, ptr %304, align 4
-  %.not102.i = icmp eq i32 %303, %305
-  br i1 %.not102.i, label %306, label %310
+295:                                              ; preds = %SetTextureScaleMode.exit112.thread.i, %245
+  %296 = load i32, ptr %151, align 4
+  %297 = getelementptr inbounds nuw i8, ptr %179, i64 76
+  %298 = load i32, ptr %297, align 4
+  %.not102.i = icmp eq i32 %296, %298
+  br i1 %.not102.i, label %299, label %303
 
-306:                                              ; preds = %302
-  %307 = load i32, ptr %153, align 8
-  %308 = getelementptr inbounds nuw i8, ptr %179, i64 80
-  %309 = load i32, ptr %308, align 8
-  %.not103.i = icmp eq i32 %307, %309
-  br i1 %.not103.i, label %SetCopyState.exit, label %310
+299:                                              ; preds = %295
+  %300 = load i32, ptr %153, align 8
+  %301 = getelementptr inbounds nuw i8, ptr %179, i64 80
+  %302 = load i32, ptr %301, align 8
+  %.not103.i = icmp eq i32 %300, %302
+  br i1 %.not103.i, label %SetCopyState.exit, label %303
 
-310:                                              ; preds = %306, %302
-  %311 = getelementptr inbounds nuw i8, ptr %179, i64 36
-  %312 = load i8, ptr %311, align 4, !range !5, !noundef !6
-  %313 = trunc nuw i8 %312 to i1
-  br i1 %313, label %314, label %330
+303:                                              ; preds = %299, %295
+  %304 = getelementptr inbounds nuw i8, ptr %179, i64 36
+  %305 = load i8, ptr %304, align 4, !range !5, !noundef !6
+  %306 = trunc nuw i8 %305 to i1
+  br i1 %306, label %307, label %323
 
-314:                                              ; preds = %310
-  %315 = getelementptr inbounds nuw i8, ptr %.val189, i64 16
-  %316 = load ptr, ptr %315, align 8
-  call void %316(i32 noundef 33986) #10
-  %317 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  %318 = load i32, ptr %317, align 8
+307:                                              ; preds = %303
+  %308 = getelementptr inbounds nuw i8, ptr %.val189, i64 16
+  %309 = load ptr, ptr %308, align 8
+  call void %309(i32 noundef 33986) #10
+  %310 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  %311 = load i32, ptr %310, align 8
+  %312 = load i32, ptr %151, align 4
+  %313 = load i32, ptr %153, align 8
+  %314 = getelementptr inbounds nuw i8, ptr %.val189, i64 304
+  %315 = load ptr, ptr %314, align 8
+  %switch.selectcmp.i.i.i = icmp eq i32 %312, 2
+  %switch.select.i.i.i = select i1 %switch.selectcmp.i.i.i, i32 10497, i32 33071
+  call void %315(i32 noundef %311, i32 noundef 10242, i32 noundef %switch.select.i.i.i) #10
+  %316 = load ptr, ptr %314, align 8
+  %switch.selectcmp.i5.i.i = icmp eq i32 %313, 2
+  %switch.select.i6.i.i = select i1 %switch.selectcmp.i5.i.i, i32 10497, i32 33071
+  call void %316(i32 noundef %311, i32 noundef 10243, i32 noundef %switch.select.i6.i.i) #10
+  %317 = load ptr, ptr %308, align 8
+  call void %317(i32 noundef 33985) #10
+  %318 = load i32, ptr %310, align 8
   %319 = load i32, ptr %151, align 4
   %320 = load i32, ptr %153, align 8
-  %321 = getelementptr inbounds nuw i8, ptr %.val189, i64 304
-  %322 = load ptr, ptr %321, align 8
-  %switch.selectcmp.i.i.i = icmp eq i32 %319, 2
-  %switch.select.i.i.i = select i1 %switch.selectcmp.i.i.i, i32 10497, i32 33071
-  call void %322(i32 noundef %318, i32 noundef 10242, i32 noundef %switch.select.i.i.i) #10
-  %323 = load ptr, ptr %321, align 8
-  %switch.selectcmp.i5.i.i = icmp eq i32 %320, 2
-  %switch.select.i6.i.i = select i1 %switch.selectcmp.i5.i.i, i32 10497, i32 33071
-  call void %323(i32 noundef %318, i32 noundef 10243, i32 noundef %switch.select.i6.i.i) #10
-  %324 = load ptr, ptr %315, align 8
-  call void %324(i32 noundef 33985) #10
-  %325 = load i32, ptr %317, align 8
-  %326 = load i32, ptr %151, align 4
-  %327 = load i32, ptr %153, align 8
-  %328 = load ptr, ptr %321, align 8
-  %switch.selectcmp.i.i113.i = icmp eq i32 %326, 2
+  %321 = load ptr, ptr %314, align 8
+  %switch.selectcmp.i.i113.i = icmp eq i32 %319, 2
   %switch.select.i.i114.i = select i1 %switch.selectcmp.i.i113.i, i32 10497, i32 33071
-  call void %328(i32 noundef %325, i32 noundef 10242, i32 noundef %switch.select.i.i114.i) #10
-  %329 = load ptr, ptr %321, align 8
-  %switch.selectcmp.i5.i115.i = icmp eq i32 %327, 2
+  call void %321(i32 noundef %318, i32 noundef 10242, i32 noundef %switch.select.i.i114.i) #10
+  %322 = load ptr, ptr %314, align 8
+  %switch.selectcmp.i5.i115.i = icmp eq i32 %320, 2
   %switch.select.i6.i116.i = select i1 %switch.selectcmp.i5.i115.i, i32 10497, i32 33071
-  call void %329(i32 noundef %325, i32 noundef 10243, i32 noundef %switch.select.i6.i116.i) #10
+  call void %322(i32 noundef %318, i32 noundef 10243, i32 noundef %switch.select.i6.i116.i) #10
   br label %.sink.split34.i
 
-330:                                              ; preds = %310
-  %331 = getelementptr inbounds nuw i8, ptr %179, i64 37
-  %332 = load i8, ptr %331, align 1, !range !5, !noundef !6
-  %333 = trunc nuw i8 %332 to i1
-  br i1 %333, label %334, label %344
+323:                                              ; preds = %303
+  %324 = getelementptr inbounds nuw i8, ptr %179, i64 37
+  %325 = load i8, ptr %324, align 1, !range !5, !noundef !6
+  %326 = trunc nuw i8 %325 to i1
+  br i1 %326, label %327, label %337
 
-334:                                              ; preds = %330
-  %335 = getelementptr inbounds nuw i8, ptr %.val189, i64 16
-  %336 = load ptr, ptr %335, align 8
-  call void %336(i32 noundef 33985) #10
-  %337 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  %338 = load i32, ptr %337, align 8
-  %339 = load i32, ptr %151, align 4
-  %340 = load i32, ptr %153, align 8
-  %341 = getelementptr inbounds nuw i8, ptr %.val189, i64 304
-  %342 = load ptr, ptr %341, align 8
-  %switch.selectcmp.i.i117.i = icmp eq i32 %339, 2
+327:                                              ; preds = %323
+  %328 = getelementptr inbounds nuw i8, ptr %.val189, i64 16
+  %329 = load ptr, ptr %328, align 8
+  call void %329(i32 noundef 33985) #10
+  %330 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  %331 = load i32, ptr %330, align 8
+  %332 = load i32, ptr %151, align 4
+  %333 = load i32, ptr %153, align 8
+  %334 = getelementptr inbounds nuw i8, ptr %.val189, i64 304
+  %335 = load ptr, ptr %334, align 8
+  %switch.selectcmp.i.i117.i = icmp eq i32 %332, 2
   %switch.select.i.i118.i = select i1 %switch.selectcmp.i.i117.i, i32 10497, i32 33071
-  call void %342(i32 noundef %338, i32 noundef 10242, i32 noundef %switch.select.i.i118.i) #10
-  %343 = load ptr, ptr %341, align 8
-  %switch.selectcmp.i5.i119.i = icmp eq i32 %340, 2
+  call void %335(i32 noundef %331, i32 noundef 10242, i32 noundef %switch.select.i.i118.i) #10
+  %336 = load ptr, ptr %334, align 8
+  %switch.selectcmp.i5.i119.i = icmp eq i32 %333, 2
   %switch.select.i6.i120.i = select i1 %switch.selectcmp.i5.i119.i, i32 10497, i32 33071
-  call void %343(i32 noundef %338, i32 noundef 10243, i32 noundef %switch.select.i6.i120.i) #10
+  call void %336(i32 noundef %331, i32 noundef 10243, i32 noundef %switch.select.i6.i120.i) #10
   br label %.sink.split34.i
 
-.sink.split34.i:                                  ; preds = %334, %314
-  %.sink35.in.i = phi ptr [ %335, %334 ], [ %315, %314 ]
+.sink.split34.i:                                  ; preds = %327, %307
+  %.sink35.in.i = phi ptr [ %328, %327 ], [ %308, %307 ]
   %.sink35.i = load ptr, ptr %.sink35.in.i, align 8
   call void %.sink35.i(i32 noundef 33984) #10
   %.pre254 = load i32, ptr %151, align 4
-  br label %344
+  br label %337
 
-344:                                              ; preds = %.sink.split34.i, %330
-  %345 = phi i32 [ %.pre254, %.sink.split34.i ], [ %303, %330 ]
-  %346 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  %347 = load i32, ptr %346, align 8
-  %348 = load i32, ptr %153, align 8
-  %349 = getelementptr inbounds nuw i8, ptr %.val189, i64 304
-  %350 = load ptr, ptr %349, align 8
-  %switch.selectcmp.i.i121.i = icmp eq i32 %345, 2
+337:                                              ; preds = %.sink.split34.i, %323
+  %338 = phi i32 [ %.pre254, %.sink.split34.i ], [ %296, %323 ]
+  %339 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  %340 = load i32, ptr %339, align 8
+  %341 = load i32, ptr %153, align 8
+  %342 = getelementptr inbounds nuw i8, ptr %.val189, i64 304
+  %343 = load ptr, ptr %342, align 8
+  %switch.selectcmp.i.i121.i = icmp eq i32 %338, 2
   %switch.select.i.i122.i = select i1 %switch.selectcmp.i.i121.i, i32 10497, i32 33071
-  call void %350(i32 noundef %347, i32 noundef 10242, i32 noundef %switch.select.i.i122.i) #10
-  %351 = load ptr, ptr %349, align 8
-  %switch.selectcmp.i5.i123.i = icmp eq i32 %348, 2
+  call void %343(i32 noundef %340, i32 noundef 10242, i32 noundef %switch.select.i.i122.i) #10
+  %344 = load ptr, ptr %342, align 8
+  %switch.selectcmp.i5.i123.i = icmp eq i32 %341, 2
   %switch.select.i6.i124.i = select i1 %switch.selectcmp.i5.i123.i, i32 10497, i32 33071
-  call void %351(i32 noundef %347, i32 noundef 10243, i32 noundef %switch.select.i6.i124.i) #10
-  %352 = load i32, ptr %151, align 4
-  store i32 %352, ptr %304, align 4
-  %353 = load i32, ptr %153, align 8
-  %354 = getelementptr inbounds nuw i8, ptr %179, i64 80
-  store i32 %353, ptr %354, align 8
-  br i1 %212, label %357, label %SetCopyState.exit.thread
+  call void %344(i32 noundef %340, i32 noundef 10243, i32 noundef %switch.select.i6.i124.i) #10
+  %345 = load i32, ptr %151, align 4
+  store i32 %345, ptr %297, align 4
+  %346 = load i32, ptr %153, align 8
+  %347 = getelementptr inbounds nuw i8, ptr %179, i64 80
+  store i32 %346, ptr %347, align 8
+  br i1 %205, label %350, label %SetCopyState.exit.thread
 
-355:                                              ; preds = %.thread200
-  %356 = call fastcc zeroext i1 @SetDrawState(ptr noundef nonnull %8, ptr noundef %.0142251, i32 noundef 1, ptr noundef %2)
-  br i1 %356, label %357, label %SetCopyState.exit.thread
+348:                                              ; preds = %.thread200
+  %349 = call fastcc zeroext i1 @SetDrawState(ptr noundef nonnull %8, ptr noundef %.0142251, i32 noundef 1, ptr noundef %2)
+  br i1 %349, label %350, label %SetCopyState.exit.thread
 
-SetCopyState.exit:                                ; preds = %306
-  br i1 %212, label %357, label %SetCopyState.exit.thread
+SetCopyState.exit:                                ; preds = %299
+  br i1 %205, label %350, label %SetCopyState.exit.thread
 
-357:                                              ; preds = %209, %198, %344, %355, %SetCopyState.exit
-  %358 = icmp eq i32 %66, 5
-  %spec.store.select = select i1 %358, i32 0, i32 4
-  %359 = load ptr, ptr %51, align 8
-  %360 = trunc i64 %.0144.lcssa to i32
-  call void %359(i32 noundef %spec.store.select, i32 noundef 0, i32 noundef %360) #10
+350:                                              ; preds = %202, %191, %337, %348, %SetCopyState.exit
+  %351 = icmp eq i32 %66, 5
+  %spec.store.select = select i1 %351, i32 0, i32 4
+  %352 = load ptr, ptr %51, align 8
+  %353 = trunc i64 %.0144.lcssa to i32
+  call void %352(i32 noundef %spec.store.select, i32 noundef 0, i32 noundef %353) #10
   br label %SetCopyState.exit.thread
 
-SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode.exit108.i, %SetTextureScaleMode.exit.i, %SetTextureScaleMode.exit110.i, %SetTextureScaleMode.exit112.i, %209, %198, %344, %355, %SetCopyState.exit, %357, %127, %.thread, %77, %79, %67, %70, %121, %119, %65
-  %.1 = phi ptr [ %.0142251, %65 ], [ %.0142251, %77 ], [ %.0142251, %121 ], [ %.0157.lcssa, %.thread ], [ %.0142251, %67 ], [ %.0142251, %119 ], [ %.0142251, %70 ], [ %.0142251, %79 ], [ %.0142251, %127 ], [ %.0149.lcssa, %357 ], [ %.0149.lcssa, %SetCopyState.exit ], [ %.0149.lcssa, %209 ], [ %.0149.lcssa, %355 ], [ %.0149.lcssa, %344 ], [ %.0149.lcssa, %198 ], [ %.0149.lcssa, %SetTextureScaleMode.exit112.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit110.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit108.i ]
-  %361 = getelementptr inbounds nuw i8, ptr %.1, i64 80
-  %362 = load ptr, ptr %361, align 8
-  %.not170 = icmp eq ptr %362, null
+SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode.exit108.i, %SetTextureScaleMode.exit.i, %SetTextureScaleMode.exit110.i, %SetTextureScaleMode.exit112.i, %202, %191, %337, %348, %SetCopyState.exit, %350, %127, %.thread, %77, %79, %67, %70, %121, %119, %65
+  %.1 = phi ptr [ %.0142251, %65 ], [ %.0142251, %77 ], [ %.0142251, %121 ], [ %.0157.lcssa, %.thread ], [ %.0142251, %67 ], [ %.0142251, %119 ], [ %.0142251, %70 ], [ %.0142251, %79 ], [ %.0142251, %127 ], [ %.0149.lcssa, %350 ], [ %.0149.lcssa, %SetCopyState.exit ], [ %.0149.lcssa, %202 ], [ %.0149.lcssa, %348 ], [ %.0149.lcssa, %337 ], [ %.0149.lcssa, %191 ], [ %.0149.lcssa, %SetTextureScaleMode.exit112.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit110.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit108.i ]
+  %354 = getelementptr inbounds nuw i8, ptr %.1, i64 80
+  %355 = load ptr, ptr %354, align 8
+  %.not170 = icmp eq ptr %355, null
   br i1 %.not170, label %._crit_edge, label %65, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %SetCopyState.exit.thread, %50
   %.val = load ptr, ptr %7, align 8
-  %363 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %364 = load i8, ptr %363, align 8, !range !5, !noundef !6
-  %365 = trunc nuw i8 %364 to i1
-  br i1 %365, label %.preheader.i, label %GLES2_ActivateRenderer.exit
+  %356 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %357 = load i8, ptr %356, align 8, !range !5, !noundef !6
+  %358 = trunc nuw i8 %357 to i1
+  br i1 %358, label %.preheader.i, label %GLES2_ActivateRenderer.exit
 
 .preheader.i:                                     ; preds = %._crit_edge
-  %366 = getelementptr inbounds nuw i8, ptr %.val, i64 200
-  %367 = load ptr, ptr %366, align 8
-  %368 = call i32 %367() #10
-  %.not5.i = icmp eq i32 %368, 0
+  %359 = getelementptr inbounds nuw i8, ptr %.val, i64 200
+  %360 = load ptr, ptr %359, align 8
+  %361 = call i32 %360() #10
+  %.not5.i = icmp eq i32 %361, 0
   br i1 %.not5.i, label %GLES2_ActivateRenderer.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %374
-  %369 = phi i32 [ %377, %374 ], [ %368, %.preheader.i ]
-  %.0166.i = phi ptr [ %spec.select206, %374 ], [ @.str.5, %.preheader.i ]
-  %370 = load i8, ptr %.0166.i, align 1
-  %371 = icmp eq i8 %370, 0
-  %spec.select206 = select i1 %371, ptr @.str.101, ptr %.0166.i
-  %switch.tableidx = add i32 %369, -1280
-  %372 = icmp ult i32 %switch.tableidx, 6
-  br i1 %372, label %switch.lookup323, label %374
+.lr.ph.i:                                         ; preds = %.preheader.i, %367
+  %362 = phi i32 [ %370, %367 ], [ %361, %.preheader.i ]
+  %.0166.i = phi ptr [ %spec.select206, %367 ], [ @.str.5, %.preheader.i ]
+  %363 = load i8, ptr %.0166.i, align 1
+  %364 = icmp eq i8 %363, 0
+  %spec.select206 = select i1 %364, ptr @.str.101, ptr %.0166.i
+  %switch.tableidx = add i32 %362, -1280
+  %365 = icmp ult i32 %switch.tableidx, 6
+  br i1 %365, label %switch.lookup323, label %367
 
 switch.lookup323:                                 ; preds = %.lr.ph.i
-  %373 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep324 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GL_CheckAllErrors, i64 %373
+  %366 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep324 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GL_CheckAllErrors, i64 %366
   %switch.load325 = load ptr, ptr %switch.gep324, align 8
-  br label %374
+  br label %367
 
-374:                                              ; preds = %.lr.ph.i, %switch.lookup323
+367:                                              ; preds = %.lr.ph.i, %switch.lookup323
   %.0.i.i = phi ptr [ %switch.load325, %switch.lookup323 ], [ @.str.108, %.lr.ph.i ]
-  %375 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull %spec.select206, ptr noundef nonnull @.str.6, i32 noundef 1542, ptr noundef nonnull @__func__.GLES2_RunCommandQueue, ptr noundef nonnull %.0.i.i, i32 noundef %369) #10
-  %376 = load ptr, ptr %366, align 8
-  %377 = call i32 %376() #10
-  %.not.i193 = icmp eq i32 %377, 0
+  %368 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull %spec.select206, ptr noundef nonnull @.str.6, i32 noundef 1542, ptr noundef nonnull @__func__.GLES2_RunCommandQueue, ptr noundef nonnull %.0.i.i, i32 noundef %362) #10
+  %369 = load ptr, ptr %359, align 8
+  %370 = call i32 %369() #10
+  %.not.i193 = icmp eq i32 %370, 0
   br i1 %.not.i193, label %GLES2_ActivateRenderer.exit, label %.lr.ph.i
 
-GLES2_ActivateRenderer.exit:                      ; preds = %374, %.preheader.i, %._crit_edge, %19
-  %.0 = phi i1 [ false, %19 ], [ true, %._crit_edge ], [ true, %.preheader.i ], [ false, %374 ]
+GLES2_ActivateRenderer.exit:                      ; preds = %367, %.preheader.i, %._crit_edge, %19
+  %.0 = phi i1 [ false, %19 ], [ true, %._crit_edge ], [ true, %.preheader.i ], [ false, %367 ]
   ret i1 %.0
 }
 

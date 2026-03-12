@@ -5726,16 +5726,13 @@ _ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit.i:   ; preds = %.lr.ph2241, %2450
   %2463 = load i8, ptr %2462, align 1, !tbaa !3
   %.not451.i935 = icmp eq i8 %2463, 0
   %2464 = trunc nsw i64 %indvars.iv.i93222394093 to i32
-  br i1 %.not451.i935, label %2445, label %..critedge.i866.loopexit_crit_edge2246, !llvm.loop !140
+  br i1 %.not451.i935, label %2445, label %..critedge.i866.loopexit_crit_edge4095, !llvm.loop !140
 
-..critedge.i866.loopexit_crit_edge2246:           ; preds = %2461
+..critedge.i866.loopexit_crit_edge4095:           ; preds = %2461, %2445
   br label %.critedge.i866, !llvm.loop !140
 
-..critedge.i866.loopexit_crit_edge4095:           ; preds = %2445
-  br label %.critedge.i866, !llvm.loop !140
-
-.critedge.i866:                                   ; preds = %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit.i, %2450, %.lr.ph2241, %..critedge.i866.loopexit_crit_edge4095, %.lr.ph.i931, %..critedge.i866.loopexit_crit_edge2246, %.preheader687.i
-  %.0381.lcssa.i = phi i32 [ %.sroa.0123.0.extract.trunc, %.preheader687.i ], [ %.sroa.0123.0.extract.trunc, %.lr.ph.i931 ], [ %2464, %..critedge.i866.loopexit_crit_edge2246 ], [ %.sroa.0123.0.extract.trunc, %.lr.ph2241 ], [ %2464, %..critedge.i866.loopexit_crit_edge4095 ], [ %2464, %2450 ], [ %.0381724.i22404092, %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit.i ]
+.critedge.i866:                                   ; preds = %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit.i, %2450, %.lr.ph2241, %..critedge.i866.loopexit_crit_edge4095, %.lr.ph.i931, %.preheader687.i
+  %.0381.lcssa.i = phi i32 [ %.sroa.0123.0.extract.trunc, %.preheader687.i ], [ %.sroa.0123.0.extract.trunc, %.lr.ph.i931 ], [ %2464, %..critedge.i866.loopexit_crit_edge4095 ], [ %.sroa.0123.0.extract.trunc, %.lr.ph2241 ], [ %.0381724.i22404092, %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit.i ], [ %2464, %2450 ]
   %sext1019.i = add i64 %sext.i864, -4294967296
   %2465 = ashr exact i64 %sext1019.i, 32
   %2466 = getelementptr inbounds i8, ptr %2413, i64 %2465
@@ -5800,7 +5797,7 @@ _ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit475.i: ; preds = %.lr.ph2251, %2487
   %2500 = load i8, ptr %2499, align 1, !tbaa !3
   %.not452.i930 = icmp eq i8 %2500, 0
   %2501 = trunc nsw i64 %indvars.iv905.i22494099 to i32
-  br i1 %.not452.i930, label %2482, label %..critedge2.i867.loopexit1745_crit_edge2256, !llvm.loop !141
+  br i1 %.not452.i930, label %2482, label %..critedge2.i867.loopexit3703_crit_edge4102, !llvm.loop !141
 
 .lr.ph741.i:                                      ; preds = %.preheader685.i, %2529
   %indvars.iv908.i = phi i64 [ %indvars.iv.next909.i, %2529 ], [ %2428, %.preheader685.i ]
@@ -5909,15 +5906,12 @@ _ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit481.i: ; preds = %2546
   %2566 = trunc nsw i64 %indvars.iv911.i to i32
   br i1 %.not450.i937, label %.lr.ph750.i, label %.critedge2.i867, !llvm.loop !143
 
-..critedge2.i867.loopexit1745_crit_edge2256:      ; preds = %2498
+..critedge2.i867.loopexit3703_crit_edge4102:      ; preds = %2498, %2482
   br label %.critedge2.i867, !llvm.loop !141
 
-..critedge2.i867.loopexit3703_crit_edge4102:      ; preds = %2482
-  br label %.critedge2.i867, !llvm.loop !141
-
-.critedge2.i867:                                  ; preds = %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit475.i, %2487, %2563, %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit481.i, %2546, %.lr.ph750.i, %.lr.ph2251, %..critedge2.i867.loopexit3703_crit_edge4102, %.lr.ph732.i, %..critedge2.i867.loopexit1745_crit_edge2256, %.critedge4.i936, %.critedge.i866
-  %.1382.i = phi i32 [ %.2383.lcssa.i, %.critedge4.i936 ], [ %.0381.lcssa.i, %.lr.ph732.i ], [ %.0381.lcssa.i, %.critedge.i866 ], [ %.0381.lcssa.i, %.lr.ph2251 ], [ %.0381.lcssa.i, %..critedge2.i867.loopexit1745_crit_edge2256 ], [ %.2383.lcssa.i, %2563 ], [ %.0381.lcssa.i, %..critedge2.i867.loopexit3703_crit_edge4102 ], [ %.2383.lcssa.i, %.lr.ph750.i ], [ %.2383.lcssa.i, %2546 ], [ %.2383.lcssa.i, %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit481.i ], [ %.0381.lcssa.i, %2487 ], [ %.0381.lcssa.i, %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit475.i ]
-  %.1379.i = phi i32 [ %.sroa.0123.0.extract.trunc, %.critedge4.i936 ], [ %.sroa.0123.0.extract.trunc, %.lr.ph732.i ], [ %.sroa.0123.0.extract.trunc, %.critedge.i866 ], [ %.sroa.0123.0.extract.trunc, %.lr.ph2251 ], [ %2501, %..critedge2.i867.loopexit1745_crit_edge2256 ], [ %2566, %2563 ], [ %2501, %..critedge2.i867.loopexit3703_crit_edge4102 ], [ %.2380749.i, %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit481.i ], [ %.2380749.i, %2546 ], [ %.2380749.i, %.lr.ph750.i ], [ %.0378731.i22504098, %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit475.i ], [ %2501, %2487 ]
+.critedge2.i867:                                  ; preds = %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit475.i, %2487, %2563, %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit481.i, %2546, %.lr.ph750.i, %.lr.ph2251, %..critedge2.i867.loopexit3703_crit_edge4102, %.lr.ph732.i, %.critedge4.i936, %.critedge.i866
+  %.1382.i = phi i32 [ %.2383.lcssa.i, %.critedge4.i936 ], [ %.0381.lcssa.i, %.lr.ph732.i ], [ %.0381.lcssa.i, %.critedge.i866 ], [ %.0381.lcssa.i, %..critedge2.i867.loopexit3703_crit_edge4102 ], [ %.0381.lcssa.i, %.lr.ph2251 ], [ %.2383.lcssa.i, %2563 ], [ %.2383.lcssa.i, %.lr.ph750.i ], [ %.2383.lcssa.i, %2546 ], [ %.2383.lcssa.i, %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit481.i ], [ %.0381.lcssa.i, %2487 ], [ %.0381.lcssa.i, %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit475.i ]
+  %.1379.i = phi i32 [ %.sroa.0123.0.extract.trunc, %.critedge4.i936 ], [ %.sroa.0123.0.extract.trunc, %.lr.ph732.i ], [ %.sroa.0123.0.extract.trunc, %.critedge.i866 ], [ %2501, %..critedge2.i867.loopexit3703_crit_edge4102 ], [ %.sroa.0123.0.extract.trunc, %.lr.ph2251 ], [ %2566, %2563 ], [ %.2380749.i, %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit481.i ], [ %.2380749.i, %2546 ], [ %.2380749.i, %.lr.ph750.i ], [ %.0378731.i22504098, %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit475.i ], [ %2501, %2487 ]
   %2567 = trunc i64 %.sroa.15.0.extract.shift to i16
   store i16 %2567, ptr %2417, align 2, !tbaa !60
   %2568 = trunc i32 %.1379.i to i16
@@ -7134,16 +7128,13 @@ _ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit487.i: ; preds = %.lr.ph2261.prehead
   %3195 = load i8, ptr %3194, align 1, !tbaa !3
   %.not471.i896 = icmp eq i8 %3195, 0
   %3196 = trunc nsw i64 %indvars.iv914.i22594106 to i32
-  br i1 %.not471.i896, label %.lr.ph759.i, label %..critedge8.i874.loopexit_crit_edge2265, !llvm.loop !151
+  br i1 %.not471.i896, label %.lr.ph759.i, label %.lr.ph759.i..critedge8.i874.loopexit_crit_edge, !llvm.loop !151
 
-..critedge8.i874.loopexit_crit_edge2265:          ; preds = %3193
+.lr.ph759.i..critedge8.i874.loopexit_crit_edge:   ; preds = %3193, %.lr.ph759.i
   br label %.critedge8.i874, !llvm.loop !151
 
-.lr.ph759.i..critedge8.i874.loopexit_crit_edge:   ; preds = %.lr.ph759.i
-  br label %.critedge8.i874, !llvm.loop !151
-
-.critedge8.i874:                                  ; preds = %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit487.i, %.lr.ph2261, %.lr.ph2261.preheader, %.lr.ph759.i..critedge8.i874.loopexit_crit_edge, %.lr.ph759.i.preheader, %..critedge8.i874.loopexit_crit_edge2265, %3166
-  %.0376.lcssa.i = phi i32 [ %.0377783.i, %3166 ], [ %.0377783.i, %.lr.ph759.i.preheader ], [ %3196, %..critedge8.i874.loopexit_crit_edge2265 ], [ %.0377783.i, %.lr.ph2261.preheader ], [ %3196, %.lr.ph759.i..critedge8.i874.loopexit_crit_edge ], [ %3196, %.lr.ph2261 ], [ %.0376758.i22604105, %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit487.i ]
+.critedge8.i874:                                  ; preds = %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit487.i, %.lr.ph2261, %.lr.ph2261.preheader, %.lr.ph759.i..critedge8.i874.loopexit_crit_edge, %.lr.ph759.i.preheader, %3166
+  %.0376.lcssa.i = phi i32 [ %.0377783.i, %3166 ], [ %.0377783.i, %.lr.ph759.i.preheader ], [ %3196, %.lr.ph759.i..critedge8.i874.loopexit_crit_edge ], [ %.0377783.i, %.lr.ph2261.preheader ], [ %.0376758.i22604105, %_ZNK2cv8Diff8uC3clEPKNS_3VecIhLi3EEES4_.exit487.i ], [ %3196, %.lr.ph2261 ]
   %3197 = add nsw i32 %.0377783.i, 1
   %3198 = sext i32 %3197 to i64
   %3199 = getelementptr inbounds i8, ptr %3140, i64 %3198

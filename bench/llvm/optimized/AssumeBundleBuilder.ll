@@ -1800,7 +1800,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118AssumeBuilderState
 19:                                               ; preds = %15, %8
   %20 = load i8, ptr %7, align 8, !tbaa !84
   %21 = icmp eq i8 %20, 22
-  br i1 %21, label %22, label %33
+  br i1 %21, label %22, label %32
 
 22:                                               ; preds = %19
   %23 = tail call noundef zeroext i1 @_ZNK4llvm8Argument12hasAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef %4) #20
@@ -1820,7 +1820,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118AssumeBuilderState
   %31 = load i64, ptr %30, align 8, !tbaa !256
   %.not23 = icmp ult i64 %29, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not23, label %32, label %.thread
+  br i1 %.not23, label %48, label %.thread
 
 .critedge2:                                       ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1828,43 +1828,40 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118AssumeBuilderState
 
 .critedge:                                        ; preds = %22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %32
+  br label %48
 
-32:                                               ; preds = %.critedge, %27
+32:                                               ; preds = %19
+  %33 = icmp ult i8 %20, 29
+  br i1 %33, label %.thread, label %34
+
+34:                                               ; preds = %32
+  %35 = tail call noundef zeroext i1 @_ZN4llvm31wouldInstructionBeTriviallyDeadEPKNS_11InstructionEPKNS_17TargetLibraryInfoE(ptr noundef nonnull %7, ptr noundef null) #20
+  br i1 %35, label %36, label %.thread
+
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %38 = load ptr, ptr %37, align 8, !tbaa !272
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %.thread, label %40
+
+40:                                               ; preds = %36
+  %41 = tail call noundef ptr @_ZN4llvm5Value23getSingleUndroppableUseEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
+  %.not25 = icmp eq ptr %41, null
+  br i1 %.not25, label %48, label %42
+
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %44 = load ptr, ptr %43, align 8, !tbaa !273
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %46 = load ptr, ptr %45, align 8, !tbaa !245
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %.thread, label %48
+
+48:                                               ; preds = %27, %.critedge, %40, %42
   br label %.thread
 
-33:                                               ; preds = %19
-  %34 = icmp ult i8 %20, 29
-  br i1 %34, label %.thread, label %35
-
-35:                                               ; preds = %33
-  %36 = tail call noundef zeroext i1 @_ZN4llvm31wouldInstructionBeTriviallyDeadEPKNS_11InstructionEPKNS_17TargetLibraryInfoE(ptr noundef nonnull %7, ptr noundef null) #20
-  br i1 %36, label %37, label %.thread
-
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !272
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %.thread, label %41
-
-41:                                               ; preds = %37
-  %42 = tail call noundef ptr @_ZN4llvm5Value23getSingleUndroppableUseEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
-  %.not25 = icmp eq ptr %42, null
-  br i1 %.not25, label %49, label %43
-
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !273
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %47 = load ptr, ptr %46, align 8, !tbaa !245
-  %48 = icmp eq ptr %45, %47
-  br i1 %48, label %.thread, label %49
-
-49:                                               ; preds = %41, %43
-  br label %.thread
-
-.thread:                                          ; preds = %15, %37, %35, %33, %43, %49, %32, %.critedge2, %27, %5, %2
-  %.0 = phi i1 [ true, %5 ], [ true, %33 ], [ false, %43 ], [ false, %27 ], [ false, %2 ], [ false, %.critedge2 ], [ true, %32 ], [ true, %49 ], [ true, %35 ], [ false, %37 ], [ false, %15 ]
+.thread:                                          ; preds = %15, %36, %34, %32, %42, %48, %.critedge2, %27, %5, %2
+  %.0 = phi i1 [ true, %5 ], [ true, %32 ], [ true, %48 ], [ false, %27 ], [ false, %2 ], [ false, %.critedge2 ], [ false, %42 ], [ true, %34 ], [ false, %36 ], [ false, %15 ]
   ret i1 %.0
 }
 
@@ -7741,7 +7738,7 @@ _ZN12_GLOBAL__N_122canonicalizedKnowledgeEN4llvm17RetainedKnowledgeERKNS0_10Data
   %145 = icmp eq ptr %143, %144
   br i1 %145, label %_ZN12_GLOBAL__N_118AssumeBuilderState12addAttributeEN4llvm9AttributeEPNS1_5ValueE.exit, label %_ZN12_GLOBAL__N_118AssumeBuilderState26isKnowledgeWorthPreservingEN4llvm17RetainedKnowledgeE.exit
 
-_ZN12_GLOBAL__N_118AssumeBuilderState26isKnowledgeWorthPreservingEN4llvm17RetainedKnowledgeE.exit: ; preds = %139, %141, %128, %.critedge.i, %133, %131, %109
+_ZN12_GLOBAL__N_118AssumeBuilderState26isKnowledgeWorthPreservingEN4llvm17RetainedKnowledgeE.exit: ; preds = %128, %.critedge.i, %139, %141, %133, %131, %109
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %.sroa.025.0.copyload, ptr %14, align 8
@@ -7953,7 +7950,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_5ValueENS_9Attribute8AttrK
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZN12_GLOBAL__N_118AssumeBuilderState12addAttributeEN4llvm9AttributeEPNS1_5ValueE.exit
 
-_ZN12_GLOBAL__N_118AssumeBuilderState12addAttributeEN4llvm9AttributeEPNS1_5ValueE.exit: ; preds = %141, %135, %.critedge2.i, %_ZN12_GLOBAL__N_122canonicalizedKnowledgeEN4llvm17RetainedKnowledgeERKNS0_10DataLayoutE.exit, %128, %117, %117, %117, %117, %117, %254, %_ZN12_GLOBAL__N_118AssumeBuilderState32tryToPreserveWithoutAddingAssumeEN4llvm17RetainedKnowledgeE.exit, %_ZNK4llvm8CallBase16isPassingUndefUBEj.exit.thread, %68, %73
+_ZN12_GLOBAL__N_118AssumeBuilderState12addAttributeEN4llvm9AttributeEPNS1_5ValueE.exit: ; preds = %135, %141, %.critedge2.i, %_ZN12_GLOBAL__N_122canonicalizedKnowledgeEN4llvm17RetainedKnowledgeERKNS0_10DataLayoutE.exit, %128, %117, %117, %117, %117, %117, %254, %_ZN12_GLOBAL__N_118AssumeBuilderState32tryToPreserveWithoutAddingAssumeEN4llvm17RetainedKnowledgeE.exit, %_ZNK4llvm8CallBase16isPassingUndefUBEj.exit.thread, %68, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %255
 

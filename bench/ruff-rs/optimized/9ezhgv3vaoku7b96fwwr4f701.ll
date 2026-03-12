@@ -41861,7 +41861,7 @@ _ZN15ruff_python_ast7visitor7Visitor14visit_f_string17hef51113573f4e907E.exit: ;
   %.not48.i = icmp eq ptr %298, null
   br i1 %.not48.i, label %_ZN15ruff_python_ast7visitor9walk_expr17h89159d40ab237766E.exit, label %tailrecurse.backedge
 
-_ZN15ruff_python_ast7visitor9walk_expr17h89159d40ab237766E.exit: ; preds = %15, %15, %15, %15, %15, %15, %15, %15, %93, %296, %.lr.ph77, %.lr.ph79, %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17hef51113573f4e907E.exit, %.lr.ph91, %.lr.ph94, %.lr.ph97, %220, %.lr.ph106, %156, %149, %127, %._crit_edge, %99, %55, %48, %17
+_ZN15ruff_python_ast7visitor9walk_expr17h89159d40ab237766E.exit: ; preds = %15, %15, %15, %15, %15, %15, %15, %15, %296, %93, %.lr.ph77, %.lr.ph79, %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17hef51113573f4e907E.exit, %.lr.ph91, %.lr.ph94, %.lr.ph97, %220, %.lr.ph106, %156, %149, %127, %._crit_edge, %99, %55, %48, %17
   ret void
 }
 
@@ -42584,7 +42584,7 @@ _ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h6c7b0915d26a150cE.exit: ;
   %.not48.i = icmp eq ptr %291, null
   br i1 %.not48.i, label %_ZN15ruff_python_ast7visitor9walk_expr17h265b893b31b5dc3fE.exit, label %tailrecurse.backedge
 
-_ZN15ruff_python_ast7visitor9walk_expr17h265b893b31b5dc3fE.exit: ; preds = %5, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %86, %289, %.lr.ph77, %.lr.ph79, %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h6c7b0915d26a150cE.exit, %.lr.ph91, %.lr.ph94, %.lr.ph97, %213, %.lr.ph106, %149, %142, %120, %._crit_edge, %92, %48, %41, %10
+_ZN15ruff_python_ast7visitor9walk_expr17h265b893b31b5dc3fE.exit: ; preds = %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %289, %86, %5, %.lr.ph77, %.lr.ph79, %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h6c7b0915d26a150cE.exit, %.lr.ph91, %.lr.ph94, %.lr.ph97, %213, %.lr.ph106, %149, %142, %120, %._crit_edge, %92, %48, %41, %10
   ret void
 
 292:                                              ; preds = %5
@@ -43293,20 +43293,20 @@ define void @"_ZN102_$LT$ruff_python_ast..helpers..ReturnStatementVisitor$u20$as
     i32 15, label %88
     i32 16, label %97
     i32 17, label %101
-    i32 18, label %common.ret212
-    i32 19, label %common.ret212
-    i32 20, label %common.ret212
-    i32 21, label %common.ret212
-    i32 22, label %common.ret212
-    i32 23, label %common.ret212
+    i32 18, label %common.ret210
+    i32 19, label %common.ret210
+    i32 20, label %common.ret210
+    i32 21, label %common.ret210
+    i32 22, label %common.ret210
+    i32 23, label %common.ret210
     i32 24, label %112
     i32 25, label %115
     i32 26, label %120
-    i32 27, label %common.ret212
+    i32 27, label %common.ret210
     i32 28, label %123
     i32 29, label %130
     i32 30, label %137
-    i32 31, label %common.ret212
+    i32 31, label %common.ret210
   ]
 
 default.unreachable:                              ; preds = %.lr.ph78
@@ -43320,7 +43320,7 @@ default.unreachable:                              ; preds = %.lr.ph78
   %.idx115 = shl nuw nsw i64 %9, 6
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx115
   %11 = icmp eq i64 %9, 0
-  br i1 %11, label %common.ret212, label %.lr.ph100
+  br i1 %11, label %common.ret210, label %.lr.ph100
 
 12:                                               ; preds = %.lr.ph78
   %13 = getelementptr inbounds nuw i8, ptr %.tr2677, i64 8
@@ -43376,7 +43376,7 @@ tailrecurse.backedge:                             ; preds = %12, %18, %23, %30, 
   %.idx114 = shl nuw nsw i64 %41, 7
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx114
   %43 = icmp eq i64 %41, 0
-  br i1 %43, label %common.ret212, label %.lr.ph98.preheader
+  br i1 %43, label %common.ret210, label %.lr.ph98.preheader
 
 .lr.ph98.preheader:                               ; preds = %37
   %.sroa.030.1.i95 = getelementptr inbounds nuw i8, ptr %39, i64 128
@@ -43390,7 +43390,7 @@ tailrecurse.backedge:                             ; preds = %12, %18, %23, %30, 
   %.idx113 = shl nuw nsw i64 %48, 6
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx113
   %50 = icmp eq i64 %48, 0
-  br i1 %50, label %common.ret212, label %.lr.ph93
+  br i1 %50, label %common.ret210, label %.lr.ph93
 
 51:                                               ; preds = %.lr.ph78
   %52 = getelementptr inbounds nuw i8, ptr %.tr2677, i64 16
@@ -43457,7 +43457,7 @@ tailrecurse.backedge:                             ; preds = %12, %18, %23, %30, 
   %83 = getelementptr inbounds nuw i8, ptr %.tr2677, i64 16
   %84 = load ptr, ptr %83, align 8, !noalias !6233, !align !135, !noundef !3
   %.not57.i = icmp eq ptr %84, null
-  br i1 %.not57.i, label %common.ret212, label %tailrecurse.backedge
+  br i1 %.not57.i, label %common.ret210, label %tailrecurse.backedge
 
 85:                                               ; preds = %.lr.ph78
   %86 = getelementptr inbounds nuw i8, ptr %.tr2677, i64 8
@@ -43475,9 +43475,9 @@ tailrecurse.backedge:                             ; preds = %12, %18, %23, %30, 
   %.idx104 = shl nuw nsw i64 %94, 6
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx104
   %96 = icmp eq i64 %94, 0
-  br i1 %96, label %common.ret212, label %.lr.ph91
+  br i1 %96, label %common.ret210, label %.lr.ph91
 
-common.ret212:                                    ; preds = %.lr.ph78, %tailrecurse._crit_edge, %5, %37, %44, %88, %101, %123, %130, %.lr.ph100, %147, %.lr.ph93, %.lr.ph91, %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h7a4ebf641f929cdbE.exit, %.lr.ph82, %.lr.ph80, %223, %82, %.lr.ph78, %.lr.ph78, %.lr.ph78, %.lr.ph78, %.lr.ph78, %.lr.ph78, %.lr.ph78, %97
+common.ret210:                                    ; preds = %tailrecurse._crit_edge, %5, %37, %44, %88, %101, %123, %130, %.lr.ph100, %147, %.lr.ph93, %.lr.ph91, %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h7a4ebf641f929cdbE.exit, %.lr.ph82, %.lr.ph80, %223, %82, %.lr.ph78, %.lr.ph78, %.lr.ph78, %.lr.ph78, %.lr.ph78, %.lr.ph78, %.lr.ph78, %.lr.ph78, %97
   ret void
 
 97:                                               ; preds = %.lr.ph78
@@ -43486,7 +43486,7 @@ common.ret212:                                    ; preds = %.lr.ph78, %tailrecu
   %100 = load ptr, ptr %98, align 8, !noalias !6233, !nonnull !3, !align !135, !noundef !3
   tail call void @"_ZN102_$LT$ruff_python_ast..helpers..ReturnStatementVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h3ece2f43deb67194E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %100)
   tail call fastcc void @_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17had8995fd59712ef0E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %99)
-  br label %common.ret212
+  br label %common.ret210
 
 101:                                              ; preds = %.lr.ph78
   %102 = getelementptr inbounds nuw i8, ptr %.tr2677, i64 8
@@ -43501,7 +43501,7 @@ common.ret212:                                    ; preds = %.lr.ph78, %tailrecu
   %.idx102 = select i1 %104, i64 %109, i64 40
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i11, i64 %.idx102
   %111 = icmp samesign eq i64 %.idx102, 0
-  br i1 %111, label %common.ret212, label %.lr.ph89.preheader
+  br i1 %111, label %common.ret210, label %.lr.ph89.preheader
 
 .lr.ph89.preheader:                               ; preds = %101
   %.sroa.038.1.i86 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i11, i64 40
@@ -43533,7 +43533,7 @@ common.ret212:                                    ; preds = %.lr.ph78, %tailrecu
   %.idx101 = shl nuw nsw i64 %127, 6
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 %.idx101
   %129 = icmp eq i64 %127, 0
-  br i1 %129, label %common.ret212, label %.lr.ph82
+  br i1 %129, label %common.ret210, label %.lr.ph82
 
 130:                                              ; preds = %.lr.ph78
   %131 = getelementptr inbounds nuw i8, ptr %.tr2677, i64 16
@@ -43543,7 +43543,7 @@ common.ret212:                                    ; preds = %.lr.ph78, %tailrecu
   %.idx = shl nuw nsw i64 %134, 6
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 %.idx
   %136 = icmp eq i64 %134, 0
-  br i1 %136, label %common.ret212, label %.lr.ph80
+  br i1 %136, label %common.ret210, label %.lr.ph80
 
 137:                                              ; preds = %.lr.ph78
   %138 = getelementptr inbounds nuw i8, ptr %.tr2677, i64 16
@@ -43556,7 +43556,7 @@ common.ret212:                                    ; preds = %.lr.ph78, %tailrecu
   %.sroa.029.1.i = getelementptr inbounds nuw i8, ptr %.sroa.029.0.i99, i64 64
   tail call void @"_ZN102_$LT$ruff_python_ast..helpers..ReturnStatementVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h3ece2f43deb67194E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %.sroa.029.0.i99)
   %140 = icmp eq ptr %.sroa.029.1.i, %10
-  br i1 %140, label %common.ret212, label %.lr.ph100
+  br i1 %140, label %common.ret210, label %.lr.ph100
 
 141:                                              ; preds = %26
   tail call fastcc void @_ZN15ruff_python_ast7visitor7Visitor16visit_parameters17h84c07ed70acb198bE(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(96) %29)
@@ -43583,14 +43583,14 @@ common.ret212:                                    ; preds = %.lr.ph78, %tailrecu
   %148 = icmp eq ptr %.sroa.030.1.i97, %42
   %.sroa.030.1.i.idx = select i1 %148, i64 0, i64 128
   %.sroa.030.1.i = getelementptr inbounds nuw i8, ptr %.sroa.030.1.i97, i64 %.sroa.030.1.i.idx
-  br i1 %148, label %common.ret212, label %.lr.ph98
+  br i1 %148, label %common.ret210, label %.lr.ph98
 
 .lr.ph93:                                         ; preds = %44, %.lr.ph93
   %.sroa.031.0.i92 = phi ptr [ %.sroa.031.1.i, %.lr.ph93 ], [ %46, %44 ]
   %.sroa.031.1.i = getelementptr inbounds nuw i8, ptr %.sroa.031.0.i92, i64 64
   tail call void @"_ZN102_$LT$ruff_python_ast..helpers..ReturnStatementVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h3ece2f43deb67194E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %.sroa.031.0.i92)
   %149 = icmp eq ptr %.sroa.031.1.i, %49
-  br i1 %149, label %common.ret212, label %.lr.ph93
+  br i1 %149, label %common.ret210, label %.lr.ph93
 
 _ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17h6db6edfbcf9a6d5eE.exit7.loopexit: ; preds = %.lr.ph69, %.lr.ph74
   %150 = icmp eq ptr %.sroa.032.1.i73, %56
@@ -43736,7 +43736,7 @@ _ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17h6db6edfbcf9a6d5eE.ex
   %.sroa.037.1.i = getelementptr inbounds nuw i8, ptr %.sroa.037.0.i90, i64 64
   tail call void @"_ZN102_$LT$ruff_python_ast..helpers..ReturnStatementVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h3ece2f43deb67194E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %.sroa.037.0.i90)
   %204 = icmp eq ptr %.sroa.037.1.i, %95
-  br i1 %204, label %common.ret212, label %.lr.ph91
+  br i1 %204, label %common.ret210, label %.lr.ph91
 
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h7a4ebf641f929cdbE.exit
   %.sroa.038.1.i88 = phi ptr [ %.sroa.038.1.i, %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h7a4ebf641f929cdbE.exit ], [ %.sroa.038.1.i86, %.lr.ph89.preheader ]
@@ -43768,21 +43768,21 @@ _ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h7a4ebf641f929cdbE.exit: ;
   %215 = icmp eq ptr %.sroa.038.1.i88, %110
   %.sroa.038.1.i.idx = select i1 %215, i64 0, i64 40
   %.sroa.038.1.i = getelementptr inbounds nuw i8, ptr %.sroa.038.1.i88, i64 %.sroa.038.1.i.idx
-  br i1 %215, label %common.ret212, label %.lr.ph89
+  br i1 %215, label %common.ret210, label %.lr.ph89
 
 .lr.ph82:                                         ; preds = %123, %.lr.ph82
   %.sroa.041.0.i81 = phi ptr [ %.sroa.041.1.i, %.lr.ph82 ], [ %125, %123 ]
   %.sroa.041.1.i = getelementptr inbounds nuw i8, ptr %.sroa.041.0.i81, i64 64
   tail call void @"_ZN102_$LT$ruff_python_ast..helpers..ReturnStatementVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h3ece2f43deb67194E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %.sroa.041.0.i81)
   %216 = icmp eq ptr %.sroa.041.1.i, %128
-  br i1 %216, label %common.ret212, label %.lr.ph82
+  br i1 %216, label %common.ret210, label %.lr.ph82
 
 .lr.ph80:                                         ; preds = %130, %.lr.ph80
   %.sroa.042.0.i79 = phi ptr [ %.sroa.042.1.i, %.lr.ph80 ], [ %132, %130 ]
   %.sroa.042.1.i = getelementptr inbounds nuw i8, ptr %.sroa.042.0.i79, i64 64
   tail call void @"_ZN102_$LT$ruff_python_ast..helpers..ReturnStatementVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h3ece2f43deb67194E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %.sroa.042.0.i79)
   %217 = icmp eq ptr %.sroa.042.1.i, %135
-  br i1 %217, label %common.ret212, label %.lr.ph80
+  br i1 %217, label %common.ret210, label %.lr.ph80
 
 218:                                              ; preds = %137
   tail call void @"_ZN102_$LT$ruff_python_ast..helpers..ReturnStatementVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h3ece2f43deb67194E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %139)
@@ -43802,12 +43802,12 @@ _ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h7a4ebf641f929cdbE.exit: ;
   %224 = getelementptr inbounds nuw i8, ptr %.tr2677, i64 32
   %225 = load ptr, ptr %224, align 8, !noalias !6233, !align !135, !noundef !3
   %.not48.i = icmp eq ptr %225, null
-  br i1 %.not48.i, label %common.ret212, label %tailrecurse.backedge
+  br i1 %.not48.i, label %common.ret210, label %tailrecurse.backedge
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedge, %2
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %226, align 8
-  br label %common.ret212
+  br label %common.ret210
 }
 
 ; Function Attrs: nonlazybind uwtable

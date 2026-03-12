@@ -1277,7 +1277,7 @@ define noundef zeroext i1 @"_ZN63_$LT$regex_syntax..debug..Bytes$u20$as$u20$core
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %95, label %.loopexit, label %.backedge
 
-.backedge:                                        ; preds = %78, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$16escape_debug_ext17h95156c3cbe1d258bE.exit", %76, %101
+.backedge:                                        ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$16escape_debug_ext17h95156c3cbe1d258bE.exit", %78, %76, %101
   %.sroa.020.0.be = phi ptr [ %103, %101 ], [ %70, %76 ], [ %70, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$16escape_debug_ext17h95156c3cbe1d258bE.exit" ], [ %70, %78 ]
   %.sroa.623.0.be = phi i64 [ %102, %101 ], [ %69, %76 ], [ %69, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$16escape_debug_ext17h95156c3cbe1d258bE.exit" ], [ %69, %78 ]
   %96 = call i64 @_ZN12regex_syntax5debug11utf8_decode17hba173251560b97f0E(ptr noalias noundef nonnull readonly align 1 %.sroa.020.0.be, i64 noundef %.sroa.623.0.be)

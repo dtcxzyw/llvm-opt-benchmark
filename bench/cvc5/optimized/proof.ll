@@ -1000,7 +1000,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %31, %35, %41
           to label %.noexc unwind label %62
 
 .noexc:                                           ; preds = %46
-  switch i32 %47, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread321 [
+  switch i32 %47, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread320 [
     i32 0, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread
     i32 72, label %48
   ]
@@ -1014,7 +1014,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %31, %35, %41
           to label %.noexc81 unwind label %62
 
 .noexc81:                                         ; preds = %.noexc80
-  switch i32 %50, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread321 [
+  switch i32 %50, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread320 [
     i32 0, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread
     i32 72, label %51
   ]
@@ -1031,9 +1031,9 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %31, %35, %41
 
 _ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit: ; preds = %.noexc82
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread321
+  br i1 %56, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread320
 
-_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread321: ; preds = %.noexc81, %.noexc, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit
+_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread320: ; preds = %.noexc81, %.noexc, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit
   store ptr %45, ptr %0, align 8, !tbaa !54
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1052,7 +1052,7 @@ _ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread321: ; preds
           cleanup
   br label %363
 
-_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread: ; preds = %.noexc81, %.noexc, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
+_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread: ; preds = %.noexc, %.noexc81, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %65 = load i8, ptr %64, align 8, !tbaa !35, !range !79, !noundef !80
   %66 = trunc nuw i8 %65 to i1
@@ -1186,8 +1186,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit140: ; preds = %106, %100, %10
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit142: ; preds = %110, %114, %120
   %124 = load ptr, ptr %8, align 8, !tbaa !54
-  %.not327 = icmp eq ptr %124, null
-  br i1 %.not327, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit207, label %125
+  %.not325 = icmp eq ptr %124, null
+  br i1 %.not325, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit207, label %125
 
 125:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit142
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1398,7 +1398,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
           to label %.noexc168 unwind label %204
 
 .noexc168:                                        ; preds = %213
-  switch i32 %214, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit173.thread325 [
+  switch i32 %214, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit173.thread323 [
     i32 0, label %.critedge
     i32 72, label %215
   ]
@@ -1412,7 +1412,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
           to label %.noexc170 unwind label %204
 
 .noexc170:                                        ; preds = %.noexc169
-  switch i32 %217, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit173.thread325 [
+  switch i32 %217, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit173.thread323 [
     i32 0, label %.critedge
     i32 72, label %218
   ]
@@ -1429,13 +1429,13 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
 
 _ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit173: ; preds = %.noexc171
   %223 = icmp eq i32 %222, 0
-  br i1 %223, label %.critedge, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit173.thread325
+  br i1 %223, label %.critedge, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit173.thread323
 
-_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit173.thread325: ; preds = %.noexc170, %.noexc168, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit173
+_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit173.thread323: ; preds = %.noexc170, %.noexc168, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit173
   %224 = invoke noundef zeroext i1 @_ZN4cvc58internal16ProofNodeManager10updateNodeEPNS0_9ProofNodeENS_9ProofRuleERKSt6vectorISt10shared_ptrIS2_ESaIS7_EERKS5_INS0_12NodeTemplateILb1EEESaISD_EE(ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef nonnull %131, i32 noundef 72, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %225 unwind label %233
 
-225:                                              ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit173.thread325
+225:                                              ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit173.thread323
   br i1 %224, label %.critedge, label %226, !prof !53
 
 226:                                              ; preds = %225
@@ -1463,7 +1463,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit181: ; preds = %_ZSt
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #25
   unreachable
 
-233:                                              ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit173.thread325
+233:                                              ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit173.thread323
   %234 = landingpad { ptr, i32 }
           cleanup
   br label %295
@@ -1480,7 +1480,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit181: ; preds = %_ZSt
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #25
   unreachable
 
-.critedge:                                        ; preds = %.noexc170, %.noexc168, %225, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit173, %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+.critedge:                                        ; preds = %.noexc168, %.noexc170, %225, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit173, %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %239 = load ptr, ptr %11, align 8, !tbaa !60
   %240 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %241 = load ptr, ptr %240, align 8, !tbaa !64
@@ -1793,7 +1793,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i217: ; preds = %359, %3
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pre) #24
   br label %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit219
 
-_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit219: ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread321, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit123, %341, %347, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i217, %362
+_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit219: ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread320, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit123, %341, %347, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i217, %362
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
@@ -2238,35 +2238,32 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE(ptr noundef nonnull %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull align 8 dereferenceable(65) %0)
-  switch i32 %2, label %3 [
-    i32 0, label %14
-    i32 72, label %4
+  switch i32 %2, label %6 [
+    i32 0, label %13
+    i32 72, label %3
   ]
 
 3:                                                ; preds = %1
-  br label %14
-
-4:                                                ; preds = %1
-  %5 = tail call noundef ptr @_ZN4cvc58internal16ProofNodeManager16cancelDoubleSymmEPNS0_9ProofNodeE(ptr noundef nonnull %0)
-  %6 = tail call noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull align 8 dereferenceable(65) %5)
-  switch i32 %6, label %7 [
-    i32 0, label %14
-    i32 72, label %8
+  %4 = tail call noundef ptr @_ZN4cvc58internal16ProofNodeManager16cancelDoubleSymmEPNS0_9ProofNodeE(ptr noundef nonnull %0)
+  %5 = tail call noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull align 8 dereferenceable(65) %4)
+  switch i32 %5, label %6 [
+    i32 0, label %13
+    i32 72, label %7
   ]
 
-7:                                                ; preds = %4
-  br label %14
+6:                                                ; preds = %1, %3
+  br label %13
 
-8:                                                ; preds = %4
-  %9 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9ProofNode11getChildrenEv(ptr noundef nonnull align 8 dereferenceable(65) %5)
-  %10 = load ptr, ptr %9, align 8, !tbaa !66
-  %11 = load ptr, ptr %10, align 8, !tbaa !54
-  %12 = tail call noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull align 8 dereferenceable(65) %11)
-  %13 = icmp eq i32 %12, 0
-  br label %14
+7:                                                ; preds = %3
+  %8 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9ProofNode11getChildrenEv(ptr noundef nonnull align 8 dereferenceable(65) %4)
+  %9 = load ptr, ptr %8, align 8, !tbaa !66
+  %10 = load ptr, ptr %9, align 8, !tbaa !54
+  %11 = tail call noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull align 8 dereferenceable(65) %10)
+  %12 = icmp eq i32 %11, 0
+  br label %13
 
-14:                                               ; preds = %4, %1, %8, %7, %3
-  %.0 = phi i1 [ %13, %8 ], [ false, %3 ], [ true, %1 ], [ false, %7 ], [ true, %4 ]
+13:                                               ; preds = %3, %1, %7, %6
+  %.0 = phi i1 [ %12, %7 ], [ true, %3 ], [ true, %1 ], [ false, %6 ]
   ret i1 %.0
 }
 
@@ -2714,8 +2711,8 @@ _ZNK4cvc58internal7CDProof10getManagerEv.exit:    ; preds = %_ZN4cvc58internal11
   %72 = load ptr, ptr %3, align 8, !tbaa !130
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !130
-  %.not967974 = icmp eq ptr %72, %74
-  br i1 %.not967974, label %.critedge140, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit446.lr.ph
+  %.not966973 = icmp eq ptr %72, %74
+  br i1 %.not966973, label %.critedge140, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit446.lr.ph
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit446.lr.ph: ; preds = %_ZNK4cvc58internal7CDProof10getManagerEv.exit
   %75 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -2736,9 +2733,9 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit446.lr.ph: ; preds = %_ZNK4cvc58i
   br label %629
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit446: ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit446.lr.ph, %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit512
-  %.sroa.0863.0975 = phi ptr [ %72, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit446.lr.ph ], [ %369, %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit512 ]
+  %.sroa.0863.0974 = phi ptr [ %72, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit446.lr.ph ], [ %369, %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit512 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %87 = load ptr, ptr %.sroa.0863.0975, align 8, !tbaa !49
+  %87 = load ptr, ptr %.sroa.0863.0974, align 8, !tbaa !49
   store ptr %87, ptr %11, align 8, !tbaa !49
   %88 = load i64, ptr %87, align 8
   %89 = lshr i64 %88, 40
@@ -2872,7 +2869,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit481: ; preds = %118
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %145 = load ptr, ptr %.sroa.0863.0975, align 8, !tbaa !49
+  %145 = load ptr, ptr %.sroa.0863.0974, align 8, !tbaa !49
   store ptr %145, ptr %13, align 8, !tbaa !49
   %146 = load i64, ptr %145, align 8
   %147 = lshr i64 %146, 40
@@ -2960,7 +2957,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit485: ; preds = %172, %176, %182
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %186 = load ptr, ptr %.sroa.0863.0975, align 8, !tbaa !49
+  %186 = load ptr, ptr %.sroa.0863.0974, align 8, !tbaa !49
   store ptr %186, ptr %16, align 8, !tbaa !49
   %187 = load i64, ptr %186, align 8
   %188 = lshr i64 %187, 40
@@ -3128,7 +3125,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit494: ; preds = %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit492, %252, %258
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %262 = invoke noundef zeroext i1 @_ZN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofNodeEESt4hashIS4_EE6insertERKS4_RKS7_(ptr noundef nonnull align 8 dereferenceable(112) %80, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0863.0975, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %262 = invoke noundef zeroext i1 @_ZN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofNodeEESt4hashIS4_EE6insertERKS4_RKS7_(ptr noundef nonnull align 8 dereferenceable(112) %80, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0863.0974, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %263 unwind label %325
 
 263:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit494
@@ -3411,9 +3408,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i510: ; preds = %365, %3
 
 _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit512: ; preds = %_ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE9push_backERKS4_.exit, %353, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i510, %368
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %369 = getelementptr inbounds nuw i8, ptr %.sroa.0863.0975, i64 8
-  %.not967 = icmp eq ptr %369, %74
-  br i1 %.not967, label %.critedge140, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit446
+  %369 = getelementptr inbounds nuw i8, ptr %.sroa.0863.0974, i64 8
+  %.not966 = icmp eq ptr %369, %74
+  br i1 %.not966, label %.critedge140, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit446
 
 370:                                              ; preds = %346
   %371 = landingpad { ptr, i32 }
@@ -3436,7 +3433,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %376 = trunc nuw i8 %375 to i1
   %377 = icmp eq i32 %2, 72
   %or.cond = and i1 %377, %376
-  br i1 %or.cond, label %378, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread964
+  br i1 %or.cond, label %378, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread963
 
 378:                                              ; preds = %.critedge140
   %379 = load ptr, ptr %9, align 8, !tbaa !66
@@ -3445,7 +3442,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
           to label %.noexc513 unwind label %391
 
 .noexc513:                                        ; preds = %378
-  switch i32 %381, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread964 [
+  switch i32 %381, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread963 [
     i32 0, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread
     i32 72, label %382
   ]
@@ -3459,7 +3456,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
           to label %.noexc515 unwind label %391
 
 .noexc515:                                        ; preds = %.noexc514
-  switch i32 %384, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread964 [
+  switch i32 %384, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread963 [
     i32 0, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread
     i32 72, label %385
   ]
@@ -3476,21 +3473,21 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
 
 _ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit: ; preds = %.noexc516
   %390 = icmp eq i32 %389, 0
-  br i1 %390, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread964
+  br i1 %390, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread963
 
 391:                                              ; preds = %.noexc516, %385, %.noexc514, %382, %378
   %392 = landingpad { ptr, i32 }
           cleanup
   br label %605
 
-_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread964: ; preds = %.noexc515, %.noexc513, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit, %.critedge140
+_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread963: ; preds = %.noexc515, %.noexc513, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit, %.critedge140
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %393 = load ptr, ptr %7, align 8, !tbaa !54
   %.not.i518 = icmp eq ptr %393, null
   br i1 %.not.i518, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit556, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit624
 
-_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit556: ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread964
+_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit556: ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread963
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %394 = load ptr, ptr %1, align 8, !tbaa !49
   store ptr %394, ptr %19, align 8, !tbaa !49
@@ -3688,7 +3685,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit570: ; preds = %_ZNSt12__shared_pt
           cleanup
   br label %570
 
-_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit624: ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread964
+_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit624: ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread963
   store ptr %393, ptr %17, align 8, !tbaa !54
   %483 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %484 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3897,8 +3894,8 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %605
 
-_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread: ; preds = %.noexc515, %.noexc513, %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit, %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit661
-  %.4 = phi i1 [ false, %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %.5, %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit661 ], [ true, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit ], [ true, %.noexc513 ], [ true, %.noexc515 ]
+_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread: ; preds = %.noexc513, %.noexc515, %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit, %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit661
+  %.4 = phi i1 [ false, %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %.5, %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit661 ], [ true, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit ], [ true, %.noexc515 ], [ true, %.noexc513 ]
   %571 = load ptr, ptr %9, align 8, !tbaa !66
   %572 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %573 = load ptr, ptr %572, align 8, !tbaa !69
@@ -3989,8 +3986,8 @@ _ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EED2Ev.exit675: ; p
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %629
 
-_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit373: ; preds = %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit, %52, %.noexc355, %.noexc357, %_ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EED2Ev.exit675
-  %.0 = phi i1 [ %.4, %_ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EED2Ev.exit675 ], [ true, %.noexc357 ], [ true, %.noexc355 ], [ true, %52 ], [ true, %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit ]
+_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit373: ; preds = %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit, %.noexc355, %.noexc357, %52, %_ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EED2Ev.exit675
+  %.0 = phi i1 [ %.4, %_ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EED2Ev.exit675 ], [ true, %52 ], [ true, %.noexc357 ], [ true, %.noexc355 ], [ true, %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit ]
   %606 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %607 = load ptr, ptr %606, align 8, !tbaa !59
   %.not.i.i676 = icmp eq ptr %607, null
@@ -4058,51 +4055,48 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   switch i32 %2, label %.fold.split [
-    i32 0, label %18
+    i32 0, label %17
     i32 1, label %4
   ]
 
 4:                                                ; preds = %3
   %5 = tail call noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull align 8 dereferenceable(65) %0)
-  switch i32 %5, label %6 [
+  switch i32 %5, label %9 [
     i32 0, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit
-    i32 72, label %7
+    i32 72, label %6
   ]
 
 6:                                                ; preds = %4
-  br label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit
-
-7:                                                ; preds = %4
-  %8 = tail call noundef ptr @_ZN4cvc58internal16ProofNodeManager16cancelDoubleSymmEPNS0_9ProofNodeE(ptr noundef nonnull %0)
-  %9 = tail call noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull align 8 dereferenceable(65) %8)
-  switch i32 %9, label %10 [
+  %7 = tail call noundef ptr @_ZN4cvc58internal16ProofNodeManager16cancelDoubleSymmEPNS0_9ProofNodeE(ptr noundef nonnull %0)
+  %8 = tail call noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull align 8 dereferenceable(65) %7)
+  switch i32 %8, label %9 [
     i32 0, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit
-    i32 72, label %11
+    i32 72, label %10
   ]
 
-10:                                               ; preds = %7
+9:                                                ; preds = %6, %4
   br label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit
 
-11:                                               ; preds = %7
-  %12 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9ProofNode11getChildrenEv(ptr noundef nonnull align 8 dereferenceable(65) %8)
-  %13 = load ptr, ptr %12, align 8, !tbaa !66
-  %14 = load ptr, ptr %13, align 8, !tbaa !54
-  %15 = tail call noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull align 8 dereferenceable(65) %14)
-  %16 = icmp eq i32 %15, 0
+10:                                               ; preds = %6
+  %11 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9ProofNode11getChildrenEv(ptr noundef nonnull align 8 dereferenceable(65) %7)
+  %12 = load ptr, ptr %11, align 8, !tbaa !66
+  %13 = load ptr, ptr %12, align 8, !tbaa !54
+  %14 = tail call noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull align 8 dereferenceable(65) %13)
+  %15 = icmp eq i32 %14, 0
   br label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit
 
-_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit: ; preds = %4, %6, %7, %10, %11
-  %.0.i = phi i1 [ %16, %11 ], [ false, %6 ], [ true, %4 ], [ false, %10 ], [ true, %7 ]
-  %17 = icmp ne i32 %1, 0
-  %spec.select = and i1 %17, %.0.i
-  br label %18
+_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit: ; preds = %4, %6, %9, %10
+  %.0.i = phi i1 [ %15, %10 ], [ true, %6 ], [ true, %4 ], [ false, %9 ]
+  %16 = icmp ne i32 %1, 0
+  %spec.select = and i1 %16, %.0.i
+  br label %17
 
 .fold.split:                                      ; preds = %3
-  br label %18
+  br label %17
 
-18:                                               ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit, %3, %.fold.split
-  %19 = phi i1 [ true, %3 ], [ %spec.select, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit ], [ false, %.fold.split ]
-  ret i1 %19
+17:                                               ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit, %3, %.fold.split
+  %18 = phi i1 [ true, %3 ], [ %spec.select, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit ], [ false, %.fold.split ]
+  ret i1 %18
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5741,7 +5735,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %198, %202, %208
 213:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %215 = invoke noundef zeroext i1 @_ZN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS2_9ProofNodeEESt4hashIS4_EE6insertERKS4_RKS7_(ptr noundef nonnull align 8 dereferenceable(112) %214, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(16) %1)
-          to label %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread192 unwind label %220
+          to label %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread193 unwind label %220
 
 216:                                              ; preds = %196
   %217 = landingpad { ptr, i32 }
@@ -5765,7 +5759,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %198, %202, %208
           to label %225 unwind label %220
 
 225:                                              ; preds = %222
-  switch i32 %2, label %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread192 [
+  switch i32 %2, label %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread193 [
     i32 0, label %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread
     i32 1, label %226
   ]
@@ -5775,7 +5769,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %198, %202, %208
           to label %.noexc59 unwind label %220
 
 .noexc59:                                         ; preds = %226
-  switch i32 %227, label %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread192 [
+  switch i32 %227, label %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread193 [
     i32 0, label %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit
     i32 72, label %228
   ]
@@ -5789,7 +5783,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %198, %202, %208
           to label %.noexc61 unwind label %220
 
 .noexc61:                                         ; preds = %.noexc60
-  switch i32 %230, label %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread192 [
+  switch i32 %230, label %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread193 [
     i32 0, label %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit
     i32 72, label %231
   ]
@@ -5812,7 +5806,7 @@ _ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12C
   %.0.i.i = phi i1 [ %236, %.noexc63 ], [ true, %.noexc61 ], [ true, %.noexc59 ]
   %237 = icmp ne i32 %224, 0
   %spec.select.i = and i1 %237, %.0.i.i
-  br i1 %spec.select.i, label %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread, label %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread192
+  br i1 %spec.select.i, label %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread, label %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread193
 
 _ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread: ; preds = %225, %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5841,9 +5835,9 @@ _ZNK4cvc58internal7CDProof10getManagerEv.exit:    ; preds = %_ZN4cvc58internal7C
           to label %252 unwind label %220
 
 252:                                              ; preds = %250
-  br i1 %251, label %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread192, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit68
+  br i1 %251, label %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread193, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit68
 
-_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread192: ; preds = %.noexc61, %.noexc59, %225, %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit, %252, %213
+_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread193: ; preds = %225, %.noexc61, %.noexc59, %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit, %252, %213
   %253 = load ptr, ptr %7, align 8, !tbaa !49
   store ptr %253, ptr %10, align 8, !tbaa !49
   %254 = load i64, ptr %253, align 8
@@ -5853,7 +5847,7 @@ _ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12C
   %258 = icmp samesign ult i32 %257, 1048574
   br i1 %258, label %259, label %265, !prof !52
 
-259:                                              ; preds = %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread192
+259:                                              ; preds = %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread193
   %260 = add nuw nsw i32 %257, 1
   %261 = zext nneg i32 %260 to i64
   %262 = shl nuw nsw i64 %261, 40
@@ -5862,7 +5856,7 @@ _ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12C
   store i64 %264, ptr %253, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit66
 
-265:                                              ; preds = %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread192
+265:                                              ; preds = %_ZN4cvc58internal7CDProof15shouldOverwriteEPNS0_9ProofNodeENS_9ProofRuleENS0_12CDPOverwriteE.exit.thread193
   %266 = icmp eq i32 %257, 1048574
   br i1 %266, label %267, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit66, !prof !53
 
@@ -7005,7 +6999,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %25, %29, %35
           to label %.noexc unwind label %53
 
 .noexc:                                           ; preds = %40
-  switch i32 %41, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread42 [
+  switch i32 %41, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread41 [
     i32 0, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread
     i32 72, label %42
   ]
@@ -7019,7 +7013,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %25, %29, %35
           to label %.noexc17 unwind label %53
 
 .noexc17:                                         ; preds = %.noexc16
-  switch i32 %44, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread42 [
+  switch i32 %44, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread41 [
     i32 0, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread
     i32 72, label %45
   ]
@@ -7036,7 +7030,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %25, %29, %35
 
 _ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit: ; preds = %.noexc18
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread42
+  br i1 %50, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread41
 
 51:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
   %52 = landingpad { ptr, i32 }
@@ -7049,11 +7043,11 @@ _ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit: ; preds = %.noexc
           cleanup
   br label %212
 
-_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread: ; preds = %.noexc17, %.noexc, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
+_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread: ; preds = %.noexc, %.noexc17, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %56 = load i8, ptr %55, align 8, !tbaa !35, !range !79, !noundef !80
   %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %58, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread42
+  br i1 %57, label %58, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread41
 
 58:                                               ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -7094,7 +7088,7 @@ _ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread: ; preds = 
 72:                                               ; preds = %68, %64, %60
   %73 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !84
   %74 = icmp eq ptr %61, %73
-  br i1 %74, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread46, label %79
+  br i1 %74, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread44, label %79
 
 75:                                               ; preds = %58
   %76 = landingpad { ptr, i32 }
@@ -7275,15 +7269,15 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit25: ; preds = %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %148, %154
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %158 = load ptr, ptr %3, align 8, !tbaa !54
-  %.not48 = icmp eq ptr %158, null
-  br i1 %.not48, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread, label %159
+  %.not46 = icmp eq ptr %158, null
+  br i1 %.not46, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread, label %159
 
 159:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit25
   %160 = invoke noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull align 8 dereferenceable(65) %158)
           to label %.noexc27 unwind label %77
 
 .noexc27:                                         ; preds = %159
-  switch i32 %160, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread46 [
+  switch i32 %160, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread44 [
     i32 0, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread
     i32 72, label %161
   ]
@@ -7297,7 +7291,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit25: ; preds = %_ZNSt12__shared_ptr
           to label %.noexc29 unwind label %77
 
 .noexc29:                                         ; preds = %.noexc28
-  switch i32 %163, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread46 [
+  switch i32 %163, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread44 [
     i32 0, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread
     i32 72, label %164
   ]
@@ -7314,7 +7308,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit25: ; preds = %_ZNSt12__shared_ptr
 
 _ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32: ; preds = %.noexc30
   %169 = icmp eq i32 %168, 0
-  br i1 %169, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread46
+  br i1 %169, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread, label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread44
 
 170:                                              ; preds = %94
   %171 = landingpad { ptr, i32 }
@@ -7332,10 +7326,10 @@ _ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32: ; preds = %.noe
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.body
 
-_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread: ; preds = %.noexc29, %.noexc27, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit25
-  br label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread46
+_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread: ; preds = %.noexc27, %.noexc29, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit25
+  br label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread44
 
-_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread46: ; preds = %.noexc29, %.noexc27, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32, %72, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread
+_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread44: ; preds = %.noexc29, %.noexc27, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32, %72, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread
   %.19 = phi i1 [ false, %72 ], [ false, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread ], [ true, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32 ], [ true, %.noexc27 ], [ true, %.noexc29 ]
   %175 = load ptr, ptr %5, align 8, !tbaa !49
   %176 = load i64, ptr %175, align 8
@@ -7343,7 +7337,7 @@ _ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread46: ; pred
   %.not.i.i33 = icmp eq i64 %177, 1152920405095219200
   br i1 %.not.i.i33, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit34, label %178, !prof !53
 
-178:                                              ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread46
+178:                                              ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread44
   %179 = add i64 %176, 1152920405095219200
   %180 = and i64 %179, 1152920405095219200
   %181 = and i64 %176, -1152920405095219201
@@ -7363,9 +7357,9 @@ _ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread46: ; pred
   call void @__clang_call_terminate(ptr %187) #25
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit34: ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread46, %178, %184
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit34: ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit32.thread44, %178, %184
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread42
+  br label %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread41
 
 .body:                                            ; preds = %77, %70, %174
   %.pn11 = phi { ptr, i32 } [ %.pn, %174 ], [ %78, %77 ], [ %71, %70 ]
@@ -7377,14 +7371,14 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit34: ; preds = %_ZN4cvc58internal7C
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %212
 
-_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread42: ; preds = %.noexc17, %.noexc, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit34
+_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread41: ; preds = %.noexc17, %.noexc, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit34
   %.08 = phi i1 [ %.19, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit34 ], [ true, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit ], [ false, %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread ], [ true, %.noexc ], [ true, %.noexc17 ]
   %189 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %190 = load ptr, ptr %189, align 8, !tbaa !59
   %.not.i.i35 = icmp eq ptr %190, null
   br i1 %.not.i.i35, label %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit39, label %191
 
-191:                                              ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread42
+191:                                              ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread41
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %193 = load atomic i64, ptr %192 acquire, align 8
   %194 = icmp eq i64 %193, 4294967297
@@ -7428,7 +7422,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i37: ; preds = %208, %20
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %190) #24
   br label %_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit39
 
-_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit39: ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread42, %196, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i37, %211
+_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit39: ; preds = %_ZN4cvc58internal7CDProof12isAssumptionEPNS0_9ProofNodeE.exit.thread41, %196, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i37, %211
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.08
 

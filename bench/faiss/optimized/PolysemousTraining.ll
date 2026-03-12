@@ -1772,7 +1772,7 @@ define internal void @_ZNK5faiss18PolysemousTraining28optimize_reproduce_distanc
   br i1 %57, label %.invoke, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
 
 .invoke:                                          ; preds = %._crit_edge132, %250, %81
-  %58 = phi ptr [ @.str.20, %250 ], [ @.str.20, %81 ], [ @.str, %._crit_edge132 ]
+  %58 = phi ptr [ @.str.20, %81 ], [ @.str.20, %250 ], [ @.str, %._crit_edge132 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %58) #29
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

@@ -169,80 +169,80 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 10:                                               ; preds = %6, %3
   %.017 = phi i32 [ %9, %6 ], [ %4, %3 ]
   %11 = icmp eq i32 %.017, 40
-  br i1 %11, label %.loopexit.loopexit, label %.critedge
+  br i1 %11, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %tailrecurse, %10
   %12 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
   %13 = load i16, ptr %12, align 8
   %trunc = trunc i16 %13 to i8
-  switch i8 %trunc, label %29 [
+  switch i8 %trunc, label %28 [
     i8 42, label %tailrecurse.backedge
     i8 34, label %14
     i8 63, label %.loopexit22
     i8 4, label %tailrecurse.backedge
     i8 1, label %tailrecurse.backedge
     i8 32, label %tailrecurse.backedge
-    i8 51, label %.loopexit.loopexit
-    i8 47, label %.loopexit.loopexit
-    i8 56, label %.loopexit
-    i8 57, label %.loopexit
-    i8 25, label %.loopexit
-    i8 0, label %.loopexit
-    i8 20, label %.loopexit
-    i8 15, label %.loopexit
-    i8 18, label %.loopexit
-    i8 19, label %.loopexit
-    i8 16, label %.loopexit
-    i8 62, label %.loopexit
-    i8 22, label %.loopexit
-    i8 33, label %.loopexit
-    i8 11, label %.loopexit
-    i8 17, label %.loopexit
-    i8 64, label %.loopexit
-    i8 50, label %.loopexit
-    i8 21, label %.loopexit
-    i8 2, label %.loopexit
-    i8 3, label %.loopexit
-    i8 5, label %.loopexit
-    i8 6, label %.loopexit
-    i8 7, label %.loopexit
-    i8 8, label %.loopexit
-    i8 9, label %.loopexit
-    i8 10, label %.loopexit
-    i8 12, label %.loopexit
-    i8 13, label %.loopexit
-    i8 14, label %.loopexit
-    i8 23, label %.loopexit
-    i8 24, label %.loopexit
-    i8 27, label %.loopexit
-    i8 35, label %.loopexit
-    i8 28, label %.loopexit
-    i8 29, label %.loopexit
-    i8 30, label %.loopexit
-    i8 38, label %.loopexit
-    i8 39, label %.loopexit
-    i8 40, label %.loopexit
-    i8 41, label %.loopexit
-    i8 43, label %.loopexit
-    i8 44, label %.loopexit
-    i8 45, label %.loopexit
-    i8 46, label %.loopexit
-    i8 48, label %.loopexit
-    i8 49, label %.loopexit
-    i8 53, label %.loopexit
-    i8 54, label %.loopexit
-    i8 55, label %.loopexit
-    i8 58, label %.loopexit
-    i8 59, label %.loopexit
-    i8 60, label %.loopexit
-    i8 61, label %.loopexit
-    i8 65, label %.loopexit
-    i8 52, label %.loopexit
-    i8 36, label %.loopexit
-    i8 31, label %.loopexit
-    i8 26, label %.loopexit
-    i8 66, label %.loopexit
-    i8 37, label %.loopexit
+    i8 51, label %.loopexit
+    i8 47, label %.loopexit
+    i8 56, label %.loopexit.loopexit40
+    i8 57, label %.loopexit.loopexit40
+    i8 25, label %.loopexit.loopexit40
+    i8 0, label %.loopexit.loopexit40
+    i8 20, label %.loopexit.loopexit40
+    i8 15, label %.loopexit.loopexit40
+    i8 18, label %.loopexit.loopexit40
+    i8 19, label %.loopexit.loopexit40
+    i8 16, label %.loopexit.loopexit40
+    i8 62, label %.loopexit.loopexit40
+    i8 22, label %.loopexit.loopexit40
+    i8 33, label %.loopexit.loopexit40
+    i8 11, label %.loopexit.loopexit40
+    i8 17, label %.loopexit.loopexit40
+    i8 64, label %.loopexit.loopexit40
+    i8 50, label %.loopexit.loopexit40
+    i8 21, label %.loopexit.loopexit40
+    i8 2, label %.loopexit.loopexit40
+    i8 3, label %.loopexit.loopexit40
+    i8 5, label %.loopexit.loopexit40
+    i8 6, label %.loopexit.loopexit40
+    i8 7, label %.loopexit.loopexit40
+    i8 8, label %.loopexit.loopexit40
+    i8 9, label %.loopexit.loopexit40
+    i8 10, label %.loopexit.loopexit40
+    i8 12, label %.loopexit.loopexit40
+    i8 13, label %.loopexit.loopexit40
+    i8 14, label %.loopexit.loopexit40
+    i8 23, label %.loopexit.loopexit40
+    i8 24, label %.loopexit.loopexit40
+    i8 27, label %.loopexit.loopexit40
+    i8 35, label %.loopexit.loopexit40
+    i8 28, label %.loopexit.loopexit40
+    i8 29, label %.loopexit.loopexit40
+    i8 30, label %.loopexit.loopexit40
+    i8 38, label %.loopexit.loopexit40
+    i8 39, label %.loopexit.loopexit40
+    i8 40, label %.loopexit.loopexit40
+    i8 41, label %.loopexit.loopexit40
+    i8 43, label %.loopexit.loopexit40
+    i8 44, label %.loopexit.loopexit40
+    i8 45, label %.loopexit.loopexit40
+    i8 46, label %.loopexit.loopexit40
+    i8 48, label %.loopexit.loopexit40
+    i8 49, label %.loopexit.loopexit40
+    i8 53, label %.loopexit.loopexit40
+    i8 54, label %.loopexit.loopexit40
+    i8 55, label %.loopexit.loopexit40
+    i8 58, label %.loopexit.loopexit40
+    i8 59, label %.loopexit.loopexit40
+    i8 60, label %.loopexit.loopexit40
+    i8 61, label %.loopexit.loopexit40
+    i8 65, label %.loopexit.loopexit40
+    i8 52, label %.loopexit.loopexit40
+    i8 36, label %.loopexit.loopexit40
+    i8 31, label %.loopexit.loopexit40
+    i8 26, label %.loopexit.loopexit40
+    i8 66, label %.loopexit.loopexit40
+    i8 37, label %.loopexit.loopexit40
   ]
 
 tailrecurse.backedge:                             ; preds = %.critedge, %.critedge, %.critedge, %.critedge
@@ -272,39 +272,35 @@ tailrecurse.backedge:                             ; preds = %.critedge, %.crited
     i8 3, label %.loopexit
     i8 6, label %.loopexit
     i8 0, label %.loopexit
-    i8 4, label %24
-    i8 5, label %24
-    i8 11, label %24
-    i8 12, label %24
-    i8 7, label %24
-    i8 8, label %25
-    i8 9, label %25
-    i8 10, label %25
+    i8 4, label %.loopexit.loopexit40
+    i8 5, label %.loopexit.loopexit40
+    i8 11, label %.loopexit.loopexit40
+    i8 12, label %.loopexit.loopexit40
+    i8 7, label %.loopexit.loopexit40
+    i8 8, label %24
+    i8 9, label %24
+    i8 10, label %24
   ]
 
-24:                                               ; preds = %20, %20, %20, %20, %20
-  br label %.loopexit
-
-25:                                               ; preds = %20, %20, %20
+24:                                               ; preds = %20, %20, %20
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.expr_may_addr, ptr noundef nonnull @.str.2, i32 noundef 72) #13
   unreachable
 
 .loopexit22:                                      ; preds = %.critedge, %20
-  %26 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %27 = load i8, ptr %26, align 8
-  %28 = icmp eq i8 %27, 1
+  %25 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
+  %26 = load i8, ptr %25, align 8
+  %27 = icmp eq i8 %26, 1
   br label %.loopexit
 
-29:                                               ; preds = %.critedge
+28:                                               ; preds = %.critedge
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.expr_may_addr, ptr noundef nonnull @.str.2, i32 noundef 133) #13
   unreachable
 
-.loopexit.loopexit:                               ; preds = %10, %.critedge, %.critedge
-  %.016.ph = phi i1 [ false, %10 ], [ true, %.critedge ], [ true, %.critedge ]
+.loopexit.loopexit40:                             ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %20, %20, %20, %20, %20
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.loopexit.loopexit, %20, %20, %20, %20, %20, %20, %20, %14, %.loopexit22, %24
-  %.016 = phi i1 [ true, %20 ], [ true, %20 ], [ true, %20 ], [ %28, %.loopexit22 ], [ false, %14 ], [ false, %24 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ %.016.ph, %.loopexit.loopexit ], [ true, %20 ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ], [ false, %.critedge ]
+.loopexit:                                        ; preds = %.critedge, %.critedge, %10, %.loopexit.loopexit40, %20, %20, %20, %20, %20, %20, %20, %14, %.loopexit22
+  %.016 = phi i1 [ true, %20 ], [ true, %20 ], [ true, %20 ], [ %27, %.loopexit22 ], [ false, %14 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ true, %20 ], [ false, %.loopexit.loopexit40 ], [ true, %.critedge ], [ true, %.critedge ], [ false, %10 ]
   ret i1 %.016
 }
 
@@ -930,7 +926,7 @@ define internal fastcc zeroext i1 @expr_cast_is_constant_eval(ptr noundef readon
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @expr_unary_addr_is_constant_eval(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp eq i32 %1, 3
-  br i1 %3, label %45, label %4
+  br i1 %3, label %43, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -957,13 +953,13 @@ define internal fastcc zeroext i1 @expr_unary_addr_is_constant_eval(ptr noundef 
 17:                                               ; preds = %13, %10
   %.022 = phi i32 [ %16, %13 ], [ %11, %10 ]
   %18 = icmp eq i32 %.022, 40
-  br i1 %18, label %45, label %.critedge
+  br i1 %18, label %43, label %.critedge
 
 .critedge:                                        ; preds = %8, %17, %4
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %20 = load i16, ptr %19, align 8
   %trunc = trunc i16 %20 to i8
-  switch i8 %trunc, label %44 [
+  switch i8 %trunc, label %42 [
     i8 1, label %21
     i8 14, label %23
     i8 35, label %23
@@ -973,19 +969,19 @@ define internal fastcc zeroext i1 @expr_unary_addr_is_constant_eval(ptr noundef 
 
 21:                                               ; preds = %.critedge
   %22 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef nonnull %6, i32 noundef %1)
-  br label %45
+  br label %43
 
 23:                                               ; preds = %.critedge, %.critedge, %.critedge
   %24 = icmp eq i32 %1, 2
-  br i1 %24, label %45, label %25
+  br i1 %24, label %43, label %25
 
 25:                                               ; preds = %23
   %26 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef nonnull %6, i32 noundef %1)
-  br label %45
+  br label %43
 
 27:                                               ; preds = %.critedge
   %28 = icmp eq i32 %1, 0
-  br i1 %28, label %45, label %29
+  br i1 %28, label %43, label %29
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -994,49 +990,31 @@ define internal fastcc zeroext i1 @expr_unary_addr_is_constant_eval(ptr noundef 
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
   %35 = and i32 %34, 127
-  switch i32 %35, label %36 [
-    i32 17, label %45
-    i32 26, label %37
+  switch i32 %35, label %42 [
+    i32 17, label %43
+    i32 26, label %36
   ]
 
 36:                                               ; preds = %29
-  br label %45
-
-37:                                               ; preds = %29
-  %38 = getelementptr inbounds nuw i8, ptr %31, i64 80
-  %39 = load i32, ptr %38, align 8
-  %trunc29 = trunc i32 %39 to i8
-  switch i8 %trunc29, label %44 [
-    i8 0, label %45
-    i8 1, label %45
-    i8 2, label %40
-    i8 3, label %43
-    i8 4, label %43
-    i8 5, label %43
-    i8 11, label %43
-    i8 12, label %43
-    i8 6, label %43
-    i8 7, label %43
-    i8 13, label %43
-    i8 14, label %43
-    i8 8, label %43
-    i8 9, label %43
-    i8 10, label %43
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 80
+  %38 = load i32, ptr %37, align 8
+  %trunc29 = trunc i32 %38 to i8
+  switch i8 %trunc29, label %42 [
+    i8 0, label %43
+    i8 1, label %43
+    i8 2, label %39
   ]
 
-40:                                               ; preds = %37
-  %41 = and i32 %39, 2048
-  %42 = icmp ne i32 %41, 0
-  br label %45
+39:                                               ; preds = %36
+  %40 = and i32 %38, 2048
+  %41 = icmp ne i32 %40, 0
+  br label %43
 
-43:                                               ; preds = %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37
-  br label %45
+42:                                               ; preds = %29, %36, %.critedge
+  br label %43
 
-44:                                               ; preds = %37, %.critedge
-  br label %45
-
-45:                                               ; preds = %37, %37, %29, %27, %23, %17, %2, %44, %43, %40, %36, %25, %21
-  %.023 = phi i1 [ false, %43 ], [ false, %2 ], [ false, %44 ], [ %22, %21 ], [ false, %17 ], [ %26, %25 ], [ false, %23 ], [ true, %27 ], [ false, %36 ], [ true, %29 ], [ %42, %40 ], [ true, %37 ], [ true, %37 ]
+43:                                               ; preds = %36, %36, %29, %27, %23, %17, %2, %42, %39, %25, %21
+  %.023 = phi i1 [ true, %36 ], [ false, %2 ], [ false, %42 ], [ %22, %21 ], [ false, %17 ], [ %26, %25 ], [ false, %23 ], [ true, %27 ], [ true, %36 ], [ true, %29 ], [ %41, %39 ]
   ret i1 %.023
 }
 
@@ -2026,7 +2004,7 @@ tailrecurse.us:                                   ; preds = %2, %tailrecurse.us.
   %4 = getelementptr inbounds nuw i8, ptr %.024.us, i64 16
   %5 = load i16, ptr %4, align 8
   %trunc.us = trunc i16 %5 to i8
-  switch i8 %trunc.us, label %.split36.us.loopexit [
+  switch i8 %trunc.us, label %.split36.us [
     i8 32, label %.backedge.us
     i8 55, label %15
     i8 45, label %.backedge.us
@@ -2038,29 +2016,29 @@ tailrecurse.us:                                   ; preds = %2, %tailrecurse.us.
   %7 = getelementptr inbounds nuw i8, ptr %.024.us, i64 32
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %.split36.us [
-    i8 6, label %.split36.us.loopexit
+    i8 6, label %.loopexit26.loopexit53
     i8 5, label %9
     i8 13, label %9
-    i8 11, label %.split36.us.loopexit
-    i8 12, label %.split36.us.loopexit
-    i8 14, label %.split36.us.loopexit
-    i8 15, label %.split36.us.loopexit
-    i8 16, label %.split36.us.loopexit
-    i8 17, label %.split36.us.loopexit
-    i8 18, label %.split36.us.loopexit
-    i8 19, label %.split36.us.loopexit
-    i8 20, label %.split36.us.loopexit
-    i8 21, label %.split36.us.loopexit
-    i8 22, label %.split36.us.loopexit
-    i8 23, label %.split36.us.loopexit
-    i8 24, label %.split36.us.loopexit
-    i8 25, label %.split36.us.loopexit
-    i8 26, label %.split36.us.loopexit
-    i8 27, label %.split36.us.loopexit
-    i8 28, label %.split36.us.loopexit
-    i8 29, label %.split36.us.loopexit
-    i8 30, label %.split36.us.loopexit
-    i8 7, label %.split36.us.loopexit
+    i8 11, label %.loopexit26.loopexit53
+    i8 12, label %.loopexit26.loopexit53
+    i8 14, label %.loopexit26.loopexit53
+    i8 15, label %.loopexit26.loopexit53
+    i8 16, label %.loopexit26.loopexit53
+    i8 17, label %.loopexit26.loopexit53
+    i8 18, label %.loopexit26.loopexit53
+    i8 19, label %.loopexit26.loopexit53
+    i8 20, label %.loopexit26.loopexit53
+    i8 21, label %.loopexit26.loopexit53
+    i8 22, label %.loopexit26.loopexit53
+    i8 23, label %.loopexit26.loopexit53
+    i8 24, label %.loopexit26.loopexit53
+    i8 25, label %.loopexit26.loopexit53
+    i8 26, label %.loopexit26.loopexit53
+    i8 27, label %.loopexit26.loopexit53
+    i8 28, label %.loopexit26.loopexit53
+    i8 29, label %.loopexit26.loopexit53
+    i8 30, label %.loopexit26.loopexit53
+    i8 7, label %.loopexit26.loopexit53
   ]
 
 9:                                                ; preds = %6, %6
@@ -2095,12 +2073,12 @@ tailrecurse.backedge.us:                          ; preds = %15, %9
   %.tr.be.us = getelementptr inbounds nuw [56 x i8], ptr %3, i64 %.pn37
   br label %tailrecurse.us.backedge
 
-tailrecurse:                                      ; preds = %2, %tailrecurse.backedge82
-  %.024 = phi ptr [ %.024.be83, %tailrecurse.backedge82 ], [ %0, %2 ]
+tailrecurse:                                      ; preds = %2, %tailrecurse.backedge83
+  %.024 = phi ptr [ %.024.be84, %tailrecurse.backedge83 ], [ %0, %2 ]
   %21 = getelementptr inbounds nuw i8, ptr %.024, i64 16
   %22 = load i16, ptr %21, align 8
   %trunc = trunc i16 %22 to i8
-  switch i8 %trunc, label %.split36.us.loopexit80 [
+  switch i8 %trunc, label %.split36.us [
     i8 32, label %.backedge
     i8 55, label %23
     i8 45, label %.backedge
@@ -2111,10 +2089,10 @@ tailrecurse:                                      ; preds = %2, %tailrecurse.bac
 .backedge:                                        ; preds = %tailrecurse, %tailrecurse
   %.024.be.in = getelementptr inbounds nuw i8, ptr %.024, i64 24
   %.024.be = load ptr, ptr %.024.be.in, align 8
-  br label %tailrecurse.backedge82
+  br label %tailrecurse.backedge83
 
-tailrecurse.backedge82:                           ; preds = %.backedge, %tailrecurse.backedge
-  %.024.be83 = phi ptr [ %.024.be, %.backedge ], [ %.tr.be, %tailrecurse.backedge ]
+tailrecurse.backedge83:                           ; preds = %.backedge, %tailrecurse.backedge
+  %.024.be84 = phi ptr [ %.024.be, %.backedge ], [ %.tr.be, %tailrecurse.backedge ]
   br label %tailrecurse
 
 23:                                               ; preds = %tailrecurse
@@ -2123,19 +2101,19 @@ tailrecurse.backedge82:                           ; preds = %.backedge, %tailrec
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw [56 x i8], ptr %3, i64 %26
   %28 = tail call zeroext i1 @expr_is_simple(ptr noundef %27, i1 noundef zeroext false)
-  br i1 %28, label %tailrecurse.backedge, label %.split36.us.loopexit80
+  br i1 %28, label %tailrecurse.backedge, label %.split36.us
 
 tailrecurse.backedge:                             ; preds = %32, %23
   %.pn.in.in = getelementptr inbounds nuw i8, ptr %.024, i64 28
   %.pn.in = load i32, ptr %.pn.in.in, align 4
   %.pn = zext i32 %.pn.in to i64
   %.tr.be = getelementptr inbounds nuw [56 x i8], ptr %3, i64 %.pn
-  br label %tailrecurse.backedge82
+  br label %tailrecurse.backedge83
 
 29:                                               ; preds = %tailrecurse
   %30 = getelementptr inbounds nuw i8, ptr %.024, i64 32
   %31 = load i8, ptr %30, align 8
-  switch i8 %31, label %.split36.us.loopexit80 [
+  switch i8 %31, label %.split36.us.loopexit56 [
     i8 4, label %32
     i8 5, label %32
     i8 13, label %32
@@ -2166,32 +2144,25 @@ tailrecurse.backedge:                             ; preds = %32, %23
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw [56 x i8], ptr %3, i64 %35
   %37 = tail call zeroext i1 @expr_is_simple(ptr noundef %36, i1 noundef zeroext false)
-  br i1 %37, label %tailrecurse.backedge, label %.split36.us.loopexit80
+  br i1 %37, label %tailrecurse.backedge, label %.split36.us
 
 .split31.us:                                      ; preds = %tailrecurse, %tailrecurse.us
   %.us-phi = phi ptr [ %.024.us, %tailrecurse.us ], [ %.024, %tailrecurse ]
   %38 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 32
   %39 = load i8, ptr %38, align 8
-  switch i8 %39, label %41 [
+  switch i8 %39, label %.loopexit26.loopexit53 [
     i8 5, label %.split36.us
-    i8 3, label %40
+    i8 3, label %.split36.us.loopexit56
   ]
 
-40:                                               ; preds = %.split31.us
+.loopexit26.loopexit53:                           ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %.split31.us
   br label %.split36.us
 
-41:                                               ; preds = %.split31.us
+.split36.us.loopexit56:                           ; preds = %29, %.split31.us
   br label %.split36.us
 
-.split36.us.loopexit:                             ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %tailrecurse.us
-  br label %.split36.us
-
-.split36.us.loopexit80:                           ; preds = %29, %tailrecurse, %32, %23
-  %.0.ph = phi i1 [ false, %32 ], [ false, %29 ], [ true, %tailrecurse ], [ false, %23 ]
-  br label %.split36.us
-
-.split36.us:                                      ; preds = %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %6, %15, %9, %.split36.us.loopexit80, %.split36.us.loopexit, %.split31.us, %41, %40
-  %.0 = phi i1 [ %1, %.split31.us ], [ false, %40 ], [ false, %6 ], [ true, %.split36.us.loopexit ], [ true, %41 ], [ %.0.ph, %.split36.us.loopexit80 ], [ false, %9 ], [ false, %15 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ]
+.split36.us:                                      ; preds = %23, %32, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %tailrecurse, %6, %15, %9, %tailrecurse.us, %.loopexit26.loopexit53, %.split36.us.loopexit56, %.split31.us
+  %.0 = phi i1 [ %1, %.split31.us ], [ true, %.loopexit26.loopexit53 ], [ false, %6 ], [ false, %.split36.us.loopexit56 ], [ false, %15 ], [ false, %9 ], [ true, %tailrecurse.us ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ false, %32 ], [ false, %23 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %tailrecurse ], [ true, %29 ], [ true, %29 ]
   ret i1 %.0
 }
 

@@ -29311,249 +29311,248 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN11flexbuffers8Verifier12Ver
 
 ._crit_edge:                                      ; preds = %24
   %.pre = sub nsw i64 0, %19
-  br label %46
+  br label %44
 
 27:                                               ; preds = %24
   %28 = tail call range(i64 0, 9) i64 @llvm.ctpop.i64(i64 %19)
   %29 = icmp eq i64 %28, 1
-  %30 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %19, i1 true)
-  %31 = icmp samesign ult i64 %30, 4
-  %switch.idx.cast.i = trunc nuw nsw i64 %30 to i8
-  %32 = select i1 %29, i1 %31, i1 false
-  %.0.i = select i1 %32, i8 %switch.idx.cast.i, i8 3
-  %33 = shl i8 %.sroa.454.8.extract.trunc, 2
-  %34 = or i8 %.0.i, %33
-  %35 = sub nsw i64 0, %19
-  %36 = getelementptr inbounds i8, ptr %3, i64 %35
-  %37 = ptrtoint ptr %36 to i64
-  %38 = sub i64 %37, %22
-  %39 = load ptr, ptr %26, align 8, !tbaa !369
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %38
-  %41 = load i8, ptr %40, align 1, !tbaa !33
-  %42 = icmp eq i8 %41, %34
-  br i1 %42, label %.thread, label %43
+  %30 = or i64 %19, 8
+  %spec.select2.i = tail call range(i64 0, 4) i64 @llvm.cttz.i64(i64 %30, i1 true)
+  %spec.select.i = trunc nuw nsw i64 %spec.select2.i to i8
+  %.0.i = select i1 %29, i8 %spec.select.i, i8 3
+  %31 = shl i8 %.sroa.454.8.extract.trunc, 2
+  %32 = or disjoint i8 %.0.i, %31
+  %33 = sub nsw i64 0, %19
+  %34 = getelementptr inbounds i8, ptr %3, i64 %33
+  %35 = ptrtoint ptr %34 to i64
+  %36 = sub i64 %35, %22
+  %37 = load ptr, ptr %26, align 8, !tbaa !369
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %36
+  %39 = load i8, ptr %38, align 1, !tbaa !33
+  %40 = icmp eq i8 %39, %32
+  br i1 %40, label %.thread, label %41
 
-43:                                               ; preds = %27
-  %44 = icmp eq i8 %41, 0
-  br i1 %44, label %45, label %.thread
+41:                                               ; preds = %27
+  %42 = icmp eq i8 %39, 0
+  br i1 %42, label %43, label %.thread
 
-45:                                               ; preds = %43
-  store i8 %34, ptr %40, align 1, !tbaa !33
-  br label %46
+43:                                               ; preds = %41
+  store i8 %32, ptr %38, align 1, !tbaa !33
+  br label %44
 
-46:                                               ; preds = %._crit_edge, %45
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %35, %45 ]
-  %47 = getelementptr inbounds i8, ptr %3, i64 %.pre-phi
-  %48 = icmp ult i8 %.sroa.252.8.extract.trunc, 4
-  br i1 %48, label %49, label %58
+44:                                               ; preds = %._crit_edge, %43
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %33, %43 ]
+  %45 = getelementptr inbounds i8, ptr %3, i64 %.pre-phi
+  %46 = icmp ult i8 %.sroa.252.8.extract.trunc, 4
+  br i1 %46, label %47, label %56
 
-49:                                               ; preds = %46
-  %50 = icmp samesign ult i8 %.sroa.252.8.extract.trunc, 2
-  br i1 %50, label %51, label %54
+47:                                               ; preds = %44
+  %48 = icmp samesign ult i8 %.sroa.252.8.extract.trunc, 2
+  br i1 %48, label %49, label %52
 
-51:                                               ; preds = %49
-  %52 = load i8, ptr %47, align 1, !tbaa !33
-  %53 = zext i8 %52 to i64
+49:                                               ; preds = %47
+  %50 = load i8, ptr %45, align 1, !tbaa !33
+  %51 = zext i8 %50 to i64
   br label %_ZN11flexbuffers5SizedC2EPKhh.exit
 
-54:                                               ; preds = %49
-  %55 = load i16, ptr %47, align 2
-  %56 = zext i16 %55 to i64
-  %57 = trunc i16 %55 to i8
+52:                                               ; preds = %47
+  %53 = load i16, ptr %45, align 2
+  %54 = zext i16 %53 to i64
+  %55 = trunc i16 %53 to i8
   br label %_ZN11flexbuffers5SizedC2EPKhh.exit
 
-58:                                               ; preds = %46
-  %59 = icmp ult i8 %.sroa.252.8.extract.trunc, 8
-  br i1 %59, label %60, label %64
+56:                                               ; preds = %44
+  %57 = icmp ult i8 %.sroa.252.8.extract.trunc, 8
+  br i1 %57, label %58, label %62
 
-60:                                               ; preds = %58
-  %61 = load i32, ptr %47, align 4
-  %62 = zext i32 %61 to i64
-  %63 = trunc i32 %61 to i8
+58:                                               ; preds = %56
+  %59 = load i32, ptr %45, align 4
+  %60 = zext i32 %59 to i64
+  %61 = trunc i32 %59 to i8
   br label %_ZN11flexbuffers5SizedC2EPKhh.exit
 
-64:                                               ; preds = %58
-  %65 = load i64, ptr %47, align 8
-  %66 = trunc i64 %65 to i8
+62:                                               ; preds = %56
+  %63 = load i64, ptr %45, align 8
+  %64 = trunc i64 %63 to i8
   br label %_ZN11flexbuffers5SizedC2EPKhh.exit
 
-_ZN11flexbuffers5SizedC2EPKhh.exit:               ; preds = %51, %54, %60, %64
-  %67 = phi i8 [ %57, %54 ], [ %52, %51 ], [ %63, %60 ], [ %66, %64 ]
-  %68 = phi i64 [ %56, %54 ], [ %53, %51 ], [ %62, %60 ], [ %65, %64 ]
-  %69 = icmp eq i64 %.sroa.454.8.extract.shift, 5
-  %70 = icmp eq i64 %.sroa.454.8.extract.shift, 25
-  %or.cond = or i1 %69, %70
-  %71 = select i1 %or.cond, i8 1, i8 %.sroa.252.8.extract.trunc
-  %72 = zext i8 %71 to i64
-  %73 = udiv i64 -1, %72
-  %74 = icmp ult i64 %68, %73
-  br i1 %74, label %75, label %.thread
+_ZN11flexbuffers5SizedC2EPKhh.exit:               ; preds = %49, %52, %58, %62
+  %65 = phi i8 [ %55, %52 ], [ %50, %49 ], [ %61, %58 ], [ %64, %62 ]
+  %66 = phi i64 [ %54, %52 ], [ %51, %49 ], [ %60, %58 ], [ %63, %62 ]
+  %67 = icmp eq i64 %.sroa.454.8.extract.shift, 5
+  %68 = icmp eq i64 %.sroa.454.8.extract.shift, 25
+  %or.cond = or i1 %67, %68
+  %69 = select i1 %or.cond, i8 1, i8 %.sroa.252.8.extract.trunc
+  %70 = zext i8 %69 to i64
+  %71 = udiv i64 -1, %70
+  %72 = icmp ult i64 %66, %71
+  br i1 %72, label %73, label %.thread
 
-75:                                               ; preds = %_ZN11flexbuffers5SizedC2EPKhh.exit
-  %76 = mul i64 %68, %72
-  %77 = load ptr, ptr %0, align 8, !tbaa !442
-  %78 = ptrtoint ptr %77 to i64
-  %79 = sub i64 %21, %78
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %81 = load i64, ptr %80, align 8, !tbaa !444
-  %82 = icmp ult i64 %76, %81
-  %83 = sub nuw i64 %81, %76
-  %84 = icmp ule i64 %79, %83
-  %85 = select i1 %82, i1 %84, i1 false
-  br i1 %85, label %86, label %.thread
+73:                                               ; preds = %_ZN11flexbuffers5SizedC2EPKhh.exit
+  %74 = mul i64 %66, %70
+  %75 = load ptr, ptr %0, align 8, !tbaa !442
+  %76 = ptrtoint ptr %75 to i64
+  %77 = sub i64 %21, %76
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %79 = load i64, ptr %78, align 8, !tbaa !444
+  %80 = icmp ult i64 %74, %79
+  %81 = sub nuw i64 %79, %74
+  %82 = icmp ule i64 %77, %81
+  %83 = select i1 %80, i1 %82, i1 false
+  br i1 %83, label %84, label %.thread
 
-86:                                               ; preds = %75
+84:                                               ; preds = %73
   switch i32 %4, label %.loopexit [
-    i32 0, label %87
-    i32 4, label %131
+    i32 0, label %85
+    i32 4, label %129
   ]
 
-87:                                               ; preds = %86
-  %88 = getelementptr inbounds nuw i8, ptr %3, i64 %76
-  %89 = ptrtoint ptr %88 to i64
-  %90 = sub i64 %89, %78
-  %91 = icmp ult i64 %68, %81
-  %92 = sub nuw i64 %81, %68
-  %93 = icmp ule i64 %90, %92
-  %94 = select i1 %91, i1 %93, i1 false
-  br i1 %94, label %95, label %.thread
+85:                                               ; preds = %84
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 %74
+  %87 = ptrtoint ptr %86 to i64
+  %88 = sub i64 %87, %76
+  %89 = icmp ult i64 %66, %79
+  %90 = sub nuw i64 %79, %66
+  %91 = icmp ule i64 %88, %90
+  %92 = select i1 %89, i1 %91, i1 false
+  br i1 %92, label %93, label %.thread
 
-95:                                               ; preds = %87
-  br i1 %48, label %96, label %103
+93:                                               ; preds = %85
+  br i1 %46, label %94, label %101
 
-96:                                               ; preds = %95
-  %97 = icmp samesign ult i8 %.sroa.252.8.extract.trunc, 2
-  br i1 %97, label %98, label %100
+94:                                               ; preds = %93
+  %95 = icmp samesign ult i8 %.sroa.252.8.extract.trunc, 2
+  br i1 %95, label %96, label %98
 
-98:                                               ; preds = %96
-  %99 = zext i8 %67 to i64
+96:                                               ; preds = %94
+  %97 = zext i8 %65 to i64
   br label %_ZN11flexbuffers6VectorC2EPKhh.exit
 
-100:                                              ; preds = %96
-  %101 = load i16, ptr %47, align 2, !tbaa !626
-  %102 = zext i16 %101 to i64
+98:                                               ; preds = %94
+  %99 = load i16, ptr %45, align 2, !tbaa !626
+  %100 = zext i16 %99 to i64
   br label %_ZN11flexbuffers6VectorC2EPKhh.exit
 
-103:                                              ; preds = %95
-  %104 = icmp ult i8 %.sroa.252.8.extract.trunc, 8
-  br i1 %104, label %105, label %108
+101:                                              ; preds = %93
+  %102 = icmp ult i8 %.sroa.252.8.extract.trunc, 8
+  br i1 %102, label %103, label %106
 
-105:                                              ; preds = %103
-  %106 = load i32, ptr %47, align 4, !tbaa !128
-  %107 = zext i32 %106 to i64
+103:                                              ; preds = %101
+  %104 = load i32, ptr %45, align 4, !tbaa !128
+  %105 = zext i32 %104 to i64
   br label %_ZN11flexbuffers6VectorC2EPKhh.exit
 
-108:                                              ; preds = %103
-  %109 = load i64, ptr %47, align 8, !tbaa !35
+106:                                              ; preds = %101
+  %107 = load i64, ptr %45, align 8, !tbaa !35
   br label %_ZN11flexbuffers6VectorC2EPKhh.exit
 
-_ZN11flexbuffers6VectorC2EPKhh.exit:              ; preds = %98, %100, %105, %108
-  %110 = phi i64 [ %102, %100 ], [ %99, %98 ], [ %107, %105 ], [ %109, %108 ]
-  %.not6792.not = icmp eq i64 %68, 0
+_ZN11flexbuffers6VectorC2EPKhh.exit:              ; preds = %96, %98, %103, %106
+  %108 = phi i64 [ %100, %98 ], [ %97, %96 ], [ %105, %103 ], [ %107, %106 ]
+  %.not6792.not = icmp eq i64 %66, 0
   br i1 %.not6792.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN11flexbuffers6VectorC2EPKhh.exit
-  %111 = mul i64 %110, %19
-  %112 = getelementptr inbounds nuw i8, ptr %3, i64 %111
-  br label %115
+  %109 = mul i64 %108, %19
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 %109
+  br label %113
 
-113:                                              ; preds = %_ZNK11flexbuffers6VectorixEm.exit
-  %114 = add nuw i64 %.06293, 1
-  %exitcond96.not = icmp eq i64 %114, %68
-  br i1 %exitcond96.not, label %.loopexit, label %115, !llvm.loop !628
+111:                                              ; preds = %_ZNK11flexbuffers6VectorixEm.exit
+  %112 = add nuw i64 %.06293, 1
+  %exitcond96.not = icmp eq i64 %112, %66
+  br i1 %exitcond96.not, label %.loopexit, label %113, !llvm.loop !628
 
-115:                                              ; preds = %.lr.ph, %113
-  %.06293 = phi i64 [ 0, %.lr.ph ], [ %114, %113 ]
-  %.not.i = icmp ult i64 %.06293, %110
-  br i1 %.not.i, label %116, label %_ZNK11flexbuffers6VectorixEm.exit
+113:                                              ; preds = %.lr.ph, %111
+  %.06293 = phi i64 [ 0, %.lr.ph ], [ %112, %111 ]
+  %.not.i = icmp ult i64 %.06293, %108
+  br i1 %.not.i, label %114, label %_ZNK11flexbuffers6VectorixEm.exit
 
-116:                                              ; preds = %115
-  %117 = getelementptr inbounds nuw i8, ptr %112, i64 %.06293
-  %118 = load i8, ptr %117, align 1, !tbaa !33
-  %119 = mul i64 %.06293, %19
-  %120 = getelementptr inbounds nuw i8, ptr %3, i64 %119
-  %121 = and i8 %118, 3
-  %122 = shl nuw nsw i8 1, %121
-  %123 = lshr i8 %118, 2
-  %124 = zext nneg i8 %123 to i64
-  %125 = shl nuw nsw i64 %124, 32
-  %126 = zext nneg i8 %122 to i64
-  %127 = shl nuw nsw i64 %126, 8
-  %128 = or disjoint i64 %127, %125
-  %129 = or disjoint i64 %128, %19
+114:                                              ; preds = %113
+  %115 = getelementptr inbounds nuw i8, ptr %110, i64 %.06293
+  %116 = load i8, ptr %115, align 1, !tbaa !33
+  %117 = mul i64 %.06293, %19
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 %117
+  %119 = and i8 %116, 3
+  %120 = shl nuw nsw i8 1, %119
+  %121 = lshr i8 %116, 2
+  %122 = zext nneg i8 %121 to i64
+  %123 = shl nuw nsw i64 %122, 32
+  %124 = zext nneg i8 %120 to i64
+  %125 = shl nuw nsw i64 %124, 8
+  %126 = or disjoint i64 %125, %123
+  %127 = or disjoint i64 %126, %19
   br label %_ZNK11flexbuffers6VectorixEm.exit
 
-_ZNK11flexbuffers6VectorixEm.exit:                ; preds = %115, %116
-  %.sroa.0.0.i = phi ptr [ %120, %116 ], [ null, %115 ]
-  %.sroa.3.8.insert.insert.i = phi i64 [ %129, %116 ], [ 257, %115 ]
-  %130 = tail call noundef zeroext i1 @_ZN11flexbuffers8Verifier9VerifyRefENS_9ReferenceE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %.sroa.0.0.i, i64 %.sroa.3.8.insert.insert.i)
-  br i1 %130, label %113, label %.thread
+_ZNK11flexbuffers6VectorixEm.exit:                ; preds = %113, %114
+  %.sroa.0.0.i = phi ptr [ %118, %114 ], [ null, %113 ]
+  %.sroa.3.8.insert.insert.i = phi i64 [ %127, %114 ], [ 257, %113 ]
+  %128 = tail call noundef zeroext i1 @_ZN11flexbuffers8Verifier9VerifyRefENS_9ReferenceE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %.sroa.0.0.i, i64 %.sroa.3.8.insert.insert.i)
+  br i1 %128, label %111, label %.thread
 
-131:                                              ; preds = %86
-  %132 = sub nsw i64 0, %72
-  %133 = getelementptr inbounds i8, ptr %3, i64 %132
-  %134 = icmp ult i8 %71, 4
-  br i1 %134, label %135, label %143
+129:                                              ; preds = %84
+  %130 = sub nsw i64 0, %70
+  %131 = getelementptr inbounds i8, ptr %3, i64 %130
+  %132 = icmp ult i8 %69, 4
+  br i1 %132, label %133, label %141
 
-135:                                              ; preds = %131
-  %136 = icmp samesign ult i8 %71, 2
-  br i1 %136, label %137, label %140
+133:                                              ; preds = %129
+  %134 = icmp samesign ult i8 %69, 2
+  br i1 %134, label %135, label %138
 
-137:                                              ; preds = %135
-  %138 = load i8, ptr %133, align 1, !tbaa !33
-  %139 = zext i8 %138 to i64
+135:                                              ; preds = %133
+  %136 = load i8, ptr %131, align 1, !tbaa !33
+  %137 = zext i8 %136 to i64
   br label %_ZN11flexbuffers11TypedVectorC2EPKhhNS_4TypeE.exit
 
-140:                                              ; preds = %135
-  %141 = load i16, ptr %133, align 2, !tbaa !626
-  %142 = zext i16 %141 to i64
+138:                                              ; preds = %133
+  %139 = load i16, ptr %131, align 2, !tbaa !626
+  %140 = zext i16 %139 to i64
   br label %_ZN11flexbuffers11TypedVectorC2EPKhhNS_4TypeE.exit
 
-143:                                              ; preds = %131
-  %144 = icmp ult i8 %71, 8
-  br i1 %144, label %145, label %148
+141:                                              ; preds = %129
+  %142 = icmp ult i8 %69, 8
+  br i1 %142, label %143, label %146
 
-145:                                              ; preds = %143
-  %146 = load i32, ptr %133, align 4, !tbaa !128
-  %147 = zext i32 %146 to i64
+143:                                              ; preds = %141
+  %144 = load i32, ptr %131, align 4, !tbaa !128
+  %145 = zext i32 %144 to i64
   br label %_ZN11flexbuffers11TypedVectorC2EPKhhNS_4TypeE.exit
 
-148:                                              ; preds = %143
-  %149 = load i64, ptr %133, align 8, !tbaa !35
+146:                                              ; preds = %141
+  %147 = load i64, ptr %131, align 8, !tbaa !35
   br label %_ZN11flexbuffers11TypedVectorC2EPKhhNS_4TypeE.exit
 
-_ZN11flexbuffers11TypedVectorC2EPKhhNS_4TypeE.exit: ; preds = %137, %140, %145, %148
-  %150 = phi i64 [ %142, %140 ], [ %139, %137 ], [ %147, %145 ], [ %149, %148 ]
-  %.not6690.not = icmp eq i64 %68, 0
+_ZN11flexbuffers11TypedVectorC2EPKhhNS_4TypeE.exit: ; preds = %135, %138, %143, %146
+  %148 = phi i64 [ %140, %138 ], [ %137, %135 ], [ %145, %143 ], [ %147, %146 ]
+  %.not6690.not = icmp eq i64 %66, 0
   br i1 %.not6690.not, label %.loopexit, label %_ZNK11flexbuffers11TypedVectorixEm.exit.lr.ph
 
 _ZNK11flexbuffers11TypedVectorixEm.exit.lr.ph:    ; preds = %_ZN11flexbuffers11TypedVectorC2EPKhhNS_4TypeE.exit
-  %151 = or disjoint i64 %72, 17179869440
+  %149 = or disjoint i64 %70, 17179869440
   br label %_ZNK11flexbuffers11TypedVectorixEm.exit
 
-152:                                              ; preds = %_ZNK11flexbuffers11TypedVectorixEm.exit
-  %153 = add nuw i64 %.06191, 1
-  %exitcond.not = icmp eq i64 %153, %68
+150:                                              ; preds = %_ZNK11flexbuffers11TypedVectorixEm.exit
+  %151 = add nuw i64 %.06191, 1
+  %exitcond.not = icmp eq i64 %151, %66
   br i1 %exitcond.not, label %.loopexit, label %_ZNK11flexbuffers11TypedVectorixEm.exit, !llvm.loop !629
 
-_ZNK11flexbuffers11TypedVectorixEm.exit:          ; preds = %_ZNK11flexbuffers11TypedVectorixEm.exit.lr.ph, %152
-  %.06191 = phi i64 [ 0, %_ZNK11flexbuffers11TypedVectorixEm.exit.lr.ph ], [ %153, %152 ]
-  %.not.i68 = icmp ult i64 %.06191, %150
-  %154 = mul i64 %.06191, %72
-  %155 = getelementptr inbounds nuw i8, ptr %3, i64 %154
-  %.sroa.0.0.i69 = select i1 %.not.i68, ptr %155, ptr null
-  %.sroa.3.8.insert.insert.i70 = select i1 %.not.i68, i64 %151, i64 257
-  %156 = tail call noundef zeroext i1 @_ZN11flexbuffers8Verifier9VerifyRefENS_9ReferenceE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %.sroa.0.0.i69, i64 %.sroa.3.8.insert.insert.i70)
-  br i1 %156, label %152, label %.thread
+_ZNK11flexbuffers11TypedVectorixEm.exit:          ; preds = %_ZNK11flexbuffers11TypedVectorixEm.exit.lr.ph, %150
+  %.06191 = phi i64 [ 0, %_ZNK11flexbuffers11TypedVectorixEm.exit.lr.ph ], [ %151, %150 ]
+  %.not.i68 = icmp ult i64 %.06191, %148
+  %152 = mul i64 %.06191, %70
+  %153 = getelementptr inbounds nuw i8, ptr %3, i64 %152
+  %.sroa.0.0.i69 = select i1 %.not.i68, ptr %153, ptr null
+  %.sroa.3.8.insert.insert.i70 = select i1 %.not.i68, i64 %149, i64 257
+  %154 = tail call noundef zeroext i1 @_ZN11flexbuffers8Verifier9VerifyRefENS_9ReferenceE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %.sroa.0.0.i69, i64 %.sroa.3.8.insert.insert.i70)
+  br i1 %154, label %150, label %.thread
 
-.loopexit:                                        ; preds = %152, %113, %_ZN11flexbuffers11TypedVectorC2EPKhhNS_4TypeE.exit, %_ZN11flexbuffers6VectorC2EPKhh.exit, %86
-  %157 = load i64, ptr %6, align 8, !tbaa !445
-  %158 = add i64 %157, -1
-  store i64 %158, ptr %6, align 8, !tbaa !445
+.loopexit:                                        ; preds = %150, %111, %_ZN11flexbuffers11TypedVectorC2EPKhhNS_4TypeE.exit, %_ZN11flexbuffers6VectorC2EPKhh.exit, %84
+  %155 = load i64, ptr %6, align 8, !tbaa !445
+  %156 = add i64 %155, -1
+  store i64 %156, ptr %6, align 8, !tbaa !445
   br label %.thread
 
-.thread:                                          ; preds = %_ZNK11flexbuffers11TypedVectorixEm.exit, %_ZNK11flexbuffers6VectorixEm.exit, %43, %27, %_ZN11flexbuffers5SizedC2EPKhh.exit, %87, %75, %.loopexit, %18, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %18 ], [ false, %87 ], [ false, %_ZN11flexbuffers5SizedC2EPKhh.exit ], [ true, %.loopexit ], [ true, %27 ], [ false, %75 ], [ false, %_ZNK11flexbuffers6VectorixEm.exit ], [ false, %43 ], [ false, %_ZNK11flexbuffers11TypedVectorixEm.exit ]
+.thread:                                          ; preds = %_ZNK11flexbuffers11TypedVectorixEm.exit, %_ZNK11flexbuffers6VectorixEm.exit, %41, %27, %_ZN11flexbuffers5SizedC2EPKhh.exit, %85, %73, %.loopexit, %18, %5
+  %.0 = phi i1 [ false, %5 ], [ false, %18 ], [ false, %85 ], [ false, %_ZN11flexbuffers5SizedC2EPKhh.exit ], [ true, %.loopexit ], [ true, %27 ], [ false, %73 ], [ false, %_ZNK11flexbuffers6VectorixEm.exit ], [ false, %41 ], [ false, %_ZNK11flexbuffers11TypedVectorixEm.exit ]
   ret i1 %.0
 }
 

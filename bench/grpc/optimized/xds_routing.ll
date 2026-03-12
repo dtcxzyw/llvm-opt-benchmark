@@ -505,15 +505,12 @@ _ZN9grpc_core12_GLOBAL__N_122DomainPatternMatchTypeESt17basic_string_viewIcSt11c
 
 117:                                              ; preds = %107
   %118 = icmp eq i64 %110, 0
-  br i1 %118, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  br i1 %118, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i45.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %117
   %bcmp.i42.i = call i32 @bcmp(ptr nonnull %109, ptr nonnull %114, i64 %110)
   %119 = icmp eq i32 %bcmp.i42.i, 0
-  br i1 %119, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i, label %switch.edge.i
-
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %117
-  br label %switch.edge.i
+  br i1 %119, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i45.i, label %switch.edge.i
 
 120:                                              ; preds = %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN9grpc_core12_GLOBAL__N_111DomainMatchENSB_9MatchTypeESt17basic_string_viewIcS6_ESE_E3$_1ET0_T_SH_SG_T1_.exit.i"
   %121 = load i64, ptr %19, align 8, !tbaa !15
@@ -533,14 +530,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i43.i: ; preds = %124
   %129 = icmp eq i32 %bcmp.i44.i, 0
   br i1 %129, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i45.i, label %switch.edge.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i45.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i43.i, %124
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i45.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i43.i, %124, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %117
   br label %switch.edge.i
 
 default.unreachable158:                           ; preds = %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN9grpc_core12_GLOBAL__N_111DomainMatchENSB_9MatchTypeESt17basic_string_viewIcS6_ESE_E3$_1ET0_T_SH_SG_T1_.exit.i"
   unreachable
 
-switch.edge.i:                                    ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i45.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i43.i, %120, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %107, %103, %96, %94, %90, %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN9grpc_core12_GLOBAL__N_111DomainMatchENSB_9MatchTypeESt17basic_string_viewIcS6_ESE_E3$_1ET0_T_SH_SG_T1_.exit.i"
-  %.0.i44 = phi i1 [ true, %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN9grpc_core12_GLOBAL__N_111DomainMatchENSB_9MatchTypeESt17basic_string_viewIcS6_ESE_E3$_1ET0_T_SH_SG_T1_.exit.i" ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i45.i ], [ true, %94 ], [ false, %103 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ false, %120 ], [ false, %90 ], [ %99, %96 ], [ false, %107 ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i43.i ]
+switch.edge.i:                                    ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i45.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i43.i, %120, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %107, %103, %96, %94, %90, %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN9grpc_core12_GLOBAL__N_111DomainMatchENSB_9MatchTypeESt17basic_string_viewIcS6_ESE_E3$_1ET0_T_SH_SG_T1_.exit.i"
+  %.0.i44 = phi i1 [ true, %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN9grpc_core12_GLOBAL__N_111DomainMatchENSB_9MatchTypeESt17basic_string_viewIcS6_ESE_E3$_1ET0_T_SH_SG_T1_.exit.i" ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i43.i ], [ true, %94 ], [ false, %103 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ false, %120 ], [ false, %90 ], [ %99, %96 ], [ false, %107 ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i45.i ]
   %130 = load ptr, ptr %7, align 8, !tbaa !10
   %131 = icmp eq ptr %130, %15
   br i1 %131, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i47.i

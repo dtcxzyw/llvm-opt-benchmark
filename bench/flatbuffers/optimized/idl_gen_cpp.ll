@@ -92247,8 +92247,8 @@ default.unreachable:                              ; preds = %._crit_edge.i.i173
   unreachable
 
 _ZN11flatbuffers15InlineAlignmentERKNS_4TypeE.exit: ; preds = %183, %.thread11.i, %181, %178, %._crit_edge.i.i173, %._crit_edge.i.i173, %._crit_edge.i.i173, %._crit_edge.i.i173
-  %184 = phi ptr [ %167, %178 ], [ %175, %._crit_edge.i.i173 ], [ %182, %.thread11.i ], [ %175, %183 ], [ %175, %._crit_edge.i.i173 ], [ %175, %._crit_edge.i.i173 ], [ %175, %181 ], [ %175, %._crit_edge.i.i173 ]
-  %.0.i = phi i64 [ %180, %178 ], [ 1, %._crit_edge.i.i173 ], [ 4, %.thread11.i ], [ 8, %183 ], [ 1, %._crit_edge.i.i173 ], [ 1, %._crit_edge.i.i173 ], [ 2, %181 ], [ 1, %._crit_edge.i.i173 ]
+  %184 = phi ptr [ %167, %178 ], [ %175, %._crit_edge.i.i173 ], [ %182, %.thread11.i ], [ %175, %._crit_edge.i.i173 ], [ %175, %181 ], [ %175, %._crit_edge.i.i173 ], [ %175, %._crit_edge.i.i173 ], [ %175, %183 ]
+  %.0.i = phi i64 [ %180, %178 ], [ 1, %._crit_edge.i.i173 ], [ 4, %.thread11.i ], [ 1, %._crit_edge.i.i173 ], [ 2, %181 ], [ 1, %._crit_edge.i.i173 ], [ 1, %._crit_edge.i.i173 ], [ 8, %183 ]
   invoke void @_ZN11flatbuffers11NumToStringImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %27, i64 noundef %.0.i)
           to label %185 unwind label %266
 
@@ -117769,7 +117769,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit502: ; preds = %_Z
   %777 = icmp ult i64 %776, 21
   br i1 %777, label %.invoke1519, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i503
 
-.invoke1519:                                      ; preds = %601, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit364, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit360, %775
+.invoke1519:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit360, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit364, %601, %775
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #31
           to label %.cont1520 unwind label %704
 
@@ -120146,7 +120146,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit909: ; preds = %_Z
   %1645 = icmp ult i64 %1644, 22
   br i1 %1645, label %.invoke1523, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i910
 
-.invoke1523:                                      ; preds = %1525, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit849, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit820, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit816, %1643
+.invoke1523:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit816, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit820, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit849, %1525, %1643
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #31
           to label %.cont1524 unwind label %1599
 

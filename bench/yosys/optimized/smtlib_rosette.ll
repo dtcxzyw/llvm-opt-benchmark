@@ -22612,7 +22612,7 @@ _ZNKSt8functionIFN5Yosys5SExprENS0_10Functional4NodeEEEclES3_.exit: ; preds = %7
     i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i
   ], !prof !216
 
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i:     ; preds = %25
+_ZSt26__throw_bad_variant_accessb.exit.i.i.i:     ; preds = %30, %25
   br label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i17.invoke
 
 30:                                               ; preds = %25
@@ -22624,14 +22624,11 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i:     ; preds = %25
   %.sroa.22.0.copyload.i.i16 = load i8, ptr %.sroa.22.0..sroa_idx.i.i15, align 4
   switch i8 %.sroa.22.0.copyload.i.i16, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i17.invoke [
     i8 0, label %37
-    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i17
+    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i
   ], !prof !216
 
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i17:   ; preds = %30
-  br label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i17.invoke
-
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i17.invoke: ; preds = %30, %25, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i17
-  %.str.145.sink = phi ptr [ @.str.144, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i17 ], [ @.str.144, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i ], [ @.str.145, %25 ], [ @.str.145, %30 ]
+_ZSt26__throw_bad_variant_accessb.exit.i.i.i17.invoke: ; preds = %30, %25, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i
+  %.str.145.sink = phi ptr [ @.str.145, %30 ], [ @.str.144, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i ], [ @.str.145, %25 ]
   %35 = call ptr @__cxa_allocate_exception(i64 16) #27
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %35, align 8, !tbaa !119
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -22824,7 +22821,7 @@ _ZNKSt8functionIFN5Yosys5SExprENS0_10Functional4NodeEEEclES3_.exit: ; preds = %7
     i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i
   ], !prof !216
 
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i:     ; preds = %25
+_ZSt26__throw_bad_variant_accessb.exit.i.i.i:     ; preds = %30, %25
   br label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i17.invoke
 
 30:                                               ; preds = %25
@@ -22836,14 +22833,11 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i:     ; preds = %25
   %.sroa.22.0.copyload.i.i16 = load i8, ptr %.sroa.22.0..sroa_idx.i.i15, align 4
   switch i8 %.sroa.22.0.copyload.i.i16, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i17.invoke [
     i8 0, label %37
-    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i17
+    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i
   ], !prof !216
 
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i17:   ; preds = %30
-  br label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i17.invoke
-
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i17.invoke: ; preds = %30, %25, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i17
-  %.str.145.sink = phi ptr [ @.str.144, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i17 ], [ @.str.144, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i ], [ @.str.145, %25 ], [ @.str.145, %30 ]
+_ZSt26__throw_bad_variant_accessb.exit.i.i.i17.invoke: ; preds = %30, %25, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i
+  %.str.145.sink = phi ptr [ @.str.145, %30 ], [ @.str.144, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i ], [ @.str.145, %25 ]
   %35 = call ptr @__cxa_allocate_exception(i64 16) #27
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %35, align 8, !tbaa !119
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -23036,7 +23030,7 @@ _ZNKSt8functionIFN5Yosys5SExprENS0_10Functional4NodeEEEclES3_.exit: ; preds = %7
     i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i
   ], !prof !216
 
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i:     ; preds = %25
+_ZSt26__throw_bad_variant_accessb.exit.i.i.i:     ; preds = %30, %25
   br label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i17.invoke
 
 30:                                               ; preds = %25
@@ -23048,14 +23042,11 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i:     ; preds = %25
   %.sroa.22.0.copyload.i.i16 = load i8, ptr %.sroa.22.0..sroa_idx.i.i15, align 4
   switch i8 %.sroa.22.0.copyload.i.i16, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i17.invoke [
     i8 0, label %37
-    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i17
+    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i
   ], !prof !216
 
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i17:   ; preds = %30
-  br label %_ZSt26__throw_bad_variant_accessb.exit.i.i.i17.invoke
-
-_ZSt26__throw_bad_variant_accessb.exit.i.i.i17.invoke: ; preds = %30, %25, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i17
-  %.str.145.sink = phi ptr [ @.str.144, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i17 ], [ @.str.144, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i ], [ @.str.145, %25 ], [ @.str.145, %30 ]
+_ZSt26__throw_bad_variant_accessb.exit.i.i.i17.invoke: ; preds = %30, %25, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i
+  %.str.145.sink = phi ptr [ @.str.145, %30 ], [ @.str.144, %_ZSt26__throw_bad_variant_accessb.exit.i.i.i ], [ @.str.145, %25 ]
   %35 = call ptr @__cxa_allocate_exception(i64 16) #27
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %35, align 8, !tbaa !119
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8

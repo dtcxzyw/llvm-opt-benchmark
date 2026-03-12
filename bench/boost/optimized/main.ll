@@ -3382,7 +3382,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %121
   %130 = icmp eq i64 %129, 9223372036854775807
   br i1 %130, label %.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i39
 
-.invoke:                                          ; preds = %56, %2, %128
+.invoke:                                          ; preds = %2, %56, %128
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.34) #36
           to label %.cont unwind label %108
 

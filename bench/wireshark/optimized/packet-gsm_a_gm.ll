@@ -2860,8 +2860,8 @@ switch.lookup4465:                                ; preds = %183
   %switch.load4467 = load ptr, ptr %switch.gep4466, align 8
   br label %188
 
-188:                                              ; preds = %183, %switch.lookup4465, %179, %switch.lookup4461, %177, %switch.lookup, %181
-  %.13989 = phi ptr [ @.str.65, %177 ], [ %switch.load4467, %switch.lookup4465 ], [ @.str.70, %181 ], [ @.str.65, %179 ], [ %switch.load4463, %switch.lookup4461 ], [ %switch.load, %switch.lookup ], [ @.str.65, %183 ]
+188:                                              ; preds = %177, %179, %183, %switch.lookup4465, %switch.lookup4461, %switch.lookup, %181
+  %.13989 = phi ptr [ %switch.load4463, %switch.lookup4461 ], [ %switch.load4467, %switch.lookup4465 ], [ @.str.70, %181 ], [ %switch.load, %switch.lookup ], [ @.str.65, %183 ], [ @.str.65, %179 ], [ @.str.65, %177 ]
   %189 = load i32, ptr @hf_gsm_a_gm_rf_power_capability, align 4
   %190 = xor i32 %.33927, -1
   %191 = add i32 %.13, %190
@@ -3010,8 +3010,8 @@ switch.lookup4477:                                ; preds = %255
   %switch.load4479 = load ptr, ptr %switch.gep4478, align 8
   br label %260
 
-260:                                              ; preds = %255, %switch.lookup4477, %251, %switch.lookup4473, %249, %switch.lookup4469, %253
-  %.23990 = phi ptr [ @.str.65, %249 ], [ %switch.load4479, %switch.lookup4477 ], [ @.str.70, %253 ], [ @.str.65, %251 ], [ %switch.load4475, %switch.lookup4473 ], [ %switch.load4471, %switch.lookup4469 ], [ @.str.65, %255 ]
+260:                                              ; preds = %249, %251, %255, %switch.lookup4477, %switch.lookup4473, %switch.lookup4469, %253
+  %.23990 = phi ptr [ %switch.load4475, %switch.lookup4473 ], [ %switch.load4479, %switch.lookup4477 ], [ @.str.70, %253 ], [ %switch.load4471, %switch.lookup4469 ], [ @.str.65, %255 ], [ @.str.65, %251 ], [ @.str.65, %249 ]
   %261 = load i32, ptr @hf_gsm_a_gm_rf_power_capability, align 4
   %262 = xor i32 %.73931, -1
   %263 = add i32 %.15, %262

@@ -542,7 +542,7 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread: ; preds = %66, %70
   store i8 0, ptr %11, align 2, !tbaa !90
   br label %.backedge
 
-.backedge:                                        ; preds = %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread, %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread, %80, %.critedge44.preheader, %.preheader75
+.backedge:                                        ; preds = %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread, %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread, %80, %.critedge44.preheader, %.preheader75
   %81 = load i8, ptr %11, align 2, !tbaa !90, !range !96, !noundef !97
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %19, label %._crit_edge

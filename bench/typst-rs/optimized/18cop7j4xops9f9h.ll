@@ -1891,7 +1891,7 @@ _ZN8unscanny7Scanner6expect17h78b9bda79922f627E.exit: ; preds = %"_ZN8unscanny75
 22:                                               ; preds = %"_ZN8unscanny78_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$$RF$str$GT$7matches17hdcfe78689c5b0692E.exit.i", %_ZN8unscanny7Scanner6expect17h78b9bda79922f627E.exit
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %.sroa.12.0
   %24 = icmp eq i64 %.sroa.12.0, %.sroa.3.0.i
-  br i1 %24, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread32, label %25
+  br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %22
   %26 = load i8, ptr %23, align 1, !noalias !293, !noundef !15
@@ -1946,16 +1946,13 @@ _ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i: ; preds = %"_ZN91_$LT$core
   %60 = or disjoint i32 %57, %59
   %61 = or disjoint i32 %60, %56
   %.not.i = icmp eq i32 %61, 1114112
-  br i1 %.not.i, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread32, label %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i
+  br i1 %.not.i, label %.thread, label %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i
 
 _ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i: ; preds = %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i"
   %62 = phi i32 [ %61, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i ], [ %37, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i" ], [ %49, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i" ]
   %.fr = freeze i32 %62
   %63 = icmp eq i32 %.fr, 1114112
-  br i1 %63, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread32, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread
-
-_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread32: ; preds = %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i, %22
-  br label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread
+  br i1 %63, label %.thread, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread
 
 64:                                               ; preds = %"_ZN8unscanny78_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$$RF$str$GT$7matches17hdcfe78689c5b0692E.exit.i"
   %65 = or disjoint i64 %.sroa.12.0, 2
@@ -2087,8 +2084,8 @@ _ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit: ; preds = %.thread4.i._
   %trunc = trunc i64 %.fr38 to i1
   br i1 %trunc, label %.thread, label %128
 
-_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread: ; preds = %128, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.thread.i, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i, %.thread, %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread32
-  %.1 = phi i32 [ %.sroa.510.0.extract.trunc, %128 ], [ 0, %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread32 ], [ %.fr, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i ], [ 0, %.thread ], [ %39, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.thread.i ]
+_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread: ; preds = %128, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.thread.i, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i, %.thread
+  %.1 = phi i32 [ %.sroa.510.0.extract.trunc, %128 ], [ %39, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.thread.i ], [ %.fr, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i ], [ 0, %.thread ]
   ret i32 %.1
 
 128:                                              ; preds = %_ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit
@@ -2101,7 +2098,7 @@ _ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread: ; preds = %128, %_ZN8u
   %or.cond37 = or i1 %131, %132
   br i1 %or.cond37, label %.thread, label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread
 
-.thread:                                          ; preds = %128, %_ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit
+.thread:                                          ; preds = %22, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i, %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i, %128, %_ZN8unscanny7Scanner9eat_while17h59e886cf458a0755E.exit
   br label %_ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.thread
 }
 

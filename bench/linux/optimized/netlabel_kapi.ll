@@ -1447,60 +1447,54 @@ define dso_local i32 @netlbl_sock_setattr(ptr noundef %0, i16 noundef zeroext %1
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @netlbl_domhsh_getentry(ptr noundef %5, i16 noundef zeroext %1) #13
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %27, label %8
+  br i1 %7, label %25, label %8
 
 8:                                                ; preds = %3
-  switch i16 %1, label %27 [
+  switch i16 %1, label %25 [
     i16 2, label %9
-    i16 10, label %18
+    i16 10, label %16
   ]
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i32, ptr %10, align 8
-  switch i32 %11, label %17 [
-    i32 6, label %27
+  switch i32 %11, label %24 [
+    i32 6, label %25
     i32 3, label %12
-    i32 5, label %16
+    i32 5, label %23
   ]
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @cipso_v4_sock_setattr(ptr noundef %0, ptr noundef %14, ptr noundef %2) #13
-  br label %27
+  br label %25
 
-16:                                               ; preds = %9
-  br label %27
-
-17:                                               ; preds = %9
-  br label %27
-
-18:                                               ; preds = %8
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %20 = load i32, ptr %19, align 8
-  switch i32 %20, label %26 [
-    i32 6, label %27
-    i32 7, label %21
-    i32 5, label %25
+16:                                               ; preds = %8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %18 = load i32, ptr %17, align 8
+  switch i32 %18, label %24 [
+    i32 6, label %25
+    i32 7, label %19
+    i32 5, label %23
   ]
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 @calipso_sock_setattr(ptr noundef %0, ptr noundef %23, ptr noundef %2) #13
-  br label %27
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i32 @calipso_sock_setattr(ptr noundef %0, ptr noundef %21, ptr noundef %2) #13
+  br label %25
 
-25:                                               ; preds = %18
-  br label %27
+23:                                               ; preds = %9, %16
+  br label %25
 
-26:                                               ; preds = %18
-  br label %27
+24:                                               ; preds = %9, %16
+  br label %25
 
-27:                                               ; preds = %26, %25, %21, %18, %17, %16, %12, %9, %8, %3
-  %28 = phi i32 [ -2, %26 ], [ 0, %25 ], [ %24, %21 ], [ -2, %17 ], [ 0, %16 ], [ %15, %12 ], [ -2, %3 ], [ -89, %9 ], [ -89, %18 ], [ -93, %8 ]
+25:                                               ; preds = %24, %23, %19, %16, %12, %9, %8, %3
+  %26 = phi i32 [ -2, %24 ], [ 0, %23 ], [ %22, %19 ], [ -89, %16 ], [ -93, %8 ], [ %15, %12 ], [ -2, %3 ], [ -89, %9 ]
   tail call void @__rcu_read_unlock() #13
-  ret i32 %28
+  ret i32 %26
 }
 
 ; Function Attrs: null_pointer_is_valid

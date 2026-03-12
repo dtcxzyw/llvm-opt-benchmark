@@ -9140,11 +9140,11 @@ define internal fastcc zeroext i16 @algoQuantize(i32 noundef range(i32 0, 65536)
 
 11:                                               ; preds = %4
   %12 = trunc nuw i32 %0 to i16
-  br label %1457
+  br label %1453
 
 13:                                               ; preds = %4
   %14 = fcmp olt float %7, %2
-  br i1 %14, label %1457, label %15
+  br i1 %14, label %1453, label %15
 
 15:                                               ; preds = %13
   %16 = sub nsw i32 %8, %9
@@ -9153,17 +9153,17 @@ define internal fastcc zeroext i16 @algoQuantize(i32 noundef range(i32 0, 65536)
   %19 = or disjoint i32 %18, 1024
   %20 = lshr i32 %19, %17
   %21 = icmp eq i32 %9, 0
-  br i1 %21, label %22, label %774
+  br i1 %21, label %22, label %772
 
 22:                                               ; preds = %15
   %23 = icmp eq i32 %8, 0
   %24 = icmp eq i32 %16, 1024
   %or.cond = select i1 %23, i1 true, i1 %24
   %25 = icmp eq i32 %18, 0
-  br i1 %or.cond, label %26, label %549
+  br i1 %or.cond, label %26, label %548
 
 26:                                               ; preds = %22
-  br i1 %25, label %1456, label %27
+  br i1 %25, label %1452, label %27
 
 27:                                               ; preds = %26
   %28 = tail call range(i32 21, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 1024) %18, i1 true)
@@ -10039,7 +10039,7 @@ half_to_float.exit361.i:                          ; preds = %478, %477, %475, %4
   %493 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %492)
   %494 = zext nneg i16 %493 to i32
   %495 = icmp samesign ugt i32 %.2234.i, %494
-  br i1 %495, label %496, label %521
+  br i1 %495, label %496, label %520
 
 496:                                              ; preds = %489
   %497 = shl nuw nsw i32 %491, 13
@@ -10081,1740 +10081,1722 @@ half_to_float.exit365.i:                          ; preds = %509, %508, %506, %5
   %517 = bitcast i32 %.sroa.0.0.i.i364.i to float
   %518 = fsub float %517, %7
   %519 = fcmp olt float %518, %2
-  br i1 %519, label %520, label %handleQuantizeGeneric.exit
+  br i1 %519, label %546, label %handleQuantizeGeneric.exit
 
-520:                                              ; preds = %half_to_float.exit365.i
-  br label %handleQuantizeGeneric.exit
+520:                                              ; preds = %489
+  %521 = icmp eq i32 %.2234.i, %494
+  br i1 %521, label %522, label %handleQuantizeGeneric.exit
 
-521:                                              ; preds = %489
-  %522 = icmp eq i32 %.2234.i, %494
-  br i1 %522, label %523, label %handleQuantizeGeneric.exit
-
-523:                                              ; preds = %521
-  %524 = shl nuw nsw i32 %491, 13
-  %525 = and i32 %524, 268419072
+522:                                              ; preds = %520
+  %523 = shl nuw nsw i32 %491, 13
+  %524 = and i32 %523, 268419072
   %sext.i = shl nuw i32 %491, 16
-  %526 = and i32 %sext.i, -2147483648
-  %527 = icmp samesign ugt i32 %525, 8388607
-  br i1 %527, label %528, label %535, !prof !177
+  %525 = and i32 %sext.i, -2147483648
+  %526 = icmp samesign ugt i32 %524, 8388607
+  br i1 %526, label %527, label %534, !prof !177
 
-528:                                              ; preds = %523
-  %529 = or disjoint i32 %525, %526
-  %530 = icmp samesign ult i32 %525, 260046848
-  br i1 %530, label %531, label %533, !prof !177
+527:                                              ; preds = %522
+  %528 = or disjoint i32 %524, %525
+  %529 = icmp samesign ult i32 %524, 260046848
+  br i1 %529, label %530, label %532, !prof !177
 
-531:                                              ; preds = %528
-  %532 = add nuw nsw i32 %529, 939524096
+530:                                              ; preds = %527
+  %531 = add nuw nsw i32 %528, 939524096
   br label %half_to_float.exit369.i
 
-533:                                              ; preds = %528
-  %534 = or i32 %529, 2139095040
+532:                                              ; preds = %527
+  %533 = or i32 %528, 2139095040
   br label %half_to_float.exit369.i
 
-535:                                              ; preds = %523
-  %.not.i.i367.i = icmp eq i32 %525, 0
-  br i1 %.not.i.i367.i, label %half_to_float.exit369.i, label %536
+534:                                              ; preds = %522
+  %.not.i.i367.i = icmp eq i32 %524, 0
+  br i1 %.not.i.i367.i, label %half_to_float.exit369.i, label %535
 
-536:                                              ; preds = %535
-  %537 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %525, i1 true)
-  %538 = add nsw i32 %537, -8
-  %539 = shl i32 %525, %538
-  %540 = or i32 %526, %539
-  %541 = or i32 %540, 947912704
-  %542 = shl nuw nsw i32 %538, 23
-  %543 = sub nuw i32 %541, %542
+535:                                              ; preds = %534
+  %536 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %524, i1 true)
+  %537 = add nsw i32 %536, -8
+  %538 = shl i32 %524, %537
+  %539 = or i32 %525, %538
+  %540 = or i32 %539, 947912704
+  %541 = shl nuw nsw i32 %537, 23
+  %542 = sub nuw i32 %540, %541
   br label %half_to_float.exit369.i
 
-half_to_float.exit369.i:                          ; preds = %536, %535, %533, %531
-  %.sroa.0.0.i.i368.i = phi i32 [ %532, %531 ], [ %534, %533 ], [ %543, %536 ], [ %526, %535 ]
-  %544 = bitcast i32 %.sroa.0.0.i.i368.i to float
-  %545 = fsub float %544, %7
-  %546 = fcmp olt float %545, %.2.i
-  br i1 %546, label %547, label %handleQuantizeGeneric.exit
+half_to_float.exit369.i:                          ; preds = %535, %534, %532, %530
+  %.sroa.0.0.i.i368.i = phi i32 [ %531, %530 ], [ %533, %532 ], [ %542, %535 ], [ %525, %534 ]
+  %543 = bitcast i32 %.sroa.0.0.i.i368.i to float
+  %544 = fsub float %543, %7
+  %545 = fcmp olt float %544, %.2.i
+  br i1 %545, label %546, label %handleQuantizeGeneric.exit
 
-547:                                              ; preds = %half_to_float.exit369.i
+546:                                              ; preds = %half_to_float.exit369.i, %half_to_float.exit365.i
   br label %handleQuantizeGeneric.exit
 
-handleQuantizeGeneric.exit:                       ; preds = %half_to_float.exit365.i, %520, %521, %half_to_float.exit369.i, %547
-  %.7.i = phi i32 [ %491, %520 ], [ %.2241.i, %half_to_float.exit365.i ], [ %491, %547 ], [ %.2241.i, %half_to_float.exit369.i ], [ %.2241.i, %521 ]
-  %548 = or i32 %.7.i, %5
-  br label %1456
+handleQuantizeGeneric.exit:                       ; preds = %half_to_float.exit365.i, %520, %half_to_float.exit369.i, %546
+  %.7.i = phi i32 [ %.2241.i, %520 ], [ %.2241.i, %half_to_float.exit365.i ], [ %491, %546 ], [ %.2241.i, %half_to_float.exit369.i ]
+  %547 = or i32 %.7.i, %5
+  br label %1452
 
-549:                                              ; preds = %22
-  br i1 %25, label %1456, label %550
+548:                                              ; preds = %22
+  br i1 %25, label %1452, label %549
 
-550:                                              ; preds = %549
-  %551 = lshr i32 %18, %17
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %551, i32 1)
-  %552 = tail call range(i32 21, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 256) %spec.store.select, i1 true)
-  %553 = sub nuw nsw i32 32, %552
-  %554 = shl nuw nsw i32 1, %553
-  %555 = sub nsw i32 0, %554
-  %556 = xor i32 %554, %555
-  %557 = trunc nuw nsw i32 %6 to i16
-  %558 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %557)
-  %559 = and i32 %556, %6
-  %560 = trunc nuw nsw i32 %559 to i16
-  %561 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %560)
-  %562 = icmp samesign ult i16 %561, %558
-  br i1 %562, label %563, label %584
+549:                                              ; preds = %548
+  %550 = lshr i32 %18, %17
+  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %550, i32 1)
+  %551 = tail call range(i32 21, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 256) %spec.store.select, i1 true)
+  %552 = sub nuw nsw i32 32, %551
+  %553 = shl nuw nsw i32 1, %552
+  %554 = sub nsw i32 0, %553
+  %555 = xor i32 %553, %554
+  %556 = trunc nuw nsw i32 %6 to i16
+  %557 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %556)
+  %558 = and i32 %555, %6
+  %559 = trunc nuw nsw i32 %558 to i16
+  %560 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %559)
+  %561 = icmp samesign ult i16 %560, %557
+  br i1 %561, label %562, label %583
 
-563:                                              ; preds = %550
-  %564 = shl nuw nsw i32 %559, 13
-  %565 = icmp samesign ugt i32 %559, 1023
-  br i1 %565, label %566, label %572, !prof !177
+562:                                              ; preds = %549
+  %563 = shl nuw nsw i32 %558, 13
+  %564 = icmp samesign ugt i32 %558, 1023
+  br i1 %564, label %565, label %571, !prof !177
 
-566:                                              ; preds = %563
-  %567 = icmp samesign ult i32 %559, 31744
-  br i1 %567, label %568, label %570, !prof !177
+565:                                              ; preds = %562
+  %566 = icmp samesign ult i32 %558, 31744
+  br i1 %566, label %567, label %569, !prof !177
 
-568:                                              ; preds = %566
-  %569 = add nuw nsw i32 %564, 939524096
+567:                                              ; preds = %565
+  %568 = add nuw nsw i32 %563, 939524096
   br label %half_to_float.exit.i71
 
-570:                                              ; preds = %566
-  %571 = or i32 %564, 2139095040
+569:                                              ; preds = %565
+  %570 = or i32 %563, 2139095040
   br label %half_to_float.exit.i71
 
-572:                                              ; preds = %563
-  %.not.i.i.i70 = icmp eq i32 %559, 0
-  br i1 %.not.i.i.i70, label %half_to_float.exit.i71, label %573
+571:                                              ; preds = %562
+  %.not.i.i.i70 = icmp eq i32 %558, 0
+  br i1 %.not.i.i.i70, label %half_to_float.exit.i71, label %572
 
-573:                                              ; preds = %572
-  %574 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %564, i1 true)
-  %575 = add nsw i32 %574, -8
-  %576 = shl i32 %564, %575
-  %577 = or i32 %576, 947912704
-  %578 = shl nuw nsw i32 %575, 23
-  %579 = sub nuw i32 %577, %578
+572:                                              ; preds = %571
+  %573 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %563, i1 true)
+  %574 = add nsw i32 %573, -8
+  %575 = shl i32 %563, %574
+  %576 = or i32 %575, 947912704
+  %577 = shl nuw nsw i32 %574, 23
+  %578 = sub nuw i32 %576, %577
   br label %half_to_float.exit.i71
 
-half_to_float.exit.i71:                           ; preds = %573, %572, %570, %568
-  %.sroa.0.0.i.i.i72 = phi i32 [ %569, %568 ], [ %571, %570 ], [ %579, %573 ], [ 0, %572 ]
-  %580 = bitcast i32 %.sroa.0.0.i.i.i72 to float
-  %581 = fsub float %7, %580
-  %582 = fcmp olt float %581, %2
-  br i1 %582, label %583, label %607
+half_to_float.exit.i71:                           ; preds = %572, %571, %569, %567
+  %.sroa.0.0.i.i.i72 = phi i32 [ %568, %567 ], [ %570, %569 ], [ %578, %572 ], [ 0, %571 ]
+  %579 = bitcast i32 %.sroa.0.0.i.i.i72 to float
+  %580 = fsub float %7, %579
+  %581 = fcmp olt float %580, %2
+  br i1 %581, label %582, label %606
 
-583:                                              ; preds = %half_to_float.exit.i71
-  br label %607
+582:                                              ; preds = %half_to_float.exit.i71
+  br label %606
 
-584:                                              ; preds = %550
-  %585 = icmp eq i16 %561, %558
-  br i1 %585, label %586, label %607
+583:                                              ; preds = %549
+  %584 = icmp eq i16 %560, %557
+  br i1 %584, label %585, label %606
 
-586:                                              ; preds = %584
-  %587 = shl nuw nsw i32 %559, 13
-  %588 = icmp samesign ugt i32 %559, 1023
-  br i1 %588, label %589, label %595, !prof !177
+585:                                              ; preds = %583
+  %586 = shl nuw nsw i32 %558, 13
+  %587 = icmp samesign ugt i32 %558, 1023
+  br i1 %587, label %588, label %594, !prof !177
 
-589:                                              ; preds = %586
-  %590 = icmp samesign ult i32 %559, 31744
-  br i1 %590, label %591, label %593, !prof !177
+588:                                              ; preds = %585
+  %589 = icmp samesign ult i32 %558, 31744
+  br i1 %589, label %590, label %592, !prof !177
 
-591:                                              ; preds = %589
-  %592 = add nuw nsw i32 %587, 939524096
+590:                                              ; preds = %588
+  %591 = add nuw nsw i32 %586, 939524096
   br label %half_to_float.exit121.i
 
-593:                                              ; preds = %589
-  %594 = or i32 %587, 2139095040
+592:                                              ; preds = %588
+  %593 = or i32 %586, 2139095040
   br label %half_to_float.exit121.i
 
-595:                                              ; preds = %586
-  %.not.i.i119.i = icmp eq i32 %559, 0
-  br i1 %.not.i.i119.i, label %half_to_float.exit121.i, label %596
+594:                                              ; preds = %585
+  %.not.i.i119.i = icmp eq i32 %558, 0
+  br i1 %.not.i.i119.i, label %half_to_float.exit121.i, label %595
 
-596:                                              ; preds = %595
-  %597 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %587, i1 true)
-  %598 = add nsw i32 %597, -8
-  %599 = shl i32 %587, %598
-  %600 = or i32 %599, 947912704
-  %601 = shl nuw nsw i32 %598, 23
-  %602 = sub nuw i32 %600, %601
+595:                                              ; preds = %594
+  %596 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %586, i1 true)
+  %597 = add nsw i32 %596, -8
+  %598 = shl i32 %586, %597
+  %599 = or i32 %598, 947912704
+  %600 = shl nuw nsw i32 %597, 23
+  %601 = sub nuw i32 %599, %600
   br label %half_to_float.exit121.i
 
-half_to_float.exit121.i:                          ; preds = %596, %595, %593, %591
-  %.sroa.0.0.i.i120.i = phi i32 [ %592, %591 ], [ %594, %593 ], [ %602, %596 ], [ 0, %595 ]
-  %603 = bitcast i32 %.sroa.0.0.i.i120.i to float
-  %604 = fsub float %7, %603
-  %605 = fcmp olt float %604, %2
-  br i1 %605, label %606, label %607
+half_to_float.exit121.i:                          ; preds = %595, %594, %592, %590
+  %.sroa.0.0.i.i120.i = phi i32 [ %591, %590 ], [ %593, %592 ], [ %601, %595 ], [ 0, %594 ]
+  %602 = bitcast i32 %.sroa.0.0.i.i120.i to float
+  %603 = fsub float %7, %602
+  %604 = fcmp olt float %603, %2
+  br i1 %604, label %605, label %606
 
-606:                                              ; preds = %half_to_float.exit121.i
-  br label %607
+605:                                              ; preds = %half_to_float.exit121.i
+  br label %606
 
-607:                                              ; preds = %606, %half_to_float.exit121.i, %584, %583, %half_to_float.exit.i71
-  %.098.i = phi i32 [ %559, %583 ], [ %6, %half_to_float.exit.i71 ], [ %559, %606 ], [ %6, %half_to_float.exit121.i ], [ %6, %584 ]
-  %.095.in.i = phi i16 [ %561, %583 ], [ %558, %half_to_float.exit.i71 ], [ %558, %606 ], [ %558, %half_to_float.exit121.i ], [ %558, %584 ]
-  %.0.i65 = phi float [ %581, %583 ], [ %2, %half_to_float.exit.i71 ], [ %604, %606 ], [ %2, %half_to_float.exit121.i ], [ %2, %584 ]
-  %608 = and i32 %6, %555
-  %609 = trunc nuw nsw i32 %608 to i16
-  %610 = tail call range(i16 0, 15) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %609)
-  %611 = icmp samesign ult i16 %610, %.095.in.i
-  br i1 %611, label %612, label %633
+606:                                              ; preds = %605, %half_to_float.exit121.i, %583, %582, %half_to_float.exit.i71
+  %.098.i = phi i32 [ %558, %582 ], [ %6, %half_to_float.exit.i71 ], [ %558, %605 ], [ %6, %half_to_float.exit121.i ], [ %6, %583 ]
+  %.095.in.i = phi i16 [ %560, %582 ], [ %557, %half_to_float.exit.i71 ], [ %557, %605 ], [ %557, %half_to_float.exit121.i ], [ %557, %583 ]
+  %.0.i65 = phi float [ %580, %582 ], [ %2, %half_to_float.exit.i71 ], [ %603, %605 ], [ %2, %half_to_float.exit121.i ], [ %2, %583 ]
+  %607 = and i32 %6, %554
+  %608 = trunc nuw nsw i32 %607 to i16
+  %609 = tail call range(i16 0, 15) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %608)
+  %610 = icmp samesign ult i16 %609, %.095.in.i
+  br i1 %610, label %611, label %632
 
-612:                                              ; preds = %607
-  %613 = shl nuw nsw i32 %608, 13
-  %614 = icmp samesign ugt i32 %608, 1023
-  br i1 %614, label %615, label %621, !prof !177
+611:                                              ; preds = %606
+  %612 = shl nuw nsw i32 %607, 13
+  %613 = icmp samesign ugt i32 %607, 1023
+  br i1 %613, label %614, label %620, !prof !177
 
-615:                                              ; preds = %612
-  %616 = icmp samesign ult i32 %608, 31744
-  br i1 %616, label %617, label %619, !prof !177
+614:                                              ; preds = %611
+  %615 = icmp samesign ult i32 %607, 31744
+  br i1 %615, label %616, label %618, !prof !177
 
-617:                                              ; preds = %615
-  %618 = add nuw nsw i32 %613, 939524096
+616:                                              ; preds = %614
+  %617 = add nuw nsw i32 %612, 939524096
   br label %half_to_float.exit125.i
 
-619:                                              ; preds = %615
-  %620 = or i32 %613, 2139095040
+618:                                              ; preds = %614
+  %619 = or i32 %612, 2139095040
   br label %half_to_float.exit125.i
 
-621:                                              ; preds = %612
-  %.not.i.i123.i = icmp eq i32 %608, 0
-  br i1 %.not.i.i123.i, label %half_to_float.exit125.i, label %622
+620:                                              ; preds = %611
+  %.not.i.i123.i = icmp eq i32 %607, 0
+  br i1 %.not.i.i123.i, label %half_to_float.exit125.i, label %621
 
-622:                                              ; preds = %621
-  %623 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %613, i1 true)
-  %624 = add nsw i32 %623, -8
-  %625 = shl i32 %613, %624
-  %626 = or i32 %625, 947912704
-  %627 = shl nuw nsw i32 %624, 23
-  %628 = sub nuw i32 %626, %627
+621:                                              ; preds = %620
+  %622 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %612, i1 true)
+  %623 = add nsw i32 %622, -8
+  %624 = shl i32 %612, %623
+  %625 = or i32 %624, 947912704
+  %626 = shl nuw nsw i32 %623, 23
+  %627 = sub nuw i32 %625, %626
   br label %half_to_float.exit125.i
 
-half_to_float.exit125.i:                          ; preds = %622, %621, %619, %617
-  %.sroa.0.0.i.i124.i = phi i32 [ %618, %617 ], [ %620, %619 ], [ %628, %622 ], [ 0, %621 ]
-  %629 = bitcast i32 %.sroa.0.0.i.i124.i to float
-  %630 = fsub float %7, %629
-  %631 = fcmp olt float %630, %2
-  br i1 %631, label %632, label %656
+half_to_float.exit125.i:                          ; preds = %621, %620, %618, %616
+  %.sroa.0.0.i.i124.i = phi i32 [ %617, %616 ], [ %619, %618 ], [ %627, %621 ], [ 0, %620 ]
+  %628 = bitcast i32 %.sroa.0.0.i.i124.i to float
+  %629 = fsub float %7, %628
+  %630 = fcmp olt float %629, %2
+  br i1 %630, label %631, label %655
 
-632:                                              ; preds = %half_to_float.exit125.i
-  br label %656
+631:                                              ; preds = %half_to_float.exit125.i
+  br label %655
 
-633:                                              ; preds = %607
-  %634 = icmp eq i16 %610, %.095.in.i
-  br i1 %634, label %635, label %656
+632:                                              ; preds = %606
+  %633 = icmp eq i16 %609, %.095.in.i
+  br i1 %633, label %634, label %655
 
-635:                                              ; preds = %633
-  %636 = shl nuw nsw i32 %608, 13
-  %637 = icmp samesign ugt i32 %608, 1023
-  br i1 %637, label %638, label %644, !prof !177
+634:                                              ; preds = %632
+  %635 = shl nuw nsw i32 %607, 13
+  %636 = icmp samesign ugt i32 %607, 1023
+  br i1 %636, label %637, label %643, !prof !177
 
-638:                                              ; preds = %635
-  %639 = icmp samesign ult i32 %608, 31744
-  br i1 %639, label %640, label %642, !prof !177
+637:                                              ; preds = %634
+  %638 = icmp samesign ult i32 %607, 31744
+  br i1 %638, label %639, label %641, !prof !177
 
-640:                                              ; preds = %638
-  %641 = add nuw nsw i32 %636, 939524096
+639:                                              ; preds = %637
+  %640 = add nuw nsw i32 %635, 939524096
   br label %half_to_float.exit129.i
 
-642:                                              ; preds = %638
-  %643 = or i32 %636, 2139095040
+641:                                              ; preds = %637
+  %642 = or i32 %635, 2139095040
   br label %half_to_float.exit129.i
 
-644:                                              ; preds = %635
-  %.not.i.i127.i = icmp eq i32 %608, 0
-  br i1 %.not.i.i127.i, label %half_to_float.exit129.i, label %645
+643:                                              ; preds = %634
+  %.not.i.i127.i = icmp eq i32 %607, 0
+  br i1 %.not.i.i127.i, label %half_to_float.exit129.i, label %644
 
-645:                                              ; preds = %644
-  %646 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %636, i1 true)
-  %647 = add nsw i32 %646, -8
-  %648 = shl i32 %636, %647
-  %649 = or i32 %648, 947912704
-  %650 = shl nuw nsw i32 %647, 23
-  %651 = sub nuw i32 %649, %650
+644:                                              ; preds = %643
+  %645 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %635, i1 true)
+  %646 = add nsw i32 %645, -8
+  %647 = shl i32 %635, %646
+  %648 = or i32 %647, 947912704
+  %649 = shl nuw nsw i32 %646, 23
+  %650 = sub nuw i32 %648, %649
   br label %half_to_float.exit129.i
 
-half_to_float.exit129.i:                          ; preds = %645, %644, %642, %640
-  %.sroa.0.0.i.i128.i = phi i32 [ %641, %640 ], [ %643, %642 ], [ %651, %645 ], [ 0, %644 ]
-  %652 = bitcast i32 %.sroa.0.0.i.i128.i to float
-  %653 = fsub float %7, %652
-  %654 = fcmp olt float %653, %.0.i65
-  br i1 %654, label %655, label %656
+half_to_float.exit129.i:                          ; preds = %644, %643, %641, %639
+  %.sroa.0.0.i.i128.i = phi i32 [ %640, %639 ], [ %642, %641 ], [ %650, %644 ], [ 0, %643 ]
+  %651 = bitcast i32 %.sroa.0.0.i.i128.i to float
+  %652 = fsub float %7, %651
+  %653 = fcmp olt float %652, %.0.i65
+  br i1 %653, label %654, label %655
 
-655:                                              ; preds = %half_to_float.exit129.i
-  br label %656
+654:                                              ; preds = %half_to_float.exit129.i
+  br label %655
 
-656:                                              ; preds = %655, %half_to_float.exit129.i, %633, %632, %half_to_float.exit125.i
-  %.199.i = phi i32 [ %608, %632 ], [ %.098.i, %half_to_float.exit125.i ], [ %608, %655 ], [ %.098.i, %half_to_float.exit129.i ], [ %.098.i, %633 ]
-  %.196.in.i = phi i16 [ %610, %632 ], [ %.095.in.i, %half_to_float.exit125.i ], [ %.095.in.i, %655 ], [ %.095.in.i, %half_to_float.exit129.i ], [ %.095.in.i, %633 ]
-  %.1.i66 = phi float [ %630, %632 ], [ %.0.i65, %half_to_float.exit125.i ], [ %653, %655 ], [ %.0.i65, %half_to_float.exit129.i ], [ %.0.i65, %633 ]
-  %657 = add nuw nsw i32 %554, %6
-  %658 = and i32 %657, %555
-  %659 = trunc nuw i32 %658 to i16
-  %660 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %659)
-  %661 = icmp samesign ult i16 %660, %.196.in.i
-  br i1 %661, label %662, label %687
+655:                                              ; preds = %654, %half_to_float.exit129.i, %632, %631, %half_to_float.exit125.i
+  %.199.i = phi i32 [ %607, %631 ], [ %.098.i, %half_to_float.exit125.i ], [ %607, %654 ], [ %.098.i, %half_to_float.exit129.i ], [ %.098.i, %632 ]
+  %.196.in.i = phi i16 [ %609, %631 ], [ %.095.in.i, %half_to_float.exit125.i ], [ %.095.in.i, %654 ], [ %.095.in.i, %half_to_float.exit129.i ], [ %.095.in.i, %632 ]
+  %.1.i66 = phi float [ %629, %631 ], [ %.0.i65, %half_to_float.exit125.i ], [ %652, %654 ], [ %.0.i65, %half_to_float.exit129.i ], [ %.0.i65, %632 ]
+  %656 = add nuw nsw i32 %553, %6
+  %657 = and i32 %656, %554
+  %658 = trunc nuw i32 %657 to i16
+  %659 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %658)
+  %660 = icmp samesign ult i16 %659, %.196.in.i
+  br i1 %660, label %661, label %686
 
-662:                                              ; preds = %656
-  %663 = shl nuw nsw i32 %658, 13
-  %664 = and i32 %663, 268419072
-  %sext146.i = shl nuw i32 %658, 16
-  %665 = and i32 %sext146.i, -2147483648
-  %666 = icmp samesign ugt i32 %664, 8388607
-  br i1 %666, label %667, label %674, !prof !177
+661:                                              ; preds = %655
+  %662 = shl nuw nsw i32 %657, 13
+  %663 = and i32 %662, 268419072
+  %sext146.i = shl nuw i32 %657, 16
+  %664 = and i32 %sext146.i, -2147483648
+  %665 = icmp samesign ugt i32 %663, 8388607
+  br i1 %665, label %666, label %673, !prof !177
 
-667:                                              ; preds = %662
-  %668 = or disjoint i32 %664, %665
-  %669 = icmp samesign ult i32 %664, 260046848
-  br i1 %669, label %670, label %672, !prof !177
+666:                                              ; preds = %661
+  %667 = or disjoint i32 %663, %664
+  %668 = icmp samesign ult i32 %663, 260046848
+  br i1 %668, label %669, label %671, !prof !177
 
-670:                                              ; preds = %667
-  %671 = add nuw nsw i32 %668, 939524096
+669:                                              ; preds = %666
+  %670 = add nuw nsw i32 %667, 939524096
   br label %half_to_float.exit133.i
 
-672:                                              ; preds = %667
-  %673 = or i32 %668, 2139095040
+671:                                              ; preds = %666
+  %672 = or i32 %667, 2139095040
   br label %half_to_float.exit133.i
 
-674:                                              ; preds = %662
-  %.not.i.i131.i = icmp eq i32 %664, 0
-  br i1 %.not.i.i131.i, label %half_to_float.exit133.i, label %675
+673:                                              ; preds = %661
+  %.not.i.i131.i = icmp eq i32 %663, 0
+  br i1 %.not.i.i131.i, label %half_to_float.exit133.i, label %674
 
-675:                                              ; preds = %674
-  %676 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %664, i1 true)
-  %677 = add nsw i32 %676, -8
-  %678 = shl i32 %664, %677
-  %679 = or i32 %665, %678
-  %680 = or i32 %679, 947912704
-  %681 = shl nuw nsw i32 %677, 23
-  %682 = sub nuw i32 %680, %681
+674:                                              ; preds = %673
+  %675 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %663, i1 true)
+  %676 = add nsw i32 %675, -8
+  %677 = shl i32 %663, %676
+  %678 = or i32 %664, %677
+  %679 = or i32 %678, 947912704
+  %680 = shl nuw nsw i32 %676, 23
+  %681 = sub nuw i32 %679, %680
   br label %half_to_float.exit133.i
 
-half_to_float.exit133.i:                          ; preds = %675, %674, %672, %670
-  %.sroa.0.0.i.i132.i = phi i32 [ %671, %670 ], [ %673, %672 ], [ %682, %675 ], [ %665, %674 ]
-  %683 = bitcast i32 %.sroa.0.0.i.i132.i to float
-  %684 = fsub float %683, %7
-  %685 = fcmp olt float %684, %2
-  br i1 %685, label %686, label %714
+half_to_float.exit133.i:                          ; preds = %674, %673, %671, %669
+  %.sroa.0.0.i.i132.i = phi i32 [ %670, %669 ], [ %672, %671 ], [ %681, %674 ], [ %664, %673 ]
+  %682 = bitcast i32 %.sroa.0.0.i.i132.i to float
+  %683 = fsub float %682, %7
+  %684 = fcmp olt float %683, %2
+  br i1 %684, label %685, label %713
 
-686:                                              ; preds = %half_to_float.exit133.i
-  br label %714
+685:                                              ; preds = %half_to_float.exit133.i
+  br label %713
 
-687:                                              ; preds = %656
-  %688 = icmp eq i16 %660, %.196.in.i
-  br i1 %688, label %689, label %714
+686:                                              ; preds = %655
+  %687 = icmp eq i16 %659, %.196.in.i
+  br i1 %687, label %688, label %713
 
-689:                                              ; preds = %687
-  %690 = shl nuw nsw i32 %658, 13
-  %691 = and i32 %690, 268419072
-  %sext.i69 = shl nuw i32 %658, 16
-  %692 = and i32 %sext.i69, -2147483648
-  %693 = icmp samesign ugt i32 %691, 8388607
-  br i1 %693, label %694, label %701, !prof !177
+688:                                              ; preds = %686
+  %689 = shl nuw nsw i32 %657, 13
+  %690 = and i32 %689, 268419072
+  %sext.i69 = shl nuw i32 %657, 16
+  %691 = and i32 %sext.i69, -2147483648
+  %692 = icmp samesign ugt i32 %690, 8388607
+  br i1 %692, label %693, label %700, !prof !177
 
-694:                                              ; preds = %689
-  %695 = or disjoint i32 %691, %692
-  %696 = icmp samesign ult i32 %691, 260046848
-  br i1 %696, label %697, label %699, !prof !177
+693:                                              ; preds = %688
+  %694 = or disjoint i32 %690, %691
+  %695 = icmp samesign ult i32 %690, 260046848
+  br i1 %695, label %696, label %698, !prof !177
 
-697:                                              ; preds = %694
-  %698 = add nuw nsw i32 %695, 939524096
+696:                                              ; preds = %693
+  %697 = add nuw nsw i32 %694, 939524096
   br label %half_to_float.exit137.i
 
-699:                                              ; preds = %694
-  %700 = or i32 %695, 2139095040
+698:                                              ; preds = %693
+  %699 = or i32 %694, 2139095040
   br label %half_to_float.exit137.i
 
-701:                                              ; preds = %689
-  %.not.i.i135.i = icmp eq i32 %691, 0
-  br i1 %.not.i.i135.i, label %half_to_float.exit137.i, label %702
+700:                                              ; preds = %688
+  %.not.i.i135.i = icmp eq i32 %690, 0
+  br i1 %.not.i.i135.i, label %half_to_float.exit137.i, label %701
 
-702:                                              ; preds = %701
-  %703 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %691, i1 true)
-  %704 = add nsw i32 %703, -8
-  %705 = shl i32 %691, %704
-  %706 = or i32 %692, %705
-  %707 = or i32 %706, 947912704
-  %708 = shl nuw nsw i32 %704, 23
-  %709 = sub nuw i32 %707, %708
+701:                                              ; preds = %700
+  %702 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %690, i1 true)
+  %703 = add nsw i32 %702, -8
+  %704 = shl i32 %690, %703
+  %705 = or i32 %691, %704
+  %706 = or i32 %705, 947912704
+  %707 = shl nuw nsw i32 %703, 23
+  %708 = sub nuw i32 %706, %707
   br label %half_to_float.exit137.i
 
-half_to_float.exit137.i:                          ; preds = %702, %701, %699, %697
-  %.sroa.0.0.i.i136.i = phi i32 [ %698, %697 ], [ %700, %699 ], [ %709, %702 ], [ %692, %701 ]
-  %710 = bitcast i32 %.sroa.0.0.i.i136.i to float
-  %711 = fsub float %710, %7
-  %712 = fcmp olt float %711, %.1.i66
-  br i1 %712, label %713, label %714
+half_to_float.exit137.i:                          ; preds = %701, %700, %698, %696
+  %.sroa.0.0.i.i136.i = phi i32 [ %697, %696 ], [ %699, %698 ], [ %708, %701 ], [ %691, %700 ]
+  %709 = bitcast i32 %.sroa.0.0.i.i136.i to float
+  %710 = fsub float %709, %7
+  %711 = fcmp olt float %710, %.1.i66
+  br i1 %711, label %712, label %713
 
-713:                                              ; preds = %half_to_float.exit137.i
-  br label %714
+712:                                              ; preds = %half_to_float.exit137.i
+  br label %713
 
-714:                                              ; preds = %713, %half_to_float.exit137.i, %687, %686, %half_to_float.exit133.i
-  %.2100.i = phi i32 [ %658, %686 ], [ %.199.i, %half_to_float.exit133.i ], [ %658, %713 ], [ %.199.i, %half_to_float.exit137.i ], [ %.199.i, %687 ]
-  %.297.in.i = phi i16 [ %660, %686 ], [ %.196.in.i, %half_to_float.exit133.i ], [ %.196.in.i, %713 ], [ %.196.in.i, %half_to_float.exit137.i ], [ %.196.in.i, %687 ]
-  %.2.i67 = phi float [ %684, %686 ], [ %.1.i66, %half_to_float.exit133.i ], [ %711, %713 ], [ %.1.i66, %half_to_float.exit137.i ], [ %.1.i66, %687 ]
-  %715 = shl nuw nsw i32 2, %553
-  %716 = add nuw nsw i32 %715, %6
-  %717 = and i32 %716, %555
-  %718 = trunc nuw i32 %717 to i16
-  %719 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %718)
-  %720 = icmp samesign ult i16 %719, %.297.in.i
-  br i1 %720, label %721, label %746
+713:                                              ; preds = %712, %half_to_float.exit137.i, %686, %685, %half_to_float.exit133.i
+  %.2100.i = phi i32 [ %657, %685 ], [ %.199.i, %half_to_float.exit133.i ], [ %657, %712 ], [ %.199.i, %half_to_float.exit137.i ], [ %.199.i, %686 ]
+  %.297.in.i = phi i16 [ %659, %685 ], [ %.196.in.i, %half_to_float.exit133.i ], [ %.196.in.i, %712 ], [ %.196.in.i, %half_to_float.exit137.i ], [ %.196.in.i, %686 ]
+  %.2.i67 = phi float [ %683, %685 ], [ %.1.i66, %half_to_float.exit133.i ], [ %710, %712 ], [ %.1.i66, %half_to_float.exit137.i ], [ %.1.i66, %686 ]
+  %714 = shl nuw nsw i32 2, %552
+  %715 = add nuw nsw i32 %714, %6
+  %716 = and i32 %715, %554
+  %717 = trunc nuw i32 %716 to i16
+  %718 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %717)
+  %719 = icmp samesign ult i16 %718, %.297.in.i
+  br i1 %719, label %720, label %744
 
-721:                                              ; preds = %714
-  %722 = shl nuw nsw i32 %717, 13
-  %723 = and i32 %722, 268419072
-  %sext148.i = shl nuw i32 %717, 16
-  %724 = and i32 %sext148.i, -2147483648
-  %725 = icmp samesign ugt i32 %723, 8388607
-  br i1 %725, label %726, label %733, !prof !177
+720:                                              ; preds = %713
+  %721 = shl nuw nsw i32 %716, 13
+  %722 = and i32 %721, 268419072
+  %sext148.i = shl nuw i32 %716, 16
+  %723 = and i32 %sext148.i, -2147483648
+  %724 = icmp samesign ugt i32 %722, 8388607
+  br i1 %724, label %725, label %732, !prof !177
 
-726:                                              ; preds = %721
-  %727 = or disjoint i32 %723, %724
-  %728 = icmp samesign ult i32 %723, 260046848
-  br i1 %728, label %729, label %731, !prof !177
+725:                                              ; preds = %720
+  %726 = or disjoint i32 %722, %723
+  %727 = icmp samesign ult i32 %722, 260046848
+  br i1 %727, label %728, label %730, !prof !177
 
-729:                                              ; preds = %726
-  %730 = add nuw nsw i32 %727, 939524096
+728:                                              ; preds = %725
+  %729 = add nuw nsw i32 %726, 939524096
   br label %half_to_float.exit141.i
 
-731:                                              ; preds = %726
-  %732 = or i32 %727, 2139095040
+730:                                              ; preds = %725
+  %731 = or i32 %726, 2139095040
   br label %half_to_float.exit141.i
 
-733:                                              ; preds = %721
-  %.not.i.i139.i = icmp eq i32 %723, 0
-  br i1 %.not.i.i139.i, label %half_to_float.exit141.i, label %734
+732:                                              ; preds = %720
+  %.not.i.i139.i = icmp eq i32 %722, 0
+  br i1 %.not.i.i139.i, label %half_to_float.exit141.i, label %733
 
-734:                                              ; preds = %733
-  %735 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %723, i1 true)
-  %736 = add nsw i32 %735, -8
-  %737 = shl i32 %723, %736
-  %738 = or i32 %724, %737
-  %739 = or i32 %738, 947912704
-  %740 = shl nuw nsw i32 %736, 23
-  %741 = sub nuw i32 %739, %740
+733:                                              ; preds = %732
+  %734 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %722, i1 true)
+  %735 = add nsw i32 %734, -8
+  %736 = shl i32 %722, %735
+  %737 = or i32 %723, %736
+  %738 = or i32 %737, 947912704
+  %739 = shl nuw nsw i32 %735, 23
+  %740 = sub nuw i32 %738, %739
   br label %half_to_float.exit141.i
 
-half_to_float.exit141.i:                          ; preds = %734, %733, %731, %729
-  %.sroa.0.0.i.i140.i = phi i32 [ %730, %729 ], [ %732, %731 ], [ %741, %734 ], [ %724, %733 ]
-  %742 = bitcast i32 %.sroa.0.0.i.i140.i to float
-  %743 = fsub float %742, %7
-  %744 = fcmp olt float %743, %2
-  br i1 %744, label %745, label %handleQuantizeDenormTol.exit
+half_to_float.exit141.i:                          ; preds = %733, %732, %730, %728
+  %.sroa.0.0.i.i140.i = phi i32 [ %729, %728 ], [ %731, %730 ], [ %740, %733 ], [ %723, %732 ]
+  %741 = bitcast i32 %.sroa.0.0.i.i140.i to float
+  %742 = fsub float %741, %7
+  %743 = fcmp olt float %742, %2
+  br i1 %743, label %770, label %handleQuantizeDenormTol.exit
 
-745:                                              ; preds = %half_to_float.exit141.i
+744:                                              ; preds = %713
+  %745 = icmp eq i16 %718, %.297.in.i
+  br i1 %745, label %746, label %handleQuantizeDenormTol.exit
+
+746:                                              ; preds = %744
+  %747 = shl nuw nsw i32 %716, 13
+  %748 = and i32 %747, 268419072
+  %sext147.i = shl nuw i32 %716, 16
+  %749 = and i32 %sext147.i, -2147483648
+  %750 = icmp samesign ugt i32 %748, 8388607
+  br i1 %750, label %751, label %758, !prof !177
+
+751:                                              ; preds = %746
+  %752 = or disjoint i32 %748, %749
+  %753 = icmp samesign ult i32 %748, 260046848
+  br i1 %753, label %754, label %756, !prof !177
+
+754:                                              ; preds = %751
+  %755 = add nuw nsw i32 %752, 939524096
+  br label %half_to_float.exit145.i
+
+756:                                              ; preds = %751
+  %757 = or i32 %752, 2139095040
+  br label %half_to_float.exit145.i
+
+758:                                              ; preds = %746
+  %.not.i.i143.i = icmp eq i32 %748, 0
+  br i1 %.not.i.i143.i, label %half_to_float.exit145.i, label %759
+
+759:                                              ; preds = %758
+  %760 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %748, i1 true)
+  %761 = add nsw i32 %760, -8
+  %762 = shl i32 %748, %761
+  %763 = or i32 %749, %762
+  %764 = or i32 %763, 947912704
+  %765 = shl nuw nsw i32 %761, 23
+  %766 = sub nuw i32 %764, %765
+  br label %half_to_float.exit145.i
+
+half_to_float.exit145.i:                          ; preds = %759, %758, %756, %754
+  %.sroa.0.0.i.i144.i = phi i32 [ %755, %754 ], [ %757, %756 ], [ %766, %759 ], [ %749, %758 ]
+  %767 = bitcast i32 %.sroa.0.0.i.i144.i to float
+  %768 = fsub float %767, %7
+  %769 = fcmp olt float %768, %.2.i67
+  br i1 %769, label %770, label %handleQuantizeDenormTol.exit
+
+770:                                              ; preds = %half_to_float.exit145.i, %half_to_float.exit141.i
   br label %handleQuantizeDenormTol.exit
 
-746:                                              ; preds = %714
-  %747 = icmp eq i16 %719, %.297.in.i
-  br i1 %747, label %748, label %handleQuantizeDenormTol.exit
+handleQuantizeDenormTol.exit:                     ; preds = %half_to_float.exit141.i, %744, %half_to_float.exit145.i, %770
+  %.3.i68 = phi i32 [ %.2100.i, %744 ], [ %.2100.i, %half_to_float.exit141.i ], [ %716, %770 ], [ %.2100.i, %half_to_float.exit145.i ]
+  %771 = or i32 %.3.i68, %5
+  br label %1452
 
-748:                                              ; preds = %746
-  %749 = shl nuw nsw i32 %717, 13
-  %750 = and i32 %749, 268419072
-  %sext147.i = shl nuw i32 %717, 16
-  %751 = and i32 %sext147.i, -2147483648
-  %752 = icmp samesign ugt i32 %750, 8388607
-  br i1 %752, label %753, label %760, !prof !177
+772:                                              ; preds = %15
+  %773 = icmp eq i32 %20, 0
+  br i1 %773, label %1452, label %774
 
-753:                                              ; preds = %748
-  %754 = or disjoint i32 %750, %751
-  %755 = icmp samesign ult i32 %750, 260046848
-  br i1 %755, label %756, label %758, !prof !177
+774:                                              ; preds = %772
+  %775 = icmp ugt i32 %16, 1024
+  %776 = icmp eq i32 %8, 0
+  %or.cond3 = or i1 %776, %775
+  br i1 %or.cond3, label %777, label %1216
 
-756:                                              ; preds = %753
-  %757 = add nuw nsw i32 %754, 939524096
-  br label %half_to_float.exit145.i
+777:                                              ; preds = %774
+  %778 = tail call range(i32 21, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 2048) %20, i1 true)
+  %779 = sub nuw nsw i32 32, %778
+  %780 = shl nuw nsw i32 1, %779
+  %781 = add nuw nsw i32 %780, 32767
+  %782 = sub nsw i32 0, %780
+  %783 = and i32 %781, %6
+  %784 = icmp samesign ugt i32 %783, %20
+  br i1 %784, label %785, label %935
 
-758:                                              ; preds = %753
-  %759 = or i32 %754, 2139095040
-  br label %half_to_float.exit145.i
-
-760:                                              ; preds = %748
-  %.not.i.i143.i = icmp eq i32 %750, 0
-  br i1 %.not.i.i143.i, label %half_to_float.exit145.i, label %761
-
-761:                                              ; preds = %760
-  %762 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %750, i1 true)
-  %763 = add nsw i32 %762, -8
-  %764 = shl i32 %750, %763
-  %765 = or i32 %751, %764
-  %766 = or i32 %765, 947912704
-  %767 = shl nuw nsw i32 %763, 23
-  %768 = sub nuw i32 %766, %767
-  br label %half_to_float.exit145.i
-
-half_to_float.exit145.i:                          ; preds = %761, %760, %758, %756
-  %.sroa.0.0.i.i144.i = phi i32 [ %757, %756 ], [ %759, %758 ], [ %768, %761 ], [ %751, %760 ]
-  %769 = bitcast i32 %.sroa.0.0.i.i144.i to float
-  %770 = fsub float %769, %7
-  %771 = fcmp olt float %770, %.2.i67
-  br i1 %771, label %772, label %handleQuantizeDenormTol.exit
-
-772:                                              ; preds = %half_to_float.exit145.i
-  br label %handleQuantizeDenormTol.exit
-
-handleQuantizeDenormTol.exit:                     ; preds = %half_to_float.exit141.i, %745, %746, %half_to_float.exit145.i, %772
-  %.3.i68 = phi i32 [ %717, %745 ], [ %.2100.i, %half_to_float.exit141.i ], [ %717, %772 ], [ %.2100.i, %half_to_float.exit145.i ], [ %.2100.i, %746 ]
-  %773 = or i32 %.3.i68, %5
-  br label %1456
-
-774:                                              ; preds = %15
-  %775 = icmp eq i32 %20, 0
-  br i1 %775, label %1456, label %776
-
-776:                                              ; preds = %774
-  %777 = icmp ugt i32 %16, 1024
-  %778 = icmp eq i32 %8, 0
-  %or.cond3 = or i1 %778, %777
-  br i1 %or.cond3, label %779, label %1218
-
-779:                                              ; preds = %776
-  %780 = tail call range(i32 21, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 2048) %20, i1 true)
-  %781 = sub nuw nsw i32 32, %780
-  %782 = shl nuw nsw i32 1, %781
-  %783 = add nuw nsw i32 %782, 32767
-  %784 = sub nsw i32 0, %782
-  %785 = and i32 %783, %6
-  %786 = icmp samesign ugt i32 %785, %20
-  br i1 %786, label %787, label %937
-
-787:                                              ; preds = %779
-  %788 = lshr exact i32 %782, 1
-  %789 = or i32 %788, %782
-  %790 = xor i32 %789, %784
-  %791 = and i32 %790, %6
-  %792 = add nuw nsw i32 %782, %6
-  %793 = and i32 %792, %784
-  %794 = trunc nuw nsw i32 %791 to i16
+785:                                              ; preds = %777
+  %786 = lshr exact i32 %780, 1
+  %787 = or i32 %786, %780
+  %788 = xor i32 %787, %782
+  %789 = and i32 %788, %6
+  %790 = add nuw nsw i32 %780, %6
+  %791 = and i32 %790, %782
+  %792 = trunc nuw nsw i32 %789 to i16
+  %793 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %792)
+  %794 = trunc nuw i32 %791 to i16
   %795 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %794)
-  %796 = trunc nuw i32 %793 to i16
-  %797 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %796)
-  %798 = icmp samesign ult i16 %797, %795
-  br i1 %798, label %799, label %843
+  %796 = icmp samesign ult i16 %795, %793
+  br i1 %796, label %797, label %841
 
-799:                                              ; preds = %787
-  %800 = shl nuw nsw i32 %793, 13
-  %801 = and i32 %800, 268427264
-  %sext85.i.i = shl nuw i32 %792, 16
-  %802 = and i32 %sext85.i.i, -2147483648
-  %803 = icmp samesign ugt i32 %801, 8388607
-  br i1 %803, label %804, label %811, !prof !177
+797:                                              ; preds = %785
+  %798 = shl nuw nsw i32 %791, 13
+  %799 = and i32 %798, 268427264
+  %sext85.i.i = shl nuw i32 %790, 16
+  %800 = and i32 %sext85.i.i, -2147483648
+  %801 = icmp samesign ugt i32 %799, 8388607
+  br i1 %801, label %802, label %809, !prof !177
 
-804:                                              ; preds = %799
-  %805 = or disjoint i32 %801, %802
-  %806 = icmp samesign ult i32 %801, 260046848
-  br i1 %806, label %807, label %809, !prof !177
+802:                                              ; preds = %797
+  %803 = or disjoint i32 %799, %800
+  %804 = icmp samesign ult i32 %799, 260046848
+  br i1 %804, label %805, label %807, !prof !177
 
-807:                                              ; preds = %804
-  %808 = add nuw nsw i32 %805, 939524096
+805:                                              ; preds = %802
+  %806 = add nuw nsw i32 %803, 939524096
   br label %half_to_float.exit.i.i
 
-809:                                              ; preds = %804
-  %810 = or i32 %805, 2139095040
+807:                                              ; preds = %802
+  %808 = or i32 %803, 2139095040
   br label %half_to_float.exit.i.i
 
-811:                                              ; preds = %799
-  %.not.i.i.i.i = icmp eq i32 %801, 0
-  br i1 %.not.i.i.i.i, label %half_to_float.exit.i.i, label %812
+809:                                              ; preds = %797
+  %.not.i.i.i.i = icmp eq i32 %799, 0
+  br i1 %.not.i.i.i.i, label %half_to_float.exit.i.i, label %810
 
-812:                                              ; preds = %811
-  %813 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %801, i1 true)
-  %814 = add nsw i32 %813, -8
-  %815 = shl i32 %801, %814
-  %816 = or i32 %802, %815
-  %817 = or i32 %816, 947912704
-  %818 = shl nuw nsw i32 %814, 23
-  %819 = sub nuw i32 %817, %818
+810:                                              ; preds = %809
+  %811 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %799, i1 true)
+  %812 = add nsw i32 %811, -8
+  %813 = shl i32 %799, %812
+  %814 = or i32 %800, %813
+  %815 = or i32 %814, 947912704
+  %816 = shl nuw nsw i32 %812, 23
+  %817 = sub nuw i32 %815, %816
   br label %half_to_float.exit.i.i
 
-half_to_float.exit.i.i:                           ; preds = %812, %811, %809, %807
-  %.sroa.0.0.i.i.i.i = phi i32 [ %808, %807 ], [ %810, %809 ], [ %819, %812 ], [ %802, %811 ]
-  %820 = bitcast i32 %.sroa.0.0.i.i.i.i to float
-  %821 = fsub float %820, %7
-  %822 = fcmp olt float %821, %2
-  br i1 %822, label %handleQuantizeDefault.exit, label %823
+half_to_float.exit.i.i:                           ; preds = %810, %809, %807, %805
+  %.sroa.0.0.i.i.i.i = phi i32 [ %806, %805 ], [ %808, %807 ], [ %817, %810 ], [ %800, %809 ]
+  %818 = bitcast i32 %.sroa.0.0.i.i.i.i to float
+  %819 = fsub float %818, %7
+  %820 = fcmp olt float %819, %2
+  br i1 %820, label %handleQuantizeDefault.exit, label %821
 
-823:                                              ; preds = %half_to_float.exit.i.i
-  %824 = shl nuw nsw i32 %791, 13
-  %825 = icmp samesign ugt i32 %791, 1023
-  br i1 %825, label %826, label %832, !prof !177
+821:                                              ; preds = %half_to_float.exit.i.i
+  %822 = shl nuw nsw i32 %789, 13
+  %823 = icmp samesign ugt i32 %789, 1023
+  br i1 %823, label %824, label %830, !prof !177
 
-826:                                              ; preds = %823
-  %827 = icmp samesign ult i32 %791, 31744
-  br i1 %827, label %828, label %830, !prof !177
+824:                                              ; preds = %821
+  %825 = icmp samesign ult i32 %789, 31744
+  br i1 %825, label %826, label %828, !prof !177
 
-828:                                              ; preds = %826
-  %829 = add nuw nsw i32 %824, 939524096
+826:                                              ; preds = %824
+  %827 = add nuw nsw i32 %822, 939524096
   br label %half_to_float.exit65.i.i
 
-830:                                              ; preds = %826
-  %831 = or i32 %824, 2139095040
+828:                                              ; preds = %824
+  %829 = or i32 %822, 2139095040
   br label %half_to_float.exit65.i.i
 
-832:                                              ; preds = %823
-  %.not.i.i63.i.i = icmp eq i32 %791, 0
-  br i1 %.not.i.i63.i.i, label %half_to_float.exit65.i.i, label %833
+830:                                              ; preds = %821
+  %.not.i.i63.i.i = icmp eq i32 %789, 0
+  br i1 %.not.i.i63.i.i, label %half_to_float.exit65.i.i, label %831
 
-833:                                              ; preds = %832
-  %834 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %824, i1 true)
-  %835 = add nsw i32 %834, -8
-  %836 = shl i32 %824, %835
-  %837 = or i32 %836, 947912704
-  %838 = shl nuw nsw i32 %835, 23
-  %839 = sub nuw i32 %837, %838
+831:                                              ; preds = %830
+  %832 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %822, i1 true)
+  %833 = add nsw i32 %832, -8
+  %834 = shl i32 %822, %833
+  %835 = or i32 %834, 947912704
+  %836 = shl nuw nsw i32 %833, 23
+  %837 = sub nuw i32 %835, %836
   br label %half_to_float.exit65.i.i
 
-half_to_float.exit65.i.i:                         ; preds = %833, %832, %830, %828
-  %.sroa.0.0.i.i64.i.i = phi i32 [ %829, %828 ], [ %831, %830 ], [ %839, %833 ], [ 0, %832 ]
-  %840 = bitcast i32 %.sroa.0.0.i.i64.i.i to float
-  %841 = fsub float %7, %840
-  %842 = fcmp olt float %841, %2
-  br i1 %842, label %handleQuantizeDefault.exit, label %.critedge.i.i
+half_to_float.exit65.i.i:                         ; preds = %831, %830, %828, %826
+  %.sroa.0.0.i.i64.i.i = phi i32 [ %827, %826 ], [ %829, %828 ], [ %837, %831 ], [ 0, %830 ]
+  %838 = bitcast i32 %.sroa.0.0.i.i64.i.i to float
+  %839 = fsub float %7, %838
+  %840 = fcmp olt float %839, %2
+  br i1 %840, label %handleQuantizeDefault.exit, label %1157
 
-843:                                              ; preds = %787
-  %844 = icmp eq i16 %797, %795
-  %845 = shl nuw nsw i32 %791, 13
-  %846 = icmp samesign ugt i32 %791, 1023
-  br i1 %844, label %847, label %891
+841:                                              ; preds = %785
+  %842 = icmp eq i16 %795, %793
+  %843 = shl nuw nsw i32 %789, 13
+  %844 = icmp samesign ugt i32 %789, 1023
+  br i1 %842, label %845, label %889
 
-847:                                              ; preds = %843
-  br i1 %846, label %848, label %854, !prof !177
+845:                                              ; preds = %841
+  br i1 %844, label %846, label %852, !prof !177
 
-848:                                              ; preds = %847
-  %849 = icmp samesign ult i32 %791, 31744
-  br i1 %849, label %850, label %852, !prof !177
+846:                                              ; preds = %845
+  %847 = icmp samesign ult i32 %789, 31744
+  br i1 %847, label %848, label %850, !prof !177
 
-850:                                              ; preds = %848
-  %851 = add nuw nsw i32 %845, 939524096
+848:                                              ; preds = %846
+  %849 = add nuw nsw i32 %843, 939524096
   br label %half_to_float.exit69.i.i
 
-852:                                              ; preds = %848
-  %853 = or i32 %845, 2139095040
+850:                                              ; preds = %846
+  %851 = or i32 %843, 2139095040
   br label %half_to_float.exit69.i.i
 
-854:                                              ; preds = %847
-  %.not.i.i67.i.i = icmp eq i32 %791, 0
-  br i1 %.not.i.i67.i.i, label %half_to_float.exit69.i.i, label %855
+852:                                              ; preds = %845
+  %.not.i.i67.i.i = icmp eq i32 %789, 0
+  br i1 %.not.i.i67.i.i, label %half_to_float.exit69.i.i, label %853
 
-855:                                              ; preds = %854
-  %856 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %845, i1 true)
-  %857 = add nsw i32 %856, -8
-  %858 = shl i32 %845, %857
-  %859 = or i32 %858, 947912704
-  %860 = shl nuw nsw i32 %857, 23
-  %861 = sub nuw i32 %859, %860
+853:                                              ; preds = %852
+  %854 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %843, i1 true)
+  %855 = add nsw i32 %854, -8
+  %856 = shl i32 %843, %855
+  %857 = or i32 %856, 947912704
+  %858 = shl nuw nsw i32 %855, 23
+  %859 = sub nuw i32 %857, %858
   br label %half_to_float.exit69.i.i
 
-half_to_float.exit69.i.i:                         ; preds = %855, %854, %852, %850
-  %.sroa.0.0.i.i68.i.i = phi i32 [ %851, %850 ], [ %853, %852 ], [ %861, %855 ], [ 0, %854 ]
-  %862 = bitcast i32 %.sroa.0.0.i.i68.i.i to float
-  %863 = fsub float %7, %862
-  %864 = shl nuw nsw i32 %793, 13
-  %865 = and i32 %864, 268427264
-  %sext84.i.i = shl nuw i32 %792, 16
-  %866 = and i32 %sext84.i.i, -2147483648
-  %867 = icmp samesign ugt i32 %865, 8388607
-  br i1 %867, label %868, label %875, !prof !177
+half_to_float.exit69.i.i:                         ; preds = %853, %852, %850, %848
+  %.sroa.0.0.i.i68.i.i = phi i32 [ %849, %848 ], [ %851, %850 ], [ %859, %853 ], [ 0, %852 ]
+  %860 = bitcast i32 %.sroa.0.0.i.i68.i.i to float
+  %861 = fsub float %7, %860
+  %862 = shl nuw nsw i32 %791, 13
+  %863 = and i32 %862, 268427264
+  %sext84.i.i = shl nuw i32 %790, 16
+  %864 = and i32 %sext84.i.i, -2147483648
+  %865 = icmp samesign ugt i32 %863, 8388607
+  br i1 %865, label %866, label %873, !prof !177
 
-868:                                              ; preds = %half_to_float.exit69.i.i
-  %869 = or disjoint i32 %865, %866
-  %870 = icmp samesign ult i32 %865, 260046848
-  br i1 %870, label %871, label %873, !prof !177
+866:                                              ; preds = %half_to_float.exit69.i.i
+  %867 = or disjoint i32 %863, %864
+  %868 = icmp samesign ult i32 %863, 260046848
+  br i1 %868, label %869, label %871, !prof !177
 
-871:                                              ; preds = %868
-  %872 = add nuw nsw i32 %869, 939524096
+869:                                              ; preds = %866
+  %870 = add nuw nsw i32 %867, 939524096
   br label %half_to_float.exit73.i.i
 
-873:                                              ; preds = %868
-  %874 = or i32 %869, 2139095040
+871:                                              ; preds = %866
+  %872 = or i32 %867, 2139095040
   br label %half_to_float.exit73.i.i
 
-875:                                              ; preds = %half_to_float.exit69.i.i
-  %.not.i.i71.i.i = icmp eq i32 %865, 0
-  br i1 %.not.i.i71.i.i, label %half_to_float.exit73.i.i, label %876
+873:                                              ; preds = %half_to_float.exit69.i.i
+  %.not.i.i71.i.i = icmp eq i32 %863, 0
+  br i1 %.not.i.i71.i.i, label %half_to_float.exit73.i.i, label %874
 
-876:                                              ; preds = %875
-  %877 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %865, i1 true)
-  %878 = add nsw i32 %877, -8
-  %879 = shl i32 %865, %878
-  %880 = or i32 %866, %879
-  %881 = or i32 %880, 947912704
-  %882 = shl nuw nsw i32 %878, 23
-  %883 = sub nuw i32 %881, %882
+874:                                              ; preds = %873
+  %875 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %863, i1 true)
+  %876 = add nsw i32 %875, -8
+  %877 = shl i32 %863, %876
+  %878 = or i32 %864, %877
+  %879 = or i32 %878, 947912704
+  %880 = shl nuw nsw i32 %876, 23
+  %881 = sub nuw i32 %879, %880
   br label %half_to_float.exit73.i.i
 
-half_to_float.exit73.i.i:                         ; preds = %876, %875, %873, %871
-  %.sroa.0.0.i.i72.i.i = phi i32 [ %872, %871 ], [ %874, %873 ], [ %883, %876 ], [ %866, %875 ]
-  %884 = bitcast i32 %.sroa.0.0.i.i72.i.i to float
-  %885 = fsub float %884, %7
-  %886 = fcmp olt float %863, %2
-  br i1 %886, label %.thread.i.i, label %889
+half_to_float.exit73.i.i:                         ; preds = %874, %873, %871, %869
+  %.sroa.0.0.i.i72.i.i = phi i32 [ %870, %869 ], [ %872, %871 ], [ %881, %874 ], [ %864, %873 ]
+  %882 = bitcast i32 %.sroa.0.0.i.i72.i.i to float
+  %883 = fsub float %882, %7
+  %884 = fcmp olt float %861, %2
+  br i1 %884, label %.thread.i.i, label %887
 
 .thread.i.i:                                      ; preds = %half_to_float.exit73.i.i
-  %887 = fcmp olt float %885, %863
-  %888 = select i1 %887, i32 %793, i32 %791
+  %885 = fcmp olt float %883, %861
+  %886 = select i1 %885, i32 %791, i32 %789
   br label %handleQuantizeDefault.exit
 
-889:                                              ; preds = %half_to_float.exit73.i.i
-  %890 = fcmp uge float %885, %2
-  br i1 %890, label %.critedge.i.i, label %handleQuantizeDefault.exit
+887:                                              ; preds = %half_to_float.exit73.i.i
+  %888 = fcmp uge float %883, %2
+  br i1 %888, label %1157, label %handleQuantizeDefault.exit
 
-891:                                              ; preds = %843
-  br i1 %846, label %892, label %898, !prof !177
+889:                                              ; preds = %841
+  br i1 %844, label %890, label %896, !prof !177
 
-892:                                              ; preds = %891
-  %893 = icmp samesign ult i32 %791, 31744
-  br i1 %893, label %894, label %896, !prof !177
+890:                                              ; preds = %889
+  %891 = icmp samesign ult i32 %789, 31744
+  br i1 %891, label %892, label %894, !prof !177
 
-894:                                              ; preds = %892
-  %895 = add nuw nsw i32 %845, 939524096
+892:                                              ; preds = %890
+  %893 = add nuw nsw i32 %843, 939524096
   br label %half_to_float.exit77.i.i
 
-896:                                              ; preds = %892
-  %897 = or i32 %845, 2139095040
+894:                                              ; preds = %890
+  %895 = or i32 %843, 2139095040
   br label %half_to_float.exit77.i.i
 
-898:                                              ; preds = %891
-  %.not.i.i75.i.i = icmp eq i32 %791, 0
-  br i1 %.not.i.i75.i.i, label %half_to_float.exit77.i.i, label %899
+896:                                              ; preds = %889
+  %.not.i.i75.i.i = icmp eq i32 %789, 0
+  br i1 %.not.i.i75.i.i, label %half_to_float.exit77.i.i, label %897
 
-899:                                              ; preds = %898
-  %900 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %845, i1 true)
-  %901 = add nsw i32 %900, -8
-  %902 = shl i32 %845, %901
-  %903 = or i32 %902, 947912704
-  %904 = shl nuw nsw i32 %901, 23
-  %905 = sub nuw i32 %903, %904
+897:                                              ; preds = %896
+  %898 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %843, i1 true)
+  %899 = add nsw i32 %898, -8
+  %900 = shl i32 %843, %899
+  %901 = or i32 %900, 947912704
+  %902 = shl nuw nsw i32 %899, 23
+  %903 = sub nuw i32 %901, %902
   br label %half_to_float.exit77.i.i
 
-half_to_float.exit77.i.i:                         ; preds = %899, %898, %896, %894
-  %.sroa.0.0.i.i76.i.i = phi i32 [ %895, %894 ], [ %897, %896 ], [ %905, %899 ], [ 0, %898 ]
-  %906 = bitcast i32 %.sroa.0.0.i.i76.i.i to float
-  %907 = fsub float %7, %906
-  %908 = fcmp olt float %907, %2
-  br i1 %908, label %handleQuantizeDefault.exit, label %909
+half_to_float.exit77.i.i:                         ; preds = %897, %896, %894, %892
+  %.sroa.0.0.i.i76.i.i = phi i32 [ %893, %892 ], [ %895, %894 ], [ %903, %897 ], [ 0, %896 ]
+  %904 = bitcast i32 %.sroa.0.0.i.i76.i.i to float
+  %905 = fsub float %7, %904
+  %906 = fcmp olt float %905, %2
+  br i1 %906, label %handleQuantizeDefault.exit, label %907
 
-909:                                              ; preds = %half_to_float.exit77.i.i
-  %910 = trunc nuw nsw i32 %6 to i16
-  %911 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %910)
-  %912 = icmp samesign ult i16 %797, %911
-  br i1 %912, label %913, label %.critedge.i.i
+907:                                              ; preds = %half_to_float.exit77.i.i
+  %908 = trunc nuw nsw i32 %6 to i16
+  %909 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %908)
+  %910 = icmp samesign ult i16 %795, %909
+  br i1 %910, label %911, label %1157
 
-913:                                              ; preds = %909
-  %914 = shl nuw nsw i32 %793, 13
-  %915 = and i32 %914, 268427264
-  %sext.i.i = shl nuw i32 %792, 16
-  %916 = and i32 %sext.i.i, -2147483648
-  %917 = icmp samesign ugt i32 %915, 8388607
-  br i1 %917, label %918, label %925, !prof !177
+911:                                              ; preds = %907
+  %912 = shl nuw nsw i32 %791, 13
+  %913 = and i32 %912, 268427264
+  %sext.i.i = shl nuw i32 %790, 16
+  %914 = and i32 %sext.i.i, -2147483648
+  %915 = icmp samesign ugt i32 %913, 8388607
+  br i1 %915, label %916, label %923, !prof !177
 
-918:                                              ; preds = %913
-  %919 = or disjoint i32 %915, %916
-  %920 = icmp samesign ult i32 %915, 260046848
-  br i1 %920, label %921, label %923, !prof !177
+916:                                              ; preds = %911
+  %917 = or disjoint i32 %913, %914
+  %918 = icmp samesign ult i32 %913, 260046848
+  br i1 %918, label %919, label %921, !prof !177
 
-921:                                              ; preds = %918
-  %922 = add nuw nsw i32 %919, 939524096
+919:                                              ; preds = %916
+  %920 = add nuw nsw i32 %917, 939524096
   br label %half_to_float.exit81.i.i
 
-923:                                              ; preds = %918
-  %924 = or i32 %919, 2139095040
+921:                                              ; preds = %916
+  %922 = or i32 %917, 2139095040
   br label %half_to_float.exit81.i.i
 
-925:                                              ; preds = %913
-  %.not.i.i79.i.i = icmp eq i32 %915, 0
-  br i1 %.not.i.i79.i.i, label %half_to_float.exit81.i.i, label %926
+923:                                              ; preds = %911
+  %.not.i.i79.i.i = icmp eq i32 %913, 0
+  br i1 %.not.i.i79.i.i, label %half_to_float.exit81.i.i, label %924
 
-926:                                              ; preds = %925
-  %927 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %915, i1 true)
-  %928 = add nsw i32 %927, -8
-  %929 = shl i32 %915, %928
-  %930 = or i32 %916, %929
-  %931 = or i32 %930, 947912704
-  %932 = shl nuw nsw i32 %928, 23
-  %933 = sub nuw i32 %931, %932
+924:                                              ; preds = %923
+  %925 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %913, i1 true)
+  %926 = add nsw i32 %925, -8
+  %927 = shl i32 %913, %926
+  %928 = or i32 %914, %927
+  %929 = or i32 %928, 947912704
+  %930 = shl nuw nsw i32 %926, 23
+  %931 = sub nuw i32 %929, %930
   br label %half_to_float.exit81.i.i
 
-half_to_float.exit81.i.i:                         ; preds = %926, %925, %923, %921
-  %.sroa.0.0.i.i80.i.i = phi i32 [ %922, %921 ], [ %924, %923 ], [ %933, %926 ], [ %916, %925 ]
-  %934 = bitcast i32 %.sroa.0.0.i.i80.i.i to float
-  %935 = fsub float %934, %7
-  %936 = fcmp olt float %935, %2
-  br i1 %936, label %handleQuantizeDefault.exit, label %.critedge.i.i
+half_to_float.exit81.i.i:                         ; preds = %924, %923, %921, %919
+  %.sroa.0.0.i.i80.i.i = phi i32 [ %920, %919 ], [ %922, %921 ], [ %931, %924 ], [ %914, %923 ]
+  %932 = bitcast i32 %.sroa.0.0.i.i80.i.i to float
+  %933 = fsub float %932, %7
+  %934 = fcmp olt float %933, %2
+  br i1 %934, label %handleQuantizeDefault.exit, label %1157
 
-.critedge.i.i:                                    ; preds = %half_to_float.exit81.i.i, %909, %889, %half_to_float.exit65.i.i
-  br label %handleQuantizeDefault.exit
+935:                                              ; preds = %777
+  %936 = icmp samesign ult i32 %783, %20
+  %937 = and i32 %6, %782
+  %938 = add nuw nsw i32 %780, %6
+  %939 = and i32 %938, %782
+  br i1 %936, label %940, label %1084
 
-937:                                              ; preds = %779
-  %938 = icmp samesign ult i32 %785, %20
-  %939 = and i32 %6, %784
-  %940 = add nuw nsw i32 %782, %6
-  %941 = and i32 %940, %784
-  br i1 %938, label %942, label %1086
+940:                                              ; preds = %935
+  %941 = trunc nuw nsw i32 %937 to i16
+  %942 = tail call range(i16 0, 15) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %941)
+  %943 = trunc nuw i32 %939 to i16
+  %944 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %943)
+  %945 = icmp samesign ult i16 %944, %942
+  br i1 %945, label %946, label %990
 
-942:                                              ; preds = %937
-  %943 = trunc nuw nsw i32 %939 to i16
-  %944 = tail call range(i16 0, 15) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %943)
-  %945 = trunc nuw i32 %941 to i16
-  %946 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %945)
-  %947 = icmp samesign ult i16 %946, %944
-  br i1 %947, label %948, label %992
+946:                                              ; preds = %940
+  %947 = shl nuw nsw i32 %939, 13
+  %948 = and i32 %947, 268427264
+  %sext82.i.i = shl nuw i32 %938, 16
+  %949 = and i32 %sext82.i.i, -2147483648
+  %950 = icmp samesign ugt i32 %948, 8388607
+  br i1 %950, label %951, label %958, !prof !177
 
-948:                                              ; preds = %942
-  %949 = shl nuw nsw i32 %941, 13
-  %950 = and i32 %949, 268427264
-  %sext82.i.i = shl nuw i32 %940, 16
-  %951 = and i32 %sext82.i.i, -2147483648
-  %952 = icmp samesign ugt i32 %950, 8388607
-  br i1 %952, label %953, label %960, !prof !177
+951:                                              ; preds = %946
+  %952 = or disjoint i32 %948, %949
+  %953 = icmp samesign ult i32 %948, 260046848
+  br i1 %953, label %954, label %956, !prof !177
 
-953:                                              ; preds = %948
-  %954 = or disjoint i32 %950, %951
-  %955 = icmp samesign ult i32 %950, 260046848
-  br i1 %955, label %956, label %958, !prof !177
-
-956:                                              ; preds = %953
-  %957 = add nuw nsw i32 %954, 939524096
+954:                                              ; preds = %951
+  %955 = add nuw nsw i32 %952, 939524096
   br label %half_to_float.exit.i32.i
 
-958:                                              ; preds = %953
-  %959 = or i32 %954, 2139095040
+956:                                              ; preds = %951
+  %957 = or i32 %952, 2139095040
   br label %half_to_float.exit.i32.i
 
-960:                                              ; preds = %948
-  %.not.i.i.i31.i = icmp eq i32 %950, 0
-  br i1 %.not.i.i.i31.i, label %half_to_float.exit.i32.i, label %961
+958:                                              ; preds = %946
+  %.not.i.i.i31.i = icmp eq i32 %948, 0
+  br i1 %.not.i.i.i31.i, label %half_to_float.exit.i32.i, label %959
 
-961:                                              ; preds = %960
-  %962 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %950, i1 true)
-  %963 = add nsw i32 %962, -8
-  %964 = shl i32 %950, %963
-  %965 = or i32 %951, %964
-  %966 = or i32 %965, 947912704
-  %967 = shl nuw nsw i32 %963, 23
-  %968 = sub nuw i32 %966, %967
+959:                                              ; preds = %958
+  %960 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %948, i1 true)
+  %961 = add nsw i32 %960, -8
+  %962 = shl i32 %948, %961
+  %963 = or i32 %949, %962
+  %964 = or i32 %963, 947912704
+  %965 = shl nuw nsw i32 %961, 23
+  %966 = sub nuw i32 %964, %965
   br label %half_to_float.exit.i32.i
 
-half_to_float.exit.i32.i:                         ; preds = %961, %960, %958, %956
-  %.sroa.0.0.i.i.i33.i = phi i32 [ %957, %956 ], [ %959, %958 ], [ %968, %961 ], [ %951, %960 ]
-  %969 = bitcast i32 %.sroa.0.0.i.i.i33.i to float
-  %970 = fsub float %969, %7
-  %971 = fcmp olt float %970, %2
-  br i1 %971, label %handleQuantizeDefault.exit, label %972
+half_to_float.exit.i32.i:                         ; preds = %959, %958, %956, %954
+  %.sroa.0.0.i.i.i33.i = phi i32 [ %955, %954 ], [ %957, %956 ], [ %966, %959 ], [ %949, %958 ]
+  %967 = bitcast i32 %.sroa.0.0.i.i.i33.i to float
+  %968 = fsub float %967, %7
+  %969 = fcmp olt float %968, %2
+  br i1 %969, label %handleQuantizeDefault.exit, label %970
 
-972:                                              ; preds = %half_to_float.exit.i32.i
-  %973 = shl nuw nsw i32 %939, 13
-  %974 = icmp samesign ugt i32 %939, 1023
-  br i1 %974, label %975, label %981, !prof !177
+970:                                              ; preds = %half_to_float.exit.i32.i
+  %971 = shl nuw nsw i32 %937, 13
+  %972 = icmp samesign ugt i32 %937, 1023
+  br i1 %972, label %973, label %979, !prof !177
 
-975:                                              ; preds = %972
-  %976 = icmp samesign ult i32 %939, 31744
-  br i1 %976, label %977, label %979, !prof !177
+973:                                              ; preds = %970
+  %974 = icmp samesign ult i32 %937, 31744
+  br i1 %974, label %975, label %977, !prof !177
 
-977:                                              ; preds = %975
-  %978 = add nuw nsw i32 %973, 939524096
+975:                                              ; preds = %973
+  %976 = add nuw nsw i32 %971, 939524096
   br label %half_to_float.exit62.i.i
 
-979:                                              ; preds = %975
-  %980 = or i32 %973, 2139095040
+977:                                              ; preds = %973
+  %978 = or i32 %971, 2139095040
   br label %half_to_float.exit62.i.i
 
-981:                                              ; preds = %972
-  %.not.i.i60.i.i = icmp eq i32 %939, 0
-  br i1 %.not.i.i60.i.i, label %half_to_float.exit62.i.i, label %982
+979:                                              ; preds = %970
+  %.not.i.i60.i.i = icmp eq i32 %937, 0
+  br i1 %.not.i.i60.i.i, label %half_to_float.exit62.i.i, label %980
 
-982:                                              ; preds = %981
-  %983 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %973, i1 true)
-  %984 = add nsw i32 %983, -8
-  %985 = shl i32 %973, %984
-  %986 = or i32 %985, 947912704
-  %987 = shl nuw nsw i32 %984, 23
-  %988 = sub nuw i32 %986, %987
+980:                                              ; preds = %979
+  %981 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %971, i1 true)
+  %982 = add nsw i32 %981, -8
+  %983 = shl i32 %971, %982
+  %984 = or i32 %983, 947912704
+  %985 = shl nuw nsw i32 %982, 23
+  %986 = sub nuw i32 %984, %985
   br label %half_to_float.exit62.i.i
 
-half_to_float.exit62.i.i:                         ; preds = %982, %981, %979, %977
-  %.sroa.0.0.i.i61.i.i = phi i32 [ %978, %977 ], [ %980, %979 ], [ %988, %982 ], [ 0, %981 ]
-  %989 = bitcast i32 %.sroa.0.0.i.i61.i.i to float
-  %990 = fsub float %7, %989
-  %991 = fcmp olt float %990, %2
-  br i1 %991, label %handleQuantizeDefault.exit, label %.critedge.i27.i
+half_to_float.exit62.i.i:                         ; preds = %980, %979, %977, %975
+  %.sroa.0.0.i.i61.i.i = phi i32 [ %976, %975 ], [ %978, %977 ], [ %986, %980 ], [ 0, %979 ]
+  %987 = bitcast i32 %.sroa.0.0.i.i61.i.i to float
+  %988 = fsub float %7, %987
+  %989 = fcmp olt float %988, %2
+  br i1 %989, label %handleQuantizeDefault.exit, label %1157
 
-992:                                              ; preds = %942
-  %993 = icmp eq i16 %946, %944
-  %994 = shl nuw nsw i32 %939, 13
-  %995 = icmp samesign ugt i32 %939, 1023
-  br i1 %993, label %996, label %1040
+990:                                              ; preds = %940
+  %991 = icmp eq i16 %944, %942
+  %992 = shl nuw nsw i32 %937, 13
+  %993 = icmp samesign ugt i32 %937, 1023
+  br i1 %991, label %994, label %1038
 
-996:                                              ; preds = %992
-  br i1 %995, label %997, label %1003, !prof !177
+994:                                              ; preds = %990
+  br i1 %993, label %995, label %1001, !prof !177
 
-997:                                              ; preds = %996
-  %998 = icmp samesign ult i32 %939, 31744
-  br i1 %998, label %999, label %1001, !prof !177
+995:                                              ; preds = %994
+  %996 = icmp samesign ult i32 %937, 31744
+  br i1 %996, label %997, label %999, !prof !177
 
-999:                                              ; preds = %997
-  %1000 = add nuw nsw i32 %994, 939524096
+997:                                              ; preds = %995
+  %998 = add nuw nsw i32 %992, 939524096
   br label %half_to_float.exit66.i.i
 
-1001:                                             ; preds = %997
-  %1002 = or i32 %994, 2139095040
+999:                                              ; preds = %995
+  %1000 = or i32 %992, 2139095040
   br label %half_to_float.exit66.i.i
 
-1003:                                             ; preds = %996
-  %.not.i.i64.i.i = icmp eq i32 %939, 0
-  br i1 %.not.i.i64.i.i, label %half_to_float.exit66.i.i, label %1004
+1001:                                             ; preds = %994
+  %.not.i.i64.i.i = icmp eq i32 %937, 0
+  br i1 %.not.i.i64.i.i, label %half_to_float.exit66.i.i, label %1002
 
-1004:                                             ; preds = %1003
-  %1005 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %994, i1 true)
-  %1006 = add nsw i32 %1005, -8
-  %1007 = shl i32 %994, %1006
-  %1008 = or i32 %1007, 947912704
-  %1009 = shl nuw nsw i32 %1006, 23
-  %1010 = sub nuw i32 %1008, %1009
+1002:                                             ; preds = %1001
+  %1003 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %992, i1 true)
+  %1004 = add nsw i32 %1003, -8
+  %1005 = shl i32 %992, %1004
+  %1006 = or i32 %1005, 947912704
+  %1007 = shl nuw nsw i32 %1004, 23
+  %1008 = sub nuw i32 %1006, %1007
   br label %half_to_float.exit66.i.i
 
-half_to_float.exit66.i.i:                         ; preds = %1004, %1003, %1001, %999
-  %.sroa.0.0.i.i65.i.i = phi i32 [ %1000, %999 ], [ %1002, %1001 ], [ %1010, %1004 ], [ 0, %1003 ]
-  %1011 = bitcast i32 %.sroa.0.0.i.i65.i.i to float
-  %1012 = fsub float %7, %1011
-  %1013 = shl nuw nsw i32 %941, 13
-  %1014 = and i32 %1013, 268427264
-  %sext81.i.i = shl nuw i32 %940, 16
-  %1015 = and i32 %sext81.i.i, -2147483648
-  %1016 = icmp samesign ugt i32 %1014, 8388607
-  br i1 %1016, label %1017, label %1024, !prof !177
+half_to_float.exit66.i.i:                         ; preds = %1002, %1001, %999, %997
+  %.sroa.0.0.i.i65.i.i = phi i32 [ %998, %997 ], [ %1000, %999 ], [ %1008, %1002 ], [ 0, %1001 ]
+  %1009 = bitcast i32 %.sroa.0.0.i.i65.i.i to float
+  %1010 = fsub float %7, %1009
+  %1011 = shl nuw nsw i32 %939, 13
+  %1012 = and i32 %1011, 268427264
+  %sext81.i.i = shl nuw i32 %938, 16
+  %1013 = and i32 %sext81.i.i, -2147483648
+  %1014 = icmp samesign ugt i32 %1012, 8388607
+  br i1 %1014, label %1015, label %1022, !prof !177
 
-1017:                                             ; preds = %half_to_float.exit66.i.i
-  %1018 = or disjoint i32 %1014, %1015
-  %1019 = icmp samesign ult i32 %1014, 260046848
-  br i1 %1019, label %1020, label %1022, !prof !177
+1015:                                             ; preds = %half_to_float.exit66.i.i
+  %1016 = or disjoint i32 %1012, %1013
+  %1017 = icmp samesign ult i32 %1012, 260046848
+  br i1 %1017, label %1018, label %1020, !prof !177
 
-1020:                                             ; preds = %1017
-  %1021 = add nuw nsw i32 %1018, 939524096
+1018:                                             ; preds = %1015
+  %1019 = add nuw nsw i32 %1016, 939524096
   br label %half_to_float.exit70.i.i
 
-1022:                                             ; preds = %1017
-  %1023 = or i32 %1018, 2139095040
+1020:                                             ; preds = %1015
+  %1021 = or i32 %1016, 2139095040
   br label %half_to_float.exit70.i.i
 
-1024:                                             ; preds = %half_to_float.exit66.i.i
-  %.not.i.i68.i.i = icmp eq i32 %1014, 0
-  br i1 %.not.i.i68.i.i, label %half_to_float.exit70.i.i, label %1025
+1022:                                             ; preds = %half_to_float.exit66.i.i
+  %.not.i.i68.i.i = icmp eq i32 %1012, 0
+  br i1 %.not.i.i68.i.i, label %half_to_float.exit70.i.i, label %1023
 
-1025:                                             ; preds = %1024
-  %1026 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1014, i1 true)
-  %1027 = add nsw i32 %1026, -8
-  %1028 = shl i32 %1014, %1027
-  %1029 = or i32 %1015, %1028
-  %1030 = or i32 %1029, 947912704
-  %1031 = shl nuw nsw i32 %1027, 23
-  %1032 = sub nuw i32 %1030, %1031
+1023:                                             ; preds = %1022
+  %1024 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1012, i1 true)
+  %1025 = add nsw i32 %1024, -8
+  %1026 = shl i32 %1012, %1025
+  %1027 = or i32 %1013, %1026
+  %1028 = or i32 %1027, 947912704
+  %1029 = shl nuw nsw i32 %1025, 23
+  %1030 = sub nuw i32 %1028, %1029
   br label %half_to_float.exit70.i.i
 
-half_to_float.exit70.i.i:                         ; preds = %1025, %1024, %1022, %1020
-  %.sroa.0.0.i.i69.i.i = phi i32 [ %1021, %1020 ], [ %1023, %1022 ], [ %1032, %1025 ], [ %1015, %1024 ]
-  %1033 = bitcast i32 %.sroa.0.0.i.i69.i.i to float
-  %1034 = fsub float %1033, %7
-  %1035 = fcmp olt float %1012, %2
-  br i1 %1035, label %.thread.i30.i, label %1038
+half_to_float.exit70.i.i:                         ; preds = %1023, %1022, %1020, %1018
+  %.sroa.0.0.i.i69.i.i = phi i32 [ %1019, %1018 ], [ %1021, %1020 ], [ %1030, %1023 ], [ %1013, %1022 ]
+  %1031 = bitcast i32 %.sroa.0.0.i.i69.i.i to float
+  %1032 = fsub float %1031, %7
+  %1033 = fcmp olt float %1010, %2
+  br i1 %1033, label %.thread.i30.i, label %1036
 
 .thread.i30.i:                                    ; preds = %half_to_float.exit70.i.i
-  %1036 = fcmp olt float %1034, %1012
-  %1037 = select i1 %1036, i32 %941, i32 %939
+  %1034 = fcmp olt float %1032, %1010
+  %1035 = select i1 %1034, i32 %939, i32 %937
   br label %handleQuantizeDefault.exit
 
-1038:                                             ; preds = %half_to_float.exit70.i.i
-  %1039 = fcmp uge float %1034, %2
-  br i1 %1039, label %.critedge.i27.i, label %handleQuantizeDefault.exit
+1036:                                             ; preds = %half_to_float.exit70.i.i
+  %1037 = fcmp uge float %1032, %2
+  br i1 %1037, label %1157, label %handleQuantizeDefault.exit
 
-1040:                                             ; preds = %992
-  br i1 %995, label %1041, label %1047, !prof !177
+1038:                                             ; preds = %990
+  br i1 %993, label %1039, label %1045, !prof !177
 
-1041:                                             ; preds = %1040
-  %1042 = icmp samesign ult i32 %939, 31744
-  br i1 %1042, label %1043, label %1045, !prof !177
+1039:                                             ; preds = %1038
+  %1040 = icmp samesign ult i32 %937, 31744
+  br i1 %1040, label %1041, label %1043, !prof !177
 
-1043:                                             ; preds = %1041
-  %1044 = add nuw nsw i32 %994, 939524096
+1041:                                             ; preds = %1039
+  %1042 = add nuw nsw i32 %992, 939524096
   br label %half_to_float.exit74.i.i
 
-1045:                                             ; preds = %1041
-  %1046 = or i32 %994, 2139095040
+1043:                                             ; preds = %1039
+  %1044 = or i32 %992, 2139095040
   br label %half_to_float.exit74.i.i
 
-1047:                                             ; preds = %1040
-  %.not.i.i72.i.i = icmp eq i32 %939, 0
-  br i1 %.not.i.i72.i.i, label %half_to_float.exit74.i.i, label %1048
+1045:                                             ; preds = %1038
+  %.not.i.i72.i.i = icmp eq i32 %937, 0
+  br i1 %.not.i.i72.i.i, label %half_to_float.exit74.i.i, label %1046
 
-1048:                                             ; preds = %1047
-  %1049 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %994, i1 true)
-  %1050 = add nsw i32 %1049, -8
-  %1051 = shl i32 %994, %1050
-  %1052 = or i32 %1051, 947912704
-  %1053 = shl nuw nsw i32 %1050, 23
-  %1054 = sub nuw i32 %1052, %1053
+1046:                                             ; preds = %1045
+  %1047 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %992, i1 true)
+  %1048 = add nsw i32 %1047, -8
+  %1049 = shl i32 %992, %1048
+  %1050 = or i32 %1049, 947912704
+  %1051 = shl nuw nsw i32 %1048, 23
+  %1052 = sub nuw i32 %1050, %1051
   br label %half_to_float.exit74.i.i
 
-half_to_float.exit74.i.i:                         ; preds = %1048, %1047, %1045, %1043
-  %.sroa.0.0.i.i73.i.i = phi i32 [ %1044, %1043 ], [ %1046, %1045 ], [ %1054, %1048 ], [ 0, %1047 ]
-  %1055 = bitcast i32 %.sroa.0.0.i.i73.i.i to float
-  %1056 = fsub float %7, %1055
-  %1057 = fcmp olt float %1056, %2
-  br i1 %1057, label %handleQuantizeDefault.exit, label %1058
+half_to_float.exit74.i.i:                         ; preds = %1046, %1045, %1043, %1041
+  %.sroa.0.0.i.i73.i.i = phi i32 [ %1042, %1041 ], [ %1044, %1043 ], [ %1052, %1046 ], [ 0, %1045 ]
+  %1053 = bitcast i32 %.sroa.0.0.i.i73.i.i to float
+  %1054 = fsub float %7, %1053
+  %1055 = fcmp olt float %1054, %2
+  br i1 %1055, label %handleQuantizeDefault.exit, label %1056
 
-1058:                                             ; preds = %half_to_float.exit74.i.i
-  %1059 = trunc nuw nsw i32 %6 to i16
-  %1060 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1059)
-  %1061 = icmp samesign ult i16 %946, %1060
-  br i1 %1061, label %1062, label %.critedge.i27.i
+1056:                                             ; preds = %half_to_float.exit74.i.i
+  %1057 = trunc nuw nsw i32 %6 to i16
+  %1058 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1057)
+  %1059 = icmp samesign ult i16 %944, %1058
+  br i1 %1059, label %1060, label %1157
 
-1062:                                             ; preds = %1058
-  %1063 = shl nuw nsw i32 %941, 13
-  %1064 = and i32 %1063, 268427264
-  %sext.i29.i = shl nuw i32 %940, 16
-  %1065 = and i32 %sext.i29.i, -2147483648
-  %1066 = icmp samesign ugt i32 %1064, 8388607
-  br i1 %1066, label %1067, label %1074, !prof !177
+1060:                                             ; preds = %1056
+  %1061 = shl nuw nsw i32 %939, 13
+  %1062 = and i32 %1061, 268427264
+  %sext.i29.i = shl nuw i32 %938, 16
+  %1063 = and i32 %sext.i29.i, -2147483648
+  %1064 = icmp samesign ugt i32 %1062, 8388607
+  br i1 %1064, label %1065, label %1072, !prof !177
 
-1067:                                             ; preds = %1062
-  %1068 = or disjoint i32 %1064, %1065
-  %1069 = icmp samesign ult i32 %1064, 260046848
-  br i1 %1069, label %1070, label %1072, !prof !177
+1065:                                             ; preds = %1060
+  %1066 = or disjoint i32 %1062, %1063
+  %1067 = icmp samesign ult i32 %1062, 260046848
+  br i1 %1067, label %1068, label %1070, !prof !177
 
-1070:                                             ; preds = %1067
-  %1071 = add nuw nsw i32 %1068, 939524096
+1068:                                             ; preds = %1065
+  %1069 = add nuw nsw i32 %1066, 939524096
   br label %half_to_float.exit78.i.i
 
-1072:                                             ; preds = %1067
-  %1073 = or i32 %1068, 2139095040
+1070:                                             ; preds = %1065
+  %1071 = or i32 %1066, 2139095040
   br label %half_to_float.exit78.i.i
 
-1074:                                             ; preds = %1062
-  %.not.i.i76.i.i = icmp eq i32 %1064, 0
-  br i1 %.not.i.i76.i.i, label %half_to_float.exit78.i.i, label %1075
+1072:                                             ; preds = %1060
+  %.not.i.i76.i.i = icmp eq i32 %1062, 0
+  br i1 %.not.i.i76.i.i, label %half_to_float.exit78.i.i, label %1073
 
-1075:                                             ; preds = %1074
-  %1076 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1064, i1 true)
-  %1077 = add nsw i32 %1076, -8
-  %1078 = shl i32 %1064, %1077
-  %1079 = or i32 %1065, %1078
-  %1080 = or i32 %1079, 947912704
-  %1081 = shl nuw nsw i32 %1077, 23
-  %1082 = sub nuw i32 %1080, %1081
+1073:                                             ; preds = %1072
+  %1074 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1062, i1 true)
+  %1075 = add nsw i32 %1074, -8
+  %1076 = shl i32 %1062, %1075
+  %1077 = or i32 %1063, %1076
+  %1078 = or i32 %1077, 947912704
+  %1079 = shl nuw nsw i32 %1075, 23
+  %1080 = sub nuw i32 %1078, %1079
   br label %half_to_float.exit78.i.i
 
-half_to_float.exit78.i.i:                         ; preds = %1075, %1074, %1072, %1070
-  %.sroa.0.0.i.i77.i.i = phi i32 [ %1071, %1070 ], [ %1073, %1072 ], [ %1082, %1075 ], [ %1065, %1074 ]
-  %1083 = bitcast i32 %.sroa.0.0.i.i77.i.i to float
-  %1084 = fsub float %1083, %7
-  %1085 = fcmp olt float %1084, %2
-  br i1 %1085, label %handleQuantizeDefault.exit, label %.critedge.i27.i
+half_to_float.exit78.i.i:                         ; preds = %1073, %1072, %1070, %1068
+  %.sroa.0.0.i.i77.i.i = phi i32 [ %1069, %1068 ], [ %1071, %1070 ], [ %1080, %1073 ], [ %1063, %1072 ]
+  %1081 = bitcast i32 %.sroa.0.0.i.i77.i.i to float
+  %1082 = fsub float %1081, %7
+  %1083 = fcmp olt float %1082, %2
+  br i1 %1083, label %handleQuantizeDefault.exit, label %1157
 
-.critedge.i27.i:                                  ; preds = %half_to_float.exit78.i.i, %1058, %1038, %half_to_float.exit62.i.i
+1084:                                             ; preds = %935
+  %1085 = shl nuw nsw i32 %937, 13
+  %1086 = icmp samesign ugt i32 %937, 1023
+  br i1 %1086, label %1087, label %1093, !prof !177
+
+1087:                                             ; preds = %1084
+  %1088 = icmp samesign ult i32 %937, 31744
+  br i1 %1088, label %1089, label %1091, !prof !177
+
+1089:                                             ; preds = %1087
+  %1090 = add nuw nsw i32 %1085, 939524096
+  br label %half_to_float.exit.i35.i
+
+1091:                                             ; preds = %1087
+  %1092 = or i32 %1085, 2139095040
+  br label %half_to_float.exit.i35.i
+
+1093:                                             ; preds = %1084
+  %.not.i.i.i34.i = icmp eq i32 %937, 0
+  br i1 %.not.i.i.i34.i, label %half_to_float.exit.i35.i, label %1094
+
+1094:                                             ; preds = %1093
+  %1095 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1085, i1 true)
+  %1096 = add nsw i32 %1095, -8
+  %1097 = shl i32 %1085, %1096
+  %1098 = or i32 %1097, 947912704
+  %1099 = shl nuw nsw i32 %1096, 23
+  %1100 = sub nuw i32 %1098, %1099
+  br label %half_to_float.exit.i35.i
+
+half_to_float.exit.i35.i:                         ; preds = %1094, %1093, %1091, %1089
+  %.sroa.0.0.i.i.i36.i = phi i32 [ %1090, %1089 ], [ %1092, %1091 ], [ %1100, %1094 ], [ 0, %1093 ]
+  %1101 = bitcast i32 %.sroa.0.0.i.i.i36.i to float
+  %1102 = fsub float %7, %1101
+  %1103 = fcmp ult float %1102, %2
+  br i1 %1103, label %1158, label %1104
+
+1104:                                             ; preds = %half_to_float.exit.i35.i
+  %1105 = lshr exact i32 %780, 1
+  %1106 = or i32 %1105, %780
+  %1107 = xor i32 %1106, %782
+  %1108 = and i32 %1107, %6
+  %1109 = shl nuw nsw i32 %1108, 13
+  %1110 = icmp samesign ugt i32 %1108, 1023
+  br i1 %1110, label %1111, label %1117, !prof !177
+
+1111:                                             ; preds = %1104
+  %1112 = icmp samesign ult i32 %1108, 31744
+  br i1 %1112, label %1113, label %1115, !prof !177
+
+1113:                                             ; preds = %1111
+  %1114 = add nuw nsw i32 %1109, 939524096
+  br label %half_to_float.exit67.i.i
+
+1115:                                             ; preds = %1111
+  %1116 = or i32 %1109, 2139095040
+  br label %half_to_float.exit67.i.i
+
+1117:                                             ; preds = %1104
+  %.not.i.i65.i.i = icmp eq i32 %1108, 0
+  br i1 %.not.i.i65.i.i, label %half_to_float.exit67.i.i, label %1118
+
+1118:                                             ; preds = %1117
+  %1119 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1109, i1 true)
+  %1120 = add nsw i32 %1119, -8
+  %1121 = shl i32 %1109, %1120
+  %1122 = or i32 %1121, 947912704
+  %1123 = shl nuw nsw i32 %1120, 23
+  %1124 = sub nuw i32 %1122, %1123
+  br label %half_to_float.exit67.i.i
+
+half_to_float.exit67.i.i:                         ; preds = %1118, %1117, %1115, %1113
+  %.sroa.0.0.i.i66.i.i = phi i32 [ %1114, %1113 ], [ %1116, %1115 ], [ %1124, %1118 ], [ 0, %1117 ]
+  %1125 = bitcast i32 %.sroa.0.0.i.i66.i.i to float
+  %1126 = fsub float %7, %1125
+  %1127 = fcmp ult float %1126, %2
+  br i1 %1127, label %1158, label %1128
+
+1128:                                             ; preds = %half_to_float.exit67.i.i
+  %1129 = trunc nuw i32 %939 to i16
+  %1130 = shl nuw nsw i32 %939, 13
+  %1131 = and i32 %1130, 268427264
+  %sext.i37.i = shl nuw i32 %938, 16
+  %1132 = and i32 %sext.i37.i, -2147483648
+  %1133 = icmp samesign ugt i32 %1131, 8388607
+  br i1 %1133, label %1134, label %1141, !prof !177
+
+1134:                                             ; preds = %1128
+  %1135 = or disjoint i32 %1131, %1132
+  %1136 = icmp samesign ult i32 %1131, 260046848
+  br i1 %1136, label %1137, label %1139, !prof !177
+
+1137:                                             ; preds = %1134
+  %1138 = add nuw nsw i32 %1135, 939524096
+  br label %half_to_float.exit71.i.i
+
+1139:                                             ; preds = %1134
+  %1140 = or i32 %1135, 2139095040
+  br label %half_to_float.exit71.i.i
+
+1141:                                             ; preds = %1128
+  %.not.i.i69.i.i = icmp eq i32 %1131, 0
+  br i1 %.not.i.i69.i.i, label %half_to_float.exit71.i.i, label %1142
+
+1142:                                             ; preds = %1141
+  %1143 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1131, i1 true)
+  %1144 = add nsw i32 %1143, -8
+  %1145 = shl i32 %1131, %1144
+  %1146 = or i32 %1132, %1145
+  %1147 = or i32 %1146, 947912704
+  %1148 = shl nuw nsw i32 %1144, 23
+  %1149 = sub nuw i32 %1147, %1148
+  br label %half_to_float.exit71.i.i
+
+half_to_float.exit71.i.i:                         ; preds = %1142, %1141, %1139, %1137
+  %.sroa.0.0.i.i70.i.i = phi i32 [ %1138, %1137 ], [ %1140, %1139 ], [ %1149, %1142 ], [ %1132, %1141 ]
+  %1150 = bitcast i32 %.sroa.0.0.i.i70.i.i to float
+  %1151 = fsub float %1150, %7
+  %1152 = fcmp olt float %1151, %2
+  br i1 %1152, label %1153, label %1157
+
+1153:                                             ; preds = %half_to_float.exit71.i.i
+  %1154 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1129)
+  %1155 = trunc nuw nsw i32 %6 to i16
+  %1156 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1155)
+  %.not.i.i = icmp samesign ult i16 %1154, %1156
+  br i1 %.not.i.i, label %handleQuantizeDefault.exit, label %1157
+
+1157:                                             ; preds = %1153, %half_to_float.exit71.i.i, %half_to_float.exit78.i.i, %1056, %1036, %half_to_float.exit62.i.i, %half_to_float.exit81.i.i, %907, %887, %half_to_float.exit65.i.i
   br label %handleQuantizeDefault.exit
 
-1086:                                             ; preds = %937
-  %1087 = shl nuw nsw i32 %939, 13
-  %1088 = icmp samesign ugt i32 %939, 1023
-  br i1 %1088, label %1089, label %1095, !prof !177
-
-1089:                                             ; preds = %1086
-  %1090 = icmp samesign ult i32 %939, 31744
-  br i1 %1090, label %1091, label %1093, !prof !177
-
-1091:                                             ; preds = %1089
-  %1092 = add nuw nsw i32 %1087, 939524096
-  br label %half_to_float.exit.i35.i
-
-1093:                                             ; preds = %1089
-  %1094 = or i32 %1087, 2139095040
-  br label %half_to_float.exit.i35.i
-
-1095:                                             ; preds = %1086
-  %.not.i.i.i34.i = icmp eq i32 %939, 0
-  br i1 %.not.i.i.i34.i, label %half_to_float.exit.i35.i, label %1096
-
-1096:                                             ; preds = %1095
-  %1097 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1087, i1 true)
-  %1098 = add nsw i32 %1097, -8
-  %1099 = shl i32 %1087, %1098
-  %1100 = or i32 %1099, 947912704
-  %1101 = shl nuw nsw i32 %1098, 23
-  %1102 = sub nuw i32 %1100, %1101
-  br label %half_to_float.exit.i35.i
-
-half_to_float.exit.i35.i:                         ; preds = %1096, %1095, %1093, %1091
-  %.sroa.0.0.i.i.i36.i = phi i32 [ %1092, %1091 ], [ %1094, %1093 ], [ %1102, %1096 ], [ 0, %1095 ]
-  %1103 = bitcast i32 %.sroa.0.0.i.i.i36.i to float
-  %1104 = fsub float %7, %1103
-  %1105 = fcmp ult float %1104, %2
-  br i1 %1105, label %1160, label %1106
-
-1106:                                             ; preds = %half_to_float.exit.i35.i
-  %1107 = lshr exact i32 %782, 1
-  %1108 = or i32 %1107, %782
-  %1109 = xor i32 %1108, %784
-  %1110 = and i32 %1109, %6
-  %1111 = shl nuw nsw i32 %1110, 13
-  %1112 = icmp samesign ugt i32 %1110, 1023
-  br i1 %1112, label %1113, label %1119, !prof !177
-
-1113:                                             ; preds = %1106
-  %1114 = icmp samesign ult i32 %1110, 31744
-  br i1 %1114, label %1115, label %1117, !prof !177
-
-1115:                                             ; preds = %1113
-  %1116 = add nuw nsw i32 %1111, 939524096
-  br label %half_to_float.exit67.i.i
-
-1117:                                             ; preds = %1113
-  %1118 = or i32 %1111, 2139095040
-  br label %half_to_float.exit67.i.i
-
-1119:                                             ; preds = %1106
-  %.not.i.i65.i.i = icmp eq i32 %1110, 0
-  br i1 %.not.i.i65.i.i, label %half_to_float.exit67.i.i, label %1120
-
-1120:                                             ; preds = %1119
-  %1121 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1111, i1 true)
-  %1122 = add nsw i32 %1121, -8
-  %1123 = shl i32 %1111, %1122
-  %1124 = or i32 %1123, 947912704
-  %1125 = shl nuw nsw i32 %1122, 23
-  %1126 = sub nuw i32 %1124, %1125
-  br label %half_to_float.exit67.i.i
-
-half_to_float.exit67.i.i:                         ; preds = %1120, %1119, %1117, %1115
-  %.sroa.0.0.i.i66.i.i = phi i32 [ %1116, %1115 ], [ %1118, %1117 ], [ %1126, %1120 ], [ 0, %1119 ]
-  %1127 = bitcast i32 %.sroa.0.0.i.i66.i.i to float
-  %1128 = fsub float %7, %1127
-  %1129 = fcmp ult float %1128, %2
-  br i1 %1129, label %1160, label %1130
-
-1130:                                             ; preds = %half_to_float.exit67.i.i
-  %1131 = trunc nuw i32 %941 to i16
-  %1132 = shl nuw nsw i32 %941, 13
-  %1133 = and i32 %1132, 268427264
-  %sext.i37.i = shl nuw i32 %940, 16
-  %1134 = and i32 %sext.i37.i, -2147483648
-  %1135 = icmp samesign ugt i32 %1133, 8388607
-  br i1 %1135, label %1136, label %1143, !prof !177
-
-1136:                                             ; preds = %1130
-  %1137 = or disjoint i32 %1133, %1134
-  %1138 = icmp samesign ult i32 %1133, 260046848
-  br i1 %1138, label %1139, label %1141, !prof !177
-
-1139:                                             ; preds = %1136
-  %1140 = add nuw nsw i32 %1137, 939524096
-  br label %half_to_float.exit71.i.i
-
-1141:                                             ; preds = %1136
-  %1142 = or i32 %1137, 2139095040
-  br label %half_to_float.exit71.i.i
-
-1143:                                             ; preds = %1130
-  %.not.i.i69.i.i = icmp eq i32 %1133, 0
-  br i1 %.not.i.i69.i.i, label %half_to_float.exit71.i.i, label %1144
-
-1144:                                             ; preds = %1143
-  %1145 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1133, i1 true)
-  %1146 = add nsw i32 %1145, -8
-  %1147 = shl i32 %1133, %1146
-  %1148 = or i32 %1134, %1147
-  %1149 = or i32 %1148, 947912704
-  %1150 = shl nuw nsw i32 %1146, 23
-  %1151 = sub nuw i32 %1149, %1150
-  br label %half_to_float.exit71.i.i
-
-half_to_float.exit71.i.i:                         ; preds = %1144, %1143, %1141, %1139
-  %.sroa.0.0.i.i70.i.i = phi i32 [ %1140, %1139 ], [ %1142, %1141 ], [ %1151, %1144 ], [ %1134, %1143 ]
-  %1152 = bitcast i32 %.sroa.0.0.i.i70.i.i to float
-  %1153 = fsub float %1152, %7
-  %1154 = fcmp olt float %1153, %2
-  br i1 %1154, label %1155, label %1159
-
-1155:                                             ; preds = %half_to_float.exit71.i.i
-  %1156 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1131)
-  %1157 = trunc nuw nsw i32 %6 to i16
-  %1158 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1157)
-  %.not.i.i = icmp samesign ult i16 %1156, %1158
-  br i1 %.not.i.i, label %handleQuantizeDefault.exit, label %1159
-
-1159:                                             ; preds = %1155, %half_to_float.exit71.i.i
-  br label %handleQuantizeDefault.exit
-
-1160:                                             ; preds = %half_to_float.exit67.i.i, %half_to_float.exit.i35.i
-  %.053.i.i = phi float [ %1104, %half_to_float.exit.i35.i ], [ %1128, %half_to_float.exit67.i.i ]
-  %.052.i.i = phi i32 [ %939, %half_to_float.exit.i35.i ], [ %1110, %half_to_float.exit67.i.i ]
-  %1161 = trunc nuw nsw i32 %.052.i.i to i16
+1158:                                             ; preds = %half_to_float.exit67.i.i, %half_to_float.exit.i35.i
+  %.053.i.i = phi float [ %1102, %half_to_float.exit.i35.i ], [ %1126, %half_to_float.exit67.i.i ]
+  %.052.i.i = phi i32 [ %937, %half_to_float.exit.i35.i ], [ %1108, %half_to_float.exit67.i.i ]
+  %1159 = trunc nuw nsw i32 %.052.i.i to i16
+  %1160 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1159)
+  %1161 = trunc nuw i32 %939 to i16
   %1162 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1161)
-  %1163 = trunc nuw i32 %941 to i16
-  %1164 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1163)
-  %1165 = icmp samesign ult i16 %1164, %1162
-  br i1 %1165, label %1166, label %1190
+  %1163 = icmp samesign ult i16 %1162, %1160
+  br i1 %1163, label %1164, label %1188
 
-1166:                                             ; preds = %1160
-  %1167 = shl nuw nsw i32 %941, 13
-  %1168 = and i32 %1167, 268427264
-  %sext82.i40.i = shl nuw i32 %940, 16
-  %1169 = and i32 %sext82.i40.i, -2147483648
-  %1170 = icmp samesign ugt i32 %1168, 8388607
-  br i1 %1170, label %1171, label %1178, !prof !177
+1164:                                             ; preds = %1158
+  %1165 = shl nuw nsw i32 %939, 13
+  %1166 = and i32 %1165, 268427264
+  %sext82.i40.i = shl nuw i32 %938, 16
+  %1167 = and i32 %sext82.i40.i, -2147483648
+  %1168 = icmp samesign ugt i32 %1166, 8388607
+  br i1 %1168, label %1169, label %1176, !prof !177
 
-1171:                                             ; preds = %1166
-  %1172 = or disjoint i32 %1168, %1169
-  %1173 = icmp samesign ult i32 %1168, 260046848
-  br i1 %1173, label %1174, label %1176, !prof !177
+1169:                                             ; preds = %1164
+  %1170 = or disjoint i32 %1166, %1167
+  %1171 = icmp samesign ult i32 %1166, 260046848
+  br i1 %1171, label %1172, label %1174, !prof !177
 
-1174:                                             ; preds = %1171
-  %1175 = add nuw nsw i32 %1172, 939524096
+1172:                                             ; preds = %1169
+  %1173 = add nuw nsw i32 %1170, 939524096
   br label %half_to_float.exit75.i.i
 
-1176:                                             ; preds = %1171
-  %1177 = or i32 %1172, 2139095040
+1174:                                             ; preds = %1169
+  %1175 = or i32 %1170, 2139095040
   br label %half_to_float.exit75.i.i
 
-1178:                                             ; preds = %1166
-  %.not.i.i73.i.i = icmp eq i32 %1168, 0
-  br i1 %.not.i.i73.i.i, label %half_to_float.exit75.i.i, label %1179
+1176:                                             ; preds = %1164
+  %.not.i.i73.i.i = icmp eq i32 %1166, 0
+  br i1 %.not.i.i73.i.i, label %half_to_float.exit75.i.i, label %1177
 
-1179:                                             ; preds = %1178
-  %1180 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1168, i1 true)
-  %1181 = add nsw i32 %1180, -8
-  %1182 = shl i32 %1168, %1181
-  %1183 = or i32 %1169, %1182
-  %1184 = or i32 %1183, 947912704
-  %1185 = shl nuw nsw i32 %1181, 23
-  %1186 = sub nuw i32 %1184, %1185
+1177:                                             ; preds = %1176
+  %1178 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1166, i1 true)
+  %1179 = add nsw i32 %1178, -8
+  %1180 = shl i32 %1166, %1179
+  %1181 = or i32 %1167, %1180
+  %1182 = or i32 %1181, 947912704
+  %1183 = shl nuw nsw i32 %1179, 23
+  %1184 = sub nuw i32 %1182, %1183
   br label %half_to_float.exit75.i.i
 
-half_to_float.exit75.i.i:                         ; preds = %1179, %1178, %1176, %1174
-  %.sroa.0.0.i.i74.i.i = phi i32 [ %1175, %1174 ], [ %1177, %1176 ], [ %1186, %1179 ], [ %1169, %1178 ]
-  %1187 = bitcast i32 %.sroa.0.0.i.i74.i.i to float
-  %1188 = fsub float %1187, %7
-  %1189 = fcmp uge float %1188, %2
-  br i1 %1189, label %1216, label %handleQuantizeDefault.exit
+half_to_float.exit75.i.i:                         ; preds = %1177, %1176, %1174, %1172
+  %.sroa.0.0.i.i74.i.i = phi i32 [ %1173, %1172 ], [ %1175, %1174 ], [ %1184, %1177 ], [ %1167, %1176 ]
+  %1185 = bitcast i32 %.sroa.0.0.i.i74.i.i to float
+  %1186 = fsub float %1185, %7
+  %1187 = fcmp uge float %1186, %2
+  br i1 %1187, label %1214, label %handleQuantizeDefault.exit
 
-1190:                                             ; preds = %1160
-  %1191 = icmp eq i16 %1164, %1162
-  br i1 %1191, label %1192, label %1216
+1188:                                             ; preds = %1158
+  %1189 = icmp eq i16 %1162, %1160
+  br i1 %1189, label %1190, label %1214
 
-1192:                                             ; preds = %1190
-  %1193 = shl nuw nsw i32 %941, 13
-  %1194 = and i32 %1193, 268427264
-  %sext81.i39.i = shl nuw i32 %940, 16
-  %1195 = and i32 %sext81.i39.i, -2147483648
-  %1196 = icmp samesign ugt i32 %1194, 8388607
-  br i1 %1196, label %1197, label %1204, !prof !177
+1190:                                             ; preds = %1188
+  %1191 = shl nuw nsw i32 %939, 13
+  %1192 = and i32 %1191, 268427264
+  %sext81.i39.i = shl nuw i32 %938, 16
+  %1193 = and i32 %sext81.i39.i, -2147483648
+  %1194 = icmp samesign ugt i32 %1192, 8388607
+  br i1 %1194, label %1195, label %1202, !prof !177
 
-1197:                                             ; preds = %1192
-  %1198 = or disjoint i32 %1194, %1195
-  %1199 = icmp samesign ult i32 %1194, 260046848
-  br i1 %1199, label %1200, label %1202, !prof !177
+1195:                                             ; preds = %1190
+  %1196 = or disjoint i32 %1192, %1193
+  %1197 = icmp samesign ult i32 %1192, 260046848
+  br i1 %1197, label %1198, label %1200, !prof !177
 
-1200:                                             ; preds = %1197
-  %1201 = add nuw nsw i32 %1198, 939524096
+1198:                                             ; preds = %1195
+  %1199 = add nuw nsw i32 %1196, 939524096
   br label %half_to_float.exit79.i.i
 
-1202:                                             ; preds = %1197
-  %1203 = or i32 %1198, 2139095040
+1200:                                             ; preds = %1195
+  %1201 = or i32 %1196, 2139095040
   br label %half_to_float.exit79.i.i
 
-1204:                                             ; preds = %1192
-  %.not.i.i77.i.i = icmp eq i32 %1194, 0
-  br i1 %.not.i.i77.i.i, label %half_to_float.exit79.i.i, label %1205
+1202:                                             ; preds = %1190
+  %.not.i.i77.i.i = icmp eq i32 %1192, 0
+  br i1 %.not.i.i77.i.i, label %half_to_float.exit79.i.i, label %1203
 
-1205:                                             ; preds = %1204
-  %1206 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1194, i1 true)
-  %1207 = add nsw i32 %1206, -8
-  %1208 = shl i32 %1194, %1207
-  %1209 = or i32 %1195, %1208
-  %1210 = or i32 %1209, 947912704
-  %1211 = shl nuw nsw i32 %1207, 23
-  %1212 = sub nuw i32 %1210, %1211
+1203:                                             ; preds = %1202
+  %1204 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1192, i1 true)
+  %1205 = add nsw i32 %1204, -8
+  %1206 = shl i32 %1192, %1205
+  %1207 = or i32 %1193, %1206
+  %1208 = or i32 %1207, 947912704
+  %1209 = shl nuw nsw i32 %1205, 23
+  %1210 = sub nuw i32 %1208, %1209
   br label %half_to_float.exit79.i.i
 
-half_to_float.exit79.i.i:                         ; preds = %1205, %1204, %1202, %1200
-  %.sroa.0.0.i.i78.i.i = phi i32 [ %1201, %1200 ], [ %1203, %1202 ], [ %1212, %1205 ], [ %1195, %1204 ]
-  %1213 = bitcast i32 %.sroa.0.0.i.i78.i.i to float
-  %1214 = fsub float %1213, %7
-  %1215 = fcmp uge float %1214, %.053.i.i
-  br i1 %1215, label %1216, label %handleQuantizeDefault.exit
+half_to_float.exit79.i.i:                         ; preds = %1203, %1202, %1200, %1198
+  %.sroa.0.0.i.i78.i.i = phi i32 [ %1199, %1198 ], [ %1201, %1200 ], [ %1210, %1203 ], [ %1193, %1202 ]
+  %1211 = bitcast i32 %.sroa.0.0.i.i78.i.i to float
+  %1212 = fsub float %1211, %7
+  %1213 = fcmp uge float %1212, %.053.i.i
+  br i1 %1213, label %1214, label %handleQuantizeDefault.exit
 
-1216:                                             ; preds = %half_to_float.exit79.i.i, %1190, %half_to_float.exit75.i.i
+1214:                                             ; preds = %half_to_float.exit79.i.i, %1188, %half_to_float.exit75.i.i
   br label %handleQuantizeDefault.exit
 
-handleQuantizeDefault.exit:                       ; preds = %half_to_float.exit.i.i, %half_to_float.exit65.i.i, %.thread.i.i, %889, %half_to_float.exit77.i.i, %half_to_float.exit81.i.i, %.critedge.i.i, %half_to_float.exit.i32.i, %half_to_float.exit62.i.i, %.thread.i30.i, %1038, %half_to_float.exit74.i.i, %half_to_float.exit78.i.i, %.critedge.i27.i, %1155, %1159, %half_to_float.exit75.i.i, %half_to_float.exit79.i.i, %1216
-  %.0.i73 = phi i32 [ %1037, %.thread.i30.i ], [ %888, %.thread.i.i ], [ %791, %half_to_float.exit77.i.i ], [ %793, %half_to_float.exit.i.i ], [ %6, %.critedge.i.i ], [ %793, %889 ], [ %791, %half_to_float.exit65.i.i ], [ %793, %half_to_float.exit81.i.i ], [ %939, %half_to_float.exit74.i.i ], [ %941, %half_to_float.exit.i32.i ], [ %6, %.critedge.i27.i ], [ %941, %1038 ], [ %939, %half_to_float.exit62.i.i ], [ %941, %half_to_float.exit78.i.i ], [ %941, %half_to_float.exit79.i.i ], [ %.052.i.i, %1216 ], [ %941, %half_to_float.exit75.i.i ], [ %6, %1159 ], [ %941, %1155 ]
-  %1217 = or i32 %.0.i73, %5
-  br label %1456
+handleQuantizeDefault.exit:                       ; preds = %half_to_float.exit.i.i, %half_to_float.exit65.i.i, %.thread.i.i, %887, %half_to_float.exit77.i.i, %half_to_float.exit81.i.i, %half_to_float.exit.i32.i, %half_to_float.exit62.i.i, %.thread.i30.i, %1036, %half_to_float.exit74.i.i, %half_to_float.exit78.i.i, %1153, %1157, %half_to_float.exit75.i.i, %half_to_float.exit79.i.i, %1214
+  %.0.i73 = phi i32 [ %1035, %.thread.i30.i ], [ %886, %.thread.i.i ], [ %789, %half_to_float.exit77.i.i ], [ %791, %half_to_float.exit.i.i ], [ %939, %1153 ], [ %791, %887 ], [ %789, %half_to_float.exit65.i.i ], [ %791, %half_to_float.exit81.i.i ], [ %937, %half_to_float.exit74.i.i ], [ %939, %half_to_float.exit.i32.i ], [ %6, %1157 ], [ %939, %1036 ], [ %937, %half_to_float.exit62.i.i ], [ %939, %half_to_float.exit78.i.i ], [ %939, %half_to_float.exit79.i.i ], [ %.052.i.i, %1214 ], [ %939, %half_to_float.exit75.i.i ]
+  %1215 = or i32 %.0.i73, %5
+  br label %1452
 
-1218:                                             ; preds = %776
-  %1219 = icmp eq i32 %8, %9
-  br i1 %1219, label %1220, label %1309
+1216:                                             ; preds = %774
+  %1217 = icmp eq i32 %8, %9
+  br i1 %1217, label %1218, label %1306
 
-1220:                                             ; preds = %1218
-  %1221 = and i32 %0, 2047
-  %.not.i74 = icmp samesign ugt i32 %20, %1221
-  %1222 = select i1 %.not.i74, i32 -8192, i32 -3072
-  %1223 = trunc nuw nsw i32 %6 to i16
-  %1224 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1223)
-  %1225 = zext nneg i16 %1224 to i32
-  %1226 = icmp samesign ult i32 %6, 2048
-  br i1 %1226, label %1227, label %1239
+1218:                                             ; preds = %1216
+  %1219 = and i32 %0, 2047
+  %.not.i74 = icmp samesign ugt i32 %20, %1219
+  %1220 = select i1 %.not.i74, i32 -8192, i32 -3072
+  %1221 = trunc nuw nsw i32 %6 to i16
+  %1222 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1221)
+  %1223 = zext nneg i16 %1222 to i32
+  %1224 = icmp samesign ult i32 %6, 2048
+  br i1 %1224, label %1225, label %1237
 
-1227:                                             ; preds = %1220
-  %1228 = and i32 %1222, %6
-  %1229 = lshr exact i32 %1228, 10
-  %1230 = icmp samesign ult i32 %1229, %1225
-  br i1 %1230, label %half_to_float.exit.i87, label %1234
+1225:                                             ; preds = %1218
+  %1226 = and i32 %1220, %6
+  %1227 = lshr exact i32 %1226, 10
+  %1228 = icmp samesign ult i32 %1227, %1223
+  br i1 %1228, label %half_to_float.exit.i87, label %1232
 
-half_to_float.exit.i87:                           ; preds = %1227
-  %.not157.i = icmp eq i32 %1228, 0
+half_to_float.exit.i87:                           ; preds = %1225
+  %.not157.i = icmp eq i32 %1226, 0
   %..i = select i1 %.not157.i, float 0.000000e+00, float 0x3F10000000000000, !prof !175
-  %1231 = fsub float %7, %..i
-  %1232 = fcmp olt float %1231, %2
-  br i1 %1232, label %1233, label %1281
+  %1229 = fsub float %7, %..i
+  %1230 = fcmp olt float %1229, %2
+  br i1 %1230, label %1231, label %1279
 
-1233:                                             ; preds = %half_to_float.exit.i87
-  br label %1281
+1231:                                             ; preds = %half_to_float.exit.i87
+  br label %1279
 
-1234:                                             ; preds = %1227
-  %1235 = icmp eq i32 %1229, %1225
-  br i1 %1235, label %half_to_float.exit129.i86, label %1281
+1232:                                             ; preds = %1225
+  %1233 = icmp eq i32 %1227, %1223
+  br i1 %1233, label %half_to_float.exit129.i86, label %1279
 
-half_to_float.exit129.i86:                        ; preds = %1234
-  %.not156.i = icmp eq i32 %1228, 0
+half_to_float.exit129.i86:                        ; preds = %1232
+  %.not156.i = icmp eq i32 %1226, 0
   %.161.i = select i1 %.not156.i, float 0.000000e+00, float 0x3F10000000000000, !prof !175
-  %1236 = fsub float %7, %.161.i
-  %1237 = fcmp olt float %1236, %2
-  br i1 %1237, label %1238, label %1281
+  %1234 = fsub float %7, %.161.i
+  %1235 = fcmp olt float %1234, %2
+  br i1 %1235, label %1236, label %1279
 
-1238:                                             ; preds = %half_to_float.exit129.i86
-  br label %1281
+1236:                                             ; preds = %half_to_float.exit129.i86
+  br label %1279
 
-1239:                                             ; preds = %1220
-  %1240 = and i32 %0, 28672
-  %1241 = and i32 %0, 30720
-  %1242 = icmp eq i32 %1240, %1241
-  %1243 = and i32 %1222, %6
-  %spec.select.i = select i1 %1242, i32 %1243, i32 %1240
-  %1244 = trunc nuw nsw i32 %spec.select.i to i16
-  %1245 = tail call range(i16 0, 5) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1244)
-  %1246 = zext nneg i16 %1245 to i32
-  %1247 = icmp samesign ult i16 %1245, %1224
-  br i1 %1247, label %half_to_float.exit133.i84, label %1254
+1237:                                             ; preds = %1218
+  %1238 = and i32 %0, 28672
+  %1239 = and i32 %0, 30720
+  %1240 = icmp eq i32 %1238, %1239
+  %1241 = and i32 %1220, %6
+  %spec.select.i = select i1 %1240, i32 %1241, i32 %1238
+  %1242 = trunc nuw nsw i32 %spec.select.i to i16
+  %1243 = tail call range(i16 0, 5) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1242)
+  %1244 = zext nneg i16 %1243 to i32
+  %1245 = icmp samesign ult i16 %1243, %1222
+  br i1 %1245, label %half_to_float.exit133.i84, label %1252
 
-half_to_float.exit133.i84:                        ; preds = %1239
+half_to_float.exit133.i84:                        ; preds = %1237
   %.not155.i = icmp eq i32 %spec.select.i, 0
-  %1248 = shl nuw nsw i32 %spec.select.i, 13
-  %1249 = add nuw nsw i32 %1248, 939524096
-  %1250 = bitcast i32 %1249 to float
-  %.sroa.0.0.i.i132.i85 = select i1 %.not155.i, float 0.000000e+00, float %1250, !prof !175
-  %1251 = fsub float %7, %.sroa.0.0.i.i132.i85
-  %1252 = fcmp olt float %1251, %2
-  br i1 %1252, label %1253, label %1262
+  %1246 = shl nuw nsw i32 %spec.select.i, 13
+  %1247 = add nuw nsw i32 %1246, 939524096
+  %1248 = bitcast i32 %1247 to float
+  %.sroa.0.0.i.i132.i85 = select i1 %.not155.i, float 0.000000e+00, float %1248, !prof !175
+  %1249 = fsub float %7, %.sroa.0.0.i.i132.i85
+  %1250 = fcmp olt float %1249, %2
+  br i1 %1250, label %1251, label %1260
 
-1253:                                             ; preds = %half_to_float.exit133.i84
-  br label %1262
+1251:                                             ; preds = %half_to_float.exit133.i84
+  br label %1260
 
-1254:                                             ; preds = %1239
-  %1255 = icmp eq i16 %1245, %1224
-  br i1 %1255, label %half_to_float.exit137.i82, label %1262
+1252:                                             ; preds = %1237
+  %1253 = icmp eq i16 %1243, %1222
+  br i1 %1253, label %half_to_float.exit137.i82, label %1260
 
-half_to_float.exit137.i82:                        ; preds = %1254
+half_to_float.exit137.i82:                        ; preds = %1252
   %.not154.i = icmp eq i32 %spec.select.i, 0
-  %1256 = shl nuw nsw i32 %spec.select.i, 13
-  %1257 = add nuw nsw i32 %1256, 939524096
-  %1258 = bitcast i32 %1257 to float
-  %.sroa.0.0.i.i136.i83 = select i1 %.not154.i, float 0.000000e+00, float %1258, !prof !175
-  %1259 = fsub float %7, %.sroa.0.0.i.i136.i83
-  %1260 = fcmp olt float %1259, %2
-  br i1 %1260, label %1261, label %1262
+  %1254 = shl nuw nsw i32 %spec.select.i, 13
+  %1255 = add nuw nsw i32 %1254, 939524096
+  %1256 = bitcast i32 %1255 to float
+  %.sroa.0.0.i.i136.i83 = select i1 %.not154.i, float 0.000000e+00, float %1256, !prof !175
+  %1257 = fsub float %7, %.sroa.0.0.i.i136.i83
+  %1258 = fcmp olt float %1257, %2
+  br i1 %1258, label %1259, label %1260
 
-1261:                                             ; preds = %half_to_float.exit137.i82
-  br label %1262
+1259:                                             ; preds = %half_to_float.exit137.i82
+  br label %1260
 
-1262:                                             ; preds = %1261, %half_to_float.exit137.i82, %1254, %1253, %half_to_float.exit133.i84
-  %.1102.i = phi i32 [ %spec.select.i, %1253 ], [ %6, %half_to_float.exit133.i84 ], [ %spec.select.i, %1261 ], [ %6, %half_to_float.exit137.i82 ], [ %6, %1254 ]
-  %.199.i75 = phi i32 [ %1246, %1253 ], [ %1225, %half_to_float.exit133.i84 ], [ %1246, %1261 ], [ %1225, %half_to_float.exit137.i82 ], [ %1225, %1254 ]
-  %.1.i76 = phi float [ %1251, %1253 ], [ %2, %half_to_float.exit133.i84 ], [ %1259, %1261 ], [ %2, %half_to_float.exit137.i82 ], [ %2, %1254 ]
-  %1263 = trunc nuw nsw i32 %1241 to i16
-  %1264 = tail call range(i16 0, 5) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1263)
-  %1265 = zext nneg i16 %1264 to i32
-  %1266 = icmp samesign ugt i32 %.199.i75, %1265
-  br i1 %1266, label %half_to_float.exit141.i81, label %1273
+1260:                                             ; preds = %1259, %half_to_float.exit137.i82, %1252, %1251, %half_to_float.exit133.i84
+  %.1102.i = phi i32 [ %spec.select.i, %1251 ], [ %6, %half_to_float.exit133.i84 ], [ %spec.select.i, %1259 ], [ %6, %half_to_float.exit137.i82 ], [ %6, %1252 ]
+  %.199.i75 = phi i32 [ %1244, %1251 ], [ %1223, %half_to_float.exit133.i84 ], [ %1244, %1259 ], [ %1223, %half_to_float.exit137.i82 ], [ %1223, %1252 ]
+  %.1.i76 = phi float [ %1249, %1251 ], [ %2, %half_to_float.exit133.i84 ], [ %1257, %1259 ], [ %2, %half_to_float.exit137.i82 ], [ %2, %1252 ]
+  %1261 = trunc nuw nsw i32 %1239 to i16
+  %1262 = tail call range(i16 0, 5) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1261)
+  %1263 = zext nneg i16 %1262 to i32
+  %1264 = icmp samesign ugt i32 %.199.i75, %1263
+  br i1 %1264, label %half_to_float.exit141.i81, label %1271
 
-half_to_float.exit141.i81:                        ; preds = %1262
-  %1267 = shl nuw nsw i32 %1241, 13
-  %1268 = add nuw nsw i32 %1267, 939524096
-  %1269 = bitcast i32 %1268 to float
-  %1270 = fsub float %7, %1269
-  %1271 = fcmp olt float %1270, %2
-  br i1 %1271, label %1272, label %1281
+half_to_float.exit141.i81:                        ; preds = %1260
+  %1265 = shl nuw nsw i32 %1239, 13
+  %1266 = add nuw nsw i32 %1265, 939524096
+  %1267 = bitcast i32 %1266 to float
+  %1268 = fsub float %7, %1267
+  %1269 = fcmp olt float %1268, %2
+  br i1 %1269, label %1270, label %1279
 
-1272:                                             ; preds = %half_to_float.exit141.i81
-  br label %1281
+1270:                                             ; preds = %half_to_float.exit141.i81
+  br label %1279
 
-1273:                                             ; preds = %1262
-  %1274 = icmp eq i32 %.199.i75, %1265
-  br i1 %1274, label %half_to_float.exit145.i80, label %1281
+1271:                                             ; preds = %1260
+  %1272 = icmp eq i32 %.199.i75, %1263
+  br i1 %1272, label %half_to_float.exit145.i80, label %1279
 
-half_to_float.exit145.i80:                        ; preds = %1273
-  %1275 = shl nuw nsw i32 %1241, 13
-  %1276 = add nuw nsw i32 %1275, 939524096
-  %1277 = bitcast i32 %1276 to float
-  %1278 = fsub float %7, %1277
-  %1279 = fcmp olt float %1278, %.1.i76
-  br i1 %1279, label %1280, label %1281
+half_to_float.exit145.i80:                        ; preds = %1271
+  %1273 = shl nuw nsw i32 %1239, 13
+  %1274 = add nuw nsw i32 %1273, 939524096
+  %1275 = bitcast i32 %1274 to float
+  %1276 = fsub float %7, %1275
+  %1277 = fcmp olt float %1276, %.1.i76
+  br i1 %1277, label %1278, label %1279
 
-1280:                                             ; preds = %half_to_float.exit145.i80
-  br label %1281
+1278:                                             ; preds = %half_to_float.exit145.i80
+  br label %1279
 
-1281:                                             ; preds = %1280, %half_to_float.exit145.i80, %1273, %1272, %half_to_float.exit141.i81, %1238, %half_to_float.exit129.i86, %1234, %1233, %half_to_float.exit.i87
-  %.0101.i = phi i32 [ %1228, %1233 ], [ %6, %half_to_float.exit.i87 ], [ %1228, %1238 ], [ %6, %half_to_float.exit129.i86 ], [ %6, %1234 ], [ %1241, %1272 ], [ %.1102.i, %half_to_float.exit141.i81 ], [ %1241, %1280 ], [ %.1102.i, %half_to_float.exit145.i80 ], [ %.1102.i, %1273 ]
-  %.098.i77 = phi i32 [ %1229, %1233 ], [ %1225, %half_to_float.exit.i87 ], [ %1225, %1238 ], [ %1225, %half_to_float.exit129.i86 ], [ %1225, %1234 ], [ %1265, %1272 ], [ %.199.i75, %half_to_float.exit141.i81 ], [ %.199.i75, %1280 ], [ %.199.i75, %half_to_float.exit145.i80 ], [ %.199.i75, %1273 ]
-  %.097.i = phi float [ %1231, %1233 ], [ %2, %half_to_float.exit.i87 ], [ %1236, %1238 ], [ %2, %half_to_float.exit129.i86 ], [ %2, %1234 ], [ %1270, %1272 ], [ %.1.i76, %half_to_float.exit141.i81 ], [ %1278, %1280 ], [ %.1.i76, %half_to_float.exit145.i80 ], [ %.1.i76, %1273 ]
-  %1282 = add nuw nsw i32 %6, 2048
-  %1283 = and i32 %1282, 63488
-  %1284 = trunc nuw i32 %1283 to i16
-  %1285 = tail call range(i16 0, 6) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1284)
-  %1286 = zext nneg i16 %1285 to i32
-  %1287 = icmp samesign ugt i32 %.098.i77, %1286
-  br i1 %1287, label %half_to_float.exit149.i, label %1297
+1279:                                             ; preds = %1278, %half_to_float.exit145.i80, %1271, %1270, %half_to_float.exit141.i81, %1236, %half_to_float.exit129.i86, %1232, %1231, %half_to_float.exit.i87
+  %.0101.i = phi i32 [ %1226, %1231 ], [ %6, %half_to_float.exit.i87 ], [ %1226, %1236 ], [ %6, %half_to_float.exit129.i86 ], [ %6, %1232 ], [ %1239, %1270 ], [ %.1102.i, %half_to_float.exit141.i81 ], [ %1239, %1278 ], [ %.1102.i, %half_to_float.exit145.i80 ], [ %.1102.i, %1271 ]
+  %.098.i77 = phi i32 [ %1227, %1231 ], [ %1223, %half_to_float.exit.i87 ], [ %1223, %1236 ], [ %1223, %half_to_float.exit129.i86 ], [ %1223, %1232 ], [ %1263, %1270 ], [ %.199.i75, %half_to_float.exit141.i81 ], [ %.199.i75, %1278 ], [ %.199.i75, %half_to_float.exit145.i80 ], [ %.199.i75, %1271 ]
+  %.097.i = phi float [ %1229, %1231 ], [ %2, %half_to_float.exit.i87 ], [ %1234, %1236 ], [ %2, %half_to_float.exit129.i86 ], [ %2, %1232 ], [ %1268, %1270 ], [ %.1.i76, %half_to_float.exit141.i81 ], [ %1276, %1278 ], [ %.1.i76, %half_to_float.exit145.i80 ], [ %.1.i76, %1271 ]
+  %1280 = add nuw nsw i32 %6, 2048
+  %1281 = and i32 %1280, 63488
+  %1282 = trunc nuw i32 %1281 to i16
+  %1283 = tail call range(i16 0, 6) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1282)
+  %1284 = zext nneg i16 %1283 to i32
+  %1285 = icmp samesign ugt i32 %.098.i77, %1284
+  br i1 %1285, label %half_to_float.exit149.i, label %1294
 
-half_to_float.exit149.i:                          ; preds = %1281
-  %1288 = shl nuw nsw i32 %1282, 13
-  %1289 = and i32 %1288, 251658240
-  %sext159.i = shl nuw i32 %1282, 16
-  %1290 = and i32 %sext159.i, -2147483648
-  %.not160.i = icmp eq i32 %1289, 0
-  %1291 = or disjoint i32 %1290, 939524096
-  %1292 = add nuw nsw i32 %1291, %1289
-  %.sroa.0.0.i.i148.i = select i1 %.not160.i, i32 %1290, i32 %1292, !prof !175
-  %1293 = bitcast i32 %.sroa.0.0.i.i148.i to float
-  %1294 = fsub float %1293, %7
-  %1295 = fcmp olt float %1294, %2
-  br i1 %1295, label %1296, label %handleQuantizeEqualExp.exit
+half_to_float.exit149.i:                          ; preds = %1279
+  %1286 = shl nuw nsw i32 %1280, 13
+  %1287 = and i32 %1286, 251658240
+  %sext159.i = shl nuw i32 %1280, 16
+  %1288 = and i32 %sext159.i, -2147483648
+  %.not160.i = icmp eq i32 %1287, 0
+  %1289 = or disjoint i32 %1288, 939524096
+  %1290 = add nuw nsw i32 %1289, %1287
+  %.sroa.0.0.i.i148.i = select i1 %.not160.i, i32 %1288, i32 %1290, !prof !175
+  %1291 = bitcast i32 %.sroa.0.0.i.i148.i to float
+  %1292 = fsub float %1291, %7
+  %1293 = fcmp olt float %1292, %2
+  br i1 %1293, label %1304, label %handleQuantizeEqualExp.exit
 
-1296:                                             ; preds = %half_to_float.exit149.i
+1294:                                             ; preds = %1279
+  %1295 = icmp eq i32 %.098.i77, %1284
+  br i1 %1295, label %half_to_float.exit153.i, label %handleQuantizeEqualExp.exit
+
+half_to_float.exit153.i:                          ; preds = %1294
+  %1296 = shl nuw nsw i32 %1280, 13
+  %1297 = and i32 %1296, 251658240
+  %sext.i79 = shl nuw i32 %1280, 16
+  %1298 = and i32 %sext.i79, -2147483648
+  %.not158.i = icmp eq i32 %1297, 0
+  %1299 = or disjoint i32 %1298, 939524096
+  %1300 = add nuw nsw i32 %1299, %1297
+  %.sroa.0.0.i.i152.i = select i1 %.not158.i, i32 %1298, i32 %1300, !prof !175
+  %1301 = bitcast i32 %.sroa.0.0.i.i152.i to float
+  %1302 = fsub float %1301, %7
+  %1303 = fcmp olt float %1302, %.097.i
+  br i1 %1303, label %1304, label %handleQuantizeEqualExp.exit
+
+1304:                                             ; preds = %half_to_float.exit153.i, %half_to_float.exit149.i
   br label %handleQuantizeEqualExp.exit
 
-1297:                                             ; preds = %1281
-  %1298 = icmp eq i32 %.098.i77, %1286
-  br i1 %1298, label %half_to_float.exit153.i, label %handleQuantizeEqualExp.exit
+handleQuantizeEqualExp.exit:                      ; preds = %half_to_float.exit149.i, %1294, %half_to_float.exit153.i, %1304
+  %.3.i78 = phi i32 [ %.0101.i, %1294 ], [ %.0101.i, %half_to_float.exit149.i ], [ %1281, %1304 ], [ %.0101.i, %half_to_float.exit153.i ]
+  %1305 = or i32 %.3.i78, %5
+  br label %1452
 
-half_to_float.exit153.i:                          ; preds = %1297
-  %1299 = shl nuw nsw i32 %1282, 13
-  %1300 = and i32 %1299, 251658240
-  %sext.i79 = shl nuw i32 %1282, 16
-  %1301 = and i32 %sext.i79, -2147483648
-  %.not158.i = icmp eq i32 %1300, 0
-  %1302 = or disjoint i32 %1301, 939524096
-  %1303 = add nuw nsw i32 %1302, %1300
-  %.sroa.0.0.i.i152.i = select i1 %.not158.i, i32 %1301, i32 %1303, !prof !175
-  %1304 = bitcast i32 %.sroa.0.0.i.i152.i to float
-  %1305 = fsub float %1304, %7
-  %1306 = fcmp olt float %1305, %.097.i
-  br i1 %1306, label %1307, label %handleQuantizeEqualExp.exit
+1306:                                             ; preds = %1216
+  %1307 = and i32 %0, 1023
+  %.not.i88 = icmp samesign ugt i32 %20, %1307
+  %1308 = and i32 %0, 1024
+  %1309 = icmp eq i32 %1308, 0
+  br i1 %1309, label %1310, label %1317
 
-1307:                                             ; preds = %half_to_float.exit153.i
-  br label %handleQuantizeEqualExp.exit
+1310:                                             ; preds = %1306
+  br i1 %.not.i88, label %1311, label %1314
 
-handleQuantizeEqualExp.exit:                      ; preds = %half_to_float.exit149.i, %1296, %1297, %half_to_float.exit153.i, %1307
-  %.3.i78 = phi i32 [ %1283, %1296 ], [ %.0101.i, %half_to_float.exit149.i ], [ %1283, %1307 ], [ %.0101.i, %half_to_float.exit153.i ], [ %.0101.i, %1297 ]
-  %1308 = or i32 %.3.i78, %5
-  br label %1456
+1311:                                             ; preds = %1310
+  %1312 = and i32 %0, 28672
+  %1313 = and i32 %0, 30720
+  br label %1332
 
-1309:                                             ; preds = %1218
-  %1310 = and i32 %0, 1023
-  %.not.i88 = icmp samesign ugt i32 %20, %1310
-  %1311 = and i32 %0, 1024
-  %1312 = icmp eq i32 %1311, 0
-  br i1 %1312, label %1313, label %1320
+1314:                                             ; preds = %1310
+  %1315 = and i32 %0, 30720
+  %1316 = and i32 %0, 31232
+  br label %1332
 
-1313:                                             ; preds = %1309
-  br i1 %.not.i88, label %1314, label %1317
-
-1314:                                             ; preds = %1313
-  %1315 = and i32 %0, 28672
-  %1316 = and i32 %0, 30720
-  br label %1335
-
-1317:                                             ; preds = %1313
-  %1318 = and i32 %0, 30720
-  %1319 = and i32 %0, 31232
-  br label %1335
-
-1320:                                             ; preds = %1309
+1317:                                             ; preds = %1306
   br i1 %.not.i88, label %half_to_float.exit.i94, label %half_to_float.exit111.i
 
-half_to_float.exit.i94:                           ; preds = %1320
-  %1321 = and i32 %0, 28672
-  %1322 = and i32 %0, 30720
-  %.not137.i = icmp eq i32 %1322, 0
-  %1323 = shl nuw nsw i32 %1322, 13
-  %1324 = add nuw nsw i32 %1323, 939524096
-  %1325 = bitcast i32 %1324 to float
-  %.sroa.0.0.i.i.i95 = select i1 %.not137.i, float 0.000000e+00, float %1325, !prof !175
-  %1326 = fsub float %7, %.sroa.0.0.i.i.i95
-  %1327 = fcmp ult float %1326, %2
-  %.sroa.9.1.i = select i1 %1327, i32 %1322, i32 %8
-  br label %1335
+half_to_float.exit.i94:                           ; preds = %1317
+  %1318 = and i32 %0, 28672
+  %1319 = and i32 %0, 30720
+  %.not137.i = icmp eq i32 %1319, 0
+  %1320 = shl nuw nsw i32 %1319, 13
+  %1321 = add nuw nsw i32 %1320, 939524096
+  %1322 = bitcast i32 %1321 to float
+  %.sroa.0.0.i.i.i95 = select i1 %.not137.i, float 0.000000e+00, float %1322, !prof !175
+  %1323 = fsub float %7, %.sroa.0.0.i.i.i95
+  %1324 = fcmp ult float %1323, %2
+  %.sroa.9.1.i = select i1 %1324, i32 %1319, i32 %8
+  br label %1332
 
-half_to_float.exit111.i:                          ; preds = %1320
-  %1328 = and i32 %0, 30720
-  %1329 = and i32 %0, 31232
-  %.not136.i = icmp eq i32 %1328, 0
-  %1330 = shl nuw nsw i32 %1328, 13
-  %1331 = add nuw nsw i32 %1330, 939524096
-  %1332 = bitcast i32 %1331 to float
-  %.sroa.0.0.i.i110.i = select i1 %.not136.i, float 0.000000e+00, float %1332, !prof !175
-  %1333 = fsub float %7, %.sroa.0.0.i.i110.i
-  %1334 = fcmp ult float %1333, %2
-  %.sroa.0.1.i = select i1 %1334, i32 %1328, i32 %8
-  br label %1335
+half_to_float.exit111.i:                          ; preds = %1317
+  %1325 = and i32 %0, 30720
+  %1326 = and i32 %0, 31232
+  %.not136.i = icmp eq i32 %1325, 0
+  %1327 = shl nuw nsw i32 %1325, 13
+  %1328 = add nuw nsw i32 %1327, 939524096
+  %1329 = bitcast i32 %1328 to float
+  %.sroa.0.0.i.i110.i = select i1 %.not136.i, float 0.000000e+00, float %1329, !prof !175
+  %1330 = fsub float %7, %.sroa.0.0.i.i110.i
+  %1331 = fcmp ult float %1330, %2
+  %.sroa.0.1.i = select i1 %1331, i32 %1325, i32 %8
+  br label %1332
 
-1335:                                             ; preds = %half_to_float.exit111.i, %half_to_float.exit.i94, %1317, %1314
-  %.sroa.0.0.i = phi i32 [ %1315, %1314 ], [ %1318, %1317 ], [ %1321, %half_to_float.exit.i94 ], [ %.sroa.0.1.i, %half_to_float.exit111.i ]
-  %.sroa.9.0.i = phi i32 [ %1316, %1314 ], [ %1319, %1317 ], [ %.sroa.9.1.i, %half_to_float.exit.i94 ], [ %1329, %half_to_float.exit111.i ]
-  %1336 = add nuw nsw i32 %6, 1024
-  %1337 = and i32 %1336, 64512
-  %1338 = trunc nuw nsw i32 %6 to i16
-  %1339 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1338)
-  %1340 = trunc nuw nsw i32 %.sroa.0.0.i to i16
-  %1341 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1340)
-  %1342 = icmp samesign ult i16 %1341, %1339
-  br i1 %1342, label %1343, label %1361
+1332:                                             ; preds = %half_to_float.exit111.i, %half_to_float.exit.i94, %1314, %1311
+  %.sroa.0.0.i = phi i32 [ %1312, %1311 ], [ %1315, %1314 ], [ %1318, %half_to_float.exit.i94 ], [ %.sroa.0.1.i, %half_to_float.exit111.i ]
+  %.sroa.9.0.i = phi i32 [ %1313, %1311 ], [ %1316, %1314 ], [ %.sroa.9.1.i, %half_to_float.exit.i94 ], [ %1326, %half_to_float.exit111.i ]
+  %1333 = add nuw nsw i32 %6, 1024
+  %1334 = and i32 %1333, 64512
+  %1335 = trunc nuw nsw i32 %6 to i16
+  %1336 = tail call range(i16 0, 16) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1335)
+  %1337 = trunc nuw nsw i32 %.sroa.0.0.i to i16
+  %1338 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1337)
+  %1339 = icmp samesign ult i16 %1338, %1336
+  br i1 %1339, label %1340, label %1358
 
-1343:                                             ; preds = %1335
-  %1344 = shl nuw nsw i32 %.sroa.0.0.i, 13
-  %1345 = and i32 %1344, 268427264
-  %1346 = icmp samesign ugt i32 %1345, 8388607
-  br i1 %1346, label %1347, label %1349, !prof !177
+1340:                                             ; preds = %1332
+  %1341 = shl nuw nsw i32 %.sroa.0.0.i, 13
+  %1342 = and i32 %1341, 268427264
+  %1343 = icmp samesign ugt i32 %1342, 8388607
+  br i1 %1343, label %1344, label %1346, !prof !177
 
-1347:                                             ; preds = %1343
-  %1348 = add nuw nsw i32 %1345, 939524096
+1344:                                             ; preds = %1340
+  %1345 = add nuw nsw i32 %1342, 939524096
   br label %half_to_float.exit115.i
 
-1349:                                             ; preds = %1343
-  %.not.i.i113.i = icmp eq i32 %1345, 0
-  br i1 %.not.i.i113.i, label %half_to_float.exit115.i, label %1350
+1346:                                             ; preds = %1340
+  %.not.i.i113.i = icmp eq i32 %1342, 0
+  br i1 %.not.i.i113.i, label %half_to_float.exit115.i, label %1347
 
-1350:                                             ; preds = %1349
-  %1351 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1345, i1 true)
-  %1352 = add nsw i32 %1351, -8
-  %1353 = shl i32 %1345, %1352
-  %1354 = or i32 %1353, 947912704
-  %1355 = shl nuw nsw i32 %1352, 23
-  %1356 = sub nuw i32 %1354, %1355
+1347:                                             ; preds = %1346
+  %1348 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1342, i1 true)
+  %1349 = add nsw i32 %1348, -8
+  %1350 = shl i32 %1342, %1349
+  %1351 = or i32 %1350, 947912704
+  %1352 = shl nuw nsw i32 %1349, 23
+  %1353 = sub nuw i32 %1351, %1352
   br label %half_to_float.exit115.i
 
-half_to_float.exit115.i:                          ; preds = %1350, %1349, %1347
-  %.sroa.0.0.i.i114.i = phi i32 [ %1348, %1347 ], [ 0, %1349 ], [ %1356, %1350 ]
-  %1357 = bitcast i32 %.sroa.0.0.i.i114.i to float
-  %1358 = fsub float %7, %1357
-  %1359 = fcmp olt float %1358, %2
-  br i1 %1359, label %1360, label %1381
+half_to_float.exit115.i:                          ; preds = %1347, %1346, %1344
+  %.sroa.0.0.i.i114.i = phi i32 [ %1345, %1344 ], [ 0, %1346 ], [ %1353, %1347 ]
+  %1354 = bitcast i32 %.sroa.0.0.i.i114.i to float
+  %1355 = fsub float %7, %1354
+  %1356 = fcmp olt float %1355, %2
+  br i1 %1356, label %1357, label %1378
 
-1360:                                             ; preds = %half_to_float.exit115.i
-  br label %1381
+1357:                                             ; preds = %half_to_float.exit115.i
+  br label %1378
 
-1361:                                             ; preds = %1335
-  %1362 = icmp eq i16 %1341, %1339
-  br i1 %1362, label %1363, label %1381
+1358:                                             ; preds = %1332
+  %1359 = icmp eq i16 %1338, %1336
+  br i1 %1359, label %1360, label %1378
 
-1363:                                             ; preds = %1361
-  %1364 = shl nuw nsw i32 %.sroa.0.0.i, 13
-  %1365 = and i32 %1364, 268427264
-  %1366 = icmp samesign ugt i32 %1365, 8388607
-  br i1 %1366, label %1367, label %1369, !prof !177
+1360:                                             ; preds = %1358
+  %1361 = shl nuw nsw i32 %.sroa.0.0.i, 13
+  %1362 = and i32 %1361, 268427264
+  %1363 = icmp samesign ugt i32 %1362, 8388607
+  br i1 %1363, label %1364, label %1366, !prof !177
 
-1367:                                             ; preds = %1363
-  %1368 = add nuw nsw i32 %1365, 939524096
+1364:                                             ; preds = %1360
+  %1365 = add nuw nsw i32 %1362, 939524096
   br label %half_to_float.exit119.i
 
-1369:                                             ; preds = %1363
-  %.not.i.i117.i = icmp eq i32 %1365, 0
-  br i1 %.not.i.i117.i, label %half_to_float.exit119.i, label %1370
+1366:                                             ; preds = %1360
+  %.not.i.i117.i = icmp eq i32 %1362, 0
+  br i1 %.not.i.i117.i, label %half_to_float.exit119.i, label %1367
 
-1370:                                             ; preds = %1369
-  %1371 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1365, i1 true)
-  %1372 = add nsw i32 %1371, -8
-  %1373 = shl i32 %1365, %1372
-  %1374 = or i32 %1373, 947912704
-  %1375 = shl nuw nsw i32 %1372, 23
-  %1376 = sub nuw i32 %1374, %1375
+1367:                                             ; preds = %1366
+  %1368 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1362, i1 true)
+  %1369 = add nsw i32 %1368, -8
+  %1370 = shl i32 %1362, %1369
+  %1371 = or i32 %1370, 947912704
+  %1372 = shl nuw nsw i32 %1369, 23
+  %1373 = sub nuw i32 %1371, %1372
   br label %half_to_float.exit119.i
 
-half_to_float.exit119.i:                          ; preds = %1370, %1369, %1367
-  %.sroa.0.0.i.i118.i = phi i32 [ %1368, %1367 ], [ 0, %1369 ], [ %1376, %1370 ]
-  %1377 = bitcast i32 %.sroa.0.0.i.i118.i to float
-  %1378 = fsub float %7, %1377
-  %1379 = fcmp olt float %1378, %2
-  br i1 %1379, label %1380, label %1381
+half_to_float.exit119.i:                          ; preds = %1367, %1366, %1364
+  %.sroa.0.0.i.i118.i = phi i32 [ %1365, %1364 ], [ 0, %1366 ], [ %1373, %1367 ]
+  %1374 = bitcast i32 %.sroa.0.0.i.i118.i to float
+  %1375 = fsub float %7, %1374
+  %1376 = fcmp olt float %1375, %2
+  br i1 %1376, label %1377, label %1378
 
-1380:                                             ; preds = %half_to_float.exit119.i
-  br label %1381
+1377:                                             ; preds = %half_to_float.exit119.i
+  br label %1378
 
-1381:                                             ; preds = %1380, %half_to_float.exit119.i, %1361, %1360, %half_to_float.exit115.i
-  %.093.i = phi i32 [ %.sroa.0.0.i, %1360 ], [ %6, %half_to_float.exit115.i ], [ %.sroa.0.0.i, %1380 ], [ %6, %half_to_float.exit119.i ], [ %6, %1361 ]
-  %.091.in.i = phi i16 [ %1341, %1360 ], [ %1339, %half_to_float.exit115.i ], [ %1339, %1380 ], [ %1339, %half_to_float.exit119.i ], [ %1339, %1361 ]
-  %.0.i89 = phi float [ %1358, %1360 ], [ %2, %half_to_float.exit115.i ], [ %1378, %1380 ], [ %2, %half_to_float.exit119.i ], [ %2, %1361 ]
-  %1382 = trunc nuw nsw i32 %.sroa.9.0.i to i16
-  %1383 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1382)
-  %1384 = icmp samesign ult i16 %1383, %.091.in.i
-  br i1 %1384, label %1385, label %1403
+1378:                                             ; preds = %1377, %half_to_float.exit119.i, %1358, %1357, %half_to_float.exit115.i
+  %.093.i = phi i32 [ %.sroa.0.0.i, %1357 ], [ %6, %half_to_float.exit115.i ], [ %.sroa.0.0.i, %1377 ], [ %6, %half_to_float.exit119.i ], [ %6, %1358 ]
+  %.091.in.i = phi i16 [ %1338, %1357 ], [ %1336, %half_to_float.exit115.i ], [ %1336, %1377 ], [ %1336, %half_to_float.exit119.i ], [ %1336, %1358 ]
+  %.0.i89 = phi float [ %1355, %1357 ], [ %2, %half_to_float.exit115.i ], [ %1375, %1377 ], [ %2, %half_to_float.exit119.i ], [ %2, %1358 ]
+  %1379 = trunc nuw nsw i32 %.sroa.9.0.i to i16
+  %1380 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1379)
+  %1381 = icmp samesign ult i16 %1380, %.091.in.i
+  br i1 %1381, label %1382, label %1400
 
-1385:                                             ; preds = %1381
-  %1386 = shl nuw nsw i32 %.sroa.9.0.i, 13
-  %1387 = and i32 %1386, 268427264
-  %1388 = icmp samesign ugt i32 %1387, 8388607
-  br i1 %1388, label %1389, label %1391, !prof !177
+1382:                                             ; preds = %1378
+  %1383 = shl nuw nsw i32 %.sroa.9.0.i, 13
+  %1384 = and i32 %1383, 268427264
+  %1385 = icmp samesign ugt i32 %1384, 8388607
+  br i1 %1385, label %1386, label %1388, !prof !177
 
-1389:                                             ; preds = %1385
-  %1390 = add nuw nsw i32 %1387, 939524096
+1386:                                             ; preds = %1382
+  %1387 = add nuw nsw i32 %1384, 939524096
   br label %half_to_float.exit123.i
 
-1391:                                             ; preds = %1385
-  %.not.i.i121.i = icmp eq i32 %1387, 0
-  br i1 %.not.i.i121.i, label %half_to_float.exit123.i, label %1392
+1388:                                             ; preds = %1382
+  %.not.i.i121.i = icmp eq i32 %1384, 0
+  br i1 %.not.i.i121.i, label %half_to_float.exit123.i, label %1389
 
-1392:                                             ; preds = %1391
-  %1393 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1387, i1 true)
-  %1394 = add nsw i32 %1393, -8
-  %1395 = shl i32 %1387, %1394
-  %1396 = or i32 %1395, 947912704
-  %1397 = shl nuw nsw i32 %1394, 23
-  %1398 = sub nuw i32 %1396, %1397
+1389:                                             ; preds = %1388
+  %1390 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1384, i1 true)
+  %1391 = add nsw i32 %1390, -8
+  %1392 = shl i32 %1384, %1391
+  %1393 = or i32 %1392, 947912704
+  %1394 = shl nuw nsw i32 %1391, 23
+  %1395 = sub nuw i32 %1393, %1394
   br label %half_to_float.exit123.i
 
-half_to_float.exit123.i:                          ; preds = %1392, %1391, %1389
-  %.sroa.0.0.i.i122.i = phi i32 [ %1390, %1389 ], [ 0, %1391 ], [ %1398, %1392 ]
-  %1399 = bitcast i32 %.sroa.0.0.i.i122.i to float
-  %1400 = fsub float %7, %1399
-  %1401 = fcmp olt float %1400, %2
-  br i1 %1401, label %1402, label %1423
+half_to_float.exit123.i:                          ; preds = %1389, %1388, %1386
+  %.sroa.0.0.i.i122.i = phi i32 [ %1387, %1386 ], [ 0, %1388 ], [ %1395, %1389 ]
+  %1396 = bitcast i32 %.sroa.0.0.i.i122.i to float
+  %1397 = fsub float %7, %1396
+  %1398 = fcmp olt float %1397, %2
+  br i1 %1398, label %1399, label %1420
 
-1402:                                             ; preds = %half_to_float.exit123.i
-  br label %1423
+1399:                                             ; preds = %half_to_float.exit123.i
+  br label %1420
 
-1403:                                             ; preds = %1381
-  %1404 = icmp eq i16 %1383, %.091.in.i
-  br i1 %1404, label %1405, label %1423
+1400:                                             ; preds = %1378
+  %1401 = icmp eq i16 %1380, %.091.in.i
+  br i1 %1401, label %1402, label %1420
 
-1405:                                             ; preds = %1403
-  %1406 = shl nuw nsw i32 %.sroa.9.0.i, 13
-  %1407 = and i32 %1406, 268427264
-  %1408 = icmp samesign ugt i32 %1407, 8388607
-  br i1 %1408, label %1409, label %1411, !prof !177
+1402:                                             ; preds = %1400
+  %1403 = shl nuw nsw i32 %.sroa.9.0.i, 13
+  %1404 = and i32 %1403, 268427264
+  %1405 = icmp samesign ugt i32 %1404, 8388607
+  br i1 %1405, label %1406, label %1408, !prof !177
 
-1409:                                             ; preds = %1405
-  %1410 = add nuw nsw i32 %1407, 939524096
+1406:                                             ; preds = %1402
+  %1407 = add nuw nsw i32 %1404, 939524096
   br label %half_to_float.exit127.i
 
-1411:                                             ; preds = %1405
-  %.not.i.i125.i = icmp eq i32 %1407, 0
-  br i1 %.not.i.i125.i, label %half_to_float.exit127.i, label %1412
+1408:                                             ; preds = %1402
+  %.not.i.i125.i = icmp eq i32 %1404, 0
+  br i1 %.not.i.i125.i, label %half_to_float.exit127.i, label %1409
 
-1412:                                             ; preds = %1411
-  %1413 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1407, i1 true)
-  %1414 = add nsw i32 %1413, -8
-  %1415 = shl i32 %1407, %1414
-  %1416 = or i32 %1415, 947912704
-  %1417 = shl nuw nsw i32 %1414, 23
-  %1418 = sub nuw i32 %1416, %1417
+1409:                                             ; preds = %1408
+  %1410 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %1404, i1 true)
+  %1411 = add nsw i32 %1410, -8
+  %1412 = shl i32 %1404, %1411
+  %1413 = or i32 %1412, 947912704
+  %1414 = shl nuw nsw i32 %1411, 23
+  %1415 = sub nuw i32 %1413, %1414
   br label %half_to_float.exit127.i
 
-half_to_float.exit127.i:                          ; preds = %1412, %1411, %1409
-  %.sroa.0.0.i.i126.i = phi i32 [ %1410, %1409 ], [ 0, %1411 ], [ %1418, %1412 ]
-  %1419 = bitcast i32 %.sroa.0.0.i.i126.i to float
-  %1420 = fsub float %7, %1419
-  %1421 = fcmp olt float %1420, %.0.i89
-  br i1 %1421, label %1422, label %1423
+half_to_float.exit127.i:                          ; preds = %1409, %1408, %1406
+  %.sroa.0.0.i.i126.i = phi i32 [ %1407, %1406 ], [ 0, %1408 ], [ %1415, %1409 ]
+  %1416 = bitcast i32 %.sroa.0.0.i.i126.i to float
+  %1417 = fsub float %7, %1416
+  %1418 = fcmp olt float %1417, %.0.i89
+  br i1 %1418, label %1419, label %1420
 
-1422:                                             ; preds = %half_to_float.exit127.i
-  br label %1423
+1419:                                             ; preds = %half_to_float.exit127.i
+  br label %1420
 
-1423:                                             ; preds = %1422, %half_to_float.exit127.i, %1403, %1402, %half_to_float.exit123.i
-  %.194.i = phi i32 [ %.sroa.9.0.i, %1402 ], [ %.093.i, %half_to_float.exit123.i ], [ %.sroa.9.0.i, %1422 ], [ %.093.i, %half_to_float.exit127.i ], [ %.093.i, %1403 ]
-  %.192.in.i = phi i16 [ %1383, %1402 ], [ %.091.in.i, %half_to_float.exit123.i ], [ %.091.in.i, %1422 ], [ %.091.in.i, %half_to_float.exit127.i ], [ %.091.in.i, %1403 ]
-  %.1.i90 = phi float [ %1400, %1402 ], [ %.0.i89, %half_to_float.exit123.i ], [ %1420, %1422 ], [ %.0.i89, %half_to_float.exit127.i ], [ %.0.i89, %1403 ]
-  %1424 = trunc nuw i32 %1337 to i16
-  %1425 = tail call range(i16 0, 7) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1424)
-  %1426 = icmp samesign ult i16 %1425, %.192.in.i
-  br i1 %1426, label %1427, label %1440
+1420:                                             ; preds = %1419, %half_to_float.exit127.i, %1400, %1399, %half_to_float.exit123.i
+  %.194.i = phi i32 [ %.sroa.9.0.i, %1399 ], [ %.093.i, %half_to_float.exit123.i ], [ %.sroa.9.0.i, %1419 ], [ %.093.i, %half_to_float.exit127.i ], [ %.093.i, %1400 ]
+  %.192.in.i = phi i16 [ %1380, %1399 ], [ %.091.in.i, %half_to_float.exit123.i ], [ %.091.in.i, %1419 ], [ %.091.in.i, %half_to_float.exit127.i ], [ %.091.in.i, %1400 ]
+  %.1.i90 = phi float [ %1397, %1399 ], [ %.0.i89, %half_to_float.exit123.i ], [ %1417, %1419 ], [ %.0.i89, %half_to_float.exit127.i ], [ %.0.i89, %1400 ]
+  %1421 = trunc nuw i32 %1334 to i16
+  %1422 = tail call range(i16 0, 7) i16 @llvm.ctpop.i16(i16 range(i16 0, -28672) %1421)
+  %1423 = icmp samesign ult i16 %1422, %.192.in.i
+  br i1 %1423, label %1424, label %1436
 
-1427:                                             ; preds = %1423
-  %1428 = shl nuw nsw i32 %1336, 13
-  %1429 = and i32 %1428, 260046848
-  %sext140.i = shl nuw i32 %1336, 16
-  %1430 = and i32 %sext140.i, -2147483648
-  switch i32 %1429, label %1431 [
+1424:                                             ; preds = %1420
+  %1425 = shl nuw nsw i32 %1333, 13
+  %1426 = and i32 %1425, 260046848
+  %sext140.i = shl nuw i32 %1333, 16
+  %1427 = and i32 %sext140.i, -2147483648
+  switch i32 %1426, label %1428 [
     i32 0, label %half_to_float.exit131.i
-    i32 260046848, label %1434
+    i32 260046848, label %1431
   ], !prof !243
 
-1431:                                             ; preds = %1427
-  %1432 = or disjoint i32 %1430, 939524096
-  %1433 = add nuw nsw i32 %1432, %1429
+1428:                                             ; preds = %1424
+  %1429 = or disjoint i32 %1427, 939524096
+  %1430 = add nuw nsw i32 %1429, %1426
   br label %half_to_float.exit131.i
 
-1434:                                             ; preds = %1427
-  %1435 = or disjoint i32 %1430, 2139095040
+1431:                                             ; preds = %1424
+  %1432 = or disjoint i32 %1427, 2139095040
   br label %half_to_float.exit131.i
 
-half_to_float.exit131.i:                          ; preds = %1434, %1431, %1427
-  %.sroa.0.0.i.i130.i = phi i32 [ %1433, %1431 ], [ %1435, %1434 ], [ %1430, %1427 ]
-  %1436 = bitcast i32 %.sroa.0.0.i.i130.i to float
-  %1437 = fsub float %1436, %7
-  %1438 = fcmp olt float %1437, %2
-  br i1 %1438, label %1439, label %handleQuantizeCloseExp.exit
+half_to_float.exit131.i:                          ; preds = %1431, %1428, %1424
+  %.sroa.0.0.i.i130.i = phi i32 [ %1430, %1428 ], [ %1432, %1431 ], [ %1427, %1424 ]
+  %1433 = bitcast i32 %.sroa.0.0.i.i130.i to float
+  %1434 = fsub float %1433, %7
+  %1435 = fcmp olt float %1434, %2
+  br i1 %1435, label %1450, label %handleQuantizeCloseExp.exit
 
-1439:                                             ; preds = %half_to_float.exit131.i
-  br label %handleQuantizeCloseExp.exit
+1436:                                             ; preds = %1420
+  %1437 = icmp eq i16 %1422, %.192.in.i
+  br i1 %1437, label %1438, label %handleQuantizeCloseExp.exit
 
-1440:                                             ; preds = %1423
-  %1441 = icmp eq i16 %1425, %.192.in.i
-  br i1 %1441, label %1442, label %handleQuantizeCloseExp.exit
-
-1442:                                             ; preds = %1440
-  %1443 = shl nuw nsw i32 %1336, 13
-  %1444 = and i32 %1443, 260046848
-  %sext.i92 = shl nuw i32 %1336, 16
-  %1445 = and i32 %sext.i92, -2147483648
-  switch i32 %1444, label %1446 [
+1438:                                             ; preds = %1436
+  %1439 = shl nuw nsw i32 %1333, 13
+  %1440 = and i32 %1439, 260046848
+  %sext.i92 = shl nuw i32 %1333, 16
+  %1441 = and i32 %sext.i92, -2147483648
+  switch i32 %1440, label %1442 [
     i32 0, label %half_to_float.exit135.i
-    i32 260046848, label %1449
+    i32 260046848, label %1445
   ], !prof !243
 
-1446:                                             ; preds = %1442
-  %1447 = or disjoint i32 %1445, 939524096
-  %1448 = add nuw nsw i32 %1447, %1444
+1442:                                             ; preds = %1438
+  %1443 = or disjoint i32 %1441, 939524096
+  %1444 = add nuw nsw i32 %1443, %1440
   br label %half_to_float.exit135.i
 
-1449:                                             ; preds = %1442
-  %1450 = or disjoint i32 %1445, 2139095040
+1445:                                             ; preds = %1438
+  %1446 = or disjoint i32 %1441, 2139095040
   br label %half_to_float.exit135.i
 
-half_to_float.exit135.i:                          ; preds = %1449, %1446, %1442
-  %.sroa.0.0.i.i134.i = phi i32 [ %1448, %1446 ], [ %1450, %1449 ], [ %1445, %1442 ]
-  %1451 = bitcast i32 %.sroa.0.0.i.i134.i to float
-  %1452 = fsub float %1451, %7
-  %1453 = fcmp olt float %1452, %.1.i90
-  br i1 %1453, label %1454, label %handleQuantizeCloseExp.exit
+half_to_float.exit135.i:                          ; preds = %1445, %1442, %1438
+  %.sroa.0.0.i.i134.i = phi i32 [ %1444, %1442 ], [ %1446, %1445 ], [ %1441, %1438 ]
+  %1447 = bitcast i32 %.sroa.0.0.i.i134.i to float
+  %1448 = fsub float %1447, %7
+  %1449 = fcmp olt float %1448, %.1.i90
+  br i1 %1449, label %1450, label %handleQuantizeCloseExp.exit
 
-1454:                                             ; preds = %half_to_float.exit135.i
+1450:                                             ; preds = %half_to_float.exit135.i, %half_to_float.exit131.i
   br label %handleQuantizeCloseExp.exit
 
-handleQuantizeCloseExp.exit:                      ; preds = %half_to_float.exit131.i, %1439, %1440, %half_to_float.exit135.i, %1454
-  %.2.i91 = phi i32 [ %1337, %1439 ], [ %.194.i, %half_to_float.exit131.i ], [ %1337, %1454 ], [ %.194.i, %half_to_float.exit135.i ], [ %.194.i, %1440 ]
-  %1455 = or i32 %.2.i91, %5
-  br label %1456
+handleQuantizeCloseExp.exit:                      ; preds = %half_to_float.exit131.i, %1436, %half_to_float.exit135.i, %1450
+  %.2.i91 = phi i32 [ %.194.i, %1436 ], [ %.194.i, %half_to_float.exit131.i ], [ %1334, %1450 ], [ %.194.i, %half_to_float.exit135.i ]
+  %1451 = or i32 %.2.i91, %5
+  br label %1452
 
-1456:                                             ; preds = %774, %549, %26, %handleQuantizeCloseExp.exit, %handleQuantizeEqualExp.exit, %handleQuantizeDefault.exit, %handleQuantizeDenormTol.exit, %handleQuantizeGeneric.exit
-  %.1.in = phi i32 [ %1455, %handleQuantizeCloseExp.exit ], [ %548, %handleQuantizeGeneric.exit ], [ %0, %26 ], [ %773, %handleQuantizeDenormTol.exit ], [ %0, %549 ], [ %1217, %handleQuantizeDefault.exit ], [ %1308, %handleQuantizeEqualExp.exit ], [ %0, %774 ]
+1452:                                             ; preds = %772, %548, %26, %handleQuantizeCloseExp.exit, %handleQuantizeEqualExp.exit, %handleQuantizeDefault.exit, %handleQuantizeDenormTol.exit, %handleQuantizeGeneric.exit
+  %.1.in = phi i32 [ %1451, %handleQuantizeCloseExp.exit ], [ %547, %handleQuantizeGeneric.exit ], [ %0, %26 ], [ %771, %handleQuantizeDenormTol.exit ], [ %0, %548 ], [ %1215, %handleQuantizeDefault.exit ], [ %1305, %handleQuantizeEqualExp.exit ], [ %0, %772 ]
   %.1 = trunc nuw i32 %.1.in to i16
-  br label %1457
+  br label %1453
 
-1457:                                             ; preds = %13, %1456, %11
-  %.0 = phi i16 [ %12, %11 ], [ %.1, %1456 ], [ 0, %13 ]
+1453:                                             ; preds = %13, %1452, %11
+  %.0 = phi i16 [ %12, %11 ], [ %.1, %1452 ], [ 0, %13 ]
   ret i16 %.0
 }
 

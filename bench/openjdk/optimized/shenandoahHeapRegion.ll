@@ -1442,7 +1442,7 @@ _ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit2: ; preds = %30, %33
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.4, i32 noundef 84, ptr noundef nonnull @.str.5, ptr noundef %59) #20
   unreachable
 
-60:                                               ; preds = %1, %_ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit2, %1, %1, %_ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit, %53
+60:                                               ; preds = %1, %1, %_ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit, %_ZN20ShenandoahHeapRegion9set_stateENS_11RegionStateE.exit2, %1, %53
   ret void
 }
 

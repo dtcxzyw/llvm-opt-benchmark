@@ -2736,9 +2736,9 @@ define internal zeroext i16 @jisx0213_2004_2_encoder(ptr noundef readonly captur
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readnone captures(address) %3) unnamed_addr #12 {
   %5 = load i64, ptr %2, align 8, !tbaa !55
-  switch i64 %5, label %130 [
+  switch i64 %5, label %129 [
     i64 1, label %6
-    i64 2, label %84
+    i64 2, label %83
     i64 -1, label %.find_pairencmap.exit.thread_crit_edge
   ]
 
@@ -2751,18 +2751,18 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
 6:                                                ; preds = %4
   %7 = load i32, ptr %1, align 4, !tbaa !57
   %8 = icmp ugt i32 %7, 65535
-  br i1 %8, label %9, label %39
+  br i1 %8, label %9, label %38
 
 9:                                                ; preds = %6
   %.mask = and i32 %7, -65536
   %10 = icmp eq i32 %.mask, 131072
-  br i1 %10, label %11, label %38
+  br i1 %10, label %11, label %find_pairencmap.exit107.thread
 
 11:                                               ; preds = %9
   %12 = icmp eq ptr %3, inttoptr (i64 2000 to ptr)
   %13 = icmp eq i32 %7, 134047
   %or.cond = and i1 %12, %13
-  br i1 %or.cond, label %130, label %14
+  br i1 %or.cond, label %129, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2775,7 +2775,7 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
   %22 = getelementptr [16 x i8], ptr %18, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !82
   %.not91 = icmp eq ptr %23, null
-  br i1 %.not91, label %38, label %24
+  br i1 %.not91, label %find_pairencmap.exit107.thread, label %24
 
 24:                                               ; preds = %14
   %25 = and i32 %7, 255
@@ -2783,14 +2783,14 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
   %27 = load i8, ptr %26, align 8, !tbaa !84
   %28 = zext i8 %27 to i32
   %.not92 = icmp samesign ult i32 %25, %28
-  br i1 %.not92, label %38, label %29
+  br i1 %.not92, label %find_pairencmap.exit107.thread, label %29
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 9
   %31 = load i8, ptr %30, align 1, !tbaa !85
   %32 = zext i8 %31 to i32
   %.not93 = icmp samesign ugt i32 %25, %32
-  br i1 %.not93, label %38, label %33
+  br i1 %.not93, label %find_pairencmap.exit107.thread, label %33
 
 33:                                               ; preds = %29
   %34 = sub nsw i32 %25, %28
@@ -2798,209 +2798,206 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
   %36 = getelementptr [2 x i8], ptr %23, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !56
   %.not94 = icmp eq i16 %37, -1
-  br i1 %.not94, label %38, label %130
+  br i1 %.not94, label %find_pairencmap.exit107.thread, label %129
 
-38:                                               ; preds = %33, %29, %24, %14, %9
-  br label %130
+38:                                               ; preds = %6
+  %39 = icmp eq ptr %3, inttoptr (i64 2000 to ptr)
+  br i1 %39, label %40, label %.critedge
 
-39:                                               ; preds = %6
-  %40 = icmp eq ptr %3, inttoptr (i64 2000 to ptr)
-  br i1 %40, label %41, label %.critedge
-
-41:                                               ; preds = %39
+40:                                               ; preds = %38
   %trunc = trunc nuw i32 %7 to i16
   switch i16 %trunc, label %.critedge [
-    i16 -25828, label %130
-    i16 20465, label %130
-    i16 21085, label %130
-    i16 21534, label %130
-    i16 22099, label %130
-    i16 23032, label %130
-    i16 23643, label %130
-    i16 24183, label %130
-    i16 30246, label %130
-    i16 32363, label %130
-    i16 -25827, label %83
+    i16 -25828, label %129
+    i16 20465, label %129
+    i16 21085, label %129
+    i16 21534, label %129
+    i16 22099, label %129
+    i16 23032, label %129
+    i16 23643, label %129
+    i16 24183, label %129
+    i16 30246, label %129
+    i16 32363, label %129
+    i16 -25827, label %82
   ]
 
-.critedge:                                        ; preds = %41, %39
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %43 = load ptr, ptr %42, align 8, !tbaa !42
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
-  %45 = load ptr, ptr %44, align 8, !tbaa !107
-  %46 = lshr i32 %7, 8
-  %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr [16 x i8], ptr %45, i64 %47
-  %49 = load ptr, ptr %48, align 8, !tbaa !82
-  %.not82 = icmp eq ptr %49, null
-  br i1 %.not82, label %64, label %50
+.critedge:                                        ; preds = %40, %38
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %42 = load ptr, ptr %41, align 8, !tbaa !42
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
+  %44 = load ptr, ptr %43, align 8, !tbaa !107
+  %45 = lshr i32 %7, 8
+  %46 = zext nneg i32 %45 to i64
+  %47 = getelementptr [16 x i8], ptr %44, i64 %46
+  %48 = load ptr, ptr %47, align 8, !tbaa !82
+  %.not82 = icmp eq ptr %48, null
+  br i1 %.not82, label %63, label %49
 
-50:                                               ; preds = %.critedge
-  %51 = and i32 %7, 255
-  %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %53 = load i8, ptr %52, align 8, !tbaa !84
-  %54 = zext i8 %53 to i32
-  %.not83 = icmp samesign ult i32 %51, %54
-  br i1 %.not83, label %64, label %55
+49:                                               ; preds = %.critedge
+  %50 = and i32 %7, 255
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %52 = load i8, ptr %51, align 8, !tbaa !84
+  %53 = zext i8 %52 to i32
+  %.not83 = icmp samesign ult i32 %50, %53
+  br i1 %.not83, label %63, label %54
 
-55:                                               ; preds = %50
-  %56 = getelementptr inbounds nuw i8, ptr %48, i64 9
-  %57 = load i8, ptr %56, align 1, !tbaa !85
-  %58 = zext i8 %57 to i32
-  %.not84 = icmp samesign ugt i32 %51, %58
-  br i1 %.not84, label %64, label %59
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds nuw i8, ptr %47, i64 9
+  %56 = load i8, ptr %55, align 1, !tbaa !85
+  %57 = zext i8 %56 to i32
+  %.not84 = icmp samesign ugt i32 %50, %57
+  br i1 %.not84, label %63, label %58
 
-59:                                               ; preds = %55
-  %60 = sub nsw i32 %51, %54
-  %61 = zext i32 %60 to i64
-  %62 = getelementptr [2 x i8], ptr %49, i64 %61
-  %63 = load i16, ptr %62, align 2, !tbaa !56
-  switch i16 %63, label %83 [
-    i16 -1, label %64
-    i16 -2, label %130
+58:                                               ; preds = %54
+  %59 = sub nsw i32 %50, %53
+  %60 = zext i32 %59 to i64
+  %61 = getelementptr [2 x i8], ptr %48, i64 %60
+  %62 = load i16, ptr %61, align 2, !tbaa !56
+  switch i16 %62, label %82 [
+    i16 -1, label %63
+    i16 -2, label %129
   ]
 
-64:                                               ; preds = %59, %55, %50, %.critedge
-  %65 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %66 = load ptr, ptr %65, align 8, !tbaa !89
-  %67 = getelementptr [16 x i8], ptr %66, i64 %47
-  %68 = load ptr, ptr %67, align 8, !tbaa !82
-  %.not86 = icmp eq ptr %68, null
-  br i1 %.not86, label %130, label %69
+63:                                               ; preds = %58, %54, %49, %.critedge
+  %64 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  %65 = load ptr, ptr %64, align 8, !tbaa !89
+  %66 = getelementptr [16 x i8], ptr %65, i64 %46
+  %67 = load ptr, ptr %66, align 8, !tbaa !82
+  %.not86 = icmp eq ptr %67, null
+  br i1 %.not86, label %129, label %68
 
-69:                                               ; preds = %64
-  %70 = and i32 %7, 255
-  %71 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %72 = load i8, ptr %71, align 8, !tbaa !84
-  %73 = zext i8 %72 to i32
-  %.not87 = icmp samesign ult i32 %70, %73
-  br i1 %.not87, label %130, label %74
+68:                                               ; preds = %63
+  %69 = and i32 %7, 255
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %71 = load i8, ptr %70, align 8, !tbaa !84
+  %72 = zext i8 %71 to i32
+  %.not87 = icmp samesign ult i32 %69, %72
+  br i1 %.not87, label %129, label %73
 
-74:                                               ; preds = %69
-  %75 = getelementptr inbounds nuw i8, ptr %67, i64 9
-  %76 = load i8, ptr %75, align 1, !tbaa !85
-  %77 = zext i8 %76 to i32
-  %.not88 = icmp samesign ugt i32 %70, %77
-  br i1 %.not88, label %130, label %78
+73:                                               ; preds = %68
+  %74 = getelementptr inbounds nuw i8, ptr %66, i64 9
+  %75 = load i8, ptr %74, align 1, !tbaa !85
+  %76 = zext i8 %75 to i32
+  %.not88 = icmp samesign ugt i32 %69, %76
+  br i1 %.not88, label %129, label %77
 
-78:                                               ; preds = %74
-  %79 = sub nsw i32 %70, %73
-  %80 = zext i32 %79 to i64
-  %81 = getelementptr [2 x i8], ptr %68, i64 %80
-  %82 = load i16, ptr %81, align 2, !tbaa !56
-  %.not90 = icmp sgt i16 %82, -1
-  br i1 %.not90, label %83, label %130
+77:                                               ; preds = %73
+  %78 = sub nsw i32 %69, %72
+  %79 = zext i32 %78 to i64
+  %80 = getelementptr [2 x i8], ptr %67, i64 %79
+  %81 = load i16, ptr %80, align 2, !tbaa !56
+  %.not90 = icmp sgt i16 %81, -1
+  br i1 %.not90, label %82, label %129
 
-83:                                               ; preds = %41, %78, %59
-  %.0 = phi i16 [ %82, %78 ], [ %63, %59 ], [ -709, %41 ]
-  br label %130
+82:                                               ; preds = %40, %77, %58
+  %.0 = phi i16 [ %81, %77 ], [ %62, %58 ], [ -709, %40 ]
+  br label %129
 
-84:                                               ; preds = %4
-  %85 = load i32, ptr %1, align 4, !tbaa !57
-  %86 = getelementptr i8, ptr %1, i64 4
-  %87 = load i32, ptr %86, align 4, !tbaa !57
-  %88 = load ptr, ptr @jisx0213_pair_encmap, align 8, !tbaa !104
-  %89 = shl i32 %85, 16
-  %90 = and i32 %87, 65535
-  %91 = or disjoint i32 %90, %89
-  br label %92
+83:                                               ; preds = %4
+  %84 = load i32, ptr %1, align 4, !tbaa !57
+  %85 = getelementptr i8, ptr %1, i64 4
+  %86 = load i32, ptr %85, align 4, !tbaa !57
+  %87 = load ptr, ptr @jisx0213_pair_encmap, align 8, !tbaa !104
+  %88 = shl i32 %84, 16
+  %89 = and i32 %86, 65535
+  %90 = or disjoint i32 %89, %88
+  br label %91
 
-92:                                               ; preds = %100, %84
-  %.02535.i = phi i32 [ 46, %84 ], [ %.1.i, %100 ]
-  %.02634.i = phi i32 [ 0, %84 ], [ %.127.i, %100 ]
-  %.02833.i = phi i32 [ 23, %84 ], [ %102, %100 ]
-  %93 = sext i32 %.02833.i to i64
-  %94 = getelementptr [8 x i8], ptr %88, i64 %93
-  %95 = load i32, ptr %94, align 4, !tbaa !108
-  %96 = icmp ult i32 %91, %95
-  br i1 %96, label %97, label %98
+91:                                               ; preds = %99, %83
+  %.02535.i = phi i32 [ 46, %83 ], [ %.1.i, %99 ]
+  %.02634.i = phi i32 [ 0, %83 ], [ %.127.i, %99 ]
+  %.02833.i = phi i32 [ 23, %83 ], [ %101, %99 ]
+  %92 = sext i32 %.02833.i to i64
+  %93 = getelementptr [8 x i8], ptr %87, i64 %92
+  %94 = load i32, ptr %93, align 4, !tbaa !108
+  %95 = icmp ult i32 %90, %94
+  br i1 %95, label %96, label %97
 
-97:                                               ; preds = %92
+96:                                               ; preds = %91
   %.not32.i = icmp eq i32 %.02535.i, %.02833.i
-  br i1 %.not32.i, label %103, label %100
+  br i1 %.not32.i, label %102, label %99
 
-98:                                               ; preds = %92
-  %99 = icmp ule i32 %91, %95
+97:                                               ; preds = %91
+  %98 = icmp ule i32 %90, %94
   %.not31.i = icmp eq i32 %.02634.i, %.02833.i
-  %or.cond.i = or i1 %.not31.i, %99
-  br i1 %or.cond.i, label %103, label %100
+  %or.cond.i = or i1 %.not31.i, %98
+  br i1 %or.cond.i, label %102, label %99
 
-100:                                              ; preds = %98, %97
-  %.127.i = phi i32 [ %.02634.i, %97 ], [ %.02833.i, %98 ]
-  %.1.i = phi i32 [ %.02833.i, %97 ], [ %.02535.i, %98 ]
-  %101 = add i32 %.1.i, %.127.i
-  %102 = ashr i32 %101, 1
+99:                                               ; preds = %97, %96
+  %.127.i = phi i32 [ %.02634.i, %96 ], [ %.02833.i, %97 ]
+  %.1.i = phi i32 [ %.02833.i, %96 ], [ %.02535.i, %97 ]
+  %100 = add i32 %.1.i, %.127.i
+  %101 = ashr i32 %100, 1
   %.not.i = icmp eq i32 %.127.i, %.1.i
-  br i1 %.not.i, label %103, label %92, !llvm.loop !110
+  br i1 %.not.i, label %102, label %91, !llvm.loop !110
 
-103:                                              ; preds = %100, %98, %97
-  %.028.lcssa.i = phi i32 [ %.02535.i, %97 ], [ %.02833.i, %98 ], [ %102, %100 ]
-  %104 = sext i32 %.028.lcssa.i to i64
-  %105 = getelementptr [8 x i8], ptr %88, i64 %104
-  %106 = load i32, ptr %105, align 4, !tbaa !108
-  %107 = icmp eq i32 %91, %106
-  br i1 %107, label %find_pairencmap.exit, label %find_pairencmap.exit.thread
+102:                                              ; preds = %99, %97, %96
+  %.028.lcssa.i = phi i32 [ %.02535.i, %96 ], [ %.02833.i, %97 ], [ %101, %99 ]
+  %103 = sext i32 %.028.lcssa.i to i64
+  %104 = getelementptr [8 x i8], ptr %87, i64 %103
+  %105 = load i32, ptr %104, align 4, !tbaa !108
+  %106 = icmp eq i32 %90, %105
+  br i1 %106, label %find_pairencmap.exit, label %find_pairencmap.exit.thread
 
-find_pairencmap.exit:                             ; preds = %103
-  %108 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  %109 = load i16, ptr %108, align 4, !tbaa !111
-  %.not = icmp eq i16 %109, -3
-  br i1 %.not, label %find_pairencmap.exit.thread, label %130
+find_pairencmap.exit:                             ; preds = %102
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 4
+  %108 = load i16, ptr %107, align 4, !tbaa !111
+  %.not = icmp eq i16 %108, -3
+  br i1 %.not, label %find_pairencmap.exit.thread, label %129
 
-find_pairencmap.exit.thread:                      ; preds = %.find_pairencmap.exit.thread_crit_edge, %103, %find_pairencmap.exit
-  %.pre-phi = phi i32 [ %.pre113, %.find_pairencmap.exit.thread_crit_edge ], [ %89, %103 ], [ %89, %find_pairencmap.exit ]
-  %110 = phi ptr [ %.pre112, %.find_pairencmap.exit.thread_crit_edge ], [ %88, %103 ], [ %88, %find_pairencmap.exit ]
+find_pairencmap.exit.thread:                      ; preds = %.find_pairencmap.exit.thread_crit_edge, %102, %find_pairencmap.exit
+  %.pre-phi = phi i32 [ %.pre113, %.find_pairencmap.exit.thread_crit_edge ], [ %88, %102 ], [ %88, %find_pairencmap.exit ]
+  %109 = phi ptr [ %.pre112, %.find_pairencmap.exit.thread_crit_edge ], [ %87, %102 ], [ %87, %find_pairencmap.exit ]
   store i64 1, ptr %2, align 8, !tbaa !55
-  br label %111
+  br label %110
 
-111:                                              ; preds = %119, %find_pairencmap.exit.thread
-  %.02535.i96 = phi i32 [ 46, %find_pairencmap.exit.thread ], [ %.1.i102, %119 ]
-  %.02634.i97 = phi i32 [ 0, %find_pairencmap.exit.thread ], [ %.127.i101, %119 ]
-  %.02833.i98 = phi i32 [ 23, %find_pairencmap.exit.thread ], [ %121, %119 ]
-  %112 = sext i32 %.02833.i98 to i64
-  %113 = getelementptr [8 x i8], ptr %110, i64 %112
-  %114 = load i32, ptr %113, align 4, !tbaa !108
-  %115 = icmp ult i32 %.pre-phi, %114
-  br i1 %115, label %116, label %117
+110:                                              ; preds = %118, %find_pairencmap.exit.thread
+  %.02535.i96 = phi i32 [ 46, %find_pairencmap.exit.thread ], [ %.1.i102, %118 ]
+  %.02634.i97 = phi i32 [ 0, %find_pairencmap.exit.thread ], [ %.127.i101, %118 ]
+  %.02833.i98 = phi i32 [ 23, %find_pairencmap.exit.thread ], [ %120, %118 ]
+  %111 = sext i32 %.02833.i98 to i64
+  %112 = getelementptr [8 x i8], ptr %109, i64 %111
+  %113 = load i32, ptr %112, align 4, !tbaa !108
+  %114 = icmp ult i32 %.pre-phi, %113
+  br i1 %114, label %115, label %116
 
-116:                                              ; preds = %111
+115:                                              ; preds = %110
   %.not32.i106 = icmp eq i32 %.02535.i96, %.02833.i98
-  br i1 %.not32.i106, label %122, label %119
+  br i1 %.not32.i106, label %121, label %118
 
-117:                                              ; preds = %111
-  %118 = icmp ule i32 %.pre-phi, %114
+116:                                              ; preds = %110
+  %117 = icmp ule i32 %.pre-phi, %113
   %.not31.i99 = icmp eq i32 %.02634.i97, %.02833.i98
-  %or.cond.i100 = or i1 %.not31.i99, %118
-  br i1 %or.cond.i100, label %122, label %119
+  %or.cond.i100 = or i1 %.not31.i99, %117
+  br i1 %or.cond.i100, label %121, label %118
 
-119:                                              ; preds = %117, %116
-  %.127.i101 = phi i32 [ %.02634.i97, %116 ], [ %.02833.i98, %117 ]
-  %.1.i102 = phi i32 [ %.02833.i98, %116 ], [ %.02535.i96, %117 ]
-  %120 = add i32 %.1.i102, %.127.i101
-  %121 = ashr i32 %120, 1
+118:                                              ; preds = %116, %115
+  %.127.i101 = phi i32 [ %.02634.i97, %115 ], [ %.02833.i98, %116 ]
+  %.1.i102 = phi i32 [ %.02833.i98, %115 ], [ %.02535.i96, %116 ]
+  %119 = add i32 %.1.i102, %.127.i101
+  %120 = ashr i32 %119, 1
   %.not.i103 = icmp eq i32 %.127.i101, %.1.i102
-  br i1 %.not.i103, label %122, label %111, !llvm.loop !110
+  br i1 %.not.i103, label %121, label %110, !llvm.loop !110
 
-122:                                              ; preds = %119, %117, %116
-  %.028.lcssa.i104 = phi i32 [ %.02535.i96, %116 ], [ %.02833.i98, %117 ], [ %121, %119 ]
-  %123 = sext i32 %.028.lcssa.i104 to i64
-  %124 = getelementptr [8 x i8], ptr %110, i64 %123
-  %125 = load i32, ptr %124, align 4, !tbaa !108
-  %126 = icmp eq i32 %.pre-phi, %125
-  br i1 %126, label %find_pairencmap.exit107, label %find_pairencmap.exit107.thread
+121:                                              ; preds = %118, %116, %115
+  %.028.lcssa.i104 = phi i32 [ %.02535.i96, %115 ], [ %.02833.i98, %116 ], [ %120, %118 ]
+  %122 = sext i32 %.028.lcssa.i104 to i64
+  %123 = getelementptr [8 x i8], ptr %109, i64 %122
+  %124 = load i32, ptr %123, align 4, !tbaa !108
+  %125 = icmp eq i32 %.pre-phi, %124
+  br i1 %125, label %find_pairencmap.exit107, label %find_pairencmap.exit107.thread
 
-find_pairencmap.exit107:                          ; preds = %122
-  %127 = getelementptr inbounds nuw i8, ptr %124, i64 4
-  %128 = load i16, ptr %127, align 4, !tbaa !111
-  %.fr = freeze i16 %128
-  %129 = icmp eq i16 %.fr, -3
-  br i1 %129, label %find_pairencmap.exit107.thread, label %130
+find_pairencmap.exit107:                          ; preds = %121
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 4
+  %127 = load i16, ptr %126, align 4, !tbaa !111
+  %.fr = freeze i16 %127
+  %128 = icmp eq i16 %.fr, -3
+  br i1 %128, label %find_pairencmap.exit107.thread, label %129
 
-find_pairencmap.exit107.thread:                   ; preds = %122, %find_pairencmap.exit107
-  br label %130
+find_pairencmap.exit107.thread:                   ; preds = %9, %14, %24, %29, %33, %121, %find_pairencmap.exit107
+  br label %129
 
-130:                                              ; preds = %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %find_pairencmap.exit107.thread, %find_pairencmap.exit107, %4, %find_pairencmap.exit, %64, %69, %74, %78, %59, %33, %11, %83, %38
-  %.069 = phi i16 [ -1, %69 ], [ %109, %find_pairencmap.exit ], [ -1, %11 ], [ -1, %38 ], [ %37, %33 ], [ %.0, %83 ], [ -1, %41 ], [ %63, %59 ], [ -1, %4 ], [ -1, %64 ], [ -1, %74 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %78 ], [ -1, %find_pairencmap.exit107.thread ], [ %.fr, %find_pairencmap.exit107 ]
+129:                                              ; preds = %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %find_pairencmap.exit107.thread, %find_pairencmap.exit107, %4, %find_pairencmap.exit, %63, %68, %73, %77, %58, %33, %11, %82
+  %.069 = phi i16 [ -1, %68 ], [ %108, %find_pairencmap.exit ], [ -1, %11 ], [ %.fr, %find_pairencmap.exit107 ], [ %37, %33 ], [ %.0, %82 ], [ -1, %40 ], [ %62, %58 ], [ -1, %4 ], [ -1, %63 ], [ -1, %73 ], [ -1, %40 ], [ -1, %40 ], [ -1, %40 ], [ -1, %40 ], [ -1, %40 ], [ -1, %40 ], [ -1, %40 ], [ -1, %40 ], [ -1, %40 ], [ -1, %77 ], [ -1, %find_pairencmap.exit107.thread ]
   ret i16 %.069
 }
 

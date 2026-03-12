@@ -24447,7 +24447,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$
   store i8 10, ptr %.sroa.35.0..sroa_idx, align 8
   br label %36
 
-36:                                               ; preds = %69, %71, %49, %54, %27, %33
+36:                                               ; preds = %69, %71, %54, %49, %27, %33
   ret void
 
 37:                                               ; preds = %13
@@ -24690,7 +24690,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %41
 
-41:                                               ; preds = %75, %78, %54, %60, %33, %38
+41:                                               ; preds = %75, %78, %60, %54, %33, %38
   ret void
 
 42:                                               ; preds = %29

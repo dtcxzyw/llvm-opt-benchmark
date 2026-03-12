@@ -6361,7 +6361,7 @@ Vec_IntPush.exit193:                              ; preds = %.Vec_IntGrow.exit10
   %82 = sext i32 %80 to i64
   %83 = getelementptr inbounds [4 x i8], ptr %79, i64 %82
   store i32 %52, ptr %83, align 4, !tbaa !20
-  br label %282
+  br label %280
 
 84:                                               ; preds = %Vec_IntPush.exit
   %85 = and i64 %.val175, 536870911
@@ -6418,7 +6418,7 @@ Gia_ObjIsXor.exit:                                ; preds = %84
   %119 = and i32 %118, 1
   %120 = icmp eq i32 %2, %119
   %121 = zext i1 %120 to i32
-  br label %282
+  br label %280
 
 122:                                              ; preds = %98
   br i1 %108, label %123, label %130
@@ -6433,7 +6433,7 @@ Gia_ObjIsXor.exit:                                ; preds = %84
   %128 = xor i32 %127, %2
   %129 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %91, i32 noundef %128, ptr noundef %3, ptr noundef nonnull %4)
   %.not173.not = icmp eq i32 %129, 0
-  br i1 %.not173.not, label %282, label %184
+  br i1 %.not173.not, label %280, label %184
 
 130:                                              ; preds = %122
   br i1 %110, label %131, label %138
@@ -6448,7 +6448,7 @@ Gia_ObjIsXor.exit:                                ; preds = %84
   %136 = xor i32 %135, %2
   %137 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %87, i32 noundef %136, ptr noundef %3, ptr noundef nonnull %4)
   %.not172.not = icmp eq i32 %137, 0
-  br i1 %.not172.not, label %282, label %184
+  br i1 %.not172.not, label %280, label %184
 
 138:                                              ; preds = %130
   %139 = tail call i32 @Abc_Random(i32 noundef 0) #33
@@ -6459,7 +6459,7 @@ Gia_ObjIsXor.exit:                                ; preds = %84
 141:                                              ; preds = %138
   %142 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %87, i32 noundef 0, ptr noundef %3, ptr noundef nonnull %4)
   %.not168 = icmp eq i32 %142, 0
-  br i1 %.not168, label %282, label %143
+  br i1 %.not168, label %280, label %143
 
 143:                                              ; preds = %141
   %.val.i205 = load i64, ptr %1, align 4
@@ -6478,7 +6478,7 @@ Gia_ObjIsXor.exit:                                ; preds = %84
   %.in.i207 = select i1 %146, i32 %153, i32 %155
   %156 = and i32 %.in.i207, 1
   %.not169 = icmp eq i32 %156, 0
-  br i1 %.not169, label %157, label %282
+  br i1 %.not169, label %157, label %280
 
 157:                                              ; preds = %143
   %158 = trunc nuw nsw i64 %144 to i32
@@ -6492,12 +6492,12 @@ Gia_ObjIsXor.exit:                                ; preds = %84
 161:                                              ; preds = %157
   %162 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %91, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4)
   %.not171 = icmp eq i32 %162, 0
-  br i1 %.not171, label %282, label %184
+  br i1 %.not171, label %280, label %184
 
 163:                                              ; preds = %138
   %164 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %87, i32 noundef 1, ptr noundef %3, ptr noundef nonnull %4)
   %.not164 = icmp eq i32 %164, 0
-  br i1 %.not164, label %282, label %165
+  br i1 %.not164, label %280, label %165
 
 165:                                              ; preds = %163
   %.val.i211 = load i64, ptr %1, align 4
@@ -6517,7 +6517,7 @@ Gia_ObjIsXor.exit:                                ; preds = %84
   %.in.i213 = select i1 %.not.i212, i32 %177, i32 %175
   %178 = and i32 %.in.i213, 1
   %.not165 = icmp eq i32 %178, 0
-  br i1 %.not165, label %179, label %282
+  br i1 %.not165, label %179, label %280
 
 179:                                              ; preds = %165
   %180 = zext i1 %.not to i32
@@ -6530,10 +6530,10 @@ Gia_ObjIsXor.exit:                                ; preds = %84
 182:                                              ; preds = %179
   %183 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %91, i32 noundef %180, ptr noundef %3, ptr noundef nonnull %4)
   %.not167 = icmp eq i32 %183, 0
-  br i1 %.not167, label %282, label %184
+  br i1 %.not167, label %280, label %184
 
-184:                                              ; preds = %131, %179, %182, %157, %161, %123
-  br label %282
+184:                                              ; preds = %208, %219, %245, %253, %261, %270, %275, %265, %257, %249, %131, %179, %182, %157, %161, %123
+  br label %280
 
 Gia_ObjIsXor.exit.thread:                         ; preds = %84, %Gia_ObjIsXor.exit
   %185 = trunc i64 %.val175 to i32
@@ -6545,13 +6545,13 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %84, %Gia_ObjIsXor.e
   %190 = trunc nuw nsw i64 %189 to i32
   %191 = trunc i64 %188 to i32
   %192 = lshr i32 %191, 30
-  br i1 %.not, label %223, label %193
+  br i1 %.not, label %222, label %193
 
 193:                                              ; preds = %Gia_ObjIsXor.exit.thread
   %.in.i219 = select i1 %.not.i230.not, i32 %192, i32 %190
   %194 = and i32 %.in.i219, 1
   %.not155 = icmp eq i32 %194, 0
-  br i1 %.not155, label %195, label %282
+  br i1 %.not155, label %195, label %280
 
 195:                                              ; preds = %193
   %196 = and i64 %.val175, 2305843009213693952
@@ -6564,7 +6564,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %84, %Gia_ObjIsXor.e
   %.in.i222 = select i1 %.not.i221, i32 %201, i32 %199
   %202 = and i32 %.in.i222, 1
   %.not156 = icmp eq i32 %202, 0
-  br i1 %.not156, label %203, label %282
+  br i1 %.not156, label %203, label %280
 
 203:                                              ; preds = %195
   %.in.i225 = select i1 %.not.i230.not, i32 %190, i32 %192
@@ -6576,7 +6576,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %84, %Gia_ObjIsXor.e
   %206 = xor i32 %187, 1
   %207 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %87, i32 noundef %206, ptr noundef %3, ptr noundef nonnull %4)
   %.not159 = icmp eq i32 %207, 0
-  br i1 %.not159, label %282, label %._crit_edge
+  br i1 %.not159, label %280, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %205
   %.val.i226.pre = load i64, ptr %1, align 4
@@ -6601,144 +6601,138 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %84, %Gia_ObjIsXor.e
   %.in.i228 = select i1 %.not.i227.not, i32 %215, i32 %217
   %218 = and i32 %.in.i228, 1
   %.not160 = icmp eq i32 %218, 0
-  br i1 %.not160, label %219, label %222
+  br i1 %.not160, label %219, label %184
 
 219:                                              ; preds = %208
   %220 = xor i32 %211, 1
   %221 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %91, i32 noundef %220, ptr noundef %3, ptr noundef nonnull %4)
   %.not162 = icmp eq i32 %221, 0
-  br i1 %.not162, label %282, label %222
+  br i1 %.not162, label %280, label %184
 
-222:                                              ; preds = %219, %208
-  br label %282
-
-223:                                              ; preds = %Gia_ObjIsXor.exit.thread
+222:                                              ; preds = %Gia_ObjIsXor.exit.thread
   %.in.i231 = select i1 %.not.i230.not, i32 %190, i32 %192
-  %224 = and i32 %.in.i231, 1
-  %.not136 = icmp eq i32 %224, 0
-  br i1 %.not136, label %233, label %225
+  %223 = and i32 %.in.i231, 1
+  %.not136 = icmp eq i32 %223, 0
+  br i1 %.not136, label %232, label %224
 
-225:                                              ; preds = %223
-  %226 = and i64 %.val175, 2305843009213693952
-  %.not.i233.not = icmp eq i64 %226, 0
-  %227 = load i64, ptr %91, align 4
-  %228 = lshr i64 %227, 62
-  %229 = trunc nuw nsw i64 %228 to i32
-  %230 = trunc i64 %227 to i32
-  %231 = lshr i32 %230, 30
-  %.in.i234 = select i1 %.not.i233.not, i32 %229, i32 %231
-  %232 = and i32 %.in.i234, 1
-  %.not137 = icmp eq i32 %232, 0
-  br i1 %.not137, label %233, label %282
+224:                                              ; preds = %222
+  %225 = and i64 %.val175, 2305843009213693952
+  %.not.i233.not = icmp eq i64 %225, 0
+  %226 = load i64, ptr %91, align 4
+  %227 = lshr i64 %226, 62
+  %228 = trunc nuw nsw i64 %227 to i32
+  %229 = trunc i64 %226 to i32
+  %230 = lshr i32 %229, 30
+  %.in.i234 = select i1 %.not.i233.not, i32 %228, i32 %230
+  %231 = and i32 %.in.i234, 1
+  %.not137 = icmp eq i32 %231, 0
+  br i1 %.not137, label %232, label %280
 
-233:                                              ; preds = %225, %223
+232:                                              ; preds = %224, %222
   %.in.i237 = select i1 %.not.i230.not, i32 %192, i32 %190
-  %234 = and i32 %.in.i237, 1
-  %.not138 = icmp eq i32 %234, 0
-  br i1 %.not138, label %235, label %282
+  %233 = and i32 %.in.i237, 1
+  %.not138 = icmp eq i32 %233, 0
+  br i1 %.not138, label %234, label %280
 
-235:                                              ; preds = %233
-  %236 = lshr i64 %.val175, 61
-  %237 = trunc nuw nsw i64 %236 to i32
-  %238 = and i32 %237, 1
-  %.not.i239 = icmp eq i32 %238, 0
-  %239 = load i64, ptr %91, align 4
-  %240 = lshr i64 %239, 62
-  %241 = trunc nuw nsw i64 %240 to i32
-  %242 = trunc i64 %239 to i32
-  %243 = lshr i32 %242, 30
-  %.in.i240 = select i1 %.not.i239, i32 %243, i32 %241
-  %244 = and i32 %.in.i240, 1
-  %.not139 = icmp eq i32 %244, 0
-  br i1 %.not139, label %245, label %282
+234:                                              ; preds = %232
+  %235 = lshr i64 %.val175, 61
+  %236 = trunc nuw nsw i64 %235 to i32
+  %237 = and i32 %236, 1
+  %.not.i239 = icmp eq i32 %237, 0
+  %238 = load i64, ptr %91, align 4
+  %239 = lshr i64 %238, 62
+  %240 = trunc nuw nsw i64 %239 to i32
+  %241 = trunc i64 %238 to i32
+  %242 = lshr i32 %241, 30
+  %.in.i240 = select i1 %.not.i239, i32 %242, i32 %240
+  %243 = and i32 %.in.i240, 1
+  %.not139 = icmp eq i32 %243, 0
+  br i1 %.not139, label %244, label %280
 
-245:                                              ; preds = %235
-  br i1 %.not136, label %248, label %246
+244:                                              ; preds = %234
+  br i1 %.not136, label %247, label %245
 
-246:                                              ; preds = %245
-  %247 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %91, i32 noundef %238, ptr noundef %3, ptr noundef nonnull %4)
-  %.not154 = icmp eq i32 %247, 0
-  br i1 %.not154, label %282, label %281
+245:                                              ; preds = %244
+  %246 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %91, i32 noundef %237, ptr noundef %3, ptr noundef nonnull %4)
+  %.not154 = icmp eq i32 %246, 0
+  br i1 %.not154, label %280, label %184
 
-248:                                              ; preds = %245
-  %.in.i246 = select i1 %.not.i239, i32 %241, i32 %243
-  %249 = and i32 %.in.i246, 1
-  %.not141 = icmp eq i32 %249, 0
-  br i1 %.not141, label %252, label %250
+247:                                              ; preds = %244
+  %.in.i246 = select i1 %.not.i239, i32 %240, i32 %242
+  %248 = and i32 %.in.i246, 1
+  %.not141 = icmp eq i32 %248, 0
+  br i1 %.not141, label %251, label %249
 
-250:                                              ; preds = %248
-  %251 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %87, i32 noundef %187, ptr noundef %3, ptr noundef nonnull %4)
-  %.not153 = icmp eq i32 %251, 0
-  br i1 %.not153, label %282, label %281
+249:                                              ; preds = %247
+  %250 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %87, i32 noundef %187, ptr noundef %3, ptr noundef nonnull %4)
+  %.not153 = icmp eq i32 %250, 0
+  br i1 %.not153, label %280, label %184
 
-252:                                              ; preds = %248
-  %253 = tail call fastcc i32 @Cec4_ObjFan0IsImpliedValue(ptr noundef nonnull %1, i32 noundef 0)
-  %.not142 = icmp eq i32 %253, 0
-  br i1 %.not142, label %256, label %254
+251:                                              ; preds = %247
+  %252 = tail call fastcc i32 @Cec4_ObjFan0IsImpliedValue(ptr noundef nonnull %1, i32 noundef 0)
+  %.not142 = icmp eq i32 %252, 0
+  br i1 %.not142, label %255, label %253
 
-254:                                              ; preds = %252
-  %255 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %87, i32 noundef %187, ptr noundef %3, ptr noundef nonnull %4)
-  %.not152 = icmp eq i32 %255, 0
-  br i1 %.not152, label %282, label %281
+253:                                              ; preds = %251
+  %254 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %87, i32 noundef %187, ptr noundef %3, ptr noundef nonnull %4)
+  %.not152 = icmp eq i32 %254, 0
+  br i1 %.not152, label %280, label %184
 
-256:                                              ; preds = %252
-  %257 = tail call fastcc i32 @Cec4_ObjFan1IsImpliedValue(ptr noundef nonnull %1, i32 noundef 0)
-  %.not143 = icmp eq i32 %257, 0
-  br i1 %.not143, label %260, label %258
+255:                                              ; preds = %251
+  %256 = tail call fastcc i32 @Cec4_ObjFan1IsImpliedValue(ptr noundef nonnull %1, i32 noundef 0)
+  %.not143 = icmp eq i32 %256, 0
+  br i1 %.not143, label %259, label %257
 
-258:                                              ; preds = %256
-  %259 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %91, i32 noundef %238, ptr noundef %3, ptr noundef nonnull %4)
-  %.not151 = icmp eq i32 %259, 0
-  br i1 %.not151, label %282, label %281
+257:                                              ; preds = %255
+  %258 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %91, i32 noundef %237, ptr noundef %3, ptr noundef nonnull %4)
+  %.not151 = icmp eq i32 %258, 0
+  br i1 %.not151, label %280, label %184
 
-260:                                              ; preds = %256
-  %261 = tail call fastcc i32 @Cec4_ObjFan0IsImpliedValue(ptr noundef nonnull %1, i32 noundef 1)
-  %.not144 = icmp eq i32 %261, 0
-  br i1 %.not144, label %264, label %262
+259:                                              ; preds = %255
+  %260 = tail call fastcc i32 @Cec4_ObjFan0IsImpliedValue(ptr noundef nonnull %1, i32 noundef 1)
+  %.not144 = icmp eq i32 %260, 0
+  br i1 %.not144, label %263, label %261
 
-262:                                              ; preds = %260
-  %263 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %91, i32 noundef %238, ptr noundef %3, ptr noundef nonnull %4)
-  %.not150 = icmp eq i32 %263, 0
-  br i1 %.not150, label %282, label %281
+261:                                              ; preds = %259
+  %262 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %91, i32 noundef %237, ptr noundef %3, ptr noundef nonnull %4)
+  %.not150 = icmp eq i32 %262, 0
+  br i1 %.not150, label %280, label %184
 
-264:                                              ; preds = %260
-  %265 = tail call fastcc i32 @Cec4_ObjFan1IsImpliedValue(ptr noundef nonnull %1, i32 noundef 1)
-  %.not145 = icmp eq i32 %265, 0
-  br i1 %.not145, label %268, label %266
+263:                                              ; preds = %259
+  %264 = tail call fastcc i32 @Cec4_ObjFan1IsImpliedValue(ptr noundef nonnull %1, i32 noundef 1)
+  %.not145 = icmp eq i32 %264, 0
+  br i1 %.not145, label %267, label %265
 
-266:                                              ; preds = %264
-  %267 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %87, i32 noundef %187, ptr noundef %3, ptr noundef nonnull %4)
-  %.not149 = icmp eq i32 %267, 0
-  br i1 %.not149, label %282, label %281
+265:                                              ; preds = %263
+  %266 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %87, i32 noundef %187, ptr noundef %3, ptr noundef nonnull %4)
+  %.not149 = icmp eq i32 %266, 0
+  br i1 %.not149, label %280, label %184
 
-268:                                              ; preds = %264
-  %269 = tail call i32 @Abc_Random(i32 noundef 0) #33
-  %270 = and i32 %269, 1
-  %.not146 = icmp eq i32 %270, 0
+267:                                              ; preds = %263
+  %268 = tail call i32 @Abc_Random(i32 noundef 0) #33
+  %269 = and i32 %268, 1
+  %.not146 = icmp eq i32 %269, 0
   %.val176 = load i64, ptr %1, align 4
-  br i1 %.not146, label %276, label %271
+  br i1 %.not146, label %275, label %270
 
-271:                                              ; preds = %268
-  %272 = lshr i64 %.val176, 61
-  %273 = trunc nuw nsw i64 %272 to i32
-  %274 = and i32 %273, 1
-  %275 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %91, i32 noundef %274, ptr noundef %3, ptr noundef nonnull %4)
-  %.not148 = icmp eq i32 %275, 0
-  br i1 %.not148, label %282, label %281
+270:                                              ; preds = %267
+  %271 = lshr i64 %.val176, 61
+  %272 = trunc nuw nsw i64 %271 to i32
+  %273 = and i32 %272, 1
+  %274 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %91, i32 noundef %273, ptr noundef %3, ptr noundef nonnull %4)
+  %.not148 = icmp eq i32 %274, 0
+  br i1 %.not148, label %280, label %184
 
-276:                                              ; preds = %268
-  %277 = trunc i64 %.val176 to i32
-  %278 = lshr i32 %277, 29
-  %279 = and i32 %278, 1
-  %280 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %87, i32 noundef %279, ptr noundef %3, ptr noundef nonnull %4)
-  %.not147 = icmp eq i32 %280, 0
-  br i1 %.not147, label %282, label %281
+275:                                              ; preds = %267
+  %276 = trunc i64 %.val176 to i32
+  %277 = lshr i32 %276, 29
+  %278 = and i32 %277, 1
+  %279 = tail call i32 @Cec4_ManGeneratePatterns_rec(ptr noundef nonnull %0, ptr noundef nonnull %87, i32 noundef %278, ptr noundef %3, ptr noundef nonnull %4)
+  %.not147 = icmp eq i32 %279, 0
+  br i1 %.not147, label %280, label %184
 
-281:                                              ; preds = %250, %258, %266, %276, %271, %262, %254, %246
-  br label %282
-
-282:                                              ; preds = %276, %271, %266, %262, %258, %254, %250, %246, %233, %235, %225, %219, %205, %193, %195, %111, %184, %131, %123, %141, %161, %143, %163, %182, %165, %281, %222, %Vec_IntPush.exit193
-  %.0 = phi i32 [ 1, %Vec_IntPush.exit193 ], [ 0, %271 ], [ 0, %165 ], [ 1, %222 ], [ 0, %205 ], [ 0, %193 ], [ 0, %219 ], [ 0, %225 ], [ 1, %281 ], [ 1, %233 ], [ 0, %246 ], [ 0, %250 ], [ 0, %254 ], [ 0, %258 ], [ 0, %262 ], [ 0, %266 ], [ %121, %111 ], [ 1, %184 ], [ 0, %123 ], [ 0, %131 ], [ 0, %141 ], [ 0, %143 ], [ 0, %163 ], [ 0, %161 ], [ 0, %182 ], [ 0, %195 ], [ 1, %235 ], [ 0, %276 ]
+280:                                              ; preds = %275, %270, %265, %261, %257, %253, %249, %245, %232, %234, %224, %219, %205, %193, %195, %111, %184, %131, %123, %141, %161, %143, %163, %182, %165, %Vec_IntPush.exit193
+  %.0 = phi i32 [ 1, %Vec_IntPush.exit193 ], [ 0, %270 ], [ 0, %165 ], [ 0, %275 ], [ 0, %205 ], [ 0, %193 ], [ 0, %219 ], [ 0, %224 ], [ 1, %234 ], [ 1, %232 ], [ 0, %245 ], [ 0, %249 ], [ 0, %253 ], [ 0, %257 ], [ 0, %261 ], [ 0, %265 ], [ %121, %111 ], [ 1, %184 ], [ 0, %123 ], [ 0, %131 ], [ 0, %141 ], [ 0, %143 ], [ 0, %163 ], [ 0, %161 ], [ 0, %182 ], [ 0, %195 ]
   ret i32 %.0
 }
 

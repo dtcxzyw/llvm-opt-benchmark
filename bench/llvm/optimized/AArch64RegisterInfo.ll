@@ -3509,10 +3509,10 @@ define dso_local noundef nonnull ptr @_ZNK4llvm19AArch64RegisterInfo20getCallPre
 23:                                               ; preds = %20
   br label %_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj.exit
 
-24:                                               ; preds = %20
+24:                                               ; preds = %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit, %20
   br label %_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj.exit
 
-25:                                               ; preds = %20
+25:                                               ; preds = %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit, %20
   br label %_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj.exit
 
 26:                                               ; preds = %20
@@ -3547,13 +3547,13 @@ define dso_local noundef nonnull ptr @_ZNK4llvm19AArch64RegisterInfo20getCallPre
   br i1 %38, label %switch.lookup, label %_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj.exit
 
 _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit: ; preds = %17
-  switch i32 %2, label %44 [
+  switch i32 %2, label %42 [
     i32 97, label %39
     i32 98, label %40
     i32 102, label %_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj.exit
-    i32 111, label %41
-    i32 103, label %42
-    i32 19, label %43
+    i32 111, label %24
+    i32 103, label %25
+    i32 19, label %41
   ]
 
 39:                                               ; preds = %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit
@@ -3568,71 +3568,65 @@ _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit: ; preds = %17
   br label %_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj.exit
 
 42:                                               ; preds = %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit
-  br label %_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj.exit
-
-43:                                               ; preds = %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit
-  br label %_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj.exit
-
-44:                                               ; preds = %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit
-  %45 = getelementptr inbounds nuw i8, ptr %13, i64 1312
-  %46 = load ptr, ptr %45, align 8, !tbaa !51
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 2144
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(412536) %45) #19
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 1312
+  %44 = load ptr, ptr %43, align 8, !tbaa !51
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 2144
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(412536) %43) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %49, label %50, label %.critedge
+  br i1 %47, label %48, label %.critedge
 
-50:                                               ; preds = %44
-  %51 = load ptr, ptr %1, align 8, !tbaa !200
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 120
-  %.sroa.0.0.copyload.i = load ptr, ptr %52, align 8, !tbaa !215
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %1, align 8, !tbaa !200
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 120
+  %.sroa.0.0.copyload.i = load ptr, ptr %50, align 8, !tbaa !215
   store ptr %.sroa.0.0.copyload.i, ptr %5, align 8
-  %53 = call noundef zeroext i1 @_ZNK4llvm13AttributeList16hasAttrSomewhereENS_9Attribute8AttrKindEPj(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 74, ptr noundef null) #19
+  %51 = call noundef zeroext i1 @_ZNK4llvm13AttributeList16hasAttrSomewhereENS_9Attribute8AttrKindEPj(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 74, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %53, label %54, label %55
+  br i1 %51, label %52, label %53
 
-54:                                               ; preds = %50
+52:                                               ; preds = %48
   %_ZN4llvmL40CSR_AArch64_AAPCS_SwiftError_SCS_RegMaskE._ZN4llvmL36CSR_AArch64_AAPCS_SwiftError_RegMaskE = select i1 %7, ptr @_ZN4llvmL40CSR_AArch64_AAPCS_SwiftError_SCS_RegMaskE, ptr @_ZN4llvmL36CSR_AArch64_AAPCS_SwiftError_RegMaskE
   br label %_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj.exit
 
-.critedge:                                        ; preds = %44
+.critedge:                                        ; preds = %42
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %55
+  br label %53
 
-55:                                               ; preds = %.critedge, %50
-  switch i32 %2, label %60 [
-    i32 20, label %56
-    i32 14, label %58
-    i32 15, label %59
+53:                                               ; preds = %.critedge, %48
+  switch i32 %2, label %58 [
+    i32 20, label %54
+    i32 14, label %56
+    i32 15, label %57
   ]
 
-56:                                               ; preds = %55
-  br i1 %7, label %57, label %_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj.exit
+54:                                               ; preds = %53
+  br i1 %7, label %55, label %_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj.exit
 
-57:                                               ; preds = %56
+55:                                               ; preds = %54
   call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.241, i1 noundef zeroext true) #21
   unreachable
 
-58:                                               ; preds = %55
+56:                                               ; preds = %53
   %_ZN4llvmL35CSR_AArch64_RT_MostRegs_SCS_RegMaskE._ZN4llvmL31CSR_AArch64_RT_MostRegs_RegMaskE = select i1 %7, ptr @_ZN4llvmL35CSR_AArch64_RT_MostRegs_SCS_RegMaskE, ptr @_ZN4llvmL31CSR_AArch64_RT_MostRegs_RegMaskE
   br label %_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj.exit
 
-59:                                               ; preds = %55
+57:                                               ; preds = %53
   %_ZN4llvmL34CSR_AArch64_RT_AllRegs_SCS_RegMaskE._ZN4llvmL30CSR_AArch64_RT_AllRegs_RegMaskE = select i1 %7, ptr @_ZN4llvmL34CSR_AArch64_RT_AllRegs_SCS_RegMaskE, ptr @_ZN4llvmL30CSR_AArch64_RT_AllRegs_RegMaskE
   br label %_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj.exit
 
-60:                                               ; preds = %55
+58:                                               ; preds = %53
   %_ZN4llvmL29CSR_AArch64_AAPCS_SCS_RegMaskE._ZN4llvmL25CSR_AArch64_AAPCS_RegMaskE = select i1 %7, ptr @_ZN4llvmL29CSR_AArch64_AAPCS_SCS_RegMaskE, ptr @_ZN4llvmL25CSR_AArch64_AAPCS_RegMaskE
   br label %_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj.exit
 
 switch.lookup:                                    ; preds = %37
-  %61 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK4llvm19AArch64RegisterInfo20getCallPreservedMaskERKNS_15MachineFunctionEj, i64 %61
+  %59 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK4llvm19AArch64RegisterInfo20getCallPreservedMaskERKNS_15MachineFunctionEj, i64 %59
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj.exit
 
-_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj.exit: ; preds = %37, %switch.lookup, %33, %25, %24, %23, %22, %21, %20, %56, %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit, %60, %59, %58, %54, %43, %42, %41, %40, %39, %10, %9, %8
-  %.0 = phi ptr [ %_ZN4llvmL30CSR_AArch64_NoRegs_SCS_RegMaskE._ZN4llvmL26CSR_AArch64_NoRegs_RegMaskE, %8 ], [ %_ZN4llvmL32CSR_AArch64_NoneRegs_SCS_RegMaskE._ZN4llvmL28CSR_AArch64_NoneRegs_RegMaskE, %9 ], [ %_ZN4llvmL31CSR_AArch64_AllRegs_SCS_RegMaskE._ZN4llvmL27CSR_AArch64_AllRegs_RegMaskE, %10 ], [ @_ZN4llvmL35CSR_AArch64_AAPCS_SwiftTail_RegMaskE, %56 ], [ %_ZN4llvmL30CSR_AArch64_AAVPCS_SCS_RegMaskE._ZN4llvmL26CSR_AArch64_AAVPCS_RegMaskE, %39 ], [ %_ZN4llvmL33CSR_AArch64_SVE_AAPCS_SCS_RegMaskE._ZN4llvmL29CSR_AArch64_SVE_AAPCS_RegMaskE, %40 ], [ %_ZN4llvmL29CSR_AArch64_AAPCS_SCS_RegMaskE._ZN4llvmL25CSR_AArch64_AAPCS_RegMaskE, %60 ], [ @_ZN4llvmL65CSR_AArch64_SME_ABI_Support_Routines_PreserveMost_From_X1_RegMaskE, %41 ], [ @_ZN4llvmL65CSR_AArch64_SME_ABI_Support_Routines_PreserveMost_From_X2_RegMaskE, %42 ], [ @_ZN4llvmL37CSR_Win_AArch64_CFGuard_Check_RegMaskE, %43 ], [ %_ZN4llvmL40CSR_AArch64_AAPCS_SwiftError_SCS_RegMaskE._ZN4llvmL36CSR_AArch64_AAPCS_SwiftError_RegMaskE, %54 ], [ @_ZN4llvmL65CSR_AArch64_SME_ABI_Support_Routines_PreserveMost_From_X0_RegMaskE, %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit ], [ %_ZN4llvmL35CSR_AArch64_RT_MostRegs_SCS_RegMaskE._ZN4llvmL31CSR_AArch64_RT_MostRegs_RegMaskE, %58 ], [ %_ZN4llvmL34CSR_AArch64_RT_AllRegs_SCS_RegMaskE._ZN4llvmL30CSR_AArch64_RT_AllRegs_RegMaskE, %59 ], [ %switch.load, %switch.lookup ], [ @_ZN4llvmL33CSR_Darwin_AArch64_AAVPCS_RegMaskE, %21 ], [ @_ZN4llvmL36CSR_Darwin_AArch64_SVE_AAPCS_RegMaskE, %22 ], [ @_ZN4llvmL65CSR_AArch64_SME_ABI_Support_Routines_PreserveMost_From_X0_RegMaskE, %23 ], [ @_ZN4llvmL65CSR_AArch64_SME_ABI_Support_Routines_PreserveMost_From_X1_RegMaskE, %24 ], [ @_ZN4llvmL65CSR_AArch64_SME_ABI_Support_Routines_PreserveMost_From_X2_RegMaskE, %25 ], [ @_ZN4llvmL34CSR_Darwin_AArch64_CXX_TLS_RegMaskE, %20 ], [ @_ZN4llvmL43CSR_Darwin_AArch64_AAPCS_SwiftError_RegMaskE, %33 ], [ @_ZN4llvmL32CSR_Darwin_AArch64_AAPCS_RegMaskE, %37 ]
+_ZNK4llvm19AArch64RegisterInfo26getDarwinCallPreservedMaskERKNS_15MachineFunctionEj.exit: ; preds = %37, %switch.lookup, %33, %25, %24, %23, %22, %21, %20, %54, %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit, %58, %57, %56, %52, %41, %40, %39, %10, %9, %8
+  %.0 = phi ptr [ %_ZN4llvmL30CSR_AArch64_NoRegs_SCS_RegMaskE._ZN4llvmL26CSR_AArch64_NoRegs_RegMaskE, %8 ], [ %_ZN4llvmL32CSR_AArch64_NoneRegs_SCS_RegMaskE._ZN4llvmL28CSR_AArch64_NoneRegs_RegMaskE, %9 ], [ %_ZN4llvmL31CSR_AArch64_AllRegs_SCS_RegMaskE._ZN4llvmL27CSR_AArch64_AllRegs_RegMaskE, %10 ], [ @_ZN4llvmL35CSR_AArch64_AAPCS_SwiftTail_RegMaskE, %54 ], [ %_ZN4llvmL30CSR_AArch64_AAVPCS_SCS_RegMaskE._ZN4llvmL26CSR_AArch64_AAVPCS_RegMaskE, %39 ], [ %_ZN4llvmL33CSR_AArch64_SVE_AAPCS_SCS_RegMaskE._ZN4llvmL29CSR_AArch64_SVE_AAPCS_RegMaskE, %40 ], [ %_ZN4llvmL29CSR_AArch64_AAPCS_SCS_RegMaskE._ZN4llvmL25CSR_AArch64_AAPCS_RegMaskE, %58 ], [ %switch.load, %switch.lookup ], [ @_ZN4llvmL43CSR_Darwin_AArch64_AAPCS_SwiftError_RegMaskE, %33 ], [ @_ZN4llvmL37CSR_Win_AArch64_CFGuard_Check_RegMaskE, %41 ], [ %_ZN4llvmL40CSR_AArch64_AAPCS_SwiftError_SCS_RegMaskE._ZN4llvmL36CSR_AArch64_AAPCS_SwiftError_RegMaskE, %52 ], [ @_ZN4llvmL65CSR_AArch64_SME_ABI_Support_Routines_PreserveMost_From_X0_RegMaskE, %_ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit ], [ %_ZN4llvmL35CSR_AArch64_RT_MostRegs_SCS_RegMaskE._ZN4llvmL31CSR_AArch64_RT_MostRegs_RegMaskE, %56 ], [ %_ZN4llvmL34CSR_AArch64_RT_AllRegs_SCS_RegMaskE._ZN4llvmL30CSR_AArch64_RT_AllRegs_RegMaskE, %57 ], [ @_ZN4llvmL34CSR_Darwin_AArch64_CXX_TLS_RegMaskE, %20 ], [ @_ZN4llvmL33CSR_Darwin_AArch64_AAVPCS_RegMaskE, %21 ], [ @_ZN4llvmL36CSR_Darwin_AArch64_SVE_AAPCS_RegMaskE, %22 ], [ @_ZN4llvmL65CSR_AArch64_SME_ABI_Support_Routines_PreserveMost_From_X0_RegMaskE, %23 ], [ @_ZN4llvmL65CSR_AArch64_SME_ABI_Support_Routines_PreserveMost_From_X1_RegMaskE, %24 ], [ @_ZN4llvmL65CSR_AArch64_SME_ABI_Support_Routines_PreserveMost_From_X2_RegMaskE, %25 ], [ @_ZN4llvmL32CSR_Darwin_AArch64_AAPCS_RegMaskE, %37 ]
   ret ptr %.0
 }
 

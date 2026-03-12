@@ -553,7 +553,7 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %164, label %165, label %.thread19
 
-165:                                              ; preds = %162, %146, %101, %80, %48, %34
+165:                                              ; preds = %234, %336, %356, %404, %407, %224, %398, %162, %146, %101, %80, %48, %34
   br label %.thread19
 
 166:                                              ; preds = %.thread16, %.thread, %135, %132, %129, %126, %121, %113, %110, %102, %97, %86, %50
@@ -705,7 +705,7 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
   store i32 -1, ptr %233, align 8
   call void @console_unlock() #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %419
+  br label %165
 
 234:                                              ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -718,7 +718,7 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
   %238 = and i64 %237, 4294967295
   %239 = icmp eq i64 %238, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %239, label %419, label %.thread19
+  br i1 %239, label %165, label %.thread19
 
 240:                                              ; preds = %22
   %241 = load i32, ptr @fg_console, align 4
@@ -881,7 +881,7 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
 
 336:                                              ; preds = %329
   %337 = tail call i32 @set_console(i32 noundef %333) #7
-  br label %419
+  br label %165
 
 338:                                              ; preds = %22
   br i1 %23, label %339, label %.thread19
@@ -923,7 +923,7 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
 
 356:                                              ; preds = %354
   tail call fastcc void @vt_disallocate_all()
-  br label %419
+  br label %165
 
 357:                                              ; preds = %354
   %358 = add nsw i64 %2, -1
@@ -988,7 +988,7 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
 
 398:                                              ; preds = %395
   tail call void @console_unlock() #7
-  br label %419
+  br label %165
 
 399:                                              ; preds = %22
   br i1 %23, label %400, label %.thread19
@@ -1003,7 +1003,7 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
 
 404:                                              ; preds = %402
   store i8 1, ptr @vt_dont_switch, align 1
-  br label %419
+  br label %165
 
 405:                                              ; preds = %22
   %406 = tail call zeroext i1 @capable(i32 noundef 26) #7
@@ -1011,7 +1011,7 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
 
 407:                                              ; preds = %405
   store i8 0, ptr @vt_dont_switch, align 1
-  br label %419
+  br label %165
 
 408:                                              ; preds = %22
   %409 = getelementptr inbounds nuw i8, ptr %10, i64 520
@@ -1029,15 +1029,12 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
   %418 = tail call fastcc i32 @vt_event_wait_ioctl(ptr noundef %11), !range !13
   br label %.thread19
 
-419:                                              ; preds = %398, %224, %407, %404, %356, %336, %234
-  br label %.thread19
-
 .thread19.fold.split:                             ; preds = %212, %22
   br label %.thread19
 
-.thread19:                                        ; preds = %22, %22, %.thread19.fold.split, %.thread20, %364, %374, %363, %184, %179, %174, %169, %185, %141, %138, %139, %96, %83, %57, %36, %28, %60, %66, %80, %84, %162, %165, %.thread27, %419, %417, %408, %405, %402, %400, %399, %357, %352, %349, %348, %345, %342, %341, %339, %338, %329, %326, %325, %.loopexit, %278, %240, %234, %215, %212, %166
-  %420 = phi i32 [ %418, %417 ], [ %416, %408 ], [ 0, %419 ], [ %401, %400 ], [ 0, %185 ], [ %362, %357 ], [ %351, %349 ], [ %347, %345 ], [ %340, %339 ], [ %324, %.loopexit ], [ -14, %234 ], [ %.ph26, %.thread27 ], [ %216, %215 ], [ %167, %166 ], [ %213, %212 ], [ %285, %278 ], [ -14, %240 ], [ -1, %325 ], [ -6, %326 ], [ %334, %329 ], [ -1, %338 ], [ -1, %341 ], [ -6, %342 ], [ -1, %348 ], [ -6, %352 ], [ -1, %399 ], [ -1, %402 ], [ -1, %405 ], [ -515, %.thread20 ], [ 0, %165 ], [ -22, %141 ], [ -1, %138 ], [ -1, %139 ], [ -1, %96 ], [ -22, %22 ], [ -22, %22 ], [ -1, %83 ], [ -22, %57 ], [ -1, %36 ], [ -1, %28 ], [ %65, %60 ], [ %71, %66 ], [ -14, %80 ], [ %85, %84 ], [ -14, %162 ], [ -1, %184 ], [ -1, %179 ], [ -1, %174 ], [ -1, %169 ], [ -14, %364 ], [ -14, %374 ], [ -1, %363 ], [ -515, %.thread19.fold.split ]
-  ret i32 %420
+.thread19:                                        ; preds = %22, %22, %.thread19.fold.split, %.thread20, %364, %374, %363, %184, %179, %174, %169, %185, %141, %138, %139, %96, %83, %57, %36, %28, %60, %66, %80, %84, %162, %165, %.thread27, %417, %408, %405, %402, %400, %399, %357, %352, %349, %348, %345, %342, %341, %339, %338, %329, %326, %325, %.loopexit, %278, %240, %234, %215, %212, %166
+  %419 = phi i32 [ %418, %417 ], [ %416, %408 ], [ -515, %.thread19.fold.split ], [ %401, %400 ], [ 0, %185 ], [ %362, %357 ], [ %351, %349 ], [ %347, %345 ], [ %340, %339 ], [ %324, %.loopexit ], [ -14, %234 ], [ %.ph26, %.thread27 ], [ %216, %215 ], [ %167, %166 ], [ %213, %212 ], [ %285, %278 ], [ -14, %240 ], [ -1, %325 ], [ -6, %326 ], [ %334, %329 ], [ -1, %338 ], [ -1, %341 ], [ -6, %342 ], [ -1, %348 ], [ -6, %352 ], [ -1, %399 ], [ -1, %402 ], [ -1, %405 ], [ -515, %.thread20 ], [ 0, %165 ], [ -22, %141 ], [ -1, %138 ], [ -1, %139 ], [ -1, %96 ], [ -22, %22 ], [ -22, %22 ], [ -1, %83 ], [ -22, %57 ], [ -1, %36 ], [ -1, %28 ], [ %65, %60 ], [ %71, %66 ], [ -14, %80 ], [ %85, %84 ], [ -14, %162 ], [ -1, %184 ], [ -1, %179 ], [ -1, %174 ], [ -1, %169 ], [ -14, %364 ], [ -14, %374 ], [ -1, %363 ]
+  ret i32 %419
 }
 
 ; Function Attrs: null_pointer_is_valid

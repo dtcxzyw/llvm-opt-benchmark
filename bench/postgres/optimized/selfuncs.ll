@@ -6617,23 +6617,23 @@ define internal fastcc double @scalarineqsel(ptr noundef readonly captures(none)
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %13, label %64
+  br i1 %.not, label %13, label %63
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %5, align 8
   %.not63 = icmp eq ptr %14, null
-  br i1 %.not63, label %85, label %15
+  br i1 %.not63, label %84, label %15
 
 15:                                               ; preds = %13
   %16 = load i32, ptr %14, align 4
   %17 = icmp eq i32 %16, 6
-  br i1 %17, label %18, label %85
+  br i1 %17, label %18, label %84
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %20 = load i16, ptr %19, align 8
   %21 = icmp eq i16 %20, -1
-  br i1 %21, label %22, label %85
+  br i1 %21, label %22, label %84
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -6641,7 +6641,7 @@ define internal fastcc double @scalarineqsel(ptr noundef readonly captures(none)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 192
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %85, label %28
+  br i1 %27, label %84, label %28
 
 28:                                               ; preds = %22
   %29 = inttoptr i64 %6 to ptr
@@ -6688,48 +6688,45 @@ define internal fastcc double @scalarineqsel(ptr noundef readonly captures(none)
   %59 = fsub double 1.000000e+00, %.056
   %.157 = select i1 %2, double %59, double %.056
   %60 = fcmp olt double %.157, 0.000000e+00
-  br i1 %60, label %85, label %61
+  br i1 %60, label %84, label %61
 
 61:                                               ; preds = %53
   %62 = fcmp ogt double %.157, 1.000000e+00
-  br i1 %62, label %63, label %85
+  br i1 %62, label %83, label %84
 
-63:                                               ; preds = %61
-  br label %85
+63:                                               ; preds = %8
+  %64 = getelementptr i8, ptr %12, i64 16
+  %.val = load ptr, ptr %64, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %.val, i64 22
+  %66 = load i8, ptr %65, align 2
+  %67 = zext i8 %66 to i64
+  %68 = getelementptr inbounds nuw i8, ptr %.val, i64 %67
+  %69 = tail call i32 @get_opcode(i32 noundef %1) #11
+  call void @fmgr_info(i32 noundef %69, ptr noundef nonnull %9) #11
+  %70 = call double @mcv_selectivity(ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef %4, i64 noundef %6, i1 noundef zeroext true, ptr noundef nonnull %10)
+  %71 = call double @ineq_histogram_selectivity(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %1, ptr noundef nonnull %9, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i64 noundef %6, i32 noundef %7)
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %73 = load float, ptr %72, align 4
+  %74 = fpext float %73 to double
+  %75 = fsub double 1.000000e+00, %74
+  %76 = load double, ptr %10, align 8
+  %77 = fsub double %75, %76
+  %78 = fcmp ult double %71, 0.000000e+00
+  %. = select i1 %78, double 5.000000e-01, double %71
+  %.3 = fmul double %., %77
+  %79 = fadd double %70, %.3
+  %80 = fcmp olt double %79, 0.000000e+00
+  br i1 %80, label %84, label %81
 
-64:                                               ; preds = %8
-  %65 = getelementptr i8, ptr %12, i64 16
-  %.val = load ptr, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %.val, i64 22
-  %67 = load i8, ptr %66, align 2
-  %68 = zext i8 %67 to i64
-  %69 = getelementptr inbounds nuw i8, ptr %.val, i64 %68
-  %70 = tail call i32 @get_opcode(i32 noundef %1) #11
-  call void @fmgr_info(i32 noundef %70, ptr noundef nonnull %9) #11
-  %71 = call double @mcv_selectivity(ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef %4, i64 noundef %6, i1 noundef zeroext true, ptr noundef nonnull %10)
-  %72 = call double @ineq_histogram_selectivity(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %1, ptr noundef nonnull %9, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i64 noundef %6, i32 noundef %7)
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %74 = load float, ptr %73, align 4
-  %75 = fpext float %74 to double
-  %76 = fsub double 1.000000e+00, %75
-  %77 = load double, ptr %10, align 8
-  %78 = fsub double %76, %77
-  %79 = fcmp ult double %72, 0.000000e+00
-  %. = select i1 %79, double 5.000000e-01, double %72
-  %.3 = fmul double %., %78
-  %80 = fadd double %71, %.3
-  %81 = fcmp olt double %80, 0.000000e+00
-  br i1 %81, label %85, label %82
+81:                                               ; preds = %63
+  %82 = fcmp ogt double %79, 1.000000e+00
+  br i1 %82, label %83, label %84
 
-82:                                               ; preds = %64
-  %83 = fcmp ogt double %80, 1.000000e+00
-  br i1 %83, label %84, label %85
+83:                                               ; preds = %61, %81
+  br label %84
 
-84:                                               ; preds = %82
-  br label %85
-
-85:                                               ; preds = %84, %82, %64, %13, %15, %18, %22, %53, %61, %63
-  %.1 = phi double [ 0x3FD5555555555555, %13 ], [ 0.000000e+00, %53 ], [ 1.000000e+00, %22 ], [ %.157, %61 ], [ 1.000000e+00, %63 ], [ 0x3FD5555555555555, %18 ], [ 0x3FD5555555555555, %15 ], [ %80, %82 ], [ 1.000000e+00, %84 ], [ 0.000000e+00, %64 ]
+84:                                               ; preds = %83, %81, %63, %13, %15, %18, %22, %53, %61
+  %.1 = phi double [ 0x3FD5555555555555, %13 ], [ 0.000000e+00, %53 ], [ 1.000000e+00, %22 ], [ %.157, %61 ], [ 0.000000e+00, %63 ], [ 0x3FD5555555555555, %18 ], [ 0x3FD5555555555555, %15 ], [ %79, %81 ], [ 1.000000e+00, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret double %.1

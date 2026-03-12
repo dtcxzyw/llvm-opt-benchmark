@@ -3236,157 +3236,153 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN2tf8Executor12_corun_untilIZNS0_12_corun_graphIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrINS_4NodeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEEvRNS_6WorkerEPS6_T_SI_EUlvE_EEvSG_OSI_(ptr noundef nonnull align 128 dereferenceable(712) %0, ptr noundef nonnull align 128 dereferenceable(2432) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %14 = load ptr, ptr %2, align 8, !tbaa !277
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 144
-  %16 = load atomic i64, ptr %15 acquire, align 8
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %.thread, label %.lr.ph
+  %4 = load ptr, ptr %2, align 8, !tbaa !277
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
+  %6 = load atomic i64, ptr %5 acquire, align 8
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %.thread, label %.lr.ph
 
-.critedge:                                        ; preds = %_ZN2tf16BoundedTaskQueueIPNS_4NodeELm8EE3popEv.exit
-  tail call void @_ZN2tf8Executor7_invokeERNS_6WorkerEPNS_4NodeE(ptr noundef nonnull align 128 dereferenceable(712) %0, ptr noundef nonnull align 128 dereferenceable(2432) %1, ptr noundef nonnull %.1.i)
-  %18 = load ptr, ptr %2, align 8, !tbaa !277
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 144
-  %20 = load atomic i64, ptr %19 acquire, align 8
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %.thread, label %.lr.ph.backedge
+.lr.ph:                                           ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  br label %18
 
-.lr.ph.backedge:                                  ; preds = %.critedge, %.loopexit
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %3, %.lr.ph.backedge
-  %22 = load atomic i64, ptr %5 monotonic, align 128
-  %23 = add nsw i64 %22, -1
-  store atomic i64 %23, ptr %5 monotonic, align 128
+18:                                               ; preds = %.lr.ph, %76
+  %19 = load atomic i64, ptr %9 monotonic, align 128
+  %20 = add nsw i64 %19, -1
+  store atomic i64 %20, ptr %9 monotonic, align 128
   fence seq_cst
-  %24 = load atomic i64, ptr %4 monotonic, align 128
-  %.not.not.i = icmp slt i64 %24, %22
-  br i1 %.not.not.i, label %25, label %.sink.split.i
+  %21 = load atomic i64, ptr %8 monotonic, align 128
+  %.not.not.i = icmp slt i64 %21, %19
+  br i1 %.not.not.i, label %22, label %.sink.split.i
 
-25:                                               ; preds = %.lr.ph
-  %26 = and i64 %23, 255
-  %27 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %26
-  %28 = load atomic i64, ptr %27 monotonic, align 8
-  %.0.i.i.i = inttoptr i64 %28 to ptr
-  %29 = icmp eq i64 %24, %23
-  br i1 %29, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i, label %_ZN2tf16BoundedTaskQueueIPNS_4NodeELm8EE3popEv.exit
+22:                                               ; preds = %18
+  %23 = and i64 %20, 255
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %23
+  %25 = load atomic i64, ptr %24 monotonic, align 8
+  %.0.i.i.i = inttoptr i64 %25 to ptr
+  %26 = icmp eq i64 %21, %20
+  br i1 %26, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i, label %_ZN2tf16BoundedTaskQueueIPNS_4NodeELm8EE3popEv.exit
 
-_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i: ; preds = %25
-  %30 = cmpxchg ptr %4, i64 %23, i64 %22 seq_cst monotonic, align 8
-  %31 = extractvalue { i64, i1 } %30, 1
-  %spec.select.i = select i1 %31, ptr %.0.i.i.i, ptr null
+_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i: ; preds = %22
+  %27 = cmpxchg ptr %8, i64 %20, i64 %19 seq_cst monotonic, align 8
+  %28 = extractvalue { i64, i1 } %27, 1
+  %spec.select.i = select i1 %28, ptr %.0.i.i.i, ptr null
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i, %.lr.ph
-  %.1.ph.i = phi ptr [ %spec.select.i, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i ], [ null, %.lr.ph ]
-  store atomic i64 %22, ptr %5 monotonic, align 128
+.sink.split.i:                                    ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i, %18
+  %.1.ph.i = phi ptr [ %spec.select.i, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i ], [ null, %18 ]
+  store atomic i64 %19, ptr %9 monotonic, align 128
   br label %_ZN2tf16BoundedTaskQueueIPNS_4NodeELm8EE3popEv.exit
 
-_ZN2tf16BoundedTaskQueueIPNS_4NodeELm8EE3popEv.exit: ; preds = %25, %.sink.split.i
-  %.1.i = phi ptr [ %.0.i.i.i, %25 ], [ %.1.ph.i, %.sink.split.i ]
-  %.not.not = icmp eq ptr %.1.i, null
-  br i1 %.not.not, label %.preheader.preheader, label %.critedge
+_ZN2tf16BoundedTaskQueueIPNS_4NodeELm8EE3popEv.exit: ; preds = %22, %.sink.split.i
+  %.1.i = phi ptr [ %.0.i.i.i, %22 ], [ %.1.ph.i, %.sink.split.i ]
+  %.not = icmp eq ptr %.1.i, null
+  br i1 %.not, label %.preheader.preheader, label %76
 
 .preheader.preheader:                             ; preds = %_ZN2tf16BoundedTaskQueueIPNS_4NodeELm8EE3popEv.exit
-  %.pre = load i64, ptr %7, align 8, !tbaa !280
+  %.pre = load i64, ptr %11, align 8, !tbaa !280
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %80
-  %32 = phi i64 [ %81, %80 ], [ %.pre, %.preheader.preheader ]
-  %.017 = phi i64 [ %75, %80 ], [ 0, %.preheader.preheader ]
-  %33 = load i64, ptr %1, align 128, !tbaa !286
-  %34 = icmp eq i64 %33, %32
-  br i1 %34, label %35, label %50
+.preheader:                                       ; preds = %.preheader.preheader, %74
+  %29 = phi i64 [ %75, %74 ], [ %.pre, %.preheader.preheader ]
+  %.017 = phi i64 [ %69, %74 ], [ 0, %.preheader.preheader ]
+  %30 = load i64, ptr %1, align 128, !tbaa !286
+  %31 = icmp eq i64 %30, %29
+  br i1 %31, label %32, label %47
 
-35:                                               ; preds = %.preheader
-  %36 = load atomic i64, ptr %9 acquire, align 128
+32:                                               ; preds = %.preheader
+  %33 = load atomic i64, ptr %13 acquire, align 128
   fence seq_cst
-  %37 = load atomic i64, ptr %10 acquire, align 128
-  %38 = icmp slt i64 %36, %37
-  br i1 %38, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i23, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread
+  %34 = load atomic i64, ptr %14 acquire, align 128
+  %35 = icmp slt i64 %33, %34
+  br i1 %35, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i23, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread
 
-_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i23: ; preds = %35
-  %39 = load atomic i64, ptr %11 acquire, align 8
-  %.0.i.i.i24 = inttoptr i64 %39 to ptr
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i24, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !245
-  %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i24, i64 8
-  %43 = load i64, ptr %42, align 8, !tbaa !244
-  %44 = and i64 %43, %36
-  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
-  %46 = load atomic i64, ptr %45 monotonic, align 8
-  %47 = add nsw i64 %36, 1
-  %48 = cmpxchg ptr %9, i64 %36, i64 %47 seq_cst monotonic, align 8
-  %49 = extractvalue { i64, i1 } %48, 1
-  br i1 %49, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread
+_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i23: ; preds = %32
+  %36 = load atomic i64, ptr %15 acquire, align 8
+  %.0.i.i.i24 = inttoptr i64 %36 to ptr
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i24, i64 16
+  %38 = load ptr, ptr %37, align 8, !tbaa !245
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i24, i64 8
+  %40 = load i64, ptr %39, align 8, !tbaa !244
+  %41 = and i64 %40, %33
+  %42 = getelementptr inbounds [8 x i8], ptr %38, i64 %41
+  %43 = load atomic i64, ptr %42 monotonic, align 8
+  %44 = add nsw i64 %33, 1
+  %45 = cmpxchg ptr %13, i64 %33, i64 %44 seq_cst monotonic, align 8
+  %46 = extractvalue { i64, i1 } %45, 1
+  br i1 %46, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread
 
-50:                                               ; preds = %.preheader
-  %51 = load ptr, ptr %8, align 8, !tbaa !225
-  %52 = getelementptr inbounds nuw [2432 x i8], ptr %51, i64 %32
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 128
-  %54 = load atomic i64, ptr %53 acquire, align 8
+47:                                               ; preds = %.preheader
+  %48 = load ptr, ptr %12, align 8, !tbaa !225
+  %49 = getelementptr inbounds nuw [2432 x i8], ptr %48, i64 %29
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 128
+  %51 = load atomic i64, ptr %50 acquire, align 8
   fence seq_cst
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 256
-  %56 = load atomic i64, ptr %55 acquire, align 8
-  %57 = icmp slt i64 %54, %56
-  br i1 %57, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i26, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 256
+  %53 = load atomic i64, ptr %52 acquire, align 8
+  %54 = icmp slt i64 %51, %53
+  br i1 %54, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i26, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread
 
-_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i26: ; preds = %50
-  %58 = getelementptr inbounds nuw i8, ptr %52, i64 384
-  %59 = and i64 %54, 255
-  %60 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %59
-  %61 = load atomic i64, ptr %60 monotonic, align 8
-  %62 = add nsw i64 %54, 1
-  %63 = cmpxchg ptr %53, i64 %54, i64 %62 seq_cst monotonic, align 8
-  %64 = extractvalue { i64, i1 } %63, 1
-  br i1 %64, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread
+_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i26: ; preds = %47
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 384
+  %56 = and i64 %51, 255
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %56
+  %58 = load atomic i64, ptr %57 monotonic, align 8
+  %59 = add nsw i64 %51, 1
+  %60 = cmpxchg ptr %50, i64 %51, i64 %59 seq_cst monotonic, align 8
+  %61 = extractvalue { i64, i1 } %60, 1
+  br i1 %61, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread
 
 _ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit: ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i26, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i23
-  %.in = phi i64 [ %46, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i23 ], [ %61, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i26 ]
+  %.in = phi i64 [ %43, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i23 ], [ %58, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i26 ]
   %.not21 = icmp eq i64 %.in, 0
-  br i1 %.not21, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread, label %.loopexit
+  br i1 %.not21, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread, label %62
 
-.loopexit:                                        ; preds = %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit
-  %65 = inttoptr i64 %.in to ptr
-  tail call void @_ZN2tf8Executor7_invokeERNS_6WorkerEPNS_4NodeE(ptr noundef nonnull align 128 dereferenceable(712) %0, ptr noundef nonnull align 128 dereferenceable(2432) %1, ptr noundef nonnull %65)
-  %66 = load ptr, ptr %2, align 8, !tbaa !277
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 144
-  %68 = load atomic i64, ptr %67 acquire, align 8
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %.thread, label %.lr.ph.backedge
+62:                                               ; preds = %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit
+  %63 = inttoptr i64 %.in to ptr
+  br label %76
 
-_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread: ; preds = %50, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i26, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i23, %35, %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit
-  %70 = load ptr, ptr %2, align 8, !tbaa !277
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 144
-  %72 = load atomic i64, ptr %71 acquire, align 8
-  %73 = icmp eq i64 %72, 0
-  br i1 %73, label %.thread, label %74
+_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread: ; preds = %47, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i26, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i23, %32, %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit
+  %64 = load ptr, ptr %2, align 8, !tbaa !277
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 144
+  %66 = load atomic i64, ptr %65 acquire, align 8
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %.thread, label %68
 
-74:                                               ; preds = %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread
-  %75 = add i64 %.017, 1
-  %76 = load i64, ptr %0, align 128, !tbaa !178
-  %77 = icmp ugt i64 %.017, %76
-  br i1 %77, label %78, label %80
+68:                                               ; preds = %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread
+  %69 = add i64 %.017, 1
+  %70 = load i64, ptr %0, align 128, !tbaa !178
+  %71 = icmp ugt i64 %.017, %70
+  br i1 %71, label %72, label %74
 
-78:                                               ; preds = %74
-  %79 = tail call noundef i32 @sched_yield() #38
-  br label %80
+72:                                               ; preds = %68
+  %73 = tail call noundef i32 @sched_yield() #38
+  br label %74
 
-80:                                               ; preds = %78, %74
-  %81 = tail call noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(16) %12)
-  store i64 %81, ptr %7, align 8, !tbaa !280
+74:                                               ; preds = %72, %68
+  %75 = tail call noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(16) %16)
+  store i64 %75, ptr %11, align 8, !tbaa !280
   br label %.preheader
 
-.thread:                                          ; preds = %.loopexit, %.critedge, %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread, %3
+76:                                               ; preds = %_ZN2tf16BoundedTaskQueueIPNS_4NodeELm8EE3popEv.exit, %62
+  %.sink = phi ptr [ %63, %62 ], [ %.1.i, %_ZN2tf16BoundedTaskQueueIPNS_4NodeELm8EE3popEv.exit ]
+  tail call void @_ZN2tf8Executor7_invokeERNS_6WorkerEPNS_4NodeE(ptr noundef nonnull align 128 dereferenceable(712) %0, ptr noundef nonnull align 128 dereferenceable(2432) %1, ptr noundef nonnull %.sink)
+  %77 = load ptr, ptr %2, align 8, !tbaa !277
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 144
+  %79 = load atomic i64, ptr %78 acquire, align 8
+  %80 = icmp eq i64 %79, 0
+  br i1 %80, label %.thread, label %18
+
+.thread:                                          ; preds = %76, %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5stealEv.exit.thread, %3
   ret void
 }
 

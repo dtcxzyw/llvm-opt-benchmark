@@ -5437,7 +5437,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit: ; preds = %_
   %477 = icmp ult i64 %476, %474
   br i1 %477, label %.invoke363, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
-.invoke363:                                       ; preds = %.loopexit169, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit, %_ZL7strstrwPKcS0_.exit121
+.invoke363:                                       ; preds = %.loopexit169, %_ZL7strstrwPKcS0_.exit121, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.26) #28
           to label %.cont364 unwind label %.loopexit.split-lp173.loopexit.split-lp
 

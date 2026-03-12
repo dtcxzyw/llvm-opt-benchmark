@@ -5681,8 +5681,8 @@ define dso_local i32 @kill_running_job_by_node_name(ptr noundef %0) local_unname
   %7 = load ptr, ptr @job_list, align 8
   %8 = tail call ptr @list_iterator_create(ptr noundef %7) #27
   %9 = tail call ptr @list_next(ptr noundef %8) #27
-  %.not147 = icmp eq ptr %9, null
-  br i1 %.not147, label %._crit_edge.thread, label %.lr.ph
+  %.not146 = icmp eq ptr %9, null
+  br i1 %.not146, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %6
   tail call void @list_iterator_destroy(ptr noundef %8) #27
@@ -5694,9 +5694,9 @@ define dso_local i32 @kill_running_job_by_node_name(ptr noundef %0) local_unname
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 272
   br label %13
 
-13:                                               ; preds = %.lr.ph, %_het_job_on_node.exit.thread142
-  %14 = phi ptr [ %9, %.lr.ph ], [ %234, %_het_job_on_node.exit.thread142 ]
-  %.0113148 = phi i32 [ 0, %.lr.ph ], [ %.1, %_het_job_on_node.exit.thread142 ]
+13:                                               ; preds = %.lr.ph, %_het_job_on_node.exit.thread141
+  %14 = phi ptr [ %9, %.lr.ph ], [ %234, %_het_job_on_node.exit.thread141 ]
+  %.0113147 = phi i32 [ 0, %.lr.ph ], [ %.1, %_het_job_on_node.exit.thread141 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 440
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %10, align 8
@@ -5709,13 +5709,13 @@ define dso_local i32 @kill_running_job_by_node_name(ptr noundef %0) local_unname
   %21 = getelementptr i8, ptr %14, i64 584
   %.val.i = load ptr, ptr %21, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %_het_job_on_node.exit.thread142, label %22
+  br i1 %.not.i.i, label %_het_job_on_node.exit.thread141, label %22
 
 22:                                               ; preds = %20
   %23 = sext i32 %17 to i64
   %24 = call i32 @slurm_bit_test(ptr noundef nonnull %.val.i, i64 noundef %23) #27
   %.not4.i.i = icmp eq i32 %24, 0
-  br i1 %.not4.i.i, label %_het_job_on_node.exit.thread142, label %_het_job_on_node.exit.thread
+  br i1 %.not4.i.i, label %_het_job_on_node.exit.thread141, label %_het_job_on_node.exit.thread
 
 25:                                               ; preds = %13
   %26 = load ptr, ptr @job_hash, align 8
@@ -5745,13 +5745,13 @@ define dso_local i32 @kill_running_job_by_node_name(ptr noundef %0) local_unname
   %37 = getelementptr i8, ptr %14, i64 584
   %.val25.i = load ptr, ptr %37, align 8
   %.not.i30.i = icmp eq ptr %.val25.i, null
-  br i1 %.not.i30.i, label %_het_job_on_node.exit.thread142, label %38
+  br i1 %.not.i30.i, label %_het_job_on_node.exit.thread141, label %38
 
 38:                                               ; preds = %.loopexit45.i
   %39 = sext i32 %17 to i64
   %40 = call i32 @slurm_bit_test(ptr noundef nonnull %.val25.i, i64 noundef %39) #27
   %.not4.i31.i = icmp eq i32 %40, 0
-  br i1 %.not4.i31.i, label %_het_job_on_node.exit.thread142, label %_het_job_on_node.exit.thread
+  br i1 %.not4.i31.i, label %_het_job_on_node.exit.thread141, label %_het_job_on_node.exit.thread
 
 find_job_record.exit.i:                           ; preds = %.lr.ph.i.i
   %41 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 384
@@ -5764,13 +5764,13 @@ find_job_record.exit.i:                           ; preds = %.lr.ph.i.i
   %45 = getelementptr i8, ptr %14, i64 584
   %.val26.i = load ptr, ptr %45, align 8
   %.not.i34.i = icmp eq ptr %.val26.i, null
-  br i1 %.not.i34.i, label %_het_job_on_node.exit.thread142, label %46
+  br i1 %.not.i34.i, label %_het_job_on_node.exit.thread141, label %46
 
 46:                                               ; preds = %43
   %47 = sext i32 %17 to i64
   %48 = call i32 @slurm_bit_test(ptr noundef nonnull %.val26.i, i64 noundef %47) #27
   %.not4.i35.i = icmp eq i32 %48, 0
-  br i1 %.not4.i35.i, label %_het_job_on_node.exit.thread142, label %_het_job_on_node.exit.thread
+  br i1 %.not4.i35.i, label %_het_job_on_node.exit.thread141, label %_het_job_on_node.exit.thread
 
 49:                                               ; preds = %find_job_record.exit.i
   %50 = call ptr @list_iterator_create(ptr noundef nonnull %42) #27
@@ -5808,7 +5808,7 @@ find_job_record.exit.i:                           ; preds = %.lr.ph.i.i
 _het_job_on_node.exit:                            ; preds = %52, %.loopexit.sink.split.i
   call void @list_iterator_destroy(ptr noundef %50) #27
   %.b = load i1, ptr @_het_job_on_node.result, align 1
-  br i1 %.b, label %_het_job_on_node.exit.thread, label %_het_job_on_node.exit.thread142, !llvm.loop !31
+  br i1 %.b, label %_het_job_on_node.exit.thread, label %_het_job_on_node.exit.thread141, !llvm.loop !31
 
 _het_job_on_node.exit.thread:                     ; preds = %46, %22, %38, %_het_job_on_node.exit
   %63 = getelementptr inbounds nuw i8, ptr %14, i64 448
@@ -5839,10 +5839,10 @@ _het_job_on_node.exit.thread:                     ; preds = %46, %22, %38, %_het
   %78 = zext i32 %77 to i64
   %79 = call i32 @slurm_bit_test(ptr noundef %76, i64 noundef %78) #27
   %.not130 = icmp eq i32 %79, 0
-  br i1 %.not130, label %_het_job_on_node.exit.thread142, label %80, !llvm.loop !31
+  br i1 %.not130, label %_het_job_on_node.exit.thread141, label %80, !llvm.loop !31
 
 80:                                               ; preds = %74
-  %81 = add nsw i32 %.0113148, 1
+  %81 = add nsw i32 %.0113147, 1
   %82 = load ptr, ptr %75, align 8
   %83 = load i32, ptr %10, align 8
   %84 = zext i32 %83 to i64
@@ -5872,25 +5872,25 @@ _het_job_on_node.exit.thread:                     ; preds = %46, %22, %38, %_het
 95:                                               ; preds = %93
   %96 = add i16 %94, -1
   store i16 %96, ptr %11, align 8
-  br label %_het_job_on_node.exit.thread142
+  br label %_het_job_on_node.exit.thread141
 
 97:                                               ; preds = %93
   %98 = load ptr, ptr %12, align 8
   %99 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.48, ptr noundef %98, ptr noundef nonnull %14) #27
-  br label %_het_job_on_node.exit.thread142
+  br label %_het_job_on_node.exit.thread141
 
 100:                                              ; preds = %70
   %101 = and i32 %71, 255
   %102 = icmp eq i32 %101, 1
   %or.cond = or i1 %66, %102
-  br i1 %or.cond, label %103, label %_het_job_on_node.exit.thread142
+  br i1 %or.cond, label %103, label %_het_job_on_node.exit.thread141
 
 103:                                              ; preds = %100
-  %104 = add nsw i32 %.0113148, 1
+  %104 = add nsw i32 %.0113147, 1
   %105 = getelementptr inbounds nuw i8, ptr %14, i64 216
   %106 = load ptr, ptr %105, align 8
   %.not123 = icmp eq ptr %106, null
-  br i1 %.not123, label %.thread145, label %107
+  br i1 %.not123, label %.thread144, label %107
 
 107:                                              ; preds = %103
   %108 = getelementptr inbounds nuw i8, ptr %14, i64 452
@@ -5955,19 +5955,19 @@ _het_job_on_node.exit.thread:                     ; preds = %46, %22, %38, %_het
   %140 = getelementptr inbounds nuw i8, ptr %14, i64 336
   call void @gres_stepmgr_job_build_details(ptr noundef %136, ptr noundef %137, ptr noundef nonnull %138, ptr noundef nonnull %139, ptr noundef nonnull %140) #27
   call void @job_post_resize_acctg(ptr noundef nonnull %14)
-  br label %_het_job_on_node.exit.thread142
+  br label %_het_job_on_node.exit.thread141
 
 141:                                              ; preds = %111, %107
   %142 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %143 = load i16, ptr %142, align 8
   %.not126 = icmp eq i16 %143, 0
-  br i1 %.not126, label %.thread145, label %144
+  br i1 %.not126, label %.thread144, label %144
 
 144:                                              ; preds = %141
   %145 = getelementptr inbounds nuw i8, ptr %106, i64 408
   %146 = load i16, ptr %145, align 8
   %.not128 = icmp eq i16 %146, 0
-  br i1 %.not128, label %.thread145, label %147
+  br i1 %.not128, label %.thread144, label %147
 
 147:                                              ; preds = %144
   call void @srun_node_fail(ptr noundef nonnull %14, ptr noundef %0) #27
@@ -6076,22 +6076,22 @@ _set_requeued_job_pending_completing.exit:        ; preds = %build_cg_bitmap.exi
 195:                                              ; preds = %_set_requeued_job_pending_completing.exit
   %196 = call i64 @bit_ffs(ptr noundef nonnull %194) #27
   %197 = icmp eq i64 %196, -1
-  br i1 %197, label %198, label %_het_job_on_node.exit.thread142
+  br i1 %197, label %198, label %_het_job_on_node.exit.thread141
 
 198:                                              ; preds = %195, %_set_requeued_job_pending_completing.exit
   call void @batch_requeue_fini(ptr noundef nonnull %14)
-  br label %_het_job_on_node.exit.thread142
+  br label %_het_job_on_node.exit.thread141
 
-.thread145:                                       ; preds = %141, %103, %144
+.thread144:                                       ; preds = %141, %103, %144
   %199 = call i32 @get_log_level() #27
   %200 = icmp sgt i32 %199, 2
   br i1 %200, label %201, label %202
 
-201:                                              ; preds = %.thread145
+201:                                              ; preds = %.thread144
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.51, ptr noundef nonnull %14, ptr noundef %0) #27
   br label %202
 
-202:                                              ; preds = %201, %.thread145
+202:                                              ; preds = %201, %.thread144
   call void @srun_node_fail(ptr noundef nonnull %14, ptr noundef %0) #27
   call void @job_state_set(ptr noundef nonnull %14, i32 noundef 32775) #27
   %203 = call ptr @xstrdup(ptr noundef %0) #27
@@ -6152,22 +6152,22 @@ build_cg_bitmap.exit139:                          ; preds = %211, %.sink.split.i
   br label %231
 
 231:                                              ; preds = %build_cg_bitmap.exit139, %222
-  %.sink150 = phi i64 [ %224, %222 ], [ %3, %build_cg_bitmap.exit139 ]
+  %.sink149 = phi i64 [ %224, %222 ], [ %3, %build_cg_bitmap.exit139 ]
   %232 = getelementptr inbounds nuw i8, ptr %14, i64 232
-  store i64 %.sink150, ptr %232, align 8
+  store i64 %.sink149, ptr %232, align 8
   %233 = getelementptr inbounds nuw i8, ptr %14, i64 252
   store i32 1, ptr %233, align 4
   call void @job_completion_logger(ptr noundef nonnull %14, i1 noundef zeroext false)
   call void @deallocate_nodes(ptr noundef nonnull %14, i1 noundef zeroext false, i1 noundef zeroext %66, i1 noundef zeroext false) #27
-  br label %_het_job_on_node.exit.thread142
+  br label %_het_job_on_node.exit.thread141
 
-_het_job_on_node.exit.thread142:                  ; preds = %43, %46, %.loopexit45.i, %38, %20, %22, %97, %95, %134, %195, %198, %231, %100, %74, %_het_job_on_node.exit
-  %.1 = phi i32 [ %.0113148, %74 ], [ %.0113148, %_het_job_on_node.exit ], [ %81, %95 ], [ %81, %97 ], [ %104, %198 ], [ %104, %195 ], [ %104, %231 ], [ %104, %134 ], [ %.0113148, %100 ], [ %.0113148, %22 ], [ %.0113148, %20 ], [ %.0113148, %38 ], [ %.0113148, %.loopexit45.i ], [ %.0113148, %46 ], [ %.0113148, %43 ]
+_het_job_on_node.exit.thread141:                  ; preds = %46, %43, %38, %.loopexit45.i, %22, %20, %97, %95, %134, %195, %198, %231, %100, %74, %_het_job_on_node.exit
+  %.1 = phi i32 [ %.0113147, %74 ], [ %.0113147, %_het_job_on_node.exit ], [ %81, %95 ], [ %81, %97 ], [ %104, %198 ], [ %104, %195 ], [ %104, %231 ], [ %104, %134 ], [ %.0113147, %100 ], [ %.0113147, %20 ], [ %.0113147, %22 ], [ %.0113147, %.loopexit45.i ], [ %.0113147, %38 ], [ %.0113147, %43 ], [ %.0113147, %46 ]
   %234 = call ptr @list_next(ptr noundef %8) #27
   %.not = icmp eq ptr %234, null
   br i1 %.not, label %._crit_edge, label %13
 
-._crit_edge:                                      ; preds = %_het_job_on_node.exit.thread142
+._crit_edge:                                      ; preds = %_het_job_on_node.exit.thread141
   call void @list_iterator_destroy(ptr noundef %8) #27
   %.not121 = icmp eq i32 %.1, 0
   br i1 %.not121, label %236, label %235

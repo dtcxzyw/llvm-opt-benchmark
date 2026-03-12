@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local double @_php_math_round(double noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [40 x i8], align 16
   %or.cond = tail call i1 @llvm.is.fpclass.f64(double %0, i32 615)
-  br i1 %or.cond, label %124, label %5
+  br i1 %or.cond, label %123, label %5
 
 5:                                                ; preds = %3
   %6 = tail call i32 @llvm.smax.i32(i32 %1, i32 -2147483647)
@@ -85,11 +85,11 @@ php_intpow10.exit:                                ; preds = %9, %12
   %.1 = select i1 %32, double %.0, double %.046
   %33 = tail call double @llvm.fabs.f64(double %.1)
   %34 = fcmp ult double %33, 1.000000e+16
-  br i1 %34, label %35, label %124
+  br i1 %34, label %35, label %123
 
 35:                                               ; preds = %27
   %36 = tail call double @llvm.fabs.f64(double %0)
-  switch i32 %2, label %110 [
+  switch i32 %2, label %109 [
     i32 1, label %php_round_get_basic_edge_case.exit.i
     i32 2, label %php_round_get_basic_edge_case.exit81.i
     i32 5, label %php_round_get_zero_edge_case.exit.i
@@ -188,81 +188,78 @@ php_round_get_basic_edge_case.exit82.i:           ; preds = %35
 
 85:                                               ; preds = %php_round_get_basic_edge_case.exit82.i
   %86 = fcmp oeq double %36, %80
-  br i1 %86, label %87, label %92, !prof !10
+  br i1 %86, label %87, label %108, !prof !10
 
 87:                                               ; preds = %85
   %88 = frem nnan double %.1, 2.000000e+00
   %89 = fcmp oeq double %88, 0.000000e+00
   %90 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.1)
   %91 = fadd double %.1, %90
-  br i1 %89, label %92, label %php_round_helper.exit
-
-92:                                               ; preds = %87, %85
-  br label %php_round_helper.exit
+  br i1 %89, label %108, label %php_round_helper.exit
 
 php_round_get_basic_edge_case.exit83.i:           ; preds = %35
-  %93 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %.1)
-  %94 = fadd double %.1, %93
-  %95 = fdiv double %94, %.0.i
-  %96 = fmul double %.0.i, %94
-  %.sink94.i = select i1 %28, double %95, double %96
-  %97 = tail call double @llvm.fabs.f64(double %.sink94.i)
-  %98 = fcmp ogt double %36, %97
-  br i1 %98, label %99, label %102
+  %92 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %.1)
+  %93 = fadd double %.1, %92
+  %94 = fdiv double %93, %.0.i
+  %95 = fmul double %.0.i, %93
+  %.sink94.i = select i1 %28, double %94, double %95
+  %96 = tail call double @llvm.fabs.f64(double %.sink94.i)
+  %97 = fcmp ogt double %36, %96
+  br i1 %97, label %98, label %101
 
-99:                                               ; preds = %php_round_get_basic_edge_case.exit83.i
-  %100 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.1)
-  %101 = fadd double %.1, %100
+98:                                               ; preds = %php_round_get_basic_edge_case.exit83.i
+  %99 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.1)
+  %100 = fadd double %.1, %99
   br label %php_round_helper.exit
 
-102:                                              ; preds = %php_round_get_basic_edge_case.exit83.i
-  %103 = fcmp oeq double %36, %97
-  br i1 %103, label %104, label %109, !prof !10
+101:                                              ; preds = %php_round_get_basic_edge_case.exit83.i
+  %102 = fcmp oeq double %36, %96
+  br i1 %102, label %103, label %108, !prof !10
 
-104:                                              ; preds = %102
-  %105 = frem nnan double %.1, 2.000000e+00
-  %106 = fcmp une double %105, 0.000000e+00
-  %107 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.1)
-  %108 = fadd double %.1, %107
-  br i1 %106, label %109, label %php_round_helper.exit
+103:                                              ; preds = %101
+  %104 = frem nnan double %.1, 2.000000e+00
+  %105 = fcmp une double %104, 0.000000e+00
+  %106 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.1)
+  %107 = fadd double %.1, %106
+  br i1 %105, label %108, label %php_round_helper.exit
 
-109:                                              ; preds = %104, %102
+108:                                              ; preds = %103, %101, %87, %85
   br label %php_round_helper.exit
 
-110:                                              ; preds = %35
+109:                                              ; preds = %35
   unreachable
 
-php_round_helper.exit:                            ; preds = %35, %php_round_get_basic_edge_case.exit.i, %43, %php_round_get_basic_edge_case.exit81.i, %52, %php_round_get_zero_edge_case.exit.i, %60, %php_round_get_zero_edge_case.exit84.i, %67, %php_round_get_zero_edge_case.exit85.i, %73, %82, %87, %92, %99, %104, %109
-  %.0.i49 = phi double [ %45, %43 ], [ %108, %104 ], [ %54, %52 ], [ %.1, %php_round_get_basic_edge_case.exit.i ], [ %61, %60 ], [ %.1, %php_round_get_basic_edge_case.exit81.i ], [ %68, %67 ], [ %.1, %php_round_get_zero_edge_case.exit.i ], [ %.1, %php_round_get_zero_edge_case.exit84.i ], [ %75, %73 ], [ %.1, %35 ], [ %84, %82 ], [ %.1, %92 ], [ %91, %87 ], [ %101, %99 ], [ %.1, %109 ], [ %.1, %php_round_get_zero_edge_case.exit85.i ]
-  %111 = icmp samesign ult i32 %7, 23
-  br i1 %111, label %112, label %117
+php_round_helper.exit:                            ; preds = %35, %php_round_get_basic_edge_case.exit.i, %43, %php_round_get_basic_edge_case.exit81.i, %52, %php_round_get_zero_edge_case.exit.i, %60, %php_round_get_zero_edge_case.exit84.i, %67, %php_round_get_zero_edge_case.exit85.i, %73, %82, %87, %98, %103, %108
+  %.0.i49 = phi double [ %45, %43 ], [ %107, %103 ], [ %54, %52 ], [ %.1, %php_round_get_basic_edge_case.exit.i ], [ %61, %60 ], [ %.1, %php_round_get_basic_edge_case.exit81.i ], [ %68, %67 ], [ %.1, %php_round_get_zero_edge_case.exit.i ], [ %.1, %php_round_get_zero_edge_case.exit84.i ], [ %75, %73 ], [ %.1, %35 ], [ %84, %82 ], [ %.1, %php_round_get_zero_edge_case.exit85.i ], [ %91, %87 ], [ %100, %98 ], [ %.1, %108 ]
+  %110 = icmp samesign ult i32 %7, 23
+  br i1 %110, label %111, label %116
 
-112:                                              ; preds = %php_round_helper.exit
-  br i1 %28, label %113, label %115
+111:                                              ; preds = %php_round_helper.exit
+  br i1 %28, label %112, label %114
 
-113:                                              ; preds = %112
-  %114 = fdiv double %.0.i49, %.0.i
-  br label %124
+112:                                              ; preds = %111
+  %113 = fdiv double %.0.i49, %.0.i
+  br label %123
 
-115:                                              ; preds = %112
-  %116 = fmul double %.0.i, %.0.i49
-  br label %124
+114:                                              ; preds = %111
+  %115 = fmul double %.0.i, %.0.i49
+  br label %123
 
-117:                                              ; preds = %php_round_helper.exit
+116:                                              ; preds = %php_round_helper.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %118 = sub nsw i32 0, %6
-  %119 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %4, i64 noundef 39, ptr noundef nonnull @.str, double noundef %.0.i49, i32 noundef %118) #16
-  %120 = getelementptr inbounds nuw i8, ptr %4, i64 39
-  store i8 0, ptr %120, align 1, !tbaa !11
-  %121 = call double @zend_strtod(ptr noundef nonnull %4, ptr noundef null) #16
-  %122 = call double @llvm.fabs.f64(double %121)
-  %123 = fcmp ueq double %122, 0x7FF0000000000000
-  %. = select i1 %123, double %0, double %121
+  %117 = sub nsw i32 0, %6
+  %118 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %4, i64 noundef 39, ptr noundef nonnull @.str, double noundef %.0.i49, i32 noundef %117) #16
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 39
+  store i8 0, ptr %119, align 1, !tbaa !11
+  %120 = call double @zend_strtod(ptr noundef nonnull %4, ptr noundef null) #16
+  %121 = call double @llvm.fabs.f64(double %120)
+  %122 = fcmp ueq double %121, 0x7FF0000000000000
+  %. = select i1 %122, double %0, double %120
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %124
+  br label %123
 
-124:                                              ; preds = %117, %115, %113, %27, %3
-  %.047 = phi double [ %0, %27 ], [ %0, %3 ], [ %114, %113 ], [ %116, %115 ], [ %., %117 ]
+123:                                              ; preds = %116, %114, %112, %27, %3
+  %.047 = phi double [ %0, %27 ], [ %0, %3 ], [ %113, %112 ], [ %115, %114 ], [ %., %116 ]
   ret double %.047
 }
 

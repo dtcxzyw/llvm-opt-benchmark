@@ -885,12 +885,12 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
 
 232:                                              ; preds = %231, %230
   %233 = tail call signext i8 @get_typtype(i32 noundef %.076) #8
-  switch i8 %233, label %239 [
+  switch i8 %233, label %get_type_func_class.exit.thread [
     i8 99, label %select.unfold
-    i8 98, label %get_type_func_class.exit.thread
-    i8 101, label %get_type_func_class.exit.thread
-    i8 114, label %get_type_func_class.exit.thread
-    i8 109, label %get_type_func_class.exit.thread
+    i8 98, label %.fold.split.i
+    i8 101, label %.fold.split.i
+    i8 114, label %.fold.split.i
+    i8 109, label %.fold.split.i
     i8 100, label %234
     i8 112, label %238
   ]
@@ -908,45 +908,42 @@ define internal fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef
     i32 2275, label %.fold.split.i
   ]
 
-239:                                              ; preds = %232
-  br label %get_type_func_class.exit.thread
-
-.fold.split.i:                                    ; preds = %238, %238
+.fold.split.i:                                    ; preds = %238, %238, %232, %232, %232, %232
   br label %get_type_func_class.exit.thread
 
 select.unfold:                                    ; preds = %234, %232
   %.096.ph = phi i32 [ %.076, %232 ], [ %235, %234 ]
   %.0.i95.ph101 = phi i32 [ 1, %232 ], [ 2, %234 ]
-  br i1 %.not89, label %get_type_func_class.exit.thread, label %240
+  br i1 %.not89, label %get_type_func_class.exit.thread, label %239
 
-240:                                              ; preds = %select.unfold
-  %241 = tail call ptr @lookup_rowtype_tupdesc_copy(i32 noundef %.096.ph, i32 noundef -1) #8
-  store ptr %241, ptr %4, align 8
+239:                                              ; preds = %select.unfold
+  %240 = tail call ptr @lookup_rowtype_tupdesc_copy(i32 noundef %.096.ph, i32 noundef -1) #8
+  store ptr %240, ptr %4, align 8
   br label %get_type_func_class.exit.thread
 
 get_type_func_class.exit:                         ; preds = %238
   %.not90 = icmp eq ptr %2, null
-  br i1 %.not90, label %get_type_func_class.exit.thread, label %242
+  br i1 %.not90, label %get_type_func_class.exit.thread, label %241
 
-242:                                              ; preds = %get_type_func_class.exit
-  %243 = load i32, ptr %2, align 4
-  %244 = icmp eq i32 %243, 382
-  br i1 %244, label %245, label %get_type_func_class.exit.thread
+241:                                              ; preds = %get_type_func_class.exit
+  %242 = load i32, ptr %2, align 4
+  %243 = icmp eq i32 %242, 382
+  br i1 %243, label %244, label %get_type_func_class.exit.thread
 
-245:                                              ; preds = %242
-  %246 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %247 = load ptr, ptr %246, align 8
-  %.not91 = icmp eq ptr %247, null
+244:                                              ; preds = %241
+  %245 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %246 = load ptr, ptr %245, align 8
+  %.not91 = icmp eq ptr %246, null
   %brmerge = or i1 %.not89, %.not91
   %.mux = select i1 %.not91, i32 3, i32 1
-  br i1 %brmerge, label %get_type_func_class.exit.thread, label %248
+  br i1 %brmerge, label %get_type_func_class.exit.thread, label %247
 
-248:                                              ; preds = %245
-  store ptr %247, ptr %4, align 8
+247:                                              ; preds = %244
+  store ptr %246, ptr %4, align 8
   br label %get_type_func_class.exit.thread
 
-get_type_func_class.exit.thread:                  ; preds = %240, %select.unfold, %248, %242, %get_type_func_class.exit, %245, %239, %234, %.fold.split.i, %232, %232, %232, %232, %238, %217, %.loopexit107, %.sink.split
-  %.0 = phi i32 [ %.075.ph, %.sink.split ], [ 1, %217 ], [ 3, %.loopexit107 ], [ 3, %242 ], [ %.0.i95.ph101, %240 ], [ %.0.i95.ph101, %select.unfold ], [ 1, %248 ], [ 3, %get_type_func_class.exit ], [ %.mux, %245 ], [ 0, %.fold.split.i ], [ 0, %234 ], [ 4, %239 ], [ 0, %232 ], [ 0, %232 ], [ 0, %232 ], [ 0, %232 ], [ 4, %238 ]
+get_type_func_class.exit.thread:                  ; preds = %239, %select.unfold, %247, %241, %get_type_func_class.exit, %244, %.fold.split.i, %234, %238, %232, %217, %.loopexit107, %.sink.split
+  %.0 = phi i32 [ %.075.ph, %.sink.split ], [ 1, %217 ], [ 3, %.loopexit107 ], [ 3, %241 ], [ %.0.i95.ph101, %239 ], [ %.0.i95.ph101, %select.unfold ], [ 1, %247 ], [ 3, %get_type_func_class.exit ], [ %.mux, %244 ], [ 0, %234 ], [ 0, %.fold.split.i ], [ 4, %238 ], [ 4, %232 ]
   tail call void @ReleaseSysCache(ptr noundef nonnull %9) #8
   ret i32 %.0
 }
@@ -1139,12 +1136,12 @@ list_length.exit.split.split:                     ; preds = %list_length.exit, %
 
 94:                                               ; preds = %93, %91
   %95 = tail call signext i8 @get_typtype(i32 noundef %89) #8
-  switch i8 %95, label %102 [
+  switch i8 %95, label %101 [
     i8 99, label %get_type_func_class.exit
-    i8 98, label %get_type_func_class.exit.thread
-    i8 101, label %get_type_func_class.exit.thread
-    i8 114, label %get_type_func_class.exit.thread
-    i8 109, label %get_type_func_class.exit.thread
+    i8 98, label %.fold.split.i
+    i8 101, label %.fold.split.i
+    i8 114, label %.fold.split.i
+    i8 109, label %.fold.split.i
     i8 100, label %96
     i8 112, label %100
   ]
@@ -1163,29 +1160,26 @@ list_length.exit.split.split:                     ; preds = %list_length.exit, %
     i32 2275, label %.fold.split.i
   ]
 
-101:                                              ; preds = %100
+101:                                              ; preds = %100, %94
   br label %get_type_func_class.exit.thread
 
-102:                                              ; preds = %94
-  br label %get_type_func_class.exit.thread
-
-.fold.split.i:                                    ; preds = %100, %100
+.fold.split.i:                                    ; preds = %100, %100, %94, %94, %94, %94
   br label %get_type_func_class.exit.thread
 
 get_type_func_class.exit:                         ; preds = %94, %96
   %.0107 = phi i32 [ %97, %96 ], [ %89, %94 ]
   %.0.i = phi i32 [ %..i, %96 ], [ 1, %94 ]
-  %103 = icmp ne i32 %.0.i, 0
-  %or.cond5 = and i1 %92, %103
-  br i1 %or.cond5, label %104, label %get_type_func_class.exit.thread
+  %102 = icmp ne i32 %.0.i, 0
+  %or.cond5 = and i1 %92, %102
+  br i1 %or.cond5, label %103, label %get_type_func_class.exit.thread
 
-104:                                              ; preds = %get_type_func_class.exit
-  %105 = tail call ptr @lookup_rowtype_tupdesc_copy(i32 noundef %.0107, i32 noundef -1) #8
-  store ptr %105, ptr %2, align 8
+103:                                              ; preds = %get_type_func_class.exit
+  %104 = tail call ptr @lookup_rowtype_tupdesc_copy(i32 noundef %.0107, i32 noundef -1) #8
+  store ptr %104, ptr %2, align 8
   br label %get_type_func_class.exit.thread
 
-get_type_func_class.exit.thread:                  ; preds = %94, %94, %94, %94, %.fold.split.i, %100, %101, %102, %104, %get_type_func_class.exit, %6, %10, %85, %84, %88, %87, %62, %63
-  %.0 = phi i32 [ 3, %87 ], [ 1, %62 ], [ 1, %63 ], [ 1, %84 ], [ 1, %85 ], [ 3, %88 ], [ %9, %6 ], [ %14, %10 ], [ %.0.i, %104 ], [ %.0.i, %get_type_func_class.exit ], [ 0, %.fold.split.i ], [ 3, %100 ], [ 4, %102 ], [ 4, %101 ], [ 0, %94 ], [ 0, %94 ], [ 0, %94 ], [ 0, %94 ]
+get_type_func_class.exit.thread:                  ; preds = %.fold.split.i, %100, %101, %103, %get_type_func_class.exit, %6, %10, %85, %84, %88, %87, %62, %63
+  %.0 = phi i32 [ 3, %87 ], [ 1, %62 ], [ 1, %63 ], [ 1, %84 ], [ 1, %85 ], [ 3, %88 ], [ %9, %6 ], [ %14, %10 ], [ %.0.i, %103 ], [ %.0.i, %get_type_func_class.exit ], [ 0, %.fold.split.i ], [ 3, %100 ], [ 4, %101 ]
   ret i32 %.0
 }
 
@@ -2832,7 +2826,7 @@ list_length.exit:                                 ; preds = %9
   store i32 -1, ptr %34, align 8
   br label %57
 
-.fold.split.i:                                    ; preds = %8, %8, %2, %2, %2, %2, %4
+.fold.split.i:                                    ; preds = %2, %2, %2, %2, %8, %8, %4
   %35 = icmp eq ptr %1, null
   br i1 %35, label %36, label %list_length.exit36
 

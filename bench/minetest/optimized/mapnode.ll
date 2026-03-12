@@ -1212,10 +1212,10 @@ if.else.i.i:                                      ; preds = %_ZNK14NodeDefManage
   %drawtype.i.i = getelementptr inbounds nuw i8, ptr %cond-lvalue.i.i.i.i, i64 1538
   %242 = load i8, ptr %drawtype.i.i, align 2, !tbaa !59
   switch i8 %242, label %_ZNK7MapNode17getWallMountedDirEPK14NodeDefManager.exit [
-    i8 8, label %sw.bb2.i
-    i8 7, label %sw.bb2.i
-    i8 9, label %sw.bb2.i
-    i8 17, label %sw.bb2.i
+    i8 8, label %sw.bb8.i
+    i8 7, label %sw.bb8.i
+    i8 9, label %sw.bb8.i
+    i8 17, label %sw.bb8.i
   ]
 
 _ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i: ; preds = %_ZNK14NodeDefManager3getERK7MapNode.exit.i.i, %_ZNK14NodeDefManager3getERK7MapNode.exit.i.i
@@ -1224,15 +1224,12 @@ _ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i: ; preds = %_ZNK14NodeDef
   %244 = and i8 %243, 7
   switch i8 %244, label %_ZNK7MapNode17getWallMountedDirEPK14NodeDefManager.exit [
     i8 7, label %sw.bb8.i
-    i8 1, label %sw.bb2.i
+    i8 1, label %sw.bb8.i
     i8 2, label %sw.bb3.i
     i8 3, label %sw.bb4.i
     i8 4, label %sw.bb5.i
     i8 5, label %sw.bb6.i
   ]
-
-sw.bb2.i:                                         ; preds = %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i, %if.else.i.i, %if.else.i.i, %if.else.i.i, %if.else.i.i
-  br label %_ZNK7MapNode17getWallMountedDirEPK14NodeDefManager.exit
 
 sw.bb3.i:                                         ; preds = %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i
   br label %_ZNK7MapNode17getWallMountedDirEPK14NodeDefManager.exit
@@ -1246,17 +1243,17 @@ sw.bb5.i:                                         ; preds = %_ZNK7MapNode14getWa
 sw.bb6.i:                                         ; preds = %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i
   br label %_ZNK7MapNode17getWallMountedDirEPK14NodeDefManager.exit
 
-sw.bb8.i:                                         ; preds = %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i
+sw.bb8.i:                                         ; preds = %if.else.i.i, %if.else.i.i, %if.else.i.i, %if.else.i.i, %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i, %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i
   br label %_ZNK7MapNode17getWallMountedDirEPK14NodeDefManager.exit
 
-_ZNK7MapNode17getWallMountedDirEPK14NodeDefManager.exit: ; preds = %sw.bb8.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i, %if.else.i.i
-  %cmp11.i1641 = phi i1 [ false, %sw.bb6.i ], [ false, %sw.bb5.i ], [ true, %sw.bb4.i ], [ true, %sw.bb3.i ], [ true, %sw.bb2.i ], [ true, %sw.bb8.i ], [ true, %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i ], [ true, %if.else.i.i ]
-  %retval.sroa.17.0.i = phi i16 [ -1, %sw.bb6.i ], [ 1, %sw.bb5.i ], [ 0, %sw.bb4.i ], [ 0, %sw.bb3.i ], [ 0, %sw.bb2.i ], [ 0, %sw.bb8.i ], [ 0, %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i ], [ 0, %if.else.i.i ]
-  %cmp7.i1859 = phi i1 [ true, %sw.bb6.i ], [ true, %sw.bb5.i ], [ true, %sw.bb4.i ], [ true, %sw.bb3.i ], [ false, %sw.bb2.i ], [ false, %sw.bb8.i ], [ false, %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i ], [ false, %if.else.i.i ]
-  %retval.sroa.9.0.i = phi i16 [ 0, %sw.bb6.i ], [ 0, %sw.bb5.i ], [ 0, %sw.bb4.i ], [ 0, %sw.bb3.i ], [ -1, %sw.bb2.i ], [ -1, %sw.bb8.i ], [ 1, %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i ], [ 1, %if.else.i.i ]
-  %cmp.i1529 = phi i1 [ true, %sw.bb6.i ], [ true, %sw.bb5.i ], [ false, %sw.bb4.i ], [ false, %sw.bb3.i ], [ true, %sw.bb2.i ], [ true, %sw.bb8.i ], [ true, %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i ], [ true, %if.else.i.i ]
-  %cond = phi i1 [ false, %sw.bb6.i ], [ false, %sw.bb5.i ], [ false, %sw.bb4.i ], [ true, %sw.bb3.i ], [ false, %sw.bb2.i ], [ false, %sw.bb8.i ], [ false, %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i ], [ false, %if.else.i.i ]
-  %retval.sroa.0.0.i = phi i16 [ 0, %sw.bb6.i ], [ 0, %sw.bb5.i ], [ -1, %sw.bb4.i ], [ 1, %sw.bb3.i ], [ 0, %sw.bb2.i ], [ 0, %sw.bb8.i ], [ 0, %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i ], [ 0, %if.else.i.i ]
+_ZNK7MapNode17getWallMountedDirEPK14NodeDefManager.exit: ; preds = %sw.bb8.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.bb3.i, %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i, %if.else.i.i
+  %cmp11.i1641 = phi i1 [ false, %sw.bb6.i ], [ false, %sw.bb5.i ], [ true, %sw.bb4.i ], [ true, %sw.bb3.i ], [ true, %if.else.i.i ], [ true, %sw.bb8.i ], [ true, %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i ]
+  %retval.sroa.17.0.i = phi i16 [ -1, %sw.bb6.i ], [ 1, %sw.bb5.i ], [ 0, %sw.bb4.i ], [ 0, %sw.bb3.i ], [ 0, %if.else.i.i ], [ 0, %sw.bb8.i ], [ 0, %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i ]
+  %cmp7.i1859 = phi i1 [ true, %sw.bb6.i ], [ true, %sw.bb5.i ], [ true, %sw.bb4.i ], [ true, %sw.bb3.i ], [ false, %if.else.i.i ], [ false, %sw.bb8.i ], [ false, %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i ]
+  %retval.sroa.9.0.i = phi i16 [ 0, %sw.bb6.i ], [ 0, %sw.bb5.i ], [ 0, %sw.bb4.i ], [ 0, %sw.bb3.i ], [ 1, %if.else.i.i ], [ -1, %sw.bb8.i ], [ 1, %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i ]
+  %cmp.i1529 = phi i1 [ true, %sw.bb6.i ], [ true, %sw.bb5.i ], [ false, %sw.bb4.i ], [ false, %sw.bb3.i ], [ true, %if.else.i.i ], [ true, %sw.bb8.i ], [ true, %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i ]
+  %cond = phi i1 [ false, %sw.bb6.i ], [ false, %sw.bb5.i ], [ false, %sw.bb4.i ], [ true, %sw.bb3.i ], [ false, %if.else.i.i ], [ false, %sw.bb8.i ], [ false, %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i ]
+  %retval.sroa.0.0.i = phi i16 [ 0, %sw.bb6.i ], [ 0, %sw.bb5.i ], [ -1, %sw.bb4.i ], [ 1, %sw.bb3.i ], [ 0, %if.else.i.i ], [ 0, %sw.bb8.i ], [ 0, %_ZNK7MapNode14getWallMountedEPK14NodeDefManager.exit.i ]
   br i1 %cmp.i.i.i.i1506, label %land.lhs.true.i.i.i1523, label %cond.false.i.i.i1514
 
 land.lhs.true.i.i.i1523:                          ; preds = %_ZNK7MapNode17getWallMountedDirEPK14NodeDefManager.exit

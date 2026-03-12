@@ -20261,7 +20261,7 @@ define dso_local noundef ptr @_ZN5clang11DeclContext17getPrimaryContextEv(ptr no
 _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i: ; preds = %17, %15
   %.0.copyload.i.i.i1.i = phi i64 [ %.0.copyload.i.i.i.pre.i.i, %17 ], [ %.0.copyload.i.i.i.i, %15 ]
   %22 = icmp ugt i64 %.0.copyload.i.i.i1.i, 7
-  br i1 %22, label %_ZN5clang17ObjCInterfaceDecl13getDefinitionEv.exit, label %select.unfold
+  br i1 %22, label %_ZN5clang17ObjCInterfaceDecl13getDefinitionEv.exit, label %select.unfold69
 
 _ZN5clang17ObjCInterfaceDecl13getDefinitionEv.exit: ; preds = %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i
   %23 = and i64 %.0.copyload.i.i.i1.i, -8
@@ -20269,10 +20269,7 @@ _ZN5clang17ObjCInterfaceDecl13getDefinitionEv.exit: ; preds = %_ZNK5clang17ObjCI
   %25 = load ptr, ptr %24, align 8, !tbaa !682
   %.not50 = icmp eq ptr %25, null
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  br i1 %.not50, label %select.unfold, label %.thread75
-
-select.unfold:                                    ; preds = %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i, %_ZN5clang17ObjCInterfaceDecl13getDefinitionEv.exit
-  br label %.thread75
+  br i1 %.not50, label %select.unfold69, label %.thread75
 
 27:                                               ; preds = %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -20301,7 +20298,7 @@ _ZN5clang16ObjCProtocolDecl13getDefinitionEv.exit: ; preds = %_ZNK5clang16ObjCPr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   br i1 %.not48, label %select.unfold69, label %.thread75
 
-select.unfold69:                                  ; preds = %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i, %_ZN5clang16ObjCProtocolDecl13getDefinitionEv.exit
+select.unfold69:                                  ; preds = %_ZN5clang17ObjCInterfaceDecl13getDefinitionEv.exit, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i, %_ZN5clang16ObjCProtocolDecl13getDefinitionEv.exit
   br label %.thread75
 
 39:                                               ; preds = %1
@@ -20338,8 +20335,8 @@ select.unfold69:                                  ; preds = %_ZNK5clang16ObjCPro
   %spec.select83 = select i1 %.not86, ptr %0, ptr %56
   br label %.thread75
 
-.thread75:                                        ; preds = %45, %51, %_ZN5clang16ObjCProtocolDecl13getDefinitionEv.exit, %select.unfold69, %_ZN5clang17ObjCInterfaceDecl13getDefinitionEv.exit, %select.unfold, %39, %41, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %10, %5
-  %.0 = phi ptr [ %0, %1 ], [ %0, %select.unfold69 ], [ %0, %1 ], [ %0, %1 ], [ %spec.select, %5 ], [ %spec.select5, %10 ], [ %0, %1 ], [ %0, %1 ], [ %0, %39 ], [ %44, %41 ], [ %38, %_ZN5clang16ObjCProtocolDecl13getDefinitionEv.exit ], [ %0, %select.unfold ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %26, %_ZN5clang17ObjCInterfaceDecl13getDefinitionEv.exit ], [ %spec.select83, %51 ], [ %0, %45 ]
+.thread75:                                        ; preds = %45, %51, %_ZN5clang16ObjCProtocolDecl13getDefinitionEv.exit, %select.unfold69, %_ZN5clang17ObjCInterfaceDecl13getDefinitionEv.exit, %39, %41, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %10, %5
+  %.0 = phi ptr [ %0, %1 ], [ %0, %select.unfold69 ], [ %0, %1 ], [ %0, %1 ], [ %spec.select, %5 ], [ %spec.select5, %10 ], [ %0, %1 ], [ %0, %1 ], [ %0, %39 ], [ %44, %41 ], [ %38, %_ZN5clang16ObjCProtocolDecl13getDefinitionEv.exit ], [ %0, %45 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %26, %_ZN5clang17ObjCInterfaceDecl13getDefinitionEv.exit ], [ %spec.select83, %51 ]
   ret ptr %.0
 }
 

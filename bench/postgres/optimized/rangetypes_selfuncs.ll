@@ -572,8 +572,8 @@ switch.lookup64:                                  ; preds = %38
   %switch.load66 = load i64, ptr %switch.gep65, align 8
   br label %default_range_selectivity.exit
 
-default_range_selectivity.exit:                   ; preds = %38, %switch.lookup64, %26, %switch.lookup, %55, %58, %44, %47, %260
-  %.028 = phi i64 [ 4576918229304087675, %55 ], [ %263, %260 ], [ 0, %44 ], [ %switch.load, %switch.lookup ], [ 0, %47 ], [ 4576918229304087675, %58 ], [ 4576918229304087675, %26 ], [ %switch.load66, %switch.lookup64 ], [ 4576918229304087675, %38 ]
+default_range_selectivity.exit:                   ; preds = %26, %38, %switch.lookup64, %switch.lookup, %55, %58, %44, %47, %260
+  %.028 = phi i64 [ 4576918229304087675, %55 ], [ %263, %260 ], [ 0, %44 ], [ %switch.load, %switch.lookup ], [ 0, %47 ], [ 4576918229304087675, %58 ], [ %switch.load66, %switch.lookup64 ], [ 4576918229304087675, %38 ], [ 4576918229304087675, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

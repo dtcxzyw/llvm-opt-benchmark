@@ -6229,7 +6229,7 @@ switch.lookup:                                    ; preds = %1
   br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
 
 "_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit": ; preds = %switch.lookup, %16, %15, %14, %13, %12, %11, %8, %1
-  %.sroa.0.0 = phi i8 [ 26, %11 ], [ 26, %12 ], [ 26, %1 ], [ 26, %8 ], [ 26, %13 ], [ -117, %15 ], [ 118, %14 ], [ -121, %16 ], [ %switch.load, %switch.lookup ]
+  %.sroa.0.0 = phi i8 [ 26, %12 ], [ 26, %13 ], [ 26, %1 ], [ 26, %11 ], [ -117, %15 ], [ 118, %14 ], [ -121, %16 ], [ %switch.load, %switch.lookup ], [ 26, %8 ]
   ret i8 %.sroa.0.0
 }
 

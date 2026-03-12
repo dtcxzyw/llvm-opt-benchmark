@@ -73348,10 +73348,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %43 = ptrtoint ptr %42 to i64
   %44 = urem i64 %43, %22
   %.not17.i.i.i.i.i = icmp eq i64 %44, %23
-  br i1 %.not17.i.i.i.i.i, label %37, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !522
-
-..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %40
-  br label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit", !llvm.loop !522
+  br i1 %.not17.i.i.i.i.i, label %37, label %..loopexit_crit_edge21.i.i.i.i23.i, !llvm.loop !522
 
 _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit.i: ; preds = %37, %15
   %45 = add nsw i32 %5, 1
@@ -73428,10 +73425,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %84 = ptrtoint ptr %83 to i64
   %85 = urem i64 %84, %59
   %.not17.i.i.i.i10.i = icmp eq i64 %85, %62
-  br i1 %.not17.i.i.i.i10.i, label %78, label %..loopexit_crit_edge21.i.i.i.i11.i, !llvm.loop !522
-
-..loopexit_crit_edge21.i.i.i.i11.i:               ; preds = %81
-  br label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit", !llvm.loop !522
+  br i1 %.not17.i.i.i.i10.i, label %78, label %..loopexit_crit_edge21.i.i.i.i23.i, !llvm.loop !522
 
 _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit16.i: ; preds = %78, %53
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -73512,7 +73506,7 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %.not17.i.i.i.i22.i = icmp eq i64 %128, %108
   br i1 %.not17.i.i.i.i22.i, label %121, label %..loopexit_crit_edge21.i.i.i.i23.i, !llvm.loop !522
 
-..loopexit_crit_edge21.i.i.i.i23.i:               ; preds = %124
+..loopexit_crit_edge21.i.i.i.i23.i:               ; preds = %40, %81, %124
   br label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit", !llvm.loop !522
 
 _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit28.i: ; preds = %121, %97
@@ -73591,8 +73585,8 @@ _ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1
   %164 = icmp ne ptr %.sroa.06.1.i.i36.i, null
   br label %"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit"
 
-"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit": ; preds = %.lr.ph.i.i.i.i.i, %14, %.lr.ph.i.i.i.i7.i, %52, %.lr.ph.i.i.i.i19.i, %96, %19, %..loopexit_crit_edge21.i.i.i.i.i, %57, %..loopexit_crit_edge21.i.i.i.i11.i, %101, %..loopexit_crit_edge21.i.i.i.i23.i, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit40.i
-  %165 = phi i1 [ false, %52 ], [ false, %14 ], [ %164, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit40.i ], [ false, %..loopexit_crit_edge21.i.i.i.i.i ], [ false, %.lr.ph.i.i.i.i7.i ], [ false, %19 ], [ false, %..loopexit_crit_edge21.i.i.i.i11.i ], [ false, %.lr.ph.i.i.i.i19.i ], [ false, %57 ], [ false, %..loopexit_crit_edge21.i.i.i.i23.i ], [ false, %96 ], [ false, %101 ], [ false, %.lr.ph.i.i.i.i.i ]
+"_ZZL32CheckAfterLocalOptimizationInnerR8SeamDataSt10shared_ptrI9AlgoStateERK14AlgoParametersENK3$_0clERKSt4pairI8HalfEdgeS9_E.exit": ; preds = %.lr.ph.i.i.i.i.i, %14, %.lr.ph.i.i.i.i7.i, %52, %.lr.ph.i.i.i.i19.i, %96, %19, %57, %101, %..loopexit_crit_edge21.i.i.i.i23.i, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit40.i
+  %165 = phi i1 [ false, %52 ], [ false, %14 ], [ %164, %_ZNSt13unordered_setIP10MeshVertexSt4hashIS1_ESt8equal_toIS1_ESaIS1_EE4findERKS1_.exit40.i ], [ false, %96 ], [ false, %.lr.ph.i.i.i.i7.i ], [ false, %19 ], [ false, %101 ], [ false, %.lr.ph.i.i.i.i19.i ], [ false, %57 ], [ false, %..loopexit_crit_edge21.i.i.i.i23.i ], [ false, %.lr.ph.i.i.i.i.i ]
   ret i1 %165
 }
 

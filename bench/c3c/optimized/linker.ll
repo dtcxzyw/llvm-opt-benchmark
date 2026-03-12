@@ -1333,7 +1333,7 @@ default.unreachable656:                           ; preds = %68
 .sink.split.sink.split:                           ; preds = %170, %156, %110, %98, %86
   %.0.i272.sink691 = phi ptr [ %.0.i265, %156 ], [ %.0.i251, %110 ], [ %.0.i244, %98 ], [ %.0.i237, %86 ], [ %.0.i272, %170 ]
   %.sink690 = phi i32 [ %157, %156 ], [ %111, %110 ], [ %99, %98 ], [ %87, %86 ], [ %171, %170 ]
-  %.str.37.sink.ph = phi ptr [ @.str.36, %156 ], [ @.str.34, %110 ], [ @.str.33, %98 ], [ @.str.32, %86 ], [ @.str.37, %170 ]
+  %.str.36.sink.ph = phi ptr [ @.str.36, %156 ], [ @.str.34, %110 ], [ @.str.33, %98 ], [ @.str.32, %86 ], [ @.str.37, %170 ]
   %.ph.ph = phi ptr [ @.str.38, %156 ], [ @.str.39, %110 ], [ @.str.39, %98 ], [ @.str.39, %86 ], [ @.str.38, %170 ]
   %174 = getelementptr inbounds nuw i8, ptr %.0.i272.sink691, i64 4
   %175 = shl i32 %.sink690, 1
@@ -1355,23 +1355,23 @@ default.unreachable656:                           ; preds = %68
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %170, %156, %110, %98, %86
-  %.sink674 = phi i32 [ %158, %156 ], [ %112, %110 ], [ %100, %98 ], [ %88, %86 ], [ %172, %170 ], [ %.pre18.i274, %.sink.split.sink.split ]
-  %.1.i273.sink673 = phi ptr [ %.0.i265, %156 ], [ %.0.i251, %110 ], [ %.0.i244, %98 ], [ %.0.i237, %86 ], [ %.0.i272, %170 ], [ %179, %.sink.split.sink.split ]
-  %.str.37.sink = phi ptr [ @.str.36, %156 ], [ @.str.34, %110 ], [ @.str.33, %98 ], [ @.str.32, %86 ], [ @.str.37, %170 ], [ %.str.37.sink.ph, %.sink.split.sink.split ]
-  %.ph = phi ptr [ @.str.38, %156 ], [ @.str.39, %110 ], [ @.str.39, %98 ], [ @.str.39, %86 ], [ @.str.38, %170 ], [ %.ph.ph, %.sink.split.sink.split ]
+  %.sink674 = phi i32 [ %112, %110 ], [ %158, %156 ], [ %100, %98 ], [ %88, %86 ], [ %172, %170 ], [ %.pre18.i274, %.sink.split.sink.split ]
+  %.1.i266.sink673 = phi ptr [ %.0.i251, %110 ], [ %.0.i265, %156 ], [ %.0.i244, %98 ], [ %.0.i237, %86 ], [ %.0.i272, %170 ], [ %179, %.sink.split.sink.split ]
+  %.str.36.sink = phi ptr [ @.str.34, %110 ], [ @.str.36, %156 ], [ @.str.33, %98 ], [ @.str.32, %86 ], [ @.str.37, %170 ], [ %.str.36.sink.ph, %.sink.split.sink.split ]
+  %.ph = phi ptr [ @.str.39, %110 ], [ @.str.38, %156 ], [ @.str.39, %98 ], [ @.str.39, %86 ], [ @.str.38, %170 ], [ %.ph.ph, %.sink.split.sink.split ]
   %187 = add i32 %.sink674, 1
-  store i32 %187, ptr %.1.i273.sink673, align 4
-  %188 = getelementptr inbounds nuw i8, ptr %.1.i273.sink673, i64 8
+  store i32 %187, ptr %.1.i266.sink673, align 4
+  %188 = getelementptr inbounds nuw i8, ptr %.1.i266.sink673, i64 8
   store ptr %188, ptr %0, align 8
-  %189 = load i32, ptr %.1.i273.sink673, align 4
+  %189 = load i32, ptr %.1.i266.sink673, align 4
   %190 = add i32 %189, -1
   %191 = zext i32 %190 to i64
   %192 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %191
-  store ptr %.str.37.sink, ptr %192, align 8
+  store ptr %.str.36.sink, ptr %192, align 8
   br label %193
 
 193:                                              ; preds = %.sink.split, %68, %160, %102, %90, %76, %68
-  %194 = phi ptr [ @.str.39, %68 ], [ @.str.38, %160 ], [ @.str.39, %90 ], [ @.str.39, %68 ], [ @.str.39, %102 ], [ @.str.39, %76 ], [ %.ph, %.sink.split ]
+  %194 = phi ptr [ @.str.39, %68 ], [ @.str.39, %90 ], [ @.str.39, %68 ], [ @.str.38, %160 ], [ @.str.39, %102 ], [ @.str.39, %76 ], [ %.ph, %.sink.split ]
   %195 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 36), align 4
   switch i32 %195, label %linker_setup_windows.exit [
     i32 21, label %196

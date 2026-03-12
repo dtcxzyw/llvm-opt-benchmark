@@ -4113,7 +4113,7 @@ default.unreachable:                              ; preds = %76, %43
   %53 = add i8 %52, -1
   store i8 %53, ptr %51, align 1
   %54 = icmp eq i8 %53, 0
-  br i1 %54, label %88, label %55
+  br i1 %54, label %86, label %55
 
 55:                                               ; preds = %50, %33
   %56 = add i64 %23, 1
@@ -4196,117 +4196,111 @@ default.unreachable:                              ; preds = %76, %43
   br i1 %79, label %"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc4d01e4829f767d3E.exit", label %83
 
 81:                                               ; preds = %76
-  br i1 %79, label %"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc4d01e4829f767d3E.exit", label %84
+  br i1 %79, label %"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc4d01e4829f767d3E.exit", label %83
 
 82:                                               ; preds = %76
-  br i1 %79, label %"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc4d01e4829f767d3E.exit", label %85
+  br i1 %79, label %"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc4d01e4829f767d3E.exit", label %83
 
-83:                                               ; preds = %80
+83:                                               ; preds = %82, %81, %80
   br label %"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc4d01e4829f767d3E.exit"
 
-84:                                               ; preds = %81
-  br label %"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc4d01e4829f767d3E.exit"
+"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc4d01e4829f767d3E.exit": ; preds = %82, %81, %80, %.loopexit.i.i.i.i, %71, %73, %83
+  %.sroa.8.0 = phi i8 [ undef, %71 ], [ undef, %.loopexit.i.i.i.i ], [ undef, %83 ], [ 0, %80 ], [ 2, %82 ], [ 1, %81 ], [ undef, %73 ]
+  %.sroa.1230.0 = phi ptr [ %72, %71 ], [ %70, %.loopexit.i.i.i.i ], [ %78, %83 ], [ undef, %80 ], [ undef, %82 ], [ undef, %81 ], [ %75, %73 ]
+  %.sink.i21 = phi i1 [ true, %71 ], [ true, %.loopexit.i.i.i.i ], [ true, %83 ], [ false, %80 ], [ false, %82 ], [ false, %81 ], [ true, %73 ]
+  %84 = load i8, ptr %34, align 8, !range !36, !noundef !5
+  %85 = trunc nuw i8 %84 to i1
+  br i1 %85, label %93, label %89
 
-85:                                               ; preds = %82
-  br label %"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc4d01e4829f767d3E.exit"
-
-"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc4d01e4829f767d3E.exit": ; preds = %82, %81, %80, %.loopexit.i.i.i.i, %71, %73, %83, %84, %85
-  %.sroa.8.0 = phi i8 [ undef, %85 ], [ undef, %.loopexit.i.i.i.i ], [ undef, %83 ], [ 0, %80 ], [ undef, %84 ], [ 1, %81 ], [ undef, %73 ], [ undef, %71 ], [ 2, %82 ]
-  %.sroa.1230.0 = phi ptr [ %78, %85 ], [ %70, %.loopexit.i.i.i.i ], [ %78, %83 ], [ undef, %80 ], [ %78, %84 ], [ undef, %81 ], [ %75, %73 ], [ %72, %71 ], [ undef, %82 ]
-  %.sink.i21 = phi i1 [ true, %85 ], [ true, %.loopexit.i.i.i.i ], [ true, %83 ], [ false, %80 ], [ true, %84 ], [ false, %81 ], [ true, %73 ], [ true, %71 ], [ false, %82 ]
-  %86 = load i8, ptr %34, align 8, !range !36, !noundef !5
-  %87 = trunc nuw i8 %86 to i1
-  br i1 %87, label %95, label %91
-
-88:                                               ; preds = %50
+86:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 24, ptr %15, align 8
-  %89 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17hf1ace2903208ef2dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15)
+  %87 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17hf1ace2903208ef2dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %89, ptr %90, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %87, ptr %88, align 8
   br label %"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h904610c9129ee13eE.exit"
 
-91:                                               ; preds = %"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc4d01e4829f767d3E.exit"
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 57
-  %93 = load i8, ptr %92, align 1, !noundef !5
-  %94 = add i8 %93, 1
-  store i8 %94, ptr %92, align 1
-  br i1 %.sink.i21, label %106, label %96
+89:                                               ; preds = %"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc4d01e4829f767d3E.exit"
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 57
+  %91 = load i8, ptr %90, align 1, !noundef !5
+  %92 = add i8 %91, 1
+  store i8 %92, ptr %90, align 1
+  br i1 %.sink.i21, label %104, label %94
 
-95:                                               ; preds = %"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc4d01e4829f767d3E.exit"
-  br i1 %.sink.i21, label %108, label %96
+93:                                               ; preds = %"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc4d01e4829f767d3E.exit"
+  br i1 %.sink.i21, label %106, label %94
 
-96:                                               ; preds = %95, %91
+94:                                               ; preds = %93, %89
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1117)
-  %97 = load i64, ptr %17, align 8, !alias.scope !1120, !noalias !1123, !noundef !5
+  %95 = load i64, ptr %17, align 8, !alias.scope !1120, !noalias !1123, !noundef !5
   %.promoted.i22 = load i64, ptr %16, align 8, !alias.scope !1117, !noalias !1126
-  %98 = icmp ult i64 %.promoted.i22, %97
-  br i1 %98, label %.lr.ph.i24, label %.loopexit
+  %96 = icmp ult i64 %.promoted.i22, %95
+  br i1 %96, label %.lr.ph.i24, label %.loopexit
 
-.lr.ph.i24:                                       ; preds = %96
-  %99 = load ptr, ptr %20, align 8, !alias.scope !1120, !noalias !1123, !nonnull !5, !align !765, !noundef !5
-  br label %100
+.lr.ph.i24:                                       ; preds = %94
+  %97 = load ptr, ptr %20, align 8, !alias.scope !1120, !noalias !1123, !nonnull !5, !align !765, !noundef !5
+  br label %98
 
-100:                                              ; preds = %104, %.lr.ph.i24
-  %101 = phi i64 [ %.promoted.i22, %.lr.ph.i24 ], [ %105, %104 ]
+98:                                               ; preds = %102, %.lr.ph.i24
+  %99 = phi i64 [ %.promoted.i22, %.lr.ph.i24 ], [ %103, %102 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1127)
-  %102 = getelementptr inbounds i8, ptr %99, i64 %101
-  %103 = load i8, ptr %102, align 1, !noalias !1128, !noundef !5
-  switch i8 %103, label %115 [
-    i8 32, label %104
-    i8 10, label %104
-    i8 9, label %104
-    i8 13, label %104
-    i8 125, label %112
+  %100 = getelementptr inbounds i8, ptr %97, i64 %99
+  %101 = load i8, ptr %100, align 1, !noalias !1128, !noundef !5
+  switch i8 %101, label %113 [
+    i8 32, label %102
+    i8 10, label %102
+    i8 9, label %102
+    i8 13, label %102
+    i8 125, label %110
   ]
 
-104:                                              ; preds = %100, %100, %100, %100
-  %105 = add i64 %101, 1
-  store i64 %105, ptr %16, align 8, !alias.scope !1129, !noalias !1126
-  %exitcond.not.i25 = icmp eq i64 %105, %97
-  br i1 %exitcond.not.i25, label %.loopexit, label %100
+102:                                              ; preds = %98, %98, %98, %98
+  %103 = add i64 %99, 1
+  store i64 %103, ptr %16, align 8, !alias.scope !1129, !noalias !1126
+  %exitcond.not.i25 = icmp eq i64 %103, %95
+  br i1 %exitcond.not.i25, label %.loopexit, label %98
 
-106:                                              ; preds = %91
+104:                                              ; preds = %89
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.1230.0) ]
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.1230.0, ptr %105, align 8
+  br label %"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h904610c9129ee13eE.exit"
+
+"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h904610c9129ee13eE.exit": ; preds = %49, %48, %47, %45, %30, %.loopexit, %113, %110, %86, %106, %.loopexit39, %104
+  %.sink = phi i8 [ 1, %30 ], [ 1, %.loopexit ], [ 1, %113 ], [ 0, %110 ], [ 1, %86 ], [ 1, %106 ], [ 1, %.loopexit39 ], [ 1, %104 ], [ 0, %47 ], [ 0, %48 ], [ 0, %49 ], [ 1, %45 ]
+  store i8 %.sink, ptr %0, align 8
+  ret void
+
+106:                                              ; preds = %93
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.1230.0) ]
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.1230.0, ptr %107, align 8
   br label %"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h904610c9129ee13eE.exit"
 
-"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h904610c9129ee13eE.exit": ; preds = %49, %48, %47, %45, %30, %.loopexit, %115, %112, %88, %108, %.loopexit39, %106
-  %.sink = phi i8 [ 1, %30 ], [ 1, %.loopexit ], [ 1, %115 ], [ 0, %112 ], [ 1, %88 ], [ 1, %108 ], [ 1, %.loopexit39 ], [ 1, %106 ], [ 0, %47 ], [ 0, %48 ], [ 0, %49 ], [ 1, %45 ]
-  store i8 %.sink, ptr %0, align 8
-  ret void
-
-108:                                              ; preds = %95
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.1230.0) ]
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.1230.0, ptr %109, align 8
-  br label %"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h904610c9129ee13eE.exit"
-
-.loopexit:                                        ; preds = %104, %96
+.loopexit:                                        ; preds = %102, %94
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 3, ptr %13, align 8
-  %110 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hde2fe9ef2ecc0bc2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
+  %108 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hde2fe9ef2ecc0bc2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %110, ptr %111, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %108, ptr %109, align 8
   br label %"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h904610c9129ee13eE.exit"
 
-112:                                              ; preds = %100
-  %113 = add i64 %101, 1
-  store i64 %113, ptr %16, align 8, !alias.scope !1132
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.8.0, ptr %114, align 1
+110:                                              ; preds = %98
+  %111 = add i64 %99, 1
+  store i64 %111, ptr %16, align 8, !alias.scope !1132
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.8.0, ptr %112, align 1
   br label %"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h904610c9129ee13eE.exit"
 
-115:                                              ; preds = %100
+113:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 10, ptr %14, align 8
-  %116 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hde2fe9ef2ecc0bc2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14)
+  %114 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17hde2fe9ef2ecc0bc2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %116, ptr %117, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %114, ptr %115, align 8
   br label %"_ZN171_$LT$theme..schema.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$theme..schema..WindowBackgroundContent$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h904610c9129ee13eE.exit"
 }
 

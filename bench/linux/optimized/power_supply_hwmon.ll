@@ -203,7 +203,7 @@ define internal zeroext range(i16 0, 421) i16 @power_supply_hwmon_is_visible(ptr
   br label %19
 
 19:                                               ; preds = %18, %17, %16, %15, %.split.us
-  %.ph.us = phi i64 [ 52, %.split.us ], [ 53, %18 ], [ 54, %17 ], [ 55, %16 ], [ 56, %15 ]
+  %.ph.us = phi i64 [ 54, %17 ], [ 55, %16 ], [ 53, %18 ], [ 56, %15 ], [ 52, %.split.us ]
   %20 = load ptr, ptr %9, align 8
   %21 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %20, i64 %.ph.us) #8, !srcloc !9
   %22 = icmp ult i8 %21, 2
@@ -235,7 +235,7 @@ power_supply_hwmon_to_property.exit.us:           ; preds = %19, %.split.us
   br label %33
 
 33:                                               ; preds = %32, %31, %.split
-  %.ph = phi i64 [ 57, %.split ], [ 58, %31 ], [ 59, %32 ]
+  %.ph = phi i64 [ 58, %31 ], [ 59, %32 ], [ 57, %.split ]
   %34 = load ptr, ptr %9, align 8
   %35 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %34, i64 %.ph) #8, !srcloc !9
   %36 = icmp ult i8 %35, 2
@@ -329,8 +329,8 @@ power_supply_hwmon_to_property.exit:              ; preds = %.split, %33
 59:                                               ; preds = %55
   br label %60
 
-60:                                               ; preds = %46, %45, %44, %43, %49, %48, %47, %54, %53, %59, %58, %57, %56, %52, %55
-  %.ph7 = phi i32 [ 52, %55 ], [ 57, %52 ], [ 53, %56 ], [ 54, %57 ], [ 55, %58 ], [ 56, %59 ], [ 58, %53 ], [ 59, %54 ], [ 18, %47 ], [ 16, %48 ], [ 17, %49 ], [ 13, %43 ], [ 9, %44 ], [ 8, %45 ], [ 12, %46 ]
+60:                                               ; preds = %55, %46, %45, %44, %43, %52, %49, %48, %47, %54, %53, %59, %58, %57, %56
+  %.ph7 = phi i32 [ 53, %56 ], [ 54, %57 ], [ 55, %58 ], [ 56, %59 ], [ 58, %53 ], [ 59, %54 ], [ 18, %47 ], [ 16, %48 ], [ 17, %49 ], [ 57, %52 ], [ 13, %43 ], [ 9, %44 ], [ 8, %45 ], [ 12, %46 ], [ 52, %55 ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = zext nneg i32 %.ph7 to i64
@@ -376,8 +376,8 @@ default.unreachable:                              ; preds = %71
 78:                                               ; preds = %72, %75, %74, %67
   br label %power_supply_hwmon_to_property.exit6
 
-power_supply_hwmon_to_property.exit6:             ; preds = %52, %55, %47, %43, %72, %42, %78, %75, %74, %74, %74, %74, %60, %.split9.us
-  %79 = phi i16 [ 292, %78 ], [ %41, %.split9.us ], [ 0, %60 ], [ 420, %74 ], [ 420, %75 ], [ 420, %74 ], [ 420, %74 ], [ 420, %74 ], [ 0, %42 ], [ 420, %72 ], [ 0, %43 ], [ 0, %47 ], [ 0, %55 ], [ 0, %52 ]
+power_supply_hwmon_to_property.exit6:             ; preds = %43, %47, %52, %55, %72, %42, %78, %75, %74, %74, %74, %74, %60, %.split9.us
+  %79 = phi i16 [ 292, %78 ], [ %41, %.split9.us ], [ 0, %60 ], [ 420, %74 ], [ 420, %75 ], [ 420, %74 ], [ 420, %74 ], [ 420, %74 ], [ 0, %42 ], [ 420, %72 ], [ 0, %55 ], [ 0, %52 ], [ 0, %47 ], [ 0, %43 ]
   ret i16 %79
 }
 
@@ -462,8 +462,8 @@ define internal i32 @power_supply_hwmon_read(ptr noundef readonly captures(none)
 26:                                               ; preds = %22
   br label %27
 
-27:                                               ; preds = %13, %12, %11, %10, %16, %15, %14, %21, %20, %26, %25, %24, %23, %19, %22
-  %.ph = phi i32 [ 52, %22 ], [ 57, %19 ], [ 53, %23 ], [ 54, %24 ], [ 55, %25 ], [ 56, %26 ], [ 58, %20 ], [ 59, %21 ], [ 18, %14 ], [ 16, %15 ], [ 17, %16 ], [ 13, %10 ], [ 9, %11 ], [ 8, %12 ], [ 12, %13 ]
+27:                                               ; preds = %22, %13, %12, %11, %10, %19, %16, %15, %14, %21, %20, %26, %25, %24, %23
+  %.ph = phi i32 [ 53, %23 ], [ 54, %24 ], [ 55, %25 ], [ 56, %26 ], [ 58, %20 ], [ 59, %21 ], [ 18, %14 ], [ 16, %15 ], [ 17, %16 ], [ 57, %19 ], [ 13, %10 ], [ 9, %11 ], [ 8, %12 ], [ 12, %13 ], [ 52, %22 ]
   store i64 0, ptr %6, align 8, !annotation !11
   %28 = call i32 @power_supply_get_property(ptr noundef %9, i32 noundef %.ph, ptr noundef nonnull %6) #8
   %29 = icmp eq i32 %28, 0
@@ -493,8 +493,8 @@ define internal i32 @power_supply_hwmon_read(ptr noundef readonly captures(none)
   store i64 %44, ptr %4, align 8
   br label %power_supply_hwmon_to_property.exit
 
-power_supply_hwmon_to_property.exit:              ; preds = %19, %22, %14, %10, %5, %42, %38, %27
-  %45 = phi i32 [ 0, %42 ], [ -22, %19 ], [ %28, %27 ], [ -75, %38 ], [ -22, %5 ], [ -22, %14 ], [ -22, %10 ], [ -22, %22 ]
+power_supply_hwmon_to_property.exit:              ; preds = %10, %14, %19, %22, %5, %42, %38, %27
+  %45 = phi i32 [ 0, %42 ], [ -22, %10 ], [ %28, %27 ], [ -75, %38 ], [ -22, %5 ], [ -22, %22 ], [ -22, %19 ], [ -22, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %45
 }
@@ -598,7 +598,7 @@ define internal i32 @power_supply_hwmon_write(ptr noundef readonly captures(none
   br label %32
 
 27:                                               ; preds = %14, %15, %16, %10, %11, %12, %13
-  %.ph = phi i32 [ 12, %13 ], [ 18, %14 ], [ 16, %15 ], [ 17, %16 ], [ 13, %10 ], [ 9, %11 ], [ 8, %12 ]
+  %.ph = phi i32 [ 16, %15 ], [ 17, %16 ], [ 12, %13 ], [ 13, %10 ], [ 9, %11 ], [ 8, %12 ], [ 18, %14 ]
   %28 = trunc i64 %4 to i32
   %29 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %28, i32 1000)
   %30 = extractvalue { i32, i1 } %29, 1
@@ -606,8 +606,8 @@ define internal i32 @power_supply_hwmon_write(ptr noundef readonly captures(none
   store i32 %31, ptr %6, align 8
   br i1 %30, label %power_supply_hwmon_to_property.exit, label %38
 
-32:                                               ; preds = %21, %20, %26, %25, %24, %23, %19, %22
-  %.ph.ph = phi i32 [ 59, %21 ], [ 58, %20 ], [ 56, %26 ], [ 55, %25 ], [ 54, %24 ], [ 53, %23 ], [ 57, %19 ], [ 52, %22 ]
+32:                                               ; preds = %22, %19, %21, %20, %26, %25, %24, %23
+  %.ph.ph = phi i32 [ 52, %22 ], [ 57, %19 ], [ 59, %21 ], [ 58, %20 ], [ 56, %26 ], [ 55, %25 ], [ 54, %24 ], [ 53, %23 ]
   %33 = trunc i64 %4 to i32
   %34 = icmp sgt i32 %33, 0
   %35 = select i1 %34, i32 50, i32 -50
@@ -621,8 +621,8 @@ define internal i32 @power_supply_hwmon_write(ptr noundef readonly captures(none
   %39 = call i32 @power_supply_set_property(ptr noundef %9, i32 noundef %.ph2, ptr noundef nonnull %6) #8
   br label %power_supply_hwmon_to_property.exit
 
-power_supply_hwmon_to_property.exit:              ; preds = %19, %22, %14, %10, %5, %38, %27
-  %40 = phi i32 [ %39, %38 ], [ -22, %14 ], [ -75, %27 ], [ -22, %5 ], [ -22, %10 ], [ -22, %22 ], [ -22, %19 ]
+power_supply_hwmon_to_property.exit:              ; preds = %10, %14, %19, %22, %5, %38, %27
+  %40 = phi i32 [ %39, %38 ], [ -22, %5 ], [ -75, %27 ], [ -22, %22 ], [ -22, %19 ], [ -22, %14 ], [ -22, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %40
 }

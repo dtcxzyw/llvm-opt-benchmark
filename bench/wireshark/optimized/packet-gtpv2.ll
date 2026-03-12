@@ -8067,13 +8067,13 @@ define internal void @dissect_gtpv2_F_container(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_gtpv2_F_cause(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, ptr readnone captures(none) %7) #1 {
-  switch i8 %5, label %29 [
+  switch i8 %5, label %28 [
     i8 -123, label %9
     i8 -122, label %19
   ]
 
 9:                                                ; preds = %8
-  switch i8 %6, label %29 [
+  switch i8 %6, label %28 [
     i8 0, label %10
     i8 1, label %.sink.split
     i8 2, label %18
@@ -8095,14 +8095,14 @@ switch.lookup:                                    ; preds = %10
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   br label %dissect_gtpv2_s1ap_cause.exit
 
-18:                                               ; preds = %9
+18:                                               ; preds = %19, %9
   br label %.sink.split
 
 19:                                               ; preds = %8
-  switch i8 %6, label %29 [
+  switch i8 %6, label %28 [
     i8 0, label %20
     i8 1, label %.sink.split
-    i8 2, label %28
+    i8 2, label %18
   ]
 
 20:                                               ; preds = %19
@@ -8121,20 +8121,17 @@ switch.lookup40:                                  ; preds = %20
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   br label %dissect_gtpv2_s1ap_cause.exit
 
-28:                                               ; preds = %19
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %19, %9, %18, %28
-  %.str.1828.sink = phi ptr [ @.str.1828, %28 ], [ @.str.1827, %9 ], [ @.str.1828, %18 ], [ @.str.1827, %19 ]
+.sink.split:                                      ; preds = %19, %9, %18
+  %.str.1828.sink = phi ptr [ @.str.1827, %19 ], [ @.str.1827, %9 ], [ @.str.1828, %18 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull %.str.1828.sink)
-  br label %29
+  br label %28
 
-29:                                               ; preds = %.sink.split, %8, %19, %9
-  %30 = zext i16 %4 to i32
-  %31 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef 0, i32 noundef %30)
+28:                                               ; preds = %.sink.split, %8, %19, %9
+  %29 = zext i16 %4 to i32
+  %30 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef 0, i32 noundef %29)
   br label %dissect_gtpv2_s1ap_cause.exit
 
-dissect_gtpv2_s1ap_cause.exit:                    ; preds = %20, %10, %switch.lookup40, %switch.lookup, %29
+dissect_gtpv2_s1ap_cause.exit:                    ; preds = %20, %10, %switch.lookup40, %switch.lookup, %28
   ret void
 }
 

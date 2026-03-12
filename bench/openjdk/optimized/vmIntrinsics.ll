@@ -242,7 +242,7 @@ define hidden noundef zeroext i1 @_ZN12vmIntrinsics21disabled_by_jvm_flagsE13vmI
   ]
 
 5:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %1
-  switch i32 %0, label %170 [
+  switch i32 %0, label %169 [
     i32 106, label %6
     i32 105, label %6
     i32 107, label %6
@@ -297,8 +297,8 @@ define hidden noundef zeroext i1 @_ZN12vmIntrinsics21disabled_by_jvm_flagsE13vmI
     i32 54, label %12
     i32 38, label %15
     i32 39, label %15
-    i32 68, label %169
-    i32 67, label %169
+    i32 49, label %164
+    i32 48, label %164
     i32 98, label %20
     i32 190, label %23
     i32 191, label %23
@@ -473,8 +473,8 @@ define hidden noundef zeroext i1 @_ZN12vmIntrinsics21disabled_by_jvm_flagsE13vmI
     i32 160, label %142
     i32 161, label %145
     i32 162, label %148
-    i32 163, label %169
-    i32 164, label %169
+    i32 47, label %159
+    i32 46, label %159
     i32 24, label %151
     i32 25, label %151
     i32 26, label %151
@@ -491,10 +491,6 @@ define hidden noundef zeroext i1 @_ZN12vmIntrinsics21disabled_by_jvm_flagsE13vmI
     i32 149, label %156
     i32 150, label %156
     i32 151, label %156
-    i32 46, label %159
-    i32 47, label %159
-    i32 48, label %164
-    i32 49, label %164
   ]
 
 6:                                                ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
@@ -765,11 +761,11 @@ define hidden noundef zeroext i1 @_ZN12vmIntrinsics21disabled_by_jvm_flagsE13vmI
   %or.cond21 = select i1 %166, i1 %168, i1 false
   br i1 %or.cond21, label %169, label %170
 
-169:                                              ; preds = %164, %159, %156, %151, %148, %145, %142, %139, %136, %133, %130, %127, %124, %121, %118, %115, %110, %107, %102, %99, %96, %93, %90, %87, %84, %81, %78, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %29, %26, %23, %20, %5, %5, %5, %5, %15, %12, %9, %6
+169:                                              ; preds = %6, %9, %12, %15, %20, %23, %26, %29, %34, %37, %40, %43, %46, %49, %52, %55, %58, %61, %64, %67, %78, %81, %84, %87, %90, %93, %96, %99, %102, %107, %110, %115, %118, %121, %124, %127, %130, %133, %136, %139, %142, %145, %148, %151, %156, %159, %164, %5
   br label %170
 
-170:                                              ; preds = %5, %164, %159, %156, %151, %148, %145, %142, %139, %136, %133, %130, %127, %124, %121, %118, %115, %110, %107, %102, %99, %96, %93, %90, %87, %84, %81, %78, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %29, %26, %23, %20, %15, %12, %9, %6, %4, %169
-  %.0 = phi i1 [ true, %164 ], [ false, %169 ], [ true, %4 ], [ true, %6 ], [ true, %9 ], [ true, %12 ], [ true, %15 ], [ true, %20 ], [ true, %23 ], [ true, %26 ], [ true, %29 ], [ true, %34 ], [ true, %37 ], [ true, %40 ], [ true, %43 ], [ true, %46 ], [ true, %49 ], [ true, %52 ], [ true, %55 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %78 ], [ true, %81 ], [ true, %84 ], [ true, %87 ], [ true, %90 ], [ true, %93 ], [ true, %96 ], [ true, %99 ], [ true, %102 ], [ true, %107 ], [ true, %110 ], [ true, %115 ], [ true, %118 ], [ true, %121 ], [ true, %124 ], [ true, %127 ], [ true, %130 ], [ true, %133 ], [ true, %136 ], [ true, %139 ], [ true, %142 ], [ true, %145 ], [ true, %148 ], [ true, %151 ], [ true, %156 ], [ true, %159 ], [ false, %5 ]
+170:                                              ; preds = %164, %159, %156, %151, %148, %145, %142, %139, %136, %133, %130, %127, %124, %121, %118, %115, %110, %107, %102, %99, %96, %93, %90, %87, %84, %81, %78, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %29, %26, %23, %20, %15, %12, %9, %6, %4, %169
+  %.0 = phi i1 [ false, %169 ], [ true, %164 ], [ true, %4 ], [ true, %6 ], [ true, %9 ], [ true, %12 ], [ true, %15 ], [ true, %20 ], [ true, %23 ], [ true, %26 ], [ true, %29 ], [ true, %34 ], [ true, %37 ], [ true, %40 ], [ true, %43 ], [ true, %46 ], [ true, %49 ], [ true, %52 ], [ true, %55 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %78 ], [ true, %81 ], [ true, %84 ], [ true, %87 ], [ true, %90 ], [ true, %93 ], [ true, %96 ], [ true, %99 ], [ true, %102 ], [ true, %107 ], [ true, %110 ], [ true, %115 ], [ true, %118 ], [ true, %121 ], [ true, %124 ], [ true, %127 ], [ true, %130 ], [ true, %133 ], [ true, %136 ], [ true, %139 ], [ true, %142 ], [ true, %145 ], [ true, %148 ], [ true, %151 ], [ true, %156 ], [ true, %159 ]
   ret i1 %.0
 }
 

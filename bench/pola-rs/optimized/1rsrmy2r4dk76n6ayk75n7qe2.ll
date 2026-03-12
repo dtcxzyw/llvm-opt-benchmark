@@ -40073,14 +40073,14 @@ default.unreachable21:                            ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.03.0.copyload = load i64, ptr %8, align 8
   switch i64 %.sroa.03.0.copyload, label %_ZN14polars_parquet5arrow4read6schema7convert10from_int3217h1484ff726bed4f4bE.exit [
-    i64 13, label %28
-    i64 2, label %18
-    i64 3, label %21
-    i64 4, label %22
-    i64 8, label %24
-    i64 9, label %25
-    i64 10, label %26
-    i64 12, label %27
+    i64 13, label %19
+    i64 2, label %23
+    i64 3, label %26
+    i64 4, label %27
+    i64 8, label %20
+    i64 9, label %21
+    i64 10, label %22
+    i64 12, label %18
   ]
 
 9:                                                ; preds = %5
@@ -40108,33 +40108,33 @@ default.unreachable21:                            ; preds = %2
   br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int3217h1484ff726bed4f4bE.exit
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.44.0.copyload, ptr %19, align 8, !alias.scope !2991, !noalias !2994
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.5.0.copyload, ptr %20, align 8, !alias.scope !2991, !noalias !2994
+  br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int3217h1484ff726bed4f4bE.exit
+
+19:                                               ; preds = %7
+  br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int3217h1484ff726bed4f4bE.exit
+
+20:                                               ; preds = %7
   br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int3217h1484ff726bed4f4bE.exit
 
 21:                                               ; preds = %7
   br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int3217h1484ff726bed4f4bE.exit
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %23, align 1, !alias.scope !2991, !noalias !2994
   br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int3217h1484ff726bed4f4bE.exit
 
-24:                                               ; preds = %7
-  br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int3217h1484ff726bed4f4bE.exit
-
-25:                                               ; preds = %7
+23:                                               ; preds = %7
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.44.0.copyload, ptr %24, align 8, !alias.scope !2991, !noalias !2994
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.5.0.copyload, ptr %25, align 8, !alias.scope !2991, !noalias !2994
   br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int3217h1484ff726bed4f4bE.exit
 
 26:                                               ; preds = %7
   br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int3217h1484ff726bed4f4bE.exit
 
 27:                                               ; preds = %7
-  br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int3217h1484ff726bed4f4bE.exit
-
-28:                                               ; preds = %7
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %28, align 1, !alias.scope !2991, !noalias !2994
   br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int3217h1484ff726bed4f4bE.exit
 
 switch.lookup:                                    ; preds = %14
@@ -40144,8 +40144,8 @@ switch.lookup:                                    ; preds = %14
   %switch.masked = trunc i56 %switch.downshift to i8
   br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int3217h1484ff726bed4f4bE.exit
 
-_ZN14polars_parquet5arrow4read6schema7convert10from_int3217h1484ff726bed4f4bE.exit: ; preds = %switch.lookup, %14, %5, %7, %9, %12, %16, %18, %21, %22, %24, %25, %26, %27, %28
-  %.sink.i = phi i8 [ 4, %12 ], [ %switch.masked, %switch.lookup ], [ 4, %14 ], [ 15, %5 ], [ 32, %18 ], [ 15, %21 ], [ 17, %22 ], [ 17, %16 ], [ 32, %9 ], [ 4, %7 ], [ 3, %28 ], [ 2, %27 ], [ 9, %26 ], [ 8, %25 ], [ 7, %24 ]
+_ZN14polars_parquet5arrow4read6schema7convert10from_int3217h1484ff726bed4f4bE.exit: ; preds = %switch.lookup, %14, %5, %7, %9, %12, %16, %18, %19, %20, %21, %22, %23, %26, %27
+  %.sink.i = phi i8 [ 4, %12 ], [ 2, %18 ], [ 3, %19 ], [ 15, %5 ], [ 7, %20 ], [ 8, %21 ], [ 9, %22 ], [ 17, %16 ], [ 32, %9 ], [ 4, %7 ], [ 4, %14 ], [ 17, %27 ], [ 15, %26 ], [ 32, %23 ], [ %switch.masked, %switch.lookup ]
   store i8 %.sink.i, ptr %0, align 8, !alias.scope !2991, !noalias !2994
   br label %88
 

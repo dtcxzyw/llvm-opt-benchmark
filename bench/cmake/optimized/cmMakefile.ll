@@ -33871,7 +33871,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit: ; preds = %_
   %27 = icmp ult i64 %26, 5
   br i1 %27, label %.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i12
 
-.invoke:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit, %13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit
+.invoke:                                          ; preds = %13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.256) #42
           to label %.cont unwind label %23
 
@@ -36144,7 +36144,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i346: ; p
   %566 = icmp ult i64 %565, 27
   br i1 %566, label %.invoke1888.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i350
 
-.invoke1888.invoke:                               ; preds = %494, %593, %536, %515, %563, %579, %587
+.invoke1888.invoke:                               ; preds = %593, %494, %536, %515, %563, %579, %587
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.256) #42
           to label %.invoke1888.cont unwind label %.loopexit.split-lp711
 

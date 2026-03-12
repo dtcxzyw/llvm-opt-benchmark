@@ -1201,7 +1201,7 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; pred
   br i1 %362, label %.invoke, label %364
 
 .invoke:                                          ; preds = %502, %474, %445, %357
-  %363 = phi ptr [ @.str.2, %474 ], [ @.str.29, %357 ], [ @.str.2, %445 ], [ @.str.2, %502 ]
+  %363 = phi ptr [ @.str.29, %357 ], [ @.str.2, %445 ], [ @.str.2, %474 ], [ @.str.2, %502 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %363) #28
           to label %.cont unwind label %.loopexit.split-lp
 

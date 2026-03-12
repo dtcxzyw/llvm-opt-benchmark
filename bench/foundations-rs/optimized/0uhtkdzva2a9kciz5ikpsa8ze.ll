@@ -1739,7 +1739,7 @@ default.unreachable537:                           ; preds = %.critedge362
   %.not.i = icmp eq i64 %190, 0
   br i1 %.not.i, label %.invoke, label %192, !prof !8
 
-.invoke:                                          ; preds = %469, %459, %433, %423, %358, %348, %322, %312, %187, %141, %131
+.invoke:                                          ; preds = %459, %469, %423, %433, %348, %358, %312, %322, %187, %141, %131
   %191 = phi ptr [ @anon.e3c4a32cb40e81290172dc273f35c01b.25, %141 ], [ @anon.e3c4a32cb40e81290172dc273f35c01b.47, %459 ], [ @anon.e3c4a32cb40e81290172dc273f35c01b.44, %433 ], [ @anon.e3c4a32cb40e81290172dc273f35c01b.44, %423 ], [ @anon.e3c4a32cb40e81290172dc273f35c01b.38, %358 ], [ @anon.e3c4a32cb40e81290172dc273f35c01b.38, %348 ], [ @anon.e3c4a32cb40e81290172dc273f35c01b.34, %322 ], [ @anon.e3c4a32cb40e81290172dc273f35c01b.34, %312 ], [ @anon.e3c4a32cb40e81290172dc273f35c01b.63, %187 ], [ @anon.e3c4a32cb40e81290172dc273f35c01b.25, %131 ], [ @anon.e3c4a32cb40e81290172dc273f35c01b.47, %469 ]
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.e3c4a32cb40e81290172dc273f35c01b.3, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %191) #29
           to label %.cont unwind label %114
@@ -15141,7 +15141,7 @@ define hidden void @"_ZN89_$LT$tonic..codec..decode..Streaming$LT$T$GT$$u20$as$u
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1140
   br label %38
 
-36:                                               ; preds = %42, %44, %37, %39, %54, %52, %._crit_edge
+36:                                               ; preds = %42, %44, %39, %37, %54, %52, %._crit_edge
   ret void
 
 37:                                               ; preds = %32, %23

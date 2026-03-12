@@ -115943,7 +115943,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit870: ; preds = %10
   br i1 %1110, label %.invoke2092, label %1112
 
 .invoke2092:                                      ; preds = %1164, %1127, %1119, %1109
-  %1111 = phi ptr [ @.str.433, %1127 ], [ @.str.431, %1109 ], [ @.str.432, %1119 ], [ @.str.433, %1164 ]
+  %1111 = phi ptr [ @.str.432, %1119 ], [ @.str.431, %1109 ], [ @.str.433, %1127 ], [ @.str.433, %1164 ]
   invoke void (ptr, ...) @_ZN5Yosys13log_cmd_errorEPKcz(ptr noundef nonnull %1111) #32
           to label %.cont2093 unwind label %.loopexit.split-lp
 

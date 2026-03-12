@@ -69778,9 +69778,9 @@ define void @"_ZN117_$LT$hir_ty..diagnostics..match_check..pat_analysis..MatchCh
           to label %52 unwind label %50
 
 42:                                               ; preds = %18, %15, %3, %"_ZN4core3ptr75drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..adt..EnumData$GT$$GT$17haba28499a32efe13E.exit17", %30, %29, %21
-  %.sroa.161.0 = phi i8 [ undef, %30 ], [ undef, %21 ], [ undef, %3 ], [ %.sroa.161.1, %"_ZN4core3ptr75drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..adt..EnumData$GT$$GT$17haba28499a32efe13E.exit17" ], [ undef, %18 ], [ undef, %15 ], [ undef, %29 ]
-  %.sroa.14.0 = phi i8 [ undef, %30 ], [ %28, %21 ], [ undef, %3 ], [ %.sroa.14.1, %"_ZN4core3ptr75drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..adt..EnumData$GT$$GT$17haba28499a32efe13E.exit17" ], [ undef, %18 ], [ undef, %15 ], [ undef, %29 ]
-  %.sroa.0.0 = phi i128 [ 11, %30 ], [ 3, %21 ], [ 10, %3 ], [ %.sroa.0.1, %"_ZN4core3ptr75drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..adt..EnumData$GT$$GT$17haba28499a32efe13E.exit17" ], [ %spec.select, %18 ], [ 6, %15 ], [ 5, %29 ]
+  %.sroa.161.0 = phi i8 [ undef, %30 ], [ undef, %21 ], [ undef, %29 ], [ %.sroa.161.1, %"_ZN4core3ptr75drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..adt..EnumData$GT$$GT$17haba28499a32efe13E.exit17" ], [ undef, %3 ], [ undef, %15 ], [ undef, %18 ]
+  %.sroa.14.0 = phi i8 [ undef, %30 ], [ %28, %21 ], [ undef, %29 ], [ %.sroa.14.1, %"_ZN4core3ptr75drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..adt..EnumData$GT$$GT$17haba28499a32efe13E.exit17" ], [ undef, %3 ], [ undef, %15 ], [ undef, %18 ]
+  %.sroa.0.0 = phi i128 [ 11, %30 ], [ 3, %21 ], [ 5, %29 ], [ %.sroa.0.1, %"_ZN4core3ptr75drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..adt..EnumData$GT$$GT$17haba28499a32efe13E.exit17" ], [ 10, %3 ], [ 6, %15 ], [ %spec.select, %18 ]
   store i128 %.sroa.0.0, ptr %0, align 16
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sroa.14.0, ptr %.sroa.14.0..sroa_idx, align 16

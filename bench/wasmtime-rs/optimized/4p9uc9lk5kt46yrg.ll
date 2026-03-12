@@ -7170,7 +7170,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Dirent$u20$as$u20$wiggle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(59) %.sroa.3278.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(59) %.sroa.3278, i64 59, i1 false)
   br label %79
 
-78:                                               ; preds = %42, %47, %60, %65, %29, %79, %75
+78:                                               ; preds = %42, %47, %65, %60, %29, %79, %75
   ret void
 
 79:                                               ; preds = %77, %74
@@ -7489,7 +7489,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Dirent$u20$as$u20$wiggle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231, i64 60, i1 false)
   br label %81
 
-80:                                               ; preds = %45, %49, %64, %68, %30, %81, %78
+80:                                               ; preds = %45, %49, %68, %64, %30, %81, %78
   ret void
 
 81:                                               ; preds = %79, %77
@@ -8882,7 +8882,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview0..types..Fdstat$u20$as$u20$wiggle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.2231, i64 60, i1 false)
   br label %76
 
-75:                                               ; preds = %41, %45, %59, %63, %24, %76, %73
+75:                                               ; preds = %41, %45, %63, %59, %24, %76, %73
   ret void
 
 76:                                               ; preds = %74, %72
@@ -12834,7 +12834,7 @@ switch.lookup:                                    ; preds = %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(58) %.sroa.3353.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(58) %.sroa.3353, i64 58, i1 false)
   br label %96
 
-95:                                               ; preds = %48, %51, %64, %69, %31, %97, %96, %92
+95:                                               ; preds = %48, %51, %69, %64, %31, %97, %96, %92
   ret void
 
 96:                                               ; preds = %94, %91

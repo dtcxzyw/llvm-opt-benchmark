@@ -1804,8 +1804,8 @@ _ZN4core3ops8function6FnOnce9call_once17h1ba319a6f7b3dc56E.exit.thread: ; preds 
   invoke fastcc void @"_ZN11quinn_proto10connection7streams5state12StreamsState8received28_$u7b$$u7b$closure$u7d$$u7d$17he0d518e1d2f648bdE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %39)
           to label %237 unwind label %.body.thread192.loopexit.split-lp
 
-.thread218.invoke:                                ; preds = %304, %263, %293, %288, %230, %189, %219, %214
-  %236 = phi ptr [ @anon.8801f4312e2f8894f33ba1843a3fdad8.34, %219 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.34, %230 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.38, %293 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.34, %214 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.34, %189 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.38, %288 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.38, %263 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.38, %304 ]
+.thread218.invoke:                                ; preds = %293, %288, %263, %304, %230, %189, %219, %214
+  %236 = phi ptr [ @anon.8801f4312e2f8894f33ba1843a3fdad8.34, %219 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.34, %230 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.38, %293 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.34, %214 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.34, %189 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.38, %304 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.38, %263 ], [ @anon.8801f4312e2f8894f33ba1843a3fdad8.38, %288 ]
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.8801f4312e2f8894f33ba1843a3fdad8.33, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %236) #23
           to label %.thread218.cont unwind label %.body.thread192.loopexit.split-lp
 

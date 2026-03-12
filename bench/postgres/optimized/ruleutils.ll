@@ -20631,7 +20631,7 @@ define internal fastcc zeroext i1 @isSimpleNode(ptr noundef readonly captures(ad
     i32 53, label %thread-pre-split
     i32 18, label %thread-pre-split
     i32 46, label %thread-pre-split
-    i32 21, label %53
+    i32 21, label %52
     i32 44, label %tailrecurse.backedge
   ]
 
@@ -20726,7 +20726,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph, %.
 
 46:                                               ; preds = %thread-pre-split, %15
   %47 = phi i32 [ %.pr, %thread-pre-split ], [ %16, %15 ]
-  switch i32 %47, label %52 [
+  switch i32 %47, label %68 [
     i32 15, label %48
     i32 21, label %.loopexit
     i32 14, label %.loopexit
@@ -20749,14 +20749,11 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph, %.
   %or.cond11 = icmp ult i32 %51, -3
   br label %.loopexit
 
-52:                                               ; preds = %46
-  br label %.loopexit
-
-53:                                               ; preds = %.lr.ph
-  %54 = load i32, ptr %.tr99117, align 4
-  switch i32 %54, label %69 [
-    i32 21, label %55
-    i32 15, label %65
+52:                                               ; preds = %.lr.ph
+  %53 = load i32, ptr %.tr99117, align 4
+  switch i32 %53, label %68 [
+    i32 21, label %54
+    i32 15, label %64
     i32 14, label %.loopexit
     i32 35, label %.loopexit
     i32 36, label %.loopexit
@@ -20771,48 +20768,45 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph, %.
     i32 48, label %.loopexit
   ]
 
-55:                                               ; preds = %53
-  %56 = and i32 %2, 1
-  %.not84 = icmp eq i32 %56, 0
-  br i1 %.not84, label %.loopexit, label %57
+54:                                               ; preds = %52
+  %55 = and i32 %2, 1
+  %.not84 = icmp eq i32 %55, 0
+  br i1 %.not84, label %.loopexit, label %56
 
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds nuw i8, ptr %.tr116, i64 4
-  %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds nuw i8, ptr %.tr99117, i64 4
-  %61 = load i32, ptr %60, align 4
-  switch i32 %59, label %.loopexit [
-    i32 2, label %62
-    i32 0, label %62
-    i32 1, label %63
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds nuw i8, ptr %.tr116, i64 4
+  %58 = load i32, ptr %57, align 4
+  %59 = getelementptr inbounds nuw i8, ptr %.tr99117, i64 4
+  %60 = load i32, ptr %59, align 4
+  switch i32 %58, label %.loopexit [
+    i32 2, label %61
+    i32 0, label %61
+    i32 1, label %62
   ]
 
-62:                                               ; preds = %57, %57
-  %or.cond13 = icmp ult i32 %61, 2
-  br i1 %or.cond13, label %.thread, label %.loopexit
+61:                                               ; preds = %56, %56
+  %or.cond13 = icmp ult i32 %60, 2
+  br i1 %or.cond13, label %.loopexit.loopexit, label %.loopexit
 
-63:                                               ; preds = %57
-  %64 = icmp eq i32 %61, 1
-  br i1 %64, label %.thread, label %.loopexit
+62:                                               ; preds = %56
+  %63 = icmp eq i32 %60, 1
+  br i1 %63, label %.loopexit.loopexit, label %.loopexit
 
-.thread:                                          ; preds = %62, %63
+64:                                               ; preds = %52
+  %65 = getelementptr inbounds nuw i8, ptr %.tr99117, i64 16
+  %66 = load i32, ptr %65, align 8
+  %67 = add i32 %66, -4
+  %or.cond17 = icmp ult i32 %67, -3
   br label %.loopexit
 
-65:                                               ; preds = %53
-  %66 = getelementptr inbounds nuw i8, ptr %.tr99117, i64 16
-  %67 = load i32, ptr %66, align 8
-  %68 = add i32 %67, -4
-  %or.cond17 = icmp ult i32 %68, -3
+68:                                               ; preds = %46, %52
   br label %.loopexit
 
-69:                                               ; preds = %53
+.loopexit.loopexit:                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %62, %61
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %.loopexit.loopexit, %3, %55, %57, %62, %63, %.thread, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %18, %20, %28, %30, %37, %39, %40, %69, %65, %52, %48, %8, %5
-  %.0 = phi i1 [ false, %3 ], [ true, %37 ], [ %45, %40 ], [ false, %39 ], [ %7, %5 ], [ %10, %8 ], [ false, %55 ], [ false, %57 ], [ false, %62 ], [ false, %63 ], [ true, %53 ], [ true, %53 ], [ false, %28 ], [ false, %52 ], [ %or.cond11, %48 ], [ false, %18 ], [ false, %69 ], [ true, %53 ], [ true, %.thread ], [ %or.cond17, %65 ], [ true, %46 ], [ true, %53 ], [ false, %20 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ false, %30 ], [ true, %.loopexit.loopexit ], [ false, %.lr.ph ], [ false, %tailrecurse.backedge ]
+.loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %.loopexit.loopexit, %3, %54, %56, %61, %62, %52, %52, %52, %52, %52, %52, %52, %52, %52, %52, %52, %52, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %18, %20, %28, %30, %37, %39, %40, %68, %64, %48, %8, %5
+  %.0 = phi i1 [ false, %3 ], [ true, %37 ], [ %45, %40 ], [ false, %39 ], [ %7, %5 ], [ %10, %8 ], [ false, %54 ], [ false, %56 ], [ false, %61 ], [ false, %62 ], [ true, %52 ], [ true, %52 ], [ false, %28 ], [ false, %30 ], [ %or.cond11, %48 ], [ false, %18 ], [ false, %68 ], [ true, %52 ], [ true, %.loopexit.loopexit ], [ %or.cond17, %64 ], [ true, %46 ], [ true, %52 ], [ false, %20 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ true, %52 ], [ false, %.lr.ph ], [ false, %tailrecurse.backedge ]
   ret i1 %.0
 }
 

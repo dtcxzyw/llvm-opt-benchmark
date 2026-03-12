@@ -2118,8 +2118,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %68, %
   br i1 %.not.i.i.not, label %.invoke580, label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit
 
 .invoke580:                                       ; preds = %319, %587, %440, %428, %335, %325, %313, %306, %294
-  %299 = phi i64 [ 2, %440 ], [ 0, %294 ], [ 0, %306 ], [ 0, %313 ], [ 0, %587 ], [ 0, %325 ], [ 1, %335 ], [ 1, %428 ], [ 0, %319 ]
-  %300 = phi i64 [ %446, %440 ], [ 0, %294 ], [ 0, %306 ], [ 0, %313 ], [ %583, %587 ], [ %331, %325 ], [ %331, %335 ], [ %436, %428 ], [ 0, %319 ]
+  %299 = phi i64 [ 2, %440 ], [ 0, %294 ], [ 1, %428 ], [ 1, %335 ], [ 0, %587 ], [ 0, %325 ], [ 0, %306 ], [ 0, %313 ], [ 0, %319 ]
+  %300 = phi i64 [ %446, %440 ], [ 0, %294 ], [ %436, %428 ], [ %331, %335 ], [ %583, %587 ], [ %331, %325 ], [ 0, %306 ], [ 0, %313 ], [ 0, %319 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.98, i64 noundef %299, i64 noundef %300) #32
           to label %.cont581 unwind label %.loopexit.split-lp438.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

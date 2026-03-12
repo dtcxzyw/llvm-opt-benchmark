@@ -2064,7 +2064,7 @@ _ZNSt12_Vector_baseIPK8VariableSaIS2_EE13_M_deallocateEPS2_m.exit.i75: ; preds =
   %150 = icmp ugt i64 %147, 9223372036854775800
   br i1 %150, label %.invoke, label %_ZNSt12_Vector_baseIPK8VariableSaIS2_EE11_M_allocateEm.exit.i.i94, !prof !11
 
-.invoke:                                          ; preds = %99, %56, %149, %134
+.invoke:                                          ; preds = %56, %99, %149, %134
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #18
           to label %.cont unwind label %124
 

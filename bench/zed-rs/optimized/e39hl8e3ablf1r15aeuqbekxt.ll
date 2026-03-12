@@ -66584,7 +66584,7 @@ default.unreachable:                              ; preds = %2
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 168
   invoke void @_ZN6client6Client6status17h20a61d552476c655E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %34, ptr noundef nonnull align 8 %33)
-          to label %"_ZN4core3ptr105drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$$GT$17hdc1cd2886e6991d6E.exit.i" unwind label %36
+          to label %.thread166.i unwind label %36
 
 .body110.i:                                       ; preds = %319, %315, %279, %275, %"_ZN4core3ptr72drop_in_place$LT$postage..channels..watch..Ref$LT$client..Status$GT$$GT$17hd37779d817f02990E.exit.i", %36
   %.pn45.i = phi { ptr, i32 } [ %316, %315 ], [ %.pn42.pn.i, %"_ZN4core3ptr72drop_in_place$LT$postage..channels..watch..Ref$LT$client..Status$GT$$GT$17hd37779d817f02990E.exit.i" ], [ %276, %275 ], [ %37, %36 ], [ %276, %279 ], [ %316, %319 ]
@@ -66597,7 +66597,7 @@ default.unreachable:                              ; preds = %2
           cleanup
   br label %.body110.i
 
-"_ZN4core3ptr105drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$$GT$17hdc1cd2886e6991d6E.exit.i": ; preds = %.noexc86.i, %141, %"_ZN4core3ptr184drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$project..connection_manager..Manager..maintain_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8dd31f24cc4b0de9E.exit76.i", %"_ZN4core3ptr59drop_in_place$LT$async_task..task..Task$LT$$LP$$RP$$GT$$GT$17he02f14ee77e56677E.exit.i.i.i.i", %25
+.thread166.i:                                     ; preds = %.noexc86.i, %141, %"_ZN4core3ptr59drop_in_place$LT$async_task..task..Task$LT$$LP$$RP$$GT$$GT$17he02f14ee77e56677E.exit.i.i.i.i", %"_ZN4core3ptr184drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$project..connection_manager..Manager..maintain_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8dd31f24cc4b0de9E.exit76.i", %25
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 168
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !17532
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !17532
@@ -66605,7 +66605,7 @@ default.unreachable:                              ; preds = %2
   invoke void @"_ZN87_$LT$postage..channels..watch..Receiver$LT$T$GT$$u20$as$u20$postage..stream..Stream$GT$9poll_recv17hb18e2b88fdfceaa5E.llvm.21470575066294111"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %38, ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
           to label %.noexc.i unwind label %102
 
-.noexc.i:                                         ; preds = %"_ZN4core3ptr105drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$$GT$17hdc1cd2886e6991d6E.exit.i"
+.noexc.i:                                         ; preds = %.thread166.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !17532
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !17532
   %39 = load ptr, ptr %38, align 8, !noalias !17523, !nonnull !4, !noundef !4
@@ -66745,7 +66745,7 @@ _ZN3log13__private_api3log17h652cf0dc518289ebE.exit.i: ; preds = %77
   call void @llvm.experimental.noalias.scope.decl(metadata !17544)
   %89 = load i8, ptr %88, align 8, !range !529, !alias.scope !17547, !noalias !17523, !noundef !4
   %90 = icmp eq i8 %89, 1
-  br i1 %90, label %91, label %"_ZN4core3ptr105drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$$GT$17hdc1cd2886e6991d6E.exit.i"
+  br i1 %90, label %91, label %.thread166.i
 
 91:                                               ; preds = %"_ZN4core3ptr184drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$project..connection_manager..Manager..maintain_connection..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8dd31f24cc4b0de9E.exit76.i"
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -66774,14 +66774,14 @@ _ZN3log13__private_api3log17h652cf0dc518289ebE.exit.i: ; preds = %77
 
 "_ZN4core3ptr59drop_in_place$LT$async_task..task..Task$LT$$LP$$RP$$GT$$GT$17he02f14ee77e56677E.exit.i.i.i.i": ; preds = %99, %95, %.noexc79.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !17548
-  br label %"_ZN4core3ptr105drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$$GT$17hdc1cd2886e6991d6E.exit.i"
+  br label %.thread166.i
 
 100:                                              ; preds = %219, %.noexc94.i, %211, %99, %.noexc78.i, %91
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr72drop_in_place$LT$postage..channels..watch..Ref$LT$client..Status$GT$$GT$17hd37779d817f02990E.exit.i"
 
-102:                                              ; preds = %"_ZN4core3ptr105drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$$GT$17hdc1cd2886e6991d6E.exit.i"
+102:                                              ; preds = %.thread166.i
   %103 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr72drop_in_place$LT$postage..channels..watch..Ref$LT$client..Status$GT$$GT$17hd37779d817f02990E.exit.i"
@@ -66870,7 +66870,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
   switch i64 %137, label %138 [
     i64 0, label %141
     i64 1, label %.thread.i
-    i64 2, label %"_ZN4core3ptr105drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$$GT$17hdc1cd2886e6991d6E.exit.i"
+    i64 2, label %.thread166.i
   ]
 
 138:                                              ; preds = %.noexc86.i
@@ -66884,7 +66884,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
 141:                                              ; preds = %.noexc86.i
   switch i32 %132, label %145 [
     i32 11, label %.thread.i
-    i32 10, label %"_ZN4core3ptr105drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$$GT$17hdc1cd2886e6991d6E.exit.i"
+    i32 10, label %.thread166.i
   ]
 
 .thread.i:                                        ; preds = %141, %.noexc86.i

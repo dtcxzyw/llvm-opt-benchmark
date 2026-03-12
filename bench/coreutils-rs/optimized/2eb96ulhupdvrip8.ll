@@ -1048,7 +1048,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd500c69cccc9e940E.exit: ; preds = %125
   %304 = icmp eq i128 %303, 24503081927999166500772401431235275638
   br i1 %304, label %307, label %.invoke232
 
-.invoke232:                                       ; preds = %.noexc81, %.noexc74, %.noexc121, %.noexc96
+.invoke232:                                       ; preds = %.noexc74, %.noexc81, %.noexc121, %.noexc96
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.a89af832c1e6f3f4dbb1a873562b024a.4.llvm.452682109570024625, i64 noundef 99, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a89af832c1e6f3f4dbb1a873562b024a.6.llvm.452682109570024625) #16
           to label %.cont233 unwind label %193
 

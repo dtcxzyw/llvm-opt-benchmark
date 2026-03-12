@@ -3519,7 +3519,7 @@ define internal void @_ZN12_GLOBAL__N_110QbfSatPass7executeESt6vectorINSt7__cxx1
   br i1 %.not52.i, label %140, label %.invoke76.i
 
 .invoke76.i:                                      ; preds = %326, %309, %290, %204, %182, %131
-  %139 = phi ptr [ @.str.108, %309 ], [ @.str.89, %131 ], [ @.str.96, %182 ], [ @.str.98, %204 ], [ @.str.106, %290 ], [ @.str.108, %326 ]
+  %139 = phi ptr [ @.str.106, %290 ], [ @.str.89, %131 ], [ @.str.96, %182 ], [ @.str.98, %204 ], [ @.str.108, %309 ], [ @.str.108, %326 ]
   invoke void (ptr, ...) @_ZN5Yosys13log_cmd_errorEPKcz(ptr noundef nonnull %139) #35
           to label %.cont.i unwind label %.loopexit.split-lp.i
 

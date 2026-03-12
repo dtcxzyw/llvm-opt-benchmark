@@ -689,16 +689,13 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5clang7Code
 38:                                               ; preds = %26
   %39 = icmp eq i32 %.val26, 29
   %40 = select i1 %21, i1 %39, i1 false
-  br i1 %40, label %_ZNK4llvm6Triple11isOSCygMingEv.exit.thread.i, label %_ZNK4llvm6Triple11isOSCygMingEv.exit.i
+  br i1 %40, label %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.fold.split1.i, label %_ZNK4llvm6Triple11isOSCygMingEv.exit.i
 
 _ZNK4llvm6Triple11isOSCygMingEv.exit.i:           ; preds = %38
   %41 = icmp eq i32 %.val26, 1
   %42 = select i1 %21, i1 %41, i1 false
   %cond.fr.i = freeze i1 %42
-  br i1 %cond.fr.i, label %_ZNK4llvm6Triple11isOSCygMingEv.exit.thread.i, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
-
-_ZNK4llvm6Triple11isOSCygMingEv.exit.thread.i:    ; preds = %_ZNK4llvm6Triple11isOSCygMingEv.exit.i, %38
-  br label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
+  br i1 %cond.fr.i, label %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.fold.split1.i, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
 
 _ZN4llvmgeERKNS_12VersionTupleES2_.exit.i19.i:    ; preds = %26, %26
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 192
@@ -805,6 +802,9 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.i:        ; preds = %65, %61, %51, %51
   %_ZN5clang7CodeGen13EHPersonality13ZOS_CPlusPlusE._ZN5clang7CodeGen13EHPersonality13GNU_CPlusPlusE.i = select i1 %89, ptr @_ZN5clang7CodeGen13EHPersonality13ZOS_CPlusPlusE, ptr @_ZN5clang7CodeGen13EHPersonality13GNU_CPlusPlusE
   br label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
 
+_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.fold.split1.i: ; preds = %38, %_ZNK4llvm6Triple11isOSCygMingEv.exit.i
+  br label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
+
 90:                                               ; preds = %75
   %91 = icmp eq i32 %.val25, 14
   %92 = icmp eq i32 %.val26, 27
@@ -835,8 +835,8 @@ switch.lookup43:                                  ; preds = %84
   %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
 
-_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit: ; preds = %switch.lookup43, %switch.lookup, %95, %90, %88, %82, %76, %72, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i, %65, %61, %57, %54, %51, %51, %51, %50, %47, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i19.i, %_ZNK4llvm6Triple11isOSCygMingEv.exit.thread.i, %_ZNK4llvm6Triple11isOSCygMingEv.exit.i, %36, %29, %26, %26, %26, %25, %11
-  %.0 = phi ptr [ %_ZN5clang7CodeGen13EHPersonality19MSVC_except_handlerE._ZN5clang7CodeGen13EHPersonality23MSVC_C_specific_handlerE.i, %11 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %26 ], [ @_ZN5clang7CodeGen13EHPersonality12XL_CPlusPlusE, %82 ], [ %switch.select2.i.i, %54 ], [ @_ZN5clang7CodeGen13EHPersonality10GNU_ObjCXXE, %_ZNK4llvm6Triple11isOSCygMingEv.exit.i ], [ %_ZN5clang7CodeGen13EHPersonality12GNU_ObjC_SEHE._ZN5clang7CodeGen13EHPersonality8GNU_ObjCE.i20.i, %47 ], [ %_ZN5clang7CodeGen13EHPersonality13ZOS_CPlusPlusE._ZN5clang7CodeGen13EHPersonality13GNU_CPlusPlusE.i, %88 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %26 ], [ @_ZN5clang7CodeGen13EHPersonality13GNU_ObjC_SJLJE, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i19.i ], [ %switch.select2.i, %95 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %26 ], [ @_ZN5clang7CodeGen13EHPersonality12XL_CPlusPlusE, %29 ], [ %switch.load, %switch.lookup ], [ %_ZN5clang7CodeGen13EHPersonality13ZOS_CPlusPlusE._ZN5clang7CodeGen13EHPersonality13GNU_CPlusPlusE.i.i, %36 ], [ @_ZN5clang7CodeGen13EHPersonality21MSVC_CxxFrameHandler3E, %90 ], [ @_ZN5clang7CodeGen13EHPersonality21MSVC_CxxFrameHandler3E, %25 ], [ @_ZN5clang7CodeGen13EHPersonality17GNU_CPlusPlus_SEHE, %_ZNK4llvm6Triple11isOSCygMingEv.exit.thread.i ], [ @_ZN5clang7CodeGen13EHPersonality13GNU_ObjC_SJLJE, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i ], [ @_ZN5clang7CodeGen13EHPersonality21MSVC_CxxFrameHandler3E, %50 ], [ @_ZN5clang7CodeGen13EHPersonality12GNUstep_ObjCE, %61 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %51 ], [ @_ZN5clang7CodeGen13EHPersonality12GNUstep_ObjCE, %65 ], [ @_ZN5clang7CodeGen13EHPersonality17GNU_CPlusPlus_SEHE, %57 ], [ %_ZN5clang7CodeGen13EHPersonality12GNU_ObjC_SEHE._ZN5clang7CodeGen13EHPersonality8GNU_ObjCE.i, %72 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %51 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %51 ], [ %switch.load45, %switch.lookup43 ], [ @_ZN5clang7CodeGen13EHPersonality21MSVC_CxxFrameHandler3E, %76 ]
+_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit: ; preds = %switch.lookup43, %switch.lookup, %95, %90, %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.fold.split1.i, %88, %82, %76, %72, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i, %65, %61, %57, %54, %51, %51, %51, %50, %47, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i19.i, %_ZNK4llvm6Triple11isOSCygMingEv.exit.i, %36, %29, %26, %26, %26, %25, %11
+  %.0 = phi ptr [ %_ZN5clang7CodeGen13EHPersonality19MSVC_except_handlerE._ZN5clang7CodeGen13EHPersonality23MSVC_C_specific_handlerE.i, %11 ], [ %_ZN5clang7CodeGen13EHPersonality13ZOS_CPlusPlusE._ZN5clang7CodeGen13EHPersonality13GNU_CPlusPlusE.i, %88 ], [ %switch.load45, %switch.lookup43 ], [ %switch.select2.i.i, %54 ], [ @_ZN5clang7CodeGen13EHPersonality10GNU_ObjCXXE, %_ZNK4llvm6Triple11isOSCygMingEv.exit.i ], [ %_ZN5clang7CodeGen13EHPersonality12GNU_ObjC_SEHE._ZN5clang7CodeGen13EHPersonality8GNU_ObjCE.i20.i, %47 ], [ %switch.select2.i, %95 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %26 ], [ @_ZN5clang7CodeGen13EHPersonality13GNU_ObjC_SJLJE, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i19.i ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %26 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %26 ], [ @_ZN5clang7CodeGen13EHPersonality12XL_CPlusPlusE, %29 ], [ %switch.load, %switch.lookup ], [ %_ZN5clang7CodeGen13EHPersonality13ZOS_CPlusPlusE._ZN5clang7CodeGen13EHPersonality13GNU_CPlusPlusE.i.i, %36 ], [ @_ZN5clang7CodeGen13EHPersonality21MSVC_CxxFrameHandler3E, %90 ], [ @_ZN5clang7CodeGen13EHPersonality21MSVC_CxxFrameHandler3E, %25 ], [ @_ZN5clang7CodeGen13EHPersonality13GNU_ObjC_SJLJE, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i ], [ @_ZN5clang7CodeGen13EHPersonality21MSVC_CxxFrameHandler3E, %50 ], [ @_ZN5clang7CodeGen13EHPersonality12GNUstep_ObjCE, %61 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %51 ], [ @_ZN5clang7CodeGen13EHPersonality12GNUstep_ObjCE, %65 ], [ @_ZN5clang7CodeGen13EHPersonality17GNU_CPlusPlus_SEHE, %57 ], [ %_ZN5clang7CodeGen13EHPersonality12GNU_ObjC_SEHE._ZN5clang7CodeGen13EHPersonality8GNU_ObjCE.i, %72 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %51 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %51 ], [ @_ZN5clang7CodeGen13EHPersonality17GNU_CPlusPlus_SEHE, %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.fold.split1.i ], [ @_ZN5clang7CodeGen13EHPersonality21MSVC_CxxFrameHandler3E, %76 ], [ @_ZN5clang7CodeGen13EHPersonality12XL_CPlusPlusE, %82 ]
   ret ptr %.0
 }
 

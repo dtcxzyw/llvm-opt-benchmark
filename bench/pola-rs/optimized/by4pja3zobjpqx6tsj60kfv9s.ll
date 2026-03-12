@@ -31971,11 +31971,11 @@ define { i16, i16 } @_ZN11polars_time12chunkedarray6string8strptime7fmt_len17hf5
 
 13:                                               ; preds = %8
   %.not72 = icmp eq ptr %.sroa.030.3, %3
-  br i1 %.not72, label %29, label %24
+  br i1 %.not72, label %23, label %24
 
 14:                                               ; preds = %8
   %.not = icmp eq ptr %.sroa.030.3, %3
-  br i1 %.not, label %35, label %30
+  br i1 %.not, label %23, label %29
 
 15:                                               ; preds = %8, %.lr.ph, %10, %11
   %.sink = phi i16 [ 1, %.lr.ph ], [ 2, %10 ], [ 4, %8 ], [ 3, %11 ]
@@ -31995,7 +31995,7 @@ define { i16, i16 } @_ZN11polars_time12chunkedarray6string8strptime7fmt_len17hf5
   %or.cond = select i1 %21, i1 %22, i1 false
   br i1 %or.cond, label %.loopexit, label %23
 
-23:                                               ; preds = %18, %12
+23:                                               ; preds = %14, %29, %13, %24, %18, %12
   br label %.loopexit
 
 24:                                               ; preds = %13
@@ -32005,29 +32005,23 @@ define { i16, i16 } @_ZN11polars_time12chunkedarray6string8strptime7fmt_len17hf5
   %27 = icmp eq i8 %26, 102
   %28 = icmp eq ptr %.sroa.030.5, %3
   %or.cond53 = select i1 %27, i1 %28, i1 false
-  br i1 %or.cond53, label %.loopexit, label %29
+  br i1 %or.cond53, label %.loopexit, label %23
 
-29:                                               ; preds = %24, %13
-  br label %.loopexit
-
-30:                                               ; preds = %14
+29:                                               ; preds = %14
   %.sroa.030.6 = getelementptr inbounds nuw i8, ptr %.sroa.030.3, i64 1
-  %31 = add i16 %.sroa.014.063, 3
-  %32 = load i8, ptr %.sroa.030.3, align 1, !noundef !37
-  %33 = icmp eq i8 %32, 102
-  %34 = icmp eq ptr %.sroa.030.6, %3
-  %or.cond54 = select i1 %33, i1 %34, i1 false
-  br i1 %or.cond54, label %.loopexit, label %35
+  %30 = add i16 %.sroa.014.063, 3
+  %31 = load i8, ptr %.sroa.030.3, align 1, !noundef !37
+  %32 = icmp eq i8 %31, 102
+  %33 = icmp eq ptr %.sroa.030.6, %3
+  %or.cond54 = select i1 %32, i1 %33, i1 false
+  br i1 %or.cond54, label %.loopexit, label %23
 
-35:                                               ; preds = %30, %14
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %15, %6, %8, %2, %30, %24, %18, %23, %29, %35
-  %.sroa.10.0 = phi i16 [ %25, %24 ], [ undef, %35 ], [ %31, %30 ], [ undef, %23 ], [ %19, %18 ], [ undef, %29 ], [ 0, %2 ], [ undef, %6 ], [ %16, %15 ], [ undef, %8 ]
-  %.sroa.0.0 = phi i16 [ 1, %24 ], [ 0, %35 ], [ 1, %30 ], [ 0, %23 ], [ 1, %18 ], [ 0, %29 ], [ 1, %2 ], [ 0, %6 ], [ 1, %15 ], [ 0, %8 ]
-  %36 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
-  %37 = insertvalue { i16, i16 } %36, i16 %.sroa.10.0, 1
-  ret { i16, i16 } %37
+.loopexit:                                        ; preds = %15, %6, %8, %2, %29, %24, %18, %23
+  %.sroa.10.0 = phi i16 [ %25, %24 ], [ 0, %2 ], [ %30, %29 ], [ undef, %23 ], [ %19, %18 ], [ %16, %15 ], [ undef, %8 ], [ undef, %6 ]
+  %.sroa.0.0 = phi i16 [ 1, %24 ], [ 1, %2 ], [ 1, %29 ], [ 0, %23 ], [ 1, %18 ], [ 1, %15 ], [ 0, %8 ], [ 0, %6 ]
+  %34 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
+  %35 = insertvalue { i16, i16 } %34, i16 %.sroa.10.0, 1
+  ret { i16, i16 } %35
 }
 
 ; Function Attrs: nonlazybind uwtable

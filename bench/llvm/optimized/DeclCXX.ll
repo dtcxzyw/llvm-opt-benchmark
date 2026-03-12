@@ -14737,7 +14737,7 @@ _ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit69.thread91: ; preds = %64, %53, 
   %89 = icmp eq i8 %88, 47
   br i1 %89, label %.thread94, label %90
 
-90:                                               ; preds = %70, %78
+90:                                               ; preds = %123, %108, %106, %70, %78
   br label %.thread94
 
 91:                                               ; preds = %67
@@ -14762,13 +14762,13 @@ _ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit69.thread91: ; preds = %64, %53, 
 106:                                              ; preds = %67
   %107 = and i16 %68, 510
   %spec.select.i.i.i.i.i.i.i.i.not = icmp eq i16 %107, 120
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not, label %108, label %.thread100
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not, label %108, label %90
 
 108:                                              ; preds = %106
   %109 = load i32, ptr %26, align 8
   %110 = and i32 %109, 32505856
   %111 = icmp eq i32 %110, 0
-  br i1 %111, label %112, label %.thread100
+  br i1 %111, label %112, label %90
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -14803,13 +14803,10 @@ _ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit69.thread91: ; preds = %64, %53, 
   %133 = load i8, ptr %132, align 16
   %.fr = freeze i8 %133
   %.not114 = icmp eq i8 %.fr, 47
-  br i1 %.not114, label %.thread94, label %.thread100
+  br i1 %.not114, label %.thread94, label %90
 
-.thread100:                                       ; preds = %106, %108, %123
-  br label %.thread94
-
-.thread94:                                        ; preds = %78, %90, %.thread100, %123, %91, %.critedge, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit69.thread91, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit69, %45, %43, %30, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit.thread89, %3, %21
-  %.0 = phi ptr [ null, %3 ], [ %., %21 ], [ null, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit.thread89 ], [ %0, %30 ], [ null, %.critedge ], [ null, %43 ], [ null, %45 ], [ %44, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit69 ], [ %44, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit69.thread91 ], [ %44, %123 ], [ %105, %91 ], [ null, %.thread100 ], [ %44, %78 ], [ null, %90 ]
+.thread94:                                        ; preds = %78, %90, %123, %91, %.critedge, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit69.thread91, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit69, %45, %43, %30, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit.thread89, %3, %21
+  %.0 = phi ptr [ null, %3 ], [ %., %21 ], [ null, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit.thread89 ], [ %0, %30 ], [ null, %.critedge ], [ null, %43 ], [ null, %45 ], [ %44, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit69 ], [ %44, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit69.thread91 ], [ %44, %123 ], [ %105, %91 ], [ null, %90 ], [ %44, %78 ]
   ret ptr %.0
 }
 

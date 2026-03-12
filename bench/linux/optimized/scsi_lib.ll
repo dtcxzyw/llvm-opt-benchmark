@@ -941,14 +941,14 @@ define internal fastcc noundef i32 @scsi_io_completion_nz_result(ptr noundef %0,
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 254
   %15 = icmp eq i32 %14, 34
-  br i1 %15, label %20, label %48
+  br i1 %15, label %20, label %47
 
 .thread:                                          ; preds = %3
   %16 = getelementptr i8, ptr %0, i64 -224
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 254
   %19 = icmp eq i32 %18, 34
-  br i1 %19, label %.thread3, label %48
+  br i1 %19, label %.thread3, label %47
 
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -960,7 +960,7 @@ define internal fastcc noundef i32 @scsi_io_completion_nz_result(ptr noundef %0,
   %27 = zext nneg i8 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 244
   store i32 %27, ptr %28, align 4
-  br i1 %11, label %.thread3, label %78
+  br i1 %11, label %.thread3, label %77
 
 .thread3:                                         ; preds = %.thread, %20
   %29 = lshr i32 %1, 8
@@ -972,10 +972,10 @@ define internal fastcc noundef i32 @scsi_io_completion_nz_result(ptr noundef %0,
 32:                                               ; preds = %.thread3
   %33 = lshr i32 %1, 16
   %34 = trunc i32 %33 to i8
-  switch i8 %34, label %47 [
+  switch i8 %34, label %72 [
     i8 0, label %35
-    i8 15, label %76
-    i8 20, label %76
+    i8 15, label %75
+    i8 20, label %75
   ]
 
 35:                                               ; preds = %32
@@ -983,153 +983,150 @@ define internal fastcc noundef i32 @scsi_io_completion_nz_result(ptr noundef %0,
   %37 = and i32 %1, 16711680
   %38 = icmp eq i32 %37, 65536
   %39 = or i1 %36, %38
-  br i1 %39, label %76, label %40
+  br i1 %39, label %75, label %40
 
 40:                                               ; preds = %35
   %41 = trunc i32 %1 to i8
   %42 = and i8 %41, -6
   switch i8 %42, label %43 [
-    i8 16, label %76
-    i8 0, label %76
+    i8 16, label %75
+    i8 0, label %75
   ]
 
 43:                                               ; preds = %40
   %44 = and i32 %1, 254
   %45 = icmp eq i32 %44, 34
   %46 = select i1 %45, i8 0, i8 10
-  br label %76
+  br label %75
 
-47:                                               ; preds = %32
-  br label %76
+47:                                               ; preds = %.thread, %6
+  %48 = phi i1 [ true, %.thread ], [ %11, %6 ]
+  %49 = getelementptr i8, ptr %0, i64 -204
+  %50 = load i32, ptr %49, align 4
+  %51 = icmp eq i32 %50, 0
+  %52 = select i1 %51, i1 %48, i1 false
+  br i1 %52, label %53, label %77
 
-48:                                               ; preds = %.thread, %6
-  %49 = phi i1 [ true, %.thread ], [ %11, %6 ]
-  %50 = getelementptr i8, ptr %0, i64 -204
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp eq i32 %51, 0
-  %53 = select i1 %52, i1 %49, i1 false
-  br i1 %53, label %54, label %78
+53:                                               ; preds = %47
+  %54 = lshr i32 %1, 8
+  %55 = trunc i32 %54 to i8
+  %switch.tableidx6 = add i8 %55, -1
+  %56 = icmp ult i8 %switch.tableidx6, 5
+  br i1 %56, label %switch.lookup7, label %57
 
-54:                                               ; preds = %48
-  %55 = lshr i32 %1, 8
-  %56 = trunc i32 %55 to i8
-  %switch.tableidx6 = add i8 %56, -1
-  %57 = icmp ult i8 %switch.tableidx6, 5
-  br i1 %57, label %switch.lookup7, label %58
-
-58:                                               ; preds = %54
-  %59 = lshr i32 %1, 16
-  %60 = trunc i32 %59 to i8
-  switch i8 %60, label %73 [
-    i8 0, label %61
-    i8 15, label %76
-    i8 20, label %76
+57:                                               ; preds = %53
+  %58 = lshr i32 %1, 16
+  %59 = trunc i32 %58 to i8
+  switch i8 %59, label %72 [
+    i8 0, label %60
+    i8 15, label %75
+    i8 20, label %75
   ]
 
-61:                                               ; preds = %58
-  %62 = icmp slt i32 %1, 0
-  %63 = and i32 %1, 16711680
-  %64 = icmp eq i32 %63, 65536
-  %65 = or i1 %62, %64
-  br i1 %65, label %76, label %66
+60:                                               ; preds = %57
+  %61 = icmp slt i32 %1, 0
+  %62 = and i32 %1, 16711680
+  %63 = icmp eq i32 %62, 65536
+  %64 = or i1 %61, %63
+  br i1 %64, label %75, label %65
 
-66:                                               ; preds = %61
-  %67 = trunc i32 %1 to i8
-  %68 = and i8 %67, -6
-  switch i8 %68, label %69 [
-    i8 16, label %76
-    i8 0, label %76
+65:                                               ; preds = %60
+  %66 = trunc i32 %1 to i8
+  %67 = and i8 %66, -6
+  switch i8 %67, label %68 [
+    i8 16, label %75
+    i8 0, label %75
   ]
 
-69:                                               ; preds = %66
-  %70 = and i32 %1, 254
-  %71 = icmp eq i32 %70, 34
-  %72 = select i1 %71, i8 0, i8 10
-  br label %76
+68:                                               ; preds = %65
+  %69 = and i32 %1, 254
+  %70 = icmp eq i32 %69, 34
+  %71 = select i1 %70, i8 0, i8 10
+  br label %75
 
-73:                                               ; preds = %58
-  br label %76
+72:                                               ; preds = %32, %57
+  br label %75
 
 switch.lookup:                                    ; preds = %.thread3
-  %74 = shl nuw nsw i8 %switch.tableidx, 3
-  %switch.shiftamt = zext nneg i8 %74 to i40
+  %73 = shl nuw nsw i8 %switch.tableidx, 3
+  %switch.shiftamt = zext nneg i8 %73 to i40
   %switch.downshift = lshr i40 77393756934, %switch.shiftamt
   %switch.masked = trunc i40 %switch.downshift to i8
-  br label %76
+  br label %75
 
-switch.lookup7:                                   ; preds = %54
-  %75 = shl nuw nsw i8 %switch.tableidx6, 3
-  %switch.shiftamt9 = zext nneg i8 %75 to i40
+switch.lookup7:                                   ; preds = %53
+  %74 = shl nuw nsw i8 %switch.tableidx6, 3
+  %switch.shiftamt9 = zext nneg i8 %74 to i40
   %switch.downshift10 = lshr i40 77393756934, %switch.shiftamt9
   %switch.masked11 = trunc i40 %switch.downshift10 to i8
-  br label %76
+  br label %75
 
-76:                                               ; preds = %switch.lookup7, %switch.lookup, %73, %69, %66, %66, %61, %58, %58, %47, %43, %40, %40, %35, %32, %32
-  %77 = phi i8 [ 10, %47 ], [ 0, %66 ], [ %72, %69 ], [ 0, %66 ], [ 10, %61 ], [ %switch.masked, %switch.lookup ], [ 4, %32 ], [ 4, %32 ], [ 10, %35 ], [ 0, %40 ], [ %46, %43 ], [ 0, %40 ], [ 10, %73 ], [ %switch.masked11, %switch.lookup7 ], [ 4, %58 ], [ 4, %58 ]
-  store i8 %77, ptr %2, align 1
-  br label %78
+75:                                               ; preds = %switch.lookup7, %switch.lookup, %72, %68, %65, %65, %60, %57, %57, %43, %40, %40, %35, %32, %32
+  %76 = phi i8 [ 4, %57 ], [ 0, %65 ], [ %71, %68 ], [ 0, %65 ], [ 10, %60 ], [ %switch.masked, %switch.lookup ], [ 4, %32 ], [ 4, %32 ], [ 10, %35 ], [ 0, %40 ], [ %46, %43 ], [ 0, %40 ], [ 10, %72 ], [ 4, %57 ], [ %switch.masked11, %switch.lookup7 ]
+  store i8 %76, ptr %2, align 1
+  br label %77
 
-78:                                               ; preds = %20, %76, %48
-  %79 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %80 = load i8, ptr %79, align 1
-  %81 = icmp eq i8 %80, 1
-  %82 = select i1 %5, i1 %81, i1 false
-  br i1 %82, label %83, label %97
+77:                                               ; preds = %20, %75, %47
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %79 = load i8, ptr %78, align 1
+  %80 = icmp eq i8 %79, 1
+  %81 = select i1 %5, i1 %80, i1 false
+  br i1 %81, label %82, label %96
 
-83:                                               ; preds = %78
-  %84 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %85 = load i8, ptr %84, align 2
-  %86 = icmp eq i8 %85, 0
-  %87 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  %88 = load i8, ptr %87, align 1
-  %89 = icmp eq i8 %88, 29
-  %90 = select i1 %86, i1 %89, i1 false
-  br i1 %90, label %.sink.split, label %91
+82:                                               ; preds = %77
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %84 = load i8, ptr %83, align 2
+  %85 = icmp eq i8 %84, 0
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  %87 = load i8, ptr %86, align 1
+  %88 = icmp eq i8 %87, 29
+  %89 = select i1 %85, i1 %88, i1 false
+  br i1 %89, label %.sink.split, label %90
 
-91:                                               ; preds = %83
-  %92 = getelementptr i8, ptr %0, i64 -220
-  %93 = load i32, ptr %92, align 4
-  %94 = and i32 %93, 2048
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %.sink.split
+90:                                               ; preds = %82
+  %91 = getelementptr i8, ptr %0, i64 -220
+  %92 = load i32, ptr %91, align 4
+  %93 = and i32 %92, 2048
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %95, label %.sink.split
 
-96:                                               ; preds = %91
+95:                                               ; preds = %90
   call void @scsi_print_sense(ptr noundef %0) #16
   br label %.sink.split
 
-97:                                               ; preds = %78
-  %98 = and i32 %1, 255
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %111, label %100
+96:                                               ; preds = %77
+  %97 = and i32 %1, 255
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %110, label %99
 
-100:                                              ; preds = %97
-  %101 = icmp slt i32 %1, 0
-  %102 = and i32 %1, 16711680
-  %103 = icmp eq i32 %102, 65536
-  %104 = or i1 %101, %103
-  br i1 %104, label %111, label %105
+99:                                               ; preds = %96
+  %100 = icmp slt i32 %1, 0
+  %101 = and i32 %1, 16711680
+  %102 = icmp eq i32 %101, 65536
+  %103 = or i1 %100, %102
+  br i1 %103, label %110, label %104
 
-105:                                              ; preds = %100
-  %106 = trunc i32 %1 to i8
-  %107 = and i8 %106, -6
-  switch i8 %107, label %108 [
+104:                                              ; preds = %99
+  %105 = trunc i32 %1 to i8
+  %106 = and i8 %105, -6
+  switch i8 %106, label %107 [
     i8 16, label %.sink.split
     i8 0, label %.sink.split
   ]
 
-108:                                              ; preds = %105
-  %109 = and i32 %1, 254
-  %110 = icmp eq i32 %109, 34
-  br i1 %110, label %.sink.split, label %111
+107:                                              ; preds = %104
+  %108 = and i32 %1, 254
+  %109 = icmp eq i32 %108, 34
+  br i1 %109, label %.sink.split, label %110
 
-.sink.split:                                      ; preds = %105, %105, %108, %96, %91, %83
+.sink.split:                                      ; preds = %104, %104, %107, %95, %90, %82
   store i8 0, ptr %2, align 1
-  br label %111
+  br label %110
 
-111:                                              ; preds = %.sink.split, %108, %100, %97
-  %112 = phi i32 [ %1, %100 ], [ %1, %108 ], [ %1, %97 ], [ 0, %.sink.split ]
+110:                                              ; preds = %.sink.split, %107, %99, %96
+  %111 = phi i32 [ %1, %99 ], [ %1, %107 ], [ %1, %96 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %112
+  ret i32 %111
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

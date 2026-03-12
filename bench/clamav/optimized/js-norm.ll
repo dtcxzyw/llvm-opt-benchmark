@@ -1388,8 +1388,8 @@ define void @cli_js_process_buffer(ptr noundef captures(none) %0, ptr noundef %1
   br label %55
 
 55:                                               ; preds = %.backedge.i, %.lr.ph142.i
-  %56 = phi i64 [ %48, %.lr.ph142.i ], [ %77, %.backedge.i ]
-  %57 = phi i64 [ %47, %.lr.ph142.i ], [ %78, %.backedge.i ]
+  %56 = phi i64 [ %48, %.lr.ph142.i ], [ %84, %.backedge.i ]
+  %57 = phi i64 [ %47, %.lr.ph142.i ], [ %85, %.backedge.i ]
   %58 = load i32, ptr %49, align 8, !tbaa !15
   switch i32 %58, label %211 [
     i32 0, label %62
@@ -1442,7 +1442,7 @@ textbuf_clean.exit.i:                             ; preds = %69, %62
   %76 = load i32, ptr %75, align 4, !tbaa !26
   switch i32 %76, label %.backedge.i [
     i32 15, label %yylex.exit.thread.thread172
-    i32 1, label %80
+    i32 1, label %77
     i32 2, label %133
     i32 3, label %177
     i32 4, label %179
@@ -1458,37 +1458,37 @@ textbuf_clean.exit.i:                             ; preds = %69, %62
     i32 14, label %.thread.thread
   ]
 
-.backedge.i:                                      ; preds = %._crit_edge.i, %.loopexit.i, %87, %85, %textbuf_clean.exit.i
-  %77 = phi i64 [ %.pre-phi.i, %.loopexit.i ], [ %210, %._crit_edge.i ], [ %71, %textbuf_clean.exit.i ], [ %86, %85 ], [ %88, %87 ]
-  %78 = load i64, ptr %31, align 8, !tbaa !46
-  %79 = icmp ult i64 %77, %78
-  br i1 %79, label %55, label %yylex.exit.thread138
+77:                                               ; preds = %textbuf_clean.exit.i
+  %78 = icmp ult i64 %71, %29
+  br i1 %78, label %79, label %89
 
-80:                                               ; preds = %textbuf_clean.exit.i
-  %81 = icmp ult i64 %71, %29
-  br i1 %81, label %82, label %89
-
-82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw i8, ptr %28, i64 %71
-  %84 = load i8, ptr %83, align 1, !tbaa !3
-  switch i8 %84, label %89 [
-    i8 42, label %85
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds nuw i8, ptr %28, i64 %71
+  %81 = load i8, ptr %80, align 1, !tbaa !3
+  switch i8 %81, label %89 [
+    i8 42, label %82
     i8 47, label %87
   ]
 
-85:                                               ; preds = %82
+82:                                               ; preds = %79
   store i32 1, ptr %49, align 8, !tbaa !15
-  %86 = add i64 %70, 2
-  store i64 %86, ptr %34, align 8, !tbaa !47
+  %83 = add i64 %70, 2
+  store i64 %83, ptr %34, align 8, !tbaa !47
   br label %.backedge.i
 
-87:                                               ; preds = %82
+.backedge.i:                                      ; preds = %._crit_edge.i, %.loopexit.i, %87, %82, %textbuf_clean.exit.i
+  %84 = phi i64 [ %.pre-phi.i, %.loopexit.i ], [ %210, %._crit_edge.i ], [ %71, %textbuf_clean.exit.i ], [ %83, %82 ], [ %88, %87 ]
+  %85 = load i64, ptr %31, align 8, !tbaa !46
+  %86 = icmp ult i64 %84, %85
+  br i1 %86, label %55, label %yylex.exit.thread138
+
+87:                                               ; preds = %79
   store i32 2, ptr %49, align 8, !tbaa !15
   %88 = add i64 %70, 2
   store i64 %88, ptr %34, align 8, !tbaa !47
   br label %.backedge.i
 
-89:                                               ; preds = %82, %80
+89:                                               ; preds = %79, %77
   store i64 %70, ptr %34, align 8, !tbaa !47
   %90 = load i64, ptr %31, align 8, !tbaa !46
   %.not32.i.i = icmp eq i64 %90, %70
@@ -1787,7 +1787,7 @@ yylex.exit.thread.thread172:                      ; preds = %textbuf_clean.exit.
   unreachable
 
 yylex.exit:                                       ; preds = %parseOperator.exit.i, %parseOperator.exit112.i, %177, %179, %181, %183, %185, %187, %189, %203
-  %.0.i = phi i32 [ %132, %parseOperator.exit.i ], [ %176, %parseOperator.exit112.i ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ %204, %203 ], [ %188, %187 ], [ %190, %189 ], [ %186, %185 ]
+  %.0.i = phi i32 [ %204, %203 ], [ %132, %parseOperator.exit.i ], [ %176, %parseOperator.exit112.i ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ %188, %187 ], [ %190, %189 ], [ %186, %185 ]
   %.not100 = icmp eq i32 %.0.i, 0
   br i1 %.not100, label %yylex.exit.thread138, label %yylex.exit.thread
 

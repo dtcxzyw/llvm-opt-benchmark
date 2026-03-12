@@ -77239,7 +77239,7 @@ _ZN5clang4Sema9isVisibleEPKNS_9NamedDeclE.exit.i: ; preds = %.outer, %52
   %58 = phi ptr [ %54, %52 ], [ %48, %.outer ]
   %.sroa.12.029.ph.i52 = phi i1 [ true, %52 ], [ %.sroa.12.029.ph.i.ph, %.outer ]
   %59 = tail call noundef zeroext i1 @_ZN5clang4Sema16isAcceptableSlowEPKNS_9NamedDeclENS0_14AcceptableKindE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %58, i32 noundef 0) #30
-  br i1 %59, label %_ZN5clang4Sema9isVisibleEPKNS_9NamedDeclE.exit.i._ZN5clang12LookupResult6Filter5eraseEv.exit.i_crit_edge, label %60, !llvm.loop !2529
+  br i1 %59, label %._ZN5clang12LookupResult6Filter5eraseEv.exit.i_crit_edge56, label %60, !llvm.loop !2529
 
 60:                                               ; preds = %_ZN5clang4Sema9isVisibleEPKNS_9NamedDeclE.exit.i
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 28
@@ -77278,7 +77278,7 @@ _ZN5clang4Sema9isVisibleEPKNS_9NamedDeclE.exit.i: ; preds = %.outer, %52
   %84 = and i64 %.sroa.0.0.i22.i, 7
   %85 = or i64 %83, %84
   %86 = icmp eq i64 %79, %85
-  br i1 %86, label %._ZN5clang12LookupResult6Filter5eraseEv.exit.i_crit_edge54, label %87, !llvm.loop !2529
+  br i1 %86, label %._ZN5clang12LookupResult6Filter5eraseEv.exit.i_crit_edge56, label %87, !llvm.loop !2529
 
 87:                                               ; preds = %66
   %88 = tail call noundef ptr @_ZNK5clang15TypedefNameDecl26getAnonDeclWithTypedefNameEb(ptr noundef nonnull align 8 dereferenceable(88) %58, i1 noundef zeroext true) #30
@@ -77304,17 +77304,11 @@ _ZN5clang4Sema9isVisibleEPKNS_9NamedDeclE.exit.i: ; preds = %.outer, %52
   %.not.i.i.i = icmp eq ptr %.sroa.6.030.ph.i.ph, %98
   br i1 %.not.i.i.i, label %._crit_edge.thread.i, label %_ZN5clang12LookupResult6Filter5eraseEv.exit.i.thread
 
-_ZN5clang4Sema9isVisibleEPKNS_9NamedDeclE.exit.i._ZN5clang12LookupResult6Filter5eraseEv.exit.i_crit_edge: ; preds = %_ZN5clang4Sema9isVisibleEPKNS_9NamedDeclE.exit.i
+._ZN5clang12LookupResult6Filter5eraseEv.exit.i_crit_edge56: ; preds = %_ZN5clang4Sema9isVisibleEPKNS_9NamedDeclE.exit.i, %66, %89
   br label %_ZN5clang12LookupResult6Filter5eraseEv.exit.i, !llvm.loop !2529
 
-._ZN5clang12LookupResult6Filter5eraseEv.exit.i_crit_edge54: ; preds = %66
-  br label %_ZN5clang12LookupResult6Filter5eraseEv.exit.i, !llvm.loop !2529
-
-._ZN5clang12LookupResult6Filter5eraseEv.exit.i_crit_edge56: ; preds = %89
-  br label %_ZN5clang12LookupResult6Filter5eraseEv.exit.i, !llvm.loop !2529
-
-_ZN5clang12LookupResult6Filter5eraseEv.exit.i:    ; preds = %._ZN5clang12LookupResult6Filter5eraseEv.exit.i_crit_edge56, %._ZN5clang12LookupResult6Filter5eraseEv.exit.i_crit_edge54, %_ZN5clang4Sema9isVisibleEPKNS_9NamedDeclE.exit.i._ZN5clang12LookupResult6Filter5eraseEv.exit.i_crit_edge, %.outer
-  %.sroa.12.029.ph.i.lcssa = phi i1 [ %.sroa.12.029.ph.i.ph, %.outer ], [ %.sroa.12.029.ph.i52, %_ZN5clang4Sema9isVisibleEPKNS_9NamedDeclE.exit.i._ZN5clang12LookupResult6Filter5eraseEv.exit.i_crit_edge ], [ %.sroa.12.029.ph.i52, %._ZN5clang12LookupResult6Filter5eraseEv.exit.i_crit_edge54 ], [ %.sroa.12.029.ph.i52, %._ZN5clang12LookupResult6Filter5eraseEv.exit.i_crit_edge56 ]
+_ZN5clang12LookupResult6Filter5eraseEv.exit.i:    ; preds = %._ZN5clang12LookupResult6Filter5eraseEv.exit.i_crit_edge56, %.outer
+  %.sroa.12.029.ph.i.lcssa = phi i1 [ %.sroa.12.029.ph.i.ph, %.outer ], [ %.sroa.12.029.ph.i52, %._ZN5clang12LookupResult6Filter5eraseEv.exit.i_crit_edge56 ]
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.6.030.ph.i.ph, i64 8
   %.pr.i = load i32, ptr %42, align 8, !tbaa !712
   %100 = load ptr, ptr %44, align 8, !tbaa !711
@@ -183213,7 +183207,7 @@ _ZN5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit63.us.us: ; preds = %
   %or.cond = select i1 %79, i1 true, i1 %80
   br i1 %or.cond, label %.loopexit.split.us.us.thread, label %.thread76.us.us
 
-.thread76.us.us:                                  ; preds = %69, %78, %_ZN5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit63.us.us
+.thread76.us.us:                                  ; preds = %78, %69, %_ZN5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit63.us.us
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread.us.us
 

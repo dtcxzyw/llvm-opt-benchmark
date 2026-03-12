@@ -1473,7 +1473,7 @@ define internal zeroext i1 @kyber_has_work(ptr noundef readonly captures(none) %
   %11 = add nuw nsw i64 %21, 1
   %12 = icmp samesign ult i64 %21, 3
   %13 = icmp eq i64 %11, 4
-  br i1 %13, label %..critedge_crit_edge7, label %14, !llvm.loop !39
+  br i1 %13, label %..critedge.loopexit_crit_edge, label %14, !llvm.loop !39
 
 14:                                               ; preds = %10
   %15 = getelementptr [16 x i8], ptr %4, i64 %11
@@ -1496,14 +1496,11 @@ define internal zeroext i1 @kyber_has_work(ptr noundef readonly captures(none) %
   %24 = tail call zeroext i1 @sbitmap_any_bit_set(ptr noundef %23) #18
   br i1 %24, label %.critedge, label %10
 
-..critedge_crit_edge7:                            ; preds = %10
+..critedge.loopexit_crit_edge:                    ; preds = %10, %14
   br label %.critedge, !llvm.loop !39
 
-..critedge.loopexit_crit_edge:                    ; preds = %14
-  br label %.critedge, !llvm.loop !39
-
-.critedge:                                        ; preds = %.lr.ph12, %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %..critedge_crit_edge7, %1
-  %25 = phi i1 [ %12, %..critedge_crit_edge7 ], [ true, %1 ], [ true, %.lr.ph.preheader ], [ %12, %..critedge.loopexit_crit_edge ], [ %12, %.lr.ph ], [ %22, %.lr.ph12 ]
+.critedge:                                        ; preds = %.lr.ph12, %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %1
+  %25 = phi i1 [ %12, %..critedge.loopexit_crit_edge ], [ true, %1 ], [ true, %.lr.ph.preheader ], [ %22, %.lr.ph12 ], [ %12, %.lr.ph ]
   ret i1 %25
 }
 

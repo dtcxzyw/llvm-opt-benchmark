@@ -1863,7 +1863,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit.i: ; preds = %.
           to label %434 unwind label %.loopexit544.i, !noalias !92
 
 .invoke.i:                                        ; preds = %512, %482, %421, %391
-  %432 = phi ptr [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.78, %512 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.73, %421 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.73, %391 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.78, %482 ]
+  %432 = phi ptr [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.73, %391 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.73, %421 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.78, %512 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.78, %482 ]
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.2b7fee92aba3c2a5a7d3466dc36c671a.62, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %432) #19
           to label %.cont.i unwind label %.loopexit.split-lp545.i, !noalias !92
 
@@ -4367,7 +4367,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8bed260cb24a5696E.exit.i: ; preds = %.
           to label %433 unwind label %.loopexit542.i, !noalias !144
 
 .invoke.i:                                        ; preds = %511, %481, %420, %390
-  %431 = phi ptr [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.78, %511 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.73, %420 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.73, %390 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.78, %481 ]
+  %431 = phi ptr [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.73, %390 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.73, %420 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.78, %511 ], [ @anon.2b7fee92aba3c2a5a7d3466dc36c671a.78, %481 ]
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.2b7fee92aba3c2a5a7d3466dc36c671a.62, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %431) #19
           to label %.cont.i unwind label %.loopexit.split-lp543.i, !noalias !144
 

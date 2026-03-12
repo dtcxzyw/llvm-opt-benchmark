@@ -11960,16 +11960,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @ext4_ext_try_to_merge_right(
   %116 = zext i16 %115 to i64
   %117 = getelementptr [12 x i8], ptr %8, i64 %116
   %118 = icmp ugt ptr %117, %2
-  br i1 %118, label %41, label %.thread..critedge.loopexit_crit_edge, !llvm.loop !193
+  br i1 %118, label %41, label %..critedge.loopexit_crit_edge, !llvm.loop !193
 
-.thread..critedge.loopexit_crit_edge:             ; preds = %.thread
+..critedge.loopexit_crit_edge:                    ; preds = %.thread, %41
   br label %.critedge, !llvm.loop !193
 
-..critedge.loopexit_crit_edge:                    ; preds = %41
-  br label %.critedge, !llvm.loop !193
-
-.critedge:                                        ; preds = %47, %.lr.ph16, %72, %.lr.ph, %..critedge.loopexit_crit_edge, %16, %.thread..critedge.loopexit_crit_edge, %10
-  %119 = phi i32 [ 0, %10 ], [ 1, %.thread..critedge.loopexit_crit_edge ], [ 0, %16 ], [ 1, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %59, %72 ], [ 1, %47 ], [ %59, %.lr.ph16 ]
+.critedge:                                        ; preds = %47, %.lr.ph16, %72, %.lr.ph, %..critedge.loopexit_crit_edge, %16, %10
+  %119 = phi i32 [ 0, %10 ], [ 0, %.lr.ph ], [ 0, %16 ], [ 1, %..critedge.loopexit_crit_edge ], [ 1, %47 ], [ %59, %.lr.ph16 ], [ %59, %72 ]
   ret i32 %119
 }
 

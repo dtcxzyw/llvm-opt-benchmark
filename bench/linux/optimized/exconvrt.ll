@@ -670,9 +670,8 @@ define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 nou
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %58 = load i8, ptr %57, align 1
   switch i8 %58, label %acpi_ex_convert_to_integer.exit.thread5 [
-    i8 3, label %acpi_ex_convert_to_integer.exit.thread
-    i8 1, label %59
     i8 2, label %70
+    i8 1, label %59
   ]
 
 59:                                               ; preds = %56
@@ -739,8 +738,8 @@ acpi_ex_convert_to_integer.exit:                  ; preds = %17
 acpi_ex_convert_to_integer.exit.thread5:          ; preds = %12, %18, %56, %acpi_ex_convert_to_integer.exit
   br label %acpi_ex_convert_to_integer.exit.thread
 
-acpi_ex_convert_to_integer.exit.thread:           ; preds = %56, %12, %54, %.loopexit.i, %29, %70, %59, %85, %10, %90, %4, %91, %acpi_ex_convert_to_integer.exit, %acpi_ex_convert_to_integer.exit.thread5
-  %98 = phi i32 [ 0, %acpi_ex_convert_to_integer.exit.thread5 ], [ %96, %acpi_ex_convert_to_integer.exit ], [ 12303, %91 ], [ 0, %54 ], [ 4, %.loopexit.i ], [ 12298, %29 ], [ 4, %70 ], [ 4, %59 ], [ 0, %12 ], [ 0, %85 ], [ 0, %10 ], [ 12303, %90 ], [ 0, %4 ], [ 0, %56 ]
+acpi_ex_convert_to_integer.exit.thread:           ; preds = %12, %54, %.loopexit.i, %29, %70, %59, %85, %10, %90, %4, %91, %acpi_ex_convert_to_integer.exit, %acpi_ex_convert_to_integer.exit.thread5
+  %98 = phi i32 [ 0, %acpi_ex_convert_to_integer.exit.thread5 ], [ %96, %acpi_ex_convert_to_integer.exit ], [ 12303, %91 ], [ 0, %54 ], [ 4, %.loopexit.i ], [ 12298, %29 ], [ 4, %70 ], [ 4, %59 ], [ 0, %12 ], [ 0, %85 ], [ 0, %10 ], [ 12303, %90 ], [ 0, %4 ]
   ret i32 %98
 }
 

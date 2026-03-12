@@ -681,8 +681,8 @@ _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.d7fdd12e8222bef38308d17493fce316.7.llvm.6424288313766077374, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d7fdd12e8222bef38308d17493fce316.8.llvm.6424288313766077374) #36
   unreachable
 
-_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit2: ; preds = %switch.lookup, %9, %10, %11, %2, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit
-  %.neg7 = phi i64 [ %.neg6, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit ], [ %switch.load, %switch.lookup ], [ -32, %9 ], [ -64, %10 ], [ -128, %11 ], [ -16, %2 ]
+_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit2: ; preds = %switch.lookup, %2, %10, %9, %11, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit
+  %.neg7 = phi i64 [ %.neg6, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit ], [ %switch.load, %switch.lookup ], [ -16, %2 ], [ -64, %10 ], [ -32, %9 ], [ -128, %11 ]
   %18 = and i64 %.neg7, 120
   %19 = zext nneg i64 %18 to i128
   %20 = lshr i128 -1, %19
@@ -731,7 +731,7 @@ switch.lookup:                                    ; preds = %2
   br label %_ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374.exit
 
 _ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374.exit: ; preds = %switch.lookup, %2, %5, %6, %7, %8
-  %.0.i = phi i64 [ %10, %8 ], [ %switch.load, %switch.lookup ], [ 4, %5 ], [ 8, %6 ], [ 16, %7 ], [ 2, %2 ]
+  %.0.i = phi i64 [ %10, %8 ], [ %switch.load, %switch.lookup ], [ 2, %2 ], [ 8, %6 ], [ 4, %5 ], [ 16, %7 ]
   ret i64 %.0.i
 }
 
@@ -780,8 +780,8 @@ switch.lookup:                                    ; preds = %2
   %10 = load i64, ptr %9, align 8, !noundef !212
   br label %_ZN15ra_ap_rustc_abi7Integer4size17h77ec4c8a7cbc1d5dE.llvm.6424288313766077374.exit
 
-_ZN15ra_ap_rustc_abi7Integer4size17h77ec4c8a7cbc1d5dE.llvm.6424288313766077374.exit: ; preds = %switch.lookup, %2, %8, %7, %6, %5
-  %.0 = phi i64 [ %10, %8 ], [ %switch.load, %switch.lookup ], [ 4, %5 ], [ 8, %6 ], [ 16, %7 ], [ 2, %2 ]
+_ZN15ra_ap_rustc_abi7Integer4size17h77ec4c8a7cbc1d5dE.llvm.6424288313766077374.exit: ; preds = %switch.lookup, %2, %7, %6, %5, %8
+  %.0 = phi i64 [ %10, %8 ], [ %switch.load, %switch.lookup ], [ 2, %2 ], [ 8, %6 ], [ 4, %5 ], [ 16, %7 ]
   ret i64 %.0
 }
 

@@ -4441,7 +4441,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit274
   br label %197
 
 .invoke:                                          ; preds = %233, %263, %154, %184, %334, %366
-  %195 = phi ptr [ @anon.15ffa41ec04c82f15b85862dafa48cde.49, %366 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.49, %334 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.44, %184 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.44, %154 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.47, %263 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.47, %233 ]
+  %195 = phi ptr [ @anon.15ffa41ec04c82f15b85862dafa48cde.49, %366 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.49, %334 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.47, %263 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.44, %184 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.44, %154 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.47, %233 ]
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.15ffa41ec04c82f15b85862dafa48cde.13, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %195) #26
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -5586,7 +5586,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit272
   br label %197
 
 .invoke:                                          ; preds = %233, %263, %154, %184, %334, %366
-  %195 = phi ptr [ @anon.15ffa41ec04c82f15b85862dafa48cde.49, %366 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.49, %334 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.44, %184 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.44, %154 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.47, %263 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.47, %233 ]
+  %195 = phi ptr [ @anon.15ffa41ec04c82f15b85862dafa48cde.49, %366 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.49, %334 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.47, %263 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.44, %184 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.44, %154 ], [ @anon.15ffa41ec04c82f15b85862dafa48cde.47, %233 ]
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.15ffa41ec04c82f15b85862dafa48cde.13, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %195) #26
           to label %.cont unwind label %.loopexit.split-lp
 

@@ -2351,7 +2351,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %7, align 8
   %8 = load i8, ptr %4, align 1
-  switch i8 %8, label %366 [
+  switch i8 %8, label %365 [
     i8 18, label %9
     i8 26, label %61
     i8 90, label %61
@@ -2359,12 +2359,12 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
     i8 -98, label %231
     i8 -96, label %253
     i8 3, label %261
-    i8 53, label %372
-    i8 -111, label %372
-    i8 1, label %372
-    i8 11, label %372
-    i8 43, label %372
-    i8 0, label %372
+    i8 53, label %371
+    i8 -111, label %371
+    i8 1, label %371
+    i8 11, label %371
+    i8 43, label %371
+    i8 0, label %371
     i8 29, label %267
     i8 -93, label %289
   ]
@@ -2387,7 +2387,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @scsi_set_sense_field_pointer(ptr noundef %22, i32 noundef 96, i16 noundef zeroext 1, i8 noundef zeroext -1, i1 noundef zeroext true) #19
-  br label %372
+  br label %371
 
 24:                                               ; preds = %9
   %25 = and i32 %12, 1
@@ -2396,7 +2396,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
 
 27:                                               ; preds = %24
   call fastcc void @ata_scsi_rbuf_fill(ptr noundef nonnull %3, ptr noundef nonnull @ata_scsiop_inq_std)
-  br label %372
+  br label %371
 
 28:                                               ; preds = %24
   %29 = getelementptr i8, ptr %1, i64 166
@@ -2415,27 +2415,27 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
 
 31:                                               ; preds = %28
   call fastcc void @ata_scsi_rbuf_fill(ptr noundef nonnull %3, ptr noundef nonnull @ata_scsiop_inq_00)
-  br label %372
+  br label %371
 
 32:                                               ; preds = %28
   call fastcc void @ata_scsi_rbuf_fill(ptr noundef nonnull %3, ptr noundef nonnull @ata_scsiop_inq_80)
-  br label %372
+  br label %371
 
 33:                                               ; preds = %28
   call fastcc void @ata_scsi_rbuf_fill(ptr noundef nonnull %3, ptr noundef nonnull @ata_scsiop_inq_83)
-  br label %372
+  br label %371
 
 34:                                               ; preds = %28
   call fastcc void @ata_scsi_rbuf_fill(ptr noundef nonnull %3, ptr noundef nonnull @ata_scsiop_inq_89)
-  br label %372
+  br label %371
 
 35:                                               ; preds = %28
   call fastcc void @ata_scsi_rbuf_fill(ptr noundef nonnull %3, ptr noundef nonnull @ata_scsiop_inq_b0)
-  br label %372
+  br label %371
 
 36:                                               ; preds = %28
   call fastcc void @ata_scsi_rbuf_fill(ptr noundef nonnull %3, ptr noundef nonnull @ata_scsiop_inq_b1)
-  br label %372
+  br label %371
 
 37:                                               ; preds = %28
   %38 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ata_scsi_rbuf_lock) #19
@@ -2451,7 +2451,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @ata_scsi_rbuf_lock, i64 noundef %38) #19
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i32 0, ptr %44, align 8
-  br label %372
+  br label %371
 
 45:                                               ; preds = %28
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2462,11 +2462,11 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
 
 50:                                               ; preds = %45
   call fastcc void @ata_scsi_rbuf_fill(ptr noundef nonnull %3, ptr noundef nonnull @ata_scsiop_inq_b6)
-  br label %372
+  br label %371
 
 51:                                               ; preds = %45
   tail call fastcc void @ata_scsi_set_invalid_field(i64 %47, ptr noundef %1)
-  br label %372
+  br label %371
 
 52:                                               ; preds = %28
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 1520
@@ -2476,19 +2476,19 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
 
 56:                                               ; preds = %52
   call fastcc void @ata_scsi_rbuf_fill(ptr noundef nonnull %3, ptr noundef nonnull @ata_scsiop_inq_b9)
-  br label %372
+  br label %371
 
 57:                                               ; preds = %52
   %58 = getelementptr i8, ptr %0, i64 16
   %.val1 = load i64, ptr %58, align 16
   tail call fastcc void @ata_scsi_set_invalid_field(i64 %.val1, ptr noundef %1)
-  br label %372
+  br label %371
 
 59:                                               ; preds = %28
   %60 = getelementptr i8, ptr %0, i64 16
   %.val2 = load i64, ptr %60, align 16
   tail call fastcc void @ata_scsi_set_invalid_field(i64 %.val2, ptr noundef %1)
-  br label %372
+  br label %371
 
 61:                                               ; preds = %2, %2
   %62 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ata_scsi_rbuf_lock) #19
@@ -2754,11 +2754,11 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @ata_scsi_rbuf_lock, i64 noundef %62) #19
   %221 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i32 0, ptr %221, align 8
-  br label %372
+  br label %371
 
 222:                                              ; preds = %209, %199
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @ata_scsi_rbuf_lock, i64 noundef %62) #19
-  br label %372
+  br label %371
 
 223:                                              ; preds = %2
   %224 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ata_scsi_rbuf_lock) #19
@@ -2772,7 +2772,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @ata_scsi_rbuf_lock, i64 noundef %224) #19
   %230 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i32 0, ptr %230, align 8
-  br label %372
+  br label %371
 
 231:                                              ; preds = %2
   %232 = getelementptr i8, ptr %1, i64 165
@@ -2793,7 +2793,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @ata_scsi_rbuf_lock, i64 noundef %237) #19
   %243 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i32 0, ptr %243, align 8
-  br label %372
+  br label %371
 
 244:                                              ; preds = %231
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2805,7 +2805,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %251 = load ptr, ptr %250, align 8
   %252 = tail call i32 @scsi_set_sense_field_pointer(ptr noundef %251, i32 noundef 96, i16 noundef zeroext 1, i8 noundef zeroext -1, i1 noundef zeroext true) #19
-  br label %372
+  br label %371
 
 253:                                              ; preds = %2
   %254 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ata_scsi_rbuf_lock) #19
@@ -2819,7 +2819,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @ata_scsi_rbuf_lock, i64 noundef %254) #19
   %260 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i32 0, ptr %260, align 8
-  br label %372
+  br label %371
 
 261:                                              ; preds = %2
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2828,7 +2828,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   %265 = lshr i32 %264, 29
   %266 = and i32 %265, 1
   tail call void @scsi_build_sense(ptr noundef %1, i32 noundef %266, i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 0) #19
-  br label %372
+  br label %371
 
 267:                                              ; preds = %2
   %268 = getelementptr i8, ptr %1, i64 165
@@ -2847,7 +2847,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   %277 = getelementptr i8, ptr %1, i64 168
   %278 = load i8, ptr %277, align 1
   %279 = icmp eq i8 %278, 0
-  br i1 %279, label %372, label %280
+  br i1 %279, label %371, label %280
 
 280:                                              ; preds = %276, %272, %267
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2859,14 +2859,14 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   %286 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %287 = load ptr, ptr %286, align 8
   %288 = tail call i32 @scsi_set_sense_field_pointer(ptr noundef %287, i32 noundef 96, i16 noundef zeroext 1, i8 noundef zeroext -1, i1 noundef zeroext true) #19
-  br label %372
+  br label %371
 
 289:                                              ; preds = %2
   %290 = getelementptr i8, ptr %1, i64 165
   %291 = load i8, ptr %290, align 1
   %292 = and i8 %291, 31
   %293 = icmp eq i8 %292, 12
-  br i1 %293, label %294, label %357
+  br i1 %293, label %294, label %356
 
 294:                                              ; preds = %289
   %295 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ata_scsi_rbuf_lock) #19
@@ -2893,132 +2893,129 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
   store i8 0, ptr @ata_scsi_rbuf, align 16
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 1), align 1
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @ata_scsi_rbuf_lock, i64 noundef %295) #19
-  br label %372
+  br label %371
 
 310:                                              ; preds = %294, %294
   %311 = getelementptr i8, ptr %1, i64 167
   %312 = load i8, ptr %311, align 1
-  switch i8 %312, label %346 [
-    i8 18, label %313
-    i8 26, label %313
-    i8 90, label %313
-    i8 37, label %313
-    i8 -98, label %313
-    i8 -96, label %313
-    i8 3, label %313
-    i8 53, label %313
-    i8 -111, label %313
-    i8 1, label %313
-    i8 11, label %313
-    i8 43, label %313
-    i8 0, label %313
-    i8 29, label %313
-    i8 -93, label %313
-    i8 8, label %313
-    i8 40, label %313
-    i8 10, label %313
-    i8 42, label %313
-    i8 -95, label %313
-    i8 -123, label %313
-    i8 47, label %313
-    i8 -113, label %313
-    i8 21, label %313
-    i8 85, label %313
-    i8 27, label %313
-    i8 -120, label %314
-    i8 -118, label %322
-    i8 -107, label %330
-    i8 -108, label %330
-    i8 -94, label %340
-    i8 -75, label %340
+  switch i8 %312, label %345 [
+    i8 18, label %338
+    i8 26, label %338
+    i8 90, label %338
+    i8 37, label %338
+    i8 -98, label %338
+    i8 -96, label %338
+    i8 3, label %338
+    i8 53, label %338
+    i8 -111, label %338
+    i8 1, label %338
+    i8 11, label %338
+    i8 43, label %338
+    i8 0, label %338
+    i8 29, label %338
+    i8 -93, label %338
+    i8 8, label %338
+    i8 40, label %338
+    i8 10, label %338
+    i8 42, label %338
+    i8 -95, label %338
+    i8 -123, label %338
+    i8 47, label %338
+    i8 -113, label %338
+    i8 21, label %338
+    i8 85, label %338
+    i8 27, label %338
+    i8 -120, label %313
+    i8 -118, label %321
+    i8 -107, label %329
+    i8 -108, label %329
+    i8 -94, label %339
+    i8 -75, label %339
   ]
 
-313:                                              ; preds = %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310
-  br label %346
+313:                                              ; preds = %310
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %315 = load i64, ptr %314, align 16
+  %316 = and i64 %315, 8192
+  %317 = lshr exact i64 %316, 10
+  %318 = trunc nuw nsw i64 %317 to i8
+  %319 = lshr exact i64 %316, 13
+  %320 = trunc nuw nsw i64 %319 to i8
+  br label %345
 
-314:                                              ; preds = %310
-  %315 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %316 = load i64, ptr %315, align 16
-  %317 = and i64 %316, 8192
-  %318 = lshr exact i64 %317, 10
-  %319 = trunc nuw nsw i64 %318 to i8
-  %320 = lshr exact i64 %317, 13
-  %321 = trunc nuw nsw i64 %320 to i8
-  br label %346
+321:                                              ; preds = %310
+  %322 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %323 = load i64, ptr %322, align 16
+  %324 = and i64 %323, 8192
+  %325 = lshr exact i64 %324, 9
+  %326 = trunc nuw nsw i64 %325 to i8
+  %327 = lshr exact i64 %324, 13
+  %328 = trunc nuw nsw i64 %327 to i8
+  br label %345
 
-322:                                              ; preds = %310
-  %323 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %324 = load i64, ptr %323, align 16
-  %325 = and i64 %324, 8192
-  %326 = lshr exact i64 %325, 9
-  %327 = trunc nuw nsw i64 %326 to i8
-  %328 = lshr exact i64 %325, 13
-  %329 = trunc nuw nsw i64 %328 to i8
-  br label %346
+329:                                              ; preds = %310, %310
+  %330 = getelementptr i8, ptr %0, i64 1034
+  %331 = load i16, ptr %330, align 2
+  %332 = and i16 %331, 3
+  %333 = icmp eq i16 %332, 0
+  br i1 %333, label %334, label %338
 
-330:                                              ; preds = %310, %310
-  %331 = getelementptr i8, ptr %0, i64 1034
-  %332 = load i16, ptr %331, align 2
-  %333 = and i16 %332, 3
-  %334 = icmp eq i16 %333, 0
-  br i1 %334, label %335, label %339
+334:                                              ; preds = %329
+  %335 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %336 = load i32, ptr %335, align 32
+  %337 = icmp eq i32 %336, 9
+  br i1 %337, label %338, label %345
 
-335:                                              ; preds = %330
-  %336 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  %337 = load i32, ptr %336, align 32
-  %338 = icmp eq i32 %337, 9
-  br i1 %338, label %339, label %346
+338:                                              ; preds = %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %310, %334, %329
+  br label %345
 
-339:                                              ; preds = %335, %330
-  br label %346
+339:                                              ; preds = %310, %310
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %341 = load i64, ptr %340, align 16
+  %342 = and i64 %341, 256
+  %343 = icmp eq i64 %342, 0
+  %344 = select i1 %343, i8 0, i8 3
+  br label %345
 
-340:                                              ; preds = %310, %310
-  %341 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %342 = load i64, ptr %341, align 16
-  %343 = and i64 %342, 256
-  %344 = icmp eq i64 %343, 0
-  %345 = select i1 %344, i8 0, i8 3
-  br label %346
-
-346:                                              ; preds = %340, %339, %335, %322, %314, %313, %310
-  %347 = phi i8 [ 0, %310 ], [ 3, %339 ], [ 0, %335 ], [ 3, %313 ], [ 3, %314 ], [ 3, %322 ], [ %345, %340 ]
-  %348 = phi i8 [ 0, %310 ], [ 0, %339 ], [ 0, %335 ], [ 0, %313 ], [ %319, %314 ], [ %327, %322 ], [ 0, %340 ]
-  %349 = phi i8 [ 0, %310 ], [ 0, %339 ], [ 0, %335 ], [ 0, %313 ], [ %321, %314 ], [ %329, %322 ], [ 0, %340 ]
-  store i8 %349, ptr @ata_scsi_rbuf, align 16
-  %350 = or disjoint i8 %348, %347
-  store i8 %350, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 1), align 1
-  %351 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %352 = load ptr, ptr %351, align 8
-  %353 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %354 = load i32, ptr %353, align 8
-  %355 = tail call i64 @sg_copy_from_buffer(ptr noundef %352, i32 noundef %354, ptr noundef nonnull @ata_scsi_rbuf, i64 noundef 2048) #19
+345:                                              ; preds = %339, %338, %334, %321, %313, %310
+  %346 = phi i8 [ 0, %310 ], [ 3, %338 ], [ 0, %334 ], [ %344, %339 ], [ 3, %313 ], [ 3, %321 ]
+  %347 = phi i8 [ 0, %310 ], [ 0, %338 ], [ 0, %334 ], [ 0, %339 ], [ %318, %313 ], [ %326, %321 ]
+  %348 = phi i8 [ 0, %310 ], [ 0, %338 ], [ 0, %334 ], [ 0, %339 ], [ %320, %313 ], [ %328, %321 ]
+  store i8 %348, ptr @ata_scsi_rbuf, align 16
+  %349 = or disjoint i8 %347, %346
+  store i8 %349, ptr getelementptr inbounds nuw (i8, ptr @ata_scsi_rbuf, i64 1), align 1
+  %350 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %351 = load ptr, ptr %350, align 8
+  %352 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %353 = load i32, ptr %352, align 8
+  %354 = tail call i64 @sg_copy_from_buffer(ptr noundef %351, i32 noundef %353, ptr noundef nonnull @ata_scsi_rbuf, i64 noundef 2048) #19
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @ata_scsi_rbuf_lock, i64 noundef %295) #19
-  %356 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  store i32 0, ptr %356, align 8
-  br label %372
+  %355 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  store i32 0, ptr %355, align 8
+  br label %371
 
-357:                                              ; preds = %289
-  %358 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %359 = load i64, ptr %358, align 16
-  %360 = trunc i64 %359 to i32
-  %361 = lshr i32 %360, 29
-  %362 = and i32 %361, 1
-  tail call void @scsi_build_sense(ptr noundef %1, i32 noundef %362, i8 noundef zeroext 5, i8 noundef zeroext 36, i8 noundef zeroext 0) #19
-  %363 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %364 = load ptr, ptr %363, align 8
-  %365 = tail call i32 @scsi_set_sense_field_pointer(ptr noundef %364, i32 noundef 96, i16 noundef zeroext 1, i8 noundef zeroext -1, i1 noundef zeroext true) #19
-  br label %372
+356:                                              ; preds = %289
+  %357 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %358 = load i64, ptr %357, align 16
+  %359 = trunc i64 %358 to i32
+  %360 = lshr i32 %359, 29
+  %361 = and i32 %360, 1
+  tail call void @scsi_build_sense(ptr noundef %1, i32 noundef %361, i8 noundef zeroext 5, i8 noundef zeroext 36, i8 noundef zeroext 0) #19
+  %362 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %363 = load ptr, ptr %362, align 8
+  %364 = tail call i32 @scsi_set_sense_field_pointer(ptr noundef %363, i32 noundef 96, i16 noundef zeroext 1, i8 noundef zeroext -1, i1 noundef zeroext true) #19
+  br label %371
 
-366:                                              ; preds = %2
-  %367 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %368 = load i64, ptr %367, align 16
-  %369 = trunc i64 %368 to i32
-  %370 = lshr i32 %369, 29
-  %371 = and i32 %370, 1
-  tail call void @scsi_build_sense(ptr noundef %1, i32 noundef %371, i8 noundef zeroext 5, i8 noundef zeroext 32, i8 noundef zeroext 0) #19
-  br label %372
+365:                                              ; preds = %2
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %367 = load i64, ptr %366, align 16
+  %368 = trunc i64 %367 to i32
+  %369 = lshr i32 %368, 29
+  %370 = and i32 %369, 1
+  tail call void @scsi_build_sense(ptr noundef %1, i32 noundef %370, i8 noundef zeroext 5, i8 noundef zeroext 32, i8 noundef zeroext 0) #19
+  br label %371
 
-372:                                              ; preds = %366, %357, %346, %298, %280, %276, %261, %253, %244, %236, %223, %222, %215, %59, %57, %56, %51, %50, %37, %36, %35, %34, %33, %32, %31, %27, %15, %2, %2, %2, %2, %2, %2
+371:                                              ; preds = %365, %356, %345, %298, %280, %276, %261, %253, %244, %236, %223, %222, %215, %59, %57, %56, %51, %50, %37, %36, %35, %34, %33, %32, %31, %27, %15, %2, %2, %2, %2, %2, %2
   call void @scsi_done(ptr noundef %1) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

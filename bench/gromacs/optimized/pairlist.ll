@@ -6199,7 +6199,7 @@ _ZN3gmxL14get_cell_rangeILi0EEEvffRKNS_14GridDimensionsEffPiS4_.exit.i: ; preds 
   br i1 %679, label %.invoke704, label %_ZNKSt6vectorIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE12_M_check_lenEmPKc.exit.i.i.i.i
 
 .invoke704:                                       ; preds = %2301, %674, %3211, %2879, %1119, %980, %2660, %2702, %3051
-  %680 = phi ptr [ @.str.1, %2660 ], [ @.str.6, %980 ], [ @.str.6, %674 ], [ @.str.1, %3051 ], [ @.str.6, %1119 ], [ @.str.6, %3211 ], [ @.str.1, %2879 ], [ @.str.1, %2702 ], [ @.str.6, %2301 ]
+  %680 = phi ptr [ @.str.1, %2660 ], [ @.str.6, %980 ], [ @.str.1, %2702 ], [ @.str.1, %3051 ], [ @.str.6, %1119 ], [ @.str.6, %3211 ], [ @.str.1, %2879 ], [ @.str.6, %674 ], [ @.str.6, %2301 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %680) #29
           to label %.cont705 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

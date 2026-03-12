@@ -10162,7 +10162,7 @@ define hidden void @"_ZN173_$LT$ockam_node..storage..database..migrations..node_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.21020.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.21020, i64 56, i1 false)
   br label %759
 
-787:                                              ; preds = %399, %426, %418, %413, %447, %439, %._crit_edge, %343, %371, %363, %358, %392, %384, %._crit_edge1534, %287, %315, %307, %302, %336, %328, %._crit_edge1546, %130, %245, %.thread1281.thread, %.thread1301.thread, %.thread1321.thread, %534, %650, %759, %131, %236, %316, %372, %427, %525, %641, %750, %119, %128
+787:                                              ; preds = %130, %245, %.thread1281.thread, %.thread1301.thread, %.thread1321.thread, %534, %650, %759, %287, %315, %307, %302, %336, %328, %._crit_edge1546, %343, %371, %363, %358, %392, %384, %._crit_edge1534, %._crit_edge, %439, %447, %413, %418, %426, %399, %131, %236, %316, %372, %427, %525, %641, %750, %119, %128
   ret void
 }
 

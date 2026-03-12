@@ -2337,10 +2337,7 @@ _ZNSt10shared_ptrI4SeamEC2ERKS1_.exit:            ; preds = %26, %33, %36
   %117 = ptrtoint ptr %116 to i64
   %118 = urem i64 %117, %96
   %.not17.i.i.i.i.i = icmp eq i64 %118, %97
-  br i1 %.not17.i.i.i.i.i, label %111, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !20
-
-..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %114
-  br label %.thread, !llvm.loop !20
+  br i1 %.not17.i.i.i.i.i, label %111, label %..loopexit_crit_edge21.i.i.i.i.i33, !llvm.loop !20
 
 .loopexit281:                                     ; preds = %111, %90
   %119 = add nsw i32 %.0, 1
@@ -2408,10 +2405,10 @@ _ZNSt10shared_ptrI4SeamEC2ERKS1_.exit:            ; preds = %26, %33, %36
   %.not17.i.i.i.i.i32 = icmp eq i64 %152, %137
   br i1 %.not17.i.i.i.i.i32, label %145, label %..loopexit_crit_edge21.i.i.i.i.i33, !llvm.loop !20
 
-..loopexit_crit_edge21.i.i.i.i.i33:               ; preds = %148
+..loopexit_crit_edge21.i.i.i.i.i33:               ; preds = %114, %148
   br label %.thread, !llvm.loop !20
 
-.thread:                                          ; preds = %.lr.ph.i.i.i.i.i, %.preheader447, %.lr.ph.i.i.i.i.i29, %126, %..loopexit_crit_edge21.i.i.i.i.i33, %..loopexit_crit_edge21.i.i.i.i.i
+.thread:                                          ; preds = %.lr.ph.i.i.i.i.i, %.preheader447, %.lr.ph.i.i.i.i.i29, %126, %..loopexit_crit_edge21.i.i.i.i.i33
   br i1 %.not.not.i.i.i, label %.preheader444, label %.thread..thread.i_crit_edge
 
 .thread..thread.i_crit_edge:                      ; preds = %.thread
@@ -2813,10 +2810,7 @@ _ZNSt6vectorIN3vcg6Point2IdEESaIS2_EE9push_backERKS2_.exit59: ; preds = %145, %1
   %327 = ptrtoint ptr %326 to i64
   %328 = urem i64 %327, %308
   %.not17.i.i.i.i.i65 = icmp eq i64 %328, %309
-  br i1 %.not17.i.i.i.i.i65, label %321, label %..loopexit_crit_edge21.i.i.i.i.i66, !llvm.loop !20
-
-..loopexit_crit_edge21.i.i.i.i.i66:               ; preds = %324
-  br label %.thread251, !llvm.loop !20
+  br i1 %.not17.i.i.i.i.i65, label %321, label %..loopexit_crit_edge21.i.i.i.i.i80, !llvm.loop !20
 
 .loopexit271:                                     ; preds = %321, %302
   %329 = getelementptr inbounds nuw i8, ptr %.0235, i64 8
@@ -2882,10 +2876,10 @@ _ZNSt6vectorIN3vcg6Point2IdEESaIS2_EE9push_backERKS2_.exit59: ; preds = %145, %1
   %.not17.i.i.i.i.i79 = icmp eq i64 %360, %345
   br i1 %.not17.i.i.i.i.i79, label %353, label %..loopexit_crit_edge21.i.i.i.i.i80, !llvm.loop !20
 
-..loopexit_crit_edge21.i.i.i.i.i80:               ; preds = %356
+..loopexit_crit_edge21.i.i.i.i.i80:               ; preds = %324, %356
   br label %.thread251, !llvm.loop !20
 
-.thread251:                                       ; preds = %.lr.ph.i.i.i.i.i62, %.preheader439, %.lr.ph.i.i.i.i.i76, %334, %..loopexit_crit_edge21.i.i.i.i.i80, %..loopexit_crit_edge21.i.i.i.i.i66
+.thread251:                                       ; preds = %.lr.ph.i.i.i.i.i62, %.preheader439, %.lr.ph.i.i.i.i.i76, %334, %..loopexit_crit_edge21.i.i.i.i.i80
   br i1 %.not.not.i.i.i60, label %.preheader, label %.thread251..thread.i154_crit_edge
 
 .thread251..thread.i154_crit_edge:                ; preds = %.thread251

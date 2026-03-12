@@ -2715,7 +2715,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit88:               ; preds = %192, %190, %176, %1
 
 202:                                              ; preds = %196
   %203 = icmp ugt i16 %200, 1
-  br i1 %203, label %204, label %.thread.i
+  br i1 %203, label %204, label %.thread36.i
 
 204:                                              ; preds = %202
   %205 = load i16, ptr %11, align 8, !tbaa !92
@@ -2733,17 +2733,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit88:               ; preds = %192, %190, %176, %1
 
 _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i: ; preds = %204
   %215 = icmp eq i16 %200, 8
-  br i1 %215, label %216, label %.thread.i
+  br i1 %215, label %216, label %.thread36.i
 
 216:                                              ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i
   %217 = getelementptr inbounds nuw i8, ptr %211, i64 72
   %218 = load i16, ptr %217, align 2, !tbaa !94
   %219 = and i16 %218, 241
   %or.cond42.i = icmp eq i16 %219, 1
-  br i1 %or.cond42.i, label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, label %.thread.i
-
-.thread.i:                                        ; preds = %216, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i, %202
-  br label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
+  br i1 %or.cond42.i, label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, label %.thread36.i
 
 220:                                              ; preds = %196
   %221 = icmp ugt i16 %200, 3
@@ -2781,11 +2778,11 @@ _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit2
   %or.cond52.i = icmp eq i16 %240, 17
   br i1 %or.cond52.i, label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, label %.thread36.i
 
-.thread36.i:                                      ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i, %222, %220
+.thread36.i:                                      ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i, %222, %220, %216, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i, %202
   br label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
 
-_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit: ; preds = %196, %204, %216, %.thread.i, %233, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %.thread36.i
-  %.0.i = phi i32 [ 0, %.thread36.i ], [ 0, %196 ], [ 1, %204 ], [ 0, %.thread.i ], [ 1, %216 ], [ 2, %233 ], [ 2, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i ]
+_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit: ; preds = %196, %204, %216, %233, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %.thread36.i
+  %.0.i = phi i32 [ 0, %.thread36.i ], [ 0, %196 ], [ 1, %204 ], [ 2, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i ], [ 1, %216 ], [ 2, %233 ]
   %241 = add i32 %.0.i, %195
   br label %242
 

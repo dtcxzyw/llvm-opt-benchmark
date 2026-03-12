@@ -2452,7 +2452,7 @@ _ZNSolsEPFRSoS_E.exit276:                         ; preds = %.noexc612
   %.not.i.i.i615 = icmp eq ptr %451, null
   br i1 %.not.i.i.i615, label %.invoke, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i616
 
-.invoke:                                          ; preds = %292, %268, %445, %421, %369, %345
+.invoke:                                          ; preds = %268, %292, %445, %421, %369, %345
   invoke void @_ZSt16__throw_bad_castv() #39
           to label %.cont unwind label %329
 

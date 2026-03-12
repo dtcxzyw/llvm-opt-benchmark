@@ -1565,8 +1565,8 @@ switch.lookup204:                                 ; preds = %426
   %switch.load206 = load ptr, ptr %switch.gep205, align 8
   br label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
 
-_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i: ; preds = %426, %switch.lookup204, %424, %switch.lookup200, %421, %switch.lookup196, %418, %switch.lookup192, %416, %switch.lookup, %423, %420, %414
-  %.0.i.i.i = phi ptr [ %switch.load202, %switch.lookup200 ], [ null, %414 ], [ %switch.load, %switch.lookup ], [ %switch.select2.i.i.i.i, %420 ], [ %switch.load194, %switch.lookup192 ], [ %switch.select2.i13.i.i.i, %423 ], [ %switch.load198, %switch.lookup196 ], [ null, %421 ], [ null, %418 ], [ %switch.load206, %switch.lookup204 ], [ null, %424 ], [ null, %416 ], [ null, %426 ]
+_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i: ; preds = %416, %418, %421, %424, %426, %switch.lookup204, %switch.lookup200, %switch.lookup196, %switch.lookup192, %switch.lookup, %423, %420, %414
+  %.0.i.i.i = phi ptr [ %switch.load202, %switch.lookup200 ], [ null, %414 ], [ %switch.load, %switch.lookup ], [ %switch.select2.i.i.i.i, %420 ], [ %switch.load194, %switch.lookup192 ], [ %switch.select2.i13.i.i.i, %423 ], [ %switch.load198, %switch.lookup196 ], [ %switch.load206, %switch.lookup204 ], [ null, %426 ], [ null, %424 ], [ null, %421 ], [ null, %418 ], [ null, %416 ]
   %433 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !48
   %434 = getelementptr inbounds nuw i8, ptr %433, i64 16
   %435 = load ptr, ptr %434, align 8, !tbaa !27

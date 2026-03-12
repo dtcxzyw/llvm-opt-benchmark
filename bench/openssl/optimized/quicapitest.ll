@@ -4992,7 +4992,7 @@ define internal range(i32 0, 2) i32 @tparam_on_enc_ext(ptr noundef %0, ptr nound
   %10 = tail call ptr @BUF_MEM_new() #10
   %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 2161, ptr noundef nonnull @.str.325, ptr noundef %10) #10
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %165, label %12
+  br i1 %.not, label %164, label %12
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %1, align 8, !tbaa !68
@@ -5002,7 +5002,7 @@ define internal range(i32 0, 2) i32 @tparam_on_enc_ext(ptr noundef %0, ptr nound
   %17 = zext i1 %16 to i32
   %18 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 2170, ptr noundef nonnull @.str.326, i32 noundef %17) #10
   %.not43 = icmp eq i32 %18, 0
-  br i1 %.not43, label %165, label %19
+  br i1 %.not43, label %164, label %19
 
 19:                                               ; preds = %12
   %20 = load i64, ptr %10, align 8, !tbaa !70
@@ -5021,13 +5021,13 @@ PACKET_buf_init.exit:                             ; preds = %19, %22
   %.0.i = phi i32 [ 1, %22 ], [ 0, %19 ]
   %26 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 2173, ptr noundef nonnull @.str.327, i32 noundef %.0.i) #10
   %.not44 = icmp eq i32 %26, 0
-  br i1 %.not44, label %165, label %27
+  br i1 %.not44, label %164, label %27
 
 27:                                               ; preds = %PACKET_buf_init.exit
   %28 = tail call ptr @BUF_MEM_new() #10
   %29 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 2174, ptr noundef nonnull @.str.328, ptr noundef %28) #10
   %.not45 = icmp eq i32 %29, 0
-  br i1 %.not45, label %165, label %30
+  br i1 %.not45, label %164, label %30
 
 30:                                               ; preds = %27
   %31 = call i32 @WPACKET_init(ptr noundef nonnull %6, ptr noundef %28) #10
@@ -5035,7 +5035,7 @@ PACKET_buf_init.exit:                             ; preds = %19, %22
   %33 = zext i1 %32 to i32
   %34 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 2175, ptr noundef nonnull @.str.329, i32 noundef %33) #10
   %.not46 = icmp eq i32 %34, 0
-  br i1 %.not46, label %165, label %35
+  br i1 %.not46, label %164, label %35
 
 35:                                               ; preds = %30
   %36 = call i32 @WPACKET_put_bytes__(ptr noundef nonnull %6, i64 noundef 57, i64 noundef 2) #10
@@ -5060,7 +5060,7 @@ PACKET_buf_init.exit:                             ; preds = %19, %22
 46:                                               ; preds = %.preheader, %tparam_handle.exit
   %.val = load i64, ptr %45, align 8, !tbaa !75
   %.not49 = icmp eq i64 %.val, 0
-  br i1 %.not49, label %94, label %47
+  br i1 %.not49, label %93, label %47
 
 47:                                               ; preds = %46
   %48 = call ptr @ossl_quic_wire_decode_transport_param_bytes(ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef nonnull %7) #10
@@ -5082,12 +5082,12 @@ PACKET_buf_init.exit:                             ; preds = %19, %22
   %56 = load i32, ptr %55, align 8, !tbaa !60
   switch i32 %56, label %tparam_handle.exit [
     i32 0, label %57
-    i32 1, label %67
-    i32 5, label %67
-    i32 2, label %73
-    i32 3, label %73
-    i32 4, label %73
-    i32 6, label %76
+    i32 1, label %66
+    i32 5, label %66
+    i32 2, label %72
+    i32 3, label %72
+    i32 4, label %72
+    i32 6, label %75
   ]
 
 57:                                               ; preds = %52
@@ -5099,187 +5099,184 @@ PACKET_buf_init.exit:                             ; preds = %19, %22
 60:                                               ; preds = %57
   %61 = load i64, ptr %.val61, align 8, !tbaa !59
   %62 = icmp eq i64 %53, %61
-  br i1 %62, label %63, label %66
+  br i1 %62, label %63, label %71
 
 63:                                               ; preds = %60
   %64 = call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef nonnull %6, i64 noundef %53, ptr noundef %48, i64 noundef %54) #10
   %65 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 2101, ptr noundef nonnull @.str.340, ptr noundef %64) #10
   %.not39.i = icmp eq i32 %65, 0
-  br i1 %.not39.i, label %tparam_handle.exit, label %66
+  br i1 %.not39.i, label %tparam_handle.exit, label %71
 
-66:                                               ; preds = %63, %60
+66:                                               ; preds = %52, %52
+  %67 = load i64, ptr %.val61, align 8, !tbaa !59
+  %.not36.i = icmp eq i64 %53, %67
+  br i1 %.not36.i, label %71, label %68
+
+68:                                               ; preds = %66
+  %69 = call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef nonnull %6, i64 noundef %53, ptr noundef %48, i64 noundef %54) #10
+  %70 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 2111, ptr noundef nonnull @.str.340, ptr noundef %69) #10
+  %.not37.i = icmp eq i32 %70, 0
+  br i1 %.not37.i, label %tparam_handle.exit, label %71
+
+71:                                               ; preds = %68, %66, %63, %60
   br label %tparam_handle.exit
 
-67:                                               ; preds = %52, %52
-  %68 = load i64, ptr %.val61, align 8, !tbaa !59
-  %.not36.i = icmp eq i64 %53, %68
-  br i1 %.not36.i, label %72, label %69
-
-69:                                               ; preds = %67
-  %70 = call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef nonnull %6, i64 noundef %53, ptr noundef %48, i64 noundef %54) #10
-  %71 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 2111, ptr noundef nonnull @.str.340, ptr noundef %70) #10
-  %.not37.i = icmp eq i32 %71, 0
-  br i1 %.not37.i, label %tparam_handle.exit, label %72
-
-72:                                               ; preds = %69, %67
-  br label %tparam_handle.exit
-
-73:                                               ; preds = %52, %52, %52
-  %74 = call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef nonnull %6, i64 noundef %53, ptr noundef %48, i64 noundef %54) #10
-  %75 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 2121, ptr noundef nonnull @.str.340, ptr noundef %74) #10
-  %.not35.i = icmp ne i32 %75, 0
+72:                                               ; preds = %52, %52, %52
+  %73 = call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef nonnull %6, i64 noundef %53, ptr noundef %48, i64 noundef %54) #10
+  %74 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 2121, ptr noundef nonnull @.str.340, ptr noundef %73) #10
+  %.not35.i = icmp ne i32 %74, 0
   %..i = zext i1 %.not35.i to i32
   br label %tparam_handle.exit
 
-76:                                               ; preds = %52
-  %77 = load i64, ptr %.val61, align 8, !tbaa !59
-  %78 = icmp eq i64 %53, %77
-  br i1 %78, label %79, label %84
+75:                                               ; preds = %52
+  %76 = load i64, ptr %.val61, align 8, !tbaa !59
+  %77 = icmp eq i64 %53, %76
+  br i1 %77, label %78, label %83
 
-79:                                               ; preds = %76
-  %80 = call i32 @test_size_t_gt(ptr noundef nonnull @.str.14, i32 noundef 2128, ptr noundef nonnull @.str.341, ptr noundef nonnull @.str.70, i64 noundef %54, i64 noundef 0) #10
-  %.not.i = icmp eq i32 %80, 0
-  br i1 %.not.i, label %tparam_handle.exit, label %81
+78:                                               ; preds = %75
+  %79 = call i32 @test_size_t_gt(ptr noundef nonnull @.str.14, i32 noundef 2128, ptr noundef nonnull @.str.341, ptr noundef nonnull @.str.70, i64 noundef %54, i64 noundef 0) #10
+  %.not.i = icmp eq i32 %79, 0
+  br i1 %.not.i, label %tparam_handle.exit, label %80
 
-81:                                               ; preds = %79
-  %82 = load i8, ptr %48, align 1, !tbaa !30
-  %83 = xor i8 %82, 1
-  store i8 %83, ptr %48, align 1, !tbaa !30
-  br label %84
+80:                                               ; preds = %78
+  %81 = load i8, ptr %48, align 1, !tbaa !30
+  %82 = xor i8 %81, 1
+  store i8 %82, ptr %48, align 1, !tbaa !30
+  br label %83
 
-84:                                               ; preds = %81, %76
-  %85 = call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef nonnull %6, i64 noundef %53, ptr noundef %48, i64 noundef %54) #10
-  %86 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 2135, ptr noundef nonnull @.str.340, ptr noundef %85) #10
-  %.not34.i = icmp eq i32 %86, 0
-  br i1 %.not34.i, label %tparam_handle.exit, label %87
+83:                                               ; preds = %80, %75
+  %84 = call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef nonnull %6, i64 noundef %53, ptr noundef %48, i64 noundef %54) #10
+  %85 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 2135, ptr noundef nonnull @.str.340, ptr noundef %84) #10
+  %.not34.i = icmp eq i32 %85, 0
+  br i1 %.not34.i, label %tparam_handle.exit, label %86
 
-87:                                               ; preds = %84
-  %88 = load i64, ptr %.val61, align 8, !tbaa !59
-  %89 = icmp eq i64 %53, %88
-  br i1 %89, label %90, label %tparam_handle.exit
+86:                                               ; preds = %83
+  %87 = load i64, ptr %.val61, align 8, !tbaa !59
+  %88 = icmp eq i64 %53, %87
+  br i1 %88, label %89, label %tparam_handle.exit
 
-90:                                               ; preds = %87
-  %91 = load i8, ptr %48, align 1, !tbaa !30
-  %92 = xor i8 %91, 1
-  store i8 %92, ptr %48, align 1, !tbaa !30
+89:                                               ; preds = %86
+  %90 = load i8, ptr %48, align 1, !tbaa !30
+  %91 = xor i8 %90, 1
+  store i8 %91, ptr %48, align 1, !tbaa !30
   br label %tparam_handle.exit
 
-tparam_handle.exit:                               ; preds = %52, %57, %63, %66, %69, %72, %73, %79, %84, %87, %90
-  %.0.i62 = phi i32 [ 1, %87 ], [ 1, %66 ], [ 0, %57 ], [ 0, %79 ], [ 1, %72 ], [ 0, %63 ], [ 0, %69 ], [ %..i, %73 ], [ 0, %84 ], [ 1, %90 ], [ 0, %52 ]
-  %93 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 2202, ptr noundef nonnull @.str.335, i32 noundef %.0.i62) #10
-  %.not57 = icmp eq i32 %93, 0
+tparam_handle.exit:                               ; preds = %52, %57, %63, %68, %71, %72, %78, %83, %86, %89
+  %.0.i62 = phi i32 [ 1, %86 ], [ 0, %52 ], [ 0, %57 ], [ 0, %78 ], [ 1, %71 ], [ 0, %63 ], [ 0, %68 ], [ %..i, %72 ], [ 0, %83 ], [ 1, %89 ]
+  %92 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 2202, ptr noundef nonnull @.str.335, i32 noundef %.0.i62) #10
+  %.not57 = icmp eq i32 %92, 0
   br i1 %.not57, label %.loopexit, label %46, !llvm.loop !76
 
-94:                                               ; preds = %46
-  %95 = load ptr, ptr %3, align 8, !tbaa !50
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %97 = load i32, ptr %96, align 8, !tbaa !60
-  switch i32 %97, label %128 [
-    i32 2, label %98
-    i32 5, label %98
-    i32 3, label %98
-    i32 4, label %119
+93:                                               ; preds = %46
+  %94 = load ptr, ptr %3, align 8, !tbaa !50
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %96 = load i32, ptr %95, align 8, !tbaa !60
+  switch i32 %96, label %127 [
+    i32 2, label %97
+    i32 5, label %97
+    i32 3, label %97
+    i32 4, label %118
   ]
 
-98:                                               ; preds = %94, %94, %94
-  %99 = load i64, ptr %95, align 8, !tbaa !59
-  %100 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  %101 = load ptr, ptr %100, align 8, !tbaa !77
-  %102 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  %103 = load i64, ptr %102, align 8, !tbaa !61
-  %104 = call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef nonnull %6, i64 noundef %99, ptr noundef %101, i64 noundef %103) #10
-  %105 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 2210, ptr noundef nonnull @.str.336, ptr noundef %104) #10
-  %.not51 = icmp eq i32 %105, 0
-  br i1 %.not51, label %.loopexit, label %106
+97:                                               ; preds = %93, %93, %93
+  %98 = load i64, ptr %94, align 8, !tbaa !59
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  %100 = load ptr, ptr %99, align 8, !tbaa !77
+  %101 = getelementptr inbounds nuw i8, ptr %94, i64 32
+  %102 = load i64, ptr %101, align 8, !tbaa !61
+  %103 = call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef nonnull %6, i64 noundef %98, ptr noundef %100, i64 noundef %102) #10
+  %104 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 2210, ptr noundef nonnull @.str.336, ptr noundef %103) #10
+  %.not51 = icmp eq i32 %104, 0
+  br i1 %.not51, label %.loopexit, label %105
 
-106:                                              ; preds = %98
-  %107 = load ptr, ptr %3, align 8, !tbaa !50
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %109 = load i32, ptr %108, align 8, !tbaa !60
-  %110 = icmp eq i32 %109, 3
-  br i1 %110, label %111, label %128
+105:                                              ; preds = %97
+  %106 = load ptr, ptr %3, align 8, !tbaa !50
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %108 = load i32, ptr %107, align 8, !tbaa !60
+  %109 = icmp eq i32 %108, 3
+  br i1 %109, label %110, label %127
 
-111:                                              ; preds = %106
-  %112 = load i64, ptr %107, align 8, !tbaa !59
-  %113 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  %114 = load ptr, ptr %113, align 8, !tbaa !77
-  %115 = getelementptr inbounds nuw i8, ptr %107, i64 32
-  %116 = load i64, ptr %115, align 8, !tbaa !61
-  %117 = call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef nonnull %6, i64 noundef %112, ptr noundef %114, i64 noundef %116) #10
-  %118 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 2216, ptr noundef nonnull @.str.336, ptr noundef %117) #10
-  %.not52 = icmp eq i32 %118, 0
-  br i1 %.not52, label %.loopexit, label %128
+110:                                              ; preds = %105
+  %111 = load i64, ptr %106, align 8, !tbaa !59
+  %112 = getelementptr inbounds nuw i8, ptr %106, i64 24
+  %113 = load ptr, ptr %112, align 8, !tbaa !77
+  %114 = getelementptr inbounds nuw i8, ptr %106, i64 32
+  %115 = load i64, ptr %114, align 8, !tbaa !61
+  %116 = call ptr @ossl_quic_wire_encode_transport_param_bytes(ptr noundef nonnull %6, i64 noundef %111, ptr noundef %113, i64 noundef %115) #10
+  %117 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 2216, ptr noundef nonnull @.str.336, ptr noundef %116) #10
+  %.not52 = icmp eq i32 %117, 0
+  br i1 %.not52, label %.loopexit, label %127
 
-119:                                              ; preds = %94
-  %120 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  %121 = load ptr, ptr %120, align 8, !tbaa !77
-  %122 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  %123 = load i64, ptr %122, align 8, !tbaa !61
-  %124 = call i32 @WPACKET_memcpy(ptr noundef nonnull %6, ptr noundef %121, i64 noundef %123) #10
-  %125 = icmp ne i32 %124, 0
-  %126 = zext i1 %125 to i32
-  %127 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 2219, ptr noundef nonnull @.str.337, i32 noundef %126) #10
-  %.not50 = icmp eq i32 %127, 0
-  br i1 %.not50, label %.loopexit, label %128
+118:                                              ; preds = %93
+  %119 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  %120 = load ptr, ptr %119, align 8, !tbaa !77
+  %121 = getelementptr inbounds nuw i8, ptr %94, i64 32
+  %122 = load i64, ptr %121, align 8, !tbaa !61
+  %123 = call i32 @WPACKET_memcpy(ptr noundef nonnull %6, ptr noundef %120, i64 noundef %122) #10
+  %124 = icmp ne i32 %123, 0
+  %125 = zext i1 %124 to i32
+  %126 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 2219, ptr noundef nonnull @.str.337, i32 noundef %125) #10
+  %.not50 = icmp eq i32 %126, 0
+  br i1 %.not50, label %.loopexit, label %127
 
-128:                                              ; preds = %94, %119, %106, %111
-  %129 = call i32 @WPACKET_close(ptr noundef nonnull %6) #10
-  %130 = icmp ne i32 %129, 0
-  %131 = zext i1 %130 to i32
-  %132 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 2223, ptr noundef nonnull @.str.338, i32 noundef %131) #10
-  %.not53 = icmp eq i32 %132, 0
-  br i1 %.not53, label %.loopexit, label %133
+127:                                              ; preds = %93, %118, %105, %110
+  %128 = call i32 @WPACKET_close(ptr noundef nonnull %6) #10
+  %129 = icmp ne i32 %128, 0
+  %130 = zext i1 %129 to i32
+  %131 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 2223, ptr noundef nonnull @.str.338, i32 noundef %130) #10
+  %.not53 = icmp eq i32 %131, 0
+  br i1 %.not53, label %.loopexit, label %132
 
-133:                                              ; preds = %128
-  %134 = call i32 @WPACKET_get_total_written(ptr noundef nonnull %6, ptr noundef nonnull %8) #10
-  %135 = icmp ne i32 %134, 0
-  %136 = zext i1 %135 to i32
-  %137 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 2226, ptr noundef nonnull @.str.339, i32 noundef %136) #10
-  %.not54 = icmp eq i32 %137, 0
-  br i1 %.not54, label %.loopexit, label %138
+132:                                              ; preds = %127
+  %133 = call i32 @WPACKET_get_total_written(ptr noundef nonnull %6, ptr noundef nonnull %8) #10
+  %134 = icmp ne i32 %133, 0
+  %135 = zext i1 %134 to i32
+  %136 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 2226, ptr noundef nonnull @.str.339, i32 noundef %135) #10
+  %.not54 = icmp eq i32 %136, 0
+  br i1 %.not54, label %.loopexit, label %137
 
-138:                                              ; preds = %133
-  %139 = call i32 @WPACKET_finish(ptr noundef nonnull %6) #10
-  %140 = load i64, ptr %14, align 8, !tbaa !78
-  %141 = load i64, ptr %8, align 8, !tbaa !17
-  %142 = add i64 %141, %140
-  %143 = call i32 @qtest_fault_resize_message(ptr noundef %0, i64 noundef %142) #10
-  %.not55 = icmp eq i32 %143, 0
-  br i1 %.not55, label %165, label %144
+137:                                              ; preds = %132
+  %138 = call i32 @WPACKET_finish(ptr noundef nonnull %6) #10
+  %139 = load i64, ptr %14, align 8, !tbaa !78
+  %140 = load i64, ptr %8, align 8, !tbaa !17
+  %141 = add i64 %140, %139
+  %142 = call i32 @qtest_fault_resize_message(ptr noundef %0, i64 noundef %141) #10
+  %.not55 = icmp eq i32 %142, 0
+  br i1 %.not55, label %164, label %143
 
-144:                                              ; preds = %138
-  %145 = load ptr, ptr %1, align 8, !tbaa !68
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 %140
-  %147 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %148 = load ptr, ptr %147, align 8, !tbaa !72
-  %149 = load i64, ptr %8, align 8, !tbaa !17
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %146, ptr align 1 %148, i64 %149, i1 false)
-  %150 = load ptr, ptr %1, align 8, !tbaa !68
-  %151 = load i8, ptr %150, align 1, !tbaa !30
-  %152 = zext i8 %151 to i64
-  %153 = shl nuw nsw i64 %152, 8
-  %154 = getelementptr inbounds nuw i8, ptr %150, i64 1
-  %155 = load i8, ptr %154, align 1, !tbaa !30
-  %156 = zext i8 %155 to i64
-  %157 = or disjoint i64 %153, %156
-  %158 = load i64, ptr %8, align 8, !tbaa !17
-  %159 = add i64 %157, %158
-  %160 = lshr i64 %159, 8
-  %161 = trunc i64 %160 to i8
-  store i8 %161, ptr %150, align 1, !tbaa !30
-  %162 = trunc i64 %159 to i8
-  %163 = load ptr, ptr %1, align 8, !tbaa !68
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 1
-  store i8 %162, ptr %164, align 1, !tbaa !30
-  br label %165
+143:                                              ; preds = %137
+  %144 = load ptr, ptr %1, align 8, !tbaa !68
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 %139
+  %146 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %147 = load ptr, ptr %146, align 8, !tbaa !72
+  %148 = load i64, ptr %8, align 8, !tbaa !17
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %145, ptr align 1 %147, i64 %148, i1 false)
+  %149 = load ptr, ptr %1, align 8, !tbaa !68
+  %150 = load i8, ptr %149, align 1, !tbaa !30
+  %151 = zext i8 %150 to i64
+  %152 = shl nuw nsw i64 %151, 8
+  %153 = getelementptr inbounds nuw i8, ptr %149, i64 1
+  %154 = load i8, ptr %153, align 1, !tbaa !30
+  %155 = zext i8 %154 to i64
+  %156 = or disjoint i64 %152, %155
+  %157 = load i64, ptr %8, align 8, !tbaa !17
+  %158 = add i64 %156, %157
+  %159 = lshr i64 %158, 8
+  %160 = trunc i64 %159 to i8
+  store i8 %160, ptr %149, align 1, !tbaa !30
+  %161 = trunc i64 %158 to i8
+  %162 = load ptr, ptr %1, align 8, !tbaa !68
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 1
+  store i8 %161, ptr %163, align 1, !tbaa !30
+  br label %164
 
-.loopexit:                                        ; preds = %tparam_handle.exit, %50, %133, %128, %111, %98, %119, %40, %35
+.loopexit:                                        ; preds = %tparam_handle.exit, %50, %132, %127, %110, %97, %118, %40, %35
   call void @WPACKET_cleanup(ptr noundef nonnull %6) #10
-  br label %165
+  br label %164
 
-165:                                              ; preds = %144, %4, %12, %30, %27, %PACKET_buf_init.exit, %138, %.loopexit
-  %.069 = phi i32 [ 0, %.loopexit ], [ 0, %27 ], [ 0, %PACKET_buf_init.exit ], [ 1, %144 ], [ 0, %138 ], [ 0, %12 ], [ 0, %4 ], [ 0, %30 ]
-  %.04167 = phi ptr [ %28, %.loopexit ], [ %28, %27 ], [ null, %PACKET_buf_init.exit ], [ %28, %144 ], [ %28, %138 ], [ null, %12 ], [ null, %4 ], [ %28, %30 ]
+164:                                              ; preds = %143, %4, %12, %30, %27, %PACKET_buf_init.exit, %137, %.loopexit
+  %.069 = phi i32 [ 0, %.loopexit ], [ 0, %27 ], [ 0, %PACKET_buf_init.exit ], [ 1, %143 ], [ 0, %137 ], [ 0, %12 ], [ 0, %4 ], [ 0, %30 ]
+  %.04167 = phi ptr [ %28, %.loopexit ], [ %28, %27 ], [ null, %PACKET_buf_init.exit ], [ %28, %143 ], [ %28, %137 ], [ null, %12 ], [ null, %4 ], [ %28, %30 ]
   call void @BUF_MEM_free(ptr noundef %10) #10
   call void @BUF_MEM_free(ptr noundef %.04167) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

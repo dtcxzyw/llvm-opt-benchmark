@@ -6857,8 +6857,8 @@ getupvalref.exit:                                 ; preds = %index2value.exit.i,
   %127 = getelementptr i8, ptr %126, i64 16
   br label %.thread
 
-.thread:                                          ; preds = %117, %120, %124, %index2value.exit, %getupvalref.exit
-  %.0 = phi ptr [ %127, %124 ], [ %116, %getupvalref.exit ], [ null, %117 ], [ null, %index2value.exit ], [ null, %120 ]
+.thread:                                          ; preds = %117, %120, %index2value.exit, %124, %getupvalref.exit
+  %.0 = phi ptr [ %127, %124 ], [ %116, %getupvalref.exit ], [ null, %index2value.exit ], [ null, %120 ], [ null, %117 ]
   ret ptr %.0
 }
 

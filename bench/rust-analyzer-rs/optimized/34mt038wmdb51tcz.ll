@@ -389,10 +389,10 @@ define internal fastcc i64 @_ZN17crossbeam_channel7context7Context10wait_until17
 4:                                                ; preds = %_ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit, %2
   %.0 = phi i32 [ 0, %2 ], [ %14, %_ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit ]
   %5 = load atomic i64, ptr %3 acquire, align 8
-  switch i64 %5, label %.thread [
+  switch i64 %5, label %.thread.loopexit4 [
     i64 0, label %6
-    i64 1, label %.thread.loopexit18
-    i64 2, label %.thread.loopexit18
+    i64 1, label %.thread.loopexit26
+    i64 2, label %.thread
   ]
 
 6:                                                ; preds = %4
@@ -405,10 +405,10 @@ define internal fastcc i64 @_ZN17crossbeam_channel7context7Context10wait_until17
 
 .preheader.split.us:                              ; preds = %.preheader, %8
   %7 = load atomic i64, ptr %3 acquire, align 8
-  switch i64 %7, label %.thread [
+  switch i64 %7, label %.thread.loopexit4 [
     i64 0, label %8
-    i64 1, label %.thread.loopexit13
-    i64 2, label %.thread.loopexit13
+    i64 1, label %.thread.loopexit
+    i64 2, label %.thread
   ]
 
 8:                                                ; preds = %.preheader.split.us
@@ -437,10 +437,10 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit: ; preds = 
 
 .preheader.split:                                 ; preds = %.preheader, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread"
   %15 = load atomic i64, ptr %3 acquire, align 8
-  switch i64 %15, label %.thread [
+  switch i64 %15, label %.thread.loopexit4 [
     i64 0, label %16
-    i64 1, label %.thread.loopexit15
-    i64 2, label %.thread.loopexit15
+    i64 1, label %.thread.loopexit20
+    i64 2, label %.thread
   ]
 
 16:                                               ; preds = %.preheader.split
@@ -471,17 +471,20 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit: ; preds = 
   tail call void @_ZN3std6thread12park_timeout17hd5e7217f4f5c5e09E(i64 noundef %28, i32 noundef %29)
   br label %.preheader.split
 
-.thread.loopexit13:                               ; preds = %.preheader.split.us, %.preheader.split.us
+.thread.loopexit4:                                ; preds = %4, %.preheader.split, %.preheader.split.us
   br label %.thread
 
-.thread.loopexit15:                               ; preds = %.preheader.split, %.preheader.split
+.thread.loopexit:                                 ; preds = %.preheader.split.us
   br label %.thread
 
-.thread.loopexit18:                               ; preds = %4, %4
+.thread.loopexit20:                               ; preds = %.preheader.split
   br label %.thread
 
-.thread:                                          ; preds = %4, %.preheader.split, %.preheader.split.us, %.thread.loopexit18, %.thread.loopexit15, %.thread.loopexit13, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread15"
-  %.sroa.02.0 = phi i64 [ 3, %.preheader.split ], [ %.sroa.02.2, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread15" ], [ %7, %.thread.loopexit13 ], [ %5, %.thread.loopexit18 ], [ %15, %.thread.loopexit15 ], [ 3, %.preheader.split.us ], [ 3, %4 ]
+.thread.loopexit26:                               ; preds = %4
+  br label %.thread
+
+.thread:                                          ; preds = %.preheader.split.us, %.preheader.split, %4, %.thread.loopexit26, %.thread.loopexit20, %.thread.loopexit, %.thread.loopexit4, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread15"
+  %.sroa.02.0 = phi i64 [ %5, %.thread.loopexit26 ], [ %.sroa.02.2, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread15" ], [ 3, %.thread.loopexit4 ], [ %15, %.thread.loopexit20 ], [ %7, %.thread.loopexit ], [ 2, %4 ], [ 2, %.preheader.split ], [ 2, %.preheader.split.us ]
   ret i64 %.sroa.02.0
 }
 

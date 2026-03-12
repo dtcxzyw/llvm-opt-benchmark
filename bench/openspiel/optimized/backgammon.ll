@@ -12440,17 +12440,14 @@ define void @_ZNK10open_spiel10backgammon15BackgammonState7ReturnsEv(ptr dead_on
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %20 = load i8, ptr %19, align 8
   %21 = trunc i8 %20 to i1
-  br i1 %21, label %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit.thread, label %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit
+  br i1 %21, label %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18.thread, label %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit
 
 _ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit: ; preds = %18
   %22 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.013
   %23 = load i32, ptr %22, align 4
   %.fr = freeze i32 %23
   %.not = icmp eq i32 %.fr, 0
-  br i1 %.not, label %_ZNK10open_spiel10backgammon15BackgammonState14IsBackgammonedEi.exit, label %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit.thread
-
-_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit.thread: ; preds = %18, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit
-  br label %_ZNK10open_spiel10backgammon15BackgammonState14IsBackgammonedEi.exit
+  br i1 %.not, label %_ZNK10open_spiel10backgammon15BackgammonState14IsBackgammonedEi.exit, label %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18.thread
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -12498,11 +12495,11 @@ _ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18: ; preds = %4
   %.not31 = icmp eq i32 %.fr30, 0
   br i1 %.not31, label %_ZNK10open_spiel10backgammon15BackgammonState14IsBackgammonedEi.exit, label %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18.thread
 
-_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18.thread: ; preds = %28, %24, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18
+_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18.thread: ; preds = %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit, %18, %28, %24, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18
   br label %_ZNK10open_spiel10backgammon15BackgammonState14IsBackgammonedEi.exit
 
-_ZNK10open_spiel10backgammon15BackgammonState14IsBackgammonedEi.exit: ; preds = %45, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18.thread, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18, %32, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit.thread, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit, %15
-  %.0 = phi i32 [ 1, %15 ], [ 2, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit ], [ 2, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18 ], [ 1, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit.thread ], [ 3, %32 ], [ 1, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18.thread ], [ 3, %45 ]
+_ZNK10open_spiel10backgammon15BackgammonState14IsBackgammonedEi.exit: ; preds = %45, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18.thread, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18, %32, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit, %15
+  %.0 = phi i32 [ 1, %15 ], [ 2, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit ], [ 2, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18 ], [ 1, %_ZNK10open_spiel10backgammon15BackgammonState10IsGammonedEi.exit18.thread ], [ 3, %32 ], [ 3, %45 ]
   %49 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #33
   store ptr %49, ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16

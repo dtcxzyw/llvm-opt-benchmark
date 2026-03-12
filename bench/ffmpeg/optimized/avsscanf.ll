@@ -2508,19 +2508,16 @@ ffshgetc.exit385.i:                               ; preds = %1111, %1095, %1092,
   %1115 = load i8, ptr %1114, align 1, !tbaa !16
   %1116 = zext i8 %1115 to i32
   %1117 = icmp samesign ugt i32 %.0171419.i, %1116
-  br i1 %1117, label %1062, label %ffshgetc.exit385.i..critedge12.i.loopexit522_crit_edge, !llvm.loop !43
+  br i1 %1117, label %1062, label %..critedge12.i.loopexit1180_crit_edge, !llvm.loop !43
 
-ffshgetc.exit385.i..critedge12.i.loopexit522_crit_edge: ; preds = %ffshgetc.exit385.i
+..critedge12.i.loopexit1180_crit_edge:            ; preds = %ffshgetc.exit385.i, %1062
   br label %.critedge12.i, !llvm.loop !43
 
-..critedge12.i.loopexit1180_crit_edge:            ; preds = %1062
-  br label %.critedge12.i, !llvm.loop !43
-
-.critedge12.i:                                    ; preds = %.lr.ph453.i, %.lr.ph682, %ffshgetc.exit345.i, %..critedge12.i.loopexit1180_crit_edge, %ffshgetc.exit385.i..critedge12.i.loopexit522_crit_edge, %._crit_edge459.i, %._crit_edge477.i, %880, %.preheader435.i, %.critedge.i
-  %.0171418.i = phi i32 [ 10, %.critedge.i ], [ %.0171419.i, %._crit_edge459.i ], [ %.0171419.i, %._crit_edge477.i ], [ %.0171419.i, %.preheader435.i ], [ %.0171419.i, %..critedge12.i.loopexit1180_crit_edge ], [ %.0171419.i, %880 ], [ %.0171419.i, %ffshgetc.exit385.i..critedge12.i.loopexit522_crit_edge ], [ %.0171419.i, %ffshgetc.exit345.i ], [ %.0171419.i, %.lr.ph682 ], [ 10, %.lr.ph453.i ]
-  %.0164411416.i = phi i64 [ %.0164411.i, %.critedge.i ], [ %.0164411417.i, %._crit_edge459.i ], [ %.0164411417.i, %._crit_edge477.i ], [ %.0164411417.i, %.preheader435.i ], [ %.0164411417.i, %..critedge12.i.loopexit1180_crit_edge ], [ %.0164411417.i, %880 ], [ %.0164411417.i, %ffshgetc.exit385.i..critedge12.i.loopexit522_crit_edge ], [ %.0164411417.i, %ffshgetc.exit345.i ], [ %.0164411417.i, %.lr.ph682 ], [ %.0164411.i, %.lr.ph453.i ]
-  %.4170.i = phi i32 [ %869, %.critedge.i ], [ %1050, %._crit_edge459.i ], [ %938, %._crit_edge477.i ], [ %.1167420.i, %.preheader435.i ], [ %1112, %..critedge12.i.loopexit1180_crit_edge ], [ %.1167420.i, %880 ], [ %1112, %ffshgetc.exit385.i..critedge12.i.loopexit522_crit_edge ], [ %997, %ffshgetc.exit345.i ], [ %1112, %.lr.ph682 ], [ %869, %.lr.ph453.i ]
-  %.2.i = phi i64 [ %829, %.critedge.i ], [ %1058, %._crit_edge459.i ], [ %946, %._crit_edge477.i ], [ 0, %.preheader435.i ], [ %1069, %..critedge12.i.loopexit1180_crit_edge ], [ 0, %880 ], [ %1069, %ffshgetc.exit385.i..critedge12.i.loopexit522_crit_edge ], [ %954, %ffshgetc.exit345.i ], [ %1069, %.lr.ph682 ], [ %829, %.lr.ph453.i ]
+.critedge12.i:                                    ; preds = %.lr.ph453.i, %.lr.ph682, %ffshgetc.exit345.i, %..critedge12.i.loopexit1180_crit_edge, %._crit_edge459.i, %._crit_edge477.i, %880, %.preheader435.i, %.critedge.i
+  %.0171418.i = phi i32 [ 10, %.critedge.i ], [ %.0171419.i, %._crit_edge459.i ], [ %.0171419.i, %._crit_edge477.i ], [ %.0171419.i, %.preheader435.i ], [ %.0171419.i, %..critedge12.i.loopexit1180_crit_edge ], [ %.0171419.i, %880 ], [ %.0171419.i, %ffshgetc.exit345.i ], [ %.0171419.i, %.lr.ph682 ], [ 10, %.lr.ph453.i ]
+  %.0164411416.i = phi i64 [ %.0164411.i, %.critedge.i ], [ %.0164411417.i, %._crit_edge459.i ], [ %.0164411417.i, %._crit_edge477.i ], [ %.0164411417.i, %.preheader435.i ], [ %.0164411417.i, %..critedge12.i.loopexit1180_crit_edge ], [ %.0164411417.i, %880 ], [ %.0164411417.i, %ffshgetc.exit345.i ], [ %.0164411417.i, %.lr.ph682 ], [ %.0164411.i, %.lr.ph453.i ]
+  %.4170.i = phi i32 [ %869, %.critedge.i ], [ %1050, %._crit_edge459.i ], [ %938, %._crit_edge477.i ], [ %.1167420.i, %.preheader435.i ], [ %1112, %..critedge12.i.loopexit1180_crit_edge ], [ %.1167420.i, %880 ], [ %997, %ffshgetc.exit345.i ], [ %1112, %.lr.ph682 ], [ %869, %.lr.ph453.i ]
+  %.2.i = phi i64 [ %829, %.critedge.i ], [ %1058, %._crit_edge459.i ], [ %946, %._crit_edge477.i ], [ 0, %.preheader435.i ], [ %1069, %..critedge12.i.loopexit1180_crit_edge ], [ 0, %880 ], [ %954, %ffshgetc.exit345.i ], [ %1069, %.lr.ph682 ], [ %829, %.lr.ph453.i ]
   %1118 = sext i32 %.4170.i to i64
   %1119 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @table, i64 1), i64 %1118
   %1120 = load i8, ptr %1119, align 1, !tbaa !16

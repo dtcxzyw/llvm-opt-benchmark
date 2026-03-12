@@ -6908,9 +6908,9 @@ _ZltRK8rationalS1_.exit50:                        ; preds = %420
 _ZltRK8rationalS1_.exit54:                        ; preds = %455
   br i1 %456, label %.invoke, label %832
 
-.invoke:                                          ; preds = %825, %819, %_ZN8rationalD2Ev.exit130, %_ZltRK8rationalS1_.exit54, %.noexc52, %448
-  %457 = phi ptr [ %139, %819 ], [ %140, %_ZltRK8rationalS1_.exit54 ], [ %140, %_ZN8rationalD2Ev.exit130 ], [ %140, %448 ], [ %140, %.noexc52 ], [ %140, %825 ]
-  %458 = phi ptr [ %1, %819 ], [ %2, %_ZltRK8rationalS1_.exit54 ], [ %2, %_ZN8rationalD2Ev.exit130 ], [ %2, %448 ], [ %2, %.noexc52 ], [ %2, %825 ]
+.invoke:                                          ; preds = %825, %_ZN8rationalD2Ev.exit130, %819, %_ZltRK8rationalS1_.exit54, %.noexc52, %448
+  %457 = phi ptr [ %139, %819 ], [ %140, %_ZltRK8rationalS1_.exit54 ], [ %140, %.noexc52 ], [ %140, %448 ], [ %140, %_ZN8rationalD2Ev.exit130 ], [ %140, %825 ]
+  %458 = phi ptr [ %1, %819 ], [ %2, %_ZltRK8rationalS1_.exit54 ], [ %2, %.noexc52 ], [ %2, %448 ], [ %2, %_ZN8rationalD2Ev.exit130 ], [ %2, %825 ]
   invoke void @_ZN3sls12bv_valuation9set_valueERNS_5bvectERK8rational(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(20) %457, ptr noundef nonnull align 8 dereferenceable(32) %458)
           to label %832 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

@@ -3635,15 +3635,15 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn20NaryEltwiseLayerImpl1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %5 = load i32, ptr %4, align 8, !tbaa !27
   %6 = icmp ult i32 %5, 19
-  br i1 %6, label %switch.lookup, label %switch.edge
+  br i1 %6, label %switch.lookup, label %11
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %9 = load i32, ptr %8, align 8, !tbaa !27
   %10 = icmp ult i32 %9, 20
-  br i1 %10, label %switch.lookup9, label %switch.edge
+  br i1 %10, label %switch.lookup9, label %11
 
-11:                                               ; preds = %2
+11:                                               ; preds = %7, %3, %2
   br label %switch.edge
 
 switch.lookup:                                    ; preds = %3
@@ -3658,8 +3658,8 @@ switch.lookup9:                                   ; preds = %7
   %switch.masked13 = trunc i20 %switch.downshift12 to i1
   br label %switch.edge
 
-switch.edge:                                      ; preds = %7, %switch.lookup9, %3, %switch.lookup, %2, %11
-  %.0 = phi i1 [ false, %11 ], [ %switch.masked13, %switch.lookup9 ], [ %switch.masked, %switch.lookup ], [ true, %2 ], [ false, %3 ], [ false, %7 ]
+switch.edge:                                      ; preds = %switch.lookup9, %switch.lookup, %2, %11
+  %.0 = phi i1 [ %switch.masked, %switch.lookup ], [ %switch.masked13, %switch.lookup9 ], [ false, %11 ], [ true, %2 ]
   ret i1 %.0
 }
 

@@ -28468,7 +28468,7 @@ default.unreachable:                              ; preds = %78, %43
   %55 = add i8 %54, -1
   store i8 %55, ptr %53, align 1
   %56 = icmp eq i8 %55, 0
-  br i1 %56, label %94, label %57
+  br i1 %56, label %90, label %57
 
 57:                                               ; preds = %52, %33
   %58 = add i64 %23, 1
@@ -28554,130 +28554,118 @@ default.unreachable:                              ; preds = %78, %43
   br i1 %81, label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h0fd2cc45444cea02E.exit", label %87
 
 83:                                               ; preds = %78
-  br i1 %81, label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h0fd2cc45444cea02E.exit", label %88
+  br i1 %81, label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h0fd2cc45444cea02E.exit", label %87
 
 84:                                               ; preds = %78
-  br i1 %81, label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h0fd2cc45444cea02E.exit", label %89
+  br i1 %81, label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h0fd2cc45444cea02E.exit", label %87
 
 85:                                               ; preds = %78
-  br i1 %81, label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h0fd2cc45444cea02E.exit", label %90
+  br i1 %81, label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h0fd2cc45444cea02E.exit", label %87
 
 86:                                               ; preds = %78
-  br i1 %81, label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h0fd2cc45444cea02E.exit", label %91
+  br i1 %81, label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h0fd2cc45444cea02E.exit", label %87
 
-87:                                               ; preds = %82
+87:                                               ; preds = %86, %85, %84, %83, %82
   br label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h0fd2cc45444cea02E.exit"
 
-88:                                               ; preds = %83
-  br label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h0fd2cc45444cea02E.exit"
+"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h0fd2cc45444cea02E.exit": ; preds = %86, %85, %84, %83, %82, %.loopexit.i.i.i.i, %73, %75, %87
+  %.sroa.8.0 = phi i8 [ 3, %85 ], [ undef, %.loopexit.i.i.i.i ], [ undef, %87 ], [ 0, %82 ], [ 4, %86 ], [ 1, %83 ], [ undef, %73 ], [ 2, %84 ], [ undef, %75 ]
+  %.sroa.1430.0 = phi ptr [ undef, %85 ], [ %72, %.loopexit.i.i.i.i ], [ %80, %87 ], [ undef, %82 ], [ undef, %86 ], [ undef, %83 ], [ %74, %73 ], [ undef, %84 ], [ %77, %75 ]
+  %.sink.i21 = phi i1 [ false, %85 ], [ true, %.loopexit.i.i.i.i ], [ true, %87 ], [ false, %82 ], [ false, %86 ], [ false, %83 ], [ true, %73 ], [ false, %84 ], [ true, %75 ]
+  %88 = load i8, ptr %34, align 8, !range !192, !noundef !4
+  %89 = trunc nuw i8 %88 to i1
+  br i1 %89, label %97, label %93
 
-89:                                               ; preds = %84
-  br label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h0fd2cc45444cea02E.exit"
-
-90:                                               ; preds = %85
-  br label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h0fd2cc45444cea02E.exit"
-
-91:                                               ; preds = %86
-  br label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h0fd2cc45444cea02E.exit"
-
-"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h0fd2cc45444cea02E.exit": ; preds = %86, %85, %84, %83, %82, %.loopexit.i.i.i.i, %73, %75, %87, %88, %89, %90, %91
-  %.sroa.8.0 = phi i8 [ undef, %91 ], [ undef, %.loopexit.i.i.i.i ], [ undef, %87 ], [ 0, %82 ], [ undef, %88 ], [ 1, %83 ], [ undef, %89 ], [ 2, %84 ], [ undef, %90 ], [ 3, %85 ], [ undef, %75 ], [ undef, %73 ], [ 4, %86 ]
-  %.sroa.1430.0 = phi ptr [ %80, %91 ], [ %72, %.loopexit.i.i.i.i ], [ %80, %87 ], [ undef, %82 ], [ %80, %88 ], [ undef, %83 ], [ %80, %89 ], [ undef, %84 ], [ %80, %90 ], [ undef, %85 ], [ %77, %75 ], [ %74, %73 ], [ undef, %86 ]
-  %.sink.i21 = phi i1 [ true, %91 ], [ true, %.loopexit.i.i.i.i ], [ true, %87 ], [ false, %82 ], [ true, %88 ], [ false, %83 ], [ true, %89 ], [ false, %84 ], [ true, %90 ], [ false, %85 ], [ true, %75 ], [ true, %73 ], [ false, %86 ]
-  %92 = load i8, ptr %34, align 8, !range !192, !noundef !4
-  %93 = trunc nuw i8 %92 to i1
-  br i1 %93, label %101, label %97
-
-94:                                               ; preds = %52
+90:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 24, ptr %15, align 8
-  %95 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17hcb6a0c812c235f58E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15)
+  %91 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17hcb6a0c812c235f58E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %95, ptr %96, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %91, ptr %92, align 8
   br label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17haf0e3ef851b3c2a4E.exit"
+
+93:                                               ; preds = %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h0fd2cc45444cea02E.exit"
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 73
+  %95 = load i8, ptr %94, align 1, !noundef !4
+  %96 = add i8 %95, 1
+  store i8 %96, ptr %94, align 1
+  br i1 %.sink.i21, label %108, label %98
 
 97:                                               ; preds = %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h0fd2cc45444cea02E.exit"
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 73
-  %99 = load i8, ptr %98, align 1, !noundef !4
-  %100 = add i8 %99, 1
-  store i8 %100, ptr %98, align 1
-  br i1 %.sink.i21, label %112, label %102
+  br i1 %.sink.i21, label %110, label %98
 
-101:                                              ; preds = %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h0fd2cc45444cea02E.exit"
-  br i1 %.sink.i21, label %114, label %102
-
-102:                                              ; preds = %101, %97
+98:                                               ; preds = %97, %93
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11134)
-  %103 = load i64, ptr %17, align 8, !alias.scope !11137, !noalias !11142, !noundef !4
+  %99 = load i64, ptr %17, align 8, !alias.scope !11137, !noalias !11142, !noundef !4
   %.promoted.i22 = load i64, ptr %16, align 8, !alias.scope !11134, !noalias !11146
-  %104 = icmp ult i64 %.promoted.i22, %103
-  br i1 %104, label %.lr.ph.i24, label %.loopexit
+  %100 = icmp ult i64 %.promoted.i22, %99
+  br i1 %100, label %.lr.ph.i24, label %.loopexit
 
-.lr.ph.i24:                                       ; preds = %102
-  %105 = load ptr, ptr %20, align 8, !alias.scope !11137, !noalias !11142, !nonnull !4, !align !1413, !noundef !4
-  br label %106
+.lr.ph.i24:                                       ; preds = %98
+  %101 = load ptr, ptr %20, align 8, !alias.scope !11137, !noalias !11142, !nonnull !4, !align !1413, !noundef !4
+  br label %102
 
-106:                                              ; preds = %110, %.lr.ph.i24
-  %107 = phi i64 [ %.promoted.i22, %.lr.ph.i24 ], [ %111, %110 ]
+102:                                              ; preds = %106, %.lr.ph.i24
+  %103 = phi i64 [ %.promoted.i22, %.lr.ph.i24 ], [ %107, %106 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11147)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11148)
-  %108 = getelementptr inbounds i8, ptr %105, i64 %107
-  %109 = load i8, ptr %108, align 1, !noalias !11149, !noundef !4
-  switch i8 %109, label %121 [
-    i8 32, label %110
-    i8 10, label %110
-    i8 9, label %110
-    i8 13, label %110
-    i8 125, label %118
+  %104 = getelementptr inbounds i8, ptr %101, i64 %103
+  %105 = load i8, ptr %104, align 1, !noalias !11149, !noundef !4
+  switch i8 %105, label %117 [
+    i8 32, label %106
+    i8 10, label %106
+    i8 9, label %106
+    i8 13, label %106
+    i8 125, label %114
   ]
 
-110:                                              ; preds = %106, %106, %106, %106
-  %111 = add i64 %107, 1
-  store i64 %111, ptr %16, align 8, !alias.scope !11150, !noalias !11146
-  %exitcond.not.i25 = icmp eq i64 %111, %103
-  br i1 %exitcond.not.i25, label %.loopexit, label %106
+106:                                              ; preds = %102, %102, %102, %102
+  %107 = add i64 %103, 1
+  store i64 %107, ptr %16, align 8, !alias.scope !11150, !noalias !11146
+  %exitcond.not.i25 = icmp eq i64 %107, %99
+  br i1 %exitcond.not.i25, label %.loopexit, label %102
 
-112:                                              ; preds = %97
+108:                                              ; preds = %93
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.1430.0) ]
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.1430.0, ptr %113, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.1430.0, ptr %109, align 8
   br label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17haf0e3ef851b3c2a4E.exit"
 
-"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17haf0e3ef851b3c2a4E.exit": ; preds = %51, %50, %49, %48, %47, %45, %30, %.loopexit, %121, %118, %94, %114, %.loopexit39, %112
-  %.sink = phi i8 [ 1, %30 ], [ 1, %.loopexit ], [ 1, %121 ], [ 0, %118 ], [ 1, %94 ], [ 1, %114 ], [ 1, %.loopexit39 ], [ 1, %112 ], [ 0, %47 ], [ 0, %48 ], [ 0, %49 ], [ 0, %50 ], [ 0, %51 ], [ 1, %45 ]
+"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17haf0e3ef851b3c2a4E.exit": ; preds = %51, %50, %49, %48, %47, %45, %30, %.loopexit, %117, %114, %90, %110, %.loopexit39, %108
+  %.sink = phi i8 [ 1, %30 ], [ 1, %.loopexit ], [ 1, %117 ], [ 0, %114 ], [ 1, %90 ], [ 1, %110 ], [ 1, %.loopexit39 ], [ 1, %108 ], [ 0, %47 ], [ 0, %48 ], [ 0, %49 ], [ 0, %50 ], [ 0, %51 ], [ 1, %45 ]
   store i8 %.sink, ptr %0, align 8
   ret void
 
-114:                                              ; preds = %101
+110:                                              ; preds = %97
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.1430.0) ]
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.1430.0, ptr %115, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.1430.0, ptr %111, align 8
   br label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17haf0e3ef851b3c2a4E.exit"
 
-.loopexit:                                        ; preds = %110, %102
+.loopexit:                                        ; preds = %106, %98
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 3, ptr %13, align 8
-  %116 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h8054a24376d0e35dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
+  %112 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h8054a24376d0e35dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %116, ptr %117, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %112, ptr %113, align 8
   br label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17haf0e3ef851b3c2a4E.exit"
 
-118:                                              ; preds = %106
-  %119 = add i64 %107, 1
-  store i64 %119, ptr %16, align 8, !alias.scope !11153
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.8.0, ptr %120, align 1
+114:                                              ; preds = %102
+  %115 = add i64 %103, 1
+  store i64 %115, ptr %16, align 8, !alias.scope !11153
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.8.0, ptr %116, align 1
   br label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17haf0e3ef851b3c2a4E.exit"
 
-121:                                              ; preds = %106
+117:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 10, ptr %14, align 8
-  %122 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h8054a24376d0e35dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14)
+  %118 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h8054a24376d0e35dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %122, ptr %123, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %118, ptr %119, align 8
   br label %"_ZN155_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmProbability$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17haf0e3ef851b3c2a4E.exit"
 }
 
@@ -28797,7 +28785,7 @@ default.unreachable:                              ; preds = %76, %43
   %53 = add i8 %52, -1
   store i8 %53, ptr %51, align 1
   %54 = icmp eq i8 %53, 0
-  br i1 %54, label %88, label %55
+  br i1 %54, label %86, label %55
 
 55:                                               ; preds = %50, %33
   %56 = add i64 %23, 1
@@ -28881,118 +28869,112 @@ default.unreachable:                              ; preds = %76, %43
   br i1 %79, label %"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2344e601f2864a5cE.exit", label %83
 
 81:                                               ; preds = %76
-  br i1 %79, label %"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2344e601f2864a5cE.exit", label %84
+  br i1 %79, label %"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2344e601f2864a5cE.exit", label %83
 
 82:                                               ; preds = %76
-  br i1 %79, label %"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2344e601f2864a5cE.exit", label %85
+  br i1 %79, label %"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2344e601f2864a5cE.exit", label %83
 
-83:                                               ; preds = %80
+83:                                               ; preds = %82, %81, %80
   br label %"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2344e601f2864a5cE.exit"
 
-84:                                               ; preds = %81
-  br label %"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2344e601f2864a5cE.exit"
+"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2344e601f2864a5cE.exit": ; preds = %82, %81, %80, %.loopexit.i.i.i.i, %71, %73, %83
+  %.sroa.8.0 = phi i8 [ undef, %71 ], [ undef, %.loopexit.i.i.i.i ], [ undef, %83 ], [ 0, %80 ], [ 2, %82 ], [ 1, %81 ], [ undef, %73 ]
+  %.sroa.1230.0 = phi ptr [ %72, %71 ], [ %70, %.loopexit.i.i.i.i ], [ %78, %83 ], [ undef, %80 ], [ undef, %82 ], [ undef, %81 ], [ %75, %73 ]
+  %.sink.i21 = phi i1 [ true, %71 ], [ true, %.loopexit.i.i.i.i ], [ true, %83 ], [ false, %80 ], [ false, %82 ], [ false, %81 ], [ true, %73 ]
+  %84 = load i8, ptr %34, align 8, !range !192, !noundef !4
+  %85 = trunc nuw i8 %84 to i1
+  br i1 %85, label %93, label %89
 
-85:                                               ; preds = %82
-  br label %"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2344e601f2864a5cE.exit"
-
-"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2344e601f2864a5cE.exit": ; preds = %82, %81, %80, %.loopexit.i.i.i.i, %71, %73, %83, %84, %85
-  %.sroa.8.0 = phi i8 [ undef, %85 ], [ undef, %.loopexit.i.i.i.i ], [ undef, %83 ], [ 0, %80 ], [ undef, %84 ], [ 1, %81 ], [ undef, %73 ], [ undef, %71 ], [ 2, %82 ]
-  %.sroa.1230.0 = phi ptr [ %78, %85 ], [ %70, %.loopexit.i.i.i.i ], [ %78, %83 ], [ undef, %80 ], [ %78, %84 ], [ undef, %81 ], [ %75, %73 ], [ %72, %71 ], [ undef, %82 ]
-  %.sink.i21 = phi i1 [ true, %85 ], [ true, %.loopexit.i.i.i.i ], [ true, %83 ], [ false, %80 ], [ true, %84 ], [ false, %81 ], [ true, %73 ], [ true, %71 ], [ false, %82 ]
-  %86 = load i8, ptr %34, align 8, !range !192, !noundef !4
-  %87 = trunc nuw i8 %86 to i1
-  br i1 %87, label %95, label %91
-
-88:                                               ; preds = %50
+86:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 24, ptr %15, align 8
-  %89 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17hcb6a0c812c235f58E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15)
+  %87 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17hcb6a0c812c235f58E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %89, ptr %90, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %87, ptr %88, align 8
   br label %"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2cbd0f2dd185f9b7E.exit"
 
-91:                                               ; preds = %"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2344e601f2864a5cE.exit"
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 73
-  %93 = load i8, ptr %92, align 1, !noundef !4
-  %94 = add i8 %93, 1
-  store i8 %94, ptr %92, align 1
-  br i1 %.sink.i21, label %106, label %96
+89:                                               ; preds = %"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2344e601f2864a5cE.exit"
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 73
+  %91 = load i8, ptr %90, align 1, !noundef !4
+  %92 = add i8 %91, 1
+  store i8 %92, ptr %90, align 1
+  br i1 %.sink.i21, label %104, label %94
 
-95:                                               ; preds = %"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2344e601f2864a5cE.exit"
-  br i1 %.sink.i21, label %108, label %96
+93:                                               ; preds = %"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2344e601f2864a5cE.exit"
+  br i1 %.sink.i21, label %106, label %94
 
-96:                                               ; preds = %95, %91
+94:                                               ; preds = %93, %89
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11233)
-  %97 = load i64, ptr %17, align 8, !alias.scope !11236, !noalias !11241, !noundef !4
+  %95 = load i64, ptr %17, align 8, !alias.scope !11236, !noalias !11241, !noundef !4
   %.promoted.i22 = load i64, ptr %16, align 8, !alias.scope !11233, !noalias !11245
-  %98 = icmp ult i64 %.promoted.i22, %97
-  br i1 %98, label %.lr.ph.i24, label %.loopexit
+  %96 = icmp ult i64 %.promoted.i22, %95
+  br i1 %96, label %.lr.ph.i24, label %.loopexit
 
-.lr.ph.i24:                                       ; preds = %96
-  %99 = load ptr, ptr %20, align 8, !alias.scope !11236, !noalias !11241, !nonnull !4, !align !1413, !noundef !4
-  br label %100
+.lr.ph.i24:                                       ; preds = %94
+  %97 = load ptr, ptr %20, align 8, !alias.scope !11236, !noalias !11241, !nonnull !4, !align !1413, !noundef !4
+  br label %98
 
-100:                                              ; preds = %104, %.lr.ph.i24
-  %101 = phi i64 [ %.promoted.i22, %.lr.ph.i24 ], [ %105, %104 ]
+98:                                               ; preds = %102, %.lr.ph.i24
+  %99 = phi i64 [ %.promoted.i22, %.lr.ph.i24 ], [ %103, %102 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11246)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11247)
-  %102 = getelementptr inbounds i8, ptr %99, i64 %101
-  %103 = load i8, ptr %102, align 1, !noalias !11248, !noundef !4
-  switch i8 %103, label %115 [
-    i8 32, label %104
-    i8 10, label %104
-    i8 9, label %104
-    i8 13, label %104
-    i8 125, label %112
+  %100 = getelementptr inbounds i8, ptr %97, i64 %99
+  %101 = load i8, ptr %100, align 1, !noalias !11248, !noundef !4
+  switch i8 %101, label %113 [
+    i8 32, label %102
+    i8 10, label %102
+    i8 9, label %102
+    i8 13, label %102
+    i8 125, label %110
   ]
 
-104:                                              ; preds = %100, %100, %100, %100
-  %105 = add i64 %101, 1
-  store i64 %105, ptr %16, align 8, !alias.scope !11249, !noalias !11245
-  %exitcond.not.i25 = icmp eq i64 %105, %97
-  br i1 %exitcond.not.i25, label %.loopexit, label %100
+102:                                              ; preds = %98, %98, %98, %98
+  %103 = add i64 %99, 1
+  store i64 %103, ptr %16, align 8, !alias.scope !11249, !noalias !11245
+  %exitcond.not.i25 = icmp eq i64 %103, %95
+  br i1 %exitcond.not.i25, label %.loopexit, label %98
 
-106:                                              ; preds = %91
+104:                                              ; preds = %89
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.1230.0) ]
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.1230.0, ptr %105, align 8
+  br label %"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2cbd0f2dd185f9b7E.exit"
+
+"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2cbd0f2dd185f9b7E.exit": ; preds = %49, %48, %47, %45, %30, %.loopexit, %113, %110, %86, %106, %.loopexit39, %104
+  %.sink = phi i8 [ 1, %30 ], [ 1, %.loopexit ], [ 1, %113 ], [ 0, %110 ], [ 1, %86 ], [ 1, %106 ], [ 1, %.loopexit39 ], [ 1, %104 ], [ 0, %47 ], [ 0, %48 ], [ 0, %49 ], [ 1, %45 ]
+  store i8 %.sink, ptr %0, align 8
+  ret void
+
+106:                                              ; preds = %93
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.1230.0) ]
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.1230.0, ptr %107, align 8
   br label %"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2cbd0f2dd185f9b7E.exit"
 
-"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2cbd0f2dd185f9b7E.exit": ; preds = %49, %48, %47, %45, %30, %.loopexit, %115, %112, %88, %108, %.loopexit39, %106
-  %.sink = phi i8 [ 1, %30 ], [ 1, %.loopexit ], [ 1, %115 ], [ 0, %112 ], [ 1, %88 ], [ 1, %108 ], [ 1, %.loopexit39 ], [ 1, %106 ], [ 0, %47 ], [ 0, %48 ], [ 0, %49 ], [ 1, %45 ]
-  store i8 %.sink, ptr %0, align 8
-  ret void
-
-108:                                              ; preds = %95
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.1230.0) ]
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.1230.0, ptr %109, align 8
-  br label %"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2cbd0f2dd185f9b7E.exit"
-
-.loopexit:                                        ; preds = %104, %96
+.loopexit:                                        ; preds = %102, %94
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 3, ptr %13, align 8
-  %110 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h8054a24376d0e35dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
+  %108 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h8054a24376d0e35dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %110, ptr %111, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %108, ptr %109, align 8
   br label %"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2cbd0f2dd185f9b7E.exit"
 
-112:                                              ; preds = %100
-  %113 = add i64 %101, 1
-  store i64 %113, ptr %16, align 8, !alias.scope !11252
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.8.0, ptr %114, align 1
+110:                                              ; preds = %98
+  %111 = add i64 %99, 1
+  store i64 %111, ptr %16, align 8, !alias.scope !11252
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.8.0, ptr %112, align 1
   br label %"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2cbd0f2dd185f9b7E.exit"
 
-115:                                              ; preds = %100
+113:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 10, ptr %14, align 8
-  %116 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h8054a24376d0e35dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14)
+  %114 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h8054a24376d0e35dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %116, ptr %117, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %114, ptr %115, align 8
   br label %"_ZN168_$LT$copilot..copilot_chat.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$copilot..copilot_chat..Role$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h2cbd0f2dd185f9b7E.exit"
 }
 
@@ -29448,7 +29430,7 @@ default.unreachable:                              ; preds = %84, %43
   %61 = add i8 %60, -1
   store i8 %61, ptr %59, align 1
   %62 = icmp eq i8 %61, 0
-  br i1 %62, label %112, label %63
+  br i1 %62, label %102, label %63
 
 63:                                               ; preds = %58, %33
   %64 = add i64 %23, 1
@@ -29540,166 +29522,136 @@ default.unreachable:                              ; preds = %84, %43
   br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %99
 
 89:                                               ; preds = %84
-  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %100
+  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %99
 
 90:                                               ; preds = %84
-  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %101
+  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %99
 
 91:                                               ; preds = %84
-  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %102
+  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %99
 
 92:                                               ; preds = %84
-  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %103
+  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %99
 
 93:                                               ; preds = %84
-  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %104
+  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %99
 
 94:                                               ; preds = %84
-  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %105
+  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %99
 
 95:                                               ; preds = %84
-  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %106
+  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %99
 
 96:                                               ; preds = %84
-  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %107
+  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %99
 
 97:                                               ; preds = %84
-  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %108
+  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %99
 
 98:                                               ; preds = %84
-  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %109
+  br i1 %87, label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit", label %99
 
-99:                                               ; preds = %88
+99:                                               ; preds = %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88
   br label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit"
 
-100:                                              ; preds = %89
-  br label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit"
+"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit": ; preds = %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %.loopexit.i.i.i.i, %79, %81, %99
+  %.sroa.8.0 = phi i8 [ 6, %94 ], [ undef, %.loopexit.i.i.i.i ], [ undef, %99 ], [ 0, %88 ], [ 10, %98 ], [ 1, %89 ], [ undef, %79 ], [ 2, %90 ], [ undef, %81 ], [ 3, %91 ], [ 9, %97 ], [ 4, %92 ], [ 7, %95 ], [ 5, %93 ], [ 8, %96 ]
+  %.sroa.2030.0 = phi ptr [ undef, %94 ], [ %78, %.loopexit.i.i.i.i ], [ %86, %99 ], [ undef, %88 ], [ undef, %98 ], [ undef, %89 ], [ %80, %79 ], [ undef, %90 ], [ %83, %81 ], [ undef, %91 ], [ undef, %97 ], [ undef, %92 ], [ undef, %95 ], [ undef, %93 ], [ undef, %96 ]
+  %.sink.i21 = phi i1 [ false, %94 ], [ true, %.loopexit.i.i.i.i ], [ true, %99 ], [ false, %88 ], [ false, %98 ], [ false, %89 ], [ true, %79 ], [ false, %90 ], [ true, %81 ], [ false, %91 ], [ false, %97 ], [ false, %92 ], [ false, %95 ], [ false, %93 ], [ false, %96 ]
+  %100 = load i8, ptr %34, align 8, !range !192, !noundef !4
+  %101 = trunc nuw i8 %100 to i1
+  br i1 %101, label %109, label %105
 
-101:                                              ; preds = %90
-  br label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit"
-
-102:                                              ; preds = %91
-  br label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit"
-
-103:                                              ; preds = %92
-  br label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit"
-
-104:                                              ; preds = %93
-  br label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit"
-
-105:                                              ; preds = %94
-  br label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit"
-
-106:                                              ; preds = %95
-  br label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit"
-
-107:                                              ; preds = %96
-  br label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit"
-
-108:                                              ; preds = %97
-  br label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit"
-
-109:                                              ; preds = %98
-  br label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit"
-
-"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit": ; preds = %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %.loopexit.i.i.i.i, %79, %81, %99, %100, %101, %102, %103, %104, %105, %106, %107, %108, %109
-  %.sroa.8.0 = phi i8 [ undef, %109 ], [ undef, %.loopexit.i.i.i.i ], [ undef, %99 ], [ 0, %88 ], [ undef, %100 ], [ 1, %89 ], [ undef, %101 ], [ 2, %90 ], [ undef, %102 ], [ 3, %91 ], [ undef, %103 ], [ 4, %92 ], [ undef, %104 ], [ 5, %93 ], [ undef, %105 ], [ 6, %94 ], [ undef, %106 ], [ 7, %95 ], [ undef, %107 ], [ 8, %96 ], [ undef, %108 ], [ 9, %97 ], [ undef, %81 ], [ undef, %79 ], [ 10, %98 ]
-  %.sroa.2030.0 = phi ptr [ %86, %109 ], [ %78, %.loopexit.i.i.i.i ], [ %86, %99 ], [ undef, %88 ], [ %86, %100 ], [ undef, %89 ], [ %86, %101 ], [ undef, %90 ], [ %86, %102 ], [ undef, %91 ], [ %86, %103 ], [ undef, %92 ], [ %86, %104 ], [ undef, %93 ], [ %86, %105 ], [ undef, %94 ], [ %86, %106 ], [ undef, %95 ], [ %86, %107 ], [ undef, %96 ], [ %86, %108 ], [ undef, %97 ], [ %83, %81 ], [ %80, %79 ], [ undef, %98 ]
-  %.sink.i21 = phi i1 [ true, %109 ], [ true, %.loopexit.i.i.i.i ], [ true, %99 ], [ false, %88 ], [ true, %100 ], [ false, %89 ], [ true, %101 ], [ false, %90 ], [ true, %102 ], [ false, %91 ], [ true, %103 ], [ false, %92 ], [ true, %104 ], [ false, %93 ], [ true, %105 ], [ false, %94 ], [ true, %106 ], [ false, %95 ], [ true, %107 ], [ false, %96 ], [ true, %108 ], [ false, %97 ], [ true, %81 ], [ true, %79 ], [ false, %98 ]
-  %110 = load i8, ptr %34, align 8, !range !192, !noundef !4
-  %111 = trunc nuw i8 %110 to i1
-  br i1 %111, label %119, label %115
-
-112:                                              ; preds = %58
+102:                                              ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 24, ptr %15, align 8
-  %113 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17hcb6a0c812c235f58E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15)
+  %103 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17hcb6a0c812c235f58E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %113, ptr %114, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %103, ptr %104, align 8
   br label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h81ad29af33d68470E.exit"
 
-115:                                              ; preds = %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit"
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 73
-  %117 = load i8, ptr %116, align 1, !noundef !4
-  %118 = add i8 %117, 1
-  store i8 %118, ptr %116, align 1
-  br i1 %.sink.i21, label %130, label %120
+105:                                              ; preds = %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit"
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 73
+  %107 = load i8, ptr %106, align 1, !noundef !4
+  %108 = add i8 %107, 1
+  store i8 %108, ptr %106, align 1
+  br i1 %.sink.i21, label %120, label %110
 
-119:                                              ; preds = %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit"
-  br i1 %.sink.i21, label %132, label %120
+109:                                              ; preds = %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h84ae97fad5a0bcdbE.exit"
+  br i1 %.sink.i21, label %122, label %110
 
-120:                                              ; preds = %119, %115
+110:                                              ; preds = %109, %105
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11431)
-  %121 = load i64, ptr %17, align 8, !alias.scope !11434, !noalias !11439, !noundef !4
+  %111 = load i64, ptr %17, align 8, !alias.scope !11434, !noalias !11439, !noundef !4
   %.promoted.i22 = load i64, ptr %16, align 8, !alias.scope !11431, !noalias !11443
-  %122 = icmp ult i64 %.promoted.i22, %121
-  br i1 %122, label %.lr.ph.i24, label %.loopexit
+  %112 = icmp ult i64 %.promoted.i22, %111
+  br i1 %112, label %.lr.ph.i24, label %.loopexit
 
-.lr.ph.i24:                                       ; preds = %120
-  %123 = load ptr, ptr %20, align 8, !alias.scope !11434, !noalias !11439, !nonnull !4, !align !1413, !noundef !4
-  br label %124
+.lr.ph.i24:                                       ; preds = %110
+  %113 = load ptr, ptr %20, align 8, !alias.scope !11434, !noalias !11439, !nonnull !4, !align !1413, !noundef !4
+  br label %114
 
-124:                                              ; preds = %128, %.lr.ph.i24
-  %125 = phi i64 [ %.promoted.i22, %.lr.ph.i24 ], [ %129, %128 ]
+114:                                              ; preds = %118, %.lr.ph.i24
+  %115 = phi i64 [ %.promoted.i22, %.lr.ph.i24 ], [ %119, %118 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11444)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11445)
-  %126 = getelementptr inbounds i8, ptr %123, i64 %125
-  %127 = load i8, ptr %126, align 1, !noalias !11446, !noundef !4
-  switch i8 %127, label %139 [
-    i8 32, label %128
-    i8 10, label %128
-    i8 9, label %128
-    i8 13, label %128
-    i8 125, label %136
+  %116 = getelementptr inbounds i8, ptr %113, i64 %115
+  %117 = load i8, ptr %116, align 1, !noalias !11446, !noundef !4
+  switch i8 %117, label %129 [
+    i8 32, label %118
+    i8 10, label %118
+    i8 9, label %118
+    i8 13, label %118
+    i8 125, label %126
   ]
 
-128:                                              ; preds = %124, %124, %124, %124
-  %129 = add i64 %125, 1
-  store i64 %129, ptr %16, align 8, !alias.scope !11447, !noalias !11443
-  %exitcond.not.i25 = icmp eq i64 %129, %121
-  br i1 %exitcond.not.i25, label %.loopexit, label %124
+118:                                              ; preds = %114, %114, %114, %114
+  %119 = add i64 %115, 1
+  store i64 %119, ptr %16, align 8, !alias.scope !11447, !noalias !11443
+  %exitcond.not.i25 = icmp eq i64 %119, %111
+  br i1 %exitcond.not.i25, label %.loopexit, label %114
 
-130:                                              ; preds = %115
+120:                                              ; preds = %105
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.2030.0) ]
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.2030.0, ptr %131, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.2030.0, ptr %121, align 8
   br label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h81ad29af33d68470E.exit"
 
-"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h81ad29af33d68470E.exit": ; preds = %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %45, %30, %.loopexit, %139, %136, %112, %132, %.loopexit39, %130
-  %.sink = phi i8 [ 1, %30 ], [ 1, %.loopexit ], [ 1, %139 ], [ 0, %136 ], [ 1, %112 ], [ 1, %132 ], [ 1, %.loopexit39 ], [ 1, %130 ], [ 0, %47 ], [ 0, %48 ], [ 0, %49 ], [ 0, %50 ], [ 0, %51 ], [ 0, %52 ], [ 0, %53 ], [ 0, %54 ], [ 0, %55 ], [ 0, %56 ], [ 0, %57 ], [ 1, %45 ]
+"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h81ad29af33d68470E.exit": ; preds = %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %45, %30, %.loopexit, %129, %126, %102, %122, %.loopexit39, %120
+  %.sink = phi i8 [ 1, %30 ], [ 1, %.loopexit ], [ 1, %129 ], [ 0, %126 ], [ 1, %102 ], [ 1, %122 ], [ 1, %.loopexit39 ], [ 1, %120 ], [ 0, %47 ], [ 0, %48 ], [ 0, %49 ], [ 0, %50 ], [ 0, %51 ], [ 0, %52 ], [ 0, %53 ], [ 0, %54 ], [ 0, %55 ], [ 0, %56 ], [ 0, %57 ], [ 1, %45 ]
   store i8 %.sink, ptr %0, align 8
   ret void
 
-132:                                              ; preds = %119
+122:                                              ; preds = %109
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.2030.0) ]
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.2030.0, ptr %133, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.2030.0, ptr %123, align 8
   br label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h81ad29af33d68470E.exit"
 
-.loopexit:                                        ; preds = %128, %120
+.loopexit:                                        ; preds = %118, %110
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 3, ptr %13, align 8
-  %134 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h8054a24376d0e35dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
+  %124 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h8054a24376d0e35dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %134, ptr %135, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %124, ptr %125, align 8
   br label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h81ad29af33d68470E.exit"
 
-136:                                              ; preds = %124
-  %137 = add i64 %125, 1
-  store i64 %137, ptr %16, align 8, !alias.scope !11450
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.8.0, ptr %138, align 1
+126:                                              ; preds = %114
+  %127 = add i64 %115, 1
+  store i64 %127, ptr %16, align 8, !alias.scope !11450
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.8.0, ptr %128, align 1
   br label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h81ad29af33d68470E.exit"
 
-139:                                              ; preds = %124
+129:                                              ; preds = %114
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 10, ptr %14, align 8
-  %140 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h8054a24376d0e35dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14)
+  %130 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$5error17h8054a24376d0e35dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %140, ptr %141, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %130, ptr %131, align 8
   br label %"_ZN152_$LT$google_ai.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$google_ai..HarmCategory$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h81ad29af33d68470E.exit"
 }
 

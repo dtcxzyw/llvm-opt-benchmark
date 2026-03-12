@@ -4088,9 +4088,6 @@ _ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI
   store i64 %145, ptr %115, align 8
   br label %_ZNK20XHeapIteratorContext10is_drainedEv.exit.backedge
 
-_ZNK20XHeapIteratorContext10is_drainedEv.exit.backedge: ; preds = %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN13XHeapIterator13follow_objectILb1EEEvRK20XHeapIteratorContextP7oopDesc.exit.i, %165, %152
-  br label %_ZNK20XHeapIteratorContext10is_drainedEv.exit, !llvm.loop !29
-
 _ZN13XHeapIterator13follow_objectILb1EEEvRK20XHeapIteratorContextP7oopDesc.exit.i: ; preds = %_ZNK7oopDesc11is_objArrayEv.exit.thread.i, %_ZNK7oopDesc11is_objArrayEv.exit.i
   %146 = phi i32 [ %92, %_ZNK7oopDesc11is_objArrayEv.exit.i ], [ %96, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i ]
   %.0.i.i.i.i = phi ptr [ %90, %_ZNK7oopDesc11is_objArrayEv.exit.i ], [ %94, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i ]
@@ -4105,6 +4102,9 @@ _ZN13XHeapIterator13follow_objectILb1EEEvRK20XHeapIteratorContextP7oopDesc.exit.
   call void %149(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %.210, ptr noundef nonnull %.0.i.i.i.i) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK20XHeapIteratorContext10is_drainedEv.exit.backedge
+
+_ZNK20XHeapIteratorContext10is_drainedEv.exit.backedge: ; preds = %_ZN13XHeapIterator13follow_objectILb1EEEvRK20XHeapIteratorContextP7oopDesc.exit.i, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i, %165, %152
+  br label %_ZNK20XHeapIteratorContext10is_drainedEv.exit, !llvm.loop !29
 
 _ZNK20XHeapIteratorContext3popERP7oopDesc.exit.thread12: ; preds = %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i, %_ZNK20XHeapIteratorContext3popERP7oopDesc.exit
   %150 = call noundef zeroext i1 @_ZNK20XHeapIteratorContext9pop_arrayER12ObjArrayTask(ptr noundef nonnull align 8 dereferenceable(29) %1, ptr noundef nonnull align 8 dereferenceable(12) %6)
@@ -8921,9 +8921,6 @@ _ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI
   store i64 %145, ptr %115, align 8
   br label %_ZNK20XHeapIteratorContext10is_drainedEv.exit.backedge
 
-_ZNK20XHeapIteratorContext10is_drainedEv.exit.backedge: ; preds = %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN13XHeapIterator13follow_objectILb0EEEvRK20XHeapIteratorContextP7oopDesc.exit.i, %165, %152
-  br label %_ZNK20XHeapIteratorContext10is_drainedEv.exit, !llvm.loop !58
-
 _ZN13XHeapIterator13follow_objectILb0EEEvRK20XHeapIteratorContextP7oopDesc.exit.i: ; preds = %_ZNK7oopDesc11is_objArrayEv.exit.thread.i, %_ZNK7oopDesc11is_objArrayEv.exit.i
   %146 = phi i32 [ %92, %_ZNK7oopDesc11is_objArrayEv.exit.i ], [ %96, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i ]
   %.0.i.i.i.i = phi ptr [ %90, %_ZNK7oopDesc11is_objArrayEv.exit.i ], [ %94, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i ]
@@ -8938,6 +8935,9 @@ _ZN13XHeapIterator13follow_objectILb0EEEvRK20XHeapIteratorContextP7oopDesc.exit.
   call void %149(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %.210, ptr noundef nonnull %.0.i.i.i.i) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK20XHeapIteratorContext10is_drainedEv.exit.backedge
+
+_ZNK20XHeapIteratorContext10is_drainedEv.exit.backedge: ; preds = %_ZN13XHeapIterator13follow_objectILb0EEEvRK20XHeapIteratorContextP7oopDesc.exit.i, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i, %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i, %165, %152
+  br label %_ZNK20XHeapIteratorContext10is_drainedEv.exit, !llvm.loop !58
 
 _ZNK20XHeapIteratorContext3popERP7oopDesc.exit.thread12: ; preds = %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE12pop_overflowERS1_.exit.i, %_ZNK20XHeapIteratorContext3popERP7oopDesc.exit
   %150 = call noundef zeroext i1 @_ZNK20XHeapIteratorContext9pop_arrayER12ObjArrayTask(ptr noundef nonnull align 8 dereferenceable(29) %1, ptr noundef nonnull align 8 dereferenceable(12) %6)

@@ -642,11 +642,11 @@ define hidden i32 @mbedtls_pk_parse_key(ptr noundef %0, ptr noundef %1, i64 noun
 
 17:                                               ; preds = %13
   %18 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %11, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull %1, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %10) #9
-  switch i32 %18, label %36 [
+  switch i32 %18, label %35 [
     i32 0, label %19
     i32 -4992, label %.critedge
-    i32 -4864, label %35
-    i32 -4224, label %37
+    i32 -4864, label %49
+    i32 -4224, label %36
   ]
 
 19:                                               ; preds = %17
@@ -689,180 +689,177 @@ define hidden i32 @mbedtls_pk_parse_key(ptr noundef %0, ptr noundef %1, i64 noun
   br label %.critedge
 
 36:                                               ; preds = %17
-  br label %.critedge
-
-37:                                               ; preds = %17
   %.pr = load i8, ptr %15, align 1, !tbaa !23
   %.not112 = icmp eq i8 %.pr, 0
-  br i1 %.not112, label %38, label %.thread140
+  br i1 %.not112, label %37, label %.thread140
 
-38:                                               ; preds = %37
-  %39 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %11, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %1, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %10) #9
-  switch i32 %39, label %51 [
-    i32 0, label %40
+37:                                               ; preds = %36
+  %38 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %11, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %1, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %10) #9
+  switch i32 %38, label %50 [
+    i32 0, label %39
     i32 -4992, label %.critedge
-    i32 -4864, label %50
+    i32 -4864, label %49
     i32 -4224, label %.thread131
   ]
 
-40:                                               ; preds = %38
-  %41 = call ptr @mbedtls_pk_info_from_type(i32 noundef 2) #9
-  %42 = call i32 @mbedtls_pk_setup(ptr noundef %0, ptr noundef %41) #9
-  %.not122 = icmp eq i32 %42, 0
-  br i1 %.not122, label %43, label %48
+39:                                               ; preds = %37
+  %40 = call ptr @mbedtls_pk_info_from_type(i32 noundef 2) #9
+  %41 = call i32 @mbedtls_pk_setup(ptr noundef %0, ptr noundef %40) #9
+  %.not122 = icmp eq i32 %41, 0
+  br i1 %.not122, label %42, label %47
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr %11, align 8, !tbaa !27
-  %45 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !29
-  %47 = call fastcc i32 @pk_parse_key_sec1_der(ptr noundef %0, ptr noundef %44, i64 noundef %46, ptr noundef %5, ptr noundef %6)
-  %.not123 = icmp eq i32 %47, 0
-  br i1 %.not123, label %49, label %48
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %11, align 8, !tbaa !27
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %45 = load i64, ptr %44, align 8, !tbaa !29
+  %46 = call fastcc i32 @pk_parse_key_sec1_der(ptr noundef %0, ptr noundef %43, i64 noundef %45, ptr noundef %5, ptr noundef %6)
+  %.not123 = icmp eq i32 %46, 0
+  br i1 %.not123, label %48, label %47
 
-48:                                               ; preds = %43, %40
-  %.4 = phi i32 [ %42, %40 ], [ %47, %43 ]
+47:                                               ; preds = %42, %39
+  %.4 = phi i32 [ %41, %39 ], [ %46, %42 ]
   call void @mbedtls_pk_free(ptr noundef %0) #9
-  br label %49
+  br label %48
 
-49:                                               ; preds = %48, %43
-  %.5 = phi i32 [ %.4, %48 ], [ 0, %43 ]
+48:                                               ; preds = %47, %42
+  %.5 = phi i32 [ %.4, %47 ], [ 0, %42 ]
   call void @mbedtls_pem_free(ptr noundef nonnull %11) #9
   br label %.critedge
 
-50:                                               ; preds = %38
+49:                                               ; preds = %17, %37
   br label %.critedge
 
-51:                                               ; preds = %38
+50:                                               ; preds = %37
   br label %.critedge
 
-.thread131:                                       ; preds = %38
+.thread131:                                       ; preds = %37
   %.pr145 = load i8, ptr %15, align 1, !tbaa !23
   %.not114 = icmp eq i8 %.pr145, 0
-  br i1 %.not114, label %52, label %.thread140
+  br i1 %.not114, label %51, label %.thread140
 
-52:                                               ; preds = %.thread131
-  %53 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %11, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef nonnull %10) #9
-  switch i32 %53, label %.critedge [
-    i32 0, label %54
-    i32 -4224, label %61
+51:                                               ; preds = %.thread131
+  %52 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %11, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef nonnull %10) #9
+  switch i32 %52, label %.critedge [
+    i32 0, label %53
+    i32 -4224, label %60
   ]
 
-54:                                               ; preds = %52
-  %55 = load ptr, ptr %11, align 8, !tbaa !27
-  %56 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %57 = load i64, ptr %56, align 8, !tbaa !29
-  %58 = call fastcc i32 @pk_parse_key_pkcs8_unencrypted_der(ptr noundef %0, ptr noundef %55, i64 noundef %57, ptr noundef %5, ptr noundef %6)
-  %.not121 = icmp eq i32 %58, 0
-  br i1 %.not121, label %60, label %59
+53:                                               ; preds = %51
+  %54 = load ptr, ptr %11, align 8, !tbaa !27
+  %55 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %56 = load i64, ptr %55, align 8, !tbaa !29
+  %57 = call fastcc i32 @pk_parse_key_pkcs8_unencrypted_der(ptr noundef %0, ptr noundef %54, i64 noundef %56, ptr noundef %5, ptr noundef %6)
+  %.not121 = icmp eq i32 %57, 0
+  br i1 %.not121, label %59, label %58
 
-59:                                               ; preds = %54
+58:                                               ; preds = %53
   call void @mbedtls_pk_free(ptr noundef %0) #9
-  br label %60
+  br label %59
 
-60:                                               ; preds = %59, %54
+59:                                               ; preds = %58, %53
   call void @mbedtls_pem_free(ptr noundef nonnull %11) #9
   br label %.critedge
 
-61:                                               ; preds = %52
+60:                                               ; preds = %51
   %.pr136 = load i8, ptr %15, align 1, !tbaa !23
   %.not116 = icmp eq i8 %.pr136, 0
-  br i1 %.not116, label %62, label %.thread140
+  br i1 %.not116, label %61, label %.thread140
 
-62:                                               ; preds = %61
-  %63 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %11, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef nonnull %10) #9
-  switch i32 %63, label %.critedge [
-    i32 0, label %64
+61:                                               ; preds = %60
+  %62 = call i32 @mbedtls_pem_read_buffer(ptr noundef nonnull %11, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull %1, ptr noundef null, i64 noundef 0, ptr noundef nonnull %10) #9
+  switch i32 %62, label %.critedge [
+    i32 0, label %63
     i32 -4224, label %.thread140
   ]
 
-64:                                               ; preds = %62
-  %65 = load ptr, ptr %11, align 8, !tbaa !27
-  %66 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %67 = load i64, ptr %66, align 8, !tbaa !29
-  %68 = call fastcc i32 @mbedtls_pk_parse_key_pkcs8_encrypted_der(ptr noundef %0, ptr noundef %65, i64 noundef %67, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6)
-  %.not120 = icmp eq i32 %68, 0
-  br i1 %.not120, label %70, label %69
+63:                                               ; preds = %61
+  %64 = load ptr, ptr %11, align 8, !tbaa !27
+  %65 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %66 = load i64, ptr %65, align 8, !tbaa !29
+  %67 = call fastcc i32 @mbedtls_pk_parse_key_pkcs8_encrypted_der(ptr noundef %0, ptr noundef %64, i64 noundef %66, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6)
+  %.not120 = icmp eq i32 %67, 0
+  br i1 %.not120, label %69, label %68
 
-69:                                               ; preds = %64
+68:                                               ; preds = %63
   call void @mbedtls_pk_free(ptr noundef %0) #9
-  br label %70
+  br label %69
 
-70:                                               ; preds = %69, %64
+69:                                               ; preds = %68, %63
   call void @mbedtls_pem_free(ptr noundef nonnull %11) #9
   br label %.critedge
 
-.thread140:                                       ; preds = %37, %13, %.thread131, %61, %62
+.thread140:                                       ; preds = %36, %13, %.thread131, %60, %61
   %.not118 = icmp eq i64 %4, 0
-  br i1 %.not118, label %.thread142, label %71
+  br i1 %.not118, label %.thread142, label %70
 
-71:                                               ; preds = %.thread140
-  %72 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %2) #10
-  %.not119 = icmp eq ptr %72, null
-  br i1 %.not119, label %.critedge, label %73
+70:                                               ; preds = %.thread140
+  %71 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %2) #10
+  %.not119 = icmp eq ptr %71, null
+  br i1 %.not119, label %.critedge, label %72
 
-73:                                               ; preds = %71
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %72, ptr nonnull align 1 %1, i64 %2, i1 false)
-  %74 = call fastcc i32 @mbedtls_pk_parse_key_pkcs8_encrypted_der(ptr noundef %0, ptr noundef nonnull %72, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6)
-  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %72, i64 noundef %2) #9
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %.critedge, label %.thread142
+72:                                               ; preds = %70
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull align 1 %1, i64 %2, i1 false)
+  %73 = call fastcc i32 @mbedtls_pk_parse_key_pkcs8_encrypted_der(ptr noundef %0, ptr noundef nonnull %71, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6)
+  call void @mbedtls_zeroize_and_free(ptr noundef nonnull %71, i64 noundef %2) #9
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %.critedge, label %.thread142
 
-.thread142:                                       ; preds = %.thread140, %73
-  %.8144 = phi i32 [ %74, %73 ], [ -4224, %.thread140 ]
+.thread142:                                       ; preds = %.thread140, %72
+  %.8144 = phi i32 [ %73, %72 ], [ -4224, %.thread140 ]
   call void @mbedtls_pk_free(ptr noundef %0) #9
   call void @mbedtls_pk_init(ptr noundef %0) #9
-  %76 = icmp eq i32 %.8144, -15232
-  br i1 %76, label %.critedge, label %77
+  %75 = icmp eq i32 %.8144, -15232
+  br i1 %75, label %.critedge, label %76
 
-77:                                               ; preds = %.thread142
-  %78 = call fastcc i32 @pk_parse_key_pkcs8_unencrypted_der(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %5, ptr noundef %6)
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %.critedge, label %80
+76:                                               ; preds = %.thread142
+  %77 = call fastcc i32 @pk_parse_key_pkcs8_unencrypted_der(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %5, ptr noundef %6)
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %.critedge, label %79
 
-80:                                               ; preds = %77
+79:                                               ; preds = %76
   call void @mbedtls_pk_free(ptr noundef %0) #9
   call void @mbedtls_pk_init(ptr noundef %0) #9
-  %81 = call ptr @mbedtls_pk_info_from_type(i32 noundef 1) #9
-  %82 = call i32 @mbedtls_pk_setup(ptr noundef %0, ptr noundef %81) #9
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %84, label %93
+  %80 = call ptr @mbedtls_pk_info_from_type(i32 noundef 1) #9
+  %81 = call i32 @mbedtls_pk_setup(ptr noundef %0, ptr noundef %80) #9
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %92
 
-84:                                               ; preds = %80
-  %85 = load ptr, ptr %0, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %87 = load ptr, ptr %86, align 8
+83:                                               ; preds = %79
+  %84 = load ptr, ptr %0, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %86 = load ptr, ptr %85, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store ptr %85, ptr %8, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %87, ptr %88, align 8
-  %89 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %8) #9
-  %cond.i126 = icmp eq i32 %89, 1
-  %90 = load ptr, ptr %88, align 8
-  %.0.i127 = select i1 %cond.i126, ptr %90, ptr null
+  store ptr %84, ptr %8, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %86, ptr %87, align 8
+  %88 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %8) #9
+  %cond.i126 = icmp eq i32 %88, 1
+  %89 = load ptr, ptr %87, align 8
+  %.0.i127 = select i1 %cond.i126, ptr %89, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %91 = call i32 @mbedtls_rsa_parse_key(ptr noundef %.0.i127, ptr noundef nonnull %1, i64 noundef %2) #9
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %.critedge, label %93
+  %90 = call i32 @mbedtls_rsa_parse_key(ptr noundef %.0.i127, ptr noundef nonnull %1, i64 noundef %2) #9
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %.critedge, label %92
 
-93:                                               ; preds = %84, %80
+92:                                               ; preds = %83, %79
   call void @mbedtls_pk_free(ptr noundef %0) #9
   call void @mbedtls_pk_init(ptr noundef %0) #9
-  %94 = call ptr @mbedtls_pk_info_from_type(i32 noundef 2) #9
-  %95 = call i32 @mbedtls_pk_setup(ptr noundef %0, ptr noundef %94) #9
-  %96 = icmp eq i32 %95, 0
-  br i1 %96, label %97, label %100
+  %93 = call ptr @mbedtls_pk_info_from_type(i32 noundef 2) #9
+  %94 = call i32 @mbedtls_pk_setup(ptr noundef %0, ptr noundef %93) #9
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %96, label %99
 
-97:                                               ; preds = %93
-  %98 = call fastcc i32 @pk_parse_key_sec1_der(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %5, ptr noundef %6)
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %.critedge, label %100
+96:                                               ; preds = %92
+  %97 = call fastcc i32 @pk_parse_key_sec1_der(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %5, ptr noundef %6)
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %.critedge, label %99
 
-100:                                              ; preds = %97, %93
+99:                                               ; preds = %96, %92
   call void @mbedtls_pk_free(ptr noundef %0) #9
   br label %.critedge
 
-.critedge:                                        ; preds = %71, %97, %84, %77, %.thread142, %73, %62, %52, %38, %17, %7, %100, %70, %60, %51, %50, %49, %36, %35, %34
-  %.0 = phi i32 [ -16256, %71 ], [ %.2, %34 ], [ -15616, %7 ], [ -15360, %35 ], [ %18, %36 ], [ %.5, %49 ], [ -15232, %17 ], [ -15360, %50 ], [ %39, %51 ], [ %58, %60 ], [ -15232, %38 ], [ %68, %70 ], [ %53, %52 ], [ 0, %97 ], [ 0, %73 ], [ -15232, %.thread142 ], [ 0, %77 ], [ 0, %84 ], [ -15616, %100 ], [ %63, %62 ]
+.critedge:                                        ; preds = %70, %96, %83, %76, %.thread142, %72, %61, %51, %37, %17, %7, %99, %69, %59, %50, %49, %48, %35, %34
+  %.0 = phi i32 [ -16256, %70 ], [ %.2, %34 ], [ -15616, %7 ], [ %62, %61 ], [ %18, %35 ], [ %.5, %48 ], [ -15232, %17 ], [ -15360, %49 ], [ %38, %50 ], [ %57, %59 ], [ -15232, %37 ], [ %67, %69 ], [ %52, %51 ], [ 0, %96 ], [ 0, %72 ], [ -15232, %.thread142 ], [ 0, %76 ], [ 0, %83 ], [ -15616, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0

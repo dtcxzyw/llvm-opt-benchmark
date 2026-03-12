@@ -2499,7 +2499,7 @@ define internal void @tele_param_msg_status(ptr noundef %0, ptr noundef %1, ptr 
 
 7:                                                ; preds = %6
   %8 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_637_unexpected_length, ptr noundef %0, i32 noundef %4, i32 noundef %3)
-  br label %39
+  br label %36
 
 9:                                                ; preds = %6
   %10 = load i32, ptr @hf_ansi_637_tele_msg_status, align 4
@@ -2513,87 +2513,78 @@ define internal void @tele_param_msg_status(ptr noundef %0, ptr noundef %1, ptr 
   switch i32 %17, label %default.unreachable26 [
     i32 0, label %18
     i32 2, label %20
-    i32 3, label %24
-    i32 1, label %35
+    i32 3, label %21
+    i32 1, label %32
   ]
 
 18:                                               ; preds = %9
   %19 = icmp samesign ult i8 %16, 4
-  br i1 %19, label %switch.lookup, label %35
+  br i1 %19, label %switch.lookup, label %30
 
 20:                                               ; preds = %9
-  switch i8 %16, label %23 [
-    i8 4, label %35
-    i8 5, label %21
-    i8 31, label %22
+  switch i8 %16, label %30 [
+    i8 4, label %32
+    i8 5, label %22
+    i8 31, label %29
   ]
 
-21:                                               ; preds = %20
-  br label %35
-
-22:                                               ; preds = %20
-  br label %35
-
-23:                                               ; preds = %20
-  br label %35
-
-24:                                               ; preds = %9
-  switch i8 %16, label %33 [
-    i8 4, label %35
-    i8 5, label %25
-    i8 6, label %26
-    i8 7, label %27
-    i8 8, label %28
-    i8 9, label %29
-    i8 10, label %30
-    i8 13, label %31
-    i8 31, label %32
+21:                                               ; preds = %9
+  switch i8 %16, label %30 [
+    i8 4, label %32
+    i8 5, label %22
+    i8 6, label %23
+    i8 7, label %24
+    i8 8, label %25
+    i8 9, label %26
+    i8 10, label %27
+    i8 13, label %28
+    i8 31, label %29
   ]
 
-25:                                               ; preds = %24
-  br label %35
+22:                                               ; preds = %20, %21
+  br label %32
 
-26:                                               ; preds = %24
-  br label %35
+23:                                               ; preds = %21
+  br label %32
 
-27:                                               ; preds = %24
-  br label %35
+24:                                               ; preds = %21
+  br label %32
 
-28:                                               ; preds = %24
-  br label %35
+25:                                               ; preds = %21
+  br label %32
 
-29:                                               ; preds = %24
-  br label %35
+26:                                               ; preds = %21
+  br label %32
 
-30:                                               ; preds = %24
-  br label %35
+27:                                               ; preds = %21
+  br label %32
 
-31:                                               ; preds = %24
-  br label %35
+28:                                               ; preds = %21
+  br label %32
 
-32:                                               ; preds = %24
-  br label %35
+29:                                               ; preds = %20, %21
+  br label %32
 
-33:                                               ; preds = %24
-  br label %35
+30:                                               ; preds = %18, %20, %21
+  br label %32
 
 default.unreachable26:                            ; preds = %9
   unreachable
 
 switch.lookup:                                    ; preds = %18
-  %34 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.tele_param_msg_status, i64 %34
+  %31 = zext nneg i8 %16 to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.tele_param_msg_status, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %35
+  br label %32
 
-35:                                               ; preds = %18, %switch.lookup, %9, %24, %20, %25, %26, %27, %28, %29, %30, %31, %32, %33, %21, %22, %23
-  %.0 = phi ptr [ @.str.248, %30 ], [ @.str.241, %24 ], [ @.str.43, %9 ], [ @.str.243, %32 ], [ @.str.249, %31 ], [ @.str.43, %23 ], [ %switch.load, %switch.lookup ], [ @.str.242, %21 ], [ @.str.243, %22 ], [ @.str.43, %33 ], [ @.str.241, %20 ], [ @.str.242, %25 ], [ @.str.244, %26 ], [ @.str.245, %27 ], [ @.str.246, %28 ], [ @.str.247, %29 ], [ @.str.43, %18 ]
-  %36 = load i32, ptr @hf_ansi_637_tele_msg_status_code, align 4
-  %37 = zext nneg i8 %16 to i32
-  %38 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef %15, ptr noundef nonnull @.str.342, ptr noundef nonnull %.0, i32 noundef %37)
-  br label %39
+32:                                               ; preds = %switch.lookup, %9, %21, %20, %22, %23, %24, %25, %26, %27, %28, %29, %30
+  %.0 = phi ptr [ @.str.43, %9 ], [ @.str.241, %21 ], [ @.str.247, %26 ], [ @.str.246, %25 ], [ @.str.245, %24 ], [ @.str.248, %27 ], [ %switch.load, %switch.lookup ], [ @.str.243, %29 ], [ @.str.249, %28 ], [ @.str.43, %30 ], [ @.str.241, %20 ], [ @.str.242, %22 ], [ @.str.244, %23 ]
+  %33 = load i32, ptr @hf_ansi_637_tele_msg_status_code, align 4
+  %34 = zext nneg i8 %16 to i32
+  %35 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef %15, ptr noundef nonnull @.str.342, ptr noundef nonnull %.0, i32 noundef %34)
+  br label %36
 
-39:                                               ; preds = %35, %7
+36:                                               ; preds = %32, %7
   ret void
 }
 

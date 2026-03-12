@@ -52,45 +52,45 @@ define hidden double @SDL_uclibc_atan2(double noundef %0, double noundef %1) loc
   %28 = or disjoint i32 %27, %25
   %29 = or i32 %6, %.sroa.03.0.extract.trunc
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %34
+  br i1 %30, label %31, label %32
 
 31:                                               ; preds = %24
   switch i32 %28, label %default.unreachable55 [
     i32 0, label %67
     i32 1, label %67
-    i32 2, label %32
-    i32 3, label %33
+    i32 2, label %42
+    i32 3, label %43
   ]
-
-32:                                               ; preds = %31
-  br label %67
-
-33:                                               ; preds = %31
-  br label %67
 
 default.unreachable55:                            ; preds = %58, %31
   unreachable
 
-34:                                               ; preds = %24
-  %35 = or i32 %4, %.sroa.04.0.extract.trunc
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %39
+32:                                               ; preds = %24
+  %33 = or i32 %4, %.sroa.04.0.extract.trunc
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %37
 
-37:                                               ; preds = %34
-  %38 = tail call double @llvm.copysign.f64(double 0x3FF921FB54442D18, double %0)
+35:                                               ; preds = %32
+  %36 = tail call double @llvm.copysign.f64(double 0x3FF921FB54442D18, double %0)
   br label %67
 
-39:                                               ; preds = %34
-  %40 = icmp eq i32 %4, 2146435072
-  %41 = icmp eq i32 %6, 2146435072
-  br i1 %40, label %42, label %44
+37:                                               ; preds = %32
+  %38 = icmp eq i32 %4, 2146435072
+  %39 = icmp eq i32 %6, 2146435072
+  br i1 %38, label %40, label %44
 
-42:                                               ; preds = %39
-  %43 = zext nneg i32 %28 to i64
-  br i1 %41, label %switch.lookup, label %switch.lookup56
+40:                                               ; preds = %37
+  %41 = zext nneg i32 %28 to i64
+  br i1 %39, label %switch.lookup, label %switch.lookup56
 
-44:                                               ; preds = %39
-  br i1 %41, label %45, label %47
+42:                                               ; preds = %31
+  br label %67
+
+43:                                               ; preds = %31
+  br label %67
+
+44:                                               ; preds = %37
+  br i1 %39, label %45, label %47
 
 45:                                               ; preds = %44
   %46 = tail call double @llvm.copysign.f64(double 0x3FF921FB54442D18, double %0)
@@ -137,18 +137,18 @@ default.unreachable55:                            ; preds = %58, %31
   %66 = fadd double %65, 0xC00921FB54442D18
   br label %67
 
-switch.lookup:                                    ; preds = %42
-  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDL_uclibc_atan2, i64 %43
+switch.lookup:                                    ; preds = %40
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDL_uclibc_atan2, i64 %41
   %switch.load = load double, ptr %switch.gep, align 8
   br label %67
 
-switch.lookup56:                                  ; preds = %42
-  %switch.gep57 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDL_uclibc_atan2.1, i64 %43
+switch.lookup56:                                  ; preds = %40
+  %switch.gep57 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDL_uclibc_atan2.1, i64 %41
   %switch.load58 = load double, ptr %switch.gep57, align 8
   br label %67
 
-67:                                               ; preds = %switch.lookup56, %switch.lookup, %58, %31, %31, %64, %61, %59, %45, %37, %33, %32, %22, %16
-  %.0 = phi double [ %17, %16 ], [ %23, %22 ], [ %38, %37 ], [ %46, %45 ], [ %66, %64 ], [ %switch.load58, %switch.lookup56 ], [ %60, %59 ], [ %63, %61 ], [ %0, %31 ], [ %.049, %58 ], [ %0, %31 ], [ 0x400921FB54442D18, %32 ], [ %switch.load, %switch.lookup ], [ 0xC00921FB54442D18, %33 ]
+67:                                               ; preds = %switch.lookup56, %switch.lookup, %58, %31, %31, %64, %61, %59, %45, %43, %42, %35, %22, %16
+  %.0 = phi double [ %17, %16 ], [ %23, %22 ], [ %36, %35 ], [ %46, %45 ], [ %66, %64 ], [ %switch.load58, %switch.lookup56 ], [ %60, %59 ], [ %63, %61 ], [ %0, %31 ], [ %.049, %58 ], [ %0, %31 ], [ 0xC00921FB54442D18, %43 ], [ %switch.load, %switch.lookup ], [ 0x400921FB54442D18, %42 ]
   ret double %.0
 }
 

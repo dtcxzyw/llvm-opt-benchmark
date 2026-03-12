@@ -20087,14 +20087,14 @@ define internal fastcc i32 @tt_sbit_decoder_load_bitmap(ptr noundef %0, i32 noun
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %97, label %13
+  br i1 %.not, label %96, label %13
 
 13:                                               ; preds = %8
   %14 = add i64 %3, %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i64, ptr %15, align 8, !tbaa !438
   %17 = icmp ugt i64 %14, %16
-  br i1 %17, label %97, label %18
+  br i1 %17, label %96, label %18
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -20102,12 +20102,12 @@ define internal fastcc i32 @tt_sbit_decoder_load_bitmap(ptr noundef %0, i32 noun
   %21 = add i64 %20, %2
   %22 = tail call i32 @FT_Stream_Seek(ptr noundef %12, i64 noundef %21) #28
   %.not54 = icmp eq i32 %22, 0
-  br i1 %.not54, label %23, label %97
+  br i1 %.not54, label %23, label %96
 
 23:                                               ; preds = %18
   %24 = call i32 @FT_Stream_ExtractFrame(ptr noundef %12, i64 noundef %3, ptr noundef nonnull %10) #28
   %.not55 = icmp eq i32 %24, 0
-  br i1 %.not55, label %25, label %97
+  br i1 %.not55, label %25, label %96
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr %10, align 8, !tbaa !198
@@ -20123,8 +20123,8 @@ define internal fastcc i32 @tt_sbit_decoder_load_bitmap(ptr noundef %0, i32 noun
     i16 7, label %tt_sbit_decoder_load_metrics.exit
     i16 9, label %tt_sbit_decoder_load_metrics.exit
     i16 18, label %tt_sbit_decoder_load_metrics.exit
-    i16 5, label %80
-    i16 19, label %87
+    i16 5, label %79
+    i16 19, label %86
   ]
 
 28:                                               ; preds = %25, %25, %25, %25
@@ -20176,15 +20176,15 @@ tt_sbit_decoder_load_metrics.exit:                ; preds = %25, %25, %25, %25
 
 tt_sbit_decoder_load_metrics.exit.thread:         ; preds = %30, %tt_sbit_decoder_load_metrics.exit
   switch i16 %trunc, label %tt_sbit_decoder_load_metrics.exit.thread63 [
-    i16 1, label %88
-    i16 6, label %88
+    i16 1, label %87
+    i16 6, label %87
     i16 2, label %57
     i16 7, label %57
-    i16 5, label %80
-    i16 8, label %81
-    i16 9, label %86
-    i16 17, label %87
-    i16 18, label %87
+    i16 5, label %79
+    i16 8, label %80
+    i16 9, label %85
+    i16 17, label %86
+    i16 18, label %86
   ]
 
 57:                                               ; preds = %tt_sbit_decoder_load_metrics.exit.thread, %tt_sbit_decoder_load_metrics.exit.thread
@@ -20211,57 +20211,54 @@ tt_sbit_decoder_load_metrics.exit.thread:         ; preds = %30, %tt_sbit_decode
   %76 = sub i64 %74, %75
   %77 = trunc i64 %76 to i32
   %78 = icmp eq i32 %70, %77
-  br i1 %78, label %88, label %79
+  br i1 %78, label %87, label %79
 
-79:                                               ; preds = %72, %57
-  br label %88
+79:                                               ; preds = %tt_sbit_decoder_load_metrics.exit.thread, %25, %72, %57
+  br label %87
 
-80:                                               ; preds = %25, %tt_sbit_decoder_load_metrics.exit.thread
-  br label %88
+80:                                               ; preds = %tt_sbit_decoder_load_metrics.exit.thread
+  %81 = load ptr, ptr %9, align 8, !tbaa !198
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1
+  %83 = icmp ugt ptr %82, %27
+  br i1 %83, label %tt_sbit_decoder_load_metrics.exit.thread63, label %84
 
-81:                                               ; preds = %tt_sbit_decoder_load_metrics.exit.thread
-  %82 = load ptr, ptr %9, align 8, !tbaa !198
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 1
-  %84 = icmp ugt ptr %83, %27
-  br i1 %84, label %tt_sbit_decoder_load_metrics.exit.thread63, label %85
+84:                                               ; preds = %80
+  store ptr %82, ptr %9, align 8, !tbaa !198
+  br label %85
 
-85:                                               ; preds = %81
-  store ptr %83, ptr %9, align 8, !tbaa !198
-  br label %86
+85:                                               ; preds = %84, %tt_sbit_decoder_load_metrics.exit.thread
+  br label %87
 
-86:                                               ; preds = %85, %tt_sbit_decoder_load_metrics.exit.thread
-  br label %88
+86:                                               ; preds = %25, %tt_sbit_decoder_load_metrics.exit.thread, %tt_sbit_decoder_load_metrics.exit.thread
+  br label %87
 
-87:                                               ; preds = %25, %tt_sbit_decoder_load_metrics.exit.thread, %tt_sbit_decoder_load_metrics.exit.thread
-  br label %88
+87:                                               ; preds = %79, %72, %tt_sbit_decoder_load_metrics.exit.thread, %tt_sbit_decoder_load_metrics.exit.thread, %86, %85
+  %.045 = phi ptr [ @tt_sbit_decoder_load_png, %86 ], [ @tt_sbit_decoder_load_byte_aligned, %tt_sbit_decoder_load_metrics.exit.thread ], [ @tt_sbit_decoder_load_byte_aligned, %72 ], [ @tt_sbit_decoder_load_compound, %85 ], [ @tt_sbit_decoder_load_byte_aligned, %tt_sbit_decoder_load_metrics.exit.thread ], [ @tt_sbit_decoder_load_bit_aligned, %79 ]
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  %89 = load i8, ptr %88, align 1, !tbaa !436
+  %.not58 = icmp eq i8 %89, 0
+  br i1 %.not58, label %90, label %92
 
-88:                                               ; preds = %79, %72, %tt_sbit_decoder_load_metrics.exit.thread, %tt_sbit_decoder_load_metrics.exit.thread, %87, %86, %80
-  %.045 = phi ptr [ @tt_sbit_decoder_load_png, %87 ], [ @tt_sbit_decoder_load_byte_aligned, %tt_sbit_decoder_load_metrics.exit.thread ], [ @tt_sbit_decoder_load_bit_aligned, %80 ], [ @tt_sbit_decoder_load_compound, %86 ], [ @tt_sbit_decoder_load_byte_aligned, %tt_sbit_decoder_load_metrics.exit.thread ], [ @tt_sbit_decoder_load_bit_aligned, %79 ], [ @tt_sbit_decoder_load_byte_aligned, %72 ]
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %90 = load i8, ptr %89, align 1, !tbaa !436
-  %.not58 = icmp eq i8 %90, 0
-  br i1 %.not58, label %91, label %93
+90:                                               ; preds = %87
+  %91 = call fastcc i32 @tt_sbit_decoder_alloc_bitmap(ptr noundef nonnull %0, i8 noundef zeroext %7)
+  %.not59 = icmp eq i32 %91, 0
+  br i1 %.not59, label %92, label %tt_sbit_decoder_load_metrics.exit.thread63
 
-91:                                               ; preds = %88
-  %92 = call fastcc i32 @tt_sbit_decoder_alloc_bitmap(ptr noundef nonnull %0, i8 noundef zeroext %7)
-  %.not59 = icmp eq i32 %92, 0
-  br i1 %.not59, label %93, label %tt_sbit_decoder_load_metrics.exit.thread63
-
-93:                                               ; preds = %91, %88
+92:                                               ; preds = %90, %87
   %.not60 = icmp eq i8 %7, 0
-  br i1 %.not60, label %94, label %tt_sbit_decoder_load_metrics.exit.thread63
+  br i1 %.not60, label %93, label %tt_sbit_decoder_load_metrics.exit.thread63
 
-94:                                               ; preds = %93
-  %95 = load ptr, ptr %9, align 8, !tbaa !198
-  %96 = call i32 %.045(ptr noundef nonnull %0, ptr noundef %95, ptr noundef nonnull %27, i32 noundef %4, i32 noundef %5, i32 noundef %6) #28, !callees !699
+93:                                               ; preds = %92
+  %94 = load ptr, ptr %9, align 8, !tbaa !198
+  %95 = call i32 %.045(ptr noundef nonnull %0, ptr noundef %94, ptr noundef nonnull %27, i32 noundef %4, i32 noundef %5, i32 noundef %6) #28, !callees !699
   br label %tt_sbit_decoder_load_metrics.exit.thread63
 
-tt_sbit_decoder_load_metrics.exit.thread63:       ; preds = %25, %28, %94, %81, %tt_sbit_decoder_load_metrics.exit.thread, %91, %93, %tt_sbit_decoder_load_metrics.exit
-  %.2 = phi i32 [ %56, %tt_sbit_decoder_load_metrics.exit ], [ 0, %81 ], [ %92, %91 ], [ %96, %94 ], [ 8, %tt_sbit_decoder_load_metrics.exit.thread ], [ 0, %93 ], [ 6, %28 ], [ 8, %25 ]
+tt_sbit_decoder_load_metrics.exit.thread63:       ; preds = %25, %28, %93, %80, %tt_sbit_decoder_load_metrics.exit.thread, %90, %92, %tt_sbit_decoder_load_metrics.exit
+  %.2 = phi i32 [ %56, %tt_sbit_decoder_load_metrics.exit ], [ 0, %80 ], [ %91, %90 ], [ %95, %93 ], [ 8, %tt_sbit_decoder_load_metrics.exit.thread ], [ 0, %92 ], [ 6, %28 ], [ 8, %25 ]
   call void @FT_Stream_ReleaseFrame(ptr noundef %12, ptr noundef nonnull %10) #28
-  br label %97
+  br label %96
 
-97:                                               ; preds = %tt_sbit_decoder_load_metrics.exit.thread63, %23, %18, %13, %8
+96:                                               ; preds = %tt_sbit_decoder_load_metrics.exit.thread63, %23, %18, %13, %8
   %.044 = phi i32 [ %.2, %tt_sbit_decoder_load_metrics.exit.thread63 ], [ %22, %18 ], [ %24, %23 ], [ 6, %13 ], [ 6, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

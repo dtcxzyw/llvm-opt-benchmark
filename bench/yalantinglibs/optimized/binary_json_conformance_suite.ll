@@ -23378,8 +23378,8 @@ for.body17:                                       ; preds = %for.body, %for.inc
   %cmp.i.i.i32 = icmp ult i64 %sub3.i.i.i, %12
   br i1 %cmp.i.i.i32, label %if.then.i.i.i.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
 
-if.then.i.i.i.invoke:                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i97, %invoke.cont19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, %for.body17
-  %14 = phi ptr [ @.str.90, %invoke.cont19 ], [ @.str.88, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i ], [ @.str.90, %for.body17 ], [ @.str.88, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i97 ]
+if.then.i.i.i.invoke:                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i97, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, %invoke.cont19, %for.body17
+  %14 = phi ptr [ @.str.90, %invoke.cont19 ], [ @.str.90, %for.body17 ], [ @.str.88, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i ], [ @.str.88, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i97 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %14) #26
           to label %if.then.i.i.i.cont unwind label %lpad18.loopexit.split-lp
 

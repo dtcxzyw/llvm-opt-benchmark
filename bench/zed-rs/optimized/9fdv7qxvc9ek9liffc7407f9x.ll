@@ -85115,7 +85115,7 @@ define hidden { i1, i8 } @_ZN7postage6stream5merge4poll17h34f4a472b14f5df9E.llvm
   switch i8 %switch.idx.cast.i, label %default.unreachable [
     i8 0, label %"_ZN100_$LT$postage..stream..map..MapStream$LT$From$C$Map$C$Into$GT$$u20$as$u20$postage..stream..Stream$GT$9poll_recv17h900d857481fce0d8E.exit"
     i8 1, label %12
-    i8 2, label %24
+    i8 2, label %23
   ]
 
 default.unreachable:                              ; preds = %3
@@ -85127,7 +85127,7 @@ default.unreachable:                              ; preds = %3
   switch i64 %14, label %15 [
     i64 0, label %16
     i64 1, label %"_ZN100_$LT$postage..stream..map..MapStream$LT$From$C$Map$C$Into$GT$$u20$as$u20$postage..stream..Stream$GT$9poll_recv17h900d857481fce0d8E.exit"
-    i64 2, label %23
+    i64 2, label %34
   ]
 
 15:                                               ; preds = %12
@@ -85154,51 +85154,48 @@ _ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !16894
   br label %"_ZN100_$LT$postage..stream..map..MapStream$LT$From$C$Map$C$Into$GT$$u20$as$u20$postage..stream..Stream$GT$9poll_recv17h900d857481fce0d8E.exit"
 
-23:                                               ; preds = %12
-  br label %"_ZN100_$LT$postage..stream..map..MapStream$LT$From$C$Map$C$Into$GT$$u20$as$u20$postage..stream..Stream$GT$9poll_recv17h900d857481fce0d8E.exit"
-
-24:                                               ; preds = %3
-  %25 = tail call { i64, ptr } @"_ZN87_$LT$postage..channels..watch..Receiver$LT$T$GT$$u20$as$u20$postage..stream..Stream$GT$9poll_recv17h0aa8e4c84f71f94dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-  %26 = extractvalue { i64, ptr } %25, 0
-  switch i64 %26, label %27 [
-    i64 0, label %28
+23:                                               ; preds = %3
+  %24 = tail call { i64, ptr } @"_ZN87_$LT$postage..channels..watch..Receiver$LT$T$GT$$u20$as$u20$postage..stream..Stream$GT$9poll_recv17h0aa8e4c84f71f94dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  %25 = extractvalue { i64, ptr } %24, 0
+  switch i64 %25, label %26 [
+    i64 0, label %27
     i64 1, label %"_ZN100_$LT$postage..stream..map..MapStream$LT$From$C$Map$C$Into$GT$$u20$as$u20$postage..stream..Stream$GT$9poll_recv17h900d857481fce0d8E.exit"
-    i64 2, label %35
+    i64 2, label %34
   ]
 
-27:                                               ; preds = %24
+26:                                               ; preds = %23
   unreachable
 
-28:                                               ; preds = %24
-  %29 = extractvalue { i64, ptr } %25, 1
+27:                                               ; preds = %23
+  %28 = extractvalue { i64, ptr } %24, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !16905
-  store ptr %29, ptr %4, align 8, !noalias !16905
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %_ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit.i4, label %31
+  store ptr %28, ptr %4, align 8, !noalias !16905
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %_ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit.i4, label %30
 
-31:                                               ; preds = %28
-  %32 = atomicrmw sub ptr %29, i64 1 release, align 8, !noalias !16909
-  %33 = icmp eq i64 %32, 1
-  br i1 %33, label %34, label %_ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit.i4
+30:                                               ; preds = %27
+  %31 = atomicrmw sub ptr %28, i64 1 release, align 8, !noalias !16909
+  %32 = icmp eq i64 %31, 1
+  br i1 %32, label %33, label %_ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit.i4
 
-34:                                               ; preds = %31
+33:                                               ; preds = %30
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h967504997c3a6c8aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
   br label %_ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit.i4
 
-_ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit.i4: ; preds = %34, %31, %28
+_ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit.i4: ; preds = %33, %30, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16905
   br label %"_ZN100_$LT$postage..stream..map..MapStream$LT$From$C$Map$C$Into$GT$$u20$as$u20$postage..stream..Stream$GT$9poll_recv17h900d857481fce0d8E.exit"
 
-35:                                               ; preds = %24
+34:                                               ; preds = %12, %23
   br label %"_ZN100_$LT$postage..stream..map..MapStream$LT$From$C$Map$C$Into$GT$$u20$as$u20$postage..stream..Stream$GT$9poll_recv17h900d857481fce0d8E.exit"
 
-"_ZN100_$LT$postage..stream..map..MapStream$LT$From$C$Map$C$Into$GT$$u20$as$u20$postage..stream..Stream$GT$9poll_recv17h900d857481fce0d8E.exit": ; preds = %35, %_ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit.i4, %24, %23, %_ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit.i, %12, %3
-  %.sroa.4.0 = phi i8 [ 1, %12 ], [ %switch.idx.cast.i, %3 ], [ 0, %_ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit.i ], [ 2, %23 ], [ 0, %_ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit.i4 ], [ 2, %35 ], [ 1, %24 ]
-  %.sroa.0.0 = phi i1 [ true, %12 ], [ false, %3 ], [ true, %_ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit.i ], [ true, %23 ], [ true, %_ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit.i4 ], [ true, %35 ], [ true, %24 ]
-  %36 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
-  %37 = insertvalue { i1, i8 } %36, i8 %.sroa.4.0, 1
-  ret { i1, i8 } %37
+"_ZN100_$LT$postage..stream..map..MapStream$LT$From$C$Map$C$Into$GT$$u20$as$u20$postage..stream..Stream$GT$9poll_recv17h900d857481fce0d8E.exit": ; preds = %34, %_ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit.i4, %23, %_ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit.i, %12, %3
+  %.sroa.4.0 = phi i8 [ 1, %12 ], [ %switch.idx.cast.i, %3 ], [ 0, %_ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit.i ], [ 1, %23 ], [ 0, %_ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit.i4 ], [ 2, %34 ]
+  %.sroa.0.0 = phi i1 [ true, %12 ], [ false, %3 ], [ true, %_ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit.i ], [ true, %23 ], [ true, %_ZN4core3ops8function2Fn4call17h135a7df2712b7ca6E.llvm.17120096847998249645.exit.i4 ], [ true, %34 ]
+  %35 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
+  %36 = insertvalue { i1, i8 } %35, i8 %.sroa.4.0, 1
+  ret { i1, i8 } %36
 }
 
 ; Function Attrs: nonlazybind uwtable

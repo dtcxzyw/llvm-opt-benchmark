@@ -4005,15 +4005,12 @@ lean_string_dec_eq.exit34.thread:                 ; preds = %21, %lean_string_de
   %.val.i.i35 = load i64, ptr %16, align 8, !tbaa !12
   %.val7.i.i36 = load i64, ptr %22, align 8, !tbaa !12
   %29 = icmp eq i64 %.val.i.i35, %.val7.i.i36
-  br i1 %29, label %lean_string_dec_eq.exit37, label %lean_string_dec_eq.exit37.thread
+  br i1 %29, label %lean_string_dec_eq.exit37, label %lean_string_dec_eq.exit40.thread
 
 lean_string_dec_eq.exit37:                        ; preds = %28
   %30 = tail call zeroext i1 @lean_string_eq_cold(ptr noundef nonnull %10, ptr noundef nonnull %12) #5
   %.fr = freeze i1 %30
-  br i1 %.fr, label %lean_dec.exit, label %lean_string_dec_eq.exit37.thread
-
-lean_string_dec_eq.exit37.thread:                 ; preds = %28, %lean_string_dec_eq.exit37
-  br label %lean_dec.exit
+  br i1 %.fr, label %lean_dec.exit, label %lean_string_dec_eq.exit40.thread
 
 lean_string_dec_eq.exit.thread41:                 ; preds = %8, %lean_string_dec_eq.exit
   %31 = icmp eq ptr %12, %13
@@ -4032,11 +4029,11 @@ lean_string_dec_eq.exit40:                        ; preds = %32
   %.fr51 = freeze i1 %36
   br i1 %.fr51, label %lean_dec.exit, label %lean_string_dec_eq.exit40.thread
 
-lean_string_dec_eq.exit40.thread:                 ; preds = %32, %lean_string_dec_eq.exit40
+lean_string_dec_eq.exit40.thread:                 ; preds = %lean_string_dec_eq.exit37, %28, %32, %lean_string_dec_eq.exit40
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %lean_obj_tag.exit, %lean_string_dec_eq.exit.thread41, %26, %lean_string_dec_eq.exit.thread, %lean_string_dec_eq.exit40.thread, %lean_string_dec_eq.exit40, %lean_string_dec_eq.exit37.thread, %lean_string_dec_eq.exit37, %lean_string_dec_eq.exit34, %lean_string_dec_eq.exit34.thread
-  %.5 = phi i8 [ 1, %26 ], [ 0, %lean_string_dec_eq.exit.thread ], [ 0, %lean_string_dec_eq.exit34.thread ], [ 1, %lean_string_dec_eq.exit.thread41 ], [ 0, %lean_string_dec_eq.exit34 ], [ 2, %lean_string_dec_eq.exit37.thread ], [ 1, %lean_string_dec_eq.exit37 ], [ 2, %lean_string_dec_eq.exit40.thread ], [ 1, %lean_string_dec_eq.exit40 ], [ %6, %lean_obj_tag.exit ]
+lean_dec.exit:                                    ; preds = %lean_obj_tag.exit, %lean_string_dec_eq.exit.thread41, %26, %lean_string_dec_eq.exit.thread, %lean_string_dec_eq.exit40.thread, %lean_string_dec_eq.exit40, %lean_string_dec_eq.exit37, %lean_string_dec_eq.exit34, %lean_string_dec_eq.exit34.thread
+  %.5 = phi i8 [ 1, %26 ], [ 0, %lean_string_dec_eq.exit.thread ], [ 0, %lean_string_dec_eq.exit34.thread ], [ 1, %lean_string_dec_eq.exit.thread41 ], [ 0, %lean_string_dec_eq.exit34 ], [ %6, %lean_obj_tag.exit ], [ 1, %lean_string_dec_eq.exit37 ], [ 2, %lean_string_dec_eq.exit40.thread ], [ 1, %lean_string_dec_eq.exit40 ]
   ret i8 %.5
 }
 

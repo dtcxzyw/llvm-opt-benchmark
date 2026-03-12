@@ -5348,120 +5348,116 @@ define noundef zeroext i1 @_Z32gmx_ana_index_has_complete_elemsP15gmx_ana_index_
   %5 = alloca %"class.gmx::RangePartitioning", align 8
   %6 = load i32, ptr %0, align 8, !tbaa !73
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %49, label %8
+  br i1 %7, label %48, label %8
 
 8:                                                ; preds = %3
-  switch i32 %1, label %48 [
-    i32 0, label %49
-    i32 4, label %49
-    i32 1, label %9
-    i32 2, label %10
-    i32 3, label %29
+  switch i32 %1, label %47 [
+    i32 0, label %48
+    i32 4, label %48
+    i32 3, label %28
+    i32 2, label %9
   ]
 
 9:                                                ; preds = %8
-  br label %49
-
-10:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !36
   %.not3439 = icmp sgt i32 %6, 0
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !108
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !108
   br i1 %.not3439, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %10
+.lr.ph:                                           ; preds = %9
   %wide.trip.count = zext nneg i32 %6 to i64
-  br label %13
+  br label %12
 
-13:                                               ; preds = %.lr.ph, %22
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %.02641 = phi i32 [ -1, %.lr.ph ], [ %15, %22 ]
-  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
-  %15 = load i32, ptr %14, align 4, !tbaa !36
-  %16 = add nsw i32 %.02641, 1
-  %.not = icmp eq i32 %15, %16
-  br i1 %.not, label %22, label %17
+12:                                               ; preds = %.lr.ph, %21
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
+  %.02641 = phi i32 [ -1, %.lr.ph ], [ %14, %21 ]
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
+  %14 = load i32, ptr %13, align 4, !tbaa !36
+  %15 = add nsw i32 %.02641, 1
+  %.not = icmp eq i32 %14, %15
+  br i1 %.not, label %21, label %16
 
-17:                                               ; preds = %13
-  %18 = call fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mtop_tiPi(ptr noundef nonnull align 8 dereferenceable(768) %2, i32 noundef %.02641, ptr noundef %4)
-  br i1 %18, label %19, label %.thread
+16:                                               ; preds = %12
+  %17 = call fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mtop_tiPi(ptr noundef nonnull align 8 dereferenceable(768) %2, i32 noundef %.02641, ptr noundef %4)
+  br i1 %17, label %18, label %.thread
 
-19:                                               ; preds = %17
-  %20 = add nsw i32 %15, -1
-  %21 = call fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mtop_tiPi(ptr noundef nonnull align 8 dereferenceable(768) %2, i32 noundef %20, ptr noundef %4)
-  br i1 %21, label %22, label %.thread
+18:                                               ; preds = %16
+  %19 = add nsw i32 %14, -1
+  %20 = call fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mtop_tiPi(ptr noundef nonnull align 8 dereferenceable(768) %2, i32 noundef %19, ptr noundef %4)
+  br i1 %20, label %21, label %.thread
 
-22:                                               ; preds = %19, %13
+21:                                               ; preds = %18, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %13, !llvm.loop !247
+  br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !247
 
-.critedge:                                        ; preds = %22, %10
-  %23 = sext i32 %6 to i64
-  %24 = getelementptr [4 x i8], ptr %12, i64 %23
-  %25 = getelementptr i8, ptr %24, i64 -4
-  %26 = load i32, ptr %25, align 4, !tbaa !36
-  %27 = call fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mtop_tiPi(ptr noundef nonnull align 8 dereferenceable(768) %2, i32 noundef %26, ptr noundef %4)
-  br i1 %27, label %28, label %.thread
+.critedge:                                        ; preds = %21, %9
+  %22 = sext i32 %6 to i64
+  %23 = getelementptr [4 x i8], ptr %11, i64 %22
+  %24 = getelementptr i8, ptr %23, i64 -4
+  %25 = load i32, ptr %24, align 4, !tbaa !36
+  %26 = call fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mtop_tiPi(ptr noundef nonnull align 8 dereferenceable(768) %2, i32 noundef %25, ptr noundef %4)
+  br i1 %26, label %27, label %.thread
 
-.thread:                                          ; preds = %17, %19, %.critedge
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %49
-
-28:                                               ; preds = %.critedge
+.thread:                                          ; preds = %16, %18, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %48
 
-29:                                               ; preds = %8
+27:                                               ; preds = %.critedge
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %47
+
+28:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_Z18gmx_mtop_moleculesRK10gmx_mtop_t(ptr dead_on_unwind nonnull writable sret(%"class.gmx::RangePartitioning") align 8 %5, ptr noundef nonnull align 8 dereferenceable(768) %2)
-  %30 = invoke noundef zeroext i1 @_Z29gmx_ana_index_has_full_blocksPK15gmx_ana_index_tPKN3gmx17RangePartitioningE(ptr noundef nonnull %0, ptr noundef nonnull %5)
-          to label %31 unwind label %39
+  %29 = invoke noundef zeroext i1 @_Z29gmx_ana_index_has_full_blocksPK15gmx_ana_index_tPKN3gmx17RangePartitioningE(ptr noundef nonnull %0, ptr noundef nonnull %5)
+          to label %30 unwind label %38
 
-31:                                               ; preds = %29
-  %32 = load ptr, ptr %5, align 8, !tbaa !14
-  %.not.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i, label %_ZN3gmx17RangePartitioningD2Ev.exit, label %33
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %5, align 8, !tbaa !14
+  %.not.i.i.i.i = icmp eq ptr %31, null
+  br i1 %.not.i.i.i.i, label %_ZN3gmx17RangePartitioningD2Ev.exit, label %32
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !17
-  %36 = ptrtoint ptr %35 to i64
-  %37 = ptrtoint ptr %32 to i64
-  %38 = sub i64 %36, %37
-  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %38) #25
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !17
+  %35 = ptrtoint ptr %34 to i64
+  %36 = ptrtoint ptr %31 to i64
+  %37 = sub i64 %35, %36
+  call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef %37) #25
   br label %_ZN3gmx17RangePartitioningD2Ev.exit
 
-_ZN3gmx17RangePartitioningD2Ev.exit:              ; preds = %31, %33
+_ZN3gmx17RangePartitioningD2Ev.exit:              ; preds = %30, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %49
+  br label %48
 
-39:                                               ; preds = %29
-  %40 = landingpad { ptr, i32 }
+38:                                               ; preds = %28
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %41 = load ptr, ptr %5, align 8, !tbaa !14
-  %.not.i.i.i.i35 = icmp eq ptr %41, null
-  br i1 %.not.i.i.i.i35, label %_ZN3gmx17RangePartitioningD2Ev.exit36, label %42
+  %40 = load ptr, ptr %5, align 8, !tbaa !14
+  %.not.i.i.i.i35 = icmp eq ptr %40, null
+  br i1 %.not.i.i.i.i35, label %_ZN3gmx17RangePartitioningD2Ev.exit36, label %41
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !17
-  %45 = ptrtoint ptr %44 to i64
-  %46 = ptrtoint ptr %41 to i64
-  %47 = sub i64 %45, %46
-  call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef %47) #25
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %43 = load ptr, ptr %42, align 8, !tbaa !17
+  %44 = ptrtoint ptr %43 to i64
+  %45 = ptrtoint ptr %40 to i64
+  %46 = sub i64 %44, %45
+  call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %46) #25
   br label %_ZN3gmx17RangePartitioningD2Ev.exit36
 
-_ZN3gmx17RangePartitioningD2Ev.exit36:            ; preds = %39, %42
+_ZN3gmx17RangePartitioningD2Ev.exit36:            ; preds = %38, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %40
+  resume { ptr, i32 } %39
 
-48:                                               ; preds = %28, %8
-  br label %49
+47:                                               ; preds = %27, %8
+  br label %48
 
-49:                                               ; preds = %.thread, %8, %8, %3, %48, %_ZN3gmx17RangePartitioningD2Ev.exit, %9
-  %.0 = phi i1 [ %30, %_ZN3gmx17RangePartitioningD2Ev.exit ], [ true, %48 ], [ true, %3 ], [ true, %9 ], [ false, %.thread ], [ false, %8 ], [ false, %8 ]
+48:                                               ; preds = %.thread, %8, %8, %3, %47, %_ZN3gmx17RangePartitioningD2Ev.exit
+  %.0 = phi i1 [ %29, %_ZN3gmx17RangePartitioningD2Ev.exit ], [ true, %47 ], [ true, %3 ], [ false, %8 ], [ false, %.thread ], [ false, %8 ]
   ret i1 %.0
 }
 

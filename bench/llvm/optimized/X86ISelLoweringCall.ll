@@ -2524,7 +2524,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17X86TargetLowering18allowsMemoryA
 18:                                               ; preds = %15, %9
   %19 = and i16 %7, 8
   %.not27 = icmp eq i16 %19, 0
-  br i1 %.not27, label %100, label %20
+  br i1 %.not27, label %98, label %20
 
 20:                                               ; preds = %18
   %.not.i = icmp eq i16 %3, 0
@@ -2533,11 +2533,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17X86TargetLowering18allowsMemoryA
 21:                                               ; preds = %20
   %22 = add i16 %3, -17
   %spec.select.i.i = icmp ult i16 %22, 174
-  br i1 %spec.select.i.i, label %24, label %100
+  br i1 %spec.select.i.i, label %24, label %98
 
 _ZNK4llvm3EVT8isVectorEv.exit:                    ; preds = %20
   %23 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #24
-  br i1 %23, label %_ZNK4llvm3EVT8isVectorEv.exit.i, label %100
+  br i1 %23, label %_ZNK4llvm3EVT8isVectorEv.exit.i, label %98
 
 24:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -2566,7 +2566,7 @@ _ZNK4llvm17X86TargetLowering30allowsMisalignedMemoryAccessesENS_3EVTEjNS_5AlignE
 
 _ZNK4llvm17X86TargetLowering30allowsMisalignedMemoryAccessesENS_3EVTEjNS_5AlignENS_17MachineMemOperand5FlagsEPj.exit.thread: ; preds = %29, %_ZNK4llvm3EVT8isVectorEv.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %100
+  br label %98
 
 _ZNK4llvm17X86TargetLowering30allowsMisalignedMemoryAccessesENS_3EVTEjNS_5AlignENS_17MachineMemOperand5FlagsEPj.exit: ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 412424
@@ -2575,7 +2575,7 @@ _ZNK4llvm17X86TargetLowering30allowsMisalignedMemoryAccessesENS_3EVTEjNS_5AlignE
   %34 = load i32, ptr %33, align 8, !tbaa !43
   %35 = icmp slt i32 %34, 5
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %35, label %100, label %36
+  br i1 %35, label %98, label %36
 
 36:                                               ; preds = %_ZNK4llvm17X86TargetLowering30allowsMisalignedMemoryAccessesENS_3EVTEjNS_5AlignENS_17MachineMemOperand5FlagsEPj.exit.thread43, %_ZNK4llvm17X86TargetLowering30allowsMisalignedMemoryAccessesENS_3EVTEjNS_5AlignENS_17MachineMemOperand5FlagsEPj.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -2609,7 +2609,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %37, %41
   %46 = urem i64 %45, %43
   %47 = icmp eq i64 %46, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %47, label %48, label %100
+  br i1 %47, label %48, label %98
 
 48:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -2641,10 +2641,10 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit40:            ; preds = %50, %54
   store i8 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
   %56 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %13) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  switch i64 %56, label %100 [
+  switch i64 %56, label %98 [
     i64 128, label %57
-    i64 256, label %73
-    i64 512, label %89
+    i64 256, label %72
+    i64 512, label %87
   ]
 
 57:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit40
@@ -2656,12 +2656,12 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit40:            ; preds = %50, %54
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 320
   %62 = load i32, ptr %61, align 8, !tbaa !43
   %63 = icmp sgt i32 %62, 4
-  br i1 %63, label %100, label %64
+  br i1 %63, label %98, label %64
 
 64:                                               ; preds = %58, %57
   %65 = and i16 %7, 2
   %.not31 = icmp eq i16 %65, 0
-  br i1 %.not31, label %72, label %66
+  br i1 %.not31, label %97, label %66
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 412424
@@ -2669,57 +2669,51 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit40:            ; preds = %50, %54
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 320
   %70 = load i32, ptr %69, align 8, !tbaa !43
   %71 = icmp sgt i32 %70, 1
-  br i1 %71, label %100, label %72
+  br i1 %71, label %98, label %97
 
-72:                                               ; preds = %66, %64
-  br label %100
+72:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit40
+  br i1 %.not12.i, label %79, label %73
 
-73:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit40
-  br i1 %.not12.i, label %80, label %74
+73:                                               ; preds = %72
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 412424
+  %75 = load ptr, ptr %74, align 8, !tbaa !12
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 320
+  %77 = load i32, ptr %76, align 8, !tbaa !43
+  %78 = icmp sgt i32 %77, 7
+  br i1 %78, label %98, label %79
 
-74:                                               ; preds = %73
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 412424
-  %76 = load ptr, ptr %75, align 8, !tbaa !12
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 320
-  %78 = load i32, ptr %77, align 8, !tbaa !43
-  %79 = icmp sgt i32 %78, 7
-  br i1 %79, label %100, label %80
+79:                                               ; preds = %73, %72
+  %80 = and i16 %7, 2
+  %.not29 = icmp eq i16 %80, 0
+  br i1 %.not29, label %97, label %81
 
-80:                                               ; preds = %74, %73
-  %81 = and i16 %7, 2
-  %.not29 = icmp eq i16 %81, 0
-  br i1 %.not29, label %88, label %82
+81:                                               ; preds = %79
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 412424
+  %83 = load ptr, ptr %82, align 8, !tbaa !12
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 320
+  %85 = load i32, ptr %84, align 8, !tbaa !43
+  %86 = icmp sgt i32 %85, 6
+  br i1 %86, label %98, label %97
 
-82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 412424
-  %84 = load ptr, ptr %83, align 8, !tbaa !12
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 320
-  %86 = load i32, ptr %85, align 8, !tbaa !43
-  %87 = icmp sgt i32 %86, 6
-  br i1 %87, label %100, label %88
+87:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit40
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 412424
+  %89 = load ptr, ptr %88, align 8, !tbaa !12
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 320
+  %91 = load i32, ptr %90, align 8, !tbaa !43
+  %92 = icmp sgt i32 %91, 8
+  br i1 %92, label %93, label %97
 
-88:                                               ; preds = %82, %80
-  br label %100
+93:                                               ; preds = %87
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 374
+  %95 = load i8, ptr %94, align 2, !tbaa !184, !range !153, !noundef !154
+  %96 = trunc nuw i8 %95 to i1
+  br i1 %96, label %98, label %97
 
-89:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit40
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 412424
-  %91 = load ptr, ptr %90, align 8, !tbaa !12
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 320
-  %93 = load i32, ptr %92, align 8, !tbaa !43
-  %94 = icmp sgt i32 %93, 8
-  br i1 %94, label %95, label %99
+97:                                               ; preds = %64, %66, %79, %81, %93, %87
+  br label %98
 
-95:                                               ; preds = %89
-  %96 = getelementptr inbounds nuw i8, ptr %91, i64 374
-  %97 = load i8, ptr %96, align 2, !tbaa !184, !range !153, !noundef !154
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %100, label %99
-
-99:                                               ; preds = %95, %89
-  br label %100
-
-100:                                              ; preds = %_ZNK4llvm17X86TargetLowering30allowsMisalignedMemoryAccessesENS_3EVTEjNS_5AlignENS_17MachineMemOperand5FlagsEPj.exit.thread, %21, %18, %_ZNK4llvm3EVT8isVectorEv.exit, %_ZNK4llvm3EVT13getSizeInBitsEv.exit40, %95, %82, %74, %66, %58, %_ZNK4llvm3EVT13getSizeInBitsEv.exit, %_ZNK4llvm17X86TargetLowering30allowsMisalignedMemoryAccessesENS_3EVTEjNS_5AlignENS_17MachineMemOperand5FlagsEPj.exit, %99, %88, %72
-  %.0 = phi i1 [ false, %_ZNK4llvm3EVT13getSizeInBitsEv.exit40 ], [ true, %_ZNK4llvm17X86TargetLowering30allowsMisalignedMemoryAccessesENS_3EVTEjNS_5AlignENS_17MachineMemOperand5FlagsEPj.exit ], [ true, %95 ], [ false, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ], [ true, %58 ], [ false, %72 ], [ true, %66 ], [ true, %74 ], [ false, %88 ], [ true, %82 ], [ false, %99 ], [ true, %_ZNK4llvm3EVT8isVectorEv.exit ], [ true, %18 ], [ true, %21 ], [ true, %_ZNK4llvm17X86TargetLowering30allowsMisalignedMemoryAccessesENS_3EVTEjNS_5AlignENS_17MachineMemOperand5FlagsEPj.exit.thread ]
+98:                                               ; preds = %_ZNK4llvm17X86TargetLowering30allowsMisalignedMemoryAccessesENS_3EVTEjNS_5AlignENS_17MachineMemOperand5FlagsEPj.exit.thread, %21, %18, %_ZNK4llvm3EVT8isVectorEv.exit, %_ZNK4llvm3EVT13getSizeInBitsEv.exit40, %93, %81, %73, %66, %58, %_ZNK4llvm3EVT13getSizeInBitsEv.exit, %_ZNK4llvm17X86TargetLowering30allowsMisalignedMemoryAccessesENS_3EVTEjNS_5AlignENS_17MachineMemOperand5FlagsEPj.exit, %97
+  %.0 = phi i1 [ false, %_ZNK4llvm3EVT13getSizeInBitsEv.exit40 ], [ true, %_ZNK4llvm17X86TargetLowering30allowsMisalignedMemoryAccessesENS_3EVTEjNS_5AlignENS_17MachineMemOperand5FlagsEPj.exit ], [ true, %93 ], [ false, %_ZNK4llvm3EVT13getSizeInBitsEv.exit ], [ true, %58 ], [ true, %_ZNK4llvm17X86TargetLowering30allowsMisalignedMemoryAccessesENS_3EVTEjNS_5AlignENS_17MachineMemOperand5FlagsEPj.exit.thread ], [ true, %66 ], [ true, %73 ], [ true, %21 ], [ true, %81 ], [ false, %97 ], [ true, %_ZNK4llvm3EVT8isVectorEv.exit ], [ true, %18 ]
   ret i1 %.0
 }
 

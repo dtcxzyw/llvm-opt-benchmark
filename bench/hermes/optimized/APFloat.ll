@@ -3908,8 +3908,8 @@ if.then32.i:                                      ; preds = %sw.bb24
   tail call void @_ZN4llvh5APInt8tcSetBitEPmj(ptr noundef %retval.0.i.i5, i32 noundef %add.i) #27
   br label %return
 
-return:                                           ; preds = %if.then32.i, %sw.bb24, %entry, %entry, %entry, %entry, %entry, %sw.bb9, %sw.bb19, %sw.bb14
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %sw.bb14 ], [ 2, %sw.bb19 ], [ 0, %entry ], [ 0, %sw.bb9 ], [ 0, %entry ], [ 0, %entry ], [ 0, %entry ], [ 1, %sw.bb24 ], [ 1, %if.then32.i ]
+return:                                           ; preds = %if.then32.i, %sw.bb24, %entry, %entry, %entry, %entry, %sw.bb9, %entry, %sw.bb19, %sw.bb14
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %sw.bb14 ], [ 2, %sw.bb19 ], [ 0, %entry ], [ 0, %entry ], [ 0, %sw.bb9 ], [ 0, %entry ], [ 0, %entry ], [ 1, %sw.bb24 ], [ 1, %if.then32.i ]
   ret i32 %retval.0
 }
 

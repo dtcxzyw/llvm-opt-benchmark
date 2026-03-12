@@ -777,7 +777,7 @@ send_certificate_request.exit.i:                  ; preds = %63
     i32 0, label %133
     i32 21, label %134
     i32 22, label %135
-    i32 23, label %ossl_statem_server13_write_transition.exit
+    i32 23, label %133
     i32 24, label %158
     i32 25, label %180
     i32 38, label %184
@@ -812,7 +812,7 @@ send_certificate_request.exit.i:                  ; preds = %63
   %.not68 = icmp eq i32 %132, 0
   br i1 %.not68, label %ossl_statem_server13_write_transition.exit, label %133
 
-133:                                              ; preds = %131, %122
+133:                                              ; preds = %122, %131, %122
   br label %ossl_statem_server13_write_transition.exit
 
 134:                                              ; preds = %122
@@ -1071,8 +1071,8 @@ send_certificate_request.exit.thread:             ; preds = %219, %214, %210, %2
   store i32 1, ptr %123, align 4, !tbaa !75
   br label %ossl_statem_server13_write_transition.exit
 
-ossl_statem_server13_write_transition.exit:       ; preds = %121, %116, %109, %100, %94, %93, %80, %79, %78, %77, %71, %send_certificate_request.exit.i, %47, %40, %.thread.i, %39, %36, %30, %29, %25, %24, %19, %15, %12, %241, %165, %164, %175, %179, %178, %172, %122, %131, %244, %240, %239, %236, %235, %227, %send_certificate_request.exit.thread, %send_certificate_request.exit, %send_server_key_exchange.exit.thread, %183, %157, %156, %134, %133, %130, %125
-  %.0 = phi i32 [ 0, %125 ], [ 1, %130 ], [ 2, %133 ], [ 2, %241 ], [ 1, %134 ], [ 1, %157 ], [ 1, %156 ], [ 0, %131 ], [ 2, %122 ], [ 1, %183 ], [ 1, %send_server_key_exchange.exit.thread ], [ 1, %send_certificate_request.exit ], [ 1, %send_certificate_request.exit.thread ], [ 2, %227 ], [ 1, %235 ], [ 1, %236 ], [ 1, %239 ], [ 1, %240 ], [ 1, %165 ], [ 1, %244 ], [ 1, %172 ], [ 1, %178 ], [ 1, %179 ], [ 1, %175 ], [ 1, %164 ], [ 0, %15 ], [ 1, %19 ], [ 1, %24 ], [ 1, %29 ], [ 2, %12 ], [ 1, %30 ], [ 2, %25 ], [ 1, %40 ], [ 1, %36 ], [ 1, %77 ], [ 1, %78 ], [ 1, %79 ], [ 1, %80 ], [ 1, %47 ], [ 1, %94 ], [ 1, %93 ], [ 1, %100 ], [ 1, %109 ], [ 1, %39 ], [ 1, %.thread.i ], [ 1, %send_certificate_request.exit.i ], [ 1, %71 ], [ 1, %116 ], [ 1, %121 ]
+ossl_statem_server13_write_transition.exit:       ; preds = %121, %116, %109, %100, %94, %93, %80, %79, %78, %77, %71, %send_certificate_request.exit.i, %47, %40, %.thread.i, %39, %36, %30, %29, %25, %24, %19, %15, %12, %241, %165, %164, %175, %179, %178, %172, %131, %244, %240, %239, %236, %235, %227, %send_certificate_request.exit.thread, %send_certificate_request.exit, %send_server_key_exchange.exit.thread, %183, %157, %156, %134, %133, %130, %125
+  %.0 = phi i32 [ 0, %125 ], [ 1, %130 ], [ 2, %133 ], [ 2, %241 ], [ 1, %134 ], [ 1, %157 ], [ 1, %156 ], [ 0, %131 ], [ 1, %244 ], [ 1, %183 ], [ 1, %send_server_key_exchange.exit.thread ], [ 1, %send_certificate_request.exit ], [ 1, %send_certificate_request.exit.thread ], [ 2, %227 ], [ 1, %235 ], [ 1, %236 ], [ 1, %239 ], [ 1, %240 ], [ 1, %165 ], [ 1, %172 ], [ 1, %178 ], [ 1, %179 ], [ 1, %175 ], [ 1, %164 ], [ 0, %15 ], [ 1, %19 ], [ 1, %24 ], [ 1, %29 ], [ 2, %12 ], [ 1, %30 ], [ 2, %25 ], [ 1, %40 ], [ 1, %36 ], [ 1, %77 ], [ 1, %78 ], [ 1, %79 ], [ 1, %80 ], [ 1, %47 ], [ 1, %94 ], [ 1, %93 ], [ 1, %100 ], [ 1, %109 ], [ 1, %39 ], [ 1, %.thread.i ], [ 1, %send_certificate_request.exit.i ], [ 1, %71 ], [ 1, %116 ], [ 1, %121 ]
   ret i32 %.0
 }
 
@@ -1313,7 +1313,7 @@ define i32 @ossl_statem_server_pre_work(ptr noundef %0, i32 noundef %1) local_un
   br label %.thread
 
 .thread:                                          ; preds = %44, %47, %51, %2, %14, %5, %24, %15, %34, %26, %57, %67, %96, %84, %91, %81, %101, %80, %55
-  %.0 = phi i32 [ 2, %96 ], [ %102, %101 ], [ %56, %55 ], [ 0, %81 ], [ 2, %2 ], [ 0, %80 ], [ 2, %84 ], [ 2, %91 ], [ 2, %67 ], [ 2, %14 ], [ 2, %57 ], [ 2, %26 ], [ 2, %34 ], [ 2, %15 ], [ 2, %24 ], [ 2, %5 ], [ 2, %51 ], [ 2, %47 ], [ 2, %44 ]
+  %.0 = phi i32 [ 2, %96 ], [ %102, %101 ], [ %56, %55 ], [ 0, %81 ], [ 2, %84 ], [ 0, %80 ], [ 2, %91 ], [ 2, %67 ], [ 2, %2 ], [ 2, %57 ], [ 2, %26 ], [ 2, %34 ], [ 2, %15 ], [ 2, %24 ], [ 2, %5 ], [ 2, %14 ], [ 2, %51 ], [ 2, %47 ], [ 2, %44 ]
   ret i32 %.0
 }
 

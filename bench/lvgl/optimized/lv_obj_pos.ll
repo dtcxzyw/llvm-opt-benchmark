@@ -270,7 +270,7 @@ lv_obj_get_content_width.exit:                    ; preds = %15
   br label %132
 
 .preheader.i111:                                  ; preds = %52
-  br i1 %.not117.i, label %._crit_edge114.thread.i, label %.lr.ph113.i
+  br i1 %.not117.i, label %._crit_edge.thread.i, label %.lr.ph113.i
 
 .lr.ph113.i:                                      ; preds = %.preheader.i111
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -373,10 +373,7 @@ lv_obj_is_layout_positioned.exit.thread.i:        ; preds = %lv_obj_is_layout_po
 ._crit_edge114.i:                                 ; preds = %130
   %.not83.i = icmp eq i32 %.1.i, -536870911
   %131 = add nsw i32 %.1.i, %70
-  br i1 %.not83.i, label %._crit_edge114.thread.i, label %184
-
-._crit_edge114.thread.i:                          ; preds = %._crit_edge114.i, %.preheader.i111
-  br label %184
+  br i1 %.not83.i, label %._crit_edge.thread.i, label %184
 
 132:                                              ; preds = %182, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %182 ]
@@ -476,11 +473,11 @@ lv_obj_is_layout_positioned.exit97.thread.i:      ; preds = %lv_obj_is_layout_po
   %183 = add nsw i32 %.4.i, %61
   br i1 %.not82.i, label %._crit_edge.thread.i, label %184
 
-._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader108.i
+._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %._crit_edge114.i, %.preheader.i111, %.preheader108.i
   br label %184
 
-184:                                              ; preds = %._crit_edge.thread.i, %._crit_edge.i, %._crit_edge114.thread.i, %._crit_edge114.i
-  %.2.i = phi i32 [ %131, %._crit_edge114.i ], [ -536870911, %._crit_edge114.thread.i ], [ -536870911, %._crit_edge.thread.i ], [ %183, %._crit_edge.i ]
+184:                                              ; preds = %._crit_edge.thread.i, %._crit_edge.i, %._crit_edge114.i
+  %.2.i = phi i32 [ %131, %._crit_edge114.i ], [ %183, %._crit_edge.i ], [ -536870911, %._crit_edge.thread.i ]
   %185 = load ptr, ptr %48, align 8, !tbaa !6
   %.not84.i = icmp eq ptr %185, null
   br i1 %.not84.i, label %calc_content_width.exit, label %186

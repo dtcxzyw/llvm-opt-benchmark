@@ -11307,7 +11307,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit:    ; preds = %_ZSt8_DestroyIPSt6v
   br i1 %205, label %.invoke, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i
 
 .invoke:                                          ; preds = %156, %110, %229, %200
-  %206 = phi ptr [ @.str.45, %110 ], [ @.str.29, %200 ], [ @.str.29, %229 ], [ @.str.45, %156 ]
+  %206 = phi ptr [ @.str.29, %229 ], [ @.str.29, %200 ], [ @.str.45, %110 ], [ @.str.45, %156 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %206) #39
           to label %.cont unwind label %.loopexit.split-lp
 

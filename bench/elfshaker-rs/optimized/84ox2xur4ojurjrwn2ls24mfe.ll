@@ -1928,9 +1928,9 @@ _ZN4core3ops5range11RangeBounds8contains17ha6bf60999512d964E.exit.thread.i.invok
   br label %.critedge.i
 
 .invoke322.i:                                     ; preds = %.noexc117.i, %.noexc150.i, %.noexc145.i, %723, %722, %708, %707, %467, %430
-  %464 = phi i64 [ %99, %.noexc145.i ], [ %99, %430 ], [ %99, %467 ], [ %99, %707 ], [ %714, %708 ], [ %99, %722 ], [ %955, %.noexc150.i ], [ %729, %723 ], [ %99, %.noexc117.i ]
-  %465 = phi i64 [ 733, %.noexc145.i ], [ 733, %430 ], [ 733, %467 ], [ 733, %707 ], [ 12, %708 ], [ 733, %722 ], [ 12, %.noexc150.i ], [ 12, %723 ], [ 733, %.noexc117.i ]
-  %466 = phi ptr [ @anon.8c448d2a91aaa6059aea52f688ecf1ff.50, %.noexc145.i ], [ @anon.8c448d2a91aaa6059aea52f688ecf1ff.50, %430 ], [ @anon.8c448d2a91aaa6059aea52f688ecf1ff.50, %467 ], [ @anon.8c448d2a91aaa6059aea52f688ecf1ff.50, %707 ], [ @anon.8c448d2a91aaa6059aea52f688ecf1ff.75, %708 ], [ @anon.8c448d2a91aaa6059aea52f688ecf1ff.50, %722 ], [ @anon.8c448d2a91aaa6059aea52f688ecf1ff.64, %.noexc150.i ], [ @anon.8c448d2a91aaa6059aea52f688ecf1ff.88, %723 ], [ @anon.8c448d2a91aaa6059aea52f688ecf1ff.50, %.noexc117.i ]
+  %464 = phi i64 [ %99, %.noexc145.i ], [ %99, %430 ], [ %99, %467 ], [ %729, %723 ], [ %714, %708 ], [ %955, %.noexc150.i ], [ %99, %707 ], [ %99, %722 ], [ %99, %.noexc117.i ]
+  %465 = phi i64 [ 733, %.noexc145.i ], [ 733, %430 ], [ 733, %467 ], [ 12, %723 ], [ 12, %708 ], [ 12, %.noexc150.i ], [ 733, %707 ], [ 733, %722 ], [ 733, %.noexc117.i ]
+  %466 = phi ptr [ @anon.8c448d2a91aaa6059aea52f688ecf1ff.50, %.noexc145.i ], [ @anon.8c448d2a91aaa6059aea52f688ecf1ff.50, %430 ], [ @anon.8c448d2a91aaa6059aea52f688ecf1ff.50, %467 ], [ @anon.8c448d2a91aaa6059aea52f688ecf1ff.88, %723 ], [ @anon.8c448d2a91aaa6059aea52f688ecf1ff.75, %708 ], [ @anon.8c448d2a91aaa6059aea52f688ecf1ff.64, %.noexc150.i ], [ @anon.8c448d2a91aaa6059aea52f688ecf1ff.50, %707 ], [ @anon.8c448d2a91aaa6059aea52f688ecf1ff.50, %722 ], [ @anon.8c448d2a91aaa6059aea52f688ecf1ff.50, %.noexc117.i ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %464, i64 noundef %465, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %466) #24
           to label %.cont.i unwind label %.loopexit.split-lp.i
 

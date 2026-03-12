@@ -671,14 +671,14 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm23DetermineUseCaptureKindE
   %7 = icmp ult i8 %6, 29
   %.not69 = icmp eq ptr %5, null
   %.not = or i1 %.not69, %7
-  br i1 %.not, label %165, label %8
+  br i1 %.not, label %164, label %8
 
 8:                                                ; preds = %3
-  switch i8 %6, label %164 [
+  switch i8 %6, label %.critedge56 [
     i8 85, label %9
     i8 34, label %9
     i8 61, label %77
-    i8 89, label %165
+    i8 89, label %164
     i8 62, label %81
     i8 66, label %88
     i8 65, label %95
@@ -710,11 +710,11 @@ _ZNK4llvm8CallBase12doesNotThrowEv.exit.thread:   ; preds = %11, %_ZNK4llvm8Call
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 255
   %20 = icmp eq i32 %19, 7
-  br i1 %20, label %165, label %21
+  br i1 %20, label %164, label %21
 
 21:                                               ; preds = %_ZNK4llvm8CallBase12doesNotThrowEv.exit.thread, %_ZNK4llvm8CallBase12doesNotThrowEv.exit, %9
   %22 = tail call noundef zeroext i1 @_ZN4llvm59isIntrinsicReturningPointerAliasingArgumentWithoutCapturingEPKNS_8CallBaseEb(ptr noundef nonnull %5, i1 noundef zeroext true) #19
-  br i1 %22, label %165, label %23
+  br i1 %22, label %164, label %23
 
 23:                                               ; preds = %21
   %24 = load i8, ptr %5, align 8, !tbaa !101
@@ -776,17 +776,17 @@ _ZN4llvm8dyn_castINS_12MemIntrinsicENS_8CallBaseEEEDcPT0_.exit: ; preds = %40, %
 55:                                               ; preds = %_ZN4llvm8dyn_castINS_12MemIntrinsicENS_8CallBaseEEEDcPT0_.exit
   %56 = load i64, ptr %51, align 8, !tbaa !131
   %57 = icmp eq i64 %56, 0
-  br i1 %57, label %.critedge, label %165
+  br i1 %57, label %.critedge, label %164
 
 _ZNK4llvm12MemIntrinsic10isVolatileEv.exit:       ; preds = %_ZN4llvm8dyn_castINS_12MemIntrinsicENS_8CallBaseEEEDcPT0_.exit
   %58 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %51) #21
   %59 = icmp eq i32 %58, %53
-  br i1 %59, label %.critedge, label %165
+  br i1 %59, label %.critedge, label %164
 
 .critedge:                                        ; preds = %55, %40, %26, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %23, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, %29, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit
   %60 = getelementptr inbounds i8, ptr %5, i64 -32
   %61 = icmp eq ptr %60, %0
-  br i1 %61, label %165, label %62
+  br i1 %61, label %164, label %62
 
 62:                                               ; preds = %.critedge
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -806,55 +806,55 @@ _ZNK4llvm12MemIntrinsic10isVolatileEv.exit:       ; preds = %_ZN4llvm8dyn_castIN
   %75 = or i16 %.sroa.4.0.extract.shift.i, %.masked.i
   %76 = icmp ne i16 %75, 0
   %. = zext i1 %76 to i32
-  br label %165
+  br label %164
 
 77:                                               ; preds = %8
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %79 = load i16, ptr %78, align 2, !tbaa !132
   %80 = and i16 %79, 1
   %.53 = zext nneg i16 %80 to i32
-  br label %165
+  br label %164
 
 81:                                               ; preds = %8
   %82 = tail call noundef i32 @_ZNK4llvm3Use12getOperandNoEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   %83 = icmp eq i32 %82, 0
-  br i1 %83, label %165, label %84
+  br i1 %83, label %164, label %84
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %86 = load i16, ptr %85, align 2, !tbaa !132
   %87 = and i16 %86, 1
   %spec.select57 = zext nneg i16 %87 to i32
-  br label %165
+  br label %164
 
 88:                                               ; preds = %8
   %89 = tail call noundef i32 @_ZNK4llvm3Use12getOperandNoEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   %90 = icmp eq i32 %89, 1
-  br i1 %90, label %165, label %91
+  br i1 %90, label %164, label %91
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %93 = load i16, ptr %92, align 2, !tbaa !132
   %94 = and i16 %93, 1
   %spec.select58 = zext nneg i16 %94 to i32
-  br label %165
+  br label %164
 
 95:                                               ; preds = %8
   %96 = tail call noundef i32 @_ZNK4llvm3Use12getOperandNoEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   %97 = icmp eq i32 %96, 1
-  br i1 %97, label %165, label %98
+  br i1 %97, label %164, label %98
 
 98:                                               ; preds = %95
   %99 = tail call noundef i32 @_ZNK4llvm3Use12getOperandNoEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   %100 = icmp eq i32 %99, 2
-  br i1 %100, label %165, label %101
+  br i1 %100, label %164, label %101
 
 101:                                              ; preds = %98
   %102 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %103 = load i16, ptr %102, align 2, !tbaa !132
   %104 = and i16 %103, 1
   %spec.select59 = zext nneg i16 %104 to i32
-  br label %165
+  br label %164
 
 105:                                              ; preds = %8
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -865,10 +865,10 @@ _ZNK4llvm12MemIntrinsic10isVolatileEv.exit:       ; preds = %_ZN4llvm8dyn_castIN
   %111 = add nsw i32 %110, -17
   %spec.select.i = icmp ult i32 %111, 2
   %.54 = select i1 %spec.select.i, i32 1, i32 2
-  br label %165
+  br label %164
 
 112:                                              ; preds = %8, %8, %8, %8
-  br label %165
+  br label %164
 
 113:                                              ; preds = %8
   %114 = tail call noundef i32 @_ZNK4llvm3Use12getOperandNoEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
@@ -898,7 +898,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %119, %122
   %130 = load ptr, ptr %129, align 8, !tbaa !103
   %131 = load i8, ptr %130, align 8, !tbaa !101
   %.not71 = icmp eq i8 %131, 20
-  br i1 %.not71, label %132, label %165
+  br i1 %.not71, label %132, label %164
 
 132:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 8
@@ -912,12 +912,12 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %119, %122
   %139 = load ptr, ptr %0, align 8, !tbaa !103
   %140 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %139) #19
   %141 = tail call noundef zeroext i1 @_ZN4llvm13isNoAliasCallEPKNS_5ValueE(ptr noundef %140) #19
-  br i1 %141, label %165, label %142
+  br i1 %141, label %164, label %142
 
 142:                                              ; preds = %138, %132
   %143 = tail call noundef ptr @_ZNK4llvm11Instruction11getFunctionEv(ptr noundef nonnull align 8 dereferenceable(72) %5) #19
   %144 = tail call noundef zeroext i1 @_ZNK4llvm8Function20nullPointerIsDefinedEv(ptr noundef nonnull align 8 dereferenceable(136) %143) #19
-  br i1 %144, label %165, label %145
+  br i1 %144, label %164, label %145
 
 145:                                              ; preds = %142
   %146 = load i32, ptr %116, align 4
@@ -949,16 +949,13 @@ _ZNK4llvm4User10getOperandEj.exit63:              ; preds = %148, %151
 
 162:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit63
   %163 = tail call noundef zeroext i1 %1(i64 noundef %2, ptr noundef %160, ptr noundef nonnull align 8 dereferenceable(496) %161) #19
-  br i1 %163, label %165, label %.critedge56
+  br i1 %163, label %164, label %.critedge56
 
-.critedge56:                                      ; preds = %162, %_ZNK4llvm4User10getOperandEj.exit63
-  br label %165
+.critedge56:                                      ; preds = %8, %162, %_ZNK4llvm4User10getOperandEj.exit63
+  br label %164
 
-164:                                              ; preds = %8
-  br label %165
-
-165:                                              ; preds = %55, %162, %138, %.critedge56, %142, %_ZNK4llvm4User10getOperandEj.exit, %101, %91, %84, %105, %98, %95, %88, %81, %8, %77, %_ZNK4llvm8CallBase12doesNotThrowEv.exit.thread, %21, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit, %.critedge, %62, %3, %164, %112
-  %.0 = phi i32 [ 1, %164 ], [ 1, %3 ], [ %.53, %77 ], [ %., %62 ], [ 0, %.critedge ], [ 0, %8 ], [ 1, %98 ], [ 1, %81 ], [ 1, %88 ], [ %.54, %105 ], [ 1, %95 ], [ 2, %112 ], [ %spec.select59, %101 ], [ 2, %21 ], [ 0, %_ZNK4llvm8CallBase12doesNotThrowEv.exit.thread ], [ 1, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit ], [ %spec.select58, %91 ], [ %spec.select57, %84 ], [ 0, %138 ], [ 0, %162 ], [ 1, %.critedge56 ], [ 1, %142 ], [ 1, %_ZNK4llvm4User10getOperandEj.exit ], [ 1, %55 ]
+164:                                              ; preds = %55, %162, %138, %.critedge56, %142, %_ZNK4llvm4User10getOperandEj.exit, %101, %91, %84, %105, %98, %95, %88, %81, %8, %77, %_ZNK4llvm8CallBase12doesNotThrowEv.exit.thread, %21, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit, %.critedge, %62, %3, %112
+  %.0 = phi i32 [ 1, %55 ], [ 1, %3 ], [ %.53, %77 ], [ %., %62 ], [ 0, %.critedge ], [ 0, %8 ], [ 1, %98 ], [ 1, %81 ], [ 1, %88 ], [ %.54, %105 ], [ 1, %95 ], [ 2, %112 ], [ %spec.select59, %101 ], [ 2, %21 ], [ 0, %_ZNK4llvm8CallBase12doesNotThrowEv.exit.thread ], [ 1, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit ], [ %spec.select58, %91 ], [ %spec.select57, %84 ], [ 0, %138 ], [ 0, %162 ], [ 1, %.critedge56 ], [ 1, %142 ], [ 1, %_ZNK4llvm4User10getOperandEj.exit ]
   ret i32 %.0
 }
 

@@ -8995,7 +8995,7 @@ switch.lookup52:                                  ; preds = %4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup52, %switch.lookup, %44, %14, %11, %19, %22
-  %.sink = phi i8 [ %.51, %44 ], [ %switch.masked56, %switch.lookup52 ], [ %switch.masked, %switch.lookup ], [ %., %14 ], [ 1, %11 ], [ 1, %22 ], [ 1, %19 ]
+  %.sink = phi i8 [ %.51, %44 ], [ %switch.masked56, %switch.lookup52 ], [ %switch.masked, %switch.lookup ], [ 1, %22 ], [ 1, %11 ], [ %., %14 ], [ 1, %19 ]
   store i8 %.sink, ptr @sms_encoding, align 1
   br label %51
 

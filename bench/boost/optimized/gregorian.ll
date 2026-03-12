@@ -1070,24 +1070,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %99
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZNK5boost6locale4util18gregorian_calendar9get_valueENS0_6period5marks11period_markENS0_17abstract_calendar10value_typeE(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %1, label %304 [
+  switch i32 %1, label %297 [
     i32 1, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 2, label %4
     i32 3, label %4
     i32 4, label %15
-    i32 5, label %25
-    i32 6, label %53
-    i32 7, label %76
-    i32 9, label %87
-    i32 10, label %103
-    i32 11, label %113
-    i32 12, label %124
-    i32 13, label %136
-    i32 14, label %146
-    i32 17, label %156
-    i32 15, label %160
-    i32 16, label %214
-    i32 8, label %275
+    i32 5, label %24
+    i32 6, label %52
+    i32 7, label %74
+    i32 9, label %84
+    i32 10, label %100
+    i32 11, label %110
+    i32 12, label %121
+    i32 13, label %133
+    i32 14, label %142
+    i32 17, label %152
+    i32 15, label %156
+    i32 16, label %210
+    i32 8, label %269
   ]
 
 4:                                                ; preds = %3, %3
@@ -1122,708 +1122,687 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6locale4util18gregorian_calend
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %302
 
 15:                                               ; preds = %3
-  switch i32 %2, label %20 [
+  switch i32 %2, label %19 [
     i32 0, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 2, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 1, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
-    i32 6, label %16
-    i32 4, label %16
-    i32 5, label %16
-    i32 3, label %17
+    i32 6, label %111
+    i32 4, label %111
+    i32 5, label %111
+    i32 3, label %16
   ]
 
-16:                                               ; preds = %15, %15, %15
+16:                                               ; preds = %15
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %18 = load i32, ptr %17, align 8, !tbaa !56
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = load i32, ptr %18, align 8, !tbaa !56
-  br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
+19:                                               ; preds = %15
+  %20 = tail call ptr @__cxa_allocate_exception(i64 16) #22
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull @.str.64)
+          to label %21 unwind label %22
 
-20:                                               ; preds = %15
-  %21 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull @.str.64)
-          to label %22 unwind label %23
-
-22:                                               ; preds = %20
-  tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
+21:                                               ; preds = %19
+  tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
   unreachable
 
-23:                                               ; preds = %20
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %19
+  %23 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %302
 
-25:                                               ; preds = %3
-  switch i32 %2, label %48 [
+24:                                               ; preds = %3
+  switch i32 %2, label %47 [
     i32 0, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 2, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 1, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
-    i32 6, label %26
-    i32 4, label %27
-    i32 5, label %28
-    i32 3, label %45
+    i32 6, label %25
+    i32 4, label %26
+    i32 5, label %27
+    i32 3, label %44
   ]
 
-26:                                               ; preds = %25
+25:                                               ; preds = %24
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-27:                                               ; preds = %25
+26:                                               ; preds = %24
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %30 = load i32, ptr %29, align 4, !tbaa !55
-  %31 = add nsw i32 %30, 1900
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %33 = load i32, ptr %32, align 8, !tbaa !56
-  %34 = srem i32 %31, 400
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i, label %36
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %29 = load i32, ptr %28, align 4, !tbaa !55
+  %30 = add nsw i32 %29, 1900
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %32 = load i32, ptr %31, align 8, !tbaa !56
+  %33 = srem i32 %30, 400
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i, label %35
 
-36:                                               ; preds = %28
-  %37 = srem i32 %31, 100
-  %38 = icmp ne i32 %37, 0
-  %39 = and i32 %30, 3
-  %40 = icmp eq i32 %39, 0
-  %or.cond.i = and i1 %40, %38
+35:                                               ; preds = %27
+  %36 = srem i32 %30, 100
+  %37 = icmp ne i32 %36, 0
+  %38 = and i32 %29, 3
+  %39 = icmp eq i32 %38, 0
+  %or.cond.i = and i1 %39, %37
   br i1 %or.cond.i, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i, label %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit
 
-_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i: ; preds = %36, %28
+_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i: ; preds = %35, %27
   br label %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit
 
-_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit: ; preds = %36, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i
-  %41 = phi ptr [ getelementptr inbounds nuw (i8, ptr @__const._ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.tbl, i64 48), %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i ], [ @__const._ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.tbl, %36 ]
-  %42 = sext i32 %33 to i64
-  %43 = getelementptr [4 x i8], ptr %41, i64 %42
-  %44 = load i32, ptr %43, align 4, !tbaa !37
+_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit: ; preds = %35, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i
+  %40 = phi ptr [ getelementptr inbounds nuw (i8, ptr @__const._ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.tbl, i64 48), %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i ], [ @__const._ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.tbl, %35 ]
+  %41 = sext i32 %32 to i64
+  %42 = getelementptr [4 x i8], ptr %40, i64 %41
+  %43 = load i32, ptr %42, align 4, !tbaa !37
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-45:                                               ; preds = %25
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %47 = load i32, ptr %46, align 4, !tbaa !57
+44:                                               ; preds = %24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %46 = load i32, ptr %45, align 4, !tbaa !57
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-48:                                               ; preds = %25
-  %49 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull @.str.64)
-          to label %50 unwind label %51
+47:                                               ; preds = %24
+  %48 = tail call ptr @__cxa_allocate_exception(i64 16) #22
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull @.str.64)
+          to label %49 unwind label %50
 
-50:                                               ; preds = %48
-  tail call void @__cxa_throw(ptr nonnull %49, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
+49:                                               ; preds = %47
+  tail call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
   unreachable
 
-51:                                               ; preds = %48
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %47
+  %51 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %302
 
-53:                                               ; preds = %3
-  switch i32 %2, label %71 [
+52:                                               ; preds = %3
+  switch i32 %2, label %69 [
     i32 0, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 2, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 1, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
-    i32 6, label %54
-    i32 4, label %55
-    i32 5, label %56
-    i32 3, label %67
+    i32 6, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread
+    i32 4, label %53
+    i32 5, label %54
+    i32 3, label %65
   ]
 
-54:                                               ; preds = %53
+53:                                               ; preds = %52
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-55:                                               ; preds = %53
-  br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %56 = load i32, ptr %55, align 4, !tbaa !55
+  %.fr79 = freeze i32 %56
+  %57 = add nsw i32 %.fr79, 1900
+  %58 = srem i32 %57, 400
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread, label %60
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %58 = load i32, ptr %57, align 4, !tbaa !55
-  %.fr79 = freeze i32 %58
-  %59 = add nsw i32 %.fr79, 1900
-  %60 = srem i32 %59, 400
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread, label %62
-
-62:                                               ; preds = %56
-  %63 = srem i32 %59, 100
-  %64 = icmp ne i32 %63, 0
-  %65 = and i32 %.fr79, 3
-  %66 = icmp eq i32 %65, 0
-  %or.cond81 = and i1 %66, %64
+60:                                               ; preds = %54
+  %61 = srem i32 %57, 100
+  %62 = icmp ne i32 %61, 0
+  %63 = and i32 %.fr79, 3
+  %64 = icmp eq i32 %63, 0
+  %or.cond81 = and i1 %64, %62
   br i1 %or.cond81, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread: ; preds = %62, %56
+_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread: ; preds = %52, %60, %54
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-67:                                               ; preds = %53
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %69 = load i32, ptr %68, align 4, !tbaa !58
-  %70 = add nsw i32 %69, 1
+65:                                               ; preds = %52
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %67 = load i32, ptr %66, align 4, !tbaa !58
+  %68 = add nsw i32 %67, 1
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-71:                                               ; preds = %53
-  %72 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull @.str.64)
-          to label %73 unwind label %74
+69:                                               ; preds = %52
+  %70 = tail call ptr @__cxa_allocate_exception(i64 16) #22
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull @.str.64)
+          to label %71 unwind label %72
 
-73:                                               ; preds = %71
-  tail call void @__cxa_throw(ptr nonnull %72, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
+71:                                               ; preds = %69
+  tail call void @__cxa_throw(ptr nonnull %70, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
   unreachable
 
-74:                                               ; preds = %71
-  %75 = landingpad { ptr, i32 }
+72:                                               ; preds = %69
+  %73 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %302
 
-76:                                               ; preds = %3
-  switch i32 %2, label %82 [
+74:                                               ; preds = %3
+  switch i32 %2, label %79 [
     i32 0, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 2, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 1, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
-    i32 6, label %77
-    i32 4, label %77
-    i32 5, label %77
-    i32 3, label %78
+    i32 6, label %85
+    i32 4, label %85
+    i32 5, label %85
+    i32 3, label %75
   ]
 
-77:                                               ; preds = %76, %76, %76
+75:                                               ; preds = %74
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %77 = load i32, ptr %76, align 8, !tbaa !59
+  %78 = add nsw i32 %77, 1
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-78:                                               ; preds = %76
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %80 = load i32, ptr %79, align 8, !tbaa !59
-  %81 = add nsw i32 %80, 1
-  br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
+79:                                               ; preds = %74
+  %80 = tail call ptr @__cxa_allocate_exception(i64 16) #22
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull @.str.64)
+          to label %81 unwind label %82
 
-82:                                               ; preds = %76
-  %83 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull @.str.64)
-          to label %84 unwind label %85
-
-84:                                               ; preds = %82
-  tail call void @__cxa_throw(ptr nonnull %83, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
+81:                                               ; preds = %79
+  tail call void @__cxa_throw(ptr nonnull %80, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
   unreachable
 
-85:                                               ; preds = %82
-  %86 = landingpad { ptr, i32 }
+82:                                               ; preds = %79
+  %83 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %302
 
-87:                                               ; preds = %3
-  switch i32 %2, label %98 [
+84:                                               ; preds = %3
+  switch i32 %2, label %95 [
     i32 0, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 2, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 1, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
-    i32 6, label %88
-    i32 4, label %88
-    i32 5, label %88
-    i32 3, label %89
+    i32 6, label %85
+    i32 4, label %85
+    i32 5, label %85
+    i32 3, label %86
   ]
 
-88:                                               ; preds = %87, %87, %87
+85:                                               ; preds = %74, %74, %74, %84, %84, %84
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-89:                                               ; preds = %87
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %91 = load i32, ptr %90, align 8, !tbaa !59
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %93 = load i32, ptr %92, align 8, !tbaa !18
-  %94 = add i32 %91, 7
-  %95 = sub i32 %94, %93
-  %96 = srem i32 %95, 7
-  %97 = add nsw i32 %96, 1
+86:                                               ; preds = %84
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %88 = load i32, ptr %87, align 8, !tbaa !59
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %90 = load i32, ptr %89, align 8, !tbaa !18
+  %91 = add i32 %88, 7
+  %92 = sub i32 %91, %90
+  %93 = srem i32 %92, 7
+  %94 = add nsw i32 %93, 1
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-98:                                               ; preds = %87
-  %99 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull @.str.64)
-          to label %100 unwind label %101
+95:                                               ; preds = %84
+  %96 = tail call ptr @__cxa_allocate_exception(i64 16) #22
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull @.str.64)
+          to label %97 unwind label %98
 
-100:                                              ; preds = %98
-  tail call void @__cxa_throw(ptr nonnull %99, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
+97:                                               ; preds = %95
+  tail call void @__cxa_throw(ptr nonnull %96, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
   unreachable
 
-101:                                              ; preds = %98
-  %102 = landingpad { ptr, i32 }
+98:                                               ; preds = %95
+  %99 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %302
 
-103:                                              ; preds = %3
-  switch i32 %2, label %108 [
+100:                                              ; preds = %3
+  switch i32 %2, label %105 [
     i32 0, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 2, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 1, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
-    i32 6, label %104
-    i32 4, label %104
-    i32 5, label %104
-    i32 3, label %105
+    i32 6, label %101
+    i32 4, label %101
+    i32 5, label %101
+    i32 3, label %102
   ]
 
-104:                                              ; preds = %103, %103, %103
+101:                                              ; preds = %100, %100, %100
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-105:                                              ; preds = %103
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %107 = load i32, ptr %106, align 8, !tbaa !60
+102:                                              ; preds = %100
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %104 = load i32, ptr %103, align 8, !tbaa !60
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-108:                                              ; preds = %103
-  %109 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull @.str.64)
-          to label %110 unwind label %111
+105:                                              ; preds = %100
+  %106 = tail call ptr @__cxa_allocate_exception(i64 16) #22
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull @.str.64)
+          to label %107 unwind label %108
 
-110:                                              ; preds = %108
-  tail call void @__cxa_throw(ptr nonnull %109, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
+107:                                              ; preds = %105
+  tail call void @__cxa_throw(ptr nonnull %106, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
   unreachable
 
-111:                                              ; preds = %108
-  %112 = landingpad { ptr, i32 }
+108:                                              ; preds = %105
+  %109 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %302
 
-113:                                              ; preds = %3
-  switch i32 %2, label %119 [
+110:                                              ; preds = %3
+  switch i32 %2, label %116 [
     i32 0, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 2, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 1, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
-    i32 6, label %114
-    i32 4, label %114
-    i32 5, label %114
-    i32 3, label %115
+    i32 6, label %111
+    i32 4, label %111
+    i32 5, label %111
+    i32 3, label %112
   ]
 
-114:                                              ; preds = %113, %113, %113
+111:                                              ; preds = %15, %15, %15, %110, %110, %110
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-115:                                              ; preds = %113
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %117 = load i32, ptr %116, align 8, !tbaa !60
-  %118 = srem i32 %117, 12
+112:                                              ; preds = %110
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %114 = load i32, ptr %113, align 8, !tbaa !60
+  %115 = srem i32 %114, 12
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-119:                                              ; preds = %113
-  %120 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef nonnull @.str.64)
-          to label %121 unwind label %122
+116:                                              ; preds = %110
+  %117 = tail call ptr @__cxa_allocate_exception(i64 16) #22
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull @.str.64)
+          to label %118 unwind label %119
 
-121:                                              ; preds = %119
-  tail call void @__cxa_throw(ptr nonnull %120, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
+118:                                              ; preds = %116
+  tail call void @__cxa_throw(ptr nonnull %117, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
   unreachable
 
-122:                                              ; preds = %119
-  %123 = landingpad { ptr, i32 }
+119:                                              ; preds = %116
+  %120 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %302
 
-124:                                              ; preds = %3
-  switch i32 %2, label %131 [
+121:                                              ; preds = %3
+  switch i32 %2, label %128 [
     i32 0, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 2, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 1, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
-    i32 6, label %125
-    i32 4, label %125
-    i32 5, label %125
-    i32 3, label %126
+    i32 6, label %122
+    i32 4, label %122
+    i32 5, label %122
+    i32 3, label %123
   ]
 
-125:                                              ; preds = %124, %124, %124
+122:                                              ; preds = %121, %121, %121
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-126:                                              ; preds = %124
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %128 = load i32, ptr %127, align 8, !tbaa !60
-  %129 = icmp sgt i32 %128, 11
-  %130 = zext i1 %129 to i32
+123:                                              ; preds = %121
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %125 = load i32, ptr %124, align 8, !tbaa !60
+  %126 = icmp sgt i32 %125, 11
+  %127 = zext i1 %126 to i32
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-131:                                              ; preds = %124
-  %132 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull @.str.64)
-          to label %133 unwind label %134
+128:                                              ; preds = %121
+  %129 = tail call ptr @__cxa_allocate_exception(i64 16) #22
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %129, ptr noundef nonnull @.str.64)
+          to label %130 unwind label %131
 
-133:                                              ; preds = %131
-  tail call void @__cxa_throw(ptr nonnull %132, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
+130:                                              ; preds = %128
+  tail call void @__cxa_throw(ptr nonnull %129, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
   unreachable
 
-134:                                              ; preds = %131
-  %135 = landingpad { ptr, i32 }
+131:                                              ; preds = %128
+  %132 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %302
 
-136:                                              ; preds = %3
-  switch i32 %2, label %141 [
+133:                                              ; preds = %3
+  switch i32 %2, label %137 [
     i32 0, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 2, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 1, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
-    i32 6, label %137
-    i32 4, label %137
-    i32 5, label %137
-    i32 3, label %138
+    i32 6, label %143
+    i32 4, label %143
+    i32 5, label %143
+    i32 3, label %134
   ]
 
-137:                                              ; preds = %136, %136, %136
+134:                                              ; preds = %133
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %136 = load i32, ptr %135, align 4, !tbaa !61
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-138:                                              ; preds = %136
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %140 = load i32, ptr %139, align 4, !tbaa !61
-  br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
+137:                                              ; preds = %133
+  %138 = tail call ptr @__cxa_allocate_exception(i64 16) #22
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef nonnull @.str.64)
+          to label %139 unwind label %140
 
-141:                                              ; preds = %136
-  %142 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %142, ptr noundef nonnull @.str.64)
-          to label %143 unwind label %144
-
-143:                                              ; preds = %141
-  tail call void @__cxa_throw(ptr nonnull %142, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
+139:                                              ; preds = %137
+  tail call void @__cxa_throw(ptr nonnull %138, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
   unreachable
 
-144:                                              ; preds = %141
-  %145 = landingpad { ptr, i32 }
+140:                                              ; preds = %137
+  %141 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %302
 
-146:                                              ; preds = %3
-  switch i32 %2, label %151 [
+142:                                              ; preds = %3
+  switch i32 %2, label %147 [
     i32 0, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 2, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 1, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
-    i32 6, label %147
-    i32 4, label %147
-    i32 5, label %147
-    i32 3, label %148
+    i32 6, label %143
+    i32 4, label %143
+    i32 5, label %143
+    i32 3, label %144
   ]
 
-147:                                              ; preds = %146, %146, %146
+143:                                              ; preds = %133, %133, %133, %142, %142, %142
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-148:                                              ; preds = %146
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %150 = load i32, ptr %149, align 8, !tbaa !62
+144:                                              ; preds = %142
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %146 = load i32, ptr %145, align 8, !tbaa !62
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-151:                                              ; preds = %146
-  %152 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %152, ptr noundef nonnull @.str.64)
-          to label %153 unwind label %154
+147:                                              ; preds = %142
+  %148 = tail call ptr @__cxa_allocate_exception(i64 16) #22
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull @.str.64)
+          to label %149 unwind label %150
 
-153:                                              ; preds = %151
-  tail call void @__cxa_throw(ptr nonnull %152, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
+149:                                              ; preds = %147
+  tail call void @__cxa_throw(ptr nonnull %148, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
   unreachable
 
-154:                                              ; preds = %151
-  %155 = landingpad { ptr, i32 }
+150:                                              ; preds = %147
+  %151 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %302
+
+152:                                              ; preds = %3
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %154 = load i32, ptr %153, align 8, !tbaa !18
+  %155 = add nsw i32 %154, 1
+  br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
 156:                                              ; preds = %3
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %158 = load i32, ptr %157, align 8, !tbaa !18
-  %159 = add nsw i32 %158, 1
-  br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
-
-160:                                              ; preds = %3
-  switch i32 %2, label %209 [
+  switch i32 %2, label %205 [
     i32 0, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 2, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 1, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
-    i32 6, label %161
-    i32 4, label %162
-    i32 5, label %163
-    i32 3, label %192
+    i32 6, label %157
+    i32 4, label %158
+    i32 5, label %159
+    i32 3, label %188
   ]
 
-161:                                              ; preds = %160
+157:                                              ; preds = %156
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-162:                                              ; preds = %160
+158:                                              ; preds = %156
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-163:                                              ; preds = %160
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %165 = load i32, ptr %164, align 4, !tbaa !55
-  %.fr78 = freeze i32 %165
-  %166 = add nsw i32 %.fr78, 1900
-  %167 = srem i32 %166, 400
-  %168 = icmp eq i32 %167, 0
-  br i1 %168, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread, label %169
+159:                                              ; preds = %156
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %161 = load i32, ptr %160, align 4, !tbaa !55
+  %.fr78 = freeze i32 %161
+  %162 = add nsw i32 %.fr78, 1900
+  %163 = srem i32 %162, 400
+  %164 = icmp eq i32 %163, 0
+  br i1 %164, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread, label %165
 
-169:                                              ; preds = %163
-  %170 = srem i32 %166, 100
-  %171 = icmp ne i32 %170, 0
-  %172 = and i32 %.fr78, 3
-  %173 = icmp eq i32 %172, 0
-  %or.cond83 = and i1 %173, %171
+165:                                              ; preds = %159
+  %166 = srem i32 %162, 100
+  %167 = icmp ne i32 %166, 0
+  %168 = and i32 %.fr78, 3
+  %169 = icmp eq i32 %168, 0
+  %or.cond83 = and i1 %169, %167
   br i1 %or.cond83, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread63
 
-_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread: ; preds = %169, %163
+_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread: ; preds = %165, %159
   br label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread63
 
-_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread63: ; preds = %169, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread
-  %174 = phi i32 [ 365, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread ], [ 364, %169 ]
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %176 = load i32, ptr %175, align 4, !tbaa !58
-  %177 = sub i32 %174, %176
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %179 = load i32, ptr %178, align 8, !tbaa !59
-  %180 = add nsw i32 %177, %179
+_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread63: ; preds = %165, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread
+  %170 = phi i32 [ 365, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread ], [ 364, %165 ]
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %172 = load i32, ptr %171, align 4, !tbaa !58
+  %173 = sub i32 %170, %172
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %175 = load i32, ptr %174, align 8, !tbaa !59
+  %176 = add nsw i32 %173, %175
+  %177 = srem i32 %176, 7
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %179 = load i32, ptr %178, align 8, !tbaa !18
+  %reass.sub96 = sub i32 %177, %179
+  %180 = add i32 %reass.sub96, 7
   %181 = srem i32 %180, 7
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %183 = load i32, ptr %182, align 8, !tbaa !18
-  %reass.sub96 = sub i32 %181, %183
-  %184 = add i32 %reass.sub96, 7
-  %185 = srem i32 %184, 7
-  %reass.sub.i = sub nsw i32 %185, %174
-  %186 = trunc nsw i32 %reass.sub.i to i16
-  %.lhs.trunc = add nsw i16 %186, 700
-  %187 = urem i16 %.lhs.trunc, 7
-  %.zext = zext nneg i16 %187 to i32
-  %188 = icmp samesign ult i16 %187, 4
-  %..i = select i1 %188, i32 0, i32 65529
-  %.011.neg.i = add nuw nsw i32 %174, %.zext
-  %189 = add nuw nsw i32 %.011.neg.i, %..i
-  %.lhs.trunc75 = trunc i32 %189 to i16
-  %190 = udiv i16 %.lhs.trunc75, 7
-  %narrow = add nuw nsw i16 %190, 1
-  %191 = zext nneg i16 %narrow to i32
+  %reass.sub.i = sub nsw i32 %181, %170
+  %182 = trunc nsw i32 %reass.sub.i to i16
+  %.lhs.trunc = add nsw i16 %182, 700
+  %183 = urem i16 %.lhs.trunc, 7
+  %.zext = zext nneg i16 %183 to i32
+  %184 = icmp samesign ult i16 %183, 4
+  %..i = select i1 %184, i32 0, i32 65529
+  %.011.neg.i = add nuw nsw i32 %170, %.zext
+  %185 = add nuw nsw i32 %.011.neg.i, %..i
+  %.lhs.trunc75 = trunc i32 %185 to i16
+  %186 = udiv i16 %.lhs.trunc75, 7
+  %narrow = add nuw nsw i16 %186, 1
+  %187 = zext nneg i16 %narrow to i32
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-192:                                              ; preds = %160
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %194 = load i32, ptr %193, align 4, !tbaa !58
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %196 = load i32, ptr %195, align 8, !tbaa !59
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %198 = load i32, ptr %197, align 8, !tbaa !18
-  %199 = add i32 %196, 7
-  %200 = sub i32 %199, %198
-  %201 = srem i32 %200, 7
-  %reass.sub95 = sub i32 %201, %194
-  %202 = add i32 %reass.sub95, 700
-  %203 = srem i32 %202, 7
-  %204 = icmp slt i32 %203, 4
-  %..i36 = select i1 %204, i32 0, i32 -7
-  %.011.neg.i37 = add i32 %203, %194
-  %205 = add i32 %.011.neg.i37, %..i36
-  %206 = icmp slt i32 %205, 0
-  br i1 %206, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit39
+188:                                              ; preds = %156
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %190 = load i32, ptr %189, align 4, !tbaa !58
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %192 = load i32, ptr %191, align 8, !tbaa !59
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %194 = load i32, ptr %193, align 8, !tbaa !18
+  %195 = add i32 %192, 7
+  %196 = sub i32 %195, %194
+  %197 = srem i32 %196, 7
+  %reass.sub95 = sub i32 %197, %190
+  %198 = add i32 %reass.sub95, 700
+  %199 = srem i32 %198, 7
+  %200 = icmp slt i32 %199, 4
+  %..i36 = select i1 %200, i32 0, i32 -7
+  %.011.neg.i37 = add i32 %199, %190
+  %201 = add i32 %.011.neg.i37, %..i36
+  %202 = icmp slt i32 %201, 0
+  br i1 %202, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit39
 
-_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit39: ; preds = %192
-  %207 = udiv i32 %205, 7
-  %208 = add nuw nsw i32 %207, 1
+_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit39: ; preds = %188
+  %203 = udiv i32 %201, 7
+  %204 = add nuw nsw i32 %203, 1
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-209:                                              ; preds = %160
-  %210 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %210, ptr noundef nonnull @.str.64)
-          to label %211 unwind label %212
+205:                                              ; preds = %156
+  %206 = tail call ptr @__cxa_allocate_exception(i64 16) #22
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %206, ptr noundef nonnull @.str.64)
+          to label %207 unwind label %208
 
-211:                                              ; preds = %209
-  tail call void @__cxa_throw(ptr nonnull %210, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
+207:                                              ; preds = %205
+  tail call void @__cxa_throw(ptr nonnull %206, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
   unreachable
 
-212:                                              ; preds = %209
-  %213 = landingpad { ptr, i32 }
+208:                                              ; preds = %205
+  %209 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %302
 
-214:                                              ; preds = %3
-  switch i32 %2, label %270 [
+210:                                              ; preds = %3
+  switch i32 %2, label %264 [
     i32 0, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 2, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 1, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
-    i32 6, label %215
-    i32 4, label %216
-    i32 5, label %217
-    i32 3, label %253
+    i32 6, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit54.thread
+    i32 4, label %270
+    i32 5, label %211
+    i32 3, label %247
   ]
 
-215:                                              ; preds = %214
-  br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
+211:                                              ; preds = %210
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %213 = load i32, ptr %212, align 4, !tbaa !55
+  %214 = add nsw i32 %213, 1900
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %216 = load i32, ptr %215, align 8, !tbaa !56
+  %217 = srem i32 %214, 400
+  %218 = icmp eq i32 %217, 0
+  br i1 %218, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i41, label %219
 
-216:                                              ; preds = %214
-  br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
-
-217:                                              ; preds = %214
-  %218 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %219 = load i32, ptr %218, align 4, !tbaa !55
-  %220 = add nsw i32 %219, 1900
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %222 = load i32, ptr %221, align 8, !tbaa !56
-  %223 = srem i32 %220, 400
-  %224 = icmp eq i32 %223, 0
-  br i1 %224, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i41, label %225
-
-225:                                              ; preds = %217
-  %226 = srem i32 %220, 100
-  %227 = icmp ne i32 %226, 0
-  %228 = and i32 %219, 3
-  %229 = icmp eq i32 %228, 0
-  %or.cond.i40 = and i1 %229, %227
+219:                                              ; preds = %211
+  %220 = srem i32 %214, 100
+  %221 = icmp ne i32 %220, 0
+  %222 = and i32 %213, 3
+  %223 = icmp eq i32 %222, 0
+  %or.cond.i40 = and i1 %223, %221
   br i1 %or.cond.i40, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i41, label %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit42
 
-_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i41: ; preds = %225, %217
+_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i41: ; preds = %219, %211
   br label %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit42
 
-_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit42: ; preds = %225, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i41
-  %230 = phi ptr [ getelementptr inbounds nuw (i8, ptr @__const._ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.tbl, i64 48), %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i41 ], [ @__const._ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.tbl, %225 ]
-  %231 = sext i32 %222 to i64
-  %232 = getelementptr [4 x i8], ptr %230, i64 %231
-  %233 = load i32, ptr %232, align 4, !tbaa !37
-  %234 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %235 = load i32, ptr %234, align 4, !tbaa !57
-  %236 = sub i32 %233, %235
-  %237 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %238 = load i32, ptr %237, align 8, !tbaa !59
-  %239 = add nsw i32 %236, %238
+_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit42: ; preds = %219, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i41
+  %224 = phi ptr [ getelementptr inbounds nuw (i8, ptr @__const._ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.tbl, i64 48), %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread.i41 ], [ @__const._ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.tbl, %219 ]
+  %225 = sext i32 %216 to i64
+  %226 = getelementptr [4 x i8], ptr %224, i64 %225
+  %227 = load i32, ptr %226, align 4, !tbaa !37
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %229 = load i32, ptr %228, align 4, !tbaa !57
+  %230 = sub i32 %227, %229
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %232 = load i32, ptr %231, align 8, !tbaa !59
+  %233 = add nsw i32 %230, %232
+  %234 = srem i32 %233, 7
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %236 = load i32, ptr %235, align 8, !tbaa !18
+  %reass.sub93 = sub i32 %234, %236
+  %237 = add i32 %reass.sub93, 7
+  %238 = srem i32 %237, 7
+  %reass.sub94 = sub i32 %238, %227
+  %239 = add i32 %reass.sub94, 700
   %240 = srem i32 %239, 7
-  %241 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %242 = load i32, ptr %241, align 8, !tbaa !18
-  %reass.sub93 = sub i32 %240, %242
-  %243 = add i32 %reass.sub93, 7
-  %244 = srem i32 %243, 7
-  %reass.sub94 = sub i32 %244, %233
-  %245 = add i32 %reass.sub94, 700
-  %246 = srem i32 %245, 7
-  %247 = icmp slt i32 %246, 4
-  %..i44 = select i1 %247, i32 0, i32 -7
-  %.011.neg.i45 = add i32 %246, %233
-  %248 = add i32 %.011.neg.i45, %..i44
-  %249 = icmp slt i32 %248, 0
-  br i1 %249, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit, label %250
+  %241 = icmp slt i32 %240, 4
+  %..i44 = select i1 %241, i32 0, i32 -7
+  %.011.neg.i45 = add i32 %240, %227
+  %242 = add i32 %.011.neg.i45, %..i44
+  %243 = icmp slt i32 %242, 0
+  br i1 %243, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit, label %244
 
-250:                                              ; preds = %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit42
-  %251 = udiv i32 %248, 7
-  %252 = add nuw nsw i32 %251, 1
+244:                                              ; preds = %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit42
+  %245 = udiv i32 %242, 7
+  %246 = add nuw nsw i32 %245, 1
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-253:                                              ; preds = %214
-  %254 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %255 = load i32, ptr %254, align 4, !tbaa !57
-  %256 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %257 = load i32, ptr %256, align 8, !tbaa !59
-  %258 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %259 = load i32, ptr %258, align 8, !tbaa !18
-  %260 = add i32 %257, 7
-  %261 = sub i32 %260, %259
-  %262 = srem i32 %261, 7
-  %reass.sub = sub i32 %262, %255
-  %263 = add i32 %reass.sub, 700
-  %264 = srem i32 %263, 7
-  %265 = icmp slt i32 %264, 4
-  %..i49 = select i1 %265, i32 0, i32 -7
-  %.011.neg.i50 = add i32 %264, %255
-  %266 = add i32 %.011.neg.i50, %..i49
-  %267 = icmp slt i32 %266, 0
-  br i1 %267, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit52
+247:                                              ; preds = %210
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %249 = load i32, ptr %248, align 4, !tbaa !57
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %251 = load i32, ptr %250, align 8, !tbaa !59
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %253 = load i32, ptr %252, align 8, !tbaa !18
+  %254 = add i32 %251, 7
+  %255 = sub i32 %254, %253
+  %256 = srem i32 %255, 7
+  %reass.sub = sub i32 %256, %249
+  %257 = add i32 %reass.sub, 700
+  %258 = srem i32 %257, 7
+  %259 = icmp slt i32 %258, 4
+  %..i49 = select i1 %259, i32 0, i32 -7
+  %.011.neg.i50 = add i32 %258, %249
+  %260 = add i32 %.011.neg.i50, %..i49
+  %261 = icmp slt i32 %260, 0
+  br i1 %261, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit52
 
-_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit52: ; preds = %253
-  %268 = udiv i32 %266, 7
-  %269 = add nuw nsw i32 %268, 1
+_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit52: ; preds = %247
+  %262 = udiv i32 %260, 7
+  %263 = add nuw nsw i32 %262, 1
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-270:                                              ; preds = %214
-  %271 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %271, ptr noundef nonnull @.str.64)
-          to label %272 unwind label %273
+264:                                              ; preds = %210
+  %265 = tail call ptr @__cxa_allocate_exception(i64 16) #22
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %265, ptr noundef nonnull @.str.64)
+          to label %266 unwind label %267
 
-272:                                              ; preds = %270
-  tail call void @__cxa_throw(ptr nonnull %271, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
+266:                                              ; preds = %264
+  tail call void @__cxa_throw(ptr nonnull %265, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
   unreachable
 
-273:                                              ; preds = %270
-  %274 = landingpad { ptr, i32 }
+267:                                              ; preds = %264
+  %268 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %302
 
-275:                                              ; preds = %3
-  switch i32 %2, label %299 [
+269:                                              ; preds = %3
+  switch i32 %2, label %292 [
     i32 0, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 2, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
     i32 1, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
-    i32 6, label %276
-    i32 4, label %277
-    i32 5, label %278
-    i32 3, label %293
+    i32 6, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit54.thread
+    i32 4, label %270
+    i32 5, label %271
+    i32 3, label %286
   ]
 
-276:                                              ; preds = %275
+270:                                              ; preds = %210, %269
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-277:                                              ; preds = %275
-  br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
+271:                                              ; preds = %269
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %273 = load i32, ptr %272, align 8, !tbaa !56
+  %274 = icmp eq i32 %273, 1
+  br i1 %274, label %275, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit54.thread
 
-278:                                              ; preds = %275
-  %279 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %280 = load i32, ptr %279, align 8, !tbaa !56
-  %281 = icmp eq i32 %280, 1
-  br i1 %281, label %282, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit54.thread
+275:                                              ; preds = %271
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %277 = load i32, ptr %276, align 4, !tbaa !55
+  %278 = add nsw i32 %277, 1900
+  %279 = srem i32 %278, 400
+  %280 = icmp eq i32 %279, 0
+  br i1 %280, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit54.thread, label %281
 
-282:                                              ; preds = %278
-  %283 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %284 = load i32, ptr %283, align 4, !tbaa !55
-  %285 = add nsw i32 %284, 1900
-  %286 = srem i32 %285, 400
-  %287 = icmp eq i32 %286, 0
-  br i1 %287, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit54.thread, label %288
-
-288:                                              ; preds = %282
-  %289 = srem i32 %285, 100
-  %290 = icmp ne i32 %289, 0
-  %291 = and i32 %284, 3
-  %292 = icmp eq i32 %291, 0
-  %or.cond = and i1 %292, %290
+281:                                              ; preds = %275
+  %282 = srem i32 %278, 100
+  %283 = icmp ne i32 %282, 0
+  %284 = and i32 %277, 3
+  %285 = icmp eq i32 %284, 0
+  %or.cond = and i1 %285, %283
   br i1 %or.cond, label %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit54.thread, label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit54.thread: ; preds = %288, %282, %278
+_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit54.thread: ; preds = %210, %269, %281, %275, %271
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-293:                                              ; preds = %275
-  %294 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %295 = load i32, ptr %294, align 4, !tbaa !57
-  %296 = add nsw i32 %295, -1
-  %297 = sdiv i32 %296, 7
-  %298 = add nsw i32 %297, 1
+286:                                              ; preds = %269
+  %287 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %288 = load i32, ptr %287, align 4, !tbaa !57
+  %289 = add nsw i32 %288, -1
+  %290 = sdiv i32 %289, 7
+  %291 = add nsw i32 %290, 1
   br label %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit
 
-299:                                              ; preds = %275
-  %300 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %300, ptr noundef nonnull @.str.64)
-          to label %301 unwind label %302
+292:                                              ; preds = %269
+  %293 = tail call ptr @__cxa_allocate_exception(i64 16) #22
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %293, ptr noundef nonnull @.str.64)
+          to label %294 unwind label %295
 
-301:                                              ; preds = %299
-  tail call void @__cxa_throw(ptr nonnull %300, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
+294:                                              ; preds = %292
+  tail call void @__cxa_throw(ptr nonnull %293, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
   unreachable
 
-302:                                              ; preds = %299
-  %303 = landingpad { ptr, i32 }
+295:                                              ; preds = %292
+  %296 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %302
 
-304:                                              ; preds = %3
-  %305 = tail call ptr @__cxa_allocate_exception(i64 16) #22
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %305, ptr noundef nonnull @.str.65)
-          to label %306 unwind label %307
+297:                                              ; preds = %3
+  %298 = tail call ptr @__cxa_allocate_exception(i64 16) #22
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %298, ptr noundef nonnull @.str.65)
+          to label %299 unwind label %300
 
-306:                                              ; preds = %304
-  tail call void @__cxa_throw(ptr nonnull %305, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
+299:                                              ; preds = %297
+  tail call void @__cxa_throw(ptr nonnull %298, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #23
   unreachable
 
-307:                                              ; preds = %304
-  %308 = landingpad { ptr, i32 }
+300:                                              ; preds = %297
+  %301 = landingpad { ptr, i32 }
           cleanup
-  br label %309
+  br label %302
 
-_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit: ; preds = %253, %192, %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit39, %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit52, %288, %62, %250, %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit42, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread63, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread, %275, %275, %275, %214, %214, %214, %160, %160, %160, %146, %146, %146, %136, %136, %136, %124, %124, %124, %113, %113, %113, %103, %103, %103, %87, %87, %87, %76, %76, %76, %53, %53, %53, %25, %25, %25, %15, %15, %15, %4, %4, %4, %3, %293, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit54.thread, %277, %276, %216, %215, %162, %161, %156, %148, %147, %138, %137, %126, %125, %115, %114, %105, %104, %89, %88, %78, %77, %67, %55, %54, %45, %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit, %27, %26, %17, %16, %6, %5
-  %.0 = phi i32 [ %298, %293 ], [ %1, %3 ], [ 5883516, %5 ], [ %9, %6 ], [ 1, %4 ], [ 11, %16 ], [ %19, %17 ], [ 0, %15 ], [ 31, %26 ], [ 28, %27 ], [ %44, %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit ], [ %47, %45 ], [ 1, %25 ], [ 366, %54 ], [ 365, %55 ], [ %269, %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit52 ], [ %70, %67 ], [ 1, %53 ], [ 7, %77 ], [ %81, %78 ], [ 1, %76 ], [ 7, %88 ], [ %97, %89 ], [ 1, %87 ], [ 23, %104 ], [ %107, %105 ], [ 0, %103 ], [ 11, %114 ], [ %118, %115 ], [ 0, %113 ], [ 1, %125 ], [ %130, %126 ], [ 0, %124 ], [ 59, %137 ], [ %140, %138 ], [ 0, %136 ], [ 59, %147 ], [ %150, %148 ], [ %159, %156 ], [ 0, %146 ], [ 53, %161 ], [ 52, %162 ], [ 365, %62 ], [ 4, %288 ], [ 1, %160 ], [ 5, %215 ], [ 4, %216 ], [ %208, %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit39 ], [ -1, %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit42 ], [ 1, %214 ], [ 5, %276 ], [ 4, %277 ], [ 5, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit54.thread ], [ 1, %275 ], [ 1, %4 ], [ 1, %4 ], [ 0, %15 ], [ 0, %15 ], [ 1, %25 ], [ 1, %25 ], [ 1, %53 ], [ 1, %53 ], [ 1, %76 ], [ 1, %76 ], [ 1, %87 ], [ 1, %87 ], [ 0, %103 ], [ 0, %103 ], [ 0, %113 ], [ 0, %113 ], [ 0, %124 ], [ 0, %124 ], [ 0, %136 ], [ 0, %136 ], [ 0, %146 ], [ 0, %146 ], [ 1, %160 ], [ 1, %160 ], [ 1, %214 ], [ 1, %214 ], [ 1, %275 ], [ 1, %275 ], [ 366, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread ], [ 53, %192 ], [ %191, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread63 ], [ %252, %250 ], [ 5, %253 ]
+_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit: ; preds = %247, %188, %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit39, %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit52, %281, %60, %244, %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit42, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread63, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread, %269, %269, %269, %210, %210, %210, %156, %156, %156, %142, %142, %142, %133, %133, %133, %121, %121, %121, %110, %110, %110, %100, %100, %100, %84, %84, %84, %74, %74, %74, %52, %52, %52, %24, %24, %24, %15, %15, %15, %4, %4, %4, %3, %286, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit54.thread, %270, %158, %157, %152, %144, %143, %134, %123, %122, %112, %111, %102, %101, %86, %85, %75, %65, %53, %44, %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit, %26, %25, %16, %6, %5
+  %.0 = phi i32 [ %291, %286 ], [ %1, %3 ], [ 5883516, %5 ], [ %9, %6 ], [ 1, %4 ], [ 5, %247 ], [ %18, %16 ], [ 0, %15 ], [ 31, %25 ], [ 28, %26 ], [ %43, %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit ], [ %46, %44 ], [ 1, %24 ], [ %246, %244 ], [ 365, %53 ], [ %263, %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit52 ], [ %68, %65 ], [ 1, %52 ], [ %187, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit33.thread63 ], [ %78, %75 ], [ 1, %74 ], [ 7, %85 ], [ %94, %86 ], [ 1, %84 ], [ 23, %101 ], [ %104, %102 ], [ 0, %100 ], [ 11, %111 ], [ %115, %112 ], [ 0, %110 ], [ 1, %122 ], [ %127, %123 ], [ 0, %121 ], [ 53, %188 ], [ %136, %134 ], [ 0, %133 ], [ 59, %143 ], [ %146, %144 ], [ %155, %152 ], [ 0, %142 ], [ 53, %157 ], [ 52, %158 ], [ 365, %60 ], [ 4, %281 ], [ 1, %156 ], [ 366, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit.thread ], [ 1, %269 ], [ %204, %_ZNK5boost6locale4util18gregorian_calendar15get_week_numberEii.exit39 ], [ -1, %_ZN5boost6locale4util12_GLOBAL__N_113days_in_monthEii.exit42 ], [ 1, %210 ], [ 1, %269 ], [ 4, %270 ], [ 5, %_ZN5boost6locale4util12_GLOBAL__N_17is_leapEi.exit54.thread ], [ 1, %269 ], [ 1, %4 ], [ 1, %4 ], [ 0, %15 ], [ 0, %15 ], [ 1, %24 ], [ 1, %24 ], [ 1, %52 ], [ 1, %52 ], [ 1, %74 ], [ 1, %74 ], [ 1, %84 ], [ 1, %84 ], [ 0, %100 ], [ 0, %100 ], [ 0, %110 ], [ 0, %110 ], [ 0, %121 ], [ 0, %121 ], [ 0, %133 ], [ 0, %133 ], [ 0, %142 ], [ 0, %142 ], [ 1, %156 ], [ 1, %156 ], [ 1, %210 ], [ 1, %210 ]
   ret i32 %.0
 
-309:                                              ; preds = %307, %302, %273, %212, %154, %144, %134, %122, %111, %101, %85, %74, %51, %23, %13
-  %.sink = phi ptr [ %305, %307 ], [ %300, %302 ], [ %271, %273 ], [ %210, %212 ], [ %152, %154 ], [ %142, %144 ], [ %132, %134 ], [ %120, %122 ], [ %109, %111 ], [ %99, %101 ], [ %83, %85 ], [ %72, %74 ], [ %49, %51 ], [ %21, %23 ], [ %11, %13 ]
-  %.pn = phi { ptr, i32 } [ %308, %307 ], [ %303, %302 ], [ %274, %273 ], [ %213, %212 ], [ %155, %154 ], [ %145, %144 ], [ %135, %134 ], [ %123, %122 ], [ %112, %111 ], [ %102, %101 ], [ %86, %85 ], [ %75, %74 ], [ %52, %51 ], [ %24, %23 ], [ %14, %13 ]
+302:                                              ; preds = %300, %295, %267, %208, %150, %140, %131, %119, %108, %98, %82, %72, %50, %22, %13
+  %.sink = phi ptr [ %298, %300 ], [ %293, %295 ], [ %265, %267 ], [ %206, %208 ], [ %148, %150 ], [ %138, %140 ], [ %129, %131 ], [ %117, %119 ], [ %106, %108 ], [ %96, %98 ], [ %80, %82 ], [ %70, %72 ], [ %48, %50 ], [ %20, %22 ], [ %11, %13 ]
+  %.pn = phi { ptr, i32 } [ %301, %300 ], [ %296, %295 ], [ %268, %267 ], [ %209, %208 ], [ %151, %150 ], [ %141, %140 ], [ %132, %131 ], [ %120, %119 ], [ %109, %108 ], [ %99, %98 ], [ %83, %82 ], [ %73, %72 ], [ %51, %50 ], [ %23, %22 ], [ %14, %13 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #22
   resume { ptr, i32 } %.pn
 }

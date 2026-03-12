@@ -381,7 +381,7 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
 
 131:                                              ; preds = %129
   %132 = load i32, ptr %128, align 4
-  switch i32 %132, label %.thread513.fold.split [
+  switch i32 %132, label %.thread513.fold.split589 [
     i32 1, label %.thread513
     i32 2, label %135
   ]
@@ -396,15 +396,12 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
 135:                                              ; preds = %133, %131
   br label %.thread513
 
-.thread513.fold.split:                            ; preds = %131
+.thread513.fold.split589:                         ; preds = %131, %133
   br label %.thread513
 
-.thread513.fold.split589:                         ; preds = %133
-  br label %.thread513
-
-.thread513:                                       ; preds = %133, %.thread513.fold.split589, %131, %.thread513.fold.split, %129, %135
-  %.1377 = phi i32 [ 0, %129 ], [ 1, %135 ], [ 0, %.thread513.fold.split ], [ %134, %133 ], [ 2, %131 ], [ 0, %.thread513.fold.split589 ]
-  %.1375 = phi i32 [ 0, %129 ], [ 2, %135 ], [ 0, %.thread513.fold.split ], [ 1, %133 ], [ %132, %131 ], [ 0, %.thread513.fold.split589 ]
+.thread513:                                       ; preds = %133, %.thread513.fold.split589, %131, %129, %135
+  %.1377 = phi i32 [ 0, %129 ], [ 1, %135 ], [ 0, %.thread513.fold.split589 ], [ %134, %133 ], [ 2, %131 ]
+  %.1375 = phi i32 [ 0, %129 ], [ 2, %135 ], [ 0, %.thread513.fold.split589 ], [ 1, %133 ], [ %132, %131 ]
   %136 = getelementptr inbounds nuw i8, ptr %128, i64 4
   %137 = load i32, ptr %136, align 4
   br label %.thread510

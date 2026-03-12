@@ -71420,7 +71420,7 @@ define hidden noundef zeroext i1 @"_ZN149_$LT$$LT$T$u20$as$u20$chalk_ir..could_m
   br label %"_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit"
 
 "_ZN57_$LT$chalk_ir..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5ccbebe08170b16fE.exit": ; preds = %117, %115, %113, %112, %106, %263, %257, %236, %230, %226, %220, %193, %187, %183, %177, %168, %162, %153, %147, %129, %125, %119, %102, %96, %69, %62, %4, %20, %23, %26, %29, %32, %35, %38, %41, %44, %47, %50, %53, %56, %59, %284, %138
-  %.051 = phi i1 [ false, %257 ], [ %283, %263 ], [ false, %62 ], [ %229, %226 ], [ false, %96 ], [ false, %119 ], [ %137, %129 ], [ %146, %138 ], [ %128, %125 ], [ false, %147 ], [ false, %162 ], [ false, %177 ], [ %256, %236 ], [ true, %4 ], [ false, %187 ], [ false, %220 ], [ false, %230 ], [ %289, %284 ], [ true, %59 ], [ true, %56 ], [ true, %53 ], [ true, %50 ], [ true, %47 ], [ true, %44 ], [ true, %41 ], [ true, %38 ], [ true, %35 ], [ true, %32 ], [ true, %29 ], [ true, %26 ], [ true, %23 ], [ true, %20 ], [ %95, %69 ], [ %105, %102 ], [ %161, %153 ], [ %176, %168 ], [ %186, %183 ], [ %219, %193 ], [ false, %106 ], [ true, %112 ], [ %116, %115 ], [ %114, %113 ], [ %118, %117 ]
+  %.051 = phi i1 [ true, %23 ], [ true, %26 ], [ false, %62 ], [ false, %257 ], [ false, %96 ], [ false, %119 ], [ %137, %129 ], [ %146, %138 ], [ %128, %125 ], [ false, %147 ], [ false, %162 ], [ false, %177 ], [ true, %4 ], [ true, %20 ], [ false, %187 ], [ false, %220 ], [ false, %230 ], [ %289, %284 ], [ true, %59 ], [ true, %56 ], [ true, %53 ], [ true, %50 ], [ true, %47 ], [ true, %44 ], [ true, %41 ], [ true, %38 ], [ true, %35 ], [ true, %32 ], [ true, %29 ], [ %95, %69 ], [ %105, %102 ], [ %161, %153 ], [ %176, %168 ], [ %186, %183 ], [ %219, %193 ], [ %229, %226 ], [ %256, %236 ], [ %283, %263 ], [ false, %106 ], [ true, %112 ], [ %116, %115 ], [ %114, %113 ], [ %118, %117 ]
   %.0 = xor i1 %.051, true
   ret i1 %.0
 
@@ -110358,7 +110358,7 @@ default.unreachable943:                           ; preds = %240, %163, %140
   %154 = icmp slt i64 %153, 0
   br i1 %154, label %.invoke, label %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfbba566376e04ef6E.exit"
 
-.invoke:                                          ; preds = %1188, %1114, %970, %791, %166, %144
+.invoke:                                          ; preds = %970, %1114, %1188, %791, %166, %144
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #47
           to label %.cont unwind label %"_ZN4core3ptr73drop_in_place$LT$triomphe..arc..Arc$LT$base_db..input..CrateGraph$GT$$GT$17h6236b6000f2d70e0E.exit450.thread733"
 

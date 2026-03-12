@@ -39,10 +39,10 @@ define noundef ptr @ff_yuv2rgb_get_func_ptr(ptr noundef %0) local_unnamed_addr #
   %8 = load i32, ptr %2, align 8, !tbaa !4
   %9 = icmp eq i32 %8, 4
   %10 = load i32, ptr %5, align 4, !tbaa !27
-  br i1 %9, label %11, label %38
+  br i1 %9, label %11, label %37
 
 11:                                               ; preds = %1
-  switch i32 %10, label %67 [
+  switch i32 %10, label %66 [
     i32 57, label %isALPHA.exit18.thread
     i32 58, label %isALPHA.exit18.thread
     i32 34, label %12
@@ -65,8 +65,8 @@ define noundef ptr @ff_yuv2rgb_get_func_ptr(ptr noundef %0) local_unnamed_addr #
     i32 18, label %34
     i32 22, label %35
     i32 19, label %35
-    i32 10, label %36
-    i32 71, label %37
+    i32 10, label %64
+    i32 71, label %36
   ]
 
 12:                                               ; preds = %11, %11
@@ -144,124 +144,121 @@ isALPHA.exit18:                                   ; preds = %23
 36:                                               ; preds = %11
   br label %isALPHA.exit18.thread
 
-37:                                               ; preds = %11
-  br label %isALPHA.exit18.thread
-
-38:                                               ; preds = %1
-  switch i32 %10, label %67 [
+37:                                               ; preds = %1
+  switch i32 %10, label %66 [
     i32 57, label %isALPHA.exit18.thread
     i32 58, label %isALPHA.exit18.thread
-    i32 34, label %39
-    i32 35, label %39
-    i32 25, label %40
-    i32 27, label %40
-    i32 26, label %48
-    i32 28, label %48
-    i32 2, label %57
-    i32 3, label %58
-    i32 37, label %59
-    i32 41, label %59
-    i32 39, label %60
-    i32 43, label %60
-    i32 52, label %61
-    i32 54, label %61
-    i32 20, label %62
-    i32 17, label %62
-    i32 21, label %63
-    i32 18, label %63
-    i32 22, label %64
-    i32 19, label %64
-    i32 10, label %65
-    i32 71, label %66
+    i32 34, label %38
+    i32 35, label %38
+    i32 25, label %39
+    i32 27, label %39
+    i32 26, label %47
+    i32 28, label %47
+    i32 2, label %56
+    i32 3, label %57
+    i32 37, label %58
+    i32 41, label %58
+    i32 39, label %59
+    i32 43, label %59
+    i32 52, label %60
+    i32 54, label %60
+    i32 20, label %61
+    i32 17, label %61
+    i32 21, label %62
+    i32 18, label %62
+    i32 22, label %63
+    i32 19, label %63
+    i32 10, label %64
+    i32 71, label %65
   ]
 
-39:                                               ; preds = %38, %38
+38:                                               ; preds = %37, %37
   br label %isALPHA.exit18.thread
 
-40:                                               ; preds = %38, %38
-  %41 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %8) #7
-  %.not.i19 = icmp eq ptr %41, null
-  br i1 %.not.i19, label %42, label %43
+39:                                               ; preds = %37, %37
+  %40 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %8) #7
+  %.not.i19 = icmp eq ptr %40, null
+  br i1 %.not.i19, label %41, label %42
 
-42:                                               ; preds = %40
+41:                                               ; preds = %39
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 881) #7
   tail call void @abort() #8
   unreachable
 
-43:                                               ; preds = %40
-  %44 = icmp eq i32 %8, 11
-  br i1 %44, label %isALPHA.exit18.thread, label %isALPHA.exit21
+42:                                               ; preds = %39
+  %43 = icmp eq i32 %8, 11
+  br i1 %43, label %isALPHA.exit18.thread, label %isALPHA.exit21
 
-isALPHA.exit21:                                   ; preds = %43
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %46 = load i64, ptr %45, align 8, !tbaa !28
-  %47 = and i64 %46, 128
-  %.not = icmp eq i64 %47, 0
+isALPHA.exit21:                                   ; preds = %42
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %45 = load i64, ptr %44, align 8, !tbaa !28
+  %46 = and i64 %45, 128
+  %.not = icmp eq i64 %46, 0
   br i1 %.not, label %thread-pre-split30, label %isALPHA.exit18.thread
 
 thread-pre-split30:                               ; preds = %isALPHA.exit21
   %.pr31 = load i32, ptr %2, align 8, !tbaa !4
-  br label %48
+  br label %47
 
-48:                                               ; preds = %thread-pre-split30, %38, %38
-  %49 = phi i32 [ %.pr31, %thread-pre-split30 ], [ %8, %38 ], [ %8, %38 ]
-  %50 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %49) #7
-  %.not.i22 = icmp eq ptr %50, null
-  br i1 %.not.i22, label %51, label %52
+47:                                               ; preds = %thread-pre-split30, %37, %37
+  %48 = phi i32 [ %.pr31, %thread-pre-split30 ], [ %8, %37 ], [ %8, %37 ]
+  %49 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %48) #7
+  %.not.i22 = icmp eq ptr %49, null
+  br i1 %.not.i22, label %50, label %51
 
-51:                                               ; preds = %48
+50:                                               ; preds = %47
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 881) #7
   tail call void @abort() #8
   unreachable
 
-52:                                               ; preds = %48
-  %53 = icmp eq i32 %49, 11
-  br i1 %53, label %isALPHA.exit18.thread, label %isALPHA.exit24
+51:                                               ; preds = %47
+  %52 = icmp eq i32 %48, 11
+  br i1 %52, label %isALPHA.exit18.thread, label %isALPHA.exit24
 
-isALPHA.exit24:                                   ; preds = %52
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %55 = load i64, ptr %54, align 8, !tbaa !28
-  %.fr37 = freeze i64 %55
-  %56 = and i64 %.fr37, 128
-  %.not13 = icmp eq i64 %56, 0
+isALPHA.exit24:                                   ; preds = %51
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %54 = load i64, ptr %53, align 8, !tbaa !28
+  %.fr37 = freeze i64 %54
+  %55 = and i64 %.fr37, 128
+  %.not13 = icmp eq i64 %55, 0
   %spec.select36 = select i1 %.not13, ptr @yuv2rgb_c_32, ptr @yuva2rgba_c
   br label %isALPHA.exit18.thread
 
-57:                                               ; preds = %38
+56:                                               ; preds = %37
   br label %isALPHA.exit18.thread
 
-58:                                               ; preds = %38
+57:                                               ; preds = %37
   br label %isALPHA.exit18.thread
 
-59:                                               ; preds = %38, %38
+58:                                               ; preds = %37, %37
   br label %isALPHA.exit18.thread
 
-60:                                               ; preds = %38, %38
+59:                                               ; preds = %37, %37
   br label %isALPHA.exit18.thread
 
-61:                                               ; preds = %38, %38
+60:                                               ; preds = %37, %37
   br label %isALPHA.exit18.thread
 
-62:                                               ; preds = %38, %38
+61:                                               ; preds = %37, %37
   br label %isALPHA.exit18.thread
 
-63:                                               ; preds = %38, %38
+62:                                               ; preds = %37, %37
   br label %isALPHA.exit18.thread
 
-64:                                               ; preds = %38, %38
+63:                                               ; preds = %37, %37
   br label %isALPHA.exit18.thread
 
-65:                                               ; preds = %38
+64:                                               ; preds = %11, %37
   br label %isALPHA.exit18.thread
 
-66:                                               ; preds = %38
+65:                                               ; preds = %37
   br label %isALPHA.exit18.thread
 
-67:                                               ; preds = %38, %11
+66:                                               ; preds = %37, %11
   br label %isALPHA.exit18.thread
 
-isALPHA.exit18.thread:                            ; preds = %isALPHA.exit24, %isALPHA.exit18, %52, %43, %23, %isALPHA.exit21, %38, %38, %isALPHA.exit, %11, %11, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %39, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %12
-  %.0 = phi ptr [ @yuv420p_gbrp_c, %66 ], [ null, %67 ], [ @yuv2rgb_c_1_ordered_dither, %65 ], [ @yuv422p_rgb48_c, %12 ], [ @yuv422p_bgr48_c, %11 ], [ @yuva2argb_c, %isALPHA.exit21 ], [ @yuv422p_rgb24_c, %28 ], [ @yuv422p_bgr24_c, %29 ], [ @yuv422p_bgr16, %30 ], [ @yuv422p_bgr15, %31 ], [ @yuv422p_bgr12, %32 ], [ @yuv422p_bgr8, %33 ], [ @yuv422p_bgr4, %34 ], [ @yuv422p_bgr4_byte, %35 ], [ @yuv2rgb_c_1_ordered_dither, %36 ], [ @yuv422p_gbrp_c, %37 ], [ @yuva422p_argb_c, %isALPHA.exit ], [ @yuv2rgb_c_48, %39 ], [ @yuv2rgb_c_bgr48, %38 ], [ @yuva422p_rgba_c, %23 ], [ @yuv2rgb_c_24_rgb, %57 ], [ @yuv2rgb_c_24_bgr, %58 ], [ @yuv2rgb_c_16_ordered_dither, %59 ], [ @yuv2rgb_c_15_ordered_dither, %60 ], [ @yuv2rgb_c_12_ordered_dither, %61 ], [ @yuv2rgb_c_8_ordered_dither, %62 ], [ @yuv2rgb_c_4_ordered_dither, %63 ], [ @yuv2rgb_c_4b_ordered_dither, %64 ], [ @yuv422p_bgr48_c, %11 ], [ @yuv2rgb_c_bgr48, %38 ], [ @yuva2rgba_c, %52 ], [ %spec.select36, %isALPHA.exit24 ], [ @yuva2argb_c, %43 ], [ %spec.select, %isALPHA.exit18 ]
+isALPHA.exit18.thread:                            ; preds = %isALPHA.exit24, %isALPHA.exit18, %51, %42, %23, %isALPHA.exit21, %37, %37, %isALPHA.exit, %11, %11, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %38, %36, %35, %34, %33, %32, %31, %30, %29, %28, %12
+  %.0 = phi ptr [ @yuv420p_gbrp_c, %65 ], [ null, %66 ], [ @yuv2rgb_c_1_ordered_dither, %64 ], [ @yuv422p_rgb48_c, %12 ], [ @yuv422p_bgr48_c, %11 ], [ @yuva2argb_c, %isALPHA.exit21 ], [ @yuv422p_rgb24_c, %28 ], [ @yuv422p_bgr24_c, %29 ], [ @yuv422p_bgr16, %30 ], [ @yuv422p_bgr15, %31 ], [ @yuv422p_bgr12, %32 ], [ @yuv422p_bgr8, %33 ], [ @yuv422p_bgr4, %34 ], [ @yuv422p_bgr4_byte, %35 ], [ %spec.select, %isALPHA.exit18 ], [ @yuv422p_gbrp_c, %36 ], [ @yuva422p_argb_c, %isALPHA.exit ], [ @yuv2rgb_c_48, %38 ], [ @yuv2rgb_c_bgr48, %37 ], [ @yuva422p_rgba_c, %23 ], [ @yuv2rgb_c_24_rgb, %56 ], [ @yuv2rgb_c_24_bgr, %57 ], [ @yuv2rgb_c_16_ordered_dither, %58 ], [ @yuv2rgb_c_15_ordered_dither, %59 ], [ @yuv2rgb_c_12_ordered_dither, %60 ], [ @yuv2rgb_c_8_ordered_dither, %61 ], [ @yuv2rgb_c_4_ordered_dither, %62 ], [ @yuv2rgb_c_4b_ordered_dither, %63 ], [ @yuv422p_bgr48_c, %11 ], [ @yuv2rgb_c_bgr48, %37 ], [ @yuva2rgba_c, %51 ], [ %spec.select36, %isALPHA.exit24 ], [ @yuva2argb_c, %42 ]
   ret ptr %.0
 }
 

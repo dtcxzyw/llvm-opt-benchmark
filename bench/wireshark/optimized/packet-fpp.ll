@@ -1128,11 +1128,11 @@ define internal fastcc range(i32 0, 6) i32 @get_packet_type(ptr noundef %0) unna
   %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1.lcssa)
   %14 = add i32 %.1.lcssa, 1
   %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %14)
-  switch i8 %13, label %21 [
-    i8 -26, label %22
-    i8 76, label %22
-    i8 127, label %22
-    i8 -77, label %22
+  switch i8 %13, label %20 [
+    i8 -26, label %21
+    i8 76, label %21
+    i8 127, label %21
+    i8 -77, label %21
     i8 7, label %16
     i8 25, label %17
     i8 -43, label %18
@@ -1143,30 +1143,27 @@ define internal fastcc range(i32 0, 6) i32 @get_packet_type(ptr noundef %0) unna
   ]
 
 16:                                               ; preds = %.critedge
-  br label %22
+  br label %21
 
 17:                                               ; preds = %.critedge
-  br label %22
+  br label %21
 
 18:                                               ; preds = %.critedge
-  br label %22
+  br label %21
 
 19:                                               ; preds = %.critedge, %.critedge, %.critedge, %.critedge
   switch i8 %15, label %20 [
-    i8 -26, label %22
-    i8 76, label %22
-    i8 127, label %22
-    i8 -77, label %22
+    i8 -26, label %21
+    i8 76, label %21
+    i8 127, label %21
+    i8 -77, label %21
   ]
 
-20:                                               ; preds = %19
-  br label %22
+20:                                               ; preds = %19, %.critedge
+  br label %21
 
-21:                                               ; preds = %.critedge
-  br label %22
-
-22:                                               ; preds = %19, %19, %19, %19, %.critedge, %.critedge, %.critedge, %.critedge, %21, %20, %18, %17, %16
-  %.0 = phi i32 [ 5, %21 ], [ 3, %.critedge ], [ 1, %16 ], [ 2, %17 ], [ 0, %18 ], [ 5, %20 ], [ 3, %.critedge ], [ 3, %.critedge ], [ 3, %.critedge ], [ 4, %19 ], [ 4, %19 ], [ 4, %19 ], [ 4, %19 ]
+21:                                               ; preds = %19, %19, %19, %19, %.critedge, %.critedge, %.critedge, %.critedge, %20, %18, %17, %16
+  %.0 = phi i32 [ 5, %20 ], [ 3, %.critedge ], [ 1, %16 ], [ 2, %17 ], [ 0, %18 ], [ 4, %19 ], [ 3, %.critedge ], [ 3, %.critedge ], [ 3, %.critedge ], [ 4, %19 ], [ 4, %19 ], [ 4, %19 ]
   ret i32 %.0
 }
 

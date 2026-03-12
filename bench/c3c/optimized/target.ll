@@ -367,10 +367,9 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.llvm_target_machine_create = private unnamed_addr constant [5 x i32] [i32 3, i32 2, i32 2, i32 2, i32 2], align 4
 @switch.table.target_setup = private unnamed_addr constant [36 x i8] c"\00\00\00\00\00\01\00\01\00\01\00\01\01\01\00\01\00\00\00\00\00\00\00\00\00\00\00\01\01\00\00\00\00\00\01\00", align 1
 @switch.table.target_setup.4 = private unnamed_addr constant [4 x i32] [i32 0, i32 0, i32 4, i32 8], align 4
-@switch.table.target_setup.5 = private unnamed_addr constant [4 x i32] [i32 3, i32 0, i32 3, i32 3], align 4
 @switch.table.os_target_c_type_bits = private unnamed_addr constant [4 x i32] [i32 16, i32 16, i32 32, i32 64], align 4
-@switch.table.os_target_c_type_bits.6 = private unnamed_addr constant [4 x i32] [i32 16, i32 32, i32 32, i32 64], align 4
-@switch.table.os_target_c_type_bits.7 = private unnamed_addr constant [4 x i32] [i32 16, i32 32, i32 64, i32 64], align 4
+@switch.table.os_target_c_type_bits.5 = private unnamed_addr constant [4 x i32] [i32 16, i32 32, i32 32, i32 64], align 4
+@switch.table.os_target_c_type_bits.6 = private unnamed_addr constant [4 x i32] [i32 16, i32 32, i32 64, i32 64], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @target_alloca_addr_space() local_unnamed_addr #0 {
@@ -1875,13 +1874,13 @@ os_target_supports_float128.exit.split:           ; preds = %os_target_supports_
   %switch.shifted = lshr i32 3145745, %switch.tableidx
   %switch.lobit = trunc i32 %switch.shifted to i1
   %or.cond = select i1 %433, i1 %switch.lobit, i1 false
-  %spec.select327 = or i1 %or.cond, %431
+  %spec.select323 = or i1 %or.cond, %431
   %switch.tableidx313 = add i32 %403, -7
   %434 = icmp ult i32 %switch.tableidx313, 22
   %switch.shifted316 = lshr i32 3145745, %switch.tableidx313
   %switch.lobit317 = trunc i32 %switch.shifted316 to i1
   %or.cond318 = select i1 %434, i1 %switch.lobit317, i1 false
-  %spec.select328 = or i1 %or.cond318, %431
+  %spec.select324 = or i1 %or.cond318, %431
   br label %435
 
 435:                                              ; preds = %os_target_supports_float128.exit.split, %os_target_alignment_of_float.exit
@@ -1914,7 +1913,7 @@ os_target_alignment_of_int.exit.thread224:        ; preds = %435
 
 os_is_apple.exit.i:                               ; preds = %435, %435, %435, %435
   %441 = icmp samesign ugt i64 %indvars.iv, 3
-  %or.cond3.i = and i1 %441, %spec.select327
+  %or.cond3.i = and i1 %441, %spec.select323
   %442 = call i32 @llvm.umin.i32(i32 %437, i32 64)
   %..i90 = select i1 %or.cond3.i, i32 32, i32 %442
   br label %os_target_alignment_of_int.exit
@@ -2053,7 +2052,7 @@ os_target_alignment_of_int.exit:                  ; preds = %os_is_apple.exit.i,
 
 os_is_apple.exit.i94:                             ; preds = %os_target_alignment_of_int.exit, %os_target_alignment_of_int.exit, %os_target_alignment_of_int.exit, %os_target_alignment_of_int.exit
   %462 = icmp eq i64 %indvars.iv, 4
-  %or.cond7.i = and i1 %462, %spec.select328
+  %or.cond7.i = and i1 %462, %spec.select324
   %..i95 = select i1 %or.cond7.i, i32 32, i32 %437
   br label %os_target_alignment_of_float.exit
 
@@ -2124,18 +2123,13 @@ os_target_c_type_bits.exit.thread:                ; preds = %466
 
 os_target_c_type_bits.exit:                       ; preds = %466
   store i32 16, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 308), align 4
-  switch i32 %403, label %471 [
-    i32 27, label %os_target_c_type_bits.exit99
-    i32 28, label %os_target_c_type_bits.exit99
-    i32 15, label %os_target_c_type_bits.exit99
-    i32 7, label %os_target_c_type_bits.exit99
-  ]
+  br label %471
 
-471:                                              ; preds = %os_target_c_type_bits.exit.thread, %os_target_c_type_bits.exit
+471:                                              ; preds = %os_target_c_type_bits.exit, %os_target_c_type_bits.exit.thread
   br label %os_target_c_type_bits.exit99
 
-os_target_c_type_bits.exit99:                     ; preds = %os_target_c_type_bits.exit, %os_target_c_type_bits.exit, %os_target_c_type_bits.exit, %os_target_c_type_bits.exit, %os_target_c_type_bits.exit.thread, %471
-  %.0.i98 = phi i32 [ 16, %os_target_c_type_bits.exit.thread ], [ 32, %471 ], [ 32, %os_target_c_type_bits.exit ], [ 32, %os_target_c_type_bits.exit ], [ 32, %os_target_c_type_bits.exit ], [ 32, %os_target_c_type_bits.exit ]
+os_target_c_type_bits.exit99:                     ; preds = %os_target_c_type_bits.exit.thread, %471
+  %.0.i98 = phi i32 [ 32, %471 ], [ 16, %os_target_c_type_bits.exit.thread ]
   store i32 %.0.i98, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 312), align 8
   %472 = call fastcc i32 @os_target_c_type_bits(i32 noundef %403, i32 noundef %404, i32 noundef 2)
   store i32 %472, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 316), align 4
@@ -2184,12 +2178,12 @@ os_target_c_type_bits.exit101:                    ; preds = %os_target_c_type_bi
     i32 30, label %476
     i32 16, label %477
     i32 17, label %477
-    i32 10, label %os_target_signed_c_char_type.exit.thread233
-    i32 18, label %os_target_signed_c_char_type.exit.thread233
-    i32 21, label %os_target_signed_c_char_type.exit.thread233
-    i32 22, label %os_target_signed_c_char_type.exit.thread233
-    i32 26, label %os_target_signed_c_char_type.exit.thread233
-    i32 33, label %os_target_signed_c_char_type.exit.thread233
+    i32 10, label %os_target_signed_c_char_type.exit
+    i32 18, label %os_target_signed_c_char_type.exit
+    i32 21, label %os_target_signed_c_char_type.exit
+    i32 22, label %os_target_signed_c_char_type.exit
+    i32 26, label %os_target_signed_c_char_type.exit
+    i32 33, label %os_target_signed_c_char_type.exit
   ]
 
 476:                                              ; preds = %os_target_c_type_bits.exit101, %os_target_c_type_bits.exit101, %os_target_c_type_bits.exit101, %os_target_c_type_bits.exit101, %os_target_c_type_bits.exit101, %os_target_c_type_bits.exit101, %os_target_c_type_bits.exit101
@@ -2202,21 +2196,18 @@ os_target_c_type_bits.exit101:                    ; preds = %os_target_c_type_bi
   ]
 
 477:                                              ; preds = %os_target_c_type_bits.exit101, %os_target_c_type_bits.exit101
-  switch i32 %473, label %os_target_signed_c_char_type.exit.thread233 [
+  switch i32 %473, label %os_target_signed_c_char_type.exit [
     i32 28, label %os_target_signed_c_char_type.exit.thread
     i32 27, label %os_target_signed_c_char_type.exit.thread
     i32 11, label %os_target_signed_c_char_type.exit.thread
     i32 7, label %os_target_signed_c_char_type.exit.thread
   ]
 
-os_target_signed_c_char_type.exit.thread233:      ; preds = %os_target_c_type_bits.exit101, %os_target_c_type_bits.exit101, %os_target_c_type_bits.exit101, %os_target_c_type_bits.exit101, %os_target_c_type_bits.exit101, %os_target_c_type_bits.exit101, %477
+os_target_signed_c_char_type.exit:                ; preds = %477, %os_target_c_type_bits.exit101, %os_target_c_type_bits.exit101, %os_target_c_type_bits.exit101, %os_target_c_type_bits.exit101, %os_target_c_type_bits.exit101, %os_target_c_type_bits.exit101, %476
   br label %os_target_signed_c_char_type.exit.thread
 
-os_target_signed_c_char_type.exit:                ; preds = %476
-  br label %os_target_signed_c_char_type.exit.thread
-
-os_target_signed_c_char_type.exit.thread:         ; preds = %476, %476, %476, %476, %476, %os_target_c_type_bits.exit101, %477, %477, %477, %477, %os_target_signed_c_char_type.exit, %os_target_signed_c_char_type.exit.thread233
-  %478 = phi i16 [ 0, %os_target_signed_c_char_type.exit.thread233 ], [ 0, %os_target_signed_c_char_type.exit ], [ 2, %os_target_c_type_bits.exit101 ], [ 2, %477 ], [ 2, %477 ], [ 2, %477 ], [ 2, %477 ], [ 2, %476 ], [ 2, %476 ], [ 2, %476 ], [ 2, %476 ], [ 2, %476 ]
+os_target_signed_c_char_type.exit.thread:         ; preds = %476, %476, %476, %476, %476, %os_target_c_type_bits.exit101, %477, %477, %477, %477, %os_target_signed_c_char_type.exit
+  %478 = phi i16 [ 2, %476 ], [ 0, %os_target_signed_c_char_type.exit ], [ 2, %os_target_c_type_bits.exit101 ], [ 2, %477 ], [ 2, %477 ], [ 2, %477 ], [ 2, %477 ], [ 2, %476 ], [ 2, %476 ], [ 2, %476 ], [ 2, %476 ]
   %479 = load i16, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 232), align 8
   %480 = and i16 %479, -3
   %481 = or disjoint i16 %480, %478
@@ -3004,8 +2995,8 @@ os_arch_max_alignment_of_vector.exit:             ; preds = %target_setup_x86_ab
     i32 7, label %arch_os_reloc_default.exit
     i32 27, label %arch_os_reloc_default.exit
     i32 11, label %arch_os_reloc_default.exit
-    i32 15, label %arch_os_reloc_default.exit.thread239
-    i32 34, label %arch_os_reloc_default.exit.thread
+    i32 15, label %arch_os_reloc_default.exit.thread
+    i32 34, label %741
     i32 0, label %736
     i32 1, label %736
     i32 5, label %736
@@ -3017,11 +3008,11 @@ os_arch_max_alignment_of_vector.exit:             ; preds = %target_setup_x86_ab
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.arch_os_reloc_default, ptr noundef nonnull @.str.18, i32 noundef 1599) #16
   unreachable
 
-arch_os_reloc_default.exit.thread239:             ; preds = %732
+arch_os_reloc_default.exit.thread:                ; preds = %732
   %734 = icmp eq i32 %716, 32
   %735 = zext i1 %734 to i32
   store i32 %735, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
-  br label %745
+  br label %744
 
 736:                                              ; preds = %732, %732, %732, %732, %732
   %.off.i = add i32 %716, -13
@@ -3077,9 +3068,14 @@ arch_os_reloc_default.exit.thread239:             ; preds = %732
   br label %arch_os_reloc_default.exit
 
 740:                                              ; preds = %738
-  %switch.tableidx323 = add i32 %717, -12
-  %741 = icmp ult i32 %switch.tableidx323, 4
-  br i1 %741, label %switch.lookup324, label %arch_os_reloc_default.exit.thread
+  switch i32 %717, label %741 [
+    i32 15, label %arch_os_reloc_default.exit.thread239
+    i32 14, label %arch_os_reloc_default.exit.thread239
+    i32 12, label %arch_os_reloc_default.exit.thread239
+  ]
+
+741:                                              ; preds = %740, %732
+  br label %arch_os_reloc_default.exit
 
 742:                                              ; preds = %738, %738, %738, %738, %738, %738, %738, %738, %738, %738, %738, %738, %738, %738, %738, %738, %738, %738, %738, %738, %738, %738, %738, %738
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.arch_os_reloc_default, ptr noundef nonnull @.str.18, i32 noundef 1642) #16
@@ -3089,26 +3085,19 @@ arch_os_reloc_default.exit.thread239:             ; preds = %732
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.arch_os_reloc_default, ptr noundef nonnull @.str.18, i32 noundef 1644) #16
   unreachable
 
-switch.lookup324:                                 ; preds = %740
-  %744 = zext nneg i32 %switch.tableidx323 to i64
-  %switch.gep325 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.target_setup.5, i64 %744
-  %switch.load326 = load i32, ptr %switch.gep325, align 4
-  br label %arch_os_reloc_default.exit.thread
-
-arch_os_reloc_default.exit.thread:                ; preds = %740, %switch.lookup324, %732
-  %.0.i117.ph = phi i32 [ %switch.load326, %switch.lookup324 ], [ 0, %732 ], [ 0, %740 ]
-  store i32 %.0.i117.ph, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
+arch_os_reloc_default.exit.thread239:             ; preds = %740, %740, %740
+  store i32 3, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
   br label %arch_os_pic_default_forced.exit
 
-arch_os_reloc_default.exit:                       ; preds = %732, %732, %732, %732, %732, %736, %738, %738, %739
-  %.0.i117 = phi i32 [ 1, %732 ], [ 1, %732 ], [ 0, %738 ], [ 1, %732 ], [ %..i118, %736 ], [ 1, %732 ], [ 3, %739 ], [ 0, %738 ], [ 1, %732 ]
+arch_os_reloc_default.exit:                       ; preds = %732, %732, %732, %732, %732, %736, %738, %738, %739, %741
+  %.0.i117 = phi i32 [ 0, %741 ], [ 1, %732 ], [ 0, %738 ], [ 1, %732 ], [ %..i118, %736 ], [ 1, %732 ], [ 3, %739 ], [ 0, %738 ], [ 1, %732 ], [ 1, %732 ]
   store i32 %.0.i117, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
   switch i32 %715, label %default.unreachable245 [
-    i32 15, label %745
-    i32 28, label %747
-    i32 7, label %747
-    i32 27, label %747
-    i32 11, label %747
+    i32 15, label %744
+    i32 28, label %746
+    i32 7, label %746
+    i32 27, label %746
+    i32 11, label %746
     i32 34, label %arch_os_pic_default_forced.exit
     i32 0, label %arch_os_pic_default_forced.exit
     i32 1, label %arch_os_pic_default_forced.exit
@@ -3116,178 +3105,178 @@ arch_os_reloc_default.exit:                       ; preds = %732, %732, %732, %7
     i32 9, label %arch_os_pic_default_forced.exit
     i32 12, label %arch_os_pic_default_forced.exit
     i32 13, label %arch_os_pic_default_forced.exit
-    i32 21, label %751
-    i32 16, label %751
-    i32 2, label %751
-    i32 3, label %751
-    i32 4, label %751
-    i32 6, label %751
-    i32 8, label %751
-    i32 10, label %751
-    i32 18, label %751
-    i32 14, label %751
-    i32 17, label %751
-    i32 19, label %751
-    i32 20, label %751
-    i32 22, label %751
-    i32 23, label %751
-    i32 24, label %751
-    i32 25, label %751
-    i32 26, label %751
-    i32 29, label %751
-    i32 30, label %751
-    i32 31, label %751
-    i32 32, label %751
-    i32 33, label %751
+    i32 21, label %750
+    i32 16, label %750
+    i32 2, label %750
+    i32 3, label %750
+    i32 4, label %750
+    i32 6, label %750
+    i32 8, label %750
+    i32 10, label %750
+    i32 18, label %750
+    i32 14, label %750
+    i32 17, label %750
+    i32 19, label %750
+    i32 20, label %750
+    i32 22, label %750
+    i32 23, label %750
+    i32 24, label %750
+    i32 25, label %750
+    i32 26, label %750
+    i32 29, label %750
+    i32 30, label %750
+    i32 31, label %750
+    i32 32, label %750
+    i32 33, label %750
   ]
 
-745:                                              ; preds = %arch_os_reloc_default.exit.thread239, %arch_os_reloc_default.exit
-  %746 = icmp eq i32 %716, 32
+744:                                              ; preds = %arch_os_reloc_default.exit.thread, %arch_os_reloc_default.exit
+  %745 = icmp eq i32 %716, 32
   br label %arch_os_pic_default_forced.exit
 
-747:                                              ; preds = %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit
-  %748 = icmp eq i32 %716, 3
-  %749 = icmp eq i32 %716, 32
-  %750 = or i1 %748, %749
+746:                                              ; preds = %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit
+  %747 = icmp eq i32 %716, 3
+  %748 = icmp eq i32 %716, 32
+  %749 = or i1 %747, %748
   br label %arch_os_pic_default_forced.exit
 
-751:                                              ; preds = %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit
+750:                                              ; preds = %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.arch_os_pic_default_forced, ptr noundef nonnull @.str.18, i32 noundef 1664) #16
   unreachable
 
 default.unreachable245:                           ; preds = %arch_os_reloc_default.exit
   unreachable
 
-arch_os_pic_default_forced.exit:                  ; preds = %arch_os_reloc_default.exit.thread, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %745, %747
-  %.0.i119 = phi i1 [ %746, %745 ], [ %750, %747 ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit.thread ]
-  %752 = zext i1 %.0.i119 to i16
-  %753 = load i16, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 232), align 8
-  %754 = and i16 %753, -2
-  %755 = or disjoint i16 %754, %752
-  store i16 %755, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 232), align 8
-  %756 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %757 = load i32, ptr %756, align 4
-  switch i32 %757, label %759 [
-    i32 -1, label %760
-    i32 0, label %758
+arch_os_pic_default_forced.exit:                  ; preds = %arch_os_reloc_default.exit.thread239, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %arch_os_reloc_default.exit, %744, %746
+  %.0.i119 = phi i1 [ %745, %744 ], [ %749, %746 ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit ], [ false, %arch_os_reloc_default.exit.thread239 ]
+  %751 = zext i1 %.0.i119 to i16
+  %752 = load i16, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 232), align 8
+  %753 = and i16 %752, -2
+  %754 = or disjoint i16 %753, %751
+  store i16 %754, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 232), align 8
+  %755 = getelementptr inbounds nuw i8, ptr %0, i64 220
+  %756 = load i32, ptr %755, align 4
+  switch i32 %756, label %758 [
+    i32 -1, label %759
+    i32 0, label %757
   ]
 
-758:                                              ; preds = %arch_os_pic_default_forced.exit
-  br i1 %.0.i119, label %760, label %759
+757:                                              ; preds = %arch_os_pic_default_forced.exit
+  br i1 %.0.i119, label %759, label %758
 
-759:                                              ; preds = %arch_os_pic_default_forced.exit, %758
-  store i32 %757, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
-  br label %760
+758:                                              ; preds = %arch_os_pic_default_forced.exit, %757
+  store i32 %756, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
+  br label %759
 
-760:                                              ; preds = %arch_os_pic_default_forced.exit, %759, %758
-  %761 = icmp eq i32 %715, 11
-  br i1 %761, label %762, label %805
+759:                                              ; preds = %arch_os_pic_default_forced.exit, %758, %757
+  %760 = icmp eq i32 %715, 11
+  br i1 %760, label %761, label %804
 
-762:                                              ; preds = %760
-  %763 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 344), align 8
-  %.not58 = icmp eq ptr %763, null
-  br i1 %.not58, label %764, label %.thread243
+761:                                              ; preds = %759
+  %762 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 344), align 8
+  %.not58 = icmp eq ptr %762, null
+  br i1 %.not58, label %763, label %.thread243
 
-764:                                              ; preds = %762
-  %765 = call ptr @macos_sysroot() #17
-  store ptr %765, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 344), align 8
-  %.not59 = icmp eq ptr %765, null
-  br i1 %.not59, label %766, label %.thread243
+763:                                              ; preds = %761
+  %764 = call ptr @macos_sysroot() #17
+  store ptr %764, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 344), align 8
+  %.not59 = icmp eq ptr %764, null
+  br i1 %.not59, label %765, label %.thread243
 
-.thread243:                                       ; preds = %764, %762
-  %.ph = phi ptr [ %765, %764 ], [ %763, %762 ]
+.thread243:                                       ; preds = %763, %761
+  %.ph = phi ptr [ %764, %763 ], [ %762, %761 ]
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 368), align 8
-  br label %768
+  br label %767
 
-766:                                              ; preds = %764
-  %767 = call ptr @macos_sysroot() #17
+765:                                              ; preds = %763
+  %766 = call ptr @macos_sysroot() #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 368), align 8
-  %.not60 = icmp eq ptr %767, null
-  br i1 %.not60, label %789, label %768
+  %.not60 = icmp eq ptr %766, null
+  br i1 %.not60, label %788, label %767
 
-768:                                              ; preds = %.thread243, %766
-  %769 = phi ptr [ %.ph, %.thread243 ], [ %767, %766 ]
-  %770 = load i8, ptr @debug_log, align 1
-  %771 = trunc i8 %770 to i1
-  br i1 %771, label %772, label %775
+767:                                              ; preds = %.thread243, %765
+  %768 = phi ptr [ %.ph, %.thread243 ], [ %766, %765 ]
+  %769 = load i8, ptr @debug_log, align 1
+  %770 = trunc i8 %769 to i1
+  br i1 %770, label %771, label %774
 
-772:                                              ; preds = %768
-  %773 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20)
-  %774 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef nonnull %769)
+771:                                              ; preds = %767
+  %772 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20)
+  %773 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef nonnull %768)
   %putchar61 = call i32 @putchar(i32 10)
-  br label %775
+  br label %774
 
-775:                                              ; preds = %768, %772
-  %776 = call ptr @macos_sysroot_sdk_information(ptr noundef nonnull %769) #17
-  store ptr %776, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 368), align 8
-  %777 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
-  %778 = icmp eq i32 %777, 3
-  br i1 %778, label %779, label %789
+774:                                              ; preds = %767, %771
+  %775 = call ptr @macos_sysroot_sdk_information(ptr noundef nonnull %768) #17
+  store ptr %775, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 368), align 8
+  %776 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
+  %777 = icmp eq i32 %776, 3
+  br i1 %777, label %778, label %788
 
-779:                                              ; preds = %775
-  %780 = getelementptr inbounds nuw i8, ptr %776, i64 8
-  %781 = load i32, ptr %780, align 4
-  %782 = icmp slt i32 %781, 11
-  br i1 %782, label %783, label %784
+778:                                              ; preds = %774
+  %779 = getelementptr inbounds nuw i8, ptr %775, i64 8
+  %780 = load i32, ptr %779, align 4
+  %781 = icmp slt i32 %780, 11
+  br i1 %781, label %782, label %783
 
-783:                                              ; preds = %779
-  store i32 11, ptr %780, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %776, i64 12
+782:                                              ; preds = %778
+  store i32 11, ptr %779, align 4
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %775, i64 12
   store i32 0, ptr %.sroa.22.0..sroa_idx, align 4
   %.pre269 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 368), align 8
-  br label %784
+  br label %783
 
-784:                                              ; preds = %783, %779
-  %785 = phi ptr [ %.pre269, %783 ], [ %776, %779 ]
-  %786 = load i32, ptr %785, align 4
-  %787 = icmp slt i32 %786, 11
-  br i1 %787, label %788, label %789
+783:                                              ; preds = %782, %778
+  %784 = phi ptr [ %.pre269, %782 ], [ %775, %778 ]
+  %785 = load i32, ptr %784, align 4
+  %786 = icmp slt i32 %785, 11
+  br i1 %786, label %787, label %788
 
-788:                                              ; preds = %784
-  store i32 11, ptr %785, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %785, i64 4
+787:                                              ; preds = %783
+  store i32 11, ptr %784, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %784, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
-  br label %789
+  br label %788
 
-789:                                              ; preds = %775, %788, %784, %766
-  %790 = load ptr, ptr @platform_target, align 8
-  %791 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 352), align 8
-  %.not62 = icmp eq ptr %791, null
-  br i1 %.not62, label %794, label %792
+788:                                              ; preds = %774, %787, %783, %765
+  %789 = load ptr, ptr @platform_target, align 8
+  %790 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 352), align 8
+  %.not62 = icmp eq ptr %790, null
+  br i1 %.not62, label %793, label %791
 
-792:                                              ; preds = %789
+791:                                              ; preds = %788
   call void @scratch_buffer_clear() #17
-  call void @scratch_buffer_append(ptr noundef %790) #17
-  %793 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 352), align 8
-  call void @scratch_buffer_append(ptr noundef %793) #17
-  br label %802
+  call void @scratch_buffer_append(ptr noundef %789) #17
+  %792 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 352), align 8
+  call void @scratch_buffer_append(ptr noundef %792) #17
+  br label %801
 
-794:                                              ; preds = %789
-  %795 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 368), align 8
-  %.not63 = icmp eq ptr %795, null
+793:                                              ; preds = %788
+  %794 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 368), align 8
+  %.not63 = icmp eq ptr %794, null
   call void @scratch_buffer_clear() #17
-  call void @scratch_buffer_append(ptr noundef %790) #17
-  br i1 %.not63, label %796, label %797
+  call void @scratch_buffer_append(ptr noundef %789) #17
+  br i1 %.not63, label %795, label %796
 
-796:                                              ; preds = %794
+795:                                              ; preds = %793
   call void @scratch_buffer_append(ptr noundef nonnull @.str.325) #17
-  br label %802
+  br label %801
 
-797:                                              ; preds = %794
-  %798 = getelementptr inbounds nuw i8, ptr %795, i64 8
-  %799 = load i32, ptr %798, align 4
-  %800 = getelementptr inbounds nuw i8, ptr %795, i64 12
-  %801 = load i32, ptr %800, align 4
-  call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.326, i32 noundef %799, i32 noundef %801) #17
-  br label %802
+796:                                              ; preds = %793
+  %797 = getelementptr inbounds nuw i8, ptr %794, i64 8
+  %798 = load i32, ptr %797, align 4
+  %799 = getelementptr inbounds nuw i8, ptr %794, i64 12
+  %800 = load i32, ptr %799, align 4
+  call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.326, i32 noundef %798, i32 noundef %800) #17
+  br label %801
 
-802:                                              ; preds = %797, %796, %792
-  %803 = call ptr @scratch_buffer_to_string() #17
-  %804 = call noalias ptr @strdup(ptr noundef %803) #17
-  store ptr %804, ptr @platform_target, align 8
-  br label %805
+801:                                              ; preds = %796, %795, %791
+  %802 = call ptr @scratch_buffer_to_string() #17
+  %803 = call noalias ptr @strdup(ptr noundef %802) #17
+  store ptr %803, ptr @platform_target, align 8
+  br label %804
 
-805:                                              ; preds = %802, %760
+804:                                              ; preds = %801, %759
   call void @type_setup(ptr noundef nonnull @platform_target) #17
   ret void
 }
@@ -3451,18 +3440,18 @@ switch.lookup:                                    ; preds = %5
 
 switch.lookup10:                                  ; preds = %3
   %13 = zext nneg i32 %2 to i64
-  %switch.gep11 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.os_target_c_type_bits.6, i64 %13
+  %switch.gep11 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.os_target_c_type_bits.5, i64 %13
   %switch.load12 = load i32, ptr %switch.gep11, align 4
   br label %15
 
 switch.lookup13:                                  ; preds = %3, %3, %3
   %14 = zext nneg i32 %2 to i64
-  %switch.gep14 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.os_target_c_type_bits.7, i64 %14
+  %switch.gep14 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.os_target_c_type_bits.6, i64 %14
   %switch.load15 = load i32, ptr %switch.gep14, align 4
   br label %15
 
 15:                                               ; preds = %switch.lookup13, %switch.lookup10, %switch.lookup, %7, %11, %9, %8
-  %.0 = phi i32 [ %switch.load15, %switch.lookup13 ], [ 32, %8 ], [ %10, %9 ], [ 64, %11 ], [ %switch.load12, %switch.lookup10 ], [ 16, %7 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi i32 [ %switch.load15, %switch.lookup13 ], [ 32, %8 ], [ %10, %9 ], [ 64, %11 ], [ %switch.load, %switch.lookup ], [ 16, %7 ], [ %switch.load12, %switch.lookup10 ]
   ret i32 %.0
 }
 

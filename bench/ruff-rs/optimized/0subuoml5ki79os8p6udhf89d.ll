@@ -4449,9 +4449,9 @@ _ZN21ruff_python_formatter6string9docstring11CodeExample6finish17hb7a94f542786cb
   br i1 %426, label %430, label %431, !prof !14
 
 .invoke1659:                                      ; preds = %.noexc804, %.noexc792, %420
-  %427 = phi ptr [ @anon.f4df14553971ce38a1f8ddb4f9816598.370, %.noexc792 ], [ @anon.f4df14553971ce38a1f8ddb4f9816598.315, %420 ], [ @anon.f4df14553971ce38a1f8ddb4f9816598.370, %.noexc804 ]
-  %428 = phi i64 [ 14, %.noexc792 ], [ 21, %420 ], [ 14, %.noexc804 ]
-  %429 = phi ptr [ @anon.f4df14553971ce38a1f8ddb4f9816598.371, %.noexc792 ], [ @anon.f4df14553971ce38a1f8ddb4f9816598.316, %420 ], [ @anon.f4df14553971ce38a1f8ddb4f9816598.371, %.noexc804 ]
+  %427 = phi ptr [ @anon.f4df14553971ce38a1f8ddb4f9816598.315, %420 ], [ @anon.f4df14553971ce38a1f8ddb4f9816598.370, %.noexc792 ], [ @anon.f4df14553971ce38a1f8ddb4f9816598.370, %.noexc804 ]
+  %428 = phi i64 [ 21, %420 ], [ 14, %.noexc792 ], [ 14, %.noexc804 ]
+  %429 = phi ptr [ @anon.f4df14553971ce38a1f8ddb4f9816598.316, %420 ], [ @anon.f4df14553971ce38a1f8ddb4f9816598.371, %.noexc792 ], [ @anon.f4df14553971ce38a1f8ddb4f9816598.371, %.noexc804 ]
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 %427, i64 noundef %428, ptr noalias noundef readonly align 8 dereferenceable(24) %429) #22
           to label %.cont unwind label %.loopexit.loopexit.split-lp
 

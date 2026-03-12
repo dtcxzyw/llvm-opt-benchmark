@@ -71812,8 +71812,8 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit184.i: ; preds = %576
   %670 = icmp ult i64 %669, %.val165.i
   br i1 %670, label %674, label %671
 
-.thread369.loopexit.i:                            ; preds = %831, %830, %825, %818, %_ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i.i, %768, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h66036c9a343a8419E.exit.thread.i", %753, %740, %738, %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i, %.noexc197.i, %.noexc196.i, %689, %685, %677
-  %.sroa.097.1.ph.ph.i = phi i1 [ false, %830 ], [ false, %831 ], [ false, %825 ], [ false, %818 ], [ false, %768 ], [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h66036c9a343a8419E.exit.thread.i" ], [ true, %738 ], [ true, %753 ], [ true, %740 ], [ true, %685 ], [ true, %677 ], [ true, %689 ], [ true, %.noexc196.i ], [ true, %.noexc197.i ], [ true, %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i ], [ false, %_ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i.i ]
+.thread369.loopexit.i:                            ; preds = %831, %830, %825, %818, %_ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i.i, %768, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h66036c9a343a8419E.exit.thread.i", %753, %740, %738, %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i, %.noexc197.i, %.noexc196.i, %689, %685, %677
+  %.sroa.097.1.ph.ph.i = phi i1 [ false, %830 ], [ false, %831 ], [ false, %825 ], [ false, %818 ], [ false, %768 ], [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h66036c9a343a8419E.exit.thread.i" ], [ true, %738 ], [ true, %753 ], [ true, %740 ], [ true, %685 ], [ true, %677 ], [ true, %689 ], [ true, %.noexc196.i ], [ true, %.noexc197.i ], [ true, %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i ], [ false, %_ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i.i ]
   %lpad.loopexit416.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr84drop_in_place$LT$ruff_linter..rules..pyupgrade..rules..f_strings..IndexOrKeyword$GT$17h8cebf7e05cf3088eE.exit285.i"
@@ -71989,36 +71989,36 @@ _ZN11ruff_linter7locator7Locator5slice17h2604da1ea4c3cb35E.exit.i.i: ; preds = %
   br i1 %.not.i80, label %thread-pre-split.i.i.i, label %718
 
 718:                                              ; preds = %_ZN11ruff_linter7locator7Locator5slice17h2604da1ea4c3cb35E.exit.i.i
-  switch i32 %717, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i [
-    i32 0, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 1, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 2, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 3, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 4, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 5, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 12, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 13, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 14, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 15, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
+  switch i32 %717, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i [
+    i32 0, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 1, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 2, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 3, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 4, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 5, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 12, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 13, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 14, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 15, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
     i32 20, label %719
-    i32 26, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 6, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 7, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 9, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 10, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 11, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
+    i32 26, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 6, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 7, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 9, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 10, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 11, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
     i32 16, label %723
     i32 24, label %727
     i32 25, label %731
   ]
 
 thread-pre-split.i.i.i:                           ; preds = %_ZN11ruff_linter7locator7Locator5slice17h2604da1ea4c3cb35E.exit.i.i
-  switch i32 %717, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i [
-    i32 6, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 7, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 9, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 10, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 11, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
+  switch i32 %717, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i [
+    i32 6, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 7, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 9, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 10, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 11, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
     i32 16, label %723
     i32 24, label %727
     i32 25, label %731
@@ -72028,42 +72028,42 @@ thread-pre-split.i.i.i:                           ; preds = %_ZN11ruff_linter7lo
   %720 = getelementptr inbounds nuw i8, ptr %.sroa.080.0.i, i64 8
   %721 = load i64, ptr %720, align 8, !range !205, !noalias !5943, !noundef !4
   %722 = icmp eq i64 %721, 0
-  br i1 %722, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.i.i, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+  br i1 %722, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.i.i, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
 
 723:                                              ; preds = %thread-pre-split.i.i.i, %718
   %724 = getelementptr inbounds nuw i8, ptr %.sroa.080.0.i, i64 8
   %725 = load ptr, ptr %724, align 8, !noalias !5943, !nonnull !4, !noundef !4
   %726 = load i32, ptr %725, align 8, !range !68, !noalias !5943, !noundef !4
-  switch i32 %726, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i [
-    i32 6, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 7, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 9, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 10, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 11, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
+  switch i32 %726, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i [
+    i32 6, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 7, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 9, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 10, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 11, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
   ]
 
 727:                                              ; preds = %thread-pre-split.i.i.i, %718
   %728 = getelementptr inbounds nuw i8, ptr %.sroa.080.0.i, i64 40
   %729 = load ptr, ptr %728, align 8, !noalias !5943, !nonnull !4, !noundef !4
   %730 = load i32, ptr %729, align 8, !range !68, !noalias !5943, !noundef !4
-  switch i32 %730, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i [
-    i32 6, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 7, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 9, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 10, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 11, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
+  switch i32 %730, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i [
+    i32 6, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 7, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 9, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 10, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 11, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
   ]
 
 731:                                              ; preds = %thread-pre-split.i.i.i, %718
   %732 = getelementptr inbounds nuw i8, ptr %.sroa.080.0.i, i64 8
   %733 = load ptr, ptr %732, align 8, !noalias !5943, !nonnull !4, !noundef !4
   %734 = load i32, ptr %733, align 8, !range !68, !noalias !5943, !noundef !4
-  switch i32 %734, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i [
-    i32 6, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 7, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 9, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 10, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
-    i32 11, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
+  switch i32 %734, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i [
+    i32 6, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 7, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 9, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 10, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
+    i32 11, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
   ]
 
 _ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.i.i: ; preds = %719
@@ -72073,19 +72073,19 @@ _ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202
   store ptr %735, ptr %384, align 8, !noalias !5946
   %736 = call fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h93cda43ab53bb7d2E(ptr noalias noundef align 8 dereferenceable(16) %17), !noalias !5942
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !5946
-  br i1 %736, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
+  br i1 %736, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
 
-_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i: ; preds = %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.i.i, %731, %731, %731, %731, %731, %727, %727, %727, %727, %727, %723, %723, %723, %723, %723, %thread-pre-split.i.i.i, %thread-pre-split.i.i.i, %thread-pre-split.i.i.i, %thread-pre-split.i.i.i, %thread-pre-split.i.i.i, %718, %718, %718, %718, %718, %718, %718, %718, %718, %718, %718, %718, %718, %718, %718, %718
+_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i: ; preds = %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.i.i, %731, %731, %731, %731, %731, %727, %727, %727, %727, %727, %723, %723, %723, %723, %723, %thread-pre-split.i.i.i, %thread-pre-split.i.i.i, %thread-pre-split.i.i.i, %thread-pre-split.i.i.i, %thread-pre-split.i.i.i, %718, %718, %718, %718, %718, %718, %718, %718, %718, %718, %718, %718, %718, %718, %718, %718
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !5938
   store i32 40, ptr %22, align 4, !noalias !5938
   %737 = invoke noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h86acae139f0bc211E"(ptr noalias noundef nonnull readonly align 1 %715, i64 noundef %716, ptr noalias noundef nonnull readonly align 1 %22, i64 noundef 1)
           to label %.noexc200.i unwind label %.thread369.loopexit.i, !noalias !5865
 
-.noexc200.i:                                      ; preds = %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
+.noexc200.i:                                      ; preds = %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !5938
   br i1 %737, label %738, label %740
 
-_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i: ; preds = %.noexc201.i, %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.i.i, %731, %727, %723, %719, %thread-pre-split.i.i.i, %718
+_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i: ; preds = %.noexc201.i, %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.i.i, %731, %727, %723, %719, %thread-pre-split.i.i.i, %718
   store ptr %715, ptr %385, align 8, !alias.scope !5935, !noalias !5870
   store i64 %716, ptr %386, align 8, !alias.scope !5935, !noalias !5870
   store i64 -9223372036854775808, ptr %48, align 8, !alias.scope !5935, !noalias !5870
@@ -72099,7 +72099,7 @@ _ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202
 
 .noexc201.i:                                      ; preds = %738
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !5938
-  br i1 %739, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i, label %740
+  br i1 %739, label %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i, label %740
 
 740:                                              ; preds = %.noexc201.i, %.noexc200.i
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !5938
@@ -72126,9 +72126,9 @@ _ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202
   invoke void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_literal..format..FieldNamePart$GT$$GT$17hd52544a9b0522ba6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %54)
           to label %959 unwind label %.loopexit.split-lp408.i, !noalias !5865
 
-741:                                              ; preds = %.noexc202.i, %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i
-  %742 = phi i64 [ %.pre566.i, %.noexc202.i ], [ %716, %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i ]
-  %743 = phi ptr [ %.pre565.i, %.noexc202.i ], [ %715, %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread3.i.i ]
+741:                                              ; preds = %.noexc202.i, %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i
+  %742 = phi i64 [ %.pre566.i, %.noexc202.i ], [ %716, %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i ]
+  %743 = phi ptr [ %.pre565.i, %.noexc202.i ], [ %715, %_ZN11ruff_linter5rules9pyupgrade5rules9f_strings12parenthesize17h0afcbcff13ba202aE.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !5938
   %744 = getelementptr inbounds nuw i8, ptr %743, i64 %742
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h08b78a1ee9f76c33E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull %743, ptr noundef nonnull %744, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8cc3e55251025b29006123e4bed3261b.205)

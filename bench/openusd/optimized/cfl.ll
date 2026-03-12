@@ -5750,82 +5750,82 @@ max_intra_block_height.exit:                      ; preds = %max_intra_block_wid
   %56 = add nsw i32 %52, %55
   %57 = and i32 %56, %notmask.i21
   %58 = icmp eq i32 %39, %57
-  br i1 %58, label %59, label %64
+  br i1 %58, label %59, label %65
 
 59:                                               ; preds = %max_intra_block_height.exit
   %60 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %39)
   %61 = icmp eq i32 %60, 1
-  br i1 %61, label %.split.i.i, label %get_tx_size.exit
+  br i1 %61, label %.split.i.i, label %64
 
 .split.i.i:                                       ; preds = %59
   %62 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %39, i1 true)
   %switch.tableidx40 = add nsw i32 %62, -3
   %63 = icmp ult i32 %switch.tableidx40, 5
-  br i1 %63, label %switch.lookup41, label %get_tx_size.exit
+  br i1 %63, label %switch.lookup41, label %64
 
-64:                                               ; preds = %max_intra_block_height.exit
-  %65 = icmp slt i32 %39, %57
-  br i1 %65, label %66, label %77
+64:                                               ; preds = %.split.i.i, %.split1.i, %.split.i, %86, %81, %75, %70, %59
+  br label %get_tx_size.exit
 
-66:                                               ; preds = %64
-  %67 = shl nsw i32 %39, 1
-  %68 = icmp eq i32 %67, %57
-  br i1 %68, label %69, label %74
+65:                                               ; preds = %max_intra_block_height.exit
+  %66 = icmp slt i32 %39, %57
+  br i1 %66, label %67, label %78
 
-69:                                               ; preds = %66
-  %70 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %39)
-  %71 = icmp eq i32 %70, 1
-  br i1 %71, label %.split.i, label %88
+67:                                               ; preds = %65
+  %68 = shl nsw i32 %39, 1
+  %69 = icmp eq i32 %68, %57
+  br i1 %69, label %70, label %75
 
-.split.i:                                         ; preds = %69
-  %72 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %39, i1 true)
-  %switch.tableidx = add nsw i32 %72, -2
-  %73 = icmp ult i32 %switch.tableidx, 4
-  br i1 %73, label %switch.lookup, label %88
+70:                                               ; preds = %67
+  %71 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %39)
+  %72 = icmp eq i32 %71, 1
+  br i1 %72, label %.split.i, label %64
 
-74:                                               ; preds = %66
-  switch i32 %39, label %88 [
+.split.i:                                         ; preds = %70
+  %73 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %39, i1 true)
+  %switch.tableidx = add nsw i32 %73, -2
+  %74 = icmp ult i32 %switch.tableidx, 4
+  br i1 %74, label %switch.lookup, label %64
+
+75:                                               ; preds = %67
+  switch i32 %39, label %64 [
     i32 4, label %get_tx_size.exit
-    i32 8, label %75
-    i32 16, label %76
+    i32 8, label %76
+    i32 16, label %77
   ]
 
-75:                                               ; preds = %74
+76:                                               ; preds = %75
   br label %get_tx_size.exit
 
-76:                                               ; preds = %74
+77:                                               ; preds = %75
   br label %get_tx_size.exit
 
-77:                                               ; preds = %64
-  %78 = shl nsw i32 %57, 1
-  %79 = icmp eq i32 %78, %39
-  br i1 %79, label %80, label %85
+78:                                               ; preds = %65
+  %79 = shl nsw i32 %57, 1
+  %80 = icmp eq i32 %79, %39
+  br i1 %80, label %81, label %86
 
-80:                                               ; preds = %77
-  %81 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %57)
-  %82 = icmp eq i32 %81, 1
-  br i1 %82, label %.split1.i, label %88
+81:                                               ; preds = %78
+  %82 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %57)
+  %83 = icmp eq i32 %82, 1
+  br i1 %83, label %.split1.i, label %64
 
-.split1.i:                                        ; preds = %80
-  %83 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %57, i1 true)
-  %switch.tableidx34 = add nsw i32 %83, -2
-  %84 = icmp ult i32 %switch.tableidx34, 4
-  br i1 %84, label %switch.lookup35, label %88
+.split1.i:                                        ; preds = %81
+  %84 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %57, i1 true)
+  %switch.tableidx34 = add nsw i32 %84, -2
+  %85 = icmp ult i32 %switch.tableidx34, 4
+  br i1 %85, label %switch.lookup35, label %64
 
-85:                                               ; preds = %77
-  switch i32 %57, label %88 [
+86:                                               ; preds = %78
+  switch i32 %57, label %64 [
     i32 4, label %get_tx_size.exit
-    i32 8, label %86
-    i32 16, label %87
+    i32 8, label %87
+    i32 16, label %88
   ]
 
-86:                                               ; preds = %85
+87:                                               ; preds = %86
   br label %get_tx_size.exit
 
-87:                                               ; preds = %85
-  br label %get_tx_size.exit
-
-88:                                               ; preds = %.split1.i, %.split.i, %85, %80, %74, %69
+88:                                               ; preds = %86
   br label %get_tx_size.exit
 
 switch.lookup:                                    ; preds = %.split.i
@@ -5844,8 +5844,8 @@ switch.lookup41:                                  ; preds = %.split.i.i
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_tx_size.exit
 
-get_tx_size.exit:                                 ; preds = %59, %.split.i.i, %switch.lookup41, %switch.lookup35, %switch.lookup, %74, %75, %76, %85, %86, %87, %88
-  %.0.i.shrunk = phi i32 [ 14, %85 ], [ 0, %88 ], [ 18, %87 ], [ %switch.load, %switch.lookup41 ], [ 16, %86 ], [ %narrow, %switch.lookup35 ], [ %narrow39, %switch.lookup ], [ 15, %75 ], [ 17, %76 ], [ 13, %74 ], [ 0, %.split.i.i ], [ 0, %59 ]
+get_tx_size.exit:                                 ; preds = %switch.lookup41, %switch.lookup35, %switch.lookup, %64, %75, %76, %77, %86, %87, %88
+  %.0.i.shrunk = phi i32 [ 14, %86 ], [ %switch.load, %switch.lookup41 ], [ 18, %88 ], [ %narrow, %switch.lookup35 ], [ 0, %64 ], [ 16, %87 ], [ %narrow39, %switch.lookup ], [ 15, %76 ], [ 17, %77 ], [ 13, %75 ]
   %.0.i = zext i32 %.0.i.shrunk to i64
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %93 = load ptr, ptr %92, align 8

@@ -5730,7 +5730,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm16AArch64InstrInfo19canR
   br i1 %24, label %.critedge, label %25
 
 25:                                               ; preds = %21, %19
-  switch i16 %7, label %_ZN4llvmL13isPTrueOpcodeEj.exit [
+  switch i16 %7, label %93 [
     i16 5464, label %26
     i16 5470, label %26
     i16 5471, label %26
@@ -5743,7 +5743,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm16AArch64InstrInfo19canR
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load i64, ptr %29, align 8, !tbaa !252
   %31 = icmp eq i64 %30, 31
-  br i1 %31, label %32, label %_ZN4llvmL13isPTrueOpcodeEj.exit
+  br i1 %31, label %32, label %93
 
 32:                                               ; preds = %26
   %33 = zext nneg i16 %7 to i64
@@ -5754,10 +5754,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm16AArch64InstrInfo19canR
   %38 = xor i64 %37, %17
   %39 = and i64 %38, 7
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %.critedge, label %_ZN4llvmL13isPTrueOpcodeEj.exit
-
-_ZN4llvmL13isPTrueOpcodeEj.exit:                  ; preds = %25, %32, %26
-  br label %.critedge
+  br i1 %40, label %.critedge, label %93
 
 41:                                               ; preds = %5
   %42 = and i64 %17, 1024
@@ -5840,7 +5837,7 @@ _ZN4llvmL13isPTrueOpcodeEj.exit43:                ; preds = %49, %72, %56, %50
   %92 = icmp eq i16 %91, 1046
   br i1 %92, label %.critedge, label %93
 
-93:                                               ; preds = %89, %_ZN4llvmL13isPTrueOpcodeEj.exit43
+93:                                               ; preds = %26, %32, %25, %89, %_ZN4llvmL13isPTrueOpcodeEj.exit43
   br label %.critedge
 
 94:                                               ; preds = %41
@@ -5886,9 +5883,9 @@ _ZN4llvmL13isPTrueOpcodeEj.exit43:                ; preds = %49, %72, %56, %50
   %107 = tail call noundef i32 @_ZN4llvm16AArch64InstrInfo23convertToFlagSettingOpcEj(i32 noundef %10)
   br label %.critedge
 
-.critedge:                                        ; preds = %94, %101, %102, %95, %82, %89, %65, %72, %45, %32, %21, %93, %.critedge41, %_ZN4llvmL13isPTrueOpcodeEj.exit
-  %.sroa.0.0 = phi i32 [ undef, %95 ], [ %10, %21 ], [ undef, %_ZN4llvmL13isPTrueOpcodeEj.exit ], [ %10, %32 ], [ %10, %45 ], [ %10, %65 ], [ undef, %93 ], [ undef, %101 ], [ %107, %.critedge41 ], [ %10, %82 ], [ %10, %72 ], [ %10, %89 ], [ undef, %102 ], [ undef, %94 ]
-  %.sroa.7.0 = phi i64 [ 0, %95 ], [ 4294967296, %21 ], [ 0, %_ZN4llvmL13isPTrueOpcodeEj.exit ], [ 4294967296, %32 ], [ 4294967296, %45 ], [ 4294967296, %65 ], [ 0, %93 ], [ 0, %101 ], [ 4294967296, %.critedge41 ], [ 4294967296, %82 ], [ 4294967296, %72 ], [ 4294967296, %89 ], [ 0, %102 ], [ 0, %94 ]
+.critedge:                                        ; preds = %94, %101, %102, %95, %82, %89, %65, %72, %45, %32, %21, %93, %.critedge41
+  %.sroa.0.0 = phi i32 [ undef, %95 ], [ %10, %21 ], [ undef, %94 ], [ %10, %32 ], [ %10, %45 ], [ %10, %65 ], [ undef, %93 ], [ undef, %101 ], [ %107, %.critedge41 ], [ %10, %82 ], [ %10, %72 ], [ %10, %89 ], [ undef, %102 ]
+  %.sroa.7.0 = phi i64 [ 0, %95 ], [ 4294967296, %21 ], [ 0, %94 ], [ 4294967296, %32 ], [ 4294967296, %45 ], [ 4294967296, %65 ], [ 0, %93 ], [ 0, %101 ], [ 4294967296, %.critedge41 ], [ 4294967296, %82 ], [ 4294967296, %72 ], [ 4294967296, %89 ], [ 0, %102 ]
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.7.0, %.sroa.0.0.insert.ext
   ret i64 %.sroa.0.0.insert.insert
@@ -40176,7 +40173,7 @@ switch.edge:                                      ; preds = %22, %12, %1, %1, %1
 define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFastERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4, !tbaa !247
-  switch i16 %3, label %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit.fold.split [
+  switch i16 %3, label %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit.thread [
     i16 1555, label %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit
     i16 1556, label %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit
     i16 5229, label %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit
@@ -40283,7 +40280,7 @@ _ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit: ; preds = %46
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit, label %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit.thread
 
-_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit.thread: ; preds = %36, %43, %46, %15, %21, %29, %32, %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit
+_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit.thread: ; preds = %1, %36, %43, %46, %15, %21, %29, %32, %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit
   br label %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit
 
 55:                                               ; preds = %1, %1, %1, %1
@@ -40308,11 +40305,8 @@ _ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit.thread: ; pred
   %70 = icmp eq i64 %69, 0
   br label %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit
 
-_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit.fold.split: ; preds = %1
-  br label %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit
-
-_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit: ; preds = %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit.thread, %1, %1, %1, %1, %1, %1, %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit.fold.split, %11, %67, %61, %55, %32, %4, %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit
-  %.0 = phi i1 [ true, %1 ], [ true, %32 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit ], [ false, %4 ], [ %spec.select, %11 ], [ false, %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit.thread ], [ %70, %67 ], [ %60, %55 ], [ false, %61 ], [ false, %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit.fold.split ]
+_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit: ; preds = %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit.thread, %1, %1, %1, %1, %1, %1, %11, %67, %61, %55, %32, %4, %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit
+  %.0 = phi i1 [ true, %1 ], [ true, %32 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit ], [ false, %4 ], [ %spec.select, %11 ], [ false, %_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE.exit.thread ], [ %70, %67 ], [ %60, %55 ], [ false, %61 ]
   ret i1 %.0
 }
 
@@ -40456,7 +40450,7 @@ switch.lookup:                                    ; preds = %12
   br label %switch.edge
 
 switch.edge:                                      ; preds = %switch.lookup, %12, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %4, %15
-  %.0 = phi i1 [ false, %15 ], [ true, %1 ], [ true, %1 ], [ %switch.masked, %switch.lookup ], [ false, %12 ], [ true, %1 ], [ true, %4 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
+  %.0 = phi i1 [ %switch.masked, %switch.lookup ], [ true, %1 ], [ false, %15 ], [ false, %12 ], [ true, %1 ], [ true, %1 ], [ true, %4 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
   ret i1 %.0
 }
 

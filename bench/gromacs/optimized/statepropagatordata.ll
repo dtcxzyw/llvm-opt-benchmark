@@ -10773,7 +10773,7 @@ _ZNK3gmx3Any6isTypeIfEEbv.exit.i.i.i:             ; preds = %134
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %141, label %.invoke
 
-.invoke:                                          ; preds = %163, %178, %_ZNK3gmx3Any6isTypeIfEEbv.exit.i.i.i46, %141, %156, %_ZNK3gmx3Any6isTypeIfEEbv.exit.i.i.i39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %134, %_ZNK3gmx3Any6isTypeIfEEbv.exit.i.i.i
+.invoke:                                          ; preds = %163, %178, %_ZNK3gmx3Any6isTypeIfEEbv.exit.i.i.i46, %_ZNK3gmx3Any6isTypeIfEEbv.exit.i.i.i39, %156, %141, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %134, %_ZNK3gmx3Any6isTypeIfEEbv.exit.i.i.i
   invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZNK3gmx3Any4castIiEERKT_vENKUlvE_clEv, ptr noundef nonnull @.str.78, i32 noundef 190) #36
           to label %.cont unwind label %.loopexit.split-lp64
 

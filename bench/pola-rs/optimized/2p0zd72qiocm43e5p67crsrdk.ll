@@ -13588,7 +13588,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8opt
   %.not26.i = icmp ugt i64 %spec.select.i, %109
   br i1 %.not26.i, label %.invoke, label %113, !prof !30
 
-.invoke:                                          ; preds = %179, %168, %153, %.noexc183
+.invoke:                                          ; preds = %168, %153, %179, %.noexc183
   %112 = phi ptr [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %.noexc183 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.108, %168 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %153 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %179 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.da0563d5869be24e05dc7f2d7001001a.104, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) %112) #23
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -14371,7 +14371,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8opt
   %.not26.i = icmp ugt i64 %spec.select.i, %115
   br i1 %.not26.i, label %.invoke, label %119, !prof !30
 
-.invoke:                                          ; preds = %186, %175, %160, %.noexc164
+.invoke:                                          ; preds = %175, %160, %186, %.noexc164
   %118 = phi ptr [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %.noexc164 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.108, %175 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %160 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %186 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.da0563d5869be24e05dc7f2d7001001a.104, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) %118) #23
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -15164,7 +15164,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8opt
   %.not26.i = icmp ugt i64 %spec.select.i, %115
   br i1 %.not26.i, label %.invoke, label %119, !prof !30
 
-.invoke:                                          ; preds = %186, %175, %160, %.noexc164
+.invoke:                                          ; preds = %175, %160, %186, %.noexc164
   %118 = phi ptr [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %.noexc164 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.108, %175 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %160 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %186 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.da0563d5869be24e05dc7f2d7001001a.104, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) %118) #23
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -15947,7 +15947,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8opt
   %.not26.i = icmp ugt i64 %spec.select.i, %110
   br i1 %.not26.i, label %.invoke, label %114, !prof !30
 
-.invoke:                                          ; preds = %181, %170, %155, %.noexc179
+.invoke:                                          ; preds = %170, %155, %181, %.noexc179
   %113 = phi ptr [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %.noexc179 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.108, %170 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %155 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %181 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.da0563d5869be24e05dc7f2d7001001a.104, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) %113) #23
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -16723,7 +16723,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8opt
   %.not26.i = icmp ugt i64 %spec.select.i, %109
   br i1 %.not26.i, label %.invoke, label %113, !prof !30
 
-.invoke:                                          ; preds = %179, %168, %153, %.noexc183
+.invoke:                                          ; preds = %168, %153, %179, %.noexc183
   %112 = phi ptr [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %.noexc183 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.108, %168 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %153 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %179 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.da0563d5869be24e05dc7f2d7001001a.104, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) %112) #23
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -17506,7 +17506,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8opt
   %.not26.i = icmp ugt i64 %spec.select.i, %115
   br i1 %.not26.i, label %.invoke, label %119, !prof !30
 
-.invoke:                                          ; preds = %186, %175, %160, %.noexc164
+.invoke:                                          ; preds = %175, %160, %186, %.noexc164
   %118 = phi ptr [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %.noexc164 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.108, %175 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %160 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %186 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.da0563d5869be24e05dc7f2d7001001a.104, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) %118) #23
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -18299,7 +18299,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8opt
   %.not26.i = icmp ugt i64 %spec.select.i, %115
   br i1 %.not26.i, label %.invoke, label %119, !prof !30
 
-.invoke:                                          ; preds = %186, %175, %160, %.noexc164
+.invoke:                                          ; preds = %175, %160, %186, %.noexc164
   %118 = phi ptr [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %.noexc164 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.108, %175 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %160 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %186 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.da0563d5869be24e05dc7f2d7001001a.104, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) %118) #23
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -19081,7 +19081,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8opt
   %.not26.i = icmp ugt i64 %spec.select.i, %109
   br i1 %.not26.i, label %.invoke, label %113, !prof !30
 
-.invoke:                                          ; preds = %179, %168, %153, %.noexc183
+.invoke:                                          ; preds = %168, %153, %179, %.noexc183
   %112 = phi ptr [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %.noexc183 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.108, %168 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %153 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %179 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.da0563d5869be24e05dc7f2d7001001a.104, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) %112) #23
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -19850,7 +19850,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded8opt
   %.not26.i = icmp ugt i64 %spec.select.i, %106
   br i1 %.not26.i, label %.invoke, label %110, !prof !30
 
-.invoke:                                          ; preds = %176, %165, %150, %.noexc183
+.invoke:                                          ; preds = %165, %150, %176, %.noexc183
   %109 = phi ptr [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %.noexc183 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.108, %165 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %150 ], [ @anon.da0563d5869be24e05dc7f2d7001001a.106, %176 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.da0563d5869be24e05dc7f2d7001001a.104, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) %109) #23
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

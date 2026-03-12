@@ -38651,11 +38651,11 @@ define internal fastcc noundef range(i32 -1, 12) i32 @_ZL20getExtendTypeForNodeN
 22:                                               ; preds = %21
   %switch.tableidx = add i16 %.sroa.054.0, -5
   %23 = icmp ult i16 %switch.tableidx, 3
-  br i1 %23, label %switch.lookup, label %_ZNK4llvm3EVTeqES0_.exit22.fold.split78
+  br i1 %23, label %switch.lookup, label %_ZNK4llvm3EVTeqES0_.exit22.fold.split80
 
 .critedge:                                        ; preds = %21
   %.not.i.i20 = icmp eq i16 %.sroa.054.0, 7
-  br i1 %.not.i.i20, label %_ZNK4llvm3EVTeqES0_.exit22, label %_ZNK4llvm3EVTeqES0_.exit22.fold.split78
+  br i1 %.not.i.i20, label %_ZNK4llvm3EVTeqES0_.exit22, label %_ZNK4llvm3EVTeqES0_.exit22.fold.split80
 
 24:                                               ; preds = %2, %2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -38718,10 +38718,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit: ; preds = %36,
 54:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit
   br label %_ZNK4llvm3EVTeqES0_.exit22
 
-_ZNK4llvm3EVTeqES0_.exit22.fold.split78:          ; preds = %22, %.critedge
-  br label %_ZNK4llvm3EVTeqES0_.exit22
-
-_ZNK4llvm3EVTeqES0_.exit22.fold.split80:          ; preds = %34, %.critedge15
+_ZNK4llvm3EVTeqES0_.exit22.fold.split80:          ; preds = %.critedge, %22, %34, %.critedge15
   br label %_ZNK4llvm3EVTeqES0_.exit22
 
 switch.lookup:                                    ; preds = %22
@@ -38733,8 +38730,8 @@ switch.lookup82:                                  ; preds = %34
   %switch.offset84 = zext nneg i16 %.sroa.0.0.copyload.i.i23 to i32
   br label %_ZNK4llvm3EVTeqES0_.exit22
 
-_ZNK4llvm3EVTeqES0_.exit22:                       ; preds = %.critedge15, %switch.lookup82, %.critedge, %switch.lookup, %2, %_ZNK4llvm3EVTeqES0_.exit22.fold.split80, %_ZNK4llvm3EVTeqES0_.exit22.fold.split78, %36, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit, %54, %52, %50
-  %.1 = phi i32 [ -1, %2 ], [ 7, %.critedge15 ], [ -1, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit ], [ -1, %_ZNK4llvm3EVTeqES0_.exit22.fold.split78 ], [ 7, %54 ], [ %51, %50 ], [ %53, %52 ], [ 11, %.critedge ], [ %switch.offset, %switch.lookup ], [ -1, %_ZNK4llvm3EVTeqES0_.exit22.fold.split80 ], [ -1, %36 ], [ %switch.offset84, %switch.lookup82 ]
+_ZNK4llvm3EVTeqES0_.exit22:                       ; preds = %.critedge15, %switch.lookup82, %.critedge, %switch.lookup, %2, %_ZNK4llvm3EVTeqES0_.exit22.fold.split80, %36, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit, %54, %52, %50
+  %.1 = phi i32 [ -1, %2 ], [ 7, %.critedge15 ], [ -1, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit ], [ %switch.offset84, %switch.lookup82 ], [ 7, %54 ], [ %51, %50 ], [ %53, %52 ], [ 11, %.critedge ], [ %switch.offset, %switch.lookup ], [ -1, %_ZNK4llvm3EVTeqES0_.exit22.fold.split80 ], [ -1, %36 ]
   ret i32 %.1
 }
 

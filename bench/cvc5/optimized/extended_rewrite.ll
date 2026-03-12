@@ -1275,10 +1275,7 @@ define hidden void @_ZNK4cvc58internal6theory11quantifiers16ExtendedRewriter8get
   %53 = load i64, ptr %52, align 8, !tbaa !113, !noalias !105
   %54 = urem i64 %53, %30
   %.not19.i.i.i.i.i.i.i.i.i = icmp eq i64 %54, %31
-  br i1 %.not19.i.i.i.i.i.i.i.i.i, label %44, label %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i, !llvm.loop !115
-
-..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i:         ; preds = %51
-  br label %_ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6theory11quantifiers24ExtRewriteAggAttributeIdES2_EEEEbRKT_.exit.thread, !llvm.loop !115
+  br i1 %.not19.i.i.i.i.i.i.i.i.i, label %44, label %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i7, !llvm.loop !115
 
 _ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6theory11quantifiers24ExtRewriteAggAttributeIdES2_EEEEbRKT_.exit: ; preds = %44, %21, %35
   %.sroa.06.1.i.i.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i.i, %21 ], [ %36, %35 ], [ %50, %44 ]
@@ -1365,7 +1362,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6th
   %.not19.i.i.i.i.i.i.i.i.i6 = icmp eq i64 %103, %80
   br i1 %.not19.i.i.i.i.i.i.i.i.i6, label %93, label %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i7, !llvm.loop !115
 
-..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i7:        ; preds = %100
+..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i7:        ; preds = %100, %51
   br label %_ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6theory11quantifiers24ExtRewriteAggAttributeIdES2_EEEEbRKT_.exit.thread, !llvm.loop !115
 
 _ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6theory11quantifiers21ExtRewriteAttributeIdES2_EEEEbRKT_.exit: ; preds = %93, %70, %84
@@ -1388,7 +1385,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6th
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !130
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
-_ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6theory11quantifiers24ExtRewriteAggAttributeIdES2_EEEEbRKT_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i3, %69, %.lr.ph.i.i.i.i.i.i.i.i.i, %20, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i7, %74, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i, %25, %_ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6theory11quantifiers21ExtRewriteAttributeIdES2_EEEEbRKT_.exit, %_ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6theory11quantifiers24ExtRewriteAggAttributeIdES2_EEEEbRKT_.exit
+_ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6theory11quantifiers24ExtRewriteAggAttributeIdES2_EEEEbRKT_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i3, %69, %.lr.ph.i.i.i.i.i.i.i.i.i, %20, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i7, %74, %25, %_ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6theory11quantifiers21ExtRewriteAttributeIdES2_EEEEbRKT_.exit, %_ZNK4cvc58internal12NodeTemplateILb1EE12hasAttributeINS0_4expr9AttributeINS0_6theory11quantifiers24ExtRewriteAggAttributeIdES2_EEEEbRKT_.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
   %114 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !tbaa !17, !noalias !133
   store ptr %114, ptr %0, align 8, !tbaa !17, !alias.scope !133

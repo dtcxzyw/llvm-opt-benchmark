@@ -1136,7 +1136,7 @@ _ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i213.i.i.i:      ; preds = %385, %384
   %420 = icmp ugt i64 %412, 9223372036854775804
   br i1 %420, label %.invoke, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i238.i.i.i, !prof !71
 
-.invoke:                                          ; preds = %372, %338, %419
+.invoke:                                          ; preds = %338, %372, %419
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
           to label %.cont unwind label %.loopexit.split-lp262.i.i.i
 

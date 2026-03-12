@@ -8405,34 +8405,34 @@ _ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %6, 
 
 34:                                               ; preds = %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
   switch i32 %31, label %.thread [
-    i32 3, label %36
-    i32 1, label %35
-    i32 2, label %36
+    i32 3, label %35
+    i32 1, label %49
+    i32 2, label %35
   ]
 
-35:                                               ; preds = %34
-  br label %.thread
+35:                                               ; preds = %34, %34
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %37 = load i32, ptr %36, align 4, !tbaa !12
+  %38 = load ptr, ptr %0, align 8, !tbaa !15
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 200
+  %40 = load ptr, ptr %39, align 8
+  %41 = call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %.0.i, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %42 = load i32, ptr %2, align 4, !tbaa !13
+  %43 = icmp sgt i32 %42, 0
+  br i1 %43, label %.thread, label %44
 
-36:                                               ; preds = %34, %34
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %38 = load i32, ptr %37, align 4, !tbaa !12
-  %39 = load ptr, ptr %0, align 8, !tbaa !15
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 200
-  %41 = load ptr, ptr %40, align 8
-  %42 = call noundef i32 %41(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %.0.i, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %43 = load i32, ptr %2, align 4, !tbaa !13
-  %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %.thread, label %45
+44:                                               ; preds = %35
+  %45 = icmp eq i32 %31, 2
+  %46 = icmp slt i32 %37, %41
+  %47 = xor i1 %45, %46
+  %48 = zext i1 %47 to i8
+  br label %49
 
-45:                                               ; preds = %36
-  %46 = icmp eq i32 %31, 2
-  %47 = icmp slt i32 %38, %42
-  %48 = xor i1 %46, %47
-  %49 = zext i1 %48 to i8
-  br label %.thread
+.thread:                                          ; preds = %35, %34, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
+  br label %49
 
-.thread:                                          ; preds = %36, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit, %34, %45, %35
-  %.0 = phi i8 [ 0, %36 ], [ %49, %45 ], [ 1, %35 ], [ 0, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit ], [ 0, %34 ]
+49:                                               ; preds = %44, %34, %.thread
+  %.0 = phi i8 [ 0, %.thread ], [ %48, %44 ], [ 1, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i8 %.0
 }

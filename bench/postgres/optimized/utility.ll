@@ -328,40 +328,37 @@ define dso_local void @standard_ProcessUtility(ptr noundef %0, ptr noundef %1, i
     i32 251, label %21
     i32 223, label %21
     i32 157, label %21
-    i32 237, label %22
-    i32 247, label %22
-    i32 238, label %22
-    i32 156, label %23
+    i32 237, label %33
+    i32 247, label %33
+    i32 238, label %33
+    i32 156, label %22
     i32 240, label %ClassifyUtilityCommandAsReadOnly.exit
     i32 158, label %ClassifyUtilityCommandAsReadOnly.exit
-    i32 222, label %22
-    i32 221, label %22
-    i32 245, label %27
-    i32 224, label %31
+    i32 222, label %33
+    i32 221, label %33
+    i32 245, label %26
+    i32 224, label %30
   ]
 
 21:                                               ; preds = %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17
   br label %select.unfold
 
-22:                                               ; preds = %17, %17, %17, %17, %17
-  br label %select.unfold
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %24 = load i8, ptr %23, align 8, !range !4, !noundef !5
+  %25 = trunc nuw i8 %24 to i1
+  br i1 %25, label %select.unfold, label %ClassifyUtilityCommandAsReadOnly.exit
 
-23:                                               ; preds = %17
-  %24 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %25 = load i8, ptr %24, align 8, !range !4, !noundef !5
-  %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %select.unfold, label %ClassifyUtilityCommandAsReadOnly.exit
+26:                                               ; preds = %17
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp sgt i32 %28, 3
+  br i1 %29, label %select.unfold, label %ClassifyUtilityCommandAsReadOnly.exit
 
-27:                                               ; preds = %17
-  %28 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %29 = load i32, ptr %28, align 8
-  %30 = icmp sgt i32 %29, 3
-  br i1 %30, label %select.unfold, label %ClassifyUtilityCommandAsReadOnly.exit
-
-31:                                               ; preds = %17
-  %32 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %33 = load i32, ptr %32, align 4
-  switch i32 %33, label %34 [
+30:                                               ; preds = %17
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %32 = load i32, ptr %31, align 4
+  switch i32 %32, label %34 [
     i32 0, label %ClassifyUtilityCommandAsReadOnly.exit
     i32 1, label %ClassifyUtilityCommandAsReadOnly.exit
     i32 2, label %ClassifyUtilityCommandAsReadOnly.exit
@@ -369,14 +366,17 @@ define dso_local void @standard_ProcessUtility(ptr noundef %0, ptr noundef %1, i
     i32 4, label %ClassifyUtilityCommandAsReadOnly.exit
     i32 5, label %ClassifyUtilityCommandAsReadOnly.exit
     i32 6, label %ClassifyUtilityCommandAsReadOnly.exit
-    i32 7, label %select.unfold
-    i32 8, label %select.unfold
-    i32 9, label %select.unfold
+    i32 7, label %33
+    i32 8, label %33
+    i32 9, label %33
   ]
 
-34:                                               ; preds = %31
+33:                                               ; preds = %30, %30, %30, %17, %17, %17, %17, %17
+  br label %select.unfold
+
+34:                                               ; preds = %30
   %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %36 = load i32, ptr %32, align 4
+  %36 = load i32, ptr %31, align 4
   %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, i32 noundef %36) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 386, ptr noundef nonnull @__func__.ClassifyUtilityCommandAsReadOnly) #10
   unreachable
@@ -388,9 +388,9 @@ define dso_local void @standard_ProcessUtility(ptr noundef %0, ptr noundef %1, i
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 392, ptr noundef nonnull @__func__.ClassifyUtilityCommandAsReadOnly) #10
   unreachable
 
-select.unfold:                                    ; preds = %27, %23, %31, %31, %31, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %21, %22
-  %42 = phi i1 [ true, %23 ], [ true, %31 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %22 ], [ false, %21 ], [ true, %17 ], [ true, %17 ], [ true, %31 ], [ true, %31 ], [ true, %27 ]
-  %43 = phi i1 [ false, %23 ], [ false, %31 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ false, %22 ], [ false, %21 ], [ true, %17 ], [ true, %17 ], [ false, %31 ], [ false, %31 ], [ false, %27 ]
+select.unfold:                                    ; preds = %26, %22, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %21, %33
+  %42 = phi i1 [ true, %22 ], [ true, %17 ], [ true, %33 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ false, %21 ], [ true, %17 ], [ true, %17 ], [ true, %26 ]
+  %43 = phi i1 [ false, %22 ], [ true, %17 ], [ false, %33 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ false, %21 ], [ true, %17 ], [ true, %17 ], [ false, %26 ]
   %44 = load i8, ptr @XactReadOnly, align 1, !range !4, !noundef !5
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %48, label %46
@@ -443,7 +443,7 @@ PreventCommandIfParallelMode.exit:                ; preds = %PreventCommandIfRea
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 448, ptr noundef nonnull @__func__.PreventCommandDuringRecovery) #10
   unreachable
 
-ClassifyUtilityCommandAsReadOnly.exit:            ; preds = %17, %17, %17, %17, %17, %17, %64, %31, %31, %31, %31, %31, %31, %31, %23, %27, %PreventCommandIfParallelMode.exit, %46
+ClassifyUtilityCommandAsReadOnly.exit:            ; preds = %17, %17, %17, %17, %17, %17, %64, %30, %30, %30, %30, %30, %30, %30, %22, %26, %PreventCommandIfParallelMode.exit, %46
   %71 = tail call ptr @make_parsestate(ptr noundef null) #10
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %1, ptr %72, align 8
@@ -1030,127 +1030,127 @@ define dso_local range(i32 0, 193) i32 @CreateCommandTag(ptr noundef readonly ca
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1
   %.tr = phi ptr [ %0, %1 ], [ %.tr.be, %tailrecurse.backedge ]
   %2 = load i32, ptr %.tr, align 4
-  switch i32 %2, label %222 [
+  switch i32 %2, label %215 [
     i32 136, label %tailrecurse.backedge
     i32 137, label %.loopexit
     i32 138, label %.loopexit179
     i32 139, label %.loopexit297
     i32 140, label %switch.lookup.loopexit
-    i32 141, label %switch.lookup.loopexit540
-    i32 144, label %switch.lookup.loopexit540
+    i32 141, label %.loopexit417
+    i32 144, label %.loopexit417
     i32 224, label %4
-    i32 200, label %switch.lookup
+    i32 200, label %switch.lookup.loopexit543
     i32 201, label %8
     i32 202, label %12
-    i32 191, label %17
-    i32 145, label %18
-    i32 159, label %19
-    i32 161, label %20
-    i32 162, label %21
-    i32 163, label %22
-    i32 165, label %23
-    i32 166, label %24
-    i32 167, label %24
-    i32 168, label %25
-    i32 169, label %26
-    i32 170, label %27
-    i32 171, label %28
-    i32 173, label %29
-    i32 174, label %30
-    i32 175, label %31
-    i32 172, label %32
-    i32 176, label %33
-    i32 196, label %34
-    i32 197, label %38
-    i32 198, label %39
-    i32 199, label %40
-    i32 156, label %41
-    i32 214, label %42
-    i32 215, label %52
-    i32 216, label %56
-    i32 217, label %60
-    i32 164, label %64
-    i32 146, label %68
-    i32 150, label %72
-    i32 209, label %73
-    i32 151, label %79
-    i32 154, label %84
-    i32 155, label %89
-    i32 190, label %90
-    i32 225, label %102
-    i32 226, label %102
-    i32 227, label %102
-    i32 228, label %103
-    i32 229, label %104
-    i32 207, label %105
-    i32 203, label %109
-    i32 220, label %110
-    i32 188, label %111
-    i32 189, label %112
-    i32 210, label %113
-    i32 231, label %114
-    i32 232, label %115
-    i32 233, label %115
-    i32 234, label %115
-    i32 235, label %116
-    i32 221, label %117
-    i32 222, label %118
-    i32 223, label %119
-    i32 230, label %120
-    i32 212, label %121
-    i32 237, label %122
-    i32 238, label %123
-    i32 240, label %127
-    i32 241, label %128
-    i32 242, label %136
-    i32 236, label %137
-    i32 157, label %138
-    i32 158, label %142
-    i32 244, label %143
-    i32 250, label %147
-    i32 180, label %148
-    i32 181, label %149
-    i32 182, label %150
-    i32 183, label %151
-    i32 184, label %152
-    i32 185, label %153
-    i32 186, label %153
-    i32 187, label %154
-    i32 254, label %155
-    i32 255, label %156
-    i32 245, label %157
-    i32 246, label %158
-    i32 243, label %159
-    i32 247, label %160
-    i32 248, label %161
-    i32 249, label %162
-    i32 192, label %163
-    i32 194, label %164
-    i32 195, label %165
-    i32 218, label %166
-    i32 219, label %103
-    i32 256, label %167
-    i32 257, label %168
-    i32 177, label %169
-    i32 178, label %170
-    i32 179, label %171
-    i32 260, label %172
-    i32 261, label %173
-    i32 262, label %174
-    i32 263, label %175
-    i32 264, label %176
-    i32 149, label %177
-    i32 251, label %178
-    i32 252, label %179
-    i32 204, label %180
-    i32 206, label %181
-    i32 253, label %182
-    i32 329, label %186
-    i32 67, label %204
+    i32 191, label %switch.lookup
+    i32 145, label %17
+    i32 159, label %18
+    i32 161, label %19
+    i32 162, label %20
+    i32 163, label %21
+    i32 165, label %22
+    i32 166, label %23
+    i32 167, label %23
+    i32 168, label %24
+    i32 169, label %25
+    i32 170, label %26
+    i32 171, label %27
+    i32 173, label %28
+    i32 174, label %29
+    i32 175, label %30
+    i32 172, label %31
+    i32 176, label %32
+    i32 196, label %33
+    i32 197, label %37
+    i32 198, label %38
+    i32 199, label %39
+    i32 156, label %40
+    i32 214, label %41
+    i32 215, label %51
+    i32 216, label %55
+    i32 217, label %59
+    i32 164, label %63
+    i32 146, label %67
+    i32 150, label %71
+    i32 209, label %72
+    i32 151, label %77
+    i32 154, label %82
+    i32 155, label %87
+    i32 190, label %88
+    i32 225, label %.loopexit418
+    i32 226, label %.loopexit418
+    i32 227, label %.loopexit418
+    i32 228, label %97
+    i32 229, label %98
+    i32 207, label %99
+    i32 203, label %103
+    i32 220, label %104
+    i32 188, label %105
+    i32 189, label %106
+    i32 210, label %107
+    i32 231, label %108
+    i32 232, label %109
+    i32 233, label %109
+    i32 234, label %109
+    i32 235, label %110
+    i32 221, label %111
+    i32 222, label %112
+    i32 223, label %113
+    i32 230, label %114
+    i32 212, label %115
+    i32 237, label %116
+    i32 238, label %117
+    i32 240, label %121
+    i32 241, label %122
+    i32 242, label %129
+    i32 236, label %130
+    i32 157, label %131
+    i32 158, label %135
+    i32 244, label %136
+    i32 250, label %140
+    i32 180, label %141
+    i32 181, label %142
+    i32 182, label %143
+    i32 183, label %144
+    i32 184, label %145
+    i32 185, label %146
+    i32 186, label %146
+    i32 187, label %147
+    i32 254, label %148
+    i32 255, label %149
+    i32 245, label %150
+    i32 246, label %151
+    i32 243, label %152
+    i32 247, label %153
+    i32 248, label %154
+    i32 249, label %155
+    i32 192, label %156
+    i32 194, label %157
+    i32 195, label %158
+    i32 218, label %159
+    i32 219, label %97
+    i32 256, label %160
+    i32 257, label %161
+    i32 177, label %162
+    i32 178, label %163
+    i32 179, label %.loopexit419
+    i32 260, label %164
+    i32 261, label %165
+    i32 262, label %166
+    i32 263, label %167
+    i32 264, label %168
+    i32 149, label %169
+    i32 251, label %170
+    i32 252, label %171
+    i32 204, label %172
+    i32 206, label %173
+    i32 253, label %174
+    i32 329, label %178
+    i32 67, label %196
   ]
 
-tailrecurse.backedge:                             ; preds = %tailrecurse, %204, %186
-  %.sink = phi i64 [ 32, %204 ], [ 136, %186 ], [ 8, %tailrecurse ]
+tailrecurse.backedge:                             ; preds = %tailrecurse, %196, %178
+  %.sink = phi i64 [ 32, %196 ], [ 136, %178 ], [ 8, %tailrecurse ]
   %3 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink
   %.tr.be = load ptr, ptr %3, align 8
   br label %tailrecurse
@@ -1159,7 +1159,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %204, 
   %5 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp ult i32 %6, 10
-  br i1 %7, label %switch.lookup526, label %switch.lookup
+  br i1 %7, label %switch.lookup529, label %208
 
 8:                                                ; preds = %tailrecurse
   %9 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
@@ -1193,10 +1193,10 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %204, 
 22:                                               ; preds = %tailrecurse
   br label %switch.lookup
 
-23:                                               ; preds = %tailrecurse
+23:                                               ; preds = %tailrecurse, %tailrecurse
   br label %switch.lookup
 
-24:                                               ; preds = %tailrecurse, %tailrecurse
+24:                                               ; preds = %tailrecurse
   br label %switch.lookup
 
 25:                                               ; preds = %tailrecurse
@@ -1224,13 +1224,13 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %204, 
   br label %switch.lookup
 
 33:                                               ; preds = %tailrecurse
-  br label %switch.lookup
+  %34 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp ult i32 %35, 52
+  br i1 %36, label %switch.lookup530, label %208
 
-34:                                               ; preds = %tailrecurse
-  %35 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %36 = load i32, ptr %35, align 8
-  %37 = icmp ult i32 %36, 52
-  br i1 %37, label %switch.lookup527, label %switch.lookup
+37:                                               ; preds = %tailrecurse
+  br label %switch.lookup
 
 38:                                               ; preds = %tailrecurse
   br label %switch.lookup
@@ -1242,151 +1242,157 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %204, 
   br label %switch.lookup
 
 41:                                               ; preds = %tailrecurse
+  %42 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %43 = load i32, ptr %42, align 4
+  %44 = icmp eq i32 %43, 6
+  br i1 %44, label %45, label %48
+
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %47 = load i32, ptr %46, align 8
+  br label %48
+
+48:                                               ; preds = %41, %45
+  %49 = phi i32 [ %47, %45 ], [ %43, %41 ]
+  %50 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %49)
   br label %switch.lookup
 
-42:                                               ; preds = %tailrecurse
-  %43 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %44, 6
-  br i1 %45, label %46, label %49
-
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %48 = load i32, ptr %47, align 8
-  br label %49
-
-49:                                               ; preds = %42, %46
-  %50 = phi i32 [ %48, %46 ], [ %44, %42 ]
-  %51 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %50)
+51:                                               ; preds = %tailrecurse
+  %52 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %53 = load i32, ptr %52, align 4
+  %54 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %53)
   br label %switch.lookup
 
-52:                                               ; preds = %tailrecurse
-  %53 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %54 = load i32, ptr %53, align 4
-  %55 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %54)
+55:                                               ; preds = %tailrecurse
+  %56 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %57 = load i32, ptr %56, align 4
+  %58 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %57)
   br label %switch.lookup
 
-56:                                               ; preds = %tailrecurse
-  %57 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %58 = load i32, ptr %57, align 4
-  %59 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %58)
+59:                                               ; preds = %tailrecurse
+  %60 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %61 = load i32, ptr %60, align 4
+  %62 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %61)
   br label %switch.lookup
 
-60:                                               ; preds = %tailrecurse
-  %61 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %62 = load i32, ptr %61, align 4
-  %63 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %62)
+63:                                               ; preds = %tailrecurse
+  %64 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %65 = load i32, ptr %64, align 8
+  %66 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %65)
   br label %switch.lookup
 
-64:                                               ; preds = %tailrecurse
-  %65 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %66 = load i32, ptr %65, align 8
-  %67 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %66)
+67:                                               ; preds = %tailrecurse
+  %68 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %69 = load i32, ptr %68, align 8
+  %70 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %69)
   br label %switch.lookup
 
-68:                                               ; preds = %tailrecurse
-  %69 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %70 = load i32, ptr %69, align 8
-  %71 = tail call fastcc i32 @AlterObjectTypeCommandTag(i32 noundef %70)
+71:                                               ; preds = %tailrecurse
   br label %switch.lookup
 
 72:                                               ; preds = %tailrecurse
-  br label %switch.lookup
-
-73:                                               ; preds = %tailrecurse
-  %74 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %75 = load i32, ptr %74, align 4
-  switch i32 %75, label %78 [
+  %73 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %74 = load i32, ptr %73, align 4
+  switch i32 %74, label %208 [
     i32 19, label %switch.lookup
-    i32 29, label %76
-    i32 34, label %77
+    i32 29, label %75
+    i32 34, label %76
   ]
 
-76:                                               ; preds = %73
+75:                                               ; preds = %72
   br label %switch.lookup
 
-77:                                               ; preds = %73
+76:                                               ; preds = %72
   br label %switch.lookup
 
-78:                                               ; preds = %73
+77:                                               ; preds = %tailrecurse
+  %78 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %79 = load i8, ptr %78, align 4, !range !4, !noundef !5
+  %80 = trunc nuw i8 %79 to i1
+  %81 = select i1 %80, i32 155, i32 173
   br label %switch.lookup
 
-79:                                               ; preds = %tailrecurse
-  %80 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %81 = load i8, ptr %80, align 4, !range !4, !noundef !5
-  %82 = trunc nuw i8 %81 to i1
-  %83 = select i1 %82, i32 155, i32 173
+82:                                               ; preds = %tailrecurse
+  %83 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %84 = load i8, ptr %83, align 8, !range !4, !noundef !5
+  %85 = trunc nuw i8 %84 to i1
+  %86 = select i1 %85, i32 156, i32 174
   br label %switch.lookup
 
-84:                                               ; preds = %tailrecurse
-  %85 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %86 = load i8, ptr %85, align 8, !range !4, !noundef !5
-  %87 = trunc nuw i8 %86 to i1
-  %88 = select i1 %87, i32 156, i32 174
+87:                                               ; preds = %tailrecurse
   br label %switch.lookup
 
-89:                                               ; preds = %tailrecurse
-  br label %switch.lookup
-
-90:                                               ; preds = %tailrecurse
-  %91 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %92 = load i32, ptr %91, align 4
-  switch i32 %92, label %101 [
+88:                                               ; preds = %tailrecurse
+  %89 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %90 = load i32, ptr %89, align 4
+  switch i32 %90, label %208 [
     i32 1, label %switch.lookup
-    i32 25, label %93
-    i32 49, label %94
-    i32 47, label %95
-    i32 46, label %96
-    i32 48, label %97
-    i32 45, label %98
-    i32 7, label %99
-    i32 0, label %100
+    i32 25, label %91
+    i32 49, label %.loopexit418
+    i32 47, label %92
+    i32 46, label %93
+    i32 48, label %94
+    i32 45, label %95
+    i32 7, label %96
+    i32 0, label %.loopexit419
   ]
 
-93:                                               ; preds = %90
+91:                                               ; preds = %88
   br label %switch.lookup
 
-94:                                               ; preds = %90
+.loopexit418:                                     ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %88
   br label %switch.lookup
 
-95:                                               ; preds = %90
+92:                                               ; preds = %88
   br label %switch.lookup
 
-96:                                               ; preds = %90
+93:                                               ; preds = %88
   br label %switch.lookup
 
-97:                                               ; preds = %90
+94:                                               ; preds = %88
   br label %switch.lookup
 
-98:                                               ; preds = %90
+95:                                               ; preds = %88
   br label %switch.lookup
 
-99:                                               ; preds = %90
+96:                                               ; preds = %88
   br label %switch.lookup
 
-100:                                              ; preds = %90
+.loopexit419:                                     ; preds = %tailrecurse, %88
   br label %switch.lookup
 
-101:                                              ; preds = %90
+97:                                               ; preds = %tailrecurse, %tailrecurse
   br label %switch.lookup
 
-102:                                              ; preds = %tailrecurse, %tailrecurse, %tailrecurse
+98:                                               ; preds = %tailrecurse
   br label %switch.lookup
 
-103:                                              ; preds = %tailrecurse, %tailrecurse
+99:                                               ; preds = %tailrecurse
+  %100 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %101 = load i8, ptr %100, align 4, !range !4, !noundef !5
+  %102 = trunc nuw i8 %101 to i1
+  %.48 = select i1 %102, i32 78, i32 70
+  br label %switch.lookup
+
+103:                                              ; preds = %tailrecurse
   br label %switch.lookup
 
 104:                                              ; preds = %tailrecurse
   br label %switch.lookup
 
 105:                                              ; preds = %tailrecurse
-  %106 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %107 = load i8, ptr %106, align 4, !range !4, !noundef !5
-  %108 = trunc nuw i8 %107 to i1
-  %.48 = select i1 %108, i32 78, i32 70
   br label %switch.lookup
 
-109:                                              ; preds = %tailrecurse
+106:                                              ; preds = %tailrecurse
+  br label %switch.lookup
+
+107:                                              ; preds = %tailrecurse
+  br label %switch.lookup
+
+108:                                              ; preds = %tailrecurse
+  br label %switch.lookup
+
+109:                                              ; preds = %tailrecurse, %tailrecurse, %tailrecurse
   br label %switch.lookup
 
 110:                                              ; preds = %tailrecurse
@@ -1404,79 +1410,79 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %204, 
 114:                                              ; preds = %tailrecurse
   br label %switch.lookup
 
-115:                                              ; preds = %tailrecurse, %tailrecurse, %tailrecurse
+115:                                              ; preds = %tailrecurse
   br label %switch.lookup
 
 116:                                              ; preds = %tailrecurse
   br label %switch.lookup
 
 117:                                              ; preds = %tailrecurse
-  br label %switch.lookup
-
-118:                                              ; preds = %tailrecurse
-  br label %switch.lookup
-
-119:                                              ; preds = %tailrecurse
-  br label %switch.lookup
-
-120:                                              ; preds = %tailrecurse
+  %118 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %119 = load i8, ptr %118, align 8, !range !4, !noundef !5
+  %120 = trunc nuw i8 %119 to i1
+  %.49 = select i1 %120, i32 192, i32 45
   br label %switch.lookup
 
 121:                                              ; preds = %tailrecurse
   br label %switch.lookup
 
 122:                                              ; preds = %tailrecurse
-  br label %switch.lookup
-
-123:                                              ; preds = %tailrecurse
-  %124 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %125 = load i8, ptr %124, align 8, !range !4, !noundef !5
-  %126 = trunc nuw i8 %125 to i1
-  %.49 = select i1 %126, i32 192, i32 45
-  br label %switch.lookup
-
-127:                                              ; preds = %tailrecurse
-  br label %switch.lookup
-
-128:                                              ; preds = %tailrecurse
-  %129 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %130 = load i32, ptr %129, align 8
-  switch i32 %130, label %135 [
-    i32 41, label %131
+  %123 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %124 = load i32, ptr %123, align 8
+  switch i32 %124, label %208 [
+    i32 41, label %125
     i32 23, label %switch.lookup
   ]
 
-131:                                              ; preds = %128
-  %132 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
-  %133 = load i8, ptr %132, align 4, !range !4, !noundef !5
-  %134 = trunc nuw i8 %133 to i1
-  %.50 = select i1 %134, i32 184, i32 89
+125:                                              ; preds = %122
+  %126 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
+  %127 = load i8, ptr %126, align 4, !range !4, !noundef !5
+  %128 = trunc nuw i8 %127 to i1
+  %.50 = select i1 %128, i32 184, i32 89
   br label %switch.lookup
 
-135:                                              ; preds = %128
+129:                                              ; preds = %tailrecurse
+  br label %switch.lookup
+
+130:                                              ; preds = %tailrecurse
+  br label %switch.lookup
+
+131:                                              ; preds = %tailrecurse
+  %132 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %133 = load i32, ptr %132, align 4
+  %134 = icmp ult i32 %133, 6
+  br i1 %134, label %switch.lookup533, label %208
+
+135:                                              ; preds = %tailrecurse
   br label %switch.lookup
 
 136:                                              ; preds = %tailrecurse
+  %137 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %138 = load i32, ptr %137, align 4
+  %139 = icmp ult i32 %138, 4
+  %switch.offset = add nsw i32 %138, 105
+  %spec.select = select i1 %139, i32 %switch.offset, i32 0
   br label %switch.lookup
 
-137:                                              ; preds = %tailrecurse
+140:                                              ; preds = %tailrecurse
   br label %switch.lookup
 
-138:                                              ; preds = %tailrecurse
-  %139 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %140 = load i32, ptr %139, align 4
-  %141 = icmp ult i32 %140, 6
-  br i1 %141, label %switch.lookup530, label %switch.lookup
+141:                                              ; preds = %tailrecurse
+  br label %switch.lookup
 
 142:                                              ; preds = %tailrecurse
   br label %switch.lookup
 
 143:                                              ; preds = %tailrecurse
-  %144 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %145 = load i32, ptr %144, align 4
-  %146 = icmp ult i32 %145, 4
-  %switch.offset = add nsw i32 %145, 105
-  %spec.select = select i1 %146, i32 %switch.offset, i32 0
+  br label %switch.lookup
+
+144:                                              ; preds = %tailrecurse
+  br label %switch.lookup
+
+145:                                              ; preds = %tailrecurse
+  br label %switch.lookup
+
+146:                                              ; preds = %tailrecurse, %tailrecurse
   br label %switch.lookup
 
 147:                                              ; preds = %tailrecurse
@@ -1497,7 +1503,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %204, 
 152:                                              ; preds = %tailrecurse
   br label %switch.lookup
 
-153:                                              ; preds = %tailrecurse, %tailrecurse
+153:                                              ; preds = %tailrecurse
   br label %switch.lookup
 
 154:                                              ; preds = %tailrecurse
@@ -1561,173 +1567,155 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %204, 
   br label %switch.lookup
 
 174:                                              ; preds = %tailrecurse
-  br label %switch.lookup
-
-175:                                              ; preds = %tailrecurse
-  br label %switch.lookup
-
-176:                                              ; preds = %tailrecurse
-  br label %switch.lookup
-
-177:                                              ; preds = %tailrecurse
+  %175 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %176 = load ptr, ptr %175, align 8
+  %177 = icmp eq ptr %176, null
+  %.51 = select i1 %177, i32 101, i32 100
   br label %switch.lookup
 
 178:                                              ; preds = %tailrecurse
-  br label %switch.lookup
-
-179:                                              ; preds = %tailrecurse
-  br label %switch.lookup
-
-180:                                              ; preds = %tailrecurse
-  br label %switch.lookup
-
-181:                                              ; preds = %tailrecurse
-  br label %switch.lookup
-
-182:                                              ; preds = %tailrecurse
-  %183 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %184 = load ptr, ptr %183, align 8
-  %185 = icmp eq ptr %184, null
-  %.51 = select i1 %185, i32 101, i32 100
-  br label %switch.lookup
-
-186:                                              ; preds = %tailrecurse
-  %187 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %188 = load i32, ptr %187, align 4
-  switch i32 %188, label %198 [
-    i32 1, label %189
-    i32 2, label %switch.lookup
-    i32 3, label %.loopexit179
+  %179 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %180 = load i32, ptr %179, align 4
+  switch i32 %180, label %190 [
+    i32 1, label %181
+    i32 2, label %switch.lookup.loopexit543
+    i32 3, label %switch.lookup
     i32 4, label %.loopexit297
     i32 5, label %switch.lookup.loopexit
     i32 6, label %tailrecurse.backedge
   ]
 
-189:                                              ; preds = %186
-  %190 = getelementptr inbounds nuw i8, ptr %.tr, i64 104
-  %191 = load ptr, ptr %190, align 8
-  %.not47 = icmp eq ptr %191, null
-  br i1 %.not47, label %switch.lookup, label %192
+181:                                              ; preds = %178
+  %182 = getelementptr inbounds nuw i8, ptr %.tr, i64 104
+  %183 = load ptr, ptr %182, align 8
+  %.not47 = icmp eq ptr %183, null
+  br i1 %.not47, label %switch.lookup, label %184
 
-192:                                              ; preds = %189
-  %193 = getelementptr i8, ptr %191, i64 16
-  %.val = load ptr, ptr %193, align 8
-  %194 = load ptr, ptr %.val, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 24
-  %196 = load i32, ptr %195, align 4
-  %switch.tableidx = add i32 %196, -1
-  %197 = icmp ult i32 %switch.tableidx, 4
-  br i1 %197, label %switch.lookup533, label %switch.lookup
+184:                                              ; preds = %181
+  %185 = getelementptr i8, ptr %183, i64 16
+  %.val = load ptr, ptr %185, align 8
+  %186 = load ptr, ptr %.val, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
+  %188 = load i32, ptr %187, align 4
+  %switch.tableidx = add i32 %188, -1
+  %189 = icmp ult i32 %switch.tableidx, 4
+  br i1 %189, label %switch.lookup536, label %.loopexit417
 
-198:                                              ; preds = %186
-  %199 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #10
-  br i1 %199, label %200, label %switch.lookup
+.loopexit417:                                     ; preds = %tailrecurse, %tailrecurse, %184
+  br label %switch.lookup
 
-200:                                              ; preds = %198
-  %201 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %202 = load i32, ptr %201, align 4
-  %203 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %202) #10
+190:                                              ; preds = %178
+  %191 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #10
+  br i1 %191, label %192, label %switch.lookup
+
+192:                                              ; preds = %190
+  %193 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %194 = load i32, ptr %193, align 4
+  %195 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %194) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3158, ptr noundef nonnull @__func__.CreateCommandTag) #10
   br label %switch.lookup
 
-204:                                              ; preds = %tailrecurse
-  %205 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %206 = load i32, ptr %205, align 4
-  switch i32 %206, label %216 [
-    i32 1, label %207
-    i32 2, label %switch.lookup
-    i32 3, label %.loopexit179
+196:                                              ; preds = %tailrecurse
+  %197 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %198 = load i32, ptr %197, align 4
+  switch i32 %198, label %209 [
+    i32 1, label %199
+    i32 2, label %switch.lookup.loopexit543
+    i32 3, label %switch.lookup
     i32 4, label %.loopexit297
     i32 5, label %switch.lookup.loopexit
     i32 6, label %tailrecurse.backedge
   ]
 
-207:                                              ; preds = %204
-  %208 = getelementptr inbounds nuw i8, ptr %.tr, i64 240
-  %209 = load ptr, ptr %208, align 8
-  %.not = icmp eq ptr %209, null
-  br i1 %.not, label %switch.lookup, label %210
+199:                                              ; preds = %196
+  %200 = getelementptr inbounds nuw i8, ptr %.tr, i64 240
+  %201 = load ptr, ptr %200, align 8
+  %.not = icmp eq ptr %201, null
+  br i1 %.not, label %switch.lookup, label %202
 
-210:                                              ; preds = %207
-  %211 = getelementptr i8, ptr %209, i64 16
-  %.val52 = load ptr, ptr %211, align 8
-  %212 = load ptr, ptr %.val52, align 8
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
-  %214 = load i32, ptr %213, align 4
-  %switch.tableidx536 = add i32 %214, -1
-  %215 = icmp ult i32 %switch.tableidx536, 4
-  br i1 %215, label %switch.lookup537, label %switch.lookup
+202:                                              ; preds = %199
+  %203 = getelementptr i8, ptr %201, i64 16
+  %.val52 = load ptr, ptr %203, align 8
+  %204 = load ptr, ptr %.val52, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
+  %206 = load i32, ptr %205, align 4
+  %switch.tableidx539 = add i32 %206, -1
+  %207 = icmp ult i32 %switch.tableidx539, 4
+  br i1 %207, label %switch.lookup540, label %208
 
-216:                                              ; preds = %204
-  %217 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #10
-  br i1 %217, label %218, label %switch.lookup
+208:                                              ; preds = %202, %131, %33, %4, %72, %88, %122
+  br label %switch.lookup
 
-218:                                              ; preds = %216
-  %219 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %220 = load i32, ptr %219, align 4
-  %221 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %220) #10
+209:                                              ; preds = %196
+  %210 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #10
+  br i1 %210, label %211, label %switch.lookup
+
+211:                                              ; preds = %209
+  %212 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %213 = load i32, ptr %212, align 4
+  %214 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %213) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3221, ptr noundef nonnull @__func__.CreateCommandTag) #10
   br label %switch.lookup
 
-222:                                              ; preds = %tailrecurse
-  %223 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #10
-  br i1 %223, label %224, label %switch.lookup
+215:                                              ; preds = %tailrecurse
+  %216 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #10
+  br i1 %216, label %217, label %switch.lookup
 
-224:                                              ; preds = %222
-  %225 = load i32, ptr %.tr, align 4
-  %226 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %225) #10
+217:                                              ; preds = %215
+  %218 = load i32, ptr %.tr, align 4
+  %219 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %218) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3230, ptr noundef nonnull @__func__.CreateCommandTag) #10
   br label %switch.lookup
 
 .loopexit:                                        ; preds = %tailrecurse
   br label %switch.lookup
 
-.loopexit179:                                     ; preds = %tailrecurse, %186, %204
-  %.0.ph180 = phi i32 [ 158, %204 ], [ 103, %tailrecurse ], [ 158, %186 ]
+.loopexit179:                                     ; preds = %tailrecurse
   br label %switch.lookup
 
-.loopexit297:                                     ; preds = %tailrecurse, %186, %204
-  %.0.ph298 = phi i32 [ 103, %204 ], [ 191, %tailrecurse ], [ 103, %186 ]
+.loopexit297:                                     ; preds = %tailrecurse, %178, %196
+  %.0.ph298 = phi i32 [ 103, %196 ], [ 191, %tailrecurse ], [ 103, %178 ]
   br label %switch.lookup
 
-switch.lookup.loopexit:                           ; preds = %tailrecurse, %186, %204
+switch.lookup.loopexit:                           ; preds = %tailrecurse, %178, %196
   br label %switch.lookup
 
-switch.lookup526:                                 ; preds = %4
-  %227 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.CreateCommandTag, i64 %227
+switch.lookup529:                                 ; preds = %4
+  %220 = zext nneg i32 %6 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.CreateCommandTag, i64 %220
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %switch.lookup
 
-switch.lookup527:                                 ; preds = %34
-  %228 = zext nneg i32 %36 to i64
-  %switch.gep528 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.CreateCommandTag.3, i64 %228
-  %switch.load529 = load i32, ptr %switch.gep528, align 4
-  br label %switch.lookup
-
-switch.lookup530:                                 ; preds = %138
-  %229 = zext nneg i32 %140 to i64
-  %switch.gep531 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.CreateCommandTag.4, i64 %229
+switch.lookup530:                                 ; preds = %33
+  %221 = zext nneg i32 %35 to i64
+  %switch.gep531 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.CreateCommandTag.3, i64 %221
   %switch.load532 = load i32, ptr %switch.gep531, align 4
   br label %switch.lookup
 
-switch.lookup533:                                 ; preds = %192
-  %230 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep534 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.CreateCommandTag.6, i64 %230
+switch.lookup533:                                 ; preds = %131
+  %222 = zext nneg i32 %133 to i64
+  %switch.gep534 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.CreateCommandTag.4, i64 %222
   %switch.load535 = load i32, ptr %switch.gep534, align 4
   br label %switch.lookup
 
-switch.lookup537:                                 ; preds = %210
-  %231 = zext nneg i32 %switch.tableidx536 to i64
-  %switch.gep538 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.CreateCommandTag.6, i64 %231
-  %switch.load539 = load i32, ptr %switch.gep538, align 4
+switch.lookup536:                                 ; preds = %184
+  %223 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep537 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.CreateCommandTag.6, i64 %223
+  %switch.load538 = load i32, ptr %switch.gep537, align 4
   br label %switch.lookup
 
-switch.lookup.loopexit540:                        ; preds = %tailrecurse, %tailrecurse
+switch.lookup540:                                 ; preds = %202
+  %224 = zext nneg i32 %switch.tableidx539 to i64
+  %switch.gep541 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.CreateCommandTag.6, i64 %224
+  %switch.load542 = load i32, ptr %switch.gep541, align 4
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %204, %186, %tailrecurse, %switch.lookup.loopexit540, %210, %switch.lookup537, %192, %switch.lookup533, %138, %switch.lookup530, %34, %switch.lookup527, %4, %switch.lookup526, %switch.lookup.loopexit, %143, %.loopexit297, %.loopexit179, %.loopexit, %222, %224, %207, %218, %216, %189, %200, %198, %128, %131, %123, %105, %90, %73, %135, %93, %94, %95, %96, %97, %98, %99, %100, %101, %76, %77, %78, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %142, %137, %136, %127, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %104, %103, %102, %89, %84, %79, %72, %68, %64, %60, %56, %52, %49, %41, %40, %39, %38, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %12, %8
-  %.0 = phi i32 [ 0, %216 ], [ 0, %222 ], [ 0, %198 ], [ 102, %tailrecurse ], [ %.0.ph180, %.loopexit179 ], [ %.0.ph298, %.loopexit297 ], [ 163, %switch.lookup.loopexit ], [ %switch.load539, %switch.lookup537 ], [ %switch.load532, %switch.lookup530 ], [ 179, %switch.lookup.loopexit540 ], [ %., %8 ], [ %16, %12 ], [ 65, %17 ], [ 83, %18 ], [ 88, %19 ], [ 90, %20 ], [ 142, %21 ], [ 35, %22 ], [ 67, %23 ], [ 11, %24 ], [ %switch.load, %switch.lookup526 ], [ 68, %25 ], [ 12, %26 ], [ 85, %27 ], [ 30, %28 ], [ 98, %29 ], [ 43, %30 ], [ 150, %31 ], [ 69, %32 ], [ 157, %33 ], [ 161, %157 ], [ 80, %152 ], [ 0, %4 ], [ 0, %224 ], [ 72, %151 ], [ 10, %150 ], [ 0, %34 ], [ 95, %147 ], [ 25, %153 ], [ 0, %138 ], [ %.51, %182 ], [ 31, %181 ], [ 86, %180 ], [ 152, %179 ], [ 166, %178 ], [ 4, %177 ], [ 140, %176 ], [ 32, %175 ], [ 87, %174 ], [ 24, %173 ], [ 79, %172 ], [ 58, %171 ], [ 22, %170 ], [ 77, %169 ], [ 36, %168 ], [ 37, %167 ], [ 168, %156 ], [ 19, %166 ], [ 21, %165 ], [ 76, %164 ], [ 75, %163 ], [ 60, %162 ], [ 63, %161 ], [ 170, %160 ], [ 48, %159 ], [ 186, %158 ], [ 189, %38 ], [ 53, %39 ], [ 178, %40 ], [ 56, %41 ], [ %51, %49 ], [ %55, %52 ], [ %59, %56 ], [ %63, %60 ], [ %67, %64 ], [ %71, %68 ], [ 9, %72 ], [ 0, %78 ], [ %switch.load529, %switch.lookup527 ], [ 23, %76 ], [ 26, %77 ], [ %83, %79 ], [ %88, %84 ], [ 8, %89 ], [ 0, %101 ], [ 14, %73 ], [ 74, %93 ], [ 97, %94 ], [ 93, %95 ], [ 92, %96 ], [ 94, %97 ], [ 91, %98 ], [ 61, %99 ], [ 58, %100 ], [ 97, %102 ], [ 59, %90 ], [ %switch.load535, %switch.lookup533 ], [ 42, %103 ], [ 99, %104 ], [ %.48, %105 ], [ 179, %189 ], [ 71, %109 ], [ 82, %110 ], [ 84, %111 ], [ 29, %112 ], [ 109, %113 ], [ 64, %114 ], [ 7, %115 ], [ 116, %116 ], [ 165, %117 ], [ 159, %118 ], [ 190, %119 ], [ 160, %120 ], [ 47, %121 ], [ 52, %122 ], [ %.49, %123 ], [ 179, %207 ], [ 153, %127 ], [ 0, %135 ], [ %.50, %131 ], [ 66, %149 ], [ 0, %210 ], [ 169, %136 ], [ 33, %137 ], [ 0, %200 ], [ 73, %128 ], [ 133, %154 ], [ 187, %142 ], [ 96, %148 ], [ 129, %155 ], [ %spec.select, %143 ], [ 179, %192 ], [ 0, %218 ], [ 191, %204 ], [ 191, %186 ], [ 158, %.loopexit ]
+switch.lookup.loopexit543:                        ; preds = %tailrecurse, %178, %196
+  %.0.ph = phi i32 [ 191, %178 ], [ 191, %196 ], [ 102, %tailrecurse ]
+  br label %switch.lookup
+
+switch.lookup:                                    ; preds = %196, %178, %tailrecurse, %switch.lookup.loopexit543, %switch.lookup540, %switch.lookup536, %switch.lookup533, %switch.lookup530, %switch.lookup529, %switch.lookup.loopexit, %136, %.loopexit297, %.loopexit179, %.loopexit, %215, %217, %208, %199, %211, %209, %.loopexit417, %181, %192, %190, %122, %125, %117, %99, %88, %72, %91, %.loopexit418, %92, %93, %94, %95, %96, %.loopexit419, %75, %76, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %135, %130, %129, %121, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %98, %97, %87, %82, %77, %71, %67, %63, %59, %55, %51, %48, %40, %39, %38, %37, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %12, %8
+  %.0 = phi i32 [ 0, %209 ], [ 0, %215 ], [ 0, %190 ], [ %switch.load538, %switch.lookup536 ], [ 65, %tailrecurse ], [ %.0.ph298, %.loopexit297 ], [ 163, %switch.lookup.loopexit ], [ %switch.load542, %switch.lookup540 ], [ %switch.load535, %switch.lookup533 ], [ 4, %169 ], [ %., %8 ], [ %16, %12 ], [ %.0.ph, %switch.lookup.loopexit543 ], [ 83, %17 ], [ 88, %18 ], [ 90, %19 ], [ 142, %20 ], [ 35, %21 ], [ 67, %22 ], [ 11, %23 ], [ %switch.load, %switch.lookup529 ], [ 68, %24 ], [ 12, %25 ], [ 85, %26 ], [ 30, %27 ], [ 98, %28 ], [ 43, %29 ], [ 150, %30 ], [ 69, %31 ], [ 157, %32 ], [ 0, %192 ], [ 152, %171 ], [ 158, %.loopexit ], [ 140, %168 ], [ 32, %167 ], [ 87, %166 ], [ 24, %165 ], [ 79, %164 ], [ 0, %217 ], [ 22, %163 ], [ 77, %162 ], [ 36, %161 ], [ 37, %160 ], [ 187, %135 ], [ 19, %159 ], [ 21, %158 ], [ 76, %157 ], [ 75, %156 ], [ 60, %155 ], [ 63, %154 ], [ 170, %153 ], [ 48, %152 ], [ 186, %151 ], [ 161, %150 ], [ 168, %149 ], [ 129, %148 ], [ 133, %147 ], [ 179, %.loopexit417 ], [ 25, %146 ], [ 80, %145 ], [ 72, %144 ], [ 10, %143 ], [ 66, %142 ], [ 96, %141 ], [ 95, %140 ], [ 0, %211 ], [ 189, %37 ], [ 53, %38 ], [ 178, %39 ], [ 56, %40 ], [ %50, %48 ], [ %54, %51 ], [ %58, %55 ], [ %62, %59 ], [ %66, %63 ], [ %70, %67 ], [ 9, %71 ], [ %spec.select, %136 ], [ %switch.load532, %switch.lookup530 ], [ 23, %75 ], [ 26, %76 ], [ %81, %77 ], [ %86, %82 ], [ 8, %87 ], [ 73, %122 ], [ 14, %72 ], [ 74, %91 ], [ 97, %.loopexit418 ], [ 93, %92 ], [ 92, %93 ], [ 94, %94 ], [ 91, %95 ], [ 61, %96 ], [ 58, %.loopexit419 ], [ 179, %199 ], [ 59, %88 ], [ 86, %172 ], [ 42, %97 ], [ 99, %98 ], [ %.48, %99 ], [ 31, %173 ], [ 71, %103 ], [ 82, %104 ], [ 84, %105 ], [ 29, %106 ], [ 109, %107 ], [ 64, %108 ], [ 7, %109 ], [ 116, %110 ], [ 165, %111 ], [ 159, %112 ], [ 190, %113 ], [ 160, %114 ], [ 47, %115 ], [ 52, %116 ], [ %.49, %117 ], [ %.51, %174 ], [ 153, %121 ], [ 179, %181 ], [ %.50, %125 ], [ 0, %208 ], [ 166, %170 ], [ 169, %129 ], [ 33, %130 ], [ 158, %196 ], [ 158, %178 ], [ 103, %.loopexit179 ]
   ret i32 %.0
 }
 

@@ -6232,13 +6232,13 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h893057fee2f061e0E(p
   %7 = icmp eq i64 %4, 0
   %8 = icmp uge i64 %4, %1
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %71, label %9
+  br i1 %or.cond, label %70, label %9
 
 9:                                                ; preds = %6
   %10 = sub nuw i64 %1, %4
   %.sroa.0.0.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %10)
   %11 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i
-  br i1 %11, label %71, label %12
+  br i1 %11, label %70, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds [32 x i8], ptr %0, i64 %4
@@ -6318,9 +6318,9 @@ _ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i: ; preds
   br i1 %or.cond.i, label %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17h49319d8e416d2673E.exit", label %.preheader
 
 .lr.ph.i:                                         ; preds = %12, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35
-  %44 = phi ptr [ %65, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35 ], [ %0, %12 ]
-  %.sroa.0.07.i = phi ptr [ %64, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35 ], [ %13, %12 ]
-  %45 = phi ptr [ %63, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35 ], [ %2, %12 ]
+  %44 = phi ptr [ %64, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35 ], [ %0, %12 ]
+  %.sroa.0.07.i = phi ptr [ %63, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35 ], [ %13, %12 ]
+  %45 = phi ptr [ %62, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35 ], [ %2, %12 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1413)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1416)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1418)
@@ -6355,7 +6355,7 @@ _ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i: ; preds
     i8 0, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.i32
   ]
 
-_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread.i38: ; preds = %.lr.ph.i
+_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread.i38: ; preds = %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.i32, %.lr.ph.i
   br label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35
 
 _ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.i32: ; preds = %.lr.ph.i
@@ -6364,35 +6364,32 @@ _ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.i32: ; preds = %.l
   %.val.i.i.i33 = load i64, ptr %57, align 8, !alias.scope !1447, !noalias !1448, !noundef !12
   %.val5.i.i.i34 = load i64, ptr %58, align 8, !alias.scope !1449, !noalias !1450, !noundef !12
   %59 = icmp ult i64 %.val.i.i.i33, %.val5.i.i.i34
-  br i1 %59, label %60, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35
+  br i1 %59, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread.i38, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35
 
-60:                                               ; preds = %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.i32
-  br label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35
-
-_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35: ; preds = %60, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.i32, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread.i38, %.lr.ph.i
-  %61 = phi i64 [ 0, %60 ], [ 1, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.i32 ], [ 0, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread.i38 ], [ 1, %.lr.ph.i ]
-  %.sroa.0.1.i.i2.i36 = phi i64 [ 1, %60 ], [ 0, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.i32 ], [ 1, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread.i38 ], [ 0, %.lr.ph.i ]
-  %62 = phi ptr [ %.sroa.0.07.i, %60 ], [ %45, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.i32 ], [ %.sroa.0.07.i, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread.i38 ], [ %45, %.lr.ph.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %62, i64 32, i1 false), !noalias !1451
-  %63 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %61
-  %64 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.07.i, i64 %.sroa.0.1.i.i2.i36
-  %65 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %66 = icmp ne ptr %63, %16
-  %67 = icmp ne ptr %64, %14
-  %or.cond.i37 = select i1 %66, i1 %67, i1 false
+_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35: ; preds = %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.i32, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread.i38, %.lr.ph.i
+  %60 = phi i64 [ 1, %.lr.ph.i ], [ 1, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.i32 ], [ 0, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread.i38 ]
+  %.sroa.0.1.i.i2.i36 = phi i64 [ 0, %.lr.ph.i ], [ 0, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.i32 ], [ 1, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread.i38 ]
+  %61 = phi ptr [ %45, %.lr.ph.i ], [ %45, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.i32 ], [ %.sroa.0.07.i, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread.i38 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %61, i64 32, i1 false), !noalias !1451
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %60
+  %63 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.07.i, i64 %.sroa.0.1.i.i2.i36
+  %64 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %65 = icmp ne ptr %62, %16
+  %66 = icmp ne ptr %63, %14
+  %or.cond.i37 = select i1 %65, i1 %66, i1 false
   br i1 %or.cond.i37, label %.lr.ph.i, label %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17h49319d8e416d2673E.exit"
 
 "_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17h49319d8e416d2673E.exit": ; preds = %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i
-  %.sroa.13.0 = phi ptr [ %39, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i ], [ %65, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35 ]
+  %.sroa.13.0 = phi ptr [ %39, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i ], [ %64, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35 ]
   %.sroa.7.0 = phi ptr [ %41, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i ], [ %16, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35 ]
-  %.sroa.0.0 = phi ptr [ %2, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i ], [ %63, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35 ]
-  %68 = ptrtoint ptr %.sroa.7.0 to i64
-  %69 = ptrtoint ptr %.sroa.0.0 to i64
-  %70 = sub nuw i64 %68, %69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.13.0, ptr align 8 %.sroa.0.0, i64 %70, i1 false), !noalias !1452
-  br label %71
+  %.sroa.0.0 = phi ptr [ %2, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i ], [ %62, %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35 ]
+  %67 = ptrtoint ptr %.sroa.7.0 to i64
+  %68 = ptrtoint ptr %.sroa.0.0 to i64
+  %69 = sub nuw i64 %67, %68
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.13.0, ptr align 8 %.sroa.0.0, i64 %69, i1 false), !noalias !1452
+  br label %70
 
-71:                                               ; preds = %9, %6, %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17h49319d8e416d2673E.exit"
+70:                                               ; preds = %9, %6, %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17h49319d8e416d2673E.exit"
   ret void
 }
 

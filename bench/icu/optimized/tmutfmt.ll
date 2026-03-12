@@ -650,9 +650,9 @@ define void @_ZN6icu_7714TimeUnitFormatC2ERKNS_6LocaleE20UTimeUnitFormatStyleR10
 .invoke:
   tail call void @_ZN6icu_7713MeasureFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN6icu_7714TimeUnitFormatE, i64 16), ptr %0, align 8, !tbaa !15
-  %switch.selectcmp = icmp eq i32 %2, 1
-  %switch.select = zext i1 %switch.selectcmp to i32
-  invoke void @_ZN6icu_7713MeasureFormat17initMeasureFormatERKNS_6LocaleE19UMeasureFormatWidthPNS_12NumberFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(217) %1, i32 noundef %switch.select, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %cond = icmp eq i32 %2, 1
+  %spec.select = zext i1 %cond to i32
+  invoke void @_ZN6icu_7713MeasureFormat17initMeasureFormatERKNS_6LocaleE19UMeasureFormatWidthPNS_12NumberFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(217) %1, i32 noundef %spec.select, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %6 unwind label %4
 
 4:                                                ; preds = %.invoke, %12

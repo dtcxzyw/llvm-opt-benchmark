@@ -4813,8 +4813,8 @@ define hidden void @_ZN11quinn_proto10connection13packet_crypto16unprotect_heade
   %122 = invoke noundef i64 @_ZN11quinn_proto6packet13PartialDecode3len17he536d07167ed6b56E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
           to label %124 unwind label %289
 
-.thread246.invoke:                                ; preds = %281, %240, %270, %265, %120, %76, %106, %101
-  %123 = phi ptr [ @anon.c99f785bbb946c6c683d6750b64443bd.84, %106 ], [ @anon.c99f785bbb946c6c683d6750b64443bd.84, %120 ], [ @anon.c99f785bbb946c6c683d6750b64443bd.93, %270 ], [ @anon.c99f785bbb946c6c683d6750b64443bd.84, %101 ], [ @anon.c99f785bbb946c6c683d6750b64443bd.84, %76 ], [ @anon.c99f785bbb946c6c683d6750b64443bd.93, %265 ], [ @anon.c99f785bbb946c6c683d6750b64443bd.93, %240 ], [ @anon.c99f785bbb946c6c683d6750b64443bd.93, %281 ]
+.thread246.invoke:                                ; preds = %281, %240, %265, %270, %120, %76, %106, %101
+  %123 = phi ptr [ @anon.c99f785bbb946c6c683d6750b64443bd.84, %106 ], [ @anon.c99f785bbb946c6c683d6750b64443bd.84, %120 ], [ @anon.c99f785bbb946c6c683d6750b64443bd.84, %76 ], [ @anon.c99f785bbb946c6c683d6750b64443bd.84, %101 ], [ @anon.c99f785bbb946c6c683d6750b64443bd.93, %270 ], [ @anon.c99f785bbb946c6c683d6750b64443bd.93, %265 ], [ @anon.c99f785bbb946c6c683d6750b64443bd.93, %240 ], [ @anon.c99f785bbb946c6c683d6750b64443bd.93, %281 ]
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.c99f785bbb946c6c683d6750b64443bd.47, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %123) #25
           to label %.thread246.cont unwind label %289
 

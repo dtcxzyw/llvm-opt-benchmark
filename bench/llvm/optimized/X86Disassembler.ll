@@ -3625,7 +3625,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL9readModRMPN4llvm15X86Di
 default.unreachable106:                           ; preds = %93, %64
   unreachable
 
-.critedge:                                        ; preds = %86, %81, %75, %71, %67
+.critedge:                                        ; preds = %106, %104, %122, %.critedge101.sink.split, %86, %81, %75, %71, %67
   br label %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread
 
 93:                                               ; preds = %56, %56
@@ -3659,7 +3659,7 @@ default.unreachable106:                           ; preds = %93, %64
 104:                                              ; preds = %100
   %105 = tail call fastcc noundef i32 @_ZL16readDisplacementPN4llvm15X86Disassembler19InternalInstructionE(ptr noundef %0)
   %.not93 = icmp eq i32 %105, 0
-  br i1 %.not93, label %.critedge101, label %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread
+  br i1 %.not93, label %.critedge, label %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread
 
 106:                                              ; preds = %96
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -3667,7 +3667,7 @@ default.unreachable106:                           ; preds = %93, %64
   store i32 3, ptr %97, align 8, !tbaa !100
   %108 = tail call fastcc noundef i32 @_ZL16readDisplacementPN4llvm15X86Disassembler19InternalInstructionE(ptr noundef %0)
   %.not91 = icmp eq i32 %108, 0
-  br i1 %.not91, label %.critedge101, label %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread
+  br i1 %.not91, label %.critedge, label %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread
 
 109:                                              ; preds = %96
   %110 = add nuw nsw i32 %95, %98
@@ -3698,7 +3698,7 @@ default.unreachable106:                           ; preds = %93, %64
 122:                                              ; preds = %119
   %123 = tail call fastcc noundef i32 @_ZL16readDisplacementPN4llvm15X86Disassembler19InternalInstructionE(ptr noundef %0)
   %.not90 = icmp eq i32 %123, 0
-  br i1 %.not90, label %.critedge101, label %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread
+  br i1 %.not90, label %.critedge, label %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread
 
 124:                                              ; preds = %113
   %125 = add nuw nsw i32 %95, %117
@@ -3749,13 +3749,10 @@ default.unreachable106:                           ; preds = %93, %64
   %.sink.i.sink = phi i32 [ %148, %143 ], [ %110, %109 ], [ %.0.copyload.i.i17.i, %140 ], [ %136, %133 ]
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink111
   store i32 %.sink.i.sink, ptr %149, align 4, !tbaa !60
-  br label %.critedge101
+  br label %.critedge
 
-.critedge101:                                     ; preds = %.critedge101.sink.split, %122, %104, %106
-  br label %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread
-
-_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread: ; preds = %137, %130, %5, %56, %.critedge, %.critedge101, %104, %100, %106, %122, %119, %67, %75, %81, %86, %1
-  %.0 = phi i32 [ -1, %67 ], [ 0, %1 ], [ -1, %104 ], [ 0, %56 ], [ -1, %86 ], [ -1, %81 ], [ -1, %75 ], [ -1, %5 ], [ -1, %119 ], [ -1, %122 ], [ -1, %106 ], [ -1, %100 ], [ 0, %.critedge101 ], [ 0, %.critedge ], [ -1, %137 ], [ -1, %130 ]
+_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread: ; preds = %137, %130, %5, %56, %.critedge, %104, %100, %106, %122, %119, %67, %75, %81, %86, %1
+  %.0 = phi i32 [ -1, %67 ], [ 0, %1 ], [ -1, %104 ], [ 0, %56 ], [ -1, %86 ], [ -1, %81 ], [ -1, %75 ], [ -1, %5 ], [ -1, %119 ], [ -1, %122 ], [ -1, %106 ], [ -1, %100 ], [ -1, %130 ], [ 0, %.critedge ], [ -1, %137 ]
   ret i32 %.0
 }
 

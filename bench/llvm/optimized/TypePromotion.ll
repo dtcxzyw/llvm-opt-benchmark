@@ -6885,7 +6885,7 @@ _ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread
   %21 = getelementptr inbounds nuw i8, ptr %.val10, i64 8
   %22 = load i32, ptr %21, align 8
   %trunc.i26 = trunc i32 %22 to i8
-  switch i8 %trunc.i26, label %.fold.split.i29 [
+  switch i8 %trunc.i26, label %.fold.split.i55 [
     i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread
     i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread
     i8 12, label %23
@@ -6901,9 +6901,6 @@ _ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread
 27:                                               ; preds = %23
   %28 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val10) #23
   %29 = icmp ule i32 %28, %.0.val
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread
-
-.fold.split.i29:                                  ; preds = %19
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread
 
 30:                                               ; preds = %5
@@ -6962,7 +6959,7 @@ _ZNK4llvm4User10getOperandEj.exit32:              ; preds = %53, %56
   %64 = getelementptr inbounds nuw i8, ptr %.val13, i64 8
   %65 = load i32, ptr %64, align 8
   %trunc.i33 = trunc i32 %65 to i8
-  switch i8 %trunc.i33, label %.fold.split.i36 [
+  switch i8 %trunc.i33, label %.fold.split.i55 [
     i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread
     i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread
     i8 12, label %66
@@ -6978,9 +6975,6 @@ _ZNK4llvm4User10getOperandEj.exit32:              ; preds = %53, %56
 70:                                               ; preds = %66
   %71 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val13) #23
   %72 = icmp ule i32 %71, %.0.val
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread
-
-.fold.split.i36:                                  ; preds = %_ZNK4llvm4User10getOperandEj.exit32
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread
 
 73:                                               ; preds = %5
@@ -7093,7 +7087,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i: ; preds =
   %130 = getelementptr inbounds nuw i8, ptr %.val19, i64 8
   %131 = load i32, ptr %130, align 8
   %trunc.i47 = trunc i32 %131 to i8
-  switch i8 %trunc.i47, label %.fold.split.i50 [
+  switch i8 %trunc.i47, label %.fold.split.i55 [
     i8 7, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread
     i8 14, label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread
     i8 12, label %132
@@ -7109,9 +7103,6 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i: ; preds =
 136:                                              ; preds = %132
   %137 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.val19) #23
   %138 = icmp ule i32 %137, %.0.val
-  br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread
-
-.fold.split.i50:                                  ; preds = %128
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread
 
 139:                                              ; preds = %124
@@ -7142,7 +7133,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i: ; preds =
   %151 = icmp ule i32 %150, %.0.val
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread
 
-.fold.split.i55:                                  ; preds = %141
+.fold.split.i55:                                  ; preds = %19, %_ZNK4llvm4User10getOperandEj.exit32, %128, %141
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread
 
 _ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30: ; preds = %126, %139
@@ -7155,8 +7146,8 @@ switch.lookup:                                    ; preds = %_ZN12_GLOBAL__N_117
   %switch.masked = trunc i57 %switch.downshift to i1
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread
 
-_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19, %switch.lookup, %99, %103, %9, %13, %.fold.split.i55, %149, %145, %141, %141, %.fold.split.i50, %136, %132, %128, %128, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i, %113, %110, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit46.thread23, %_ZNK4llvm4User10getOperandEj.exit39.thread, %.fold.split.i36, %70, %66, %_ZNK4llvm4User10getOperandEj.exit32, %_ZNK4llvm4User10getOperandEj.exit32, %27, %23, %19, %19, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit46, %_ZNK4llvm4User10getOperandEj.exit39, %_ZNK4llvm4User10getOperandEj.exit41, %5, %5, %5, %5, %.fold.split.i29, %_ZNK4llvm4User10getOperandEj.exit, %6, %121, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30
-  %.1 = phi i1 [ %152, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30 ], [ false, %145 ], [ false, %.fold.split.i55 ], [ true, %141 ], [ true, %141 ], [ %151, %149 ], [ false, %132 ], [ false, %.fold.split.i50 ], [ true, %128 ], [ true, %128 ], [ %138, %136 ], [ false, %110 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i ], [ %123, %121 ], [ true, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit46.thread23 ], [ true, %_ZNK4llvm4User10getOperandEj.exit39.thread ], [ false, %66 ], [ false, %.fold.split.i36 ], [ true, %_ZNK4llvm4User10getOperandEj.exit32 ], [ true, %_ZNK4llvm4User10getOperandEj.exit32 ], [ %72, %70 ], [ false, %.fold.split.i29 ], [ true, %19 ], [ true, %19 ], [ %29, %27 ], [ false, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit46 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ false, %6 ], [ false, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit ], [ false, %9 ], [ true, %_ZNK4llvm4User10getOperandEj.exit39 ], [ %98, %_ZNK4llvm4User10getOperandEj.exit41 ], [ true, %5 ], [ false, %23 ], [ %48, %_ZNK4llvm4User10getOperandEj.exit ], [ false, %113 ], [ false, %99 ], [ false, %13 ], [ false, %103 ], [ %switch.masked, %switch.lookup ], [ true, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19 ]
+_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30.thread: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19, %switch.lookup, %99, %103, %9, %13, %.fold.split.i55, %149, %145, %141, %141, %136, %132, %128, %128, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i, %113, %110, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit46.thread23, %_ZNK4llvm4User10getOperandEj.exit39.thread, %70, %66, %_ZNK4llvm4User10getOperandEj.exit32, %_ZNK4llvm4User10getOperandEj.exit32, %27, %23, %19, %19, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit46, %_ZNK4llvm4User10getOperandEj.exit39, %_ZNK4llvm4User10getOperandEj.exit41, %5, %5, %5, %5, %_ZNK4llvm4User10getOperandEj.exit, %6, %121, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30
+  %.1 = phi i1 [ %152, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit30 ], [ false, %145 ], [ false, %.fold.split.i55 ], [ true, %141 ], [ true, %141 ], [ %151, %149 ], [ false, %132 ], [ false, %13 ], [ true, %128 ], [ true, %128 ], [ %138, %136 ], [ false, %110 ], [ false, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i ], [ %123, %121 ], [ true, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit46.thread23 ], [ true, %_ZNK4llvm4User10getOperandEj.exit39.thread ], [ false, %66 ], [ %switch.masked, %switch.lookup ], [ true, %_ZNK4llvm4User10getOperandEj.exit32 ], [ true, %_ZNK4llvm4User10getOperandEj.exit32 ], [ %72, %70 ], [ false, %103 ], [ true, %19 ], [ true, %19 ], [ %29, %27 ], [ false, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit46 ], [ true, %5 ], [ true, %5 ], [ true, %5 ], [ false, %6 ], [ false, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit ], [ false, %9 ], [ true, %_ZNK4llvm4User10getOperandEj.exit39 ], [ %98, %_ZNK4llvm4User10getOperandEj.exit41 ], [ true, %5 ], [ false, %23 ], [ %48, %_ZNK4llvm4User10getOperandEj.exit ], [ false, %113 ], [ false, %99 ], [ true, %_ZN12_GLOBAL__N_117TypePromotionImpl15isSupportedTypeEPN4llvm5ValueE.exit.thread19 ]
   ret i1 %.1
 }
 

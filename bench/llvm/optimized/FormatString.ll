@@ -1541,12 +1541,12 @@ _ZNK5clang4Type25isSaturatedFixedPointTypeEv.exit.thread: ; preds = %112, %127, 
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 16
   %264 = load i8, ptr %263, align 16
   %265 = icmp eq i8 %264, 41
-  br i1 %265, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit301, label %.critedge16
+  br i1 %265, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit301, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit308.thread
 
 _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit301: ; preds = %258
   %266 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %255) #17
   %.not141 = icmp eq ptr %266, null
-  br i1 %.not141, label %.critedge16, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit301.thread460
+  br i1 %.not141, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit308.thread, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit301.thread460
 
 _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit301.thread460: ; preds = %252, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit301
   %.1.i300463 = phi ptr [ %266, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit301 ], [ %255, %252 ]
@@ -1556,10 +1556,7 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit301.thread460: ; preds = %252
   %269 = inttoptr i64 %268 to ptr
   %270 = load ptr, ptr %269, align 16, !tbaa !55
   %271 = tail call noundef zeroext i1 @_ZNK5clang4Type10isCharTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %270) #17
-  br i1 %271, label %.critedge2, label %.critedge16
-
-.critedge16:                                      ; preds = %258, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit301, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit301.thread460
-  br label %.critedge2
+  br i1 %271, label %.critedge2, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit308.thread
 
 272:                                              ; preds = %42
   %273 = and i64 %.sroa.0414.1, -16
@@ -1609,7 +1606,7 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit308.thread466: ; preds = %272
   %303 = icmp eq ptr %295, %302
   br i1 %303, label %.critedge2, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit308.thread
 
-_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit308.thread: ; preds = %278, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit308.thread466, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit308
+_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit308.thread: ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit301.thread460, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit301, %258, %278, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit308.thread466, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit308
   br label %.critedge2
 
 304:                                              ; preds = %42
@@ -1886,8 +1883,8 @@ switch.lookup:                                    ; preds = %85
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge2
 
-.critedge2:                                       ; preds = %switch.lookup, %85, %80, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit308.thread, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit308.thread466, %.critedge16, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit301.thread460, %_ZNK5clang4Type10isVoidTypeEv.exit357, %_ZNK5clang4Type10isVoidTypeEv.exit, %376, %378, %242, %214, %209, %429, %435, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread, %401, %76, %76, %76, %76, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread440, %27, %_ZNK5clang8QualType16isConstQualifiedEv.exit, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit, %_ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit.thread, %304, %340, %.critedge18, %.critedge2.thread, %247, %205, %239, %236, %230, %208, %138, %83, %67, %55, %399, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit, %_ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread, %_ZNK5clang4Type25isSaturatedFixedPointTypeEv.exit.thread, %42, %389
-  %.2 = phi i32 [ 4, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread ], [ 1, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit ], [ %394, %389 ], [ 1, %429 ], [ 1, %42 ], [ 1, %401 ], [ 1, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit301.thread460 ], [ 0, %55 ], [ 1, %_ZNK5clang4Type25isSaturatedFixedPointTypeEv.exit.thread ], [ 1, %_ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit ], [ 0, %67 ], [ %spec.select166, %399 ], [ 1, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ %not., %80 ], [ 0, %138 ], [ 0, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread440 ], [ 0, %83 ], [ 0, %85 ], [ %.5.ph, %.critedge2.thread ], [ 0, %247 ], [ 0, %205 ], [ 4, %378 ], [ 0, %242 ], [ 0, %239 ], [ 0, %236 ], [ 0, %230 ], [ 0, %214 ], [ 0, %209 ], [ 0, %208 ], [ 1, %304 ], [ %344, %.critedge18 ], [ 1, %340 ], [ 1, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit308.thread466 ], [ 1, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread ], [ 0, %435 ], [ 0, %_ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit.thread ], [ %spec.select, %_ZNK5clang4Type10isVoidTypeEv.exit357 ], [ 0, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit ], [ 0, %_ZNK5clang8QualType16isConstQualifiedEv.exit ], [ 0, %27 ], [ 1, %76 ], [ 1, %76 ], [ 1, %76 ], [ 1, %76 ], [ %switch.load, %switch.lookup ], [ 1, %376 ], [ 0, %.critedge16 ], [ 0, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit308.thread ]
+.critedge2:                                       ; preds = %switch.lookup, %85, %80, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit308.thread, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit308.thread466, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit301.thread460, %_ZNK5clang4Type10isVoidTypeEv.exit357, %_ZNK5clang4Type10isVoidTypeEv.exit, %376, %378, %242, %214, %209, %429, %435, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread, %401, %76, %76, %76, %76, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread440, %27, %_ZNK5clang8QualType16isConstQualifiedEv.exit, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit, %_ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit.thread, %304, %340, %.critedge18, %.critedge2.thread, %247, %205, %239, %236, %230, %208, %138, %83, %67, %55, %399, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit, %_ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread, %_ZNK5clang4Type25isSaturatedFixedPointTypeEv.exit.thread, %42, %389
+  %.2 = phi i32 [ 4, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread ], [ 1, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit ], [ %394, %389 ], [ 1, %429 ], [ 1, %42 ], [ 1, %401 ], [ 1, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit301.thread460 ], [ 0, %55 ], [ 1, %_ZNK5clang4Type25isSaturatedFixedPointTypeEv.exit.thread ], [ 1, %_ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit ], [ 0, %67 ], [ %spec.select166, %399 ], [ 1, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ %not., %80 ], [ 0, %138 ], [ 0, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread440 ], [ 0, %83 ], [ 0, %85 ], [ %.5.ph, %.critedge2.thread ], [ 0, %247 ], [ 0, %205 ], [ 4, %378 ], [ 0, %242 ], [ 0, %239 ], [ 0, %236 ], [ 0, %230 ], [ 0, %214 ], [ 0, %209 ], [ 0, %208 ], [ 1, %304 ], [ %344, %.critedge18 ], [ 1, %340 ], [ 0, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit308.thread ], [ 1, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread ], [ 0, %435 ], [ 0, %_ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit.thread ], [ %spec.select, %_ZNK5clang4Type10isVoidTypeEv.exit357 ], [ 0, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit ], [ 0, %_ZNK5clang8QualType16isConstQualifiedEv.exit ], [ 0, %27 ], [ 1, %76 ], [ 1, %76 ], [ 1, %76 ], [ 1, %76 ], [ %switch.load, %switch.lookup ], [ 1, %376 ], [ 1, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit308.thread466 ]
   ret i32 %.2
 }
 
@@ -2849,7 +2846,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %52, %50, %46, %44, 
 define dso_local noundef zeroext i1 @_ZNK5clang21analyze_format_string15FormatSpecifier22hasValidLengthModifierERKNS_10TargetInfoERKNS_11LangOptionsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(489) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(849) %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !449
-  switch i32 %5, label %126 [
+  switch i32 %5, label %124 [
     i32 0, label %_ZNK4llvm6Triple4isPSEv.exit
     i32 2, label %6
     i32 1, label %27
@@ -2858,15 +2855,15 @@ define dso_local noundef zeroext i1 @_ZNK5clang21analyze_format_string15FormatSp
     i32 7, label %27
     i32 8, label %27
     i32 9, label %27
-    i32 3, label %43
-    i32 4, label %51
-    i32 13, label %78
-    i32 14, label %88
-    i32 15, label %92
-    i32 10, label %96
-    i32 11, label %96
-    i32 12, label %96
-    i32 16, label %111
+    i32 3, label %42
+    i32 4, label %50
+    i32 13, label %76
+    i32 14, label %85
+    i32 15, label %89
+    i32 10, label %94
+    i32 11, label %94
+    i32 12, label %94
+    i32 16, label %109
   ]
 
 6:                                                ; preds = %3
@@ -2916,7 +2913,7 @@ _ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread:       ; preds = %16
 27:                                               ; preds = %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread, %16, %3, %3, %3, %3, %3, %3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load i32, ptr %28, align 8, !tbaa !450
-  switch i32 %29, label %42 [
+  switch i32 %29, label %93 [
     i32 5, label %_ZNK4llvm6Triple4isPSEv.exit
     i32 6, label %_ZNK4llvm6Triple4isPSEv.exit
     i32 2, label %_ZNK4llvm6Triple4isPSEv.exit
@@ -2954,47 +2951,44 @@ _ZNK4llvm6Triple5isPS4Ev.exit.i:                  ; preds = %34
   %spec.select.i17 = icmp ult i32 %41, 2
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
-42:                                               ; preds = %27
+42:                                               ; preds = %3
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %44 = load i64, ptr %43, align 8
+  %45 = and i64 %44, 2305843009213693952
+  %.not14 = icmp eq i64 %45, 0
+  br i1 %.not14, label %_ZNK4llvm6Triple4isPSEv.exit, label %46
+
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %48 = load i32, ptr %47, align 4, !tbaa !17
+  %49 = icmp ne i32 %48, 3
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
-43:                                               ; preds = %3
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %45 = load i64, ptr %44, align 8
-  %46 = and i64 %45, 2305843009213693952
-  %.not14 = icmp eq i64 %46, 0
-  br i1 %.not14, label %_ZNK4llvm6Triple4isPSEv.exit, label %47
+50:                                               ; preds = %3
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %52 = load i32, ptr %51, align 8, !tbaa !450
+  %53 = add i32 %52, -13
+  %spec.select.i18 = icmp ult i32 %53, 8
+  br i1 %spec.select.i18, label %54, label %61
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %49 = load i32, ptr %48, align 4, !tbaa !17
-  %50 = icmp ne i32 %49, 3
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %56 = load i64, ptr %55, align 8
+  %57 = and i64 %56, 2305843009213693952
+  %.not = icmp eq i64 %57, 0
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp ne i32 %59, 3
+  %or.cond32.not = select i1 %.not, i1 true, i1 %60
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
-51:                                               ; preds = %3
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %53 = load i32, ptr %52, align 8, !tbaa !450
-  %54 = add i32 %53, -13
-  %spec.select.i18 = icmp ult i32 %54, 8
-  br i1 %spec.select.i18, label %55, label %62
+61:                                               ; preds = %50
+  %62 = add i32 %52, -29
+  %spec.select.i19 = icmp ult i32 %62, 4
+  br i1 %spec.select.i19, label %_ZNK4llvm6Triple4isPSEv.exit, label %63
 
-55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %57 = load i64, ptr %56, align 8
-  %58 = and i64 %57, 2305843009213693952
-  %.not = icmp eq i64 %58, 0
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp ne i32 %60, 3
-  %or.cond32.not = select i1 %.not, i1 true, i1 %61
-  br label %_ZNK4llvm6Triple4isPSEv.exit
-
-62:                                               ; preds = %51
-  %63 = add i32 %53, -29
-  %spec.select.i19 = icmp ult i32 %63, 4
-  br i1 %spec.select.i19, label %_ZNK4llvm6Triple4isPSEv.exit, label %64
-
-64:                                               ; preds = %62
-  switch i32 %53, label %77 [
+63:                                               ; preds = %61
+  switch i32 %52, label %93 [
     i32 5, label %_ZNK4llvm6Triple4isPSEv.exit
     i32 6, label %_ZNK4llvm6Triple4isPSEv.exit
     i32 2, label %_ZNK4llvm6Triple4isPSEv.exit
@@ -3011,38 +3005,35 @@ _ZNK4llvm6Triple5isPS4Ev.exit.i:                  ; preds = %34
     i32 21, label %_ZNK4llvm6Triple4isPSEv.exit
     i32 39, label %_ZNK4llvm6Triple4isPSEv.exit
     i32 28, label %_ZNK4llvm6Triple4isPSEv.exit
-    i32 36, label %65
-    i32 37, label %65
+    i32 36, label %64
+    i32 37, label %64
   ]
 
-65:                                               ; preds = %64, %64
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 260
-  %67 = load i32, ptr %66, align 4, !tbaa !459
-  %68 = icmp eq i32 %67, 3
-  br i1 %68, label %_ZNK4llvm6Triple4isPSEv.exit, label %69
+64:                                               ; preds = %63, %63
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 260
+  %66 = load i32, ptr %65, align 4, !tbaa !459
+  %67 = icmp eq i32 %66, 3
+  br i1 %67, label %_ZNK4llvm6Triple4isPSEv.exit, label %68
 
-69:                                               ; preds = %65
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %71 = load i32, ptr %70, align 8, !tbaa !467
-  %72 = icmp eq i32 %71, 38
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %74 = load i32, ptr %73, align 8
-  %75 = icmp eq i32 %74, 3
-  %or.cond.i.i20 = select i1 %72, i1 %75, i1 false
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %70 = load i32, ptr %69, align 8, !tbaa !467
+  %71 = icmp eq i32 %70, 38
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  %73 = load i32, ptr %72, align 8
+  %74 = icmp eq i32 %73, 3
+  %or.cond.i.i20 = select i1 %71, i1 %74, i1 false
   br i1 %or.cond.i.i20, label %_ZNK4llvm6Triple5isPS4Ev.exit.i21, label %_ZNK4llvm6Triple4isPSEv.exit
 
-_ZNK4llvm6Triple5isPS4Ev.exit.i21:                ; preds = %69
-  %76 = add i32 %67, -23
-  %spec.select.i22 = icmp ult i32 %76, 2
+_ZNK4llvm6Triple5isPS4Ev.exit.i21:                ; preds = %68
+  %75 = add i32 %66, -23
+  %spec.select.i22 = icmp ult i32 %75, 2
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
-77:                                               ; preds = %64
-  br label %_ZNK4llvm6Triple4isPSEv.exit
-
-78:                                               ; preds = %3
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %80 = load i32, ptr %79, align 8, !tbaa !450
-  switch i32 %80, label %87 [
+76:                                               ; preds = %3
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %78 = load i32, ptr %77, align 8, !tbaa !450
+  switch i32 %78, label %93 [
     i32 19, label %_ZNK4llvm6Triple4isPSEv.exit
     i32 20, label %_ZNK4llvm6Triple4isPSEv.exit
     i32 13, label %_ZNK4llvm6Triple4isPSEv.exit
@@ -3051,120 +3042,120 @@ _ZNK4llvm6Triple5isPS4Ev.exit.i21:                ; preds = %69
     i32 16, label %_ZNK4llvm6Triple4isPSEv.exit
     i32 17, label %_ZNK4llvm6Triple4isPSEv.exit
     i32 18, label %_ZNK4llvm6Triple4isPSEv.exit
-    i32 2, label %81
-    i32 4, label %81
-    i32 7, label %81
-    i32 9, label %81
-    i32 11, label %81
-    i32 12, label %81
+    i32 2, label %79
+    i32 4, label %79
+    i32 7, label %79
+    i32 9, label %79
+    i32 11, label %79
+    i32 12, label %79
   ]
 
-81:                                               ; preds = %78, %78, %78, %78, %78, %78
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 260
-  %83 = load i32, ptr %82, align 4, !tbaa !459
-  %84 = and i32 %83, -9
-  %spec.select.i.i = icmp eq i32 %84, 1
-  br i1 %spec.select.i.i, label %_ZNK4llvm6Triple4isPSEv.exit, label %85
+79:                                               ; preds = %76, %76, %76, %76, %76, %76
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 260
+  %81 = load i32, ptr %80, align 4, !tbaa !459
+  %82 = and i32 %81, -9
+  %spec.select.i.i = icmp eq i32 %82, 1
+  br i1 %spec.select.i.i, label %_ZNK4llvm6Triple4isPSEv.exit, label %83
 
-85:                                               ; preds = %81
-  %86 = icmp ult i32 %83, 31
-  br i1 %86, label %switch.lookup37, label %_ZNK4llvm6Triple4isPSEv.exit
+83:                                               ; preds = %79
+  %84 = icmp ult i32 %81, 31
+  br i1 %84, label %switch.lookup37, label %_ZNK4llvm6Triple4isPSEv.exit
 
-87:                                               ; preds = %78
+85:                                               ; preds = %3
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %87 = load i32, ptr %86, align 8, !tbaa !450
+  %88 = icmp ult i32 %87, 40
+  br i1 %88, label %switch.lookup38, label %93
+
+89:                                               ; preds = %3
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %91 = load i32, ptr %90, align 8, !tbaa !450
+  %92 = icmp ult i32 %91, 40
+  br i1 %92, label %switch.lookup43, label %93
+
+93:                                               ; preds = %89, %85, %27, %63, %76
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
-88:                                               ; preds = %3
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %90 = load i32, ptr %89, align 8, !tbaa !450
-  %91 = icmp ult i32 %90, 40
-  br i1 %91, label %switch.lookup38, label %_ZNK4llvm6Triple4isPSEv.exit
-
-92:                                               ; preds = %3
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %94 = load i32, ptr %93, align 8, !tbaa !450
-  %95 = icmp ult i32 %94, 40
-  br i1 %95, label %switch.lookup43, label %_ZNK4llvm6Triple4isPSEv.exit
-
-96:                                               ; preds = %3, %3, %3
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %98 = load i32, ptr %97, align 8, !tbaa !450
-  switch i32 %98, label %_ZNK4llvm6Triple4isPSEv.exit [
-    i32 2, label %99
-    i32 4, label %99
-    i32 7, label %99
-    i32 9, label %99
-    i32 11, label %99
-    i32 12, label %99
+94:                                               ; preds = %3, %3, %3
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %96 = load i32, ptr %95, align 8, !tbaa !450
+  switch i32 %96, label %_ZNK4llvm6Triple4isPSEv.exit [
+    i32 2, label %97
+    i32 4, label %97
+    i32 7, label %97
+    i32 9, label %97
+    i32 11, label %97
+    i32 12, label %97
   ]
 
-99:                                               ; preds = %96, %96, %96, %96, %96, %96
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 260
-  %101 = load i32, ptr %100, align 4, !tbaa !459
-  %102 = icmp eq i32 %101, 14
-  %103 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %104 = load i32, ptr %103, align 8
-  %105 = icmp eq i32 %104, 27
-  %106 = icmp ult i32 %104, 2
-  %107 = or i1 %105, %106
-  %or.cond2.i24 = select i1 %102, i1 %107, i1 false
-  br i1 %or.cond2.i24, label %_ZNK4llvm6Triple4isPSEv.exit, label %108
+97:                                               ; preds = %94, %94, %94, %94, %94, %94
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 260
+  %99 = load i32, ptr %98, align 4, !tbaa !459
+  %100 = icmp eq i32 %99, 14
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 264
+  %102 = load i32, ptr %101, align 8
+  %103 = icmp eq i32 %102, 27
+  %104 = icmp ult i32 %102, 2
+  %105 = or i1 %103, %104
+  %or.cond2.i24 = select i1 %100, i1 %105, i1 false
+  br i1 %or.cond2.i24, label %_ZNK4llvm6Triple4isPSEv.exit, label %106
 
-108:                                              ; preds = %99
-  %109 = icmp eq i32 %104, 28
-  %110 = select i1 %102, i1 %109, i1 false
+106:                                              ; preds = %97
+  %107 = icmp eq i32 %102, 28
+  %108 = select i1 %100, i1 %107, i1 false
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
-111:                                              ; preds = %3
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %113 = load i32, ptr %112, align 8, !tbaa !450
-  switch i32 %113, label %_ZNK4llvm6Triple4isPSEv.exit [
-    i32 1, label %114
-    i32 25, label %114
-    i32 21, label %114
-    i32 26, label %114
-    i32 28, label %114
+109:                                              ; preds = %3
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %111 = load i32, ptr %110, align 8, !tbaa !450
+  switch i32 %111, label %_ZNK4llvm6Triple4isPSEv.exit [
+    i32 1, label %112
+    i32 25, label %112
+    i32 21, label %112
+    i32 26, label %112
+    i32 28, label %112
   ]
 
-114:                                              ; preds = %111, %111, %111, %111, %111
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 260
-  %116 = load i32, ptr %115, align 4, !tbaa !459
-  %117 = icmp eq i32 %116, 14
-  %118 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %119 = load i32, ptr %118, align 8
-  %120 = icmp eq i32 %119, 27
-  %121 = icmp ult i32 %119, 2
-  %122 = or i1 %120, %121
-  %or.cond2.i26 = select i1 %117, i1 %122, i1 false
-  br i1 %or.cond2.i26, label %_ZNK4llvm6Triple4isPSEv.exit, label %123
+112:                                              ; preds = %109, %109, %109, %109, %109
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 260
+  %114 = load i32, ptr %113, align 4, !tbaa !459
+  %115 = icmp eq i32 %114, 14
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 264
+  %117 = load i32, ptr %116, align 8
+  %118 = icmp eq i32 %117, 27
+  %119 = icmp ult i32 %117, 2
+  %120 = or i1 %118, %119
+  %or.cond2.i26 = select i1 %115, i1 %120, i1 false
+  br i1 %or.cond2.i26, label %_ZNK4llvm6Triple4isPSEv.exit, label %121
 
-123:                                              ; preds = %114
-  %124 = icmp eq i32 %119, 28
-  %125 = select i1 %117, i1 %124, i1 false
+121:                                              ; preds = %112
+  %122 = icmp eq i32 %117, 28
+  %123 = select i1 %115, i1 %122, i1 false
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
-126:                                              ; preds = %3
+124:                                              ; preds = %3
   unreachable
 
-switch.lookup37:                                  ; preds = %85
-  %switch.cast = trunc nuw i32 %83 to i31
+switch.lookup37:                                  ; preds = %83
+  %switch.cast = trunc nuw i32 %81 to i31
   %switch.downshift = lshr i31 335527903, %switch.cast
   %switch.masked = trunc i31 %switch.downshift to i1
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
-switch.lookup38:                                  ; preds = %88
-  %switch.cast39 = zext nneg i32 %90 to i40
+switch.lookup38:                                  ; preds = %85
+  %switch.cast39 = zext nneg i32 %87 to i40
   %switch.downshift41 = lshr i40 -549686607872, %switch.cast39
   %switch.masked42 = trunc i40 %switch.downshift41 to i1
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
-switch.lookup43:                                  ; preds = %92
-  %switch.cast44 = zext nneg i32 %94 to i40
+switch.lookup43:                                  ; preds = %89
+  %switch.cast44 = zext nneg i32 %91 to i40
   %switch.downshift46 = lshr i40 -549653053438, %switch.cast44
   %switch.masked47 = trunc i40 %switch.downshift46 to i1
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
-_ZNK4llvm6Triple4isPSEv.exit:                     ; preds = %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread, %92, %switch.lookup43, %88, %switch.lookup38, %85, %switch.lookup37, %55, %81, %123, %114, %108, %99, %_ZNK4llvm6Triple5isPS4Ev.exit.i21, %69, %_ZNK4llvm6Triple5isPS4Ev.exit.i, %34, %111, %96, %78, %78, %78, %78, %78, %78, %78, %78, %65, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %62, %43, %47, %30, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %._crit_edge, %3, %87, %77, %42, %11
-  %.0 = phi i1 [ true, %99 ], [ %14, %11 ], [ true, %3 ], [ false, %42 ], [ false, %92 ], [ true, %27 ], [ true, %._crit_edge ], [ false, %111 ], [ %50, %47 ], [ false, %81 ], [ %or.cond32.not, %55 ], [ false, %77 ], [ true, %62 ], [ true, %64 ], [ false, %87 ], [ false, %34 ], [ true, %78 ], [ %switch.masked47, %switch.lookup43 ], [ %spec.select.i17, %_ZNK4llvm6Triple5isPS4Ev.exit.i ], [ true, %85 ], [ %switch.masked42, %switch.lookup38 ], [ false, %88 ], [ false, %69 ], [ false, %96 ], [ %switch.masked, %switch.lookup37 ], [ %125, %123 ], [ %110, %108 ], [ %spec.select.i22, %_ZNK4llvm6Triple5isPS4Ev.exit.i21 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %30 ], [ false, %43 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %65 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %114 ], [ true, %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread ]
+_ZNK4llvm6Triple4isPSEv.exit:                     ; preds = %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread, %switch.lookup43, %switch.lookup38, %83, %switch.lookup37, %54, %79, %121, %112, %106, %97, %_ZNK4llvm6Triple5isPS4Ev.exit.i21, %68, %_ZNK4llvm6Triple5isPS4Ev.exit.i, %34, %109, %94, %76, %76, %76, %76, %76, %76, %76, %76, %64, %63, %63, %63, %63, %63, %63, %63, %63, %63, %63, %63, %63, %63, %63, %63, %63, %61, %42, %46, %30, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %._crit_edge, %3, %93, %11
+  %.0 = phi i1 [ true, %97 ], [ %14, %11 ], [ true, %3 ], [ %switch.masked, %switch.lookup37 ], [ true, %76 ], [ true, %27 ], [ true, %._crit_edge ], [ false, %109 ], [ %49, %46 ], [ false, %79 ], [ %or.cond32.not, %54 ], [ %spec.select.i22, %_ZNK4llvm6Triple5isPS4Ev.exit.i21 ], [ true, %61 ], [ true, %63 ], [ %spec.select.i17, %_ZNK4llvm6Triple5isPS4Ev.exit.i ], [ false, %34 ], [ true, %76 ], [ %switch.masked47, %switch.lookup43 ], [ true, %83 ], [ false, %93 ], [ %switch.masked42, %switch.lookup38 ], [ true, %112 ], [ false, %68 ], [ false, %94 ], [ true, %76 ], [ true, %76 ], [ %123, %121 ], [ %108, %106 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %30 ], [ false, %42 ], [ true, %63 ], [ true, %63 ], [ true, %63 ], [ true, %63 ], [ true, %63 ], [ true, %63 ], [ true, %63 ], [ true, %63 ], [ true, %63 ], [ true, %63 ], [ true, %63 ], [ true, %63 ], [ true, %63 ], [ true, %63 ], [ true, %63 ], [ true, %64 ], [ true, %76 ], [ true, %76 ], [ true, %76 ], [ true, %76 ], [ true, %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread ]
   ret i1 %.0
 }
 

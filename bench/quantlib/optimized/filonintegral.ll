@@ -858,7 +858,7 @@ invoke.cont148:                                   ; preds = %if.end.i145
   %tobool.not.i.i177 = icmp eq ptr %78, null
   br i1 %tobool.not.i.i177, label %if.then.i180.invoke, label %if.end.i178
 
-if.then.i180.invoke:                              ; preds = %for.cond.cleanup, %invoke.cont100, %invoke.cont91, %invoke.cont148
+if.then.i180.invoke:                              ; preds = %invoke.cont91, %invoke.cont100, %for.cond.cleanup, %invoke.cont148
   invoke void @_ZSt25__throw_bad_function_callv() #20
           to label %if.then.i180.cont unwind label %lpad86
 

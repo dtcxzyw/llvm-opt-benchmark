@@ -5023,101 +5023,83 @@ define internal fastcc range(i32 -2147483648, 1) i32 @upi_fill_topology(ptr noun
   store i32 %2, ptr %1, align 8
   %7 = call i32 @pci_read_config_dword(ptr noundef nonnull %0, i32 noundef 288, ptr noundef nonnull %4) #20
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %18, label %9
+  br i1 %8, label %12, label %9
 
 9:                                                ; preds = %3
   %10 = icmp slt i32 %7, 1
-  br i1 %10, label %43, label %11
+  br i1 %10, label %37, label %11
 
 11:                                               ; preds = %9
-  switch i32 %7, label %17 [
-    i32 129, label %43
-    i32 131, label %12
-    i32 134, label %13
-    i32 135, label %14
-    i32 136, label %15
-    i32 137, label %16
+  switch i32 %7, label %29 [
+    i32 129, label %37
+    i32 131, label %24
+    i32 134, label %25
+    i32 135, label %26
+    i32 136, label %27
+    i32 137, label %28
   ]
 
-12:                                               ; preds = %11
-  br label %43
+12:                                               ; preds = %3
+  %13 = load i32, ptr %4, align 4
+  %14 = lshr i32 %13, 4
+  %15 = and i32 %14, 1
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 %15, ptr %16, align 4
+  %17 = icmp eq i32 %15, 0
+  br i1 %17, label %37, label %18
 
-13:                                               ; preds = %11
-  br label %43
+18:                                               ; preds = %12
+  %19 = call i32 @pci_read_config_dword(ptr noundef nonnull %0, i32 noundef 148, ptr noundef nonnull %4) #20
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %30, label %21
 
-14:                                               ; preds = %11
-  br label %43
+21:                                               ; preds = %18
+  %22 = icmp slt i32 %19, 1
+  br i1 %22, label %37, label %23
 
-15:                                               ; preds = %11
-  br label %43
-
-16:                                               ; preds = %11
-  br label %43
-
-17:                                               ; preds = %11
-  br label %43
-
-18:                                               ; preds = %3
-  %19 = load i32, ptr %4, align 4
-  %20 = lshr i32 %19, 4
-  %21 = and i32 %20, 1
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %21, ptr %22, align 4
-  %23 = icmp eq i32 %21, 0
-  br i1 %23, label %43, label %24
-
-24:                                               ; preds = %18
-  %25 = call i32 @pci_read_config_dword(ptr noundef nonnull %0, i32 noundef 148, ptr noundef nonnull %4) #20
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %36, label %27
-
-27:                                               ; preds = %24
-  %28 = icmp slt i32 %25, 1
-  br i1 %28, label %43, label %29
-
-29:                                               ; preds = %27
-  switch i32 %25, label %35 [
-    i32 129, label %43
-    i32 131, label %30
-    i32 134, label %31
-    i32 135, label %32
-    i32 136, label %33
-    i32 137, label %34
+23:                                               ; preds = %21
+  switch i32 %19, label %29 [
+    i32 129, label %37
+    i32 131, label %24
+    i32 134, label %25
+    i32 135, label %26
+    i32 136, label %27
+    i32 137, label %28
   ]
 
-30:                                               ; preds = %29
-  br label %43
+24:                                               ; preds = %11, %23
+  br label %37
 
-31:                                               ; preds = %29
-  br label %43
+25:                                               ; preds = %11, %23
+  br label %37
 
-32:                                               ; preds = %29
-  br label %43
+26:                                               ; preds = %11, %23
+  br label %37
 
-33:                                               ; preds = %29
-  br label %43
+27:                                               ; preds = %11, %23
+  br label %37
 
-34:                                               ; preds = %29
-  br label %43
+28:                                               ; preds = %11, %23
+  br label %37
 
-35:                                               ; preds = %29
-  br label %43
+29:                                               ; preds = %11, %23
+  br label %37
 
-36:                                               ; preds = %24
-  %37 = load i32, ptr %4, align 4
-  %38 = lshr i32 %37, 16
-  %39 = and i32 %38, 15
-  store i32 %39, ptr %6, align 4
-  %40 = lshr i32 %37, 8
-  %41 = and i32 %40, 31
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %41, ptr %42, align 4
-  br label %43
+30:                                               ; preds = %18
+  %31 = load i32, ptr %4, align 4
+  %32 = lshr i32 %31, 16
+  %33 = and i32 %32, 15
+  store i32 %33, ptr %6, align 4
+  %34 = lshr i32 %31, 8
+  %35 = and i32 %34, 31
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 %35, ptr %36, align 4
+  br label %37
 
-43:                                               ; preds = %36, %35, %34, %33, %32, %31, %30, %29, %27, %18, %17, %16, %15, %14, %13, %12, %11, %9
-  %44 = phi i32 [ 0, %36 ], [ 0, %18 ], [ -34, %17 ], [ -28, %16 ], [ -5, %15 ], [ -14, %14 ], [ -19, %13 ], [ -25, %12 ], [ %7, %9 ], [ -2, %11 ], [ -34, %35 ], [ -28, %34 ], [ -5, %33 ], [ -14, %32 ], [ -19, %31 ], [ -25, %30 ], [ %25, %27 ], [ -2, %29 ]
+37:                                               ; preds = %30, %29, %28, %27, %26, %25, %24, %23, %21, %12, %11, %9
+  %38 = phi i32 [ 0, %30 ], [ 0, %12 ], [ -5, %27 ], [ -14, %26 ], [ -19, %25 ], [ -25, %24 ], [ %19, %21 ], [ -2, %23 ], [ %7, %9 ], [ -2, %11 ], [ -34, %29 ], [ -28, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %44
+  ret i32 %38
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

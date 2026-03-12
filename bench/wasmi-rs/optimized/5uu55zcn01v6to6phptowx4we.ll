@@ -13180,8 +13180,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2075
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -13300,7 +13300,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2075
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -13358,7 +13358,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2075
@@ -13372,10 +13372,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2075, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2075
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -13421,8 +13418,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2091
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -13541,7 +13538,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2091
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -13599,7 +13596,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2091
@@ -13613,10 +13610,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2091, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2091
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -13662,8 +13656,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2107
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -13782,7 +13776,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2107
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -13840,7 +13834,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2107
@@ -13854,10 +13848,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2107, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2107
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -13903,8 +13894,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2123
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -14023,7 +14014,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2123
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -14081,7 +14072,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2123
@@ -14095,10 +14086,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2123, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2123
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -14144,8 +14132,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2139
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -14264,7 +14252,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2139
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -14322,7 +14310,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2139
@@ -14336,10 +14324,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2139, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2139
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -14385,8 +14370,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2155
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -14505,7 +14490,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2155
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -14563,7 +14548,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2155
@@ -14577,10 +14562,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2155, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2155
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -14626,8 +14608,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2171
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -14746,7 +14728,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2171
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -14804,7 +14786,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2171
@@ -14818,10 +14800,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2171, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2171
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -14867,8 +14846,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2187
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -14987,7 +14966,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2187
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -15045,7 +15024,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2187
@@ -15059,10 +15038,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2187, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2187
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -15108,8 +15084,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2203
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -15228,7 +15204,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2203
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -15286,7 +15262,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2203
@@ -15300,10 +15276,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2203, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2203
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -15349,8 +15322,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2219
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -15469,7 +15442,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2219
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -15527,7 +15500,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2219
@@ -15541,10 +15514,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2219, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2219
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -15590,8 +15560,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2235
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -15710,7 +15680,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2235
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -15768,7 +15738,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2235
@@ -15782,10 +15752,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2235, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2235
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -15831,8 +15798,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2251
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -15951,7 +15918,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2251
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -16009,7 +15976,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2251
@@ -16023,10 +15990,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2251, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2251
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -16072,8 +16036,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2267
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -16192,7 +16156,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2267
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -16250,7 +16214,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2267
@@ -16264,10 +16228,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2267, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2267
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -16313,8 +16274,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2283
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -16433,7 +16394,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2283
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -16491,7 +16452,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2283
@@ -16505,10 +16466,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator5visit123_$LT$impl$u20$
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2283, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2283
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -19846,8 +19804,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2464
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -19966,7 +19924,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2464
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -20024,7 +19982,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2464
@@ -20038,10 +19996,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2464, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2464
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -20087,8 +20042,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2480
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -20207,7 +20162,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2480
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -20265,7 +20220,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2480
@@ -20279,10 +20234,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2480, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2480
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -20328,8 +20280,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2496
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -20448,7 +20400,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2496
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -20506,7 +20458,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2496
@@ -20520,10 +20472,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2496, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2496
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -20569,8 +20518,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2512
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -20689,7 +20638,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2512
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -20747,7 +20696,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2512
@@ -20761,10 +20710,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2512, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2512
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -20810,8 +20756,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2528
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -20930,7 +20876,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2528
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -20988,7 +20934,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2528
@@ -21002,10 +20948,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2528, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2528
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -21051,8 +20994,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2544
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -21171,7 +21114,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2544
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -21229,7 +21172,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2544
@@ -21243,10 +21186,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2544, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2544
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -21292,8 +21232,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2560
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -21412,7 +21352,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2560
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -21470,7 +21410,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2560
@@ -21484,10 +21424,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2560, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2560
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -21533,8 +21470,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2576
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -21653,7 +21590,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2576
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -21711,7 +21648,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2576
@@ -21725,10 +21662,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2576, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2576
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -21774,8 +21708,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2592
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -21894,7 +21828,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2592
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -21952,7 +21886,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2592
@@ -21966,10 +21900,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2592, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2592
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -22015,8 +21946,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2608
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -22135,7 +22066,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2608
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -22193,7 +22124,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2608
@@ -22207,10 +22138,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2608, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2608
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -22256,8 +22184,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2624
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -22376,7 +22304,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2624
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -22434,7 +22362,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2624
@@ -22448,10 +22376,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2624, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2624
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -22497,8 +22422,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2640
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -22617,7 +22542,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2640
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -22675,7 +22600,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2640
@@ -22689,10 +22614,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2640, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2640
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
@@ -22738,8 +22660,8 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %.not.i = icmp eq i8 %24, 7
   br i1 %.not.i, label %30, label %25
 
-.sink.split.i:                                    ; preds = %127, %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
-  %.sroa.0.0.ph.i = phi ptr [ null, %127 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ], [ null, %44 ]
+.sink.split.i:                                    ; preds = %121, %111, %104, %96, %87, %80, %72, %65, %54, %53, %50, %44, %32
+  %.sroa.0.0.ph.i = phi ptr [ null, %44 ], [ %86, %80 ], [ %62, %54 ], [ %36, %32 ], [ %103, %96 ], [ %118, %111 ], [ %.sroa.0.3.i, %104 ], [ %126, %121 ], [ %77, %72 ], [ %69, %65 ], [ null, %87 ], [ %52, %50 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2656
   br label %_ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit
 
@@ -22858,7 +22780,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2656
   br i1 %84, label %.sink.split.i, label %87
 
-87:                                               ; preds = %80, %78
+87:                                               ; preds = %121, %119, %80, %78
   br label %.sink.split.i
 
 88:                                               ; preds = %54
@@ -22916,7 +22838,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
 
 119:                                              ; preds = %111
   %120 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15)
-  br i1 %120, label %127, label %121
+  br i1 %120, label %87, label %121
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2656
@@ -22930,10 +22852,7 @@ define noundef align 8 ptr @"_ZN5wasmi6engine10translator4simd5visit127_$LT$impl
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !2656, !nonnull !14, !align !420
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2656
-  br i1 %124, label %.sink.split.i, label %127
-
-127:                                              ; preds = %121, %119
-  br label %.sink.split.i
+  br i1 %124, label %.sink.split.i, label %87
 
 _ZN5wasmi6engine10translator14FuncTranslator14translate_load17h21b73fc19b7cbeabE.exit: ; preds = %2, %.sink.split.i
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]

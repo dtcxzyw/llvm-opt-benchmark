@@ -1410,23 +1410,20 @@ define hidden void @zif_is_numeric(ptr noundef readonly captures(none) %0, ptr n
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i8, ptr %11, align 1, !tbaa !4
   %13 = icmp sgt i8 %12, 57
-  br i1 %13, label %is_numeric_string_ex.exit.thread.i, label %is_numeric_string_ex.exit.i
+  br i1 %13, label %17, label %is_numeric_string_ex.exit.i
 
 is_numeric_string_ex.exit.i:                      ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %15 = load i64, ptr %14, align 8, !tbaa !15
   %16 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %11, i64 noundef %15, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #8
   %.not.i = icmp eq i8 %16, 0
-  br i1 %.not.i, label %is_numeric_string_ex.exit.thread.i, label %_zend_is_numeric.exit
+  br i1 %.not.i, label %17, label %_zend_is_numeric.exit
 
-is_numeric_string_ex.exit.thread.i:               ; preds = %is_numeric_string_ex.exit.i, %8
+17:                                               ; preds = %is_numeric_string_ex.exit.i, %8, %.critedge.critedge
   br label %_zend_is_numeric.exit
 
-17:                                               ; preds = %.critedge.critedge
-  br label %_zend_is_numeric.exit
-
-_zend_is_numeric.exit:                            ; preds = %.critedge.critedge, %.critedge.critedge, %is_numeric_string_ex.exit.i, %is_numeric_string_ex.exit.thread.i, %17
-  %.sink.i = phi i32 [ 2, %17 ], [ 2, %is_numeric_string_ex.exit.thread.i ], [ 3, %.critedge.critedge ], [ 3, %.critedge.critedge ], [ 3, %is_numeric_string_ex.exit.i ]
+_zend_is_numeric.exit:                            ; preds = %.critedge.critedge, %.critedge.critedge, %is_numeric_string_ex.exit.i, %17
+  %.sink.i = phi i32 [ 2, %17 ], [ 3, %is_numeric_string_ex.exit.i ], [ 3, %.critedge.critedge ], [ 3, %.critedge.critedge ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink.i, ptr %18, align 8, !tbaa !4
   br label %19
@@ -1450,23 +1447,20 @@ define hidden void @zflf_is_numeric_1(ptr noundef writeonly captures(none) initi
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i8, ptr %7, align 1, !tbaa !4
   %9 = icmp sgt i8 %8, 57
-  br i1 %9, label %is_numeric_string_ex.exit.thread.i, label %is_numeric_string_ex.exit.i
+  br i1 %9, label %13, label %is_numeric_string_ex.exit.i
 
 is_numeric_string_ex.exit.i:                      ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !15
   %12 = tail call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %7, i64 noundef %11, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #8
   %.not.i = icmp eq i8 %12, 0
-  br i1 %.not.i, label %is_numeric_string_ex.exit.thread.i, label %_zend_is_numeric.exit
+  br i1 %.not.i, label %13, label %_zend_is_numeric.exit
 
-is_numeric_string_ex.exit.thread.i:               ; preds = %is_numeric_string_ex.exit.i, %5
+13:                                               ; preds = %is_numeric_string_ex.exit.i, %5, %2
   br label %_zend_is_numeric.exit
 
-13:                                               ; preds = %2
-  br label %_zend_is_numeric.exit
-
-_zend_is_numeric.exit:                            ; preds = %2, %2, %is_numeric_string_ex.exit.i, %is_numeric_string_ex.exit.thread.i, %13
-  %.sink.i = phi i32 [ 2, %13 ], [ 2, %is_numeric_string_ex.exit.thread.i ], [ 3, %2 ], [ 3, %2 ], [ 3, %is_numeric_string_ex.exit.i ]
+_zend_is_numeric.exit:                            ; preds = %2, %2, %is_numeric_string_ex.exit.i, %13
+  %.sink.i = phi i32 [ 2, %13 ], [ 3, %is_numeric_string_ex.exit.i ], [ 3, %2 ], [ 3, %2 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink.i, ptr %14, align 8, !tbaa !4
   ret void

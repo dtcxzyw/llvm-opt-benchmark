@@ -17338,7 +17338,7 @@ define hidden noundef zeroext i1 @_ZN3sat9lookahead13should_cutoffEj(ptr noundef
   %21 = fcmp ult double %20, %14
   br i1 %21, label %.thread.thread, label %40
 
-.thread.thread:                                   ; preds = %11
+.thread.thread:                                   ; preds = %28, %11
   br label %40
 
 22:                                               ; preds = %10
@@ -17366,10 +17366,7 @@ define hidden noundef zeroext i1 @_ZN3sat9lookahead13should_cutoffEj(ptr noundef
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %33 = load double, ptr %32, align 8, !tbaa !399
   %34 = fcmp ogt double %33, %31
-  br i1 %34, label %40, label %.thread4
-
-.thread4:                                         ; preds = %28
-  br label %40
+  br i1 %34, label %40, label %.thread.thread
 
 35:                                               ; preds = %.thread
   %36 = tail call noundef double @_ZN3sat9lookahead9psat_heurEv(ptr noundef nonnull align 8 dereferenceable(1160) %0)
@@ -17378,8 +17375,8 @@ define hidden noundef zeroext i1 @_ZN3sat9lookahead13should_cutoffEj(ptr noundef
   %39 = fcmp oge double %36, %38
   br label %40
 
-40:                                               ; preds = %.thread.thread, %.thread, %.thread4, %3, %11, %22, %28, %35, %2
-  %41 = phi i1 [ false, %2 ], [ true, %28 ], [ true, %22 ], [ true, %11 ], [ true, %3 ], [ false, %.thread ], [ %39, %35 ], [ false, %.thread4 ], [ false, %.thread.thread ]
+40:                                               ; preds = %.thread.thread, %.thread, %3, %11, %22, %28, %35, %2
+  %41 = phi i1 [ false, %2 ], [ true, %28 ], [ true, %22 ], [ true, %11 ], [ true, %3 ], [ false, %.thread ], [ %39, %35 ], [ false, %.thread.thread ]
   ret i1 %41
 }
 
@@ -17970,13 +17967,13 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit108:  ; preds = %221, %224
 .loopexit187:                                     ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit108, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
   %229 = phi ptr [ %176, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit ], [ %222, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit108 ]
   %230 = icmp eq ptr %229, null
-  br i1 %230, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit110
+  br i1 %230, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread176, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit110
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit110:  ; preds = %.loopexit187
   %231 = getelementptr inbounds i8, ptr %229, i64 -4
   %232 = load i32, ptr %231, align 4, !tbaa !87
   %.not.i111 = icmp eq i32 %232, 0
-  br i1 %.not.i111, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread, label %233
+  br i1 %.not.i111, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread176, label %233
 
 233:                                              ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit110
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -17986,7 +17983,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit110:  ; preds = %.loopexit187
   %238 = load i32, ptr %237, align 8
   %239 = icmp eq i32 %232, %238
   %or.cond.i = select i1 %236, i1 %239, i1 false
-  br i1 %or.cond.i, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread175, label %240
+  br i1 %or.cond.i, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread, label %240
 
 240:                                              ; preds = %233
   switch i32 %235, label %.thread.i [
@@ -18005,7 +18002,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit110:  ; preds = %.loopexit187
   %249 = load double, ptr %248, align 8, !tbaa !397
   %250 = fmul double %249, %247
   %251 = fcmp ult double %250, %244
-  br i1 %251, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread175
+  br i1 %251, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread176, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread
 
 252:                                              ; preds = %240
   %253 = invoke noundef double @_ZN3sat9lookahead9psat_heurEv(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0)
@@ -18015,7 +18012,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit110:  ; preds = %.loopexit187
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %255 = load double, ptr %254, align 8, !tbaa !398
   %256 = fcmp ult double %253, %255
-  br i1 %256, label %..thread_crit_edge.i, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread175
+  br i1 %256, label %..thread_crit_edge.i, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread
 
 ..thread_crit_edge.i:                             ; preds = %.noexc113
   %.pre.i112 = load i32, ptr %234, align 4, !tbaa !396
@@ -18023,7 +18020,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit110:  ; preds = %.loopexit187
 
 .thread.i:                                        ; preds = %..thread_crit_edge.i, %240
   %257 = phi i32 [ %.pre.i112, %..thread_crit_edge.i ], [ %235, %240 ]
-  switch i32 %257, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread [
+  switch i32 %257, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread176 [
     i32 3, label %258
     i32 4, label %265
   ]
@@ -18035,7 +18032,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit110:  ; preds = %.loopexit187
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %263 = load double, ptr %262, align 8, !tbaa !399
   %264 = fcmp ogt double %263, %261
-  br i1 %264, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread175, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread
+  br i1 %264, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread176
 
 265:                                              ; preds = %.thread.i
   %266 = invoke noundef double @_ZN3sat9lookahead9psat_heurEv(ptr noundef nonnull readonly align 8 dereferenceable(1160) %0)
@@ -18045,9 +18042,9 @@ _ZN3sat9lookahead13should_cutoffEj.exit:          ; preds = %265
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %268 = load double, ptr %267, align 8, !tbaa !400
   %269 = fcmp ult double %266, %268
-  br i1 %269, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread175
+  br i1 %269, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread176, label %_ZN3sat9lookahead13should_cutoffEj.exit.thread
 
-_ZN3sat9lookahead13should_cutoffEj.exit.thread175: ; preds = %233, %241, %.noexc113, %258, %_ZN3sat9lookahead13should_cutoffEj.exit
+_ZN3sat9lookahead13should_cutoffEj.exit.thread:   ; preds = %233, %241, %.noexc113, %258, %_ZN3sat9lookahead13should_cutoffEj.exit
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %271 = load double, ptr %270, align 8, !tbaa !410
   %272 = uitofp i32 %232 to double
@@ -18071,9 +18068,9 @@ _ZN3sat9lookahead13should_cutoffEj.exit.thread175: ; preds = %233, %241, %.noexc
   %286 = icmp eq ptr %285, null
   br i1 %286, label %_ZN6vectorIN3sat7literalELb0EjE6appendERKS2_.exit, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i
 
-_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i:   ; preds = %_ZN3sat9lookahead13should_cutoffEj.exit.thread175, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i
-  %287 = phi ptr [ %303, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i ], [ %285, %_ZN3sat9lookahead13should_cutoffEj.exit.thread175 ]
-  %indvars.iv.i115 = phi i64 [ %indvars.iv.next.i116, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i ], [ 0, %_ZN3sat9lookahead13should_cutoffEj.exit.thread175 ]
+_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i:   ; preds = %_ZN3sat9lookahead13should_cutoffEj.exit.thread, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i
+  %287 = phi ptr [ %303, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i ], [ %285, %_ZN3sat9lookahead13should_cutoffEj.exit.thread ]
+  %indvars.iv.i115 = phi i64 [ %indvars.iv.next.i116, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i ], [ 0, %_ZN3sat9lookahead13should_cutoffEj.exit.thread ]
   %288 = getelementptr inbounds i8, ptr %287, i64 -4
   %289 = load i32, ptr %288, align 4, !tbaa !87
   %290 = zext i32 %289 to i64
@@ -18120,7 +18117,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i: ; preds = %.noexc121, %2
   %311 = icmp eq ptr %303, null
   br i1 %311, label %_ZN6vectorIN3sat7literalELb0EjE6appendERKS2_.exit, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i, !llvm.loop !411
 
-_ZN6vectorIN3sat7literalELb0EjE6appendERKS2_.exit: ; preds = %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i, %_ZN3sat9lookahead13should_cutoffEj.exit.thread175
+_ZN6vectorIN3sat7literalELb0EjE6appendERKS2_.exit: ; preds = %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i, %_ZN3sat9lookahead13should_cutoffEj.exit.thread
   %312 = load ptr, ptr %1, align 8, !tbaa !91
   %.not.i122 = icmp eq ptr %312, null
   br i1 %.not.i122, label %315, label %313
@@ -18213,7 +18210,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %331, %.noexc124
   %.not66 = icmp eq ptr %348, %321
   br i1 %.not66, label %._crit_edge203, label %.lr.ph202
 
-_ZN3sat9lookahead13should_cutoffEj.exit.thread:   ; preds = %258, %241, %.loopexit187, %.thread.i, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit110, %_ZN3sat9lookahead13should_cutoffEj.exit
+_ZN3sat9lookahead13should_cutoffEj.exit.thread176: ; preds = %241, %258, %.loopexit187, %.thread.i, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit110, %_ZN3sat9lookahead13should_cutoffEj.exit
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %350 = load i32, ptr %349, align 8, !tbaa !252
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -18221,12 +18218,12 @@ _ZN3sat9lookahead13should_cutoffEj.exit.thread:   ; preds = %258, %241, %.loopex
   %353 = icmp eq i32 %352, 4
   br i1 %353, label %354, label %356
 
-354:                                              ; preds = %_ZN3sat9lookahead13should_cutoffEj.exit.thread
+354:                                              ; preds = %_ZN3sat9lookahead13should_cutoffEj.exit.thread176
   %355 = invoke noundef double @_ZN3sat9lookahead9psat_heurEv(ptr noundef nonnull align 8 dereferenceable(1160) %0)
           to label %356 unwind label %386
 
-356:                                              ; preds = %_ZN3sat9lookahead13should_cutoffEj.exit.thread, %354
-  %357 = phi double [ %355, %354 ], [ 1.000000e+08, %_ZN3sat9lookahead13should_cutoffEj.exit.thread ]
+356:                                              ; preds = %_ZN3sat9lookahead13should_cutoffEj.exit.thread176, %354
+  %357 = phi double [ %355, %354 ], [ 1.000000e+08, %_ZN3sat9lookahead13should_cutoffEj.exit.thread176 ]
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   br label %360

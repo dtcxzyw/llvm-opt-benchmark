@@ -1360,15 +1360,12 @@ pushOpStack.exit:                                 ; preds = %21
   %126 = call ptr @lcons(ptr noundef nonnull %120, ptr noundef %125) #11
   store ptr %126, ptr %95, align 8
   %.not.i28 = icmp eq i32 %116, 0
-  br i1 %.not.i28, label %.cleanOpStack.exit.loopexit_crit_edge, label %.lr.ph.split.i27, !llvm.loop !12
+  br i1 %.not.i28, label %.cleanOpStack.exit.loopexit30_crit_edge, label %.lr.ph.split.i27, !llvm.loop !12
 
-.cleanOpStack.exit.loopexit_crit_edge:            ; preds = %.lr.ph34
+.cleanOpStack.exit.loopexit30_crit_edge:          ; preds = %.lr.ph, %.lr.ph34
   br label %cleanOpStack.exit, !llvm.loop !12
 
-.cleanOpStack.exit.loopexit30_crit_edge:          ; preds = %.lr.ph
-  br label %cleanOpStack.exit, !llvm.loop !12
-
-cleanOpStack.exit:                                ; preds = %90, %.lr.ph.split.i, %.lr.ph.split.i27, %.lr.ph.i, %.cleanOpStack.exit.loopexit30_crit_edge, %.lr.ph.i26, %.cleanOpStack.exit.loopexit_crit_edge, %94, %35, %73, %79, %77
+cleanOpStack.exit:                                ; preds = %90, %.lr.ph.split.i, %.lr.ph.split.i27, %.lr.ph.i, %.cleanOpStack.exit.loopexit30_crit_edge, %.lr.ph.i26, %94, %35, %73, %79, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

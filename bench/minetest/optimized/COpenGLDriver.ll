@@ -25109,7 +25109,7 @@ sw.bb9:                                           ; preds = %entry
   %vfn12 = getelementptr inbounds nuw i8, ptr %vtable11, i64 544
   %5 = load ptr, ptr %vfn12, align 8
   %call13 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(1164) %4, i32 noundef 1) #25
-  br i1 %call13, label %if.then18, label %lor.lhs.false
+  br i1 %call13, label %if.then30, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb9
   %6 = load ptr, ptr %Driver10, align 8, !tbaa !367
@@ -25117,10 +25117,7 @@ lor.lhs.false:                                    ; preds = %sw.bb9
   %vfn16 = getelementptr inbounds nuw i8, ptr %vtable15, i64 544
   %7 = load ptr, ptr %vfn16, align 8
   %call17 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(1164) %6, i32 noundef 8) #25
-  br i1 %call17, label %if.then18, label %sw.epilog
-
-if.then18:                                        ; preds = %lor.lhs.false, %sw.bb9
-  br label %sw.epilog
+  br i1 %call17, label %if.then30, label %sw.epilog
 
 sw.bb20:                                          ; preds = %entry
   %Driver21 = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -25139,11 +25136,11 @@ lor.lhs.false25:                                  ; preds = %sw.bb20
   %call29 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(1164) %10, i32 noundef 8) #25
   br i1 %call29, label %if.then30, label %sw.epilog
 
-if.then30:                                        ; preds = %lor.lhs.false25, %sw.bb20
+if.then30:                                        ; preds = %sw.bb9, %lor.lhs.false, %lor.lhs.false25, %sw.bb20
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.then30, %lor.lhs.false25, %if.then18, %lor.lhs.false, %sw.bb2, %sw.bb, %entry
-  %destFormat.0 = phi i32 [ %cond, %entry ], [ 0, %if.then30 ], [ %cond, %lor.lhs.false25 ], [ 0, %if.then18 ], [ %cond, %lor.lhs.false ], [ %spec.select, %sw.bb ], [ %spec.select45, %sw.bb2 ]
+sw.epilog:                                        ; preds = %if.then30, %lor.lhs.false25, %lor.lhs.false, %sw.bb2, %sw.bb, %entry
+  %destFormat.0 = phi i32 [ %cond, %entry ], [ 0, %if.then30 ], [ %cond, %lor.lhs.false25 ], [ %spec.select45, %sw.bb2 ], [ %cond, %lor.lhs.false ], [ %spec.select, %sw.bb ]
   %Driver32 = getelementptr inbounds nuw i8, ptr %this, i64 120
   %12 = load ptr, ptr %Driver32, align 8, !tbaa !367
   %vtable33 = load ptr, ptr %12, align 8, !tbaa !3

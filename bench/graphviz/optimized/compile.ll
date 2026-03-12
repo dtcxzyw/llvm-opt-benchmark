@@ -1115,7 +1115,7 @@ define internal range(i32 -1, 1) i32 @convert(ptr noundef captures(none) %0, i64
 5:                                                ; preds = %3
   %6 = load i64, ptr %0, align 8, !tbaa !86
   %7 = icmp sgt i64 %6, 258
-  br i1 %7, label %78, label %21
+  br i1 %7, label %76, label %21
 
 8:                                                ; preds = %3
   %9 = icmp eq i64 %1, 30
@@ -1124,7 +1124,7 @@ define internal range(i32 -1, 1) i32 @convert(ptr noundef captures(none) %0, i64
 10:                                               ; preds = %8
   %11 = load i64, ptr %0, align 8, !tbaa !86
   %12 = icmp slt i64 %11, 31
-  br i1 %12, label %75, label %.thread62
+  br i1 %12, label %73, label %.thread62
 
 13:                                               ; preds = %8
   %14 = icmp slt i64 %1, 31
@@ -1141,30 +1141,30 @@ define internal range(i32 -1, 1) i32 @convert(ptr noundef captures(none) %0, i64
   %19 = load i64, ptr %18, align 8, !tbaa !65
   %20 = icmp ne i64 %19, 0
   %spec.select = sext i1 %20 to i32
-  br label %75
+  br label %73
 
 21:                                               ; preds = %5
   %22 = icmp eq i64 %1, 259
-  br i1 %22, label %75, label %.thread64
+  br i1 %22, label %73, label %.thread64
 
 .thread64:                                        ; preds = %13, %.thread62, %21
   %23 = phi i64 [ %6, %21 ], [ %.pr65.pre, %13 ], [ %15, %.thread62 ]
   %not. = phi i32 [ -1, %21 ], [ -1, %13 ], [ 0, %.thread62 ]
   %24 = icmp eq i64 %23, 30
-  br i1 %24, label %25, label %46
+  br i1 %24, label %25, label %44
 
 25:                                               ; preds = %.thread64
   %.not54 = icmp eq i32 %2, 0
-  br i1 %.not54, label %26, label %75
+  br i1 %.not54, label %26, label %73
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i64, ptr %27, align 8, !tbaa !65
   %29 = inttoptr i64 %28 to ptr
-  switch i64 %1, label %75 [
+  switch i64 %1, label %73 [
     i64 29, label %30
     i64 27, label %36
-    i64 28, label %42
+    i64 28, label %41
   ]
 
 30:                                               ; preds = %26
@@ -1175,110 +1175,104 @@ define internal range(i32 -1, 1) i32 @convert(ptr noundef captures(none) %0, i64
   %32 = load i32, ptr %29, align 8
   %33 = and i32 %32, 3
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %75
+  br i1 %34, label %35, label %73
 
-35:                                               ; preds = %31, %30
-  br label %75
+35:                                               ; preds = %41, %42, %36, %37, %31, %30
+  br label %73
 
 36:                                               ; preds = %26
   %.not57 = icmp eq i64 %28, 0
-  br i1 %.not57, label %41, label %37
+  br i1 %.not57, label %35, label %37
 
 37:                                               ; preds = %36
   %38 = load i32, ptr %29, align 8
   %39 = and i32 %38, 3
   %40 = icmp eq i32 %39, 1
-  br i1 %40, label %41, label %75
+  br i1 %40, label %35, label %73
 
-41:                                               ; preds = %37, %36
-  br label %75
-
-42:                                               ; preds = %26
+41:                                               ; preds = %26
   %.not55 = icmp eq i64 %28, 0
-  br i1 %.not55, label %45, label %43
+  br i1 %.not55, label %35, label %42
 
-43:                                               ; preds = %42
+42:                                               ; preds = %41
   %.val = load i32, ptr %29, align 8
-  %44 = and i32 %.val, 2
-  %.not56 = icmp eq i32 %44, 0
-  br i1 %.not56, label %75, label %45
+  %43 = and i32 %.val, 2
+  %.not56 = icmp eq i32 %43, 0
+  br i1 %.not56, label %73, label %35
 
-45:                                               ; preds = %43, %42
-  br label %75
+44:                                               ; preds = %.thread64
+  %45 = icmp eq i64 %1, 263
+  br i1 %45, label %46, label %53
 
-46:                                               ; preds = %.thread64
-  %47 = icmp eq i64 %1, 263
-  br i1 %47, label %48, label %55
+46:                                               ; preds = %44
+  %47 = icmp eq i64 %23, 31
+  br i1 %47, label %48, label %73
 
 48:                                               ; preds = %46
-  %49 = icmp eq i64 %23, 31
-  br i1 %49, label %50, label %75
-
-50:                                               ; preds = %48
   %.not53 = icmp eq i32 %2, 0
-  br i1 %.not53, label %51, label %75
+  br i1 %.not53, label %49, label %73
 
-51:                                               ; preds = %50
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %53 = load i64, ptr %52, align 8, !tbaa !65
-  %54 = tail call fastcc ptr @tvtypeToStr(i64 noundef %53)
-  store ptr %54, ptr %52, align 8, !tbaa !65
-  br label %75
+49:                                               ; preds = %48
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %51 = load i64, ptr %50, align 8, !tbaa !65
+  %52 = tail call fastcc ptr @tvtypeToStr(i64 noundef %51)
+  store ptr %52, ptr %50, align 8, !tbaa !65
+  br label %73
 
-55:                                               ; preds = %46
-  %56 = icmp eq i64 %1, 31
-  %57 = icmp eq i64 %23, 259
-  %or.cond = and i1 %56, %57
-  br i1 %or.cond, label %58, label %65
+53:                                               ; preds = %44
+  %54 = icmp eq i64 %1, 31
+  %55 = icmp eq i64 %23, 259
+  %or.cond = and i1 %54, %55
+  br i1 %or.cond, label %56, label %63
 
-58:                                               ; preds = %55
+56:                                               ; preds = %53
   %.not52 = icmp eq i32 %2, 0
-  br i1 %.not52, label %59, label %75
+  br i1 %.not52, label %57, label %73
 
-59:                                               ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %61 = load i64, ptr %60, align 8, !tbaa !65
-  %62 = tail call zeroext i1 @validTVT(i64 noundef %61) #25
-  br i1 %62, label %75, label %63
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %59 = load i64, ptr %58, align 8, !tbaa !65
+  %60 = tail call zeroext i1 @validTVT(i64 noundef %59) #25
+  br i1 %60, label %73, label %61
 
-63:                                               ; preds = %59
-  %64 = load i64, ptr %60, align 8, !tbaa !65
-  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.12, i64 noundef %64) #25
-  br label %75
+61:                                               ; preds = %57
+  %62 = load i64, ptr %58, align 8, !tbaa !65
+  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.12, i64 noundef %62) #25
+  br label %73
 
-65:                                               ; preds = %55
-  %66 = icmp eq i64 %23, %1
-  br i1 %66, label %75, label %67
+63:                                               ; preds = %53
+  %64 = icmp eq i64 %23, %1
+  br i1 %64, label %73, label %65
+
+65:                                               ; preds = %63
+  %66 = icmp eq i64 %23, 263
+  %brmerge.not = and i1 %54, %66
+  br i1 %brmerge.not, label %67, label %73
 
 67:                                               ; preds = %65
-  %68 = icmp eq i64 %23, 263
-  %brmerge.not = and i1 %56, %68
-  br i1 %brmerge.not, label %69, label %75
-
-69:                                               ; preds = %67
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %70, label %75
+  br i1 %.not, label %68, label %73
 
-70:                                               ; preds = %69
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %72 = load ptr, ptr %71, align 8, !tbaa !65
-  %73 = tail call fastcc i32 @strToTvtype(ptr noundef %72)
-  %74 = zext nneg i32 %73 to i64
-  store i64 %74, ptr %71, align 8, !tbaa !65
-  br label %75
+68:                                               ; preds = %67
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %70 = load ptr, ptr %69, align 8, !tbaa !65
+  %71 = tail call fastcc i32 @strToTvtype(ptr noundef %70)
+  %72 = zext nneg i32 %71 to i64
+  store i64 %72, ptr %69, align 8, !tbaa !65
+  br label %73
 
-75:                                               ; preds = %25, %67, %17, %70, %69, %65, %59, %58, %21, %10, %26, %35, %31, %41, %37, %45, %43, %63, %48, %51, %50
-  %.046 = phi i32 [ -1, %67 ], [ 0, %10 ], [ 0, %69 ], [ %spec.select, %17 ], [ 0, %21 ], [ 0, %70 ], [ -1, %26 ], [ 0, %35 ], [ -1, %31 ], [ 0, %41 ], [ -1, %37 ], [ 0, %45 ], [ -1, %43 ], [ 0, %50 ], [ 0, %51 ], [ -1, %48 ], [ 0, %65 ], [ 0, %58 ], [ -1, %63 ], [ 0, %59 ], [ %not., %25 ]
-  %76 = or i32 %.046, %2
-  %or.cond3 = icmp eq i32 %76, 0
-  br i1 %or.cond3, label %77, label %78
+73:                                               ; preds = %25, %65, %17, %68, %67, %63, %57, %56, %21, %10, %26, %35, %31, %37, %42, %61, %46, %49, %48
+  %.046 = phi i32 [ -1, %65 ], [ 0, %10 ], [ 0, %67 ], [ %spec.select, %17 ], [ 0, %21 ], [ 0, %68 ], [ -1, %26 ], [ 0, %35 ], [ -1, %31 ], [ %not., %25 ], [ -1, %37 ], [ 0, %57 ], [ -1, %42 ], [ 0, %48 ], [ 0, %49 ], [ -1, %46 ], [ 0, %63 ], [ 0, %56 ], [ -1, %61 ]
+  %74 = or i32 %.046, %2
+  %or.cond3 = icmp eq i32 %74, 0
+  br i1 %or.cond3, label %75, label %76
 
-77:                                               ; preds = %75
+75:                                               ; preds = %73
   store i64 %1, ptr %0, align 8, !tbaa !86
-  br label %78
+  br label %76
 
-78:                                               ; preds = %75, %77, %5
-  %.0 = phi i32 [ -1, %5 ], [ %.046, %77 ], [ %.046, %75 ]
+76:                                               ; preds = %73, %75, %5
+  %.0 = phi i32 [ -1, %5 ], [ %.046, %75 ], [ %.046, %73 ]
   ret i32 %.0
 }
 

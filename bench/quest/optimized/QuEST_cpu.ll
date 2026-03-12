@@ -13344,7 +13344,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %.1146 = phi double [ %128, %.lr.ph230 ], [ 0.000000e+00, %.preheader173 ], [ 0.000000e+00, %.preheader175 ], [ %123, %.lr.ph226 ]
   %129 = call double @sqrt(double noundef %.1146) #3, !tbaa !18
   %130 = load i32, ptr %11, align 4, !tbaa !18
-  switch i32 %130, label %.fold.split [
+  switch i32 %130, label %.fold.split169 [
     i32 0, label %224
     i32 2, label %131
     i32 1, label %137
@@ -13539,17 +13539,14 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %223 = fdiv double %222, %206
   br label %224
 
-.fold.split:                                      ; preds = %.loopexit174
-  br label %224
-
 default.unreachable:                              ; preds = %._crit_edge222
   unreachable
 
-.fold.split169:                                   ; preds = %.loopexit178
+.fold.split169:                                   ; preds = %.loopexit174, %.loopexit178
   br label %224
 
-224:                                              ; preds = %.critedge.thread, %219, %221, %.loopexit178, %.fold.split169, %210, %212, %163, %165, %._crit_edge222, %154, %156, %142, %144, %.loopexit174, %.fold.split, %133, %135, %137, %214, %158, %.critedge
-  %.0143 = phi double [ %111, %.critedge ], [ 0.000000e+00, %.critedge.thread ], [ %129, %.loopexit174 ], [ %139, %137 ], [ 0.000000e+00, %.fold.split ], [ %136, %135 ], [ %146, %144 ], [ %.0148.lcssa, %._crit_edge222 ], [ %160, %158 ], [ %223, %221 ], [ %157, %156 ], [ %167, %165 ], [ %206, %.loopexit178 ], [ %216, %214 ], [ 0.000000e+00, %.fold.split169 ], [ %213, %212 ], [ %134, %133 ], [ %143, %142 ], [ %155, %154 ], [ %164, %163 ], [ %211, %210 ], [ %220, %219 ]
+224:                                              ; preds = %.critedge.thread, %219, %221, %.loopexit178, %.fold.split169, %210, %212, %163, %165, %._crit_edge222, %154, %156, %142, %144, %.loopexit174, %133, %135, %137, %214, %158, %.critedge
+  %.0143 = phi double [ %111, %.critedge ], [ 0.000000e+00, %.critedge.thread ], [ %129, %.loopexit174 ], [ %139, %137 ], [ %220, %219 ], [ %136, %135 ], [ %146, %144 ], [ %.0148.lcssa, %._crit_edge222 ], [ %160, %158 ], [ %223, %221 ], [ %157, %156 ], [ %167, %165 ], [ %206, %.loopexit178 ], [ %216, %214 ], [ 0.000000e+00, %.fold.split169 ], [ %213, %212 ], [ %134, %133 ], [ %143, %142 ], [ %155, %154 ], [ %164, %163 ], [ %211, %210 ]
   %225 = load i32, ptr %13, align 4, !tbaa !18
   %.not167 = icmp eq i32 %225, 0
   %226 = fneg double %.0143

@@ -9902,17 +9902,17 @@ define hidden noundef range(i8 0, 3) i8 @_ZN21ruff_python_formatter10expression1
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i8 0, 3) i8 @_ZN21ruff_python_formatter10expression19has_own_parentheses17hed5a0b84201bbe29E(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load i32, ptr %0, align 8, !range !66, !noundef !3
-  switch i32 %3, label %28 [
+  switch i32 %3, label %26 [
     i32 6, label %4
-    i32 7, label %29
-    i32 8, label %9
-    i32 9, label %9
-    i32 10, label %9
-    i32 11, label %10
-    i32 16, label %13
-    i32 25, label %9
-    i32 28, label %29
-    i32 29, label %16
+    i32 7, label %27
+    i32 8, label %46
+    i32 9, label %46
+    i32 10, label %46
+    i32 11, label %9
+    i32 16, label %12
+    i32 25, label %46
+    i32 28, label %27
+    i32 29, label %15
   ]
 
 4:                                                ; preds = %2
@@ -9921,92 +9921,86 @@ define hidden noundef range(i8 0, 3) i8 @_ZN21ruff_python_formatter10expression1
   %7 = icmp ult i64 %6, 72057594037927936
   tail call void @llvm.assume(i1 %7)
   %8 = icmp eq i64 %6, 0
-  br i1 %8, label %20, label %27
+  br i1 %8, label %19, label %46
 
-9:                                                ; preds = %2, %2, %2, %2
-  br label %28
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %11 = load i8, ptr %10, align 8, !range !98, !noundef !3
+  %. = sub nuw nsw i8 2, %11
+  br label %26
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load i8, ptr %11, align 8, !range !98, !noundef !3
-  %. = sub nuw nsw i8 2, %12
-  br label %28
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = tail call noundef zeroext i1 @_ZN15ruff_python_ast5nodes9Arguments8is_empty17h489f7f83ef03f2a6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %13)
+  br i1 %14, label %32, label %26
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = tail call noundef zeroext i1 @_ZN15ruff_python_ast5nodes9Arguments8is_empty17h489f7f83ef03f2a6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %14)
-  br i1 %15, label %34, label %28
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %17 = load i8, ptr %16, align 8, !range !98, !noundef !3
+  %18 = trunc nuw i8 %17 to i1
+  br i1 %18, label %47, label %26
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = load i8, ptr %17, align 8, !range !98, !noundef !3
-  %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %49, label %28
+19:                                               ; preds = %4
+  %20 = tail call noundef align 8 dereferenceable(8) ptr @_ZN21ruff_python_formatter7context15PyFormatContext8comments17h3bb865c7a4da3f29E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
+  %21 = tail call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %0)
+  %22 = extractvalue { i64, ptr } %21, 0
+  %23 = extractvalue { i64, ptr } %21, 1
+  %24 = tail call { ptr, i64 } @_ZN21ruff_python_formatter8comments8Comments8dangling17h481718731da3169cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %20, i64 noundef %22, ptr noundef %23)
+  %25 = extractvalue { ptr, i64 } %24, 1
+  %.not5 = icmp eq i64 %25, 0
+  br i1 %.not5, label %26, label %46
 
-20:                                               ; preds = %4
-  %21 = tail call noundef align 8 dereferenceable(8) ptr @_ZN21ruff_python_formatter7context15PyFormatContext8comments17h3bb865c7a4da3f29E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
-  %22 = tail call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %0)
-  %23 = extractvalue { i64, ptr } %22, 0
-  %24 = extractvalue { i64, ptr } %22, 1
-  %25 = tail call { ptr, i64 } @_ZN21ruff_python_formatter8comments8Comments8dangling17h481718731da3169cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %21, i64 noundef %23, ptr noundef %24)
-  %26 = extractvalue { ptr, i64 } %25, 1
-  %.not5 = icmp eq i64 %26, 0
-  br i1 %.not5, label %28, label %27
-
-27:                                               ; preds = %20, %4
-  br label %28
-
-28:                                               ; preds = %52, %34, %49, %41, %13, %20, %10, %2, %16, %48, %27, %9
-  %.sroa.0.0 = phi i8 [ 1, %49 ], [ 1, %27 ], [ %., %10 ], [ 1, %48 ], [ %spec.select6, %52 ], [ 2, %2 ], [ 2, %16 ], [ 1, %13 ], [ 1, %9 ], [ 0, %41 ], [ 0, %20 ], [ %spec.select, %34 ]
+26:                                               ; preds = %50, %32, %47, %39, %12, %19, %9, %2, %15, %46
+  %.sroa.0.0 = phi i8 [ 1, %47 ], [ 0, %19 ], [ %., %9 ], [ 1, %46 ], [ %spec.select6, %50 ], [ 2, %2 ], [ 2, %15 ], [ 1, %12 ], [ %spec.select, %32 ], [ 0, %39 ]
   ret i8 %.sroa.0.0
 
-29:                                               ; preds = %2, %2
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %31 = load i64, ptr %30, align 8, !noundef !3
-  %32 = icmp ult i64 %31, 144115188075855872
-  tail call void @llvm.assume(i1 %32)
-  %33 = icmp eq i64 %31, 0
-  br i1 %33, label %41, label %48
+27:                                               ; preds = %2, %2
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %29 = load i64, ptr %28, align 8, !noundef !3
+  %30 = icmp ult i64 %29, 144115188075855872
+  tail call void @llvm.assume(i1 %30)
+  %31 = icmp eq i64 %29, 0
+  br i1 %31, label %39, label %46
 
-34:                                               ; preds = %13
-  %35 = tail call noundef align 8 dereferenceable(8) ptr @_ZN21ruff_python_formatter7context15PyFormatContext8comments17h3bb865c7a4da3f29E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
-  %36 = tail call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %0)
-  %37 = extractvalue { i64, ptr } %36, 0
-  %38 = extractvalue { i64, ptr } %36, 1
-  %39 = tail call { ptr, i64 } @_ZN21ruff_python_formatter8comments8Comments8dangling17h481718731da3169cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %35, i64 noundef %37, ptr noundef %38)
-  %40 = extractvalue { ptr, i64 } %39, 1
-  %.not3 = icmp ne i64 %40, 0
+32:                                               ; preds = %12
+  %33 = tail call noundef align 8 dereferenceable(8) ptr @_ZN21ruff_python_formatter7context15PyFormatContext8comments17h3bb865c7a4da3f29E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
+  %34 = tail call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %0)
+  %35 = extractvalue { i64, ptr } %34, 0
+  %36 = extractvalue { i64, ptr } %34, 1
+  %37 = tail call { ptr, i64 } @_ZN21ruff_python_formatter8comments8Comments8dangling17h481718731da3169cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %33, i64 noundef %35, ptr noundef %36)
+  %38 = extractvalue { ptr, i64 } %37, 1
+  %.not3 = icmp ne i64 %38, 0
   %spec.select = zext i1 %.not3 to i8
-  br label %28
+  br label %26
 
-41:                                               ; preds = %29
-  %42 = tail call noundef align 8 dereferenceable(8) ptr @_ZN21ruff_python_formatter7context15PyFormatContext8comments17h3bb865c7a4da3f29E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
-  %43 = tail call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %0)
-  %44 = extractvalue { i64, ptr } %43, 0
-  %45 = extractvalue { i64, ptr } %43, 1
-  %46 = tail call { ptr, i64 } @_ZN21ruff_python_formatter8comments8Comments8dangling17h481718731da3169cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %42, i64 noundef %44, ptr noundef %45)
-  %47 = extractvalue { ptr, i64 } %46, 1
-  %.not4 = icmp eq i64 %47, 0
-  br i1 %.not4, label %28, label %48
+39:                                               ; preds = %27
+  %40 = tail call noundef align 8 dereferenceable(8) ptr @_ZN21ruff_python_formatter7context15PyFormatContext8comments17h3bb865c7a4da3f29E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
+  %41 = tail call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %0)
+  %42 = extractvalue { i64, ptr } %41, 0
+  %43 = extractvalue { i64, ptr } %41, 1
+  %44 = tail call { ptr, i64 } @_ZN21ruff_python_formatter8comments8Comments8dangling17h481718731da3169cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %40, i64 noundef %42, ptr noundef %43)
+  %45 = extractvalue { ptr, i64 } %44, 1
+  %.not4 = icmp eq i64 %45, 0
+  br i1 %.not4, label %26, label %46
 
-48:                                               ; preds = %41, %29
-  br label %28
+46:                                               ; preds = %2, %2, %2, %2, %4, %19, %39, %27
+  br label %26
 
-49:                                               ; preds = %16
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = tail call noundef zeroext i1 @"_ZN15ruff_python_ast5nodes55_$LT$impl$u20$ruff_python_ast..generated..ExprTuple$GT$8is_empty17h41ef994f8fe247feE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %50)
-  br i1 %51, label %52, label %28
+47:                                               ; preds = %15
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = tail call noundef zeroext i1 @"_ZN15ruff_python_ast5nodes55_$LT$impl$u20$ruff_python_ast..generated..ExprTuple$GT$8is_empty17h41ef994f8fe247feE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %48)
+  br i1 %49, label %50, label %26
 
-52:                                               ; preds = %49
-  %53 = tail call noundef align 8 dereferenceable(8) ptr @_ZN21ruff_python_formatter7context15PyFormatContext8comments17h3bb865c7a4da3f29E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
-  %54 = tail call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %0)
-  %55 = extractvalue { i64, ptr } %54, 0
-  %56 = extractvalue { i64, ptr } %54, 1
-  %57 = tail call { ptr, i64 } @_ZN21ruff_python_formatter8comments8Comments8dangling17h481718731da3169cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %53, i64 noundef %55, ptr noundef %56)
-  %58 = extractvalue { ptr, i64 } %57, 1
-  %.not = icmp ne i64 %58, 0
+50:                                               ; preds = %47
+  %51 = tail call noundef align 8 dereferenceable(8) ptr @_ZN21ruff_python_formatter7context15PyFormatContext8comments17h3bb865c7a4da3f29E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
+  %52 = tail call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$4from17hc8075ca7a749000cE"(ptr noundef nonnull align 8 %0)
+  %53 = extractvalue { i64, ptr } %52, 0
+  %54 = extractvalue { i64, ptr } %52, 1
+  %55 = tail call { ptr, i64 } @_ZN21ruff_python_formatter8comments8Comments8dangling17h481718731da3169cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %51, i64 noundef %53, ptr noundef %54)
+  %56 = extractvalue { ptr, i64 } %55, 1
+  %.not = icmp ne i64 %56, 0
   %spec.select6 = zext i1 %.not to i8
-  br label %28
+  br label %26
 }
 
 ; Function Attrs: nonlazybind uwtable

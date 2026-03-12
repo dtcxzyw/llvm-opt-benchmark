@@ -16653,19 +16653,21 @@ define hidden void @_ZN7Compile33final_graph_reshaping_main_switchEP4NodeR20Fina
     i32 50, label %32
     i32 49, label %32
     i32 326, label %64
-    i32 444, label %559
-    i32 445, label %559
-    i32 446, label %559
-    i32 448, label %559
-    i32 447, label %559
-    i32 449, label %559
-    i32 203, label %566
-    i32 141, label %566
-    i32 145, label %566
-    i32 143, label %566
-    i32 222, label %574
-    i32 217, label %574
+    i32 88, label %621
+    i32 178, label %596
     i32 213, label %581
+    i32 217, label %574
+    i32 222, label %574
+    i32 143, label %566
+    i32 145, label %566
+    i32 141, label %566
+    i32 203, label %566
+    i32 449, label %559
+    i32 447, label %559
+    i32 448, label %559
+    i32 446, label %559
+    i32 445, label %559
+    i32 444, label %559
     i32 233, label %529
     i32 232, label %499
     i32 231, label %469
@@ -16674,8 +16676,6 @@ define hidden void @_ZN7Compile33final_graph_reshaping_main_switchEP4NodeR20Fina
     i32 282, label %395
     i32 169, label %351
     i32 168, label %351
-    i32 178, label %596
-    i32 88, label %621
     i32 85, label %282
     i32 60, label %169
     i32 25, label %69
@@ -17918,7 +17918,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %609, %615
   tail call void @_ZN4Node17disconnect_inputsEP7Compile(ptr noundef nonnull align 8 dereferenceable(52) %1, ptr noundef nonnull %0) #17
   br label %.thread
 
-.thread:                                          ; preds = %135, %102, %94, %304, %327, %316, %566, %570, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %54, %5, %621, %664, %581, %585, %589, %574, %578, %559, %564, %529, %536, %558, %532, %499, %506, %528, %502, %469, %476, %498, %472, %439, %446, %468, %442, %420, %438, %._crit_edge371, %395, %404, %411, %400, %390, %394, %293, %346, %350, %331, %276, %272, %281, %._crit_edge392, %78, %83, %88, %69, %168, %._crit_edge, %64, %40, %62, %58, %43, %_ZN9Node_List4pushEP4Node.exit, %23, %19, %12, %8
+.thread:                                          ; preds = %135, %102, %94, %304, %327, %316, %566, %570, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %54, %5, %64, %621, %664, %581, %585, %589, %574, %578, %559, %564, %529, %536, %558, %532, %499, %506, %528, %502, %469, %476, %498, %472, %439, %446, %468, %442, %420, %438, %._crit_edge371, %395, %404, %411, %400, %390, %394, %293, %346, %350, %331, %276, %272, %281, %._crit_edge392, %78, %83, %88, %69, %168, %._crit_edge, %40, %62, %58, %43, %_ZN9Node_List4pushEP4Node.exit, %23, %19, %12, %8
   ret void
 }
 

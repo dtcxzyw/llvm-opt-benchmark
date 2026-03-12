@@ -28901,7 +28901,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i:                       ; preds = %685, %681, %679
   %701 = load float, ptr %700, align 4, !tbaa !35
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit
 
-.invoke1756:                                      ; preds = %829, %.sink.split91.i943.cont.thread, %706, %.sink.split91.i.cont.thread, %636, %755
+.invoke1756:                                      ; preds = %829, %706, %.sink.split91.i943.cont.thread, %.sink.split91.i.cont.thread, %636, %755
   %702 = phi i32 [ 142, %636 ], [ 142, %755 ], [ 445, %829 ], [ 273, %.sink.split91.i943.cont.thread ], [ 445, %706 ], [ 273, %.sink.split91.i.cont.thread ]
   %703 = phi ptr [ @.str.257, %636 ], [ @.str.257, %755 ], [ @.str.252, %829 ], [ @.str.255, %.sink.split91.i943.cont.thread ], [ @.str.252, %706 ], [ @.str.255, %.sink.split91.i.cont.thread ]
   invoke void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.250, i32 noundef %702, ptr noundef nonnull %703) #41

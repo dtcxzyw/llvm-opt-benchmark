@@ -19471,8 +19471,8 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator14FuncTranslator1
   %.not17 = icmp eq i8 %26, 7
   br i1 %.not, label %29, label %28
 
-.sink.split:                                      ; preds = %109, %102, %94, %75, %68, %60, %39, %48, %82, %42, %51, %85, %46, %58, %76, %92
-  %.sroa.0.0.ph = phi ptr [ %47, %46 ], [ null, %76 ], [ %93, %92 ], [ %59, %58 ], [ %84, %82 ], [ null, %51 ], [ null, %75 ], [ %50, %48 ], [ null, %42 ], [ null, %85 ], [ %41, %39 ], [ null, %60 ], [ null, %68 ], [ null, %94 ], [ null, %102 ], [ null, %109 ]
+.sink.split:                                      ; preds = %75, %68, %60, %94, %102, %109, %39, %48, %82, %42, %51, %85, %46, %58, %76, %92
+  %.sroa.0.0.ph = phi ptr [ %47, %46 ], [ null, %76 ], [ %93, %92 ], [ %59, %58 ], [ %84, %82 ], [ null, %51 ], [ null, %75 ], [ %50, %48 ], [ null, %42 ], [ null, %85 ], [ %41, %39 ], [ null, %109 ], [ null, %102 ], [ null, %94 ], [ null, %60 ], [ null, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %27
 
@@ -19700,8 +19700,8 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator14FuncTranslator1
   %.not17 = icmp eq i8 %26, 7
   br i1 %.not, label %29, label %28
 
-.sink.split:                                      ; preds = %109, %102, %94, %75, %68, %60, %39, %48, %82, %42, %51, %85, %46, %58, %76, %92
-  %.sroa.0.0.ph = phi ptr [ %47, %46 ], [ null, %76 ], [ %93, %92 ], [ %59, %58 ], [ %84, %82 ], [ null, %51 ], [ null, %75 ], [ %50, %48 ], [ null, %42 ], [ null, %85 ], [ %41, %39 ], [ null, %60 ], [ null, %68 ], [ null, %94 ], [ null, %102 ], [ null, %109 ]
+.sink.split:                                      ; preds = %75, %68, %60, %94, %102, %109, %39, %48, %82, %42, %51, %85, %46, %58, %76, %92
+  %.sroa.0.0.ph = phi ptr [ %47, %46 ], [ null, %76 ], [ %93, %92 ], [ %59, %58 ], [ %84, %82 ], [ null, %51 ], [ null, %75 ], [ %50, %48 ], [ null, %42 ], [ null, %85 ], [ %41, %39 ], [ null, %109 ], [ null, %102 ], [ null, %94 ], [ null, %60 ], [ null, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %27
 
@@ -19929,8 +19929,8 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator14FuncTranslator1
   %.not17 = icmp eq i8 %26, 7
   br i1 %.not, label %29, label %28
 
-.sink.split:                                      ; preds = %109, %102, %94, %75, %68, %60, %39, %48, %82, %42, %51, %85, %46, %58, %76, %92
-  %.sroa.0.0.ph = phi ptr [ %47, %46 ], [ null, %76 ], [ %93, %92 ], [ %59, %58 ], [ %84, %82 ], [ null, %51 ], [ null, %75 ], [ %50, %48 ], [ null, %42 ], [ null, %85 ], [ %41, %39 ], [ null, %60 ], [ null, %68 ], [ null, %94 ], [ null, %102 ], [ null, %109 ]
+.sink.split:                                      ; preds = %75, %68, %60, %94, %102, %109, %39, %48, %82, %42, %51, %85, %46, %58, %76, %92
+  %.sroa.0.0.ph = phi ptr [ %47, %46 ], [ null, %76 ], [ %93, %92 ], [ %59, %58 ], [ %84, %82 ], [ null, %51 ], [ null, %75 ], [ %50, %48 ], [ null, %42 ], [ null, %85 ], [ %41, %39 ], [ null, %109 ], [ null, %102 ], [ null, %94 ], [ null, %60 ], [ null, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %27
 
@@ -20158,8 +20158,8 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator14FuncTranslator1
   %.not17 = icmp eq i8 %26, 7
   br i1 %.not, label %29, label %28
 
-.sink.split:                                      ; preds = %109, %102, %94, %75, %68, %60, %39, %48, %82, %42, %51, %85, %46, %58, %76, %92
-  %.sroa.0.0.ph = phi ptr [ %47, %46 ], [ null, %76 ], [ %93, %92 ], [ %59, %58 ], [ %84, %82 ], [ null, %51 ], [ null, %75 ], [ %50, %48 ], [ null, %42 ], [ null, %85 ], [ %41, %39 ], [ null, %60 ], [ null, %68 ], [ null, %94 ], [ null, %102 ], [ null, %109 ]
+.sink.split:                                      ; preds = %75, %68, %60, %94, %102, %109, %39, %48, %82, %42, %51, %85, %46, %58, %76, %92
+  %.sroa.0.0.ph = phi ptr [ %47, %46 ], [ null, %76 ], [ %93, %92 ], [ %59, %58 ], [ %84, %82 ], [ null, %51 ], [ null, %75 ], [ %50, %48 ], [ null, %42 ], [ null, %85 ], [ %41, %39 ], [ null, %109 ], [ null, %102 ], [ null, %94 ], [ null, %60 ], [ null, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %27
 
@@ -29972,8 +29972,8 @@ _ZN5wasmi6engine10translator14FuncTranslator24translate_istore_wrap_at17h0f9970b
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017he490f54b1280aa70E.exit.thread
 
-_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017he490f54b1280aa70E.exit.thread: ; preds = %114, %110, %107, %111, %137, %133, %128, %144, %84, %_ZN5wasmi6engine10translator14FuncTranslator24translate_istore_wrap_at17h0f9970bfe9e418bbE.exit, %43
-  %.sroa.0.0 = phi ptr [ %86, %84 ], [ %.sroa.0.0.i, %_ZN5wasmi6engine10translator14FuncTranslator24translate_istore_wrap_at17h0f9970bfe9e418bbE.exit ], [ %143, %137 ], [ %132, %128 ], [ null, %144 ], [ %134, %133 ], [ %44, %43 ], [ %113, %111 ], [ %109, %107 ], [ null, %110 ], [ null, %114 ]
+_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017he490f54b1280aa70E.exit.thread: ; preds = %107, %111, %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017he490f54b1280aa70E.exit, %137, %133, %128, %84, %_ZN5wasmi6engine10translator14FuncTranslator24translate_istore_wrap_at17h0f9970bfe9e418bbE.exit, %43
+  %.sroa.0.0 = phi ptr [ %86, %84 ], [ %.sroa.0.0.i, %_ZN5wasmi6engine10translator14FuncTranslator24translate_istore_wrap_at17h0f9970bfe9e418bbE.exit ], [ %143, %137 ], [ %132, %128 ], [ %113, %111 ], [ %134, %133 ], [ %44, %43 ], [ null, %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017he490f54b1280aa70E.exit ], [ %109, %107 ]
   ret ptr %.sroa.0.0
 
 84:                                               ; preds = %45
@@ -30040,7 +30040,7 @@ _ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017he490f
 
 110:                                              ; preds = %103
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1350
-  br label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017he490f54b1280aa70E.exit.thread
+  br label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017he490f54b1280aa70E.exit
 
 111:                                              ; preds = %97
   %112 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -30050,6 +30050,9 @@ _ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017he490f
 
 114:                                              ; preds = %97
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1350
+  br label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017he490f54b1280aa70E.exit
+
+_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017he490f54b1280aa70E.exit: ; preds = %135, %137, %110, %114
   br label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017he490f54b1280aa70E.exit.thread
 
 .critedge:                                        ; preds = %91, %._crit_edge
@@ -30095,7 +30098,7 @@ _ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017he490f
 
 135:                                              ; preds = %133
   %136 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24)
-  br i1 %136, label %144, label %137
+  br i1 %136, label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017he490f54b1280aa70E.exit, label %137
 
 137:                                              ; preds = %135
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -30110,10 +30113,7 @@ _ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017he490f
   %142 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %143 = load ptr, ptr %142, align 8, !nonnull !4, !align !6
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br i1 %141, label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017he490f54b1280aa70E.exit.thread, label %144
-
-144:                                              ; preds = %137, %135
-  br label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017he490f54b1280aa70E.exit.thread
+  br i1 %141, label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017he490f54b1280aa70E.exit.thread, label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017he490f54b1280aa70E.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -30263,8 +30263,8 @@ _ZN5wasmi6engine10translator14FuncTranslator24translate_istore_wrap_at17hc99a30c
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017h668b87b96760262cE.exit.thread
 
-_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017h668b87b96760262cE.exit.thread: ; preds = %114, %110, %107, %111, %137, %133, %128, %144, %84, %_ZN5wasmi6engine10translator14FuncTranslator24translate_istore_wrap_at17hc99a30c7f036bf60E.exit, %43
-  %.sroa.0.0 = phi ptr [ %86, %84 ], [ %.sroa.0.0.i, %_ZN5wasmi6engine10translator14FuncTranslator24translate_istore_wrap_at17hc99a30c7f036bf60E.exit ], [ %143, %137 ], [ %132, %128 ], [ null, %144 ], [ %134, %133 ], [ %44, %43 ], [ %113, %111 ], [ %109, %107 ], [ null, %110 ], [ null, %114 ]
+_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017h668b87b96760262cE.exit.thread: ; preds = %107, %111, %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017h668b87b96760262cE.exit, %137, %133, %128, %84, %_ZN5wasmi6engine10translator14FuncTranslator24translate_istore_wrap_at17hc99a30c7f036bf60E.exit, %43
+  %.sroa.0.0 = phi ptr [ %86, %84 ], [ %.sroa.0.0.i, %_ZN5wasmi6engine10translator14FuncTranslator24translate_istore_wrap_at17hc99a30c7f036bf60E.exit ], [ %143, %137 ], [ %132, %128 ], [ %113, %111 ], [ %134, %133 ], [ %44, %43 ], [ null, %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017h668b87b96760262cE.exit ], [ %109, %107 ]
   ret ptr %.sroa.0.0
 
 84:                                               ; preds = %45
@@ -30331,7 +30331,7 @@ _ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017h668b8
 
 110:                                              ; preds = %103
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1363
-  br label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017h668b87b96760262cE.exit.thread
+  br label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017h668b87b96760262cE.exit
 
 111:                                              ; preds = %97
   %112 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -30341,6 +30341,9 @@ _ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017h668b8
 
 114:                                              ; preds = %97
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1363
+  br label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017h668b87b96760262cE.exit
+
+_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017h668b87b96760262cE.exit: ; preds = %135, %137, %110, %114
   br label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017h668b87b96760262cE.exit.thread
 
 .critedge:                                        ; preds = %91, %._crit_edge
@@ -30386,7 +30389,7 @@ _ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017h668b8
 
 135:                                              ; preds = %133
   %136 = call noundef zeroext i1 @_ZN8wasmi_ir5index6Memory10is_default17h3407affa218ceea7E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24)
-  br i1 %136, label %144, label %137
+  br i1 %136, label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017h668b87b96760262cE.exit, label %137
 
 137:                                              ; preds = %135
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -30401,10 +30404,7 @@ _ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017h668b8
   %142 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %143 = load ptr, ptr %142, align 8, !nonnull !4, !align !6
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br i1 %141, label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017h668b87b96760262cE.exit.thread, label %144
-
-144:                                              ; preds = %137, %135
-  br label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017h668b87b96760262cE.exit.thread
+  br i1 %141, label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017h668b87b96760262cE.exit.thread, label %_ZN5wasmi6engine10translator14FuncTranslator26translate_istore_wrap_mem017h668b87b96760262cE.exit
 }
 
 ; Function Attrs: nonlazybind uwtable

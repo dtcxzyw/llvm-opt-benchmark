@@ -4935,33 +4935,33 @@ define internal fastcc ptr @spl_array_get_dimension_ptr(ptr noundef %0, ptr noun
 26:                                               ; preds = %21
   %27 = load ptr, ptr %5, align 8, !tbaa !38
   %.not39 = icmp eq ptr %27, null
-  br i1 %.not39, label %73, label %28
+  br i1 %.not39, label %68, label %28
 
 28:                                               ; preds = %26
   %29 = call ptr @zend_hash_find(ptr noundef nonnull %9, ptr noundef nonnull %27) #13
   %.not40 = icmp eq ptr %29, null
-  br i1 %.not40, label %48, label %30
+  br i1 %.not40, label %44, label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i8, ptr %31, align 8, !tbaa !4
   %33 = icmp eq i8 %32, 12
-  br i1 %33, label %34, label %60
+  br i1 %33, label %34, label %55
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %29, align 8, !tbaa !4
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i8, ptr %36, align 8, !tbaa !4
   %38 = icmp eq i8 %37, 0
-  br i1 %38, label %39, label %60
+  br i1 %38, label %39, label %55
 
 39:                                               ; preds = %34
-  switch i32 %3, label %60 [
-    i32 0, label %40
-    i32 5, label %43
-    i32 3, label %43
-    i32 2, label %44
-    i32 1, label %47
+  switch i32 %3, label %55 [
+    i32 0, label %.sink.split
+    i32 5, label %47
+    i32 3, label %47
+    i32 2, label %40
+    i32 1, label %43
   ]
 
 40:                                               ; preds = %39
@@ -4970,120 +4970,111 @@ define internal fastcc ptr @spl_array_get_dimension_ptr(ptr noundef %0, ptr noun
   call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.26, ptr noundef nonnull %42) #13
   br label %43
 
-43:                                               ; preds = %40, %39, %39
-  br label %60
+43:                                               ; preds = %39, %40
+  store i32 1, ptr %36, align 8, !tbaa !4
+  br label %55
 
-44:                                               ; preds = %39
+44:                                               ; preds = %28
+  switch i32 %3, label %55 [
+    i32 0, label %.sink.split
+    i32 5, label %47
+    i32 3, label %47
+    i32 2, label %48
+    i32 1, label %51
+  ]
+
+.sink.split:                                      ; preds = %44, %39
   %45 = load ptr, ptr %5, align 8, !tbaa !38
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.26, ptr noundef nonnull %46) #13
   br label %47
 
-47:                                               ; preds = %39, %44
-  store i32 1, ptr %36, align 8, !tbaa !4
-  br label %60
+47:                                               ; preds = %.sink.split, %39, %39, %44, %44
+  br label %55
 
-48:                                               ; preds = %28
-  switch i32 %3, label %60 [
-    i32 0, label %49
-    i32 5, label %52
-    i32 3, label %52
-    i32 2, label %53
-    i32 1, label %56
-  ]
+48:                                               ; preds = %44
+  %49 = load ptr, ptr %5, align 8, !tbaa !38
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.26, ptr noundef nonnull %50) #13
+  br label %51
 
-49:                                               ; preds = %48
-  %50 = load ptr, ptr %5, align 8, !tbaa !38
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.26, ptr noundef nonnull %51) #13
-  br label %52
-
-52:                                               ; preds = %49, %48, %48
-  br label %60
-
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %5, align 8, !tbaa !38
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.26, ptr noundef nonnull %55) #13
-  br label %56
-
-56:                                               ; preds = %53, %48
+51:                                               ; preds = %48, %44
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 1, ptr %57, align 8, !tbaa !4
-  %58 = load ptr, ptr %5, align 8, !tbaa !38
-  %59 = call ptr @zend_hash_update(ptr noundef nonnull %9, ptr noundef %58, ptr noundef nonnull %6) #13
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 1, ptr %52, align 8, !tbaa !4
+  %53 = load ptr, ptr %5, align 8, !tbaa !38
+  %54 = call ptr @zend_hash_update(ptr noundef nonnull %9, ptr noundef %53, ptr noundef nonnull %6) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %60
+  br label %55
 
-60:                                               ; preds = %48, %52, %56, %30, %39, %43, %47, %34
-  %.030 = phi ptr [ %35, %39 ], [ @executor_globals, %43 ], [ %35, %47 ], [ %35, %34 ], [ %29, %30 ], [ null, %48 ], [ @executor_globals, %52 ], [ %59, %56 ]
+55:                                               ; preds = %44, %47, %51, %30, %39, %43, %34
+  %.030 = phi ptr [ %35, %39 ], [ %54, %51 ], [ %35, %43 ], [ %35, %34 ], [ %29, %30 ], [ null, %44 ], [ @executor_globals, %47 ]
   %.val = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val41 = load i8, ptr %61, align 8, !tbaa !40, !range !41, !noundef !42
-  %62 = trunc nuw i8 %.val41 to i1
-  br i1 %62, label %63, label %spl_hash_key_release.exit
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.val41 = load i8, ptr %56, align 8, !tbaa !40, !range !41, !noundef !42
+  %57 = trunc nuw i8 %.val41 to i1
+  br i1 %57, label %58, label %spl_hash_key_release.exit
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds nuw i8, ptr %.val, i64 4
-  %65 = load i32, ptr %64, align 4, !tbaa !4
-  %66 = and i32 %65, 64
-  %.not.i.i = icmp eq i32 %66, 0
-  br i1 %.not.i.i, label %67, label %spl_hash_key_release.exit
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds nuw i8, ptr %.val, i64 4
+  %60 = load i32, ptr %59, align 4, !tbaa !4
+  %61 = and i32 %60, 64
+  %.not.i.i = icmp eq i32 %61, 0
+  br i1 %.not.i.i, label %62, label %spl_hash_key_release.exit
 
-67:                                               ; preds = %63
-  %68 = load i32, ptr %.val, align 4, !tbaa !43
-  %69 = icmp ne i32 %68, 0
-  call void @llvm.assume(i1 %69)
-  %70 = add i32 %68, -1
-  store i32 %70, ptr %.val, align 4, !tbaa !43
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %spl_hash_key_release.exit
+62:                                               ; preds = %58
+  %63 = load i32, ptr %.val, align 4, !tbaa !43
+  %64 = icmp ne i32 %63, 0
+  call void @llvm.assume(i1 %64)
+  %65 = add i32 %63, -1
+  store i32 %65, ptr %.val, align 4, !tbaa !43
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %67, label %spl_hash_key_release.exit
 
-72:                                               ; preds = %67
+67:                                               ; preds = %62
   call void @_efree(ptr noundef nonnull %.val) #13
   br label %spl_hash_key_release.exit
 
-73:                                               ; preds = %26
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %75 = load i64, ptr %74, align 8, !tbaa !44
-  %76 = call ptr @zend_hash_index_find(ptr noundef nonnull %9, i64 noundef %75) #13
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %78, label %spl_hash_key_release.exit
+68:                                               ; preds = %26
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %70 = load i64, ptr %69, align 8, !tbaa !44
+  %71 = call ptr @zend_hash_index_find(ptr noundef nonnull %9, i64 noundef %70) #13
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %73, label %spl_hash_key_release.exit
 
-78:                                               ; preds = %73
+73:                                               ; preds = %68
   switch i32 %3, label %spl_hash_key_release.exit [
-    i32 0, label %79
-    i32 5, label %81
-    i32 3, label %81
-    i32 2, label %82
-    i32 1, label %84
+    i32 0, label %74
+    i32 5, label %76
+    i32 3, label %76
+    i32 2, label %77
+    i32 1, label %79
   ]
 
-79:                                               ; preds = %78
-  %80 = load i64, ptr %74, align 8, !tbaa !44
-  call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.27, i64 noundef %80) #13
-  br label %81
+74:                                               ; preds = %73
+  %75 = load i64, ptr %69, align 8, !tbaa !44
+  call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.27, i64 noundef %75) #13
+  br label %76
 
-81:                                               ; preds = %79, %78, %78
+76:                                               ; preds = %74, %73, %73
   br label %spl_hash_key_release.exit
 
-82:                                               ; preds = %78
-  %83 = load i64, ptr %74, align 8, !tbaa !44
-  call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.27, i64 noundef %83) #13
-  br label %84
+77:                                               ; preds = %73
+  %78 = load i64, ptr %69, align 8, !tbaa !44
+  call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.27, i64 noundef %78) #13
+  br label %79
 
-84:                                               ; preds = %82, %78
+79:                                               ; preds = %77, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %85 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 1, ptr %85, align 8, !tbaa !4
-  %86 = load i64, ptr %74, align 8, !tbaa !44
-  %87 = call ptr @zend_hash_index_update(ptr noundef nonnull %9, i64 noundef %86, ptr noundef nonnull %7) #13
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 1, ptr %80, align 8, !tbaa !4
+  %81 = load i64, ptr %69, align 8, !tbaa !44
+  %82 = call ptr @zend_hash_index_update(ptr noundef nonnull %9, i64 noundef %81, ptr noundef nonnull %7) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %spl_hash_key_release.exit
 
-spl_hash_key_release.exit:                        ; preds = %72, %67, %63, %60, %78, %81, %84, %73, %4, %10, %24, %20
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %20 ], [ %25, %24 ], [ @executor_globals, %4 ], [ @executor_globals, %10 ], [ %76, %73 ], [ null, %78 ], [ @executor_globals, %81 ], [ %87, %84 ], [ %.030, %60 ], [ %.030, %63 ], [ %.030, %67 ], [ %.030, %72 ]
+spl_hash_key_release.exit:                        ; preds = %67, %62, %58, %55, %73, %76, %79, %68, %4, %10, %24, %20
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %20 ], [ %25, %24 ], [ @executor_globals, %4 ], [ @executor_globals, %10 ], [ %71, %68 ], [ null, %73 ], [ @executor_globals, %76 ], [ %82, %79 ], [ %.030, %55 ], [ %.030, %58 ], [ %.030, %62 ], [ %.030, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

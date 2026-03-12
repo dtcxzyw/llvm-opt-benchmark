@@ -17268,15 +17268,15 @@ define noundef zeroext i1 @_ZN7glslang13TIntermediate15isIoResizeArrayERKNS_5TTy
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
-  br i1 %6, label %7, label %96
+  br i1 %6, label %7, label %95
 
 7:                                                ; preds = %2
-  switch i32 %1, label %96 [
+  switch i32 %1, label %95 [
     i32 3, label %8
     i32 1, label %17
-    i32 2, label %44
-    i32 4, label %53
-    i32 13, label %79
+    i32 2, label %43
+    i32 4, label %52
+    i32 13, label %78
   ]
 
 8:                                                ; preds = %7
@@ -17288,7 +17288,7 @@ define noundef zeroext i1 @_ZN7glslang13TIntermediate15isIoResizeArrayERKNS_5TTy
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 127
   %16 = icmp eq i64 %15, 3
-  br label %96
+  br label %95
 
 17:                                               ; preds = %7
   %18 = load ptr, ptr %0, align 8
@@ -17310,7 +17310,7 @@ define noundef zeroext i1 @_ZN7glslang13TIntermediate15isIoResizeArrayERKNS_5TTy
   %32 = load i64, ptr %31, align 8
   %33 = and i64 %32, 127
   %34 = icmp eq i64 %33, 4
-  br i1 %34, label %35, label %43
+  br i1 %34, label %35, label %77
 
 35:                                               ; preds = %26, %17
   %36 = load ptr, ptr %0, align 8
@@ -17321,83 +17321,80 @@ define noundef zeroext i1 @_ZN7glslang13TIntermediate15isIoResizeArrayERKNS_5TTy
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, 17592186044416
   %.not = icmp eq i64 %42, 0
-  br i1 %.not, label %96, label %43
+  br i1 %.not, label %95, label %77
 
-43:                                               ; preds = %35, %26
-  br label %96
+43:                                               ; preds = %7
+  %44 = load ptr, ptr %0, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 88
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call noundef nonnull align 8 dereferenceable(80) ptr %46(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = load i64, ptr %48, align 8
+  %50 = and i64 %49, 127
+  %51 = icmp eq i64 %50, 3
+  br label %95
 
-44:                                               ; preds = %7
-  %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 88
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef nonnull align 8 dereferenceable(80) ptr %47(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load i64, ptr %49, align 8
-  %51 = and i64 %50, 127
-  %52 = icmp eq i64 %51, 3
-  br label %96
+52:                                               ; preds = %7
+  %53 = load ptr, ptr %0, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 88
+  %55 = load ptr, ptr %54, align 8
+  %56 = tail call noundef nonnull align 8 dereferenceable(80) ptr %55(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load i64, ptr %57, align 8
+  %59 = and i64 %58, 127
+  %60 = icmp eq i64 %59, 3
+  br i1 %60, label %61, label %77
 
-53:                                               ; preds = %7
-  %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 88
-  %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef nonnull align 8 dereferenceable(80) ptr %56(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %59 = load i64, ptr %58, align 8
-  %60 = and i64 %59, 127
-  %61 = icmp eq i64 %60, 3
-  br i1 %61, label %62, label %78
+61:                                               ; preds = %52
+  %62 = load ptr, ptr %0, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 88
+  %64 = load ptr, ptr %63, align 8
+  %65 = tail call noundef nonnull align 8 dereferenceable(80) ptr %64(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %67 = load i64, ptr %66, align 8
+  %68 = and i64 %67, 549755813888
+  %.not15 = icmp eq i64 %68, 0
+  br i1 %.not15, label %69, label %95
 
-62:                                               ; preds = %53
-  %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 88
-  %65 = load ptr, ptr %64, align 8
-  %66 = tail call noundef nonnull align 8 dereferenceable(80) ptr %65(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %68 = load i64, ptr %67, align 8
-  %69 = and i64 %68, 549755813888
-  %.not15 = icmp eq i64 %69, 0
-  br i1 %.not15, label %70, label %96
+69:                                               ; preds = %61
+  %70 = load ptr, ptr %0, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 88
+  %72 = load ptr, ptr %71, align 8
+  %73 = tail call noundef nonnull align 8 dereferenceable(80) ptr %72(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %75 = load i64, ptr %74, align 8
+  %76 = and i64 %75, 1099511627776
+  %.not16 = icmp eq i64 %76, 0
+  br i1 %.not16, label %77, label %95
 
-70:                                               ; preds = %62
-  %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 88
-  %73 = load ptr, ptr %72, align 8
-  %74 = tail call noundef nonnull align 8 dereferenceable(80) ptr %73(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %76 = load i64, ptr %75, align 8
-  %77 = and i64 %76, 1099511627776
-  %.not16 = icmp eq i64 %77, 0
-  br i1 %.not16, label %78, label %96
+77:                                               ; preds = %26, %35, %69, %52
+  br label %95
 
-78:                                               ; preds = %70, %53
-  br label %96
+78:                                               ; preds = %7
+  %79 = load ptr, ptr %0, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 88
+  %81 = load ptr, ptr %80, align 8
+  %82 = tail call noundef nonnull align 8 dereferenceable(80) ptr %81(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %84 = load i64, ptr %83, align 8
+  %85 = and i64 %84, 127
+  %86 = icmp eq i64 %85, 4
+  br i1 %86, label %87, label %95
 
-79:                                               ; preds = %7
-  %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 88
-  %82 = load ptr, ptr %81, align 8
-  %83 = tail call noundef nonnull align 8 dereferenceable(80) ptr %82(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %85 = load i64, ptr %84, align 8
-  %86 = and i64 %85, 127
-  %87 = icmp eq i64 %86, 4
-  br i1 %87, label %88, label %96
+87:                                               ; preds = %78
+  %88 = load ptr, ptr %0, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 88
+  %90 = load ptr, ptr %89, align 8
+  %91 = tail call noundef nonnull align 8 dereferenceable(80) ptr %90(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %93 = load i64, ptr %92, align 8
+  %94 = and i64 %93, 8796093022208
+  %.not17 = icmp eq i64 %94, 0
+  br label %95
 
-88:                                               ; preds = %79
-  %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 88
-  %91 = load ptr, ptr %90, align 8
-  %92 = tail call noundef nonnull align 8 dereferenceable(80) ptr %91(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = load i64, ptr %93, align 8
-  %95 = and i64 %94, 8796093022208
-  %.not17 = icmp eq i64 %95, 0
-  br label %96
-
-96:                                               ; preds = %44, %8, %78, %43, %7, %35, %62, %70, %88, %79, %2
-  %97 = phi i1 [ false, %2 ], [ true, %70 ], [ true, %62 ], [ false, %7 ], [ true, %35 ], [ %52, %44 ], [ false, %79 ], [ false, %78 ], [ %.not17, %88 ], [ %16, %8 ], [ false, %43 ]
-  ret i1 %97
+95:                                               ; preds = %43, %8, %77, %7, %35, %61, %69, %87, %78, %2
+  %96 = phi i1 [ false, %2 ], [ true, %69 ], [ true, %61 ], [ false, %7 ], [ true, %35 ], [ %51, %43 ], [ false, %78 ], [ false, %77 ], [ %.not17, %87 ], [ %16, %8 ]
+  ret i1 %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -21956,7 +21953,7 @@ _ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit: ; preds = %67, %67, %6
   %71 = call noundef i32 @_ZN7glslang13TIntermediate23computeTypeLocationSizeERKNS_5TTypeE11EShLanguage(ptr noundef nonnull align 8 dereferenceable(152) %5, i32 noundef %70)
   br label %.thread155
 
-_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit.thread: ; preds = %67, %61, %55, %49, %42, %64, %58, %52, %46, %41, %37
+_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit.thread: ; preds = %42, %49, %55, %61, %67, %64, %58, %52, %46, %41, %37
   %72 = tail call noundef i32 @_ZN7glslang13TIntermediate23computeTypeLocationSizeERKNS_5TTypeE11EShLanguage(ptr noundef nonnull align 8 dereferenceable(152) %2, i32 noundef %.pre)
   br label %.thread155
 
@@ -24075,18 +24072,15 @@ define noundef range(i32 1, 9) i32 @_ZN7glslang13TIntermediate22getBaseAlignment
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 376
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
-  %spec.select = select i1 %18, i32 8, i32 4
-  %spec.select11 = select i1 %18, i32 8, i32 4
+  br i1 %18, label %20, label %19
+
+19:                                               ; preds = %14, %2
   br label %20
 
-19:                                               ; preds = %2
-  br label %20
-
-20:                                               ; preds = %14, %9, %2, %2, %2, %2, %19, %8, %7
-  %.sink = phi i32 [ 4, %19 ], [ 8, %9 ], [ 8, %2 ], [ 8, %2 ], [ 8, %2 ], [ 1, %8 ], [ 2, %7 ], [ 8, %2 ], [ %spec.select, %14 ]
-  %.0 = phi i32 [ 4, %19 ], [ 8, %9 ], [ 8, %2 ], [ 8, %2 ], [ 8, %2 ], [ 1, %8 ], [ 2, %7 ], [ 8, %2 ], [ %spec.select11, %14 ]
+20:                                               ; preds = %9, %14, %2, %2, %2, %2, %19, %8, %7
+  %.sink = phi i32 [ 4, %19 ], [ 8, %9 ], [ 8, %2 ], [ 8, %2 ], [ 8, %2 ], [ 1, %8 ], [ 2, %7 ], [ 8, %2 ], [ 8, %14 ]
   store i32 %.sink, ptr %1, align 4
-  ret i32 %.0
+  ret i32 %.sink
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -24107,11 +24101,11 @@ define noundef range(i32 0, 33) i32 @_ZN7glslang13TIntermediate16getBaseAlignmen
   call void @_ZN7glslang5TTypeC2ERKS0_ib(ptr noundef nonnull align 8 dereferenceable(152) %7, ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef 0, i1 noundef zeroext false)
   %16 = call noundef i32 @_ZN7glslang13TIntermediate16getBaseAlignmentERKNS_5TTypeERiS4_NS_14TLayoutPackingEb(ptr noundef nonnull align 8 dereferenceable(152) %7, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %3, i1 noundef zeroext %4)
   %17 = call i32 @llvm.umax.i32(i32 %16, i32 16)
-  %.099 = select i1 %10, i32 %17, i32 %16
+  %.096 = select i1 %10, i32 %17, i32 %16
   %18 = load i32, ptr %1, align 4
   %19 = add i32 %18, -1
-  %20 = add i32 %19, %.099
-  %21 = sub nsw i32 0, %.099
+  %20 = add i32 %19, %.096
+  %21 = sub nsw i32 0, %.096
   %22 = and i32 %20, %21
   store i32 %22, ptr %1, align 4
   store i32 %22, ptr %2, align 4
@@ -24168,14 +24162,14 @@ define noundef range(i32 0, 33) i32 @_ZN7glslang13TIntermediate16getBaseAlignmen
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %58, align 8
-  %.not103 = icmp eq ptr %60, %61
-  br i1 %.not103, label %._crit_edge, label %.lr.ph
+  %.not100 = icmp eq ptr %60, %61
+  br i1 %.not100, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54, %.lr.ph
   %62 = phi ptr [ %89, %.lr.ph ], [ %61, %54 ]
-  %.067102 = phi i64 [ %87, %.lr.ph ], [ 0, %54 ]
-  %.0100101 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ %57, %54 ]
-  %63 = getelementptr inbounds [32 x i8], ptr %62, i64 %.067102
+  %.06799 = phi i64 [ %87, %.lr.ph ], [ 0, %54 ]
+  %.09798 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ %57, %54 ]
+  %63 = getelementptr inbounds [32 x i8], ptr %62, i64 %.06799
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 80
@@ -24187,13 +24181,13 @@ define noundef range(i32 0, 33) i32 @_ZN7glslang13TIntermediate16getBaseAlignmen
   %72 = trunc nuw nsw i64 %71 to i32
   %73 = and i32 %72, 7
   %74 = load ptr, ptr %58, align 8
-  %75 = getelementptr inbounds [32 x i8], ptr %74, i64 %.067102
+  %75 = getelementptr inbounds [32 x i8], ptr %74, i64 %.06799
   %76 = load ptr, ptr %75, align 8
   %.not = icmp eq i32 %73, 0
   %77 = icmp eq i32 %73, 1
   %78 = select i1 %.not, i1 %4, i1 %77
   %79 = call noundef i32 @_ZN7glslang13TIntermediate16getBaseAlignmentERKNS_5TTypeERiS4_NS_14TLayoutPackingEb(ptr noundef nonnull align 8 dereferenceable(152) %76, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %3, i1 noundef zeroext %78)
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.0100101, i32 %79)
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.09798, i32 %79)
   %80 = load i32, ptr %1, align 4
   %81 = add nsw i32 %79, -1
   %82 = add i32 %81, %80
@@ -24202,7 +24196,7 @@ define noundef range(i32 0, 33) i32 @_ZN7glslang13TIntermediate16getBaseAlignmen
   %85 = load i32, ptr %8, align 4
   %86 = add nsw i32 %84, %85
   store i32 %86, ptr %1, align 4
-  %87 = add nuw i64 %.067102, 1
+  %87 = add nuw i64 %.06799, 1
   %88 = load ptr, ptr %59, align 8
   %89 = load ptr, ptr %58, align 8
   %90 = ptrtoint ptr %88 to i64
@@ -24214,10 +24208,10 @@ define noundef range(i32 0, 33) i32 @_ZN7glslang13TIntermediate16getBaseAlignmen
 
 ._crit_edge:                                      ; preds = %.lr.ph, %54
   %95 = phi i32 [ 0, %54 ], [ %86, %.lr.ph ]
-  %.0100.lcssa = phi i32 [ %57, %54 ], [ %.sroa.speculated, %.lr.ph ]
-  %96 = add nsw i32 %.0100.lcssa, -1
+  %.097.lcssa = phi i32 [ %57, %54 ], [ %.sroa.speculated, %.lr.ph ]
+  %96 = add nsw i32 %.097.lcssa, -1
   %97 = add i32 %96, %95
-  %98 = sub nsw i32 0, %.0100.lcssa
+  %98 = sub nsw i32 0, %.097.lcssa
   %99 = and i32 %97, %98
   store i32 %99, ptr %1, align 4
   br label %178
@@ -24265,14 +24259,13 @@ define noundef range(i32 0, 33) i32 @_ZN7glslang13TIntermediate16getBaseAlignmen
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 376
   %120 = load ptr, ptr %119, align 8
   %121 = tail call noundef zeroext i1 %120(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
-  %spec.select.i = select i1 %121, i32 8, i32 4
-  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit
+  br i1 %121, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit, label %122
 
-122:                                              ; preds = %106
+122:                                              ; preds = %117, %106
   br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit
 
 _ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit: ; preds = %106, %106, %106, %106, %110, %111, %112, %117, %122
-  %.sink.i = phi i32 [ 4, %122 ], [ 8, %112 ], [ 8, %106 ], [ 8, %106 ], [ 8, %106 ], [ 1, %111 ], [ 2, %110 ], [ 8, %106 ], [ %spec.select.i, %117 ]
+  %.sink.i = phi i32 [ 4, %122 ], [ 8, %112 ], [ 8, %106 ], [ 8, %106 ], [ 8, %106 ], [ 1, %111 ], [ 2, %110 ], [ 8, %106 ], [ 8, %117 ]
   store i32 %.sink.i, ptr %1, align 4
   br label %178
 
@@ -24288,45 +24281,44 @@ _ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit: ; preds 
   %130 = load ptr, ptr %129, align 8
   %131 = tail call noundef i32 %130(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
   switch i32 %131, label %144 [
-    i32 10, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
-    i32 11, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
-    i32 2, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
+    i32 10, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit70
+    i32 11, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit70
+    i32 2, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit70
     i32 3, label %132
     i32 4, label %133
     i32 5, label %133
     i32 6, label %132
     i32 7, label %132
-    i32 18, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
+    i32 18, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit70
     i32 14, label %134
   ]
 
 132:                                              ; preds = %128, %128, %128
-  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
+  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit70
 
 133:                                              ; preds = %128, %128
-  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
+  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit70
 
 134:                                              ; preds = %128
   %135 = load ptr, ptr %0, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 368
   %137 = load ptr, ptr %136, align 8
   %138 = tail call noundef zeroext i1 %137(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
-  br i1 %138, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73, label %139
+  br i1 %138, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit70, label %139
 
 139:                                              ; preds = %134
   %140 = load ptr, ptr %0, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 376
   %142 = load ptr, ptr %141, align 8
   %143 = tail call noundef zeroext i1 %142(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
-  %spec.select.i69 = select i1 %143, i32 8, i32 4
-  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
+  br i1 %143, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit70, label %144
 
-144:                                              ; preds = %128
-  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
+144:                                              ; preds = %139, %128
+  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit70
 
-_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73: ; preds = %128, %128, %128, %128, %132, %133, %134, %139, %144
-  %.sink.i71 = phi i32 [ 4, %144 ], [ 8, %134 ], [ 8, %128 ], [ 8, %128 ], [ 8, %128 ], [ 1, %133 ], [ 2, %132 ], [ 8, %128 ], [ %spec.select.i69, %139 ]
-  store i32 %.sink.i71, ptr %1, align 4
+_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit70: ; preds = %128, %128, %128, %128, %132, %133, %134, %139, %144
+  %.sink.i69 = phi i32 [ 4, %144 ], [ 8, %134 ], [ 8, %128 ], [ 8, %128 ], [ 8, %128 ], [ 1, %133 ], [ 2, %132 ], [ 8, %128 ], [ 8, %139 ]
+  store i32 %.sink.i69, ptr %1, align 4
   %145 = load ptr, ptr %0, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 96
   %147 = load ptr, ptr %146, align 8
@@ -24336,14 +24328,14 @@ _ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73: ; pred
     i32 2, label %149
   ]
 
-149:                                              ; preds = %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
+149:                                              ; preds = %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit70
   %150 = load i32, ptr %1, align 4
   %151 = shl nsw i32 %150, 1
   store i32 %151, ptr %1, align 4
-  %152 = shl nuw nsw i32 %.sink.i71, 1
+  %152 = shl nuw nsw i32 %.sink.i69, 1
   br label %178
 
-153:                                              ; preds = %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73
+153:                                              ; preds = %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit70
   %154 = load ptr, ptr %0, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 96
   %156 = load ptr, ptr %155, align 8
@@ -24351,7 +24343,7 @@ _ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73: ; pred
   %158 = load i32, ptr %1, align 4
   %159 = mul nsw i32 %158, %157
   store i32 %159, ptr %1, align 4
-  %160 = shl nuw nsw i32 %.sink.i71, 2
+  %160 = shl nuw nsw i32 %.sink.i69, 2
   br label %178
 
 161:                                              ; preds = %123
@@ -24385,8 +24377,8 @@ _ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73: ; pred
   store i32 16, ptr %1, align 4
   br label %178
 
-178:                                              ; preds = %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73, %177, %165, %153, %149, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit, %._crit_edge, %38
-  %.0 = phi i32 [ %.099, %38 ], [ %.0100.lcssa, %._crit_edge ], [ %.sink.i, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit ], [ %160, %153 ], [ 16, %177 ], [ %152, %149 ], [ %.1, %165 ], [ %.sink.i71, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit73 ]
+178:                                              ; preds = %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit70, %177, %165, %153, %149, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit, %._crit_edge, %38
+  %.0 = phi i32 [ %.096, %38 ], [ %.097.lcssa, %._crit_edge ], [ %.sink.i, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit ], [ %160, %153 ], [ 16, %177 ], [ %152, %149 ], [ %.1, %165 ], [ %.sink.i69, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit70 ]
   ret i32 %.0
 }
 
@@ -24471,14 +24463,14 @@ define noundef range(i32 0, 9) i32 @_ZN7glslang13TIntermediate18getScalarAlignme
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %37, align 8
-  %.not69 = icmp eq ptr %39, %40
-  br i1 %.not69, label %.loopexit, label %.lr.ph
+  %.not66 = icmp eq ptr %39, %40
+  br i1 %.not66, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34, %.lr.ph
   %41 = phi ptr [ %68, %.lr.ph ], [ %40, %34 ]
-  %.05468 = phi i64 [ %66, %.lr.ph ], [ 0, %34 ]
-  %.06667 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ 0, %34 ]
-  %42 = getelementptr inbounds [32 x i8], ptr %41, i64 %.05468
+  %.05465 = phi i64 [ %66, %.lr.ph ], [ 0, %34 ]
+  %.06364 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ 0, %34 ]
+  %42 = getelementptr inbounds [32 x i8], ptr %41, i64 %.05465
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 80
@@ -24490,13 +24482,13 @@ define noundef range(i32 0, 9) i32 @_ZN7glslang13TIntermediate18getScalarAlignme
   %51 = trunc nuw nsw i64 %50 to i32
   %52 = and i32 %51, 7
   %53 = load ptr, ptr %37, align 8
-  %54 = getelementptr inbounds [32 x i8], ptr %53, i64 %.05468
+  %54 = getelementptr inbounds [32 x i8], ptr %53, i64 %.05465
   %55 = load ptr, ptr %54, align 8
   %.not = icmp eq i32 %52, 0
   %56 = icmp eq i32 %52, 1
   %57 = select i1 %.not, i1 %3, i1 %56
   %58 = call noundef i32 @_ZN7glslang13TIntermediate18getScalarAlignmentERKNS_5TTypeERiS4_b(ptr noundef nonnull align 8 dereferenceable(152) %55, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %5, i1 noundef zeroext %57)
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.06667, i32 %58)
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.06364, i32 %58)
   %59 = load i32, ptr %1, align 4
   %60 = add nsw i32 %58, -1
   %61 = add i32 %60, %59
@@ -24505,7 +24497,7 @@ define noundef range(i32 0, 9) i32 @_ZN7glslang13TIntermediate18getScalarAlignme
   %64 = load i32, ptr %7, align 4
   %65 = add nsw i32 %63, %64
   store i32 %65, ptr %1, align 4
-  %66 = add nuw i64 %.05468, 1
+  %66 = add nuw i64 %.05465, 1
   %67 = load ptr, ptr %38, align 8
   %68 = load ptr, ptr %37, align 8
   %69 = ptrtoint ptr %67 to i64
@@ -24558,10 +24550,9 @@ define noundef range(i32 0, 9) i32 @_ZN7glslang13TIntermediate18getScalarAlignme
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 376
   %94 = load ptr, ptr %93, align 8
   %95 = tail call noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
-  %spec.select.i = select i1 %95, i32 8, i32 4
-  br label %.loopexit.sink.split
+  br i1 %95, label %.loopexit.sink.split, label %96
 
-96:                                               ; preds = %80
+96:                                               ; preds = %91, %80
   br label %.loopexit.sink.split
 
 97:                                               ; preds = %74
@@ -24576,45 +24567,44 @@ define noundef range(i32 0, 9) i32 @_ZN7glslang13TIntermediate18getScalarAlignme
   %104 = load ptr, ptr %103, align 8
   %105 = tail call noundef i32 %104(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
   switch i32 %105, label %118 [
-    i32 10, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59
-    i32 11, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59
-    i32 2, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59
+    i32 10, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit56
+    i32 11, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit56
+    i32 2, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit56
     i32 3, label %106
     i32 4, label %107
     i32 5, label %107
     i32 6, label %106
     i32 7, label %106
-    i32 18, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59
+    i32 18, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit56
     i32 14, label %108
   ]
 
 106:                                              ; preds = %102, %102, %102
-  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59
+  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit56
 
 107:                                              ; preds = %102, %102
-  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59
+  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit56
 
 108:                                              ; preds = %102
   %109 = load ptr, ptr %0, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 368
   %111 = load ptr, ptr %110, align 8
   %112 = tail call noundef zeroext i1 %111(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
-  br i1 %112, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59, label %113
+  br i1 %112, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit56, label %113
 
 113:                                              ; preds = %108
   %114 = load ptr, ptr %0, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 376
   %116 = load ptr, ptr %115, align 8
   %117 = tail call noundef zeroext i1 %116(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
-  %spec.select.i55 = select i1 %117, i32 8, i32 4
-  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59
+  br i1 %117, label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit56, label %118
 
-118:                                              ; preds = %102
-  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59
+118:                                              ; preds = %113, %102
+  br label %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit56
 
-_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59: ; preds = %102, %102, %102, %102, %106, %107, %108, %113, %118
-  %.sink.i57 = phi i32 [ 4, %118 ], [ 8, %108 ], [ 8, %102 ], [ 8, %102 ], [ 8, %102 ], [ 1, %107 ], [ 2, %106 ], [ 8, %102 ], [ %spec.select.i55, %113 ]
-  store i32 %.sink.i57, ptr %1, align 4
+_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit56: ; preds = %102, %102, %102, %102, %106, %107, %108, %113, %118
+  %.sink.i55 = phi i32 [ 4, %118 ], [ 8, %108 ], [ 8, %102 ], [ 8, %102 ], [ 8, %102 ], [ 1, %107 ], [ 2, %106 ], [ 8, %102 ], [ 8, %113 ]
+  store i32 %.sink.i55, ptr %1, align 4
   %119 = load ptr, ptr %0, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 96
   %121 = load ptr, ptr %120, align 8
@@ -24642,10 +24632,10 @@ _ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59: ; pred
   %storemerge = mul nsw i32 %135, %131
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %125, %96, %91, %86, %85, %84, %80, %80, %80, %80, %13, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59, %129
-  %.sink72 = phi i32 [ %spec.select.i, %91 ], [ %storemerge, %129 ], [ %124, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59 ], [ %27, %13 ], [ 4, %96 ], [ 8, %86 ], [ 8, %80 ], [ 8, %80 ], [ 8, %80 ], [ 1, %85 ], [ 2, %84 ], [ 8, %80 ], [ 1, %125 ]
-  %.0.ph = phi i32 [ %spec.select.i, %91 ], [ %130, %129 ], [ %.sink.i57, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit59 ], [ %14, %13 ], [ 4, %96 ], [ 8, %86 ], [ 8, %80 ], [ 8, %80 ], [ 8, %80 ], [ 1, %85 ], [ 2, %84 ], [ 8, %80 ], [ 1, %125 ]
-  store i32 %.sink72, ptr %1, align 4
+.loopexit.sink.split:                             ; preds = %125, %96, %91, %86, %85, %84, %80, %80, %80, %80, %13, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit56, %129
+  %.sink69 = phi i32 [ 8, %91 ], [ %storemerge, %129 ], [ %124, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit56 ], [ %27, %13 ], [ 4, %96 ], [ 8, %86 ], [ 8, %80 ], [ 8, %80 ], [ 8, %80 ], [ 1, %85 ], [ 2, %84 ], [ 8, %80 ], [ 1, %125 ]
+  %.0.ph = phi i32 [ 8, %91 ], [ %130, %129 ], [ %.sink.i55, %_ZN7glslang13TIntermediate22getBaseAlignmentScalarERKNS_5TTypeERi.exit56 ], [ %14, %13 ], [ 4, %96 ], [ 8, %86 ], [ 8, %80 ], [ 8, %80 ], [ 8, %80 ], [ 1, %85 ], [ 2, %84 ], [ 8, %80 ], [ 1, %125 ]
+  store i32 %.sink69, ptr %1, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %34

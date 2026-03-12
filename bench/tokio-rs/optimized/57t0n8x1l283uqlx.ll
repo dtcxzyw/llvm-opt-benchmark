@@ -209,7 +209,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$
   store i64 5, ptr %0, align 8
   br label %33
 
-33:                                               ; preds = %66, %68, %46, %51, %25, %30
+33:                                               ; preds = %66, %68, %51, %46, %25, %30
   ret void
 
 34:                                               ; preds = %12

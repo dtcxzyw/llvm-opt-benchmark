@@ -849,8 +849,8 @@ _ZNSt6vectorISt7variantIJN7xgboost8cpu_impl11CatStrArrayES_IaSaIaEES_IsSaIsEES_I
 .invoke.loopexit210:                              ; preds = %.noexc42, %.noexc49, %.noexc54, %.noexc59, %.noexc64, %.noexc69, %.noexc74
   br label %.invoke
 
-.invoke:                                          ; preds = %.noexc74, %.noexc69, %.noexc64, %.noexc59, %.noexc54, %.noexc49, %.noexc42, %.invoke.loopexit210
-  %.str.18.sink = phi ptr [ @.str.18, %.noexc69 ], [ @.str.18, %.noexc42 ], [ @.str.18, %.noexc64 ], [ @.str.18, %.noexc49 ], [ @.str.18, %.noexc59 ], [ @.str.19, %.invoke.loopexit210 ], [ @.str.18, %.noexc54 ], [ @.str.18, %.noexc74 ]
+.invoke:                                          ; preds = %.noexc42, %.noexc49, %.noexc54, %.noexc59, %.noexc64, %.noexc69, %.noexc74, %.invoke.loopexit210
+  %.str.18.sink = phi ptr [ @.str.19, %.invoke.loopexit210 ], [ @.str.18, %.noexc74 ], [ @.str.18, %.noexc69 ], [ @.str.18, %.noexc64 ], [ @.str.18, %.noexc59 ], [ @.str.18, %.noexc54 ], [ @.str.18, %.noexc49 ], [ @.str.18, %.noexc42 ]
   %70 = tail call ptr @__cxa_allocate_exception(i64 16) #16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %70, align 8, !tbaa !50
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8

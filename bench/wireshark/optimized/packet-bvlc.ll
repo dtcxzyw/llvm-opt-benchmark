@@ -718,9 +718,9 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
     i8 0, label %62
     i8 3, label %62
     i8 12, label %62
+    i8 4, label %63
     i8 7, label %65
     i8 6, label %65
-    i8 4, label %63
   ]
 
 62:                                               ; preds = %.critedge2, %.critedge2, %.critedge2
@@ -735,7 +735,7 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %67
 
 67:                                               ; preds = %.critedge2, %65, %63, %62
-  %.8345 = phi i32 [ %.5342, %.critedge2 ], [ %6, %62 ], [ %66, %65 ], [ %64, %63 ]
+  %.8345 = phi i32 [ %.5342, %.critedge2 ], [ %6, %62 ], [ %64, %63 ], [ %66, %65 ]
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %69 = load ptr, ptr %68, align 8
   tail call void @col_set_str(ptr noundef %69, i32 noundef 35, ptr noundef nonnull @.str.132)
@@ -932,12 +932,12 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
 .critedge6:                                       ; preds = %.lr.ph404, %178, %.preheader, %.critedge4
   %.5 = phi i32 [ %.2335, %.critedge4 ], [ %.2335, %.preheader ], [ %.6402, %.lr.ph404 ], [ %.7, %178 ]
   switch i8 %9, label %275 [
+    i8 0, label %181
     i8 12, label %262
     i8 7, label %246
     i8 6, label %230
     i8 4, label %214
     i8 3, label %208
-    i8 0, label %181
   ]
 
 181:                                              ; preds = %.critedge6
@@ -1051,7 +1051,7 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %275
 
 275:                                              ; preds = %181, %194, %.critedge6, %262, %246, %230, %214, %208
-  %.8 = phi i32 [ %.5, %.critedge6 ], [ %6, %262 ], [ %261, %246 ], [ %245, %230 ], [ %229, %214 ], [ %6, %208 ], [ %6, %194 ], [ %6, %181 ]
+  %.8 = phi i32 [ %.5, %.critedge6 ], [ %6, %208 ], [ %6, %262 ], [ %261, %246 ], [ %245, %230 ], [ %229, %214 ], [ %6, %194 ], [ %6, %181 ]
   %276 = sub i32 %6, %.8
   %277 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.8, i32 noundef %276)
   %278 = load ptr, ptr @bscvlc_dissector_table, align 8

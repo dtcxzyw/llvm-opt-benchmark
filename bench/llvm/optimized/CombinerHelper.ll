@@ -11514,16 +11514,13 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyI
   %33 = load i32, ptr %32, align 4, !tbaa !204
   %34 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %15, i32 %33) #32
   %.not.i.i.i.not.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i.not.i.i.i, label %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIS2_EELj82EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.i._ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !458
+  br i1 %.not.i.i.i.not.i.i.i, label %.lr.ph.i._ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !458
 
-_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIS2_EELj82EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.i._ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit.loopexit_crit_edge: ; preds = %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIS2_EELj82EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.i
+.lr.ph.i._ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit.loopexit_crit_edge: ; preds = %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIS2_EELj82EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.i, %.lr.ph.i
   br label %_ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit, !llvm.loop !458
 
-.lr.ph.i._ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit.loopexit_crit_edge: ; preds = %.lr.ph.i
-  br label %_ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit, !llvm.loop !458
-
-_ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit: ; preds = %.lr.ph, %.lr.ph.preheader, %.lr.ph.i._ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit.loopexit_crit_edge, %.lr.ph.i.preheader, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIS2_EELj82EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.i._ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit.loopexit_crit_edge, %3
-  %storemerge.lcssa.i = phi i32 [ %13, %3 ], [ %33, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_13UnaryOp_matchINS0_7bind_tyIS2_EELj82EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.i._ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit.loopexit_crit_edge ], [ %13, %.lr.ph.i.preheader ], [ %33, %.lr.ph.i._ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit.loopexit_crit_edge ], [ %13, %.lr.ph.preheader ], [ %33, %.lr.ph ]
+_ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit: ; preds = %.lr.ph, %.lr.ph.preheader, %.lr.ph.i._ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit.loopexit_crit_edge, %.lr.ph.i.preheader, %3
+  %storemerge.lcssa.i = phi i32 [ %13, %3 ], [ %13, %.lr.ph.preheader ], [ %13, %.lr.ph.i.preheader ], [ %33, %.lr.ph.i._ZL18peekThroughBitcastN4llvm8RegisterERKNS_19MachineRegisterInfoE.exit.loopexit_crit_edge ], [ %33, %.lr.ph ]
   %35 = load ptr, ptr %14, align 8, !tbaa !227
   %36 = tail call noundef ptr @_ZN4llvm20getDefIgnoringCopiesENS_8RegisterERKNS_19MachineRegisterInfoE(i32 %storemerge.lcssa.i, ptr noundef nonnull align 8 dereferenceable(504) %35) #32
   %.not.i.i.i = icmp eq ptr %36, null

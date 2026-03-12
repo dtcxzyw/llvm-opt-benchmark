@@ -604,15 +604,12 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %279 = fcmp nsz olt double %258, 0xB690000000000000
   br i1 %279, label %.preheader274.lr.ph.thread, label %.loopexit276
 
-.preheader274.lr.ph.thread:                       ; preds = %.loopexit277.thread424
+.preheader274.lr.ph.thread:                       ; preds = %.loopexit277.thread, %.loopexit277.thread424
   br label %.loopexit276
 
 .loopexit277.thread:                              ; preds = %267
   %280 = fcmp nsz olt double %258, 0xB690000000000000
-  br i1 %280, label %.thread422, label %.loopexit276
-
-.thread422:                                       ; preds = %.loopexit277.thread
-  br label %.loopexit276
+  br i1 %280, label %.preheader274.lr.ph.thread, label %.loopexit276
 
 .preheader274.lr.ph:                              ; preds = %.loopexit277
   %.pr432 = load i32, ptr %106, align 8, !tbaa !54
@@ -647,9 +644,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %exitcond353.not = icmp eq i32 %289, %26
   br i1 %exitcond353.not, label %.loopexit276, label %.preheader274.us, !llvm.loop !73
 
-.loopexit276:                                     ; preds = %._crit_edge.us292, %.loopexit277, %.preheader274.lr.ph.thread, %.preheader274.lr.ph, %.loopexit277.thread424, %.thread422, %.loopexit277.thread
-  %.0219420 = phi float [ %.0219, %.loopexit277 ], [ 1.000000e+00, %.preheader274.lr.ph.thread ], [ %.0219, %.preheader274.lr.ph ], [ 1.000000e+00, %.loopexit277.thread424 ], [ 1.000000e+00, %.loopexit277.thread ], [ 1.000000e+00, %.thread422 ], [ %.0219, %._crit_edge.us292 ]
-  %.0217 = phi nsz float [ %.mux459, %.loopexit277 ], [ 0.000000e+00, %.preheader274.lr.ph.thread ], [ 0.000000e+00, %.preheader274.lr.ph ], [ %259, %.loopexit277.thread424 ], [ %259, %.loopexit277.thread ], [ 0.000000e+00, %.thread422 ], [ %286, %._crit_edge.us292 ]
+.loopexit276:                                     ; preds = %._crit_edge.us292, %.loopexit277, %.preheader274.lr.ph.thread, %.preheader274.lr.ph, %.loopexit277.thread424, %.loopexit277.thread
+  %.0219420 = phi float [ %.0219, %.loopexit277 ], [ 1.000000e+00, %.preheader274.lr.ph.thread ], [ %.0219, %.preheader274.lr.ph ], [ 1.000000e+00, %.loopexit277.thread424 ], [ 1.000000e+00, %.loopexit277.thread ], [ %.0219, %._crit_edge.us292 ]
+  %.0217 = phi nsz float [ %.mux459, %.loopexit277 ], [ 0.000000e+00, %.preheader274.lr.ph.thread ], [ 0.000000e+00, %.preheader274.lr.ph ], [ %259, %.loopexit277.thread424 ], [ %259, %.loopexit277.thread ], [ %286, %._crit_edge.us292 ]
   %290 = fsub nsz float %265, %262
   %291 = fsub nsz float %.0217, %.0219420
   %292 = fdiv nsz float %290, %291

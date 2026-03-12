@@ -2283,46 +2283,43 @@ define hidden noundef zeroext i1 @"_ZN4rkyv5impls4core9primitive67_$LT$impl$u20$
 define internal fastcc noundef zeroext i1 @"_ZN4rkyv6option1_100_$LT$impl$u20$bytecheck..CheckBytes$LT$__C$GT$$u20$for$u20$rkyv..option..ArchivedOption$LT$T$GT$$GT$11check_bytes17h698ae8e0d0302585E"(ptr noundef %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 {
   %3 = alloca [16 x i8], align 8
   %4 = load i8, ptr %0, align 1, !noundef !25
-  switch i8 %4, label %5 [
-    i8 0, label %17
-    i8 1, label %6
+  switch i8 %4, label %"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit.thread" [
+    i8 0, label %16
+    i8 1, label %5
   ]
 
 5:                                                ; preds = %2
-  br label %17
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %7 = tail call noundef zeroext i1 @"_ZN87_$LT$rkyv..rel_ptr..RelPtr$LT$T$C$O$GT$$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17ha7f585860f9e05faE"(ptr noundef nonnull %6, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  br i1 %7, label %"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit.thread", label %"_ZN84_$LT$rkyv..vec..ArchivedVec$LT$T$GT$$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h360a8d3f7a10b6b5E.exit.i"
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = tail call noundef zeroext i1 @"_ZN87_$LT$rkyv..rel_ptr..RelPtr$LT$T$C$O$GT$$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17ha7f585860f9e05faE"(ptr noundef nonnull %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  br i1 %8, label %"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit.thread", label %"_ZN84_$LT$rkyv..vec..ArchivedVec$LT$T$GT$$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h360a8d3f7a10b6b5E.exit.i"
-
-"_ZN84_$LT$rkyv..vec..ArchivedVec$LT$T$GT$$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h360a8d3f7a10b6b5E.exit.i": ; preds = %6
+"_ZN84_$LT$rkyv..vec..ArchivedVec$LT$T$GT$$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h360a8d3f7a10b6b5E.exit.i": ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !897)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !900
-  %.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %7, align 4, !alias.scope !905, !noalias !910
-  %9 = sext i32 %.sroa.0.0.copyload.i.i.i.i.i to i64
-  %10 = getelementptr i8, ptr %7, i64 %9
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i32, ptr %11, align 4, !alias.scope !897, !noalias !910, !noundef !25
-  %13 = zext i32 %12 to i64
-  store ptr %10, ptr %3, align 8, !noalias !912
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %13, ptr %14, align 8, !noalias !912
-  %15 = call noundef zeroext i1 @"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h2d47e0650e7919dcE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noundef readonly %10, i64 noundef %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
+  %.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %6, align 4, !alias.scope !905, !noalias !910
+  %8 = sext i32 %.sroa.0.0.copyload.i.i.i.i.i to i64
+  %9 = getelementptr i8, ptr %6, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load i32, ptr %10, align 4, !alias.scope !897, !noalias !910, !noundef !25
+  %12 = zext i32 %11 to i64
+  store ptr %9, ptr %3, align 8, !noalias !912
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %12, ptr %13, align 8, !noalias !912
+  %14 = call noundef zeroext i1 @"_ZN75_$LT$C$u20$as$u20$rkyv..validation..archive..ArchiveContextExt$LT$E$GT$$GT$10in_subtree17h2d47e0650e7919dcE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noundef readonly %9, i64 noundef %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !900
-  br i1 %15, label %"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit.thread", label %"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit"
+  br i1 %14, label %"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit.thread", label %"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit"
 
 "_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit": ; preds = %"_ZN84_$LT$rkyv..vec..ArchivedVec$LT$T$GT$$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h360a8d3f7a10b6b5E.exit.i"
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.val.i = load i8, ptr %16, align 1, !noalias !913, !noundef !25
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.val.i = load i8, ptr %15, align 1, !noalias !913, !noundef !25
   %switch.i.i = icmp ult i8 %.val.i, 2
-  br i1 %switch.i.i, label %17, label %"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit.thread"
+  br i1 %switch.i.i, label %16, label %"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit.thread"
 
-"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit.thread": ; preds = %"_ZN84_$LT$rkyv..vec..ArchivedVec$LT$T$GT$$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h360a8d3f7a10b6b5E.exit.i", %6, %"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit"
-  br label %17
+"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit.thread": ; preds = %2, %"_ZN84_$LT$rkyv..vec..ArchivedVec$LT$T$GT$$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h360a8d3f7a10b6b5E.exit.i", %5, %"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit"
+  br label %16
 
-17:                                               ; preds = %"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit", %2, %"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit.thread", %5
-  %.sroa.0.0 = phi i1 [ true, %5 ], [ true, %"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit.thread" ], [ false, %2 ], [ false, %"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit" ]
+16:                                               ; preds = %"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit", %2, %"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit.thread"
+  %.sroa.0.0 = phi i1 [ false, %"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit" ], [ true, %"_ZN87_$LT$uv_client..httpcache..ArchivedETag$u20$as$u20$bytecheck..CheckBytes$LT$__C$GT$$GT$11check_bytes17h5abe06f5bba8f856E.exit.thread" ], [ false, %2 ]
   ret i1 %.sroa.0.0
 }
 

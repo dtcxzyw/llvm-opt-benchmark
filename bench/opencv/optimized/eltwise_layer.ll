@@ -4214,13 +4214,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn16EltwiseLayerImpl14sup
   switch i32 %1, label %.fold.split [
     i32 5, label %3
     i32 3, label %switch.edge
-    i32 1, label %17
+    i32 1, label %16
   ]
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8, !tbaa !74
-  switch i32 %5, label %16 [
+  switch i32 %5, label %.fold.split [
     i32 1, label %6
     i32 2, label %6
     i32 0, label %switch.edge
@@ -4240,20 +4240,17 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn16EltwiseLayerImpl14sup
   %15 = icmp eq ptr %12, %14
   br label %switch.edge
 
-16:                                               ; preds = %3
+16:                                               ; preds = %2
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %18 = load i32, ptr %17, align 4, !tbaa !48
+  %19 = icmp ne i32 %18, 3
   br label %switch.edge
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %19 = load i32, ptr %18, align 4, !tbaa !48
-  %20 = icmp ne i32 %19, 3
+.fold.split:                                      ; preds = %3, %2
   br label %switch.edge
 
-.fold.split:                                      ; preds = %2
-  br label %switch.edge
-
-switch.edge:                                      ; preds = %3, %17, %.fold.split, %2, %6, %10, %16
-  %.0 = phi i1 [ false, %.fold.split ], [ false, %16 ], [ false, %6 ], [ %15, %10 ], [ true, %2 ], [ %20, %17 ], [ true, %3 ]
+switch.edge:                                      ; preds = %3, %16, %.fold.split, %2, %6, %10
+  %.0 = phi i1 [ false, %.fold.split ], [ true, %3 ], [ false, %6 ], [ %15, %10 ], [ true, %2 ], [ %19, %16 ]
   ret i1 %.0
 }
 

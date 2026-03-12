@@ -6830,7 +6830,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread30.i.i:            ; preds = %225, %_ZN4llvm15Ins
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !385
   br label %222, !llvm.loop !248
 
-_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit.sink.split: ; preds = %222, %222, %225
+_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit.sink.split: ; preds = %222, %225, %222
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !385
   br label %_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit
 
@@ -6925,7 +6925,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread30.i.i173:         ; preds = %262, %_ZN4llvm15Ins
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !388
   br label %259, !llvm.loop !248
 
-_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit175.sink.split: ; preds = %259, %259, %262
+_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit175.sink.split: ; preds = %259, %262, %259
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !388
   br label %_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit175
 
@@ -21440,7 +21440,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread30.i.i:            ; preds = %75, %_ZN4llvm15Inst
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !665
   br label %72, !llvm.loop !248
 
-_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit.sink.split: ; preds = %72, %72, %75
+_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit.sink.split: ; preds = %72, %75, %72
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !665
   br label %_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit
 
@@ -21666,7 +21666,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread30.i.i160:         ; preds = %166, %_ZN4llvm15Ins
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !674
   br label %163, !llvm.loop !248
 
-_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit162.sink.split: ; preds = %163, %163, %166
+_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit162.sink.split: ; preds = %163, %166, %163
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !674
   br label %_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit162
 
@@ -21888,7 +21888,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread30.i.i:            ; preds = %49, %_ZN4llvm15Inst
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !680
   br label %46, !llvm.loop !248
 
-_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit.sink.split: ; preds = %46, %46, %49
+_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit.sink.split: ; preds = %46, %49, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !680
   br label %_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit
 
@@ -24345,7 +24345,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread30.i.i:            ; preds = %111, %_ZN4llvm15Ins
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !702
   br label %108, !llvm.loop !248
 
-_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit.sink.split: ; preds = %108, %108, %111
+_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit.sink.split: ; preds = %108, %111, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !702
   br label %_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit
 
@@ -25272,7 +25272,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread30.i.i:            ; preds = %53, %_ZN4llvm15Inst
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !715
   br label %50, !llvm.loop !248
 
-_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit.sink.split: ; preds = %50, %50, %53
+_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit.sink.split: ; preds = %50, %53, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !715
   br label %_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit
 
@@ -25752,7 +25752,7 @@ _ZNK4llvm3EVTeqES0_.exit.thread30.i.i:            ; preds = %82, %_ZN4llvm15Inst
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !728
   br label %79, !llvm.loop !248
 
-_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit.sink.split: ; preds = %79, %79, %82
+_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit.sink.split: ; preds = %79, %82, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !728
   br label %_ZN4llvm12RISCVTTIImpl24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindENS_8ArrayRefIPNS_5ValueEEE.exit
 

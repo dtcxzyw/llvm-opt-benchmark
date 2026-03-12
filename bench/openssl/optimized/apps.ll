@@ -450,7 +450,7 @@ define dso_local range(i32 0, 2) i32 @ctx_set_verify_locations(ptr noundef %0, p
   %or.cond = and i1 %8, %9
   %10 = icmp eq ptr %5, null
   %or.cond3 = and i1 %or.cond, %10
-  br i1 %or.cond3, label %11, label %24
+  br i1 %or.cond3, label %11, label %23
 
 11:                                               ; preds = %7
   %.not29 = icmp eq i32 %2, 0
@@ -459,7 +459,7 @@ define dso_local range(i32 0, 2) i32 @ctx_set_verify_locations(ptr noundef %0, p
 12:                                               ; preds = %11
   %13 = tail call i32 @SSL_CTX_set_default_verify_file(ptr noundef %0) #27
   %14 = icmp slt i32 %13, 1
-  br i1 %14, label %34, label %15
+  br i1 %14, label %33, label %15
 
 15:                                               ; preds = %12, %11
   %.not30 = icmp eq i32 %4, 0
@@ -468,49 +468,46 @@ define dso_local range(i32 0, 2) i32 @ctx_set_verify_locations(ptr noundef %0, p
 16:                                               ; preds = %15
   %17 = tail call i32 @SSL_CTX_set_default_verify_dir(ptr noundef %0) #27
   %18 = icmp slt i32 %17, 1
-  br i1 %18, label %34, label %19
+  br i1 %18, label %33, label %19
 
 19:                                               ; preds = %16, %15
   %.not31 = icmp eq i32 %6, 0
-  br i1 %.not31, label %20, label %23
+  br i1 %.not31, label %20, label %32
 
 20:                                               ; preds = %19
   %21 = tail call i32 @SSL_CTX_set_default_verify_store(ptr noundef %0) #27
   %22 = icmp slt i32 %21, 1
-  br i1 %22, label %34, label %23
+  br i1 %22, label %33, label %32
 
-23:                                               ; preds = %20, %19
-  br label %34
+23:                                               ; preds = %7
+  br i1 %8, label %26, label %24
 
-24:                                               ; preds = %7
-  br i1 %8, label %27, label %25
+24:                                               ; preds = %23
+  %25 = tail call i32 @SSL_CTX_load_verify_file(ptr noundef %0, ptr noundef nonnull %1) #27
+  %.not24 = icmp eq i32 %25, 0
+  br i1 %.not24, label %33, label %26
 
-25:                                               ; preds = %24
-  %26 = tail call i32 @SSL_CTX_load_verify_file(ptr noundef %0, ptr noundef nonnull %1) #27
-  %.not24 = icmp eq i32 %26, 0
-  br i1 %.not24, label %34, label %27
+26:                                               ; preds = %24, %23
+  br i1 %9, label %29, label %27
 
-27:                                               ; preds = %25, %24
-  br i1 %9, label %30, label %28
+27:                                               ; preds = %26
+  %28 = tail call i32 @SSL_CTX_load_verify_dir(ptr noundef %0, ptr noundef nonnull %3) #27
+  %.not26 = icmp eq i32 %28, 0
+  br i1 %.not26, label %33, label %29
 
-28:                                               ; preds = %27
-  %29 = tail call i32 @SSL_CTX_load_verify_dir(ptr noundef %0, ptr noundef nonnull %3) #27
-  %.not26 = icmp eq i32 %29, 0
-  br i1 %.not26, label %34, label %30
+29:                                               ; preds = %27, %26
+  br i1 %10, label %32, label %30
 
-30:                                               ; preds = %28, %27
-  br i1 %10, label %33, label %31
+30:                                               ; preds = %29
+  %31 = tail call i32 @SSL_CTX_load_verify_store(ptr noundef %0, ptr noundef nonnull %5) #27
+  %.not28 = icmp eq i32 %31, 0
+  br i1 %.not28, label %33, label %32
 
-31:                                               ; preds = %30
-  %32 = tail call i32 @SSL_CTX_load_verify_store(ptr noundef %0, ptr noundef nonnull %5) #27
-  %.not28 = icmp eq i32 %32, 0
-  br i1 %.not28, label %34, label %33
+32:                                               ; preds = %19, %20, %30, %29
+  br label %33
 
-33:                                               ; preds = %31, %30
-  br label %34
-
-34:                                               ; preds = %31, %28, %25, %20, %16, %12, %33, %23
-  %.0 = phi i32 [ 1, %23 ], [ 0, %16 ], [ 0, %12 ], [ 0, %20 ], [ 1, %33 ], [ 0, %28 ], [ 0, %25 ], [ 0, %31 ]
+33:                                               ; preds = %30, %27, %24, %20, %16, %12, %32
+  %.0 = phi i32 [ 0, %30 ], [ 0, %16 ], [ 0, %12 ], [ 0, %20 ], [ 1, %32 ], [ 0, %27 ], [ 0, %24 ]
   ret i32 %.0
 }
 

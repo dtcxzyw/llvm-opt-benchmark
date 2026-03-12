@@ -19095,9 +19095,9 @@ define internal fastcc { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_col
   %or.cond.not.not = icmp eq i32 %20, 0
   br i1 %or.cond, label %24, label %26
 
-21:                                               ; preds = %56, %57, %58, %59, %.split, %27, %10
-  %.sroa.3.0 = phi i8 [ %14, %10 ], [ 1, %56 ], [ 2, %57 ], [ 4, %58 ], [ 16, %59 ], [ 8, %.split ], [ 8, %27 ]
-  %.sroa.0.0 = phi i8 [ %12, %10 ], [ %.sroa.09.2, %56 ], [ %.sroa.09.2, %57 ], [ %.sroa.09.2, %58 ], [ %.sroa.09.2, %59 ], [ %.sroa.09.2, %.split ], [ %29, %27 ]
+21:                                               ; preds = %55, %56, %57, %58, %.split, %27, %10
+  %.sroa.3.0 = phi i8 [ %14, %10 ], [ 1, %55 ], [ 2, %56 ], [ 4, %57 ], [ 16, %58 ], [ 8, %.split ], [ 8, %27 ]
+  %.sroa.0.0 = phi i8 [ %12, %10 ], [ %.sroa.09.2, %55 ], [ %.sroa.09.2, %56 ], [ %.sroa.09.2, %57 ], [ %.sroa.09.2, %58 ], [ %.sroa.09.2, %.split ], [ %29, %27 ]
   %22 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
   %23 = insertvalue { i8, i8 } %22, i8 %.sroa.3.0, 1
   ret { i8, i8 } %23
@@ -19125,15 +19125,15 @@ define internal fastcc { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_col
 34:                                               ; preds = %24
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 407
   %36 = load i8, ptr %35, align 1, !range !3772, !noundef !16
-  br label %51
+  br label %50
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 407
   %39 = load i8, ptr %38, align 1, !range !3772, !noundef !16
   switch i8 %39, label %44 [
-    i8 0, label %51
+    i8 0, label %50
     i8 2, label %46
-    i8 3, label %47
+    i8 3, label %46
   ]
 
 40:                                               ; preds = %30
@@ -19142,53 +19142,53 @@ define internal fastcc { i8, i8 } @"_ZN3png7decoder15Reader$LT$R$GT$17output_col
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 407
   %43 = load i8, ptr %42, align 1, !range !3772, !noundef !16
   switch i8 %43, label %44 [
-    i8 0, label %48
-    i8 2, label %49
-    i8 3, label %50
+    i8 0, label %47
+    i8 2, label %48
+    i8 3, label %49
   ]
 
-44:                                               ; preds = %49, %48, %40, %37
-  %45 = phi i8 [ 2, %49 ], [ 0, %48 ], [ %43, %40 ], [ %39, %37 ]
-  br label %51
+44:                                               ; preds = %48, %47, %40, %37
+  %45 = phi i8 [ 2, %48 ], [ 0, %47 ], [ %43, %40 ], [ %39, %37 ]
+  br label %50
 
-46:                                               ; preds = %49, %37
-  br label %51
+46:                                               ; preds = %37, %49, %48, %37
+  br label %50
 
-47:                                               ; preds = %50, %37
-  br label %51
+47:                                               ; preds = %40
+  br i1 %.not29, label %44, label %50
 
 48:                                               ; preds = %40
-  br i1 %.not29, label %44, label %51
-
-49:                                               ; preds = %40
   br i1 %.not29, label %44, label %46
 
-50:                                               ; preds = %40
-  br i1 %.not29, label %51, label %47
+49:                                               ; preds = %40
+  br i1 %.not29, label %50, label %46
 
-51:                                               ; preds = %50, %37, %48, %47, %46, %44, %34
-  %.sroa.011.3 = phi i8 [ %.sroa.011.1, %44 ], [ %17, %34 ], [ %.sroa.011.1, %46 ], [ %.sroa.011.1, %47 ], [ %.sroa.011.1, %37 ], [ %.sroa.011.1, %48 ], [ %.sroa.011.1, %50 ]
-  %.sroa.09.2 = phi i8 [ %45, %44 ], [ %36, %34 ], [ 6, %46 ], [ 6, %47 ], [ 4, %37 ], [ 4, %48 ], [ 2, %50 ]
-  %52 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %.sroa.011.3)
-  %53 = icmp eq i8 %52, 1
-  br i1 %53, label %.split, label %55
+50:                                               ; preds = %49, %37, %47, %46, %44, %34
+  %.sroa.011.3 = phi i8 [ %.sroa.011.1, %44 ], [ %17, %34 ], [ %.sroa.011.1, %46 ], [ %.sroa.011.1, %37 ], [ %.sroa.011.1, %47 ], [ %.sroa.011.1, %49 ]
+  %.sroa.09.2 = phi i8 [ %45, %44 ], [ %36, %34 ], [ 6, %46 ], [ 4, %37 ], [ 4, %47 ], [ 2, %49 ]
+  %51 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %.sroa.011.3)
+  %52 = icmp eq i8 %51, 1
+  br i1 %52, label %.split, label %54
 
-.split:                                           ; preds = %51
-  %54 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %.sroa.011.3, i1 true)
-  switch i8 %54, label %default.unreachable33 [
-    i8 0, label %56
-    i8 1, label %57
-    i8 2, label %58
+.split:                                           ; preds = %50
+  %53 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %.sroa.011.3, i1 true)
+  switch i8 %53, label %default.unreachable33 [
+    i8 0, label %55
+    i8 1, label %56
+    i8 2, label %57
     i8 3, label %21
-    i8 4, label %59
+    i8 4, label %58
   ]
 
 default.unreachable33:                            ; preds = %.split
   unreachable
 
-55:                                               ; preds = %51
+54:                                               ; preds = %50
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.57e5e1f439f9c7771713c2845affd91d.221) #47
   unreachable
+
+55:                                               ; preds = %.split
+  br label %21
 
 56:                                               ; preds = %.split
   br label %21
@@ -19197,9 +19197,6 @@ default.unreachable33:                            ; preds = %.split
   br label %21
 
 58:                                               ; preds = %.split
-  br label %21
-
-59:                                               ; preds = %.split
   br label %21
 }
 

@@ -2212,7 +2212,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17ha1fe58506f7645d5E.exit: ; pred
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h93f978e2bce9b5d9E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %117)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %199, %203
+.sink.split:                                      ; preds = %203, %199
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %204
 

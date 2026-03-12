@@ -10005,7 +10005,7 @@ select.unfold:                                    ; preds = %62, %60, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %148, label %.loopexit, label %.backedge
 
-.backedge:                                        ; preds = %131, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$16escape_debug_ext17h95156c3cbe1d258bE.exit", %129, %151
+.backedge:                                        ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$16escape_debug_ext17h95156c3cbe1d258bE.exit", %131, %129, %151
   %.sroa.020.0.be = phi ptr [ %153, %151 ], [ %124, %129 ], [ %124, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$16escape_debug_ext17h95156c3cbe1d258bE.exit" ], [ %124, %131 ]
   %.sroa.623.0.be = phi i64 [ %152, %151 ], [ %123, %129 ], [ %123, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$16escape_debug_ext17h95156c3cbe1d258bE.exit" ], [ %123, %131 ]
   %149 = icmp eq i64 %.sroa.623.0.be, 0

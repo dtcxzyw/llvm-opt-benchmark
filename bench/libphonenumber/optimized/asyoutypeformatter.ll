@@ -2006,7 +2006,7 @@ _ZNSt7__cxx114listIPKN4i18n12phonenumbers12NumberFormatESaIS5_EE5clearEv.exit.i4
   store i8 0, ptr %98, align 1, !tbaa !18
   br label %.noexc48.invoke
 
-.noexc48.invoke:                                  ; preds = %.noexc48.invoke.sink.split, %129, %108
+.noexc48.invoke:                                  ; preds = %.noexc48.invoke.sink.split, %108, %129
   invoke void @_ZN4i18n12phonenumbers18AsYouTypeFormatter32AttemptToChooseFormattingPatternEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef %3)
           to label %_ZN4i18n12phonenumbers18AsYouTypeFormatter41AttemptToChoosePatternWithPrefixExtractedEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %38
 

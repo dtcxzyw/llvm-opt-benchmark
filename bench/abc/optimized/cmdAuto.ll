@@ -1290,7 +1290,7 @@ define noalias noundef ptr @Cmd_ReadParamChoices(ptr noundef %0) local_unnamed_a
 
 5:                                                ; preds = %1
   %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, ptr noundef %0)
-  br label %86
+  br label %85
 
 7:                                                ; preds = %1
   %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
@@ -1304,7 +1304,7 @@ define noalias noundef ptr @Cmd_ReadParamChoices(ptr noundef %0) local_unnamed_a
   %.not70 = icmp eq ptr %12, null
   br i1 %.not70, label %._crit_edge, label %.lr.ph71
 
-thread-pre-split..loopexit58_crit_edge:           ; preds = %.preheader, %Vec_WecPushLevel.exit
+thread-pre-split..loopexit58_crit_edge:           ; preds = %.preheader, %Cmf_IsSpace.exit45.thread, %Vec_WecPushLevel.exit
   br label %.backedge, !llvm.loop !72
 
 .lr.ph71:                                         ; preds = %7, %.backedge
@@ -1317,7 +1317,7 @@ thread-pre-split..loopexit58_crit_edge:           ; preds = %.preheader, %Vec_We
     i8 35, label %.backedge
   ]
 
-.backedge:                                        ; preds = %Cmf_IsSpace.exit45.thread, %.lr.ph71, %.lr.ph71, %.lr.ph71, %.lr.ph71, %.lr.ph71, %thread-pre-split..loopexit58_crit_edge
+.backedge:                                        ; preds = %.lr.ph71, %.lr.ph71, %.lr.ph71, %.lr.ph71, %.lr.ph71, %thread-pre-split..loopexit58_crit_edge
   %14 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 1000, ptr noundef nonnull %3)
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph71, !llvm.loop !72
@@ -1421,77 +1421,74 @@ Vec_WecPushLevel.exit:                            ; preds = %.Vec_WecGrow.exit11
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph.lr.ph
   %.pr69 = phi i8 [ %.pr66, %.lr.ph.lr.ph ], [ %.pr, %.preheader ]
   %.030.ph68 = phi ptr [ %2, %.lr.ph.lr.ph ], [ %.4, %.preheader ]
-  br label %56, !llvm.loop !72
+  br label %.loopexit, !llvm.loop !72
 
-.loopexit:                                        ; preds = %Cmf_IsSpace.exit45.thread
-  br label %56, !llvm.loop !75
+.loopexit:                                        ; preds = %Cmf_IsSpace.exit45.thread, %.lr.ph
+  %.03065 = phi ptr [ %.030.ph68, %.lr.ph ], [ %.131, %Cmf_IsSpace.exit45.thread ]
+  %56 = phi i8 [ %.pr69, %.lr.ph ], [ %61, %Cmf_IsSpace.exit45.thread ]
+  %57 = add i8 %56, -123
+  %58 = icmp ult i8 %57, -26
+  br i1 %58, label %62, label %59
 
-56:                                               ; preds = %.loopexit, %.lr.ph
-  %.03065 = phi ptr [ %.030.ph68, %.lr.ph ], [ %.131, %.loopexit ]
-  %57 = phi i8 [ %.pr69, %.lr.ph ], [ %62, %.loopexit ]
-  %58 = add i8 %57, -123
-  %59 = icmp ult i8 %58, -26
-  br i1 %59, label %63, label %60
-
-60:                                               ; preds = %56
-  %61 = zext nneg i8 %57 to i32
-  call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %55, i32 noundef %61, i32 noundef -1082130432)
+59:                                               ; preds = %.loopexit
+  %60 = zext nneg i8 %56 to i32
+  call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %55, i32 noundef %60, i32 noundef -1082130432)
   br label %Cmf_IsSpace.exit45.thread
 
-Cmf_IsSpace.exit45.thread:                        ; preds = %Cmf_IsSpace.exit45.thread.backedge, %60
-  %.030.pn = phi ptr [ %.03065, %60 ], [ %.131, %Cmf_IsSpace.exit45.thread.backedge ]
+Cmf_IsSpace.exit45.thread:                        ; preds = %Cmf_IsSpace.exit45.thread.backedge, %59
+  %.030.pn = phi ptr [ %.03065, %59 ], [ %.131, %Cmf_IsSpace.exit45.thread.backedge ]
   %.131 = getelementptr inbounds nuw i8, ptr %.030.pn, i64 1
-  %62 = load i8, ptr %.131, align 1, !tbaa !73
-  switch i8 %62, label %.loopexit [
+  %61 = load i8, ptr %.131, align 1, !tbaa !73
+  switch i8 %61, label %.loopexit [
     i8 32, label %Cmf_IsSpace.exit45.thread.backedge
     i8 10, label %Cmf_IsSpace.exit45.thread.backedge
     i8 9, label %Cmf_IsSpace.exit45.thread.backedge
     i8 13, label %Cmf_IsSpace.exit45.thread.backedge
-    i8 0, label %.backedge
-  ], !llvm.loop !72
+    i8 0, label %thread-pre-split..loopexit58_crit_edge
+  ], !llvm.loop !75
 
 Cmf_IsSpace.exit45.thread.backedge:               ; preds = %Cmf_IsSpace.exit45.thread, %Cmf_IsSpace.exit45.thread, %Cmf_IsSpace.exit45.thread, %Cmf_IsSpace.exit45.thread
   br label %Cmf_IsSpace.exit45.thread
 
-63:                                               ; preds = %56
-  %64 = add i8 %57, -91
-  %65 = icmp ult i8 %64, -26
-  br i1 %65, label %83, label %66
+62:                                               ; preds = %.loopexit
+  %63 = add i8 %56, -91
+  %64 = icmp ult i8 %63, -26
+  br i1 %64, label %82, label %65
 
-66:                                               ; preds = %63
-  %67 = getelementptr inbounds nuw i8, ptr %.03065, i64 1
-  %68 = load i8, ptr %67, align 1, !tbaa !73
-  %69 = add i8 %68, -58
-  %or.cond.i = icmp ult i8 %69, -10
-  %70 = icmp ne i8 %68, 46
-  %narrow.i.not = and i1 %70, %or.cond.i
-  %71 = zext nneg i8 %57 to i32
-  br i1 %narrow.i.not, label %.thread, label %73
+65:                                               ; preds = %62
+  %66 = getelementptr inbounds nuw i8, ptr %.03065, i64 1
+  %67 = load i8, ptr %66, align 1, !tbaa !73
+  %68 = add i8 %67, -58
+  %or.cond.i = icmp ult i8 %68, -10
+  %69 = icmp ne i8 %67, 46
+  %narrow.i.not = and i1 %69, %or.cond.i
+  %70 = zext nneg i8 %56 to i32
+  br i1 %narrow.i.not, label %.thread, label %72
 
-.thread:                                          ; preds = %66
-  %72 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i32 noundef %71, ptr noundef nonnull %2)
-  br label %86
+.thread:                                          ; preds = %65
+  %71 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i32 noundef %70, ptr noundef nonnull %2)
+  br label %85
 
-73:                                               ; preds = %66
-  %74 = call double @strtod(ptr noundef nonnull captures(none) %67, ptr noundef null) #23
-  %75 = fptrunc double %74 to float
-  %76 = bitcast float %75 to i32
-  call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %55, i32 noundef %71, i32 noundef %76)
-  br label %77
+72:                                               ; preds = %65
+  %73 = call double @strtod(ptr noundef nonnull captures(none) %66, ptr noundef null) #23
+  %74 = fptrunc double %73 to float
+  %75 = bitcast float %74 to i32
+  call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %55, i32 noundef %70, i32 noundef %75)
+  br label %76
 
-77:                                               ; preds = %77, %73
-  %.333 = phi ptr [ %67, %73 ], [ %81, %77 ]
-  %78 = load i8, ptr %.333, align 1, !tbaa !73
-  %79 = add i8 %78, -58
-  %or.cond.i46 = icmp ult i8 %79, -10
-  %80 = icmp ne i8 %78, 46
-  %narrow.i47.not = and i1 %80, %or.cond.i46
-  %81 = getelementptr inbounds nuw i8, ptr %.333, i64 1
-  br i1 %narrow.i47.not, label %.preheader, label %77, !llvm.loop !76
+76:                                               ; preds = %76, %72
+  %.333 = phi ptr [ %66, %72 ], [ %80, %76 ]
+  %77 = load i8, ptr %.333, align 1, !tbaa !73
+  %78 = add i8 %77, -58
+  %or.cond.i46 = icmp ult i8 %78, -10
+  %79 = icmp ne i8 %77, 46
+  %narrow.i47.not = and i1 %79, %or.cond.i46
+  %80 = getelementptr inbounds nuw i8, ptr %.333, i64 1
+  br i1 %narrow.i47.not, label %.preheader, label %76, !llvm.loop !76
 
-.preheader:                                       ; preds = %77, %Cmf_IsSpace.exit48.thread
-  %.pr = phi i8 [ %.pre, %Cmf_IsSpace.exit48.thread ], [ %78, %77 ]
-  %.4 = phi ptr [ %82, %Cmf_IsSpace.exit48.thread ], [ %.333, %77 ]
+.preheader:                                       ; preds = %76, %Cmf_IsSpace.exit48.thread
+  %.pr = phi i8 [ %.pre, %Cmf_IsSpace.exit48.thread ], [ %77, %76 ]
+  %.4 = phi ptr [ %81, %Cmf_IsSpace.exit48.thread ], [ %.333, %76 ]
   switch i8 %.pr, label %.lr.ph [
     i8 32, label %Cmf_IsSpace.exit48.thread
     i8 10, label %Cmf_IsSpace.exit48.thread
@@ -1501,20 +1498,20 @@ Cmf_IsSpace.exit45.thread.backedge:               ; preds = %Cmf_IsSpace.exit45.
   ], !llvm.loop !72
 
 Cmf_IsSpace.exit48.thread:                        ; preds = %.preheader, %.preheader, %.preheader, %.preheader
-  %82 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  %.pre = load i8, ptr %82, align 1, !tbaa !73
+  %81 = getelementptr inbounds nuw i8, ptr %.4, i64 1
+  %.pre = load i8, ptr %81, align 1, !tbaa !73
   br label %.preheader, !llvm.loop !77
 
-83:                                               ; preds = %63
-  %84 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull %2)
-  br label %86
+82:                                               ; preds = %62
+  %83 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull %2)
+  br label %85
 
 ._crit_edge:                                      ; preds = %.backedge, %7
-  %85 = call i32 @fclose(ptr noundef nonnull %3)
-  br label %86
+  %84 = call i32 @fclose(ptr noundef nonnull %3)
+  br label %85
 
-86:                                               ; preds = %.thread, %._crit_edge, %83, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %.thread ], [ null, %83 ], [ %8, %._crit_edge ]
+85:                                               ; preds = %.thread, %._crit_edge, %82, %5
+  %.0 = phi ptr [ null, %5 ], [ null, %.thread ], [ null, %82 ], [ %8, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }

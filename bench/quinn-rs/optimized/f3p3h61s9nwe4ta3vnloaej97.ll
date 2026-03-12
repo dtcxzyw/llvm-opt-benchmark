@@ -7307,7 +7307,7 @@ _ZN11quinn_proto5token5Token6decode17h311f0d26ed5fde77E.exit: ; preds = %105
   %.not = icmp eq i32 %.sroa.2.0.i, 1000000001
   br i1 %.not, label %131, label %129
 
-128:                                              ; preds = %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread", %251, %249, %"_ZN67_$LT$core..net..ip_addr..IpAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfa594fcd8c598a2cE.exit.thread", %199, %250, %131, %16
+128:                                              ; preds = %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread", %251, %249, %"_ZN67_$LT$core..net..ip_addr..IpAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfa594fcd8c598a2cE.exit.thread", %250, %199, %131, %16
   ret void
 
 129:                                              ; preds = %_ZN11quinn_proto5token5Token6decode17h311f0d26ed5fde77E.exit

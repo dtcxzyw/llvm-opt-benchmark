@@ -20744,7 +20744,7 @@ _ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit:         ; preds = %123, %128
   br i1 %138, label %377, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
 
 _ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread:  ; preds = %117, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i, %133, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, %103, %59
-  br i1 %54, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit53.thread, label %139
+  br i1 %54, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61.thread, label %139
 
 139:                                              ; preds = %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20810,7 +20810,7 @@ _ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit:         ; preds = %165
 182:                                              ; preds = %178
   %183 = load i32, ptr %56, align 8
   %184 = icmp slt i32 %183, 0
-  br i1 %184, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit53.thread, label %185
+  br i1 %184, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61.thread, label %185
 
 185:                                              ; preds = %182, %178
   %186 = load ptr, ptr %140, align 8, !tbaa !162
@@ -20831,12 +20831,12 @@ _ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit:         ; preds = %165
   %197 = load i32, ptr %52, align 8, !tbaa !80
   %198 = load i32, ptr %142, align 8, !tbaa !80
   %199 = icmp eq i32 %197, %198
-  br i1 %199, label %202, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit53.thread
+  br i1 %199, label %202, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61.thread
 
 _ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i52:     ; preds = %191, %185
   %200 = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %186, ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %142)
   %201 = icmp eq i32 %200, 0
-  br i1 %201, label %202, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit53.thread
+  br i1 %201, label %202, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61.thread
 
 202:                                              ; preds = %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i52, %196
   %203 = getelementptr inbounds nuw i8, ptr %52, i64 16
@@ -20856,15 +20856,12 @@ _ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i52:     ; preds = %191, %185
   %213 = load i32, ptr %203, align 8, !tbaa !80
   %214 = load i32, ptr %143, align 8, !tbaa !80
   %215 = icmp eq i32 %213, %214
-  br i1 %215, label %377, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit53.thread
+  br i1 %215, label %377, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61.thread
 
 _ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit53:       ; preds = %202, %208
   %216 = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %186, ptr noundef nonnull align 8 dereferenceable(16) %203, ptr noundef nonnull align 8 dereferenceable(16) %143)
   %217 = icmp eq i32 %216, 0
-  br i1 %217, label %377, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit53.thread
-
-_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit53.thread: ; preds = %196, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i52, %212, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit53, %182, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
-  br label %377
+  br i1 %217, label %377, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61.thread
 
 218:                                              ; preds = %55
   br i1 %54, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit57.thread, label %219
@@ -21106,11 +21103,11 @@ _ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61:       ; preds = %361, %366
   %376 = icmp eq i32 %375, 0
   br i1 %376, label %377, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61.thread
 
-_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61.thread: ; preds = %355, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i60, %371, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61, %341, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit57.thread
+_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61.thread: ; preds = %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread, %182, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit53, %212, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i52, %196, %355, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i60, %371, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61, %341, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit57.thread
   br label %377
 
-377:                                              ; preds = %371, %329, %332, %292, %250, %253, %212, %170, %173, %133, %91, %94, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit59, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit55, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit57, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit53, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, %_ZNK9subpaving9context_tINS_10config_mpqEE4node5lowerEj.exit, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61.thread, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit53.thread
-  %.0 = phi i32 [ 0, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61.thread ], [ 0, %_ZNK9subpaving9context_tINS_10config_mpqEE4node5lowerEj.exit ], [ -1, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit ], [ 0, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit53.thread ], [ 1, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit ], [ -1, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit55 ], [ -1, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit ], [ 1, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit53 ], [ -1, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit57 ], [ 1, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61 ], [ 1, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit59 ], [ -1, %94 ], [ -1, %91 ], [ -1, %133 ], [ 1, %173 ], [ 1, %170 ], [ 1, %212 ], [ -1, %253 ], [ -1, %250 ], [ -1, %292 ], [ 1, %332 ], [ 1, %329 ], [ 1, %371 ]
+377:                                              ; preds = %371, %329, %332, %292, %250, %253, %212, %170, %173, %133, %91, %94, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit59, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit55, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit57, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit53, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, %_ZNK9subpaving9context_tINS_10config_mpqEE4node5lowerEj.exit, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61.thread
+  %.0 = phi i32 [ 0, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61.thread ], [ 0, %_ZNK9subpaving9context_tINS_10config_mpqEE4node5lowerEj.exit ], [ -1, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit ], [ 1, %371 ], [ 1, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit ], [ -1, %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit55 ], [ -1, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit ], [ 1, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit53 ], [ -1, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit57 ], [ 1, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit61 ], [ 1, %_ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit59 ], [ -1, %94 ], [ -1, %91 ], [ -1, %133 ], [ 1, %173 ], [ 1, %170 ], [ 1, %212 ], [ -1, %253 ], [ -1, %250 ], [ -1, %292 ], [ 1, %332 ], [ 1, %329 ]
   ret i32 %.0
 }
 

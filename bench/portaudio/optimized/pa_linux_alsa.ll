@@ -3419,7 +3419,7 @@ Pa2AlsaFormat.exit:                               ; preds = %48, %.split.i, %swi
   call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.97) #27
   br label %77
 
-77:                                               ; preds = %62, %76, %67, %63, %34, %28, %26, %46
+77:                                               ; preds = %62, %76, %67, %63, %34, %28, %46, %26
   %.5 = phi i32 [ %27, %26 ], [ -9999, %62 ], [ -9997, %28 ], [ %47, %46 ], [ -9998, %34 ], [ %., %76 ], [ -9993, %67 ], [ 0, %63 ]
   %78 = load ptr, ptr %5, align 8, !tbaa !153
   %.not54 = icmp eq ptr %78, null

@@ -1690,10 +1690,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit235: ; preds = %_ZSt
   %555 = sext i32 %554 to i64
   %556 = urem i64 %555, %539
   %.not19.i.i.i.i.i.i240 = icmp eq i64 %556, %540
-  br i1 %.not19.i.i.i.i.i.i240, label %549, label %..loopexit_crit_edge21.i.i.i.i.i.i241, !llvm.loop !106
-
-..loopexit_crit_edge21.i.i.i.i.i.i241:            ; preds = %552
-  br label %.thread422, !llvm.loop !106
+  br i1 %.not19.i.i.i.i.i.i240, label %549, label %..loopexit_crit_edge21.i.i.i.i.i.i278, !llvm.loop !106
 
 _ZNK5rabit5utils10PollHelper9CheckReadERKN7xgboost10collective9TCPSocketE.exit: ; preds = %549, %533, %544
   %.sroa.06.1.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %533 ], [ %545, %544 ], [ %551, %549 ]
@@ -1989,7 +1986,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
   %.not19.i.i.i.i.i.i277 = icmp eq i64 %680, %664
   br i1 %.not19.i.i.i.i.i.i277, label %673, label %..loopexit_crit_edge21.i.i.i.i.i.i278, !llvm.loop !106
 
-..loopexit_crit_edge21.i.i.i.i.i.i278:            ; preds = %676
+..loopexit_crit_edge21.i.i.i.i.i.i278:            ; preds = %676, %552
   br label %.thread422, !llvm.loop !106
 
 _ZNK5rabit5utils10PollHelper10CheckWriteERKN7xgboost10collective9TCPSocketE.exit: ; preds = %673, %657, %668
@@ -2407,8 +2404,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33
   call void @_ZN7xgboost10collective6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
   br label %.body354
 
-.thread422:                                       ; preds = %.lr.ph.i.i.i.i.i.i274, %.preheader434, %.lr.ph.i.i.i.i.i.i237, %.preheader, %788, %788, %661, %..loopexit_crit_edge21.i.i.i.i.i.i278, %537, %..loopexit_crit_edge21.i.i.i.i.i.i241, %_ZNK5rabit5utils10PollHelper10CheckWriteERKN7xgboost10collective9TCPSocketE.exit, %_ZNK5rabit5utils10PollHelper9CheckReadERKN7xgboost10collective9TCPSocketE.exit, %786
-  %.0424 = phi i32 [ %.0, %786 ], [ -1, %788 ], [ 0, %_ZNK5rabit5utils10PollHelper9CheckReadERKN7xgboost10collective9TCPSocketE.exit ], [ 0, %_ZNK5rabit5utils10PollHelper10CheckWriteERKN7xgboost10collective9TCPSocketE.exit ], [ 0, %..loopexit_crit_edge21.i.i.i.i.i.i241 ], [ -1, %788 ], [ 0, %537 ], [ 0, %.preheader ], [ 0, %..loopexit_crit_edge21.i.i.i.i.i.i278 ], [ 0, %.lr.ph.i.i.i.i.i.i237 ], [ 0, %661 ], [ 0, %.preheader434 ], [ 0, %.lr.ph.i.i.i.i.i.i274 ]
+.thread422:                                       ; preds = %.lr.ph.i.i.i.i.i.i274, %.preheader434, %.lr.ph.i.i.i.i.i.i237, %.preheader, %788, %788, %661, %..loopexit_crit_edge21.i.i.i.i.i.i278, %537, %_ZNK5rabit5utils10PollHelper10CheckWriteERKN7xgboost10collective9TCPSocketE.exit, %_ZNK5rabit5utils10PollHelper9CheckReadERKN7xgboost10collective9TCPSocketE.exit, %786
+  %.0424 = phi i32 [ %.0, %786 ], [ -1, %788 ], [ 0, %_ZNK5rabit5utils10PollHelper9CheckReadERKN7xgboost10collective9TCPSocketE.exit ], [ 0, %_ZNK5rabit5utils10PollHelper10CheckWriteERKN7xgboost10collective9TCPSocketE.exit ], [ 0, %.preheader434 ], [ -1, %788 ], [ 0, %537 ], [ 0, %.preheader ], [ 0, %..loopexit_crit_edge21.i.i.i.i.i.i278 ], [ 0, %.lr.ph.i.i.i.i.i.i237 ], [ 0, %661 ], [ 0, %.lr.ph.i.i.i.i.i.i274 ]
   %847 = sext i32 %.0424 to i64
   %848 = load i64, ptr %83, align 8, !tbaa !148
   %849 = add i64 %848, %847

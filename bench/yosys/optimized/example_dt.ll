@@ -11948,8 +11948,8 @@ _ZSt7advanceIPimEvRT_T0_.exit.i:                  ; preds = %_ZZN12_GLOBAL__N_11
   store ptr %.lcssa7136.sink, ptr %368, align 8
   br label %.invoke7298
 
-.invoke7298:                                      ; preds = %4771, %4622, %.invoke7298.sink.split
-  %4575 = phi ptr [ %.ph, %.invoke7298.sink.split ], [ @.str.24, %4622 ], [ @.str.24, %4771 ]
+.invoke7298:                                      ; preds = %4622, %4771, %.invoke7298.sink.split
+  %4575 = phi ptr [ %.ph, %.invoke7298.sink.split ], [ @.str.24, %4771 ], [ @.str.24, %4622 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %4575) #27
           to label %.cont7299 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

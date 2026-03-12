@@ -1853,7 +1853,7 @@ switch.lookup:                                    ; preds = %9, %7, %5
   resume { ptr, i32 } %20
 
 _ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit.sink.split: ; preds = %9, %7, %5, %15, %4
-  %.sink = phi i32 [ 1, %4 ], [ 1, %9 ], [ 1, %7 ], [ 1, %5 ], [ 7, %15 ]
+  %.sink = phi i32 [ 1, %4 ], [ 1, %5 ], [ 1, %7 ], [ 1, %9 ], [ 7, %15 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !13
   br label %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit
 

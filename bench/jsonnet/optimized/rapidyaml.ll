@@ -34305,7 +34305,7 @@ _ZNK2c415basic_substringIKcE9ends_withEc.exit:    ; preds = %._crit_edge.us.i164
   br i1 %281, label %282, label %291
 
 282:                                              ; preds = %277
-  br i1 %.not302, label %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit177.thread, label %.preheader.us.i171
+  br i1 %.not302, label %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit187.thread, label %.preheader.us.i171
 
 .preheader.us.i171:                               ; preds = %282, %._crit_edge.us.i175
   %.01224.us.i172 = phi i64 [ %290, %._crit_edge.us.i175 ], [ 0, %282 ]
@@ -34327,14 +34327,11 @@ _ZNK2c415basic_substringIKcE9ends_withEc.exit:    ; preds = %._crit_edge.us.i164
 ._crit_edge.us.i175:                              ; preds = %285
   %290 = add nuw i64 %.01224.us.i172, 1
   %exitcond28.not.i176 = icmp eq i64 %290, %.sroa.215.0.copyload
-  br i1 %exitcond28.not.i176, label %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit177.thread, label %.preheader.us.i171, !llvm.loop !235
+  br i1 %exitcond28.not.i176, label %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit187.thread, label %.preheader.us.i171, !llvm.loop !235
 
 _ZNK2c415basic_substringIKcE8first_ofES2_m.exit177: ; preds = %286
   %.not.i74 = icmp eq i64 %.01224.us.i172, -1
-  br i1 %.not.i74, label %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit177.thread, label %_ZNK2c415basic_substringIKcE7left_ofEm.exit80
-
-_ZNK2c415basic_substringIKcE8first_ofES2_m.exit177.thread: ; preds = %._crit_edge.us.i175, %282, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit177
-  br label %_ZNK2c415basic_substringIKcE7left_ofEm.exit80
+  br i1 %.not.i74, label %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit187.thread, label %_ZNK2c415basic_substringIKcE7left_ofEm.exit80
 
 291:                                              ; preds = %277
   br i1 %.not302, label %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit187.thread, label %.preheader.us.i181
@@ -34365,11 +34362,11 @@ _ZNK2c415basic_substringIKcE8first_ofES2_m.exit187: ; preds = %295
   %.not.i67 = icmp eq i64 %.01224.us.i182, -1
   br i1 %.not.i67, label %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit187.thread, label %_ZNK2c415basic_substringIKcE7left_ofEm.exit80
 
-_ZNK2c415basic_substringIKcE8first_ofES2_m.exit187.thread: ; preds = %._crit_edge.us.i185, %291, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit187
+_ZNK2c415basic_substringIKcE8first_ofES2_m.exit187.thread: ; preds = %._crit_edge.us.i185, %._crit_edge.us.i175, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit177, %282, %291, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit187
   br label %_ZNK2c415basic_substringIKcE7left_ofEm.exit80
 
-_ZNK2c415basic_substringIKcE7left_ofEm.exit80:    ; preds = %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit187.thread, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit187, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit177.thread, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit177
-  %.sroa.5244.0.pn = phi i64 [ %.01224.us.i172, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit177 ], [ %.sroa.215.0.copyload, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit177.thread ], [ %.sroa.215.0.copyload, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit187.thread ], [ %.01224.us.i182, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit187 ]
+_ZNK2c415basic_substringIKcE7left_ofEm.exit80:    ; preds = %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit187.thread, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit187, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit177
+  %.sroa.5244.0.pn = phi i64 [ %.01224.us.i172, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit177 ], [ %.01224.us.i182, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit187 ], [ %.sroa.215.0.copyload, %_ZNK2c415basic_substringIKcE8first_ofES2_m.exit187.thread ]
   store ptr %.sroa.014.0.copyload, ptr %10, align 8, !tbaa !67
   store i64 %.sroa.5244.0.pn, ptr %65, align 8, !tbaa !68
   %300 = icmp ult i64 %.sroa.5244.0.pn, 2

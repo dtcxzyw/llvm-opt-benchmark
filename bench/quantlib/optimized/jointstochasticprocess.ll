@@ -951,7 +951,7 @@ if.else.i148:                                     ; preds = %invoke.cont59
   %cmp.i.i.i152 = icmp eq i64 %sub.ptr.sub.i.i.i.i151, 9223372036854775800
   br i1 %cmp.i.i.i152, label %if.then.i.i.i170.invoke, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i153
 
-if.then.i.i.i170.invoke:                          ; preds = %if.else.i, %invoke.cont13, %for.cond.cleanup, %if.else.i148
+if.then.i.i.i170.invoke:                          ; preds = %if.else.i, %for.cond.cleanup, %invoke.cont13, %if.else.i148
   %74 = phi ptr [ @.str.16, %if.else.i148 ], [ @.str.15, %invoke.cont13 ], [ @.str.15, %for.cond.cleanup ], [ @.str.16, %if.else.i ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %74) #32
           to label %if.then.i.i.i170.cont unwind label %lpad12

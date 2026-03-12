@@ -8385,7 +8385,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i: ; preds = %591, %.lr
   %.sroa.06.0.in.i.i.i121 = phi ptr [ %.sroa.06.0.i.i.i122, %610 ], [ %66, %606 ]
   %.sroa.06.0.i.i.i122 = load ptr, ptr %.sroa.06.0.in.i.i.i121, align 8
   %.not.i.i.i123 = icmp eq ptr %.sroa.06.0.i.i.i122, null
-  br i1 %.not.i.i.i123, label %.loopexit.i.i148.invoke, label %610
+  br i1 %.not.i.i.i123, label %..loopexit_crit_edge21.i.i.i.i.i147, label %610
 
 610:                                              ; preds = %.preheader1987
   %611 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i122, i64 8
@@ -8405,7 +8405,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i: ; preds = %591, %.lr
   %623 = getelementptr inbounds [8 x i8], ptr %622, i64 %621
   %624 = load ptr, ptr %623, align 8
   %.not.i.i.i.i.i113 = icmp eq ptr %624, null
-  br i1 %.not.i.i.i.i.i113, label %.loopexit.i.i148.invoke, label %625
+  br i1 %.not.i.i.i.i.i113, label %..loopexit_crit_edge21.i.i.i.i.i147, label %625
 
 625:                                              ; preds = %616
   %626 = load ptr, ptr %624, align 8
@@ -8434,7 +8434,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i: ; preds = %591, %.lr
   %.018.i.i.i.i.i115 = phi ptr [ %644, %636 ], [ %626, %625 ]
   %644 = load ptr, ptr %.018.i.i.i.i.i115, align 8
   %.not16.i.i.i.i.i116 = icmp eq ptr %644, null
-  br i1 %.not16.i.i.i.i.i116, label %.loopexit.i.i148.invoke, label %645
+  br i1 %.not16.i.i.i.i.i116, label %..loopexit_crit_edge21.i.i.i.i.i147, label %645
 
 645:                                              ; preds = %.lr.ph.i.i.i.i.i114
   %646 = getelementptr inbounds nuw i8, ptr %644, i64 128
@@ -8444,7 +8444,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i: ; preds = %591, %.lr
   br i1 %.not17.i.i.i.i.i117, label %636, label %..loopexit_crit_edge21.i.i.i.i.i118, !llvm.loop !7
 
 ..loopexit_crit_edge21.i.i.i.i.i118:              ; preds = %645
-  br label %.loopexit.i.i148.invoke, !llvm.loop !7
+  br label %..loopexit_crit_edge21.i.i.i.i.i147, !llvm.loop !7
 
 .loopexit800:                                     ; preds = %636, %610, %625
   %.sroa.06.1.i.i.i120 = phi ptr [ %.sroa.06.0.i.i.i122, %610 ], [ %626, %625 ], [ %644, %636 ]
@@ -9193,10 +9193,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i138: ; preds = %904, %
   %.not17.i.i.i.i.i146 = icmp eq i64 %959, %932
   br i1 %.not17.i.i.i.i.i146, label %947, label %..loopexit_crit_edge21.i.i.i.i.i147, !llvm.loop !7
 
-..loopexit_crit_edge21.i.i.i.i.i147:              ; preds = %956
+..loopexit_crit_edge21.i.i.i.i.i147:              ; preds = %616, %.lr.ph.i.i.i.i.i114, %.preheader1987, %956, %..loopexit_crit_edge21.i.i.i.i.i118
   br label %.loopexit.i.i148.invoke, !llvm.loop !7
 
-.loopexit.i.i148.invoke:                          ; preds = %616, %927, %.lr.ph.i.i.i.i.i114, %.preheader1987, %.lr.ph.i.i.i.i.i143, %.preheader, %..loopexit_crit_edge21.i.i.i.i.i118, %..loopexit_crit_edge21.i.i.i.i.i147
+.loopexit.i.i148.invoke:                          ; preds = %927, %.lr.ph.i.i.i.i.i143, %.preheader, %..loopexit_crit_edge21.i.i.i.i.i147
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.42) #25
           to label %.loopexit.i.i148.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

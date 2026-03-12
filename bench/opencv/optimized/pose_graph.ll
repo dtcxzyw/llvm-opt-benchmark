@@ -1323,10 +1323,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %225 = load i64, ptr %224, align 8, !tbaa !32
   %226 = urem i64 %225, %191
   %.not19.i.i.i.i.i96 = icmp eq i64 %226, %212
-  br i1 %.not19.i.i.i.i.i96, label %220, label %..loopexit_crit_edge21.i.i.i.i.i97, !llvm.loop !142
-
-..loopexit_crit_edge21.i.i.i.i.i97:               ; preds = %223
-  br label %_ZNSt6vectorImSaImEED2Ev.exit, !llvm.loop !142
+  br i1 %.not19.i.i.i.i.i96, label %220, label %..loopexit_crit_edge21.i.i.i.i.i111, !llvm.loop !142
 
 .thread148:                                       ; preds = %220, %215
   %227 = getelementptr inbounds nuw i8, ptr %210, i64 8
@@ -1361,7 +1358,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %.not19.i.i.i.i.i110 = icmp eq i64 %243, %229
   br i1 %.not19.i.i.i.i.i110, label %237, label %..loopexit_crit_edge21.i.i.i.i.i111, !llvm.loop !142
 
-..loopexit_crit_edge21.i.i.i.i.i111:              ; preds = %240
+..loopexit_crit_edge21.i.i.i.i.i111:              ; preds = %223, %240
   br label %_ZNSt6vectorImSaImEED2Ev.exit, !llvm.loop !142
 
 244:                                              ; preds = %.split227.us
@@ -1374,8 +1371,8 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %exitcond266.not = icmp eq i64 %246, %14
   br i1 %exitcond266.not, label %_ZNSt6vectorImSaImEED2Ev.exit, label %.split.split, !llvm.loop !162
 
-_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %.loopexit166, %209, %.thread148, %.lr.ph.i.i.i.i.i93, %.lr.ph.i.i.i.i.i107, %.loopexit.us, %196, %201, %..loopexit_crit_edge21.i.i.i.i.i111, %..loopexit_crit_edge21.i.i.i.i.i97
-  %247 = phi i1 [ false, %196 ], [ false, %.lr.ph.i.i.i.i.i107 ], [ false, %201 ], [ %109, %.loopexit.us ], [ false, %..loopexit_crit_edge21.i.i.i.i.i97 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i111 ], [ false, %.lr.ph.i.i.i.i.i93 ], [ %109, %.loopexit166 ], [ false, %209 ], [ false, %.thread148 ]
+_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %.loopexit166, %209, %.thread148, %.lr.ph.i.i.i.i.i93, %.lr.ph.i.i.i.i.i107, %.loopexit.us, %196, %201, %..loopexit_crit_edge21.i.i.i.i.i111
+  %247 = phi i1 [ false, %.lr.ph.i.i.i.i.i93 ], [ false, %.lr.ph.i.i.i.i.i107 ], [ false, %201 ], [ %109, %.loopexit.us ], [ false, %196 ], [ false, %..loopexit_crit_edge21.i.i.i.i.i111 ], [ false, %.thread148 ], [ %109, %.loopexit166 ], [ false, %209 ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0126.4) #30
   %248 = load ptr, ptr %19, align 8, !tbaa !163
   %.not5.i.i.i.i = icmp eq ptr %248, null

@@ -4752,10 +4752,7 @@ _ZN8rationalD2Ev.exit143:                         ; preds = %.noexc.i142
   %154 = zext i32 %153 to i64
   %155 = urem i64 %154, %138
   %.not19.i.i.i.i = icmp eq i64 %155, %139
-  br i1 %.not19.i.i.i.i, label %148, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !352
-
-..loopexit_crit_edge21.i.i.i.i:                   ; preds = %151
-  br label %_ZeqRK8rationalS1_.exit, !llvm.loop !352
+  br i1 %.not19.i.i.i.i, label %148, label %..loopexit_crit_edge21.i.i.i.i166, !llvm.loop !352
 
 _ZNSt13unordered_mapIj8rationalSt4hashIjESt8equal_toIjESaISt4pairIKjS0_EEE4findERS6_.exit: ; preds = %148, %143
   %.sroa.06.1.i.i = phi ptr [ %144, %143 ], [ %150, %148 ]
@@ -5074,7 +5071,7 @@ _ZN8rationaldVERKS_.exit:                         ; preds = %_ZN8rationalD2Ev.ex
   %.not19.i.i.i.i165 = icmp eq i64 %301, %285
   br i1 %.not19.i.i.i.i165, label %294, label %..loopexit_crit_edge21.i.i.i.i166, !llvm.loop !352
 
-..loopexit_crit_edge21.i.i.i.i166:                ; preds = %297
+..loopexit_crit_edge21.i.i.i.i166:                ; preds = %297, %151
   br label %_ZeqRK8rationalS1_.exit, !llvm.loop !352
 
 .loopexit260:                                     ; preds = %294, %278, %289
@@ -5555,8 +5552,8 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i:     ; preds = %494, %489
   %521 = icmp eq i32 %520, 0
   br label %_ZeqRK8rationalS1_.exit
 
-_ZeqRK8rationalS1_.exit:                          ; preds = %.lr.ph.i.i.i.i162, %.preheader258, %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i166, %282, %..loopexit_crit_edge21.i.i.i.i, %137, %.noexc219, %515, %.noexc218, %499, %480, %132, %475
-  %.0 = phi i1 [ false, %132 ], [ false, %475 ], [ %521, %.noexc219 ], [ false, %480 ], [ false, %..loopexit_crit_edge21.i.i.i.i ], [ false, %.noexc218 ], [ false, %499 ], [ %518, %515 ], [ false, %..loopexit_crit_edge21.i.i.i.i166 ], [ false, %137 ], [ false, %.lr.ph.i.i.i.i ], [ false, %282 ], [ false, %.preheader258 ], [ false, %.lr.ph.i.i.i.i162 ]
+_ZeqRK8rationalS1_.exit:                          ; preds = %.lr.ph.i.i.i.i162, %.preheader258, %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i166, %282, %137, %.noexc219, %515, %.noexc218, %499, %480, %132, %475
+  %.0 = phi i1 [ false, %132 ], [ false, %475 ], [ %521, %.noexc219 ], [ false, %480 ], [ false, %.lr.ph.i.i.i.i ], [ false, %.noexc218 ], [ false, %499 ], [ %518, %515 ], [ false, %..loopexit_crit_edge21.i.i.i.i166 ], [ false, %137 ], [ false, %.preheader258 ], [ false, %282 ], [ false, %.lr.ph.i.i.i.i162 ]
   %522 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !248
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %522, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %.noexc.i220 unwind label %523

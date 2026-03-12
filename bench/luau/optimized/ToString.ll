@@ -22336,7 +22336,7 @@ _ZN4Luau16StringifierState7newlineEv.exit275:     ; preds = %_ZNSt7__cxx1112basi
   %512 = icmp ult i64 %511, %510
   br i1 %512, label %.invoke498, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i294
 
-.invoke498:                                       ; preds = %._crit_edge.i7.i267, %._crit_edge.i.i265, %._crit_edge.i293, %._crit_edge.i282
+.invoke498:                                       ; preds = %._crit_edge.i.i265, %._crit_edge.i7.i267, %._crit_edge.i293, %._crit_edge.i282
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.183) #32
           to label %.cont499 unwind label %492
 

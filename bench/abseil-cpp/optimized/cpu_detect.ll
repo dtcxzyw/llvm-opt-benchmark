@@ -110,7 +110,7 @@ _ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit: ; preds = %33, %_ZNKSt7__
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   switch i32 %.0.i, label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit [
     i32 1, label %38
-    i32 2, label %60
+    i32 2, label %59
   ]
 
 38:                                               ; preds = %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit
@@ -131,7 +131,7 @@ _ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit: ; preds = %33, %_ZNKSt7__
   %49 = and i32 %48, 240
   %50 = or disjoint i32 %47, %49
   %trunc.i = trunc nuw i32 %50 to i8
-  switch i8 %trunc.i, label %59 [
+  switch i8 %trunc.i, label %80 [
     i8 44, label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
     i8 45, label %51
     i8 62, label %52
@@ -164,70 +164,64 @@ _ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit: ; preds = %33, %_ZNKSt7__
 58:                                               ; preds = %45
   br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
 
-59:                                               ; preds = %45
-  br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
+59:                                               ; preds = %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit
+  %60 = call { i32, i32, i32, i32 } asm sideeffect "cpuid \0A\09", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #7, !srcloc !4
+  %61 = extractvalue { i32, i32, i32, i32 } %60, 0
+  %62 = lshr i32 %61, 8
+  %63 = and i32 %62, 15
+  %64 = lshr i32 %61, 4
+  %65 = and i32 %64, 15
+  %66 = icmp eq i32 %63, 15
+  br i1 %66, label %67, label %74
 
-60:                                               ; preds = %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit
-  %61 = call { i32, i32, i32, i32 } asm sideeffect "cpuid \0A\09", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #7, !srcloc !4
-  %62 = extractvalue { i32, i32, i32, i32 } %61, 0
-  %63 = lshr i32 %62, 8
-  %64 = and i32 %63, 15
-  %65 = lshr i32 %62, 4
-  %66 = and i32 %65, 15
-  %67 = icmp eq i32 %64, 15
-  br i1 %67, label %68, label %75
+67:                                               ; preds = %59
+  %68 = lshr i32 %61, 20
+  %69 = and i32 %68, 255
+  %70 = add nuw nsw i32 %69, 15
+  %71 = lshr i32 %61, 12
+  %72 = and i32 %71, 240
+  %73 = or disjoint i32 %65, %72
+  br label %74
 
-68:                                               ; preds = %60
-  %69 = lshr i32 %62, 20
-  %70 = and i32 %69, 255
-  %71 = add nuw nsw i32 %70, 15
-  %72 = lshr i32 %62, 12
-  %73 = and i32 %72, 240
-  %74 = or disjoint i32 %66, %73
-  br label %75
-
-75:                                               ; preds = %68, %60
-  %.010.i = phi i32 [ %74, %68 ], [ %66, %60 ]
-  %.09.i = phi i32 [ %71, %68 ], [ %64, %60 ]
+74:                                               ; preds = %67, %59
+  %.010.i = phi i32 [ %73, %67 ], [ %65, %59 ]
+  %.09.i = phi i32 [ %70, %67 ], [ %63, %59 ]
   switch i32 %.09.i, label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit [
-    i32 23, label %76
-    i32 25, label %79
+    i32 23, label %75
+    i32 25, label %77
   ]
 
-76:                                               ; preds = %75
-  switch i32 %.010.i, label %78 [
+75:                                               ; preds = %74
+  switch i32 %.010.i, label %80 [
     i32 0, label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
     i32 1, label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
-    i32 48, label %77
-    i32 49, label %77
+    i32 48, label %76
+    i32 49, label %76
   ]
 
-77:                                               ; preds = %76, %76
+76:                                               ; preds = %75, %75
   br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
 
-78:                                               ; preds = %76
-  br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
-
-79:                                               ; preds = %75
-  switch i32 %.010.i, label %82 [
+77:                                               ; preds = %74
+  switch i32 %.010.i, label %80 [
     i32 0, label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
     i32 1, label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
-    i32 16, label %80
-    i32 17, label %80
-    i32 68, label %81
+    i32 16, label %78
+    i32 17, label %78
+    i32 68, label %79
   ]
 
-80:                                               ; preds = %79, %79
+78:                                               ; preds = %77, %77
   br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
 
-81:                                               ; preds = %79
+79:                                               ; preds = %77
   br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
 
-82:                                               ; preds = %79
+80:                                               ; preds = %45, %77, %75
   br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
 
-_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit: ; preds = %82, %81, %80, %79, %79, %78, %77, %76, %76, %75, %59, %58, %55, %54, %53, %52, %51, %45, %38, %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit
-  %.0 = phi i32 [ 10, %58 ], [ 0, %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit ], [ 0, %59 ], [ 0, %38 ], [ 12, %51 ], [ 11, %52 ], [ 1, %53 ], [ 9, %54 ], [ %..i2, %55 ], [ 13, %45 ], [ 4, %79 ], [ 0, %78 ], [ 6, %81 ], [ 2, %77 ], [ 0, %82 ], [ 3, %76 ], [ 5, %80 ], [ 3, %76 ], [ 4, %79 ], [ 0, %75 ]
+_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit: ; preds = %80, %79, %78, %77, %77, %76, %75, %75, %74, %58, %55, %54, %53, %52, %51, %45, %38, %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit
+  %.0 = phi i32 [ 10, %58 ], [ 0, %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit ], [ 4, %77 ], [ 0, %38 ], [ 12, %51 ], [ 11, %52 ], [ 1, %53 ], [ 9, %54 ], [ %..i2, %55 ], [ 13, %45 ], [ 4, %77 ], [ 0, %74 ], [ 6, %79 ], [ 2, %76 ], [ 0, %80 ], [ 3, %75 ], [ 5, %78 ], [ 3, %75 ]
   ret i32 %.0
 }
 

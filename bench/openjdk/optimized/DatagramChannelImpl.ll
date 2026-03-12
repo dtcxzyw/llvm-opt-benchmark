@@ -68,7 +68,7 @@ define i32 @Java_sun_nio_ch_DatagramChannelImpl_receive0(ptr noundef %0, ptr nou
 18:                                               ; preds = %.lr.ph, %20
   %19 = load i32, ptr %17, align 4
   switch i32 %19, label %.split20.us [
-    i32 11, label %.critedge.loopexit38
+    i32 11, label %.critedge.loopexit32
     i32 4, label %.critedge
     i32 111, label %20
   ]
@@ -86,7 +86,7 @@ define i32 @Java_sun_nio_ch_DatagramChannelImpl_receive0(ptr noundef %0, ptr nou
   %25 = tail call ptr @__errno_location() #6
   %26 = load i32, ptr %25, align 4
   switch i32 %26, label %.split20.us [
-    i32 11, label %.critedge.loopexit
+    i32 11, label %.critedge.loopexit32
     i32 4, label %.critedge
     i32 111, label %27
   ]
@@ -100,14 +100,11 @@ define i32 @Java_sun_nio_ch_DatagramChannelImpl_receive0(ptr noundef %0, ptr nou
   %28 = call i32 @handleSocketError(ptr noundef %0, i32 noundef %.us-phi21) #5
   br label %.critedge
 
-.critedge.loopexit:                               ; preds = %24
+.critedge.loopexit32:                             ; preds = %18, %24
   br label %.critedge
 
-.critedge.loopexit38:                             ; preds = %18
-  br label %.critedge
-
-.critedge:                                        ; preds = %20, %18, %.critedge.loopexit38, %.split.us, %.split, %24, %.critedge.loopexit, %.split20.us, %27
-  %.0 = phi i32 [ %28, %.split20.us ], [ -3, %18 ], [ -5, %27 ], [ -3, %24 ], [ %15, %.split ], [ %15, %.split.us ], [ -2, %.critedge.loopexit ], [ %22, %20 ], [ -2, %.critedge.loopexit38 ]
+.critedge:                                        ; preds = %20, %18, %.critedge.loopexit32, %.split.us, %.split, %24, %.split20.us, %27
+  %.0 = phi i32 [ %28, %.split20.us ], [ -2, %.critedge.loopexit32 ], [ -5, %27 ], [ -3, %24 ], [ %15, %.split ], [ %15, %.split.us ], [ -3, %18 ], [ %22, %20 ]
   ret i32 %.0
 }
 

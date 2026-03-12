@@ -1082,7 +1082,7 @@ define range(i32 -1, 2) i32 @pqReadData(ptr noundef %0) local_unnamed_addr #2 {
   %59 = load i32, ptr %58, align 4
   switch i32 %59, label %.loopexit [
     i32 4, label %46
-    i32 11, label %.loopexit.loopexit143
+    i32 11, label %.loopexit.loopexit144
     i32 32, label %.loopexit60
     i32 104, label %.loopexit60
     i32 103, label %.loopexit60
@@ -1174,11 +1174,11 @@ define range(i32 -1, 2) i32 @pqReadData(ptr noundef %0) local_unnamed_addr #2 {
 .loopexit.loopexit:                               ; preds = %82
   br label %.loopexit
 
-.loopexit.loopexit143:                            ; preds = %57
+.loopexit.loopexit144:                            ; preds = %57
   br label %.loopexit
 
-.loopexit:                                        ; preds = %61, %65, %57, %82, %.loopexit.loopexit143, %.loopexit.loopexit, %70, %69, %39, %.loopexit60, %86, %5
-  %.051 = phi i32 [ -1, %5 ], [ 1, %86 ], [ %.0.ph, %.loopexit.loopexit143 ], [ -1, %39 ], [ -1, %.loopexit60 ], [ %71, %70 ], [ 0, %.loopexit.loopexit ], [ 1, %69 ], [ -1, %57 ], [ -1, %82 ], [ 1, %65 ], [ 1, %61 ]
+.loopexit:                                        ; preds = %61, %65, %82, %57, %.loopexit.loopexit144, %.loopexit.loopexit, %70, %69, %39, %.loopexit60, %86, %5
+  %.051 = phi i32 [ -1, %5 ], [ 1, %86 ], [ -1, %82 ], [ -1, %39 ], [ -1, %.loopexit60 ], [ %71, %70 ], [ 0, %.loopexit.loopexit ], [ 1, %69 ], [ %.0.ph, %.loopexit.loopexit144 ], [ -1, %57 ], [ 1, %65 ], [ 1, %61 ]
   ret i32 %.051
 }
 

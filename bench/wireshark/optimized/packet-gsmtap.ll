@@ -487,7 +487,7 @@ define internal i32 @dissect_gsmtap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %11 = alloca %struct.isdn_phdr, align 1
   %12 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %13 = icmp eq i8 %12, 2
-  br i1 %13, label %14, label %238
+  br i1 %13, label %14, label %235
 
 14:                                               ; preds = %4
   %15 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -591,7 +591,7 @@ switch.lookup:                                    ; preds = %56
 .thread.i:                                        ; preds = %68
   %70 = load i32, ptr @hf_gsmtap_sim_sub_type, align 4
   %71 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %70, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0)
-  br label %216
+  br label %213
 
 72:                                               ; preds = %68
   %73 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 12)
@@ -667,35 +667,35 @@ switch.lookup:                                    ; preds = %56
   br label %108
 
 108:                                              ; preds = %103, %62
-  switch i8 %18, label %215 [
-    i8 4, label %216
+  switch i8 %18, label %212 [
+    i8 4, label %213
     i8 12, label %109
     i8 13, label %112
     i8 18, label %114
     i8 1, label %116
     i8 2, label %select.unfold.i
-    i8 8, label %142
-    i8 9, label %143
-    i8 5, label %144
-    i8 7, label %155
-    i8 10, label %157
-    i8 19, label %162
-    i8 20, label %214
+    i8 8, label %141
+    i8 9, label %142
+    i8 5, label %143
+    i8 7, label %154
+    i8 10, label %156
+    i8 19, label %160
+    i8 20, label %211
   ]
 
 109:                                              ; preds = %108
   %110 = icmp ugt i8 %22, 61
   %111 = load ptr, ptr %33, align 8
   tail call void @col_set_str(ptr noundef %111, i32 noundef 35, ptr noundef nonnull @.str.365)
-  br i1 %110, label %select.unfold.i, label %220
+  br i1 %110, label %select.unfold.i, label %217
 
 112:                                              ; preds = %108
   %113 = icmp ugt i8 %22, 22
-  br i1 %113, label %select.unfold.i, label %224
+  br i1 %113, label %select.unfold.i, label %221
 
 114:                                              ; preds = %108
   %115 = icmp ugt i8 %22, 1
-  br i1 %115, label %select.unfold.i, label %228
+  br i1 %115, label %select.unfold.i, label %225
 
 116:                                              ; preds = %108
   %.not264.i = icmp eq ptr %.0249.i, null
@@ -707,7 +707,7 @@ switch.lookup:                                    ; preds = %56
 
 118:                                              ; preds = %117, %116
   %119 = and i8 %22, 127
-  switch i8 %119, label %141 [
+  switch i8 %119, label %212 [
     i8 1, label %select.unfold.i
     i8 2, label %select.unfold.i
     i8 5, label %select.unfold.i
@@ -776,257 +776,248 @@ switch.lookup:                                    ; preds = %56
   %140 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_gsmtap_v2.exit
 
-141:                                              ; preds = %118
+141:                                              ; preds = %108
   br label %select.unfold.i
 
 142:                                              ; preds = %108
   br label %select.unfold.i
 
 143:                                              ; preds = %108
-  br label %select.unfold.i
+  %144 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 12)
+  %145 = icmp ugt i8 %144, 8
+  br i1 %145, label %handle_tetra.exit.i, label %146
 
-144:                                              ; preds = %108
-  %145 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 12)
-  %146 = icmp ugt i8 %145, 8
-  br i1 %146, label %handle_tetra.exit.i, label %147
+146:                                              ; preds = %143
+  %147 = zext nneg i8 %144 to i64
+  %148 = shl nuw nsw i64 1, %147
+  %149 = and i64 %148, 273
+  %.not.i.i = icmp eq i64 %149, 0
+  br i1 %.not.i.i, label %150, label %handle_tetra.exit.i
 
-147:                                              ; preds = %144
-  %148 = zext nneg i8 %145 to i64
-  %149 = shl nuw nsw i64 1, %148
-  %150 = and i64 %149, 273
-  %.not.i.i = icmp eq i64 %150, 0
-  br i1 %.not.i.i, label %151, label %handle_tetra.exit.i
-
-151:                                              ; preds = %147
-  %152 = getelementptr [4 x i8], ptr @gsmtap_to_tetra, i64 %148
-  %153 = load i32, ptr %152, align 4
-  tail call void @tetra_dissect_pdu(i32 noundef %153, i32 noundef 1, ptr noundef %32, ptr noundef %2, ptr noundef %1)
+150:                                              ; preds = %146
+  %151 = getelementptr [4 x i8], ptr @gsmtap_to_tetra, i64 %147
+  %152 = load i32, ptr %151, align 4
+  tail call void @tetra_dissect_pdu(i32 noundef %152, i32 noundef 1, ptr noundef %32, ptr noundef %2, ptr noundef %1)
   br label %handle_tetra.exit.i
 
-handle_tetra.exit.i:                              ; preds = %151, %147, %144
-  %154 = tail call i32 @tvb_captured_length(ptr noundef %0)
+handle_tetra.exit.i:                              ; preds = %150, %146, %143
+  %153 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_gsmtap_v2.exit
 
-155:                                              ; preds = %108
+154:                                              ; preds = %108
   %switch.tableidx.i = add i8 %22, -16
-  %156 = icmp ult i8 %switch.tableidx.i, 6
-  br i1 %156, label %switch.lookup.i, label %select.unfold.i
+  %155 = icmp ult i8 %switch.tableidx.i, 6
+  br i1 %155, label %switch.lookup.i, label %select.unfold.i
 
-157:                                              ; preds = %108
-  switch i8 %22, label %161 [
+156:                                              ; preds = %108
+  switch i8 %22, label %212 [
     i8 1, label %select.unfold.i
-    i8 2, label %158
-    i8 4, label %158
-    i8 3, label %158
-    i8 8, label %159
-    i8 18, label %159
-    i8 22, label %159
-    i8 26, label %159
-    i8 6, label %160
+    i8 2, label %157
+    i8 4, label %157
+    i8 3, label %157
+    i8 8, label %158
+    i8 18, label %158
+    i8 22, label %158
+    i8 26, label %158
+    i8 6, label %159
   ]
 
-158:                                              ; preds = %157, %157, %157
+157:                                              ; preds = %156, %156, %156
   br label %select.unfold.i
 
-159:                                              ; preds = %157, %157, %157, %157
+158:                                              ; preds = %156, %156, %156, %156
   br label %select.unfold.i
 
-160:                                              ; preds = %157
+159:                                              ; preds = %156
   br label %select.unfold.i
 
-161:                                              ; preds = %157
-  br label %select.unfold.i
-
-162:                                              ; preds = %108
-  switch i8 %22, label %213 [
-    i8 1, label %163
+160:                                              ; preds = %108
+  switch i8 %22, label %212 [
+    i8 1, label %161
     i8 2, label %select.unfold.i
-    i8 6, label %173
-    i8 11, label %183
-    i8 8, label %193
-    i8 7, label %203
+    i8 6, label %171
+    i8 11, label %181
+    i8 8, label %191
+    i8 7, label %201
   ]
 
-163:                                              ; preds = %162
-  %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sub_handles, i64 192), align 16
-  %.not263.i = icmp eq ptr %164, null
-  br i1 %.not263.i, label %171, label %165
+161:                                              ; preds = %160
+  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sub_handles, i64 192), align 16
+  %.not263.i = icmp eq ptr %162, null
+  br i1 %.not263.i, label %169, label %163
 
-165:                                              ; preds = %163
+163:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %166 = load i32, ptr %63, align 4
-  %167 = icmp eq i32 %166, 0
-  %168 = zext i1 %167 to i8
-  store i8 %168, ptr %7, align 1
-  %169 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 0, ptr %169, align 1
-  %170 = call i32 @call_dissector_with_data(ptr noundef nonnull %164, ptr noundef %32, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
+  %164 = load i32, ptr %63, align 4
+  %165 = icmp eq i32 %164, 0
+  %166 = zext i1 %165 to i8
+  store i8 %166, ptr %7, align 1
+  %167 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  store i8 0, ptr %167, align 1
+  %168 = call i32 @call_dissector_with_data(ptr noundef nonnull %162, ptr noundef %32, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %171
+  br label %169
 
-171:                                              ; preds = %165, %163
-  %172 = call i32 @tvb_captured_length(ptr noundef %0)
+169:                                              ; preds = %163, %161
+  %170 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_gsmtap_v2.exit
 
-173:                                              ; preds = %162
-  %174 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sub_handles, i64 208), align 16
-  %.not262.i = icmp eq ptr %174, null
-  br i1 %.not262.i, label %181, label %175
+171:                                              ; preds = %160
+  %172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sub_handles, i64 208), align 16
+  %.not262.i = icmp eq ptr %172, null
+  br i1 %.not262.i, label %179, label %173
 
-175:                                              ; preds = %173
+173:                                              ; preds = %171
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %176 = load i32, ptr %63, align 4
-  %177 = icmp eq i32 %176, 0
-  %178 = zext i1 %177 to i8
-  store i8 %178, ptr %8, align 1
-  %179 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 0, ptr %179, align 1
-  %180 = call i32 @call_dissector_with_data(ptr noundef nonnull %174, ptr noundef %32, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
+  %174 = load i32, ptr %63, align 4
+  %175 = icmp eq i32 %174, 0
+  %176 = zext i1 %175 to i8
+  store i8 %176, ptr %8, align 1
+  %177 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  store i8 0, ptr %177, align 1
+  %178 = call i32 @call_dissector_with_data(ptr noundef nonnull %172, ptr noundef %32, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %181
+  br label %179
 
-181:                                              ; preds = %175, %173
-  %182 = call i32 @tvb_captured_length(ptr noundef %0)
+179:                                              ; preds = %173, %171
+  %180 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_gsmtap_v2.exit
 
-183:                                              ; preds = %162
-  %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sub_handles, i64 224), align 16
-  %.not261.i = icmp eq ptr %184, null
-  br i1 %.not261.i, label %191, label %185
+181:                                              ; preds = %160
+  %182 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sub_handles, i64 224), align 16
+  %.not261.i = icmp eq ptr %182, null
+  br i1 %.not261.i, label %189, label %183
 
-185:                                              ; preds = %183
+183:                                              ; preds = %181
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %186 = load i32, ptr %63, align 4
-  %187 = icmp eq i32 %186, 0
-  %188 = zext i1 %187 to i8
-  store i8 %188, ptr %9, align 1
-  %189 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store i8 0, ptr %189, align 1
-  %190 = call i32 @call_dissector_with_data(ptr noundef nonnull %184, ptr noundef %32, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
+  %184 = load i32, ptr %63, align 4
+  %185 = icmp eq i32 %184, 0
+  %186 = zext i1 %185 to i8
+  store i8 %186, ptr %9, align 1
+  %187 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  store i8 0, ptr %187, align 1
+  %188 = call i32 @call_dissector_with_data(ptr noundef nonnull %182, ptr noundef %32, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %191
+  br label %189
 
-191:                                              ; preds = %185, %183
-  %192 = call i32 @tvb_captured_length(ptr noundef %0)
+189:                                              ; preds = %183, %181
+  %190 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_gsmtap_v2.exit
 
-193:                                              ; preds = %162
-  %194 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sub_handles, i64 232), align 8
-  %.not260.i = icmp eq ptr %194, null
-  br i1 %.not260.i, label %201, label %195
+191:                                              ; preds = %160
+  %192 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sub_handles, i64 232), align 8
+  %.not260.i = icmp eq ptr %192, null
+  br i1 %.not260.i, label %199, label %193
 
-195:                                              ; preds = %193
+193:                                              ; preds = %191
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %196 = load i32, ptr %63, align 4
-  %197 = icmp eq i32 %196, 0
-  %198 = zext i1 %197 to i8
-  store i8 %198, ptr %10, align 1
-  %199 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  store i8 0, ptr %199, align 1
-  %200 = call i32 @call_dissector_with_data(ptr noundef nonnull %194, ptr noundef %32, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %10)
+  %194 = load i32, ptr %63, align 4
+  %195 = icmp eq i32 %194, 0
+  %196 = zext i1 %195 to i8
+  store i8 %196, ptr %10, align 1
+  %197 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  store i8 0, ptr %197, align 1
+  %198 = call i32 @call_dissector_with_data(ptr noundef nonnull %192, ptr noundef %32, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %201
+  br label %199
 
-201:                                              ; preds = %195, %193
-  %202 = call i32 @tvb_captured_length(ptr noundef %0)
+199:                                              ; preds = %193, %191
+  %200 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_gsmtap_v2.exit
 
-203:                                              ; preds = %162
-  %204 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sub_handles, i64 240), align 16
-  %.not259.i = icmp eq ptr %204, null
-  br i1 %.not259.i, label %211, label %205
+201:                                              ; preds = %160
+  %202 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sub_handles, i64 240), align 16
+  %.not259.i = icmp eq ptr %202, null
+  br i1 %.not259.i, label %209, label %203
 
-205:                                              ; preds = %203
+203:                                              ; preds = %201
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %206 = load i32, ptr %63, align 4
-  %207 = icmp eq i32 %206, 0
-  %208 = zext i1 %207 to i8
-  store i8 %208, ptr %11, align 1
-  %209 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store i8 0, ptr %209, align 1
-  %210 = call i32 @call_dissector_with_data(ptr noundef nonnull %204, ptr noundef %32, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %11)
+  %204 = load i32, ptr %63, align 4
+  %205 = icmp eq i32 %204, 0
+  %206 = zext i1 %205 to i8
+  store i8 %206, ptr %11, align 1
+  %207 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  store i8 0, ptr %207, align 1
+  %208 = call i32 @call_dissector_with_data(ptr noundef nonnull %202, ptr noundef %32, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %211
+  br label %209
 
-211:                                              ; preds = %205, %203
-  %212 = call i32 @tvb_captured_length(ptr noundef %0)
+209:                                              ; preds = %203, %201
+  %210 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_gsmtap_v2.exit
 
-213:                                              ; preds = %162
+211:                                              ; preds = %108
   br label %select.unfold.i
 
-214:                                              ; preds = %108
+212:                                              ; preds = %160, %156, %118, %108
   br label %select.unfold.i
 
-215:                                              ; preds = %108
-  br label %select.unfold.i
-
-216:                                              ; preds = %108, %.thread.i
+213:                                              ; preds = %108, %.thread.i
   %cond.i = icmp eq i8 %22, 1
-  %217 = zext i1 %cond.i to i64
-  %218 = getelementptr [8 x i8], ptr @sim_sub_handles, i64 %217
-  %219 = load ptr, ptr %218, align 8
+  %214 = zext i1 %cond.i to i64
+  %215 = getelementptr [8 x i8], ptr @sim_sub_handles, i64 %214
+  %216 = load ptr, ptr %215, align 8
   br label %.sink.split34.i
 
-220:                                              ; preds = %109
-  %221 = zext nneg i8 %22 to i64
-  %222 = getelementptr [8 x i8], ptr @rrc_sub_handles, i64 %221
-  %223 = load ptr, ptr %222, align 8
+217:                                              ; preds = %109
+  %218 = zext nneg i8 %22 to i64
+  %219 = getelementptr [8 x i8], ptr @rrc_sub_handles, i64 %218
+  %220 = load ptr, ptr %219, align 8
   br label %.sink.split34.i
 
-224:                                              ; preds = %112
-  %225 = zext nneg i8 %22 to i64
-  %226 = getelementptr [8 x i8], ptr @lte_rrc_sub_handles, i64 %225
-  %227 = load ptr, ptr %226, align 8
+221:                                              ; preds = %112
+  %222 = zext nneg i8 %22 to i64
+  %223 = getelementptr [8 x i8], ptr @lte_rrc_sub_handles, i64 %222
+  %224 = load ptr, ptr %223, align 8
   br label %.sink.split34.i
 
-228:                                              ; preds = %114
-  %229 = zext nneg i8 %22 to i64
-  %230 = getelementptr [8 x i8], ptr @lte_nas_sub_handles, i64 %229
-  %231 = load ptr, ptr %230, align 8
+225:                                              ; preds = %114
+  %226 = zext nneg i8 %22 to i64
+  %227 = getelementptr [8 x i8], ptr @lte_nas_sub_handles, i64 %226
+  %228 = load ptr, ptr %227, align 8
   br label %.sink.split34.i
 
-switch.lookup.i:                                  ; preds = %155
-  %232 = or disjoint i8 %switch.tableidx.i, 8
-  %switch.offset.i = zext nneg i8 %232 to i64
+switch.lookup.i:                                  ; preds = %154
+  %229 = or disjoint i8 %switch.tableidx.i, 8
+  %switch.offset.i = zext nneg i8 %229 to i64
   br label %select.unfold.i
 
-select.unfold.i:                                  ; preds = %switch.lookup.i, %215, %214, %213, %162, %161, %160, %159, %158, %157, %155, %143, %142, %141, %134, %129, %124, %118, %118, %118, %118, %114, %112, %109, %108
-  %.0246.ph.i = phi i64 [ 0, %114 ], [ 0, %112 ], [ 0, %109 ], [ 0, %215 ], [ 1, %118 ], [ 0, %213 ], [ 19, %160 ], [ 18, %159 ], [ 17, %158 ], [ %switch.offset.i, %switch.lookup.i ], [ 0, %161 ], [ 0, %141 ], [ 1, %118 ], [ 25, %162 ], [ 16, %157 ], [ 27, %214 ], [ 7, %108 ], [ %spec.select.i, %124 ], [ 6, %143 ], [ 5, %142 ], [ 0, %129 ], [ 14, %134 ], [ 1, %118 ], [ 1, %118 ], [ 0, %155 ]
-  %233 = getelementptr [8 x i8], ptr @sub_handles, i64 %.0246.ph.i
-  %234 = load ptr, ptr %233, align 8
-  %.not265.i = icmp eq ptr %234, null
-  br i1 %.not265.i, label %236, label %.sink.split34.i
+select.unfold.i:                                  ; preds = %switch.lookup.i, %212, %211, %160, %159, %158, %157, %156, %154, %142, %141, %134, %129, %124, %118, %118, %118, %118, %114, %112, %109, %108
+  %.0246.ph.i = phi i64 [ 0, %114 ], [ 0, %112 ], [ 0, %109 ], [ 0, %212 ], [ 1, %118 ], [ 1, %118 ], [ 19, %159 ], [ 18, %158 ], [ 17, %157 ], [ %switch.offset.i, %switch.lookup.i ], [ 1, %118 ], [ 0, %154 ], [ 1, %118 ], [ 25, %160 ], [ 16, %156 ], [ 27, %211 ], [ 7, %108 ], [ %spec.select.i, %124 ], [ 6, %142 ], [ 5, %141 ], [ 0, %129 ], [ 14, %134 ]
+  %230 = getelementptr [8 x i8], ptr @sub_handles, i64 %.0246.ph.i
+  %231 = load ptr, ptr %230, align 8
+  %.not265.i = icmp eq ptr %231, null
+  br i1 %.not265.i, label %233, label %.sink.split34.i
 
-.sink.split34.i:                                  ; preds = %select.unfold.i, %228, %224, %220, %216
-  %.sink35.i = phi ptr [ %219, %216 ], [ %231, %228 ], [ %227, %224 ], [ %223, %220 ], [ %234, %select.unfold.i ]
-  %235 = tail call i32 @call_dissector(ptr noundef %.sink35.i, ptr noundef %32, ptr noundef %1, ptr noundef %2)
-  br label %236
+.sink.split34.i:                                  ; preds = %select.unfold.i, %225, %221, %217, %213
+  %.sink35.i = phi ptr [ %216, %213 ], [ %228, %225 ], [ %224, %221 ], [ %220, %217 ], [ %231, %select.unfold.i ]
+  %232 = tail call i32 @call_dissector(ptr noundef %.sink35.i, ptr noundef %32, ptr noundef %1, ptr noundef %2)
+  br label %233
 
-236:                                              ; preds = %.sink.split34.i, %select.unfold.i
-  %237 = tail call i32 @tvb_captured_length(ptr noundef %0)
+233:                                              ; preds = %.sink.split34.i, %select.unfold.i
+  %234 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_gsmtap_v2.exit
 
-238:                                              ; preds = %4
-  %239 = zext i8 %12 to i32
-  %240 = load i32, ptr @proto_gsmtap, align 4
-  %241 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %240, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @.str.356, i32 noundef %239)
-  %242 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %243 = load ptr, ptr %242, align 8
-  tail call void @col_set_str(ptr noundef %243, i32 noundef 35, ptr noundef nonnull @.str.57)
-  %244 = load ptr, ptr %242, align 8
-  tail call void @col_clear(ptr noundef %244, i32 noundef 25)
-  %245 = load ptr, ptr %242, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %245, i32 noundef 25, ptr noundef nonnull @.str.357, i32 noundef %239)
-  %246 = load i32, ptr @ett_gsmtap, align 4
-  %247 = tail call ptr @proto_item_add_subtree(ptr noundef %241, i32 noundef %246)
-  %248 = load i32, ptr @hf_gsmtap_version, align 4
-  %249 = tail call ptr @proto_tree_add_item(ptr noundef %247, i32 noundef %248, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %250 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %249, ptr noundef nonnull @ei_gsmtap_unknown_gsmtap_version)
+235:                                              ; preds = %4
+  %236 = zext i8 %12 to i32
+  %237 = load i32, ptr @proto_gsmtap, align 4
+  %238 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %237, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @.str.356, i32 noundef %236)
+  %239 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %240 = load ptr, ptr %239, align 8
+  tail call void @col_set_str(ptr noundef %240, i32 noundef 35, ptr noundef nonnull @.str.57)
+  %241 = load ptr, ptr %239, align 8
+  tail call void @col_clear(ptr noundef %241, i32 noundef 25)
+  %242 = load ptr, ptr %239, align 8
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %242, i32 noundef 25, ptr noundef nonnull @.str.357, i32 noundef %236)
+  %243 = load i32, ptr @ett_gsmtap, align 4
+  %244 = tail call ptr @proto_item_add_subtree(ptr noundef %238, i32 noundef %243)
+  %245 = load i32, ptr @hf_gsmtap_version, align 4
+  %246 = tail call ptr @proto_tree_add_item(ptr noundef %244, i32 noundef %245, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %247 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %246, ptr noundef nonnull @ei_gsmtap_unknown_gsmtap_version)
   br label %dissect_gsmtap_v2.exit
 
-dissect_gsmtap_v2.exit:                           ; preds = %236, %211, %201, %191, %181, %171, %handle_tetra.exit.i, %137, %135, %132, %127, %120, %48, %238
-  %.0 = phi i32 [ 1, %238 ], [ %49, %48 ], [ %237, %236 ], [ %123, %120 ], [ %128, %127 ], [ %133, %132 ], [ %136, %135 ], [ %140, %137 ], [ %154, %handle_tetra.exit.i ], [ %172, %171 ], [ %182, %181 ], [ %192, %191 ], [ %202, %201 ], [ %212, %211 ]
+dissect_gsmtap_v2.exit:                           ; preds = %233, %209, %199, %189, %179, %169, %handle_tetra.exit.i, %137, %135, %132, %127, %120, %48, %235
+  %.0 = phi i32 [ 1, %235 ], [ %49, %48 ], [ %234, %233 ], [ %123, %120 ], [ %128, %127 ], [ %133, %132 ], [ %136, %135 ], [ %140, %137 ], [ %153, %handle_tetra.exit.i ], [ %170, %169 ], [ %180, %179 ], [ %190, %189 ], [ %200, %199 ], [ %210, %209 ]
   ret i32 %.0
 }
 

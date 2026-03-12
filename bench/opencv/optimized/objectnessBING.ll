@@ -3024,7 +3024,7 @@ _ZN2cv8saliency14ObjectnessBING12ValStructVecIfNS_6Point_IiEEED2Ev.exit: ; preds
   %175 = icmp eq i64 %174, 9223372036854775800
   br i1 %175, label %.invoke, label %_ZNKSt6vectorISt4pairIfiESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
-.invoke:                                          ; preds = %223, %193, %170
+.invoke:                                          ; preds = %193, %223, %170
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #30
           to label %.cont unwind label %.loopexit.split-lp
 

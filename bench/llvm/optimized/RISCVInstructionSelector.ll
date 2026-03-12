@@ -11006,7 +11006,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit128:           ; preds = %_ZNK4llvm3LLT13getS
   %trunc195 = trunc nuw i64 %.0.in.i.i112 to i32
   switch i32 %trunc195, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit158 [
     i32 128, label %113
-    i32 256, label %.fold.split
+    i32 256, label %.fold.split194
   ]
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit128.thread:    ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit113.thread
@@ -11024,14 +11024,11 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit158:           ; preds = %_ZNK4llvm3LLT13getS
 112:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit158, %95
   br label %113
 
-.fold.split:                                      ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit128
+.fold.split194:                                   ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit128, %_ZNK4llvm3LLT13getSizeInBitsEv.exit128.thread
   br label %113
 
-.fold.split194:                                   ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit128.thread
-  br label %113
-
-113:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit128.thread, %.fold.split194, %_ZNK4llvm3LLT13getSizeInBitsEv.exit128, %.fold.split, %_ZNK4llvm3LLT13getSizeInBitsEv.exit113.thread, %_ZNK4llvm3LLT13getSizeInBitsEv.exit158, %_ZNK4llvm3LLT13getSizeInBitsEv.exit113, %_ZNK4llvm3LLT13getSizeInBitsEv.exit98, %_ZNK4llvm3LLT13getSizeInBitsEv.exit83, %_ZNK4llvm3LLT13getSizeInBitsEv.exit68, %_ZNK4llvm3LLT13getSizeInBitsEv.exit53, %.critedge, %112
-  %.0 = phi ptr [ null, %112 ], [ @_ZN4llvm5RISCV11GPRRegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit53 ], [ @_ZN4llvm5RISCV13FPR16RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit68 ], [ @_ZN4llvm5RISCV13FPR32RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit83 ], [ @_ZN4llvm5RISCV13FPR64RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit98 ], [ @_ZN4llvm5RISCV10VRRegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit113 ], [ @_ZN4llvm5RISCV12VRM2RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit128 ], [ @_ZN4llvm5RISCV12VRM4RegClassE, %.fold.split ], [ @_ZN4llvm5RISCV11GPRRegClassE, %.critedge ], [ @_ZN4llvm5RISCV12VRM8RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit158 ], [ @_ZN4llvm5RISCV10VRRegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit113.thread ], [ @_ZN4llvm5RISCV12VRM2RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit128.thread ], [ @_ZN4llvm5RISCV12VRM4RegClassE, %.fold.split194 ]
+113:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit128.thread, %.fold.split194, %_ZNK4llvm3LLT13getSizeInBitsEv.exit128, %_ZNK4llvm3LLT13getSizeInBitsEv.exit113.thread, %_ZNK4llvm3LLT13getSizeInBitsEv.exit158, %_ZNK4llvm3LLT13getSizeInBitsEv.exit113, %_ZNK4llvm3LLT13getSizeInBitsEv.exit98, %_ZNK4llvm3LLT13getSizeInBitsEv.exit83, %_ZNK4llvm3LLT13getSizeInBitsEv.exit68, %_ZNK4llvm3LLT13getSizeInBitsEv.exit53, %.critedge, %112
+  %.0 = phi ptr [ null, %112 ], [ @_ZN4llvm5RISCV11GPRRegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit53 ], [ @_ZN4llvm5RISCV13FPR16RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit68 ], [ @_ZN4llvm5RISCV13FPR32RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit83 ], [ @_ZN4llvm5RISCV13FPR64RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit98 ], [ @_ZN4llvm5RISCV10VRRegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit113 ], [ @_ZN4llvm5RISCV12VRM2RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit128 ], [ @_ZN4llvm5RISCV12VRM4RegClassE, %.fold.split194 ], [ @_ZN4llvm5RISCV11GPRRegClassE, %.critedge ], [ @_ZN4llvm5RISCV12VRM8RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit158 ], [ @_ZN4llvm5RISCV10VRRegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit113.thread ], [ @_ZN4llvm5RISCV12VRM2RegClassE, %_ZNK4llvm3LLT13getSizeInBitsEv.exit128.thread ]
   ret ptr %.0
 }
 

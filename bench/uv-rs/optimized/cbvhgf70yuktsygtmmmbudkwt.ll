@@ -13417,7 +13417,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i8 18, ptr %0, align 8
   br label %87
 
-87:                                               ; preds = %185, %100, %84, %88, %91, %94, %97, %110, %149, %195, %52, %switch.lookup353, %104, %switch.lookup, %93, %90, %86
+87:                                               ; preds = %185, %100, %195, %149, %110, %97, %94, %91, %88, %84, %52, %switch.lookup353, %104, %switch.lookup, %93, %90, %86
   ret void
 
 88:                                               ; preds = %59

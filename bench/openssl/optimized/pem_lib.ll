@@ -322,9 +322,6 @@ pem_free.exit31:                                  ; preds = %17, %21
   %.not.i.i = icmp sgt i32 %46, 12
   br i1 %.not.i.i, label %47, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %44, %.thread.i, %69, %62, %65, %56, %ossl_pem_check_suffix.exit.i, %51, %47, %123, %120, %check_pem.exit
-  br label %.backedge, !llvm.loop !13
-
 47:                                               ; preds = %44
   %sext.i.i = and i64 %45, 2147483647
   %48 = getelementptr inbounds nuw i8, ptr %32, i64 %sext.i.i
@@ -347,7 +344,7 @@ ossl_pem_check_suffix.exit.i:                     ; preds = %51
 
 56:                                               ; preds = %ossl_pem_check_suffix.exit.i
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 184
-  %58 = load ptr, ptr %57, align 8, !tbaa !14
+  %58 = load ptr, ptr %57, align 8, !tbaa !13
   %.not46.i = icmp eq ptr %58, null
   br i1 %.not46.i, label %.backedge.backedge, label %check_pem.exit.thread
 
@@ -369,6 +366,9 @@ ossl_pem_check_suffix.exit.i:                     ; preds = %51
   %68 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %67, ptr noundef nonnull dereferenceable(11) @.str.23) #9
   %.not15.i51.i = icmp eq i32 %68, 0
   br i1 %.not15.i51.i, label %69, label %.backedge.backedge
+
+.backedge.backedge:                               ; preds = %65, %69, %62, %.thread.i, %123, %120, %56, %ossl_pem_check_suffix.exit.i, %51, %47, %44, %check_pem.exit
+  br label %.backedge, !llvm.loop !16
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds i8, ptr %66, i64 -11
@@ -2223,14 +2223,14 @@ attributes #10 = { nounwind }
 !10 = !{!"any pointer", !4, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"long", !4, i64 0}
-!13 = distinct !{!13, !7}
-!14 = !{!15, !10, i64 184}
-!15 = !{!"evp_pkey_asn1_method_st", !16, i64 0, !16, i64 4, !12, i64 8, !9, i64 16, !9, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !10, i64 168, !10, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !10, i64 208, !10, i64 216, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256, !10, i64 264, !10, i64 272, !10, i64 280, !10, i64 288, !10, i64 296, !10, i64 304, !10, i64 312}
-!16 = !{!"int", !4, i64 0}
-!17 = !{!15, !10, i64 112}
+!13 = !{!14, !10, i64 184}
+!14 = !{!"evp_pkey_asn1_method_st", !15, i64 0, !15, i64 4, !12, i64 8, !9, i64 16, !9, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !10, i64 168, !10, i64 176, !10, i64 184, !10, i64 192, !10, i64 200, !10, i64 208, !10, i64 216, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256, !10, i64 264, !10, i64 272, !10, i64 280, !10, i64 288, !10, i64 296, !10, i64 304, !10, i64 312}
+!15 = !{!"int", !4, i64 0}
+!16 = distinct !{!16, !7}
+!17 = !{!14, !10, i64 112}
 !18 = !{!19, !19, i64 0}
 !19 = !{!"p1 _ZTS9engine_st", !10, i64 0}
-!20 = !{!16, !16, i64 0}
+!20 = !{!15, !15, i64 0}
 !21 = !{!22, !23, i64 0}
 !22 = !{!"evp_cipher_info_st", !23, i64 0, !4, i64 8}
 !23 = !{!"p1 _ZTS13evp_cipher_st", !10, i64 0}

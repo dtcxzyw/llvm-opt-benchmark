@@ -7147,7 +7147,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit36: ; preds = %_
   %149 = icmp ult i64 %148, 22
   br i1 %149, label %.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i52
 
-.invoke:                                          ; preds = %._crit_edge, %56, %146
+.invoke:                                          ; preds = %56, %._crit_edge, %146
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.50) #30
           to label %.cont unwind label %74
 

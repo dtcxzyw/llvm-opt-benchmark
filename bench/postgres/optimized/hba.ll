@@ -5146,12 +5146,12 @@ define internal void @check_network_callback(ptr noundef %0, ptr noundef %1, ptr
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i8, ptr %5, align 8, !range !12, !noundef !13
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %32, label %8
+  br i1 %7, label %31, label %8
 
 8:                                                ; preds = %3
   %9 = load i32, ptr %2, align 8
   %10 = icmp eq i32 %9, 1
-  br i1 %10, label %11, label %23
+  br i1 %10, label %11, label %22
 
 11:                                               ; preds = %8
   %12 = load i16, ptr %0, align 2
@@ -5162,38 +5162,35 @@ define internal void @check_network_callback(ptr noundef %0, ptr noundef %1, ptr
   %17 = load i16, ptr %16, align 8
   %18 = load i16, ptr %0, align 2
   %19 = icmp eq i16 %17, %18
-  br i1 %19, label %20, label %22
+  br i1 %19, label %20, label %30
 
 20:                                               ; preds = %11
   %21 = call i32 @pg_range_sockaddr(ptr noundef nonnull %16, ptr noundef nonnull %0, ptr noundef nonnull %4) #13
   %.not.i = icmp eq i32 %21, 0
-  br i1 %.not.i, label %22, label %check_ip.exit
+  br i1 %.not.i, label %30, label %check_ip.exit
 
-22:                                               ; preds = %20, %11
+22:                                               ; preds = %8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = load i16, ptr %24, align 8
+  %26 = load i16, ptr %0, align 2
+  %27 = icmp eq i16 %25, %26
+  br i1 %27, label %28, label %30
+
+28:                                               ; preds = %22
+  %29 = tail call i32 @pg_range_sockaddr(ptr noundef nonnull %24, ptr noundef nonnull %0, ptr noundef %1) #13
+  %.not.i12 = icmp eq i32 %29, 0
+  br i1 %.not.i12, label %30, label %check_ip.exit
+
+30:                                               ; preds = %11, %20, %28, %22
   br label %check_ip.exit
 
-23:                                               ; preds = %8
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = load i16, ptr %25, align 8
-  %27 = load i16, ptr %0, align 2
-  %28 = icmp eq i16 %26, %27
-  br i1 %28, label %29, label %31
-
-29:                                               ; preds = %23
-  %30 = tail call i32 @pg_range_sockaddr(ptr noundef nonnull %25, ptr noundef nonnull %0, ptr noundef %1) #13
-  %.not.i12 = icmp eq i32 %30, 0
-  br i1 %.not.i12, label %31, label %check_ip.exit
-
-31:                                               ; preds = %29, %23
-  br label %check_ip.exit
-
-check_ip.exit:                                    ; preds = %31, %29, %22, %20
-  %storemerge.in = phi i8 [ 1, %20 ], [ 0, %22 ], [ 0, %31 ], [ 1, %29 ]
+check_ip.exit:                                    ; preds = %30, %28, %20
+  %storemerge.in = phi i8 [ 1, %20 ], [ 1, %28 ], [ 0, %30 ]
   store i8 %storemerge.in, ptr %5, align 8
-  br label %32
+  br label %31
 
-32:                                               ; preds = %3, %check_ip.exit
+31:                                               ; preds = %3, %check_ip.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

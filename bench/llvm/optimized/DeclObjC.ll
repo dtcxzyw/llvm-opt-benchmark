@@ -6446,7 +6446,7 @@ _ZNK5clang4Decl7getAttrINS_20ObjCMethodFamilyAttrEEEPT_v.exit: ; preds = %.lr.ph
   %48 = load i24, ptr %2, align 8
   %49 = and i24 %48, 131072
   %.not68 = icmp eq i24 %49, 0
-  br i1 %.not68, label %.critedge, label %50
+  br i1 %.not68, label %.critedge3, label %50
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -6462,10 +6462,7 @@ _ZNK5clang4Decl7getAttrINS_20ObjCMethodFamilyAttrEEEPT_v.exit: ; preds = %.lr.ph
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load i8, ptr %59, align 16
   %61 = icmp eq i8 %60, 33
-  br i1 %61, label %.critedge5, label %.critedge
-
-.critedge:                                        ; preds = %47, %50
-  br label %.critedge5
+  br i1 %61, label %.critedge5, label %.critedge3
 
 62:                                               ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -6521,7 +6518,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %80
   %94 = icmp eq i32 %93, 227540992
   br i1 %94, label %.critedge5, label %.critedge3
 
-.critedge3:                                       ; preds = %80, %77, %_ZNK5clang4Type10isVoidTypeEv.exit
+.critedge3:                                       ; preds = %50, %47, %80, %77, %_ZNK5clang4Type10isVoidTypeEv.exit
   br label %.critedge5
 
 95:                                               ; preds = %.loopexit
@@ -6576,8 +6573,8 @@ _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %80
   %125 = tail call noundef zeroext i1 @_ZNK5clang4Type12isObjCIdTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %124)
   br i1 %125, label %.preheader, label %.critedge5, !llvm.loop !561
 
-.critedge5:                                       ; preds = %118, %.preheader, %108, %95, %74, %62, %104, %98, %_ZNK5clang4Type10isVoidTypeEv.exit, %.critedge3, %50, %.critedge, %.loopexit
-  %.124 = phi i32 [ %46, %.loopexit ], [ 0, %95 ], [ 0, %98 ], [ 0, %.critedge ], [ 3, %50 ], [ 13, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ 0, %104 ], [ %spec.select38, %74 ], [ %spec.select, %62 ], [ 0, %.critedge3 ], [ 0, %108 ], [ 0, %118 ], [ 14, %.preheader ]
+.critedge5:                                       ; preds = %118, %.preheader, %108, %95, %74, %62, %104, %98, %_ZNK5clang4Type10isVoidTypeEv.exit, %.critedge3, %50, %.loopexit
+  %.124 = phi i32 [ %46, %.loopexit ], [ 0, %95 ], [ 0, %98 ], [ 0, %108 ], [ 3, %50 ], [ 13, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ 0, %104 ], [ %spec.select38, %74 ], [ %spec.select, %62 ], [ 0, %.critedge3 ], [ 14, %.preheader ], [ 0, %118 ]
   %126 = trunc i32 %.124 to i24
   %127 = load i24, ptr %2, align 8
   %128 = shl i24 %126, 13

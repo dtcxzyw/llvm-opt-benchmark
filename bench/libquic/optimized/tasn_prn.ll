@@ -174,13 +174,13 @@ define internal fastcc range(i32 0, 2) i32 @asn1_item_print_ctx(ptr noundef %0, 
   %.0112 = phi ptr [ %14, %15 ], [ null, %12 ], [ null, %8 ]
   %19 = load ptr, ptr %1, align 8, !tbaa !15
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %31
+  br i1 %20, label %21, label %30
 
 21:                                               ; preds = %18
   %22 = load i64, ptr %7, align 8, !tbaa !6
   %23 = and i64 %22, 1
   %.not143 = icmp eq i64 %23, 0
-  br i1 %.not143, label %30, label %24
+  br i1 %.not143, label %asn1_primitive_print.exit.thread149, label %24
 
 24:                                               ; preds = %21
   %.not144 = icmp eq i32 %6, 0
@@ -194,397 +194,388 @@ define internal fastcc range(i32 0, 2) i32 @asn1_item_print_ctx(ptr noundef %0, 
 27:                                               ; preds = %25, %24
   %28 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.9) #8
   %29 = icmp slt i32 %28, 1
-  br i1 %29, label %.critedge, label %30
+  br i1 %29, label %.critedge, label %asn1_primitive_print.exit.thread149
 
-30:                                               ; preds = %27, %21
-  br label %.critedge
-
-31:                                               ; preds = %18
-  %32 = load i8, ptr %3, align 8, !tbaa !32
-  switch i8 %32, label %200 [
-    i8 0, label %33
-    i8 5, label %38
-    i8 4, label %122
-    i8 2, label %140
-    i8 1, label %156
-    i8 6, label %156
+30:                                               ; preds = %18
+  %31 = load i8, ptr %3, align 8, !tbaa !32
+  switch i8 %31, label %197 [
+    i8 0, label %32
+    i8 5, label %37
+    i8 4, label %121
+    i8 2, label %138
+    i8 1, label %154
+    i8 6, label %154
   ]
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !33
-  %.not140 = icmp eq ptr %35, null
-  br i1 %.not140, label %38, label %36
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !33
+  %.not140 = icmp eq ptr %34, null
+  br i1 %.not140, label %37, label %35
 
-36:                                               ; preds = %33
-  %37 = tail call i32 @asn1_template_print_ctx(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %35, ptr noundef %7)
-  %.not142 = icmp eq i32 %37, 0
+35:                                               ; preds = %32
+  %36 = tail call i32 @asn1_template_print_ctx(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %34, ptr noundef %7)
+  %.not142 = icmp eq i32 %36, 0
   br i1 %.not142, label %.critedge, label %asn1_primitive_print.exit.thread149
 
-38:                                               ; preds = %33, %31
-  %39 = tail call fastcc i32 @asn1_print_fsname(ptr noundef %0, i32 noundef %2, ptr noundef %4, ptr noundef %5, ptr noundef %7)
-  %.not.i = icmp eq i32 %39, 0
-  br i1 %.not.i, label %.critedge, label %40
+37:                                               ; preds = %32, %30
+  %38 = tail call fastcc i32 @asn1_print_fsname(ptr noundef %0, i32 noundef %2, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+  %.not.i = icmp eq i32 %38, 0
+  br i1 %.not.i, label %.critedge, label %39
 
-40:                                               ; preds = %38
-  br i1 %.not, label %47, label %41
+39:                                               ; preds = %37
+  br i1 %.not, label %46, label %40
 
-41:                                               ; preds = %40
-  %42 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %43 = load ptr, ptr %42, align 8, !tbaa !34
-  %.not78.i = icmp eq ptr %43, null
-  br i1 %.not78.i, label %47, label %44
+40:                                               ; preds = %39
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  %42 = load ptr, ptr %41, align 8, !tbaa !34
+  %.not78.i = icmp eq ptr %42, null
+  br i1 %.not78.i, label %46, label %43
 
-44:                                               ; preds = %41
-  %45 = tail call i32 %43(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef %2, ptr noundef %7) #8
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.critedge, label %asn1_primitive_print.exit.thread149
+43:                                               ; preds = %40
+  %44 = tail call i32 %42(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef %2, ptr noundef %7) #8
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %.critedge, label %asn1_primitive_print.exit.thread149
 
-47:                                               ; preds = %41, %40
-  %48 = load ptr, ptr %1, align 8, !tbaa !15
-  %49 = load i8, ptr %3, align 8, !tbaa !32
-  %50 = icmp eq i8 %49, 5
-  br i1 %50, label %.thread.i, label %55
+46:                                               ; preds = %40, %39
+  %47 = load ptr, ptr %1, align 8, !tbaa !15
+  %48 = load i8, ptr %3, align 8, !tbaa !32
+  %49 = icmp eq i8 %48, 5
+  br i1 %49, label %.thread.i, label %54
 
-.thread.i:                                        ; preds = %47
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %52 = load i32, ptr %51, align 4, !tbaa !36
-  %53 = and i32 %52, -257
-  %54 = sext i32 %53 to i64
-  br label %66
+.thread.i:                                        ; preds = %46
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %51 = load i32, ptr %50, align 4, !tbaa !36
+  %52 = and i32 %51, -257
+  %53 = sext i32 %52 to i64
+  br label %65
 
-55:                                               ; preds = %47
-  %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %57 = load i64, ptr %56, align 8, !tbaa !38
-  %58 = icmp eq i64 %57, -4
-  br i1 %58, label %59, label %66
+54:                                               ; preds = %46
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %56 = load i64, ptr %55, align 8, !tbaa !38
+  %57 = icmp eq i64 %56, -4
+  br i1 %57, label %58, label %65
 
-59:                                               ; preds = %55
-  %60 = load i32, ptr %48, align 8, !tbaa !39
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !15
-  %64 = load i64, ptr %7, align 8, !tbaa !6
-  %65 = and i64 %64, 16
-  %.not80.i = icmp eq i64 %65, 0
-  br i1 %.not80.i, label %.sink.split.i, label %72
+58:                                               ; preds = %54
+  %59 = load i32, ptr %47, align 8, !tbaa !39
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %62 = load ptr, ptr %61, align 8, !tbaa !15
+  %63 = load i64, ptr %7, align 8, !tbaa !6
+  %64 = and i64 %63, 16
+  %.not80.i = icmp eq i64 %64, 0
+  br i1 %.not80.i, label %.sink.split.i, label %71
 
-66:                                               ; preds = %55, %.thread.i
-  %.07285.i = phi i64 [ %54, %.thread.i ], [ %57, %55 ]
-  %67 = load i64, ptr %7, align 8, !tbaa !6
-  %68 = and i64 %67, 8
-  %.not79.i = icmp eq i64 %68, 0
-  br i1 %.not79.i, label %72, label %69
+65:                                               ; preds = %54, %.thread.i
+  %.07285.i = phi i64 [ %53, %.thread.i ], [ %56, %54 ]
+  %66 = load i64, ptr %7, align 8, !tbaa !6
+  %67 = and i64 %66, 8
+  %.not79.i = icmp eq i64 %67, 0
+  br i1 %.not79.i, label %71, label %68
 
-69:                                               ; preds = %66
-  %70 = trunc i64 %.07285.i to i32
+68:                                               ; preds = %65
+  %69 = trunc i64 %.07285.i to i32
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %69, %59
-  %.sink.i = phi i32 [ %70, %69 ], [ %60, %59 ]
-  %.173.ph.i = phi i64 [ %.07285.i, %69 ], [ %61, %59 ]
-  %.071.ph.i = phi ptr [ %48, %69 ], [ %63, %59 ]
-  %.066.ph.i = phi ptr [ %1, %69 ], [ %62, %59 ]
-  %71 = tail call ptr @ASN1_tag2str(i32 noundef %.sink.i) #8
-  br label %72
+.sink.split.i:                                    ; preds = %68, %58
+  %.sink.i = phi i32 [ %69, %68 ], [ %59, %58 ]
+  %.173.ph.i = phi i64 [ %.07285.i, %68 ], [ %60, %58 ]
+  %.071.ph.i = phi ptr [ %47, %68 ], [ %62, %58 ]
+  %.066.ph.i = phi ptr [ %1, %68 ], [ %61, %58 ]
+  %70 = tail call ptr @ASN1_tag2str(i32 noundef %.sink.i) #8
+  br label %71
 
-72:                                               ; preds = %.sink.split.i, %66, %59
-  %.173.i = phi i64 [ %61, %59 ], [ %.07285.i, %66 ], [ %.173.ph.i, %.sink.split.i ]
-  %.071.i = phi ptr [ %63, %59 ], [ %48, %66 ], [ %.071.ph.i, %.sink.split.i ]
-  %.1.i = phi ptr [ null, %59 ], [ null, %66 ], [ %71, %.sink.split.i ]
-  %.066.i = phi ptr [ %62, %59 ], [ %1, %66 ], [ %.066.ph.i, %.sink.split.i ]
-  %73 = icmp eq i64 %.173.i, 5
-  br i1 %73, label %asn1_primitive_print.exit, label %74
+71:                                               ; preds = %.sink.split.i, %65, %58
+  %.173.i = phi i64 [ %60, %58 ], [ %.07285.i, %65 ], [ %.173.ph.i, %.sink.split.i ]
+  %.071.i = phi ptr [ %62, %58 ], [ %47, %65 ], [ %.071.ph.i, %.sink.split.i ]
+  %.1.i = phi ptr [ null, %58 ], [ null, %65 ], [ %70, %.sink.split.i ]
+  %.066.i = phi ptr [ %61, %58 ], [ %1, %65 ], [ %.066.ph.i, %.sink.split.i ]
+  %72 = icmp eq i64 %.173.i, 5
+  br i1 %72, label %asn1_primitive_print.exit, label %73
 
-74:                                               ; preds = %72
+73:                                               ; preds = %71
   %.not81.i = icmp eq ptr %.1.i, null
-  br i1 %.not81.i, label %81, label %75
+  br i1 %.not81.i, label %80, label %74
 
-75:                                               ; preds = %74
-  %76 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %.1.i) #8
-  %77 = icmp slt i32 %76, 1
-  br i1 %77, label %.critedge, label %78
+74:                                               ; preds = %73
+  %75 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %.1.i) #8
+  %76 = icmp slt i32 %75, 1
+  br i1 %76, label %.critedge, label %77
 
-78:                                               ; preds = %75
-  %79 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.17) #8
-  %80 = icmp slt i32 %79, 1
-  br i1 %80, label %.critedge, label %81
+77:                                               ; preds = %74
+  %78 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.17) #8
+  %79 = icmp slt i32 %78, 1
+  br i1 %79, label %.critedge, label %80
 
-81:                                               ; preds = %78, %74
-  switch i64 %.173.i, label %111 [
-    i64 1, label %82
-    i64 2, label %92
-    i64 10, label %92
-    i64 23, label %94
-    i64 24, label %96
-    i64 6, label %98
+80:                                               ; preds = %77, %73
+  switch i64 %.173.i, label %110 [
+    i64 1, label %81
+    i64 2, label %91
+    i64 10, label %91
+    i64 23, label %93
+    i64 24, label %95
+    i64 6, label %97
     i64 4, label %.thread101.i
     i64 3, label %.thread101.i
-    i64 16, label %101
-    i64 17, label %101
-    i64 -3, label %101
+    i64 16, label %100
+    i64 17, label %100
+    i64 -3, label %100
   ]
 
-82:                                               ; preds = %81
-  %83 = load i32, ptr %.066.i, align 4, !tbaa !41
-  %84 = icmp eq i32 %83, -1
-  br i1 %84, label %85, label %89
+81:                                               ; preds = %80
+  %82 = load i32, ptr %.066.i, align 4, !tbaa !41
+  %83 = icmp eq i32 %82, -1
+  br i1 %83, label %84, label %88
 
-85:                                               ; preds = %82
-  %86 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %87 = load i64, ptr %86, align 8, !tbaa !42
-  %88 = trunc i64 %87 to i32
-  br label %89
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %86 = load i64, ptr %85, align 8, !tbaa !42
+  %87 = trunc i64 %86 to i32
+  br label %88
 
-89:                                               ; preds = %85, %82
-  %.0.i = phi i32 [ %88, %85 ], [ %83, %82 ]
+88:                                               ; preds = %84, %81
+  %.0.i = phi i32 [ %87, %84 ], [ %82, %81 ]
   %switch.selectcmp.i.i = icmp eq i32 %.0.i, 0
   %switch.select.i.i = select i1 %switch.selectcmp.i.i, ptr @.str.19, ptr @.str.20
   %switch.selectcmp4.i.i = icmp eq i32 %.0.i, -1
   %switch.select5.i.i = select i1 %switch.selectcmp4.i.i, ptr @.str.18, ptr %switch.select.i.i
-  %90 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %switch.select5.i.i) #8
-  %91 = icmp sgt i32 %90, 0
-  %.03.i.i = zext i1 %91 to i32
-  br label %115
+  %89 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %switch.select5.i.i) #8
+  %90 = icmp sgt i32 %89, 0
+  %.03.i.i = zext i1 %90 to i32
+  br label %114
 
-92:                                               ; preds = %81, %81
-  %93 = tail call fastcc i32 @asn1_print_integer_ctx(ptr noundef %0, ptr noundef %.071.i)
-  br label %115
+91:                                               ; preds = %80, %80
+  %92 = tail call fastcc i32 @asn1_print_integer_ctx(ptr noundef %0, ptr noundef %.071.i)
+  br label %114
 
-94:                                               ; preds = %81
-  %95 = tail call i32 @ASN1_UTCTIME_print(ptr noundef %0, ptr noundef %.071.i) #8
-  br label %115
+93:                                               ; preds = %80
+  %94 = tail call i32 @ASN1_UTCTIME_print(ptr noundef %0, ptr noundef %.071.i) #8
+  br label %114
 
-96:                                               ; preds = %81
-  %97 = tail call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %0, ptr noundef %.071.i) #8
-  br label %115
+95:                                               ; preds = %80
+  %96 = tail call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %0, ptr noundef %.071.i) #8
+  br label %114
 
-98:                                               ; preds = %81
-  %99 = load ptr, ptr %.066.i, align 8, !tbaa !15
-  %100 = tail call fastcc i32 @asn1_print_oid_ctx(ptr noundef %0, ptr noundef %99)
-  br label %115
+97:                                               ; preds = %80
+  %98 = load ptr, ptr %.066.i, align 8, !tbaa !15
+  %99 = tail call fastcc i32 @asn1_print_oid_ctx(ptr noundef %0, ptr noundef %98)
+  br label %114
 
-101:                                              ; preds = %81, %81, %81
-  %102 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.6) #8
-  %103 = icmp slt i32 %102, 1
-  br i1 %103, label %.critedge, label %104
+100:                                              ; preds = %80, %80, %80
+  %101 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.6) #8
+  %102 = icmp slt i32 %101, 1
+  br i1 %102, label %.critedge, label %103
 
-104:                                              ; preds = %101
-  %105 = getelementptr inbounds nuw i8, ptr %.071.i, i64 8
-  %106 = load ptr, ptr %105, align 8, !tbaa !43
-  %107 = load i32, ptr %.071.i, align 8, !tbaa !44
-  %108 = sext i32 %107 to i64
-  %109 = tail call i32 @ASN1_parse_dump(ptr noundef %0, ptr noundef %106, i64 noundef %108, i32 noundef %2, i32 noundef 0) #8
-  %110 = icmp slt i32 %109, 1
-  br i1 %110, label %.critedge, label %asn1_primitive_print.exit.thread149
+103:                                              ; preds = %100
+  %104 = getelementptr inbounds nuw i8, ptr %.071.i, i64 8
+  %105 = load ptr, ptr %104, align 8, !tbaa !43
+  %106 = load i32, ptr %.071.i, align 8, !tbaa !44
+  %107 = sext i32 %106 to i64
+  %108 = tail call i32 @ASN1_parse_dump(ptr noundef %0, ptr noundef %105, i64 noundef %107, i32 noundef %2, i32 noundef 0) #8
+  %109 = icmp slt i32 %108, 1
+  br i1 %109, label %.critedge, label %asn1_primitive_print.exit.thread149
 
-111:                                              ; preds = %81
-  %112 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %113 = load i64, ptr %112, align 8, !tbaa !14
-  %114 = tail call i32 @ASN1_STRING_print_ex(ptr noundef %0, ptr noundef %.071.i, i64 noundef %113) #8
-  br label %115
+110:                                              ; preds = %80
+  %111 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %112 = load i64, ptr %111, align 8, !tbaa !14
+  %113 = tail call i32 @ASN1_STRING_print_ex(ptr noundef %0, ptr noundef %.071.i, i64 noundef %112) #8
+  br label %114
 
-115:                                              ; preds = %111, %98, %96, %94, %92, %89
-  %.069.i = phi i32 [ %114, %111 ], [ %.03.i.i, %89 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %100, %98 ]
+114:                                              ; preds = %110, %97, %95, %93, %91, %88
+  %.069.i = phi i32 [ %113, %110 ], [ %.03.i.i, %88 ], [ %92, %91 ], [ %94, %93 ], [ %96, %95 ], [ %99, %97 ]
   %.not82.i = icmp eq i32 %.069.i, 0
-  br i1 %.not82.i, label %.critedge, label %117
+  br i1 %.not82.i, label %.critedge, label %116
 
-.thread101.i:                                     ; preds = %81, %81
-  %116 = tail call fastcc i32 @asn1_print_obstring_ctx(ptr noundef %0, ptr noundef %.071.i, i32 noundef %2)
-  %.not82104.i = icmp eq i32 %116, 0
+.thread101.i:                                     ; preds = %80, %80
+  %115 = tail call fastcc i32 @asn1_print_obstring_ctx(ptr noundef %0, ptr noundef %.071.i, i32 noundef %2)
+  %.not82104.i = icmp eq i32 %115, 0
   br i1 %.not82104.i, label %.critedge, label %asn1_primitive_print.exit.thread149
 
-117:                                              ; preds = %115
-  %118 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.6) #8
-  %119 = icmp slt i32 %118, 1
-  br i1 %119, label %.critedge, label %asn1_primitive_print.exit.thread149
+116:                                              ; preds = %114
+  %117 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.6) #8
+  %118 = icmp slt i32 %117, 1
+  br i1 %118, label %.critedge, label %asn1_primitive_print.exit.thread149
 
-asn1_primitive_print.exit:                        ; preds = %72
-  %120 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.16) #8
-  %121 = icmp slt i32 %120, 1
-  br i1 %121, label %.critedge, label %asn1_primitive_print.exit.thread149
+asn1_primitive_print.exit:                        ; preds = %71
+  %119 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.16) #8
+  %120 = icmp slt i32 %119, 1
+  br i1 %120, label %.critedge, label %asn1_primitive_print.exit.thread149
 
-122:                                              ; preds = %31
+121:                                              ; preds = %30
   %.not134 = icmp eq i32 %6, 0
-  br i1 %.not134, label %123, label %125
+  br i1 %.not134, label %122, label %124
 
-123:                                              ; preds = %122
-  %124 = tail call fastcc i32 @asn1_print_fsname(ptr noundef %0, i32 noundef %2, ptr noundef %4, ptr noundef %5, ptr noundef %7)
-  %.not135 = icmp eq i32 %124, 0
+122:                                              ; preds = %121
+  %123 = tail call fastcc i32 @asn1_print_fsname(ptr noundef %0, i32 noundef %2, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+  %.not135 = icmp eq i32 %123, 0
   br i1 %.not135, label %.critedge, label %._crit_edge155
 
-._crit_edge155:                                   ; preds = %123
+._crit_edge155:                                   ; preds = %122
   %.pre = load ptr, ptr %10, align 8, !tbaa !22
-  br label %125
+  br label %124
 
-125:                                              ; preds = %._crit_edge155, %122
-  %126 = phi ptr [ %.pre, %._crit_edge155 ], [ %11, %122 ]
-  %.not136 = icmp eq ptr %126, null
-  br i1 %.not136, label %136, label %127
+124:                                              ; preds = %._crit_edge155, %121
+  %125 = phi ptr [ %.pre, %._crit_edge155 ], [ %11, %121 ]
+  %.not136 = icmp eq ptr %125, null
+  br i1 %.not136, label %134, label %126
 
-127:                                              ; preds = %125
-  %128 = getelementptr inbounds nuw i8, ptr %126, i64 48
-  %129 = load ptr, ptr %128, align 8, !tbaa !45
-  %.not137 = icmp eq ptr %129, null
-  br i1 %.not137, label %136, label %130
+126:                                              ; preds = %124
+  %127 = getelementptr inbounds nuw i8, ptr %125, i64 48
+  %128 = load ptr, ptr %127, align 8, !tbaa !45
+  %.not137 = icmp eq ptr %128, null
+  br i1 %.not137, label %134, label %129
 
-130:                                              ; preds = %127
-  %131 = tail call i32 %129(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull @.str.4, ptr noundef %7) #8
-  switch i32 %131, label %135 [
+129:                                              ; preds = %126
+  %130 = tail call i32 %128(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull @.str.4, ptr noundef %7) #8
+  switch i32 %130, label %asn1_primitive_print.exit.thread149 [
     i32 0, label %.critedge
-    i32 2, label %132
+    i32 2, label %131
   ]
 
-132:                                              ; preds = %130
-  %133 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.6) #8
-  %134 = icmp slt i32 %133, 1
-  br i1 %134, label %.critedge, label %135
+131:                                              ; preds = %129
+  %132 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.6) #8
+  %133 = icmp slt i32 %132, 1
+  br i1 %133, label %.critedge, label %asn1_primitive_print.exit.thread149
 
-135:                                              ; preds = %130, %132
-  br label %.critedge
-
-136:                                              ; preds = %127, %125
+134:                                              ; preds = %126, %124
   %.not138 = icmp eq ptr %5, null
-  br i1 %.not138, label %asn1_primitive_print.exit.thread149, label %137
+  br i1 %.not138, label %asn1_primitive_print.exit.thread149, label %135
 
-137:                                              ; preds = %136
-  %138 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %5) #8
-  %139 = icmp slt i32 %138, 1
-  br i1 %139, label %.critedge, label %asn1_primitive_print.exit.thread149
+135:                                              ; preds = %134
+  %136 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %5) #8
+  %137 = icmp slt i32 %136, 1
+  br i1 %137, label %.critedge, label %asn1_primitive_print.exit.thread149
 
-140:                                              ; preds = %31
-  %141 = tail call i32 @asn1_get_choice_selector(ptr noundef nonnull %1, ptr noundef nonnull %3) #8
-  %142 = icmp slt i32 %141, 0
-  br i1 %142, label %147, label %143
+138:                                              ; preds = %30
+  %139 = tail call i32 @asn1_get_choice_selector(ptr noundef nonnull %1, ptr noundef nonnull %3) #8
+  %140 = icmp slt i32 %139, 0
+  br i1 %140, label %145, label %141
 
-143:                                              ; preds = %140
-  %144 = zext nneg i32 %141 to i64
-  %145 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %146 = load i64, ptr %145, align 8, !tbaa !47
-  %.not132 = icmp sgt i64 %146, %144
-  br i1 %.not132, label %150, label %147
+141:                                              ; preds = %138
+  %142 = zext nneg i32 %139 to i64
+  %143 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %144 = load i64, ptr %143, align 8, !tbaa !47
+  %.not132 = icmp sgt i64 %144, %142
+  br i1 %.not132, label %148, label %145
 
-147:                                              ; preds = %143, %140
-  %148 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %141) #8
-  %149 = icmp sgt i32 %148, 0
-  %. = zext i1 %149 to i32
+145:                                              ; preds = %141, %138
+  %146 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %139) #8
+  %147 = icmp sgt i32 %146, 0
+  %. = zext i1 %147 to i32
   br label %.critedge
 
-150:                                              ; preds = %143
-  %151 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %152 = load ptr, ptr %151, align 8, !tbaa !33
-  %153 = getelementptr inbounds nuw [40 x i8], ptr %152, i64 %144
-  %154 = tail call ptr @asn1_get_field_ptr(ptr noundef nonnull %1, ptr noundef %153) #8
-  %155 = tail call i32 @asn1_template_print_ctx(ptr noundef %0, ptr noundef %154, i32 noundef %2, ptr noundef %153, ptr noundef %7)
-  %.not133 = icmp eq i32 %155, 0
+148:                                              ; preds = %141
+  %149 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %150 = load ptr, ptr %149, align 8, !tbaa !33
+  %151 = getelementptr inbounds nuw [40 x i8], ptr %150, i64 %142
+  %152 = tail call ptr @asn1_get_field_ptr(ptr noundef nonnull %1, ptr noundef %151) #8
+  %153 = tail call i32 @asn1_template_print_ctx(ptr noundef %0, ptr noundef %152, i32 noundef %2, ptr noundef %151, ptr noundef %7)
+  %.not133 = icmp eq i32 %153, 0
   br i1 %.not133, label %.critedge, label %asn1_primitive_print.exit.thread149
 
-156:                                              ; preds = %31, %31
+154:                                              ; preds = %30, %30
   %.not125 = icmp eq i32 %6, 0
-  br i1 %.not125, label %157, label %159
+  br i1 %.not125, label %155, label %157
 
-157:                                              ; preds = %156
-  %158 = tail call fastcc i32 @asn1_print_fsname(ptr noundef %0, i32 noundef %2, ptr noundef %4, ptr noundef %5, ptr noundef %7)
-  %.not126 = icmp eq i32 %158, 0
-  br i1 %.not126, label %.critedge, label %159
+155:                                              ; preds = %154
+  %156 = tail call fastcc i32 @asn1_print_fsname(ptr noundef %0, i32 noundef %2, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+  %.not126 = icmp eq i32 %156, 0
+  br i1 %.not126, label %.critedge, label %157
 
-159:                                              ; preds = %157, %156
-  %160 = icmp ne ptr %4, null
-  %161 = icmp ne ptr %5, null
-  %or.cond = or i1 %160, %161
-  br i1 %or.cond, label %162, label %171
+157:                                              ; preds = %155, %154
+  %158 = icmp ne ptr %4, null
+  %159 = icmp ne ptr %5, null
+  %or.cond = or i1 %158, %159
+  br i1 %or.cond, label %160, label %169
 
-162:                                              ; preds = %159
-  %163 = load i64, ptr %7, align 8, !tbaa !6
-  %164 = and i64 %163, 2
-  %.not127 = icmp eq i64 %164, 0
-  br i1 %.not127, label %168, label %165
+160:                                              ; preds = %157
+  %161 = load i64, ptr %7, align 8, !tbaa !6
+  %162 = and i64 %161, 2
+  %.not127 = icmp eq i64 %162, 0
+  br i1 %.not127, label %166, label %163
 
-165:                                              ; preds = %162
-  %166 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #8
-  %167 = icmp slt i32 %166, 1
-  br i1 %167, label %.critedge, label %171
+163:                                              ; preds = %160
+  %164 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #8
+  %165 = icmp slt i32 %164, 1
+  br i1 %165, label %.critedge, label %169
 
-168:                                              ; preds = %162
-  %169 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.6) #8
-  %170 = icmp slt i32 %169, 1
-  br i1 %170, label %.critedge, label %171
+166:                                              ; preds = %160
+  %167 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.6) #8
+  %168 = icmp slt i32 %167, 1
+  br i1 %168, label %.critedge, label %169
 
-171:                                              ; preds = %165, %168, %159
+169:                                              ; preds = %163, %166, %157
   %.not128 = icmp eq ptr %.0112, null
-  br i1 %.not128, label %175, label %172
+  br i1 %.not128, label %172, label %170
 
-172:                                              ; preds = %171
-  %173 = call i32 %.0112(i32 noundef 8, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %9) #8
-  switch i32 %173, label %175 [
+170:                                              ; preds = %169
+  %171 = call i32 %.0112(i32 noundef 8, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %9) #8
+  switch i32 %171, label %172 [
     i32 0, label %.critedge
-    i32 2, label %174
+    i32 2, label %asn1_primitive_print.exit.thread149
   ]
 
-174:                                              ; preds = %172
-  br label %.critedge
+172:                                              ; preds = %170, %169
+  %173 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %174 = load i64, ptr %173, align 8, !tbaa !47
+  %175 = icmp sgt i64 %174, 0
+  br i1 %175, label %.lr.ph, label %._crit_edge
 
-175:                                              ; preds = %172, %171
-  %176 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %177 = load i64, ptr %176, align 8, !tbaa !47
-  %178 = icmp sgt i64 %177, 0
-  br i1 %178, label %.lr.ph, label %._crit_edge
+.lr.ph:                                           ; preds = %172
+  %176 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %177 = load ptr, ptr %176, align 8, !tbaa !33
+  %178 = add nsw i32 %2, 2
+  br label %179
 
-.lr.ph:                                           ; preds = %175
-  %179 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %180 = load ptr, ptr %179, align 8, !tbaa !33
-  %181 = add nsw i32 %2, 2
-  br label %182
+179:                                              ; preds = %.lr.ph, %184
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %184 ]
+  %.0113152 = phi ptr [ %177, %.lr.ph ], [ %185, %184 ]
+  %180 = call ptr @asn1_do_adb(ptr noundef nonnull %1, ptr noundef %.0113152, i32 noundef 1) #8
+  %.not130 = icmp eq ptr %180, null
+  br i1 %.not130, label %.critedge, label %181
 
-182:                                              ; preds = %.lr.ph, %187
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %187 ]
-  %.0113152 = phi ptr [ %180, %.lr.ph ], [ %188, %187 ]
-  %183 = call ptr @asn1_do_adb(ptr noundef nonnull %1, ptr noundef %.0113152, i32 noundef 1) #8
-  %.not130 = icmp eq ptr %183, null
-  br i1 %.not130, label %.critedge, label %184
+181:                                              ; preds = %179
+  %182 = call ptr @asn1_get_field_ptr(ptr noundef nonnull %1, ptr noundef nonnull %180) #8
+  %183 = call i32 @asn1_template_print_ctx(ptr noundef %0, ptr noundef %182, i32 noundef %178, ptr noundef nonnull %180, ptr noundef %7)
+  %.not131.not = icmp eq i32 %183, 0
+  br i1 %.not131.not, label %.critedge, label %184
 
-184:                                              ; preds = %182
-  %185 = call ptr @asn1_get_field_ptr(ptr noundef nonnull %1, ptr noundef nonnull %183) #8
-  %186 = call i32 @asn1_template_print_ctx(ptr noundef %0, ptr noundef %185, i32 noundef %181, ptr noundef nonnull %183, ptr noundef %7)
-  %.not131.not = icmp eq i32 %186, 0
-  br i1 %.not131.not, label %.critedge, label %187
-
-187:                                              ; preds = %184
+184:                                              ; preds = %181
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %188 = getelementptr inbounds nuw i8, ptr %.0113152, i64 40
-  %189 = load i64, ptr %176, align 8, !tbaa !47
-  %190 = icmp sgt i64 %189, %indvars.iv.next
-  br i1 %190, label %182, label %._crit_edge, !llvm.loop !48
+  %185 = getelementptr inbounds nuw i8, ptr %.0113152, i64 40
+  %186 = load i64, ptr %173, align 8, !tbaa !47
+  %187 = icmp sgt i64 %186, %indvars.iv.next
+  br i1 %187, label %179, label %._crit_edge, !llvm.loop !48
 
-._crit_edge:                                      ; preds = %187, %175
-  %191 = load i64, ptr %7, align 8, !tbaa !6
-  %192 = and i64 %191, 2
-  %.not129 = icmp eq i64 %192, 0
-  br i1 %.not129, label %196, label %193
+._crit_edge:                                      ; preds = %184, %172
+  %188 = load i64, ptr %7, align 8, !tbaa !6
+  %189 = and i64 %188, 2
+  %.not129 = icmp eq i64 %189, 0
+  br i1 %.not129, label %193, label %190
 
-193:                                              ; preds = %._crit_edge
-  %194 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %2, ptr noundef nonnull @.str.4) #8
-  %195 = icmp slt i32 %194, 0
-  br i1 %195, label %.critedge, label %196
+190:                                              ; preds = %._crit_edge
+  %191 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %2, ptr noundef nonnull @.str.4) #8
+  %192 = icmp slt i32 %191, 0
+  br i1 %192, label %.critedge, label %193
 
-196:                                              ; preds = %193, %._crit_edge
-  br i1 %.not128, label %asn1_primitive_print.exit.thread149, label %197
+193:                                              ; preds = %190, %._crit_edge
+  br i1 %.not128, label %asn1_primitive_print.exit.thread149, label %194
 
-197:                                              ; preds = %196
-  %198 = call i32 %.0112(i32 noundef 9, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %9) #8
-  %199 = icmp eq i32 %198, 0
-  br i1 %199, label %.critedge, label %asn1_primitive_print.exit.thread149
+194:                                              ; preds = %193
+  %195 = call i32 %.0112(i32 noundef 9, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %9) #8
+  %196 = icmp eq i32 %195, 0
+  br i1 %196, label %.critedge, label %asn1_primitive_print.exit.thread149
 
-200:                                              ; preds = %31
-  %201 = sext i8 %32 to i32
-  %202 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %201) #8
+197:                                              ; preds = %30
+  %198 = sext i8 %31 to i32
+  %199 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %198) #8
   br label %.critedge
 
-asn1_primitive_print.exit.thread149:              ; preds = %44, %117, %.thread101.i, %104, %196, %197, %150, %137, %136, %asn1_primitive_print.exit, %36
+asn1_primitive_print.exit.thread149:              ; preds = %21, %27, %131, %129, %170, %43, %116, %.thread101.i, %103, %193, %194, %148, %135, %134, %asn1_primitive_print.exit, %35
   br label %.critedge
 
-.critedge:                                        ; preds = %182, %184, %44, %.thread101.i, %104, %117, %101, %115, %75, %78, %38, %197, %193, %172, %168, %165, %157, %150, %147, %137, %132, %130, %123, %asn1_primitive_print.exit, %36, %27, %25, %asn1_primitive_print.exit.thread149, %200, %174, %135, %30
-  %.0 = phi i32 [ 0, %25 ], [ 1, %30 ], [ 0, %150 ], [ 0, %200 ], [ 1, %asn1_primitive_print.exit.thread149 ], [ 0, %27 ], [ 0, %36 ], [ %131, %130 ], [ 1, %135 ], [ 0, %123 ], [ 0, %132 ], [ 0, %asn1_primitive_print.exit ], [ %., %147 ], [ 0, %137 ], [ 0, %165 ], [ 0, %157 ], [ 0, %168 ], [ 1, %174 ], [ 0, %104 ], [ 0, %197 ], [ 0, %193 ], [ %173, %172 ], [ 0, %.thread101.i ], [ 0, %38 ], [ 0, %78 ], [ 0, %75 ], [ 0, %115 ], [ 0, %101 ], [ 0, %117 ], [ 0, %44 ], [ 0, %184 ], [ 0, %182 ]
+.critedge:                                        ; preds = %179, %181, %43, %.thread101.i, %103, %116, %100, %114, %74, %77, %37, %194, %190, %170, %166, %163, %155, %148, %145, %135, %131, %129, %122, %asn1_primitive_print.exit, %35, %27, %25, %asn1_primitive_print.exit.thread149, %197
+  %.0 = phi i32 [ 0, %25 ], [ 0, %100 ], [ 0, %148 ], [ 0, %197 ], [ 1, %asn1_primitive_print.exit.thread149 ], [ 0, %27 ], [ 0, %35 ], [ %130, %129 ], [ 0, %116 ], [ 0, %122 ], [ 0, %131 ], [ 0, %asn1_primitive_print.exit ], [ %., %145 ], [ 0, %135 ], [ 0, %163 ], [ 0, %155 ], [ 0, %166 ], [ 0, %43 ], [ 0, %103 ], [ 0, %194 ], [ 0, %190 ], [ %171, %170 ], [ 0, %.thread101.i ], [ 0, %37 ], [ 0, %77 ], [ 0, %74 ], [ 0, %114 ], [ 0, %181 ], [ 0, %179 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }

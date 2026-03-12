@@ -4817,8 +4817,8 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread.us.us: ; preds = %_ZNK4llvm8
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 36
   %42 = load i32, ptr %41, align 4, !tbaa !372
   switch i32 %42, label %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.us.us [
-    i32 194, label %.thread60.loopexit
-    i32 216, label %.thread60.loopexit141
+    i32 194, label %.thread60.loopexit136
+    i32 216, label %.thread60.loopexit
     i32 373, label %.thread60
   ]
 
@@ -4928,7 +4928,7 @@ _ZNK4llvm8CallInst14canReturnTwiceEv.exit:        ; preds = %80
   %87 = load i32, ptr %86, align 4, !tbaa !372
   switch i32 %87, label %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread [
     i32 194, label %.thread60.loopexit136
-    i32 216, label %.thread60.loopexit145
+    i32 216, label %.thread60.loopexit146
     i32 373, label %.thread60
   ]
 
@@ -4944,20 +4944,17 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread: ; preds = 
   %.not = icmp eq ptr %.sroa.055.0, %4
   br i1 %.not, label %.thread60, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit
 
+.thread60.loopexit136:                            ; preds = %85, %40
+  br label %.thread60
+
 .thread60.loopexit:                               ; preds = %40
   br label %.thread60
 
-.thread60.loopexit136:                            ; preds = %85
+.thread60.loopexit146:                            ; preds = %85
   br label %.thread60
 
-.thread60.loopexit141:                            ; preds = %40
-  br label %.thread60
-
-.thread60.loopexit145:                            ; preds = %85
-  br label %.thread60
-
-.thread60:                                        ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %._crit_edge.split, %.lr.ph, %_ZNK4llvm8CallInst14canReturnTwiceEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %80, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.us, %._crit_edge.split.us.us, %.lr.ph.us, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.us.us, %85, %40, %.thread60.loopexit145, %.thread60.loopexit141, %.thread60.loopexit136, %.thread60.loopexit, %1
-  %.sroa.035.11 = phi ptr [ @.str.90, %.thread60.loopexit141 ], [ @.str.91, %85 ], [ @.str.85, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.us ], [ @.str.91, %40 ], [ @.str.86, %.lr.ph ], [ @.str.90, %.thread60.loopexit145 ], [ null, %1 ], [ @.str.89, %.thread60.loopexit ], [ @.str.86, %.lr.ph.us ], [ @.str.89, %.thread60.loopexit136 ], [ @.str.87, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.us.us ], [ null, %._crit_edge.split.us.us ], [ @.str.87, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ @.str.88, %_ZNK4llvm8CallInst14canReturnTwiceEv.exit ], [ @.str.88, %80 ], [ @.str.85, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ null, %._crit_edge.split ]
+.thread60:                                        ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %._crit_edge.split, %.lr.ph, %_ZNK4llvm8CallInst14canReturnTwiceEv.exit, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %80, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.us, %._crit_edge.split.us.us, %.lr.ph.us, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.us.us, %40, %85, %.thread60.loopexit146, %.thread60.loopexit, %.thread60.loopexit136, %1
+  %.sroa.035.11 = phi ptr [ @.str.86, %.lr.ph.us ], [ @.str.91, %40 ], [ @.str.90, %.thread60.loopexit ], [ @.str.86, %.lr.ph ], [ @.str.89, %.thread60.loopexit136 ], [ @.str.85, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.us ], [ null, %1 ], [ @.str.90, %.thread60.loopexit146 ], [ @.str.91, %85 ], [ @.str.87, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.us.us ], [ null, %._crit_edge.split.us.us ], [ @.str.88, %_ZNK4llvm8CallInst14canReturnTwiceEv.exit ], [ @.str.88, %80 ], [ @.str.87, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ null, %._crit_edge.split ], [ @.str.85, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ]
   ret ptr %.sroa.035.11
 }
 
@@ -20104,7 +20101,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch10FNeg_matc
     i32 16, label %15
   ]
 
-14:                                               ; preds = %6
+14:                                               ; preds = %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_14is_neg_zero_fpENS_10ConstantFPELb1EE5matchINS_5ValueEEEbPT_.exit, %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_14is_any_zero_fpENS_10ConstantFPELb1EE5matchINS_5ValueEEEbPT_.exit, %6
   br label %_ZNK4llvm4User10getOperandEj.exit
 
 15:                                               ; preds = %6
@@ -20150,7 +20147,7 @@ _ZNK4llvm4User10getOperandEj.exit14:              ; preds = %23, %26
 
 _ZN4llvm12PatternMatch14cstval_pred_tyINS0_14is_any_zero_fpENS_10ConstantFPELb1EE5matchINS_5ValueEEEbPT_.exit: ; preds = %_ZNK4llvm4User10getOperandEj.exit14, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %33, label %_ZNK4llvm4User10getOperandEj.exit20, label %_ZNK4llvm4User10getOperandEj.exit
+  br i1 %33, label %14, label %_ZNK4llvm4User10getOperandEj.exit
 
 36:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -20187,13 +20184,10 @@ _ZNK4llvm4User10getOperandEj.exit16:              ; preds = %39, %42
 
 _ZN4llvm12PatternMatch14cstval_pred_tyINS0_14is_neg_zero_fpENS_10ConstantFPELb1EE5matchINS_5ValueEEEbPT_.exit: ; preds = %_ZNK4llvm4User10getOperandEj.exit16, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %49, label %_ZNK4llvm4User10getOperandEj.exit20, label %_ZNK4llvm4User10getOperandEj.exit
+  br i1 %49, label %14, label %_ZNK4llvm4User10getOperandEj.exit
 
-_ZNK4llvm4User10getOperandEj.exit20:              ; preds = %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_14is_any_zero_fpENS_10ConstantFPELb1EE5matchINS_5ValueEEEbPT_.exit, %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_14is_neg_zero_fpENS_10ConstantFPELb1EE5matchINS_5ValueEEEbPT_.exit
-  br label %_ZNK4llvm4User10getOperandEj.exit
-
-_ZNK4llvm4User10getOperandEj.exit:                ; preds = %14, %6, %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_14is_neg_zero_fpENS_10ConstantFPELb1EE5matchINS_5ValueEEEbPT_.exit, %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_14is_any_zero_fpENS_10ConstantFPELb1EE5matchINS_5ValueEEEbPT_.exit, %2, %_ZNK4llvm4User10getOperandEj.exit20
-  %.0 = phi i1 [ false, %6 ], [ false, %2 ], [ true, %_ZNK4llvm4User10getOperandEj.exit20 ], [ false, %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_14is_any_zero_fpENS_10ConstantFPELb1EE5matchINS_5ValueEEEbPT_.exit ], [ false, %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_14is_neg_zero_fpENS_10ConstantFPELb1EE5matchINS_5ValueEEEbPT_.exit ], [ true, %14 ]
+_ZNK4llvm4User10getOperandEj.exit:                ; preds = %14, %6, %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_14is_neg_zero_fpENS_10ConstantFPELb1EE5matchINS_5ValueEEEbPT_.exit, %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_14is_any_zero_fpENS_10ConstantFPELb1EE5matchINS_5ValueEEEbPT_.exit, %2
+  %.0 = phi i1 [ false, %6 ], [ false, %2 ], [ true, %14 ], [ false, %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_14is_any_zero_fpENS_10ConstantFPELb1EE5matchINS_5ValueEEEbPT_.exit ], [ false, %_ZN4llvm12PatternMatch14cstval_pred_tyINS0_14is_neg_zero_fpENS_10ConstantFPELb1EE5matchINS_5ValueEEEbPT_.exit ]
   ret i1 %.0
 }
 

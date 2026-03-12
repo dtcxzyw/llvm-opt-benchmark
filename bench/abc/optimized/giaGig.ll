@@ -785,7 +785,7 @@ define noalias noundef ptr @Gls_ManCount(ptr noundef captures(none) %0, ptr noun
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %.2, i64 3
   %20 = load i8, ptr %19, align 1, !tbaa !51
-  switch i8 %20, label %.fold.split [
+  switch i8 %20, label %.loopexit.loopexit [
     i8 52, label %.loopexit
     i8 54, label %21
   ]
@@ -796,7 +796,7 @@ define noalias noundef ptr @Gls_ManCount(ptr noundef captures(none) %0, ptr noun
 22:                                               ; preds = %14
   %23 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %24 = load i8, ptr %23, align 1, !tbaa !51
-  switch i8 %24, label %.fold.split38 [
+  switch i8 %24, label %.loopexit.loopexit [
     i8 73, label %.loopexit
     i8 79, label %25
   ]
@@ -807,7 +807,7 @@ define noalias noundef ptr @Gls_ManCount(ptr noundef captures(none) %0, ptr noun
 26:                                               ; preds = %14
   %27 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %28 = load i8, ptr %27, align 1, !tbaa !51
-  switch i8 %28, label %.fold.split39 [
+  switch i8 %28, label %.loopexit.loopexit [
     i8 111, label %.loopexit
     i8 97, label %29
   ]
@@ -818,7 +818,7 @@ define noalias noundef ptr @Gls_ManCount(ptr noundef captures(none) %0, ptr noun
 30:                                               ; preds = %14
   %31 = getelementptr inbounds nuw i8, ptr %.2, i64 2
   %32 = load i8, ptr %31, align 1, !tbaa !51
-  switch i8 %32, label %.fold.split40 [
+  switch i8 %32, label %.loopexit.loopexit [
     i8 108, label %.loopexit
     i8 113, label %33
   ]
@@ -826,23 +826,11 @@ define noalias noundef ptr @Gls_ManCount(ptr noundef captures(none) %0, ptr noun
 33:                                               ; preds = %30
   br label %.loopexit
 
-.fold.split:                                      ; preds = %18
+.loopexit.loopexit:                               ; preds = %14, %18, %22, %26, %30
   br label %.loopexit
 
-.fold.split38:                                    ; preds = %22
-  br label %.loopexit
-
-.fold.split39:                                    ; preds = %26
-  br label %.loopexit
-
-.fold.split40:                                    ; preds = %30
-  br label %.loopexit
-
-.loopexit.loopexit:                               ; preds = %14
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %14, %.loopexit.loopexit, %30, %.fold.split40, %26, %.fold.split39, %22, %.fold.split38, %18, %.fold.split, %25, %33, %29, %21
-  %.128 = phi i32 [ %.02747, %.fold.split40 ], [ 8, %21 ], [ 7, %18 ], [ %.02747, %.fold.split ], [ 3, %25 ], [ 2, %22 ], [ %.02747, %.fold.split38 ], [ 4, %29 ], [ 9, %26 ], [ %.02747, %.fold.split39 ], [ 5, %33 ], [ 6, %30 ], [ %.02747, %.loopexit.loopexit ], [ 10, %14 ]
+.loopexit:                                        ; preds = %14, %.loopexit.loopexit, %30, %26, %22, %18, %25, %33, %29, %21
+  %.128 = phi i32 [ 5, %33 ], [ 8, %21 ], [ 7, %18 ], [ 6, %30 ], [ 3, %25 ], [ 2, %22 ], [ %.02747, %.loopexit.loopexit ], [ 4, %29 ], [ 9, %26 ], [ 10, %14 ]
   %34 = trunc i32 %.128 to i8
   %35 = load i32, ptr %5, align 4, !tbaa !12
   %36 = load i32, ptr %4, align 8, !tbaa !16

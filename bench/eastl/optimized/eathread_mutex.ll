@@ -166,13 +166,10 @@ if.else:                                          ; preds = %entry
 
 if.then5:                                         ; preds = %if.else
   %call8 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %this) #11
-  switch i32 %call8, label %if.end13 [
+  switch i32 %call8, label %if.end23 [
     i32 0, label %if.end26
     i32 16, label %return
   ]
-
-if.end13:                                         ; preds = %if.then5
-  br label %return
 
 if.else15:                                        ; preds = %if.else
   %call18 = tail call i32 @pthread_mutex_timedlock(ptr noundef nonnull %this, ptr noundef nonnull %timeoutAbsolute) #11
@@ -181,7 +178,7 @@ if.else15:                                        ; preds = %if.else
     i32 110, label %return
   ]
 
-if.end23:                                         ; preds = %if.else15
+if.end23:                                         ; preds = %if.then5, %if.else15
   br label %return
 
 if.end26:                                         ; preds = %if.else15, %if.then5, %if.then
@@ -191,8 +188,8 @@ if.end26:                                         ; preds = %if.else15, %if.then
   store i32 %inc, ptr %mnLockCount, align 8
   br label %return
 
-return:                                           ; preds = %if.else15, %if.then5, %if.then, %if.end26, %if.end23, %if.end13
-  %retval.0 = phi i32 [ -1, %if.end23 ], [ %inc, %if.end26 ], [ -1, %if.then ], [ -1, %if.end13 ], [ -2, %if.then5 ], [ -2, %if.else15 ]
+return:                                           ; preds = %if.else15, %if.then5, %if.then, %if.end26, %if.end23
+  %retval.0 = phi i32 [ -1, %if.end23 ], [ %inc, %if.end26 ], [ -1, %if.then ], [ -2, %if.else15 ], [ -2, %if.then5 ]
   ret i32 %retval.0
 }
 

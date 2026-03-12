@@ -472,7 +472,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit94: ; preds = %_ZNSo
   %.not.i.i.i269 = icmp eq ptr %182, null
   br i1 %.not.i.i.i269, label %.invoke, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i270
 
-.invoke:                                          ; preds = %.noexc113, %.noexc108, %_ZNSolsEPFRSoS_E.exit96, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit94
+.invoke:                                          ; preds = %_ZNSolsEPFRSoS_E.exit96, %.noexc108, %.noexc113, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit94
   invoke void @_ZSt16__throw_bad_castv() #19
           to label %.cont unwind label %332
 

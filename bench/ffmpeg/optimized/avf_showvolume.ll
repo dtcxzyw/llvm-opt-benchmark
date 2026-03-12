@@ -1336,16 +1336,13 @@ drawtext.exit.i:                                  ; preds = %.loopexit59.i.i, %.
   %717 = add nuw nsw i32 %.2419.i52153, 1
   %718 = load i32, ptr %192, align 4, !tbaa !71
   %719 = icmp slt i32 %717, %718
-  br i1 %719, label %610, label %drawtext.exit.i..critedge.i_crit_edge, !llvm.loop !97
+  br i1 %719, label %610, label %..critedge.i.loopexit_crit_edge, !llvm.loop !97
 
-drawtext.exit.i..critedge.i_crit_edge:            ; preds = %drawtext.exit.i
+..critedge.i.loopexit_crit_edge:                  ; preds = %drawtext.exit.i, %610
   br label %.critedge.i, !llvm.loop !97
 
-..critedge.i.loopexit_crit_edge:                  ; preds = %610
-  br label %.critedge.i, !llvm.loop !97
-
-.critedge.i:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.i.loopexit_crit_edge, %drawtext.exit.i..critedge.i_crit_edge
-  %720 = phi i32 [ %718, %drawtext.exit.i..critedge.i_crit_edge ], [ %602, %.lr.ph.preheader ], [ %718, %..critedge.i.loopexit_crit_edge ], [ %718, %.lr.ph ]
+.critedge.i:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.i.loopexit_crit_edge
+  %720 = phi i32 [ %718, %..critedge.i.loopexit_crit_edge ], [ %602, %.lr.ph.preheader ], [ %718, %.lr.ph ]
   %721 = icmp sgt i32 %720, 0
   br i1 %721, label %.lr.ph424.i, label %.critedge2.i
 

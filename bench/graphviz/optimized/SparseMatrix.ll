@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [21 x i8] c"%d %d %16.8g %16.8g\0A\00", align 1
 @.str.9 = private unnamed_addr constant [7 x i8] c"%d %d\0A\00", align 1
 @switch.table.SparseMatrix_export.1 = private unnamed_addr constant [4 x ptr] [ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5], align 8
-@switch.table.SparseMatrix_multiply3 = private unnamed_addr constant [5 x i64] [i64 8, i64 16, i64 4, i64 0, i64 0], align 8
+@switch.table.SparseMatrix_multiply3 = private unnamed_addr constant [3 x i64] [i64 8, i64 16, i64 4], align 8
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @SparseMatrix_sort(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -83,7 +83,7 @@ define noalias ptr @SparseMatrix_transpose(ptr noundef readonly captures(address
 
 .split.i.i:                                       ; preds = %2
   %18 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %13, i1 true)
-  %19 = icmp samesign ult i32 %18, 5
+  %19 = icmp samesign ult i32 %18, 3
   br i1 %19, label %switch.lookup, label %size_of_matrix_type.exit.i
 
 switch.lookup:                                    ; preds = %.split.i.i
@@ -815,7 +815,7 @@ define noundef ptr @SparseMatrix_remove_upper(ptr noundef captures(address_is_nu
   br label %128
 
 128:                                              ; preds = %.split, %2, %1, %._crit_edge205
-  %.0 = phi ptr [ null, %.split ], [ %0, %._crit_edge205 ], [ null, %1 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %1 ], [ %0, %._crit_edge205 ], [ null, %2 ], [ null, %.split ]
   ret ptr %.0
 }
 
@@ -827,7 +827,7 @@ define noalias nonnull ptr @SparseMatrix_new(i32 noundef %0, i32 noundef %1, i32
 
 .split.i:                                         ; preds = %5
   %8 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %3, i1 true)
-  %9 = icmp samesign ult i32 %8, 5
+  %9 = icmp samesign ult i32 %8, 3
   br i1 %9, label %switch.lookup, label %size_of_matrix_type.exit
 
 switch.lookup:                                    ; preds = %.split.i
@@ -1494,7 +1494,7 @@ define noalias ptr @SparseMatrix_add(ptr noundef readonly captures(none) %0, ptr
 
 .split.i.i:                                       ; preds = %18
   %28 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %25, i1 true)
-  %29 = icmp samesign ult i32 %28, 5
+  %29 = icmp samesign ult i32 %28, 3
   br i1 %29, label %switch.lookup, label %size_of_matrix_type.exit.i
 
 switch.lookup:                                    ; preds = %.split.i.i
@@ -3772,7 +3772,7 @@ define noalias ptr @SparseMatrix_multiply(ptr noundef readonly captures(none) %0
 
 .split.i.i:                                       ; preds = %._crit_edge339
   %58 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %17, i1 true)
-  %59 = icmp samesign ult i32 %58, 5
+  %59 = icmp samesign ult i32 %58, 3
   br i1 %59, label %switch.lookup, label %size_of_matrix_type.exit.i
 
 switch.lookup:                                    ; preds = %.split.i.i
@@ -4477,7 +4477,7 @@ define noalias ptr @SparseMatrix_multiply3(ptr noundef readonly captures(none) %
 
 .split.i.i:                                       ; preds = %._crit_edge182
   %79 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %26, i1 true)
-  %80 = icmp samesign ult i32 %79, 5
+  %80 = icmp samesign ult i32 %79, 3
   br i1 %80, label %switch.lookup, label %size_of_matrix_type.exit.i
 
 switch.lookup:                                    ; preds = %.split.i.i
@@ -5727,7 +5727,7 @@ define noundef ptr @SparseMatrix_remove_diagonal(ptr noundef captures(address_is
   br label %121
 
 121:                                              ; preds = %.sink.split, %.split, %2, %1
-  %.0 = phi ptr [ null, %2 ], [ null, %.split ], [ null, %1 ], [ %0, %.sink.split ]
+  %.0 = phi ptr [ null, %1 ], [ null, %.split ], [ null, %2 ], [ %0, %.sink.split ]
   ret ptr %.0
 }
 
@@ -5859,7 +5859,7 @@ define noundef ptr @SparseMatrix_divide_row_by_degree(ptr noundef readonly captu
   br label %50
 
 50:                                               ; preds = %.split, %2, %1, %.loopexit58
-  %.0 = phi ptr [ null, %.split ], [ %0, %.loopexit58 ], [ null, %1 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %1 ], [ %0, %.loopexit58 ], [ null, %2 ], [ null, %.split ]
   ret ptr %.0
 }
 

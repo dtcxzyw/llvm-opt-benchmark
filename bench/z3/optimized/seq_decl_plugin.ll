@@ -9729,8 +9729,8 @@ _ZN9decl_infoD2Ev.exit557:                        ; preds = %_ZN11ast_manager12m
   %752 = icmp eq i8 %751, 2
   br i1 %752, label %754, label %.invoke576
 
-.invoke576:                                       ; preds = %_ZNK17arith_recognizers6is_intEPK4sort.exit519, %.sink.split579, %_ZNK17arith_recognizers6is_intEPK4sort.exit, %.sink.split, %747, %749, %681, %546, %548, %511, %514, %474, %477, %484, %339, %346, %348, %354
-  %753 = phi ptr [ @.str.95, %681 ], [ @.str.92, %546 ], [ @.str.91, %511 ], [ @.str.90, %474 ], [ @.str.89, %339 ], [ @.str.87, %346 ], [ @.str.88, %_ZNK17arith_recognizers6is_intEPK4sort.exit ], [ @.str.96, %747 ], [ @.str.87, %354 ], [ @.str.87, %348 ], [ @.str.90, %484 ], [ @.str.90, %477 ], [ @.str.91, %514 ], [ @.str.92, %548 ], [ @.str.96, %749 ], [ @.str.88, %.sink.split ], [ @.str.88, %.sink.split579 ], [ @.str.88, %_ZNK17arith_recognizers6is_intEPK4sort.exit519 ]
+.invoke576:                                       ; preds = %_ZNK17arith_recognizers6is_intEPK4sort.exit, %.sink.split, %.sink.split579, %_ZNK17arith_recognizers6is_intEPK4sort.exit519, %747, %749, %681, %546, %548, %511, %514, %474, %477, %484, %339, %346, %348, %354
+  %753 = phi ptr [ @.str.95, %681 ], [ @.str.92, %546 ], [ @.str.91, %511 ], [ @.str.90, %474 ], [ @.str.89, %339 ], [ @.str.87, %346 ], [ @.str.88, %_ZNK17arith_recognizers6is_intEPK4sort.exit ], [ @.str.96, %747 ], [ @.str.87, %354 ], [ @.str.87, %348 ], [ @.str.90, %484 ], [ @.str.90, %477 ], [ @.str.91, %514 ], [ @.str.92, %548 ], [ @.str.96, %749 ], [ @.str.88, %_ZNK17arith_recognizers6is_intEPK4sort.exit519 ], [ @.str.88, %.sink.split579 ], [ @.str.88, %.sink.split ]
   invoke void @_ZN11ast_manager15raise_exceptionEPKc(ptr noundef nonnull align 8 dereferenceable(976) %49, ptr noundef nonnull %753) #28
           to label %.cont unwind label %72
 

@@ -8538,10 +8538,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN13VariableOrder14simpleSor
   %43 = ptrtoint ptr %42 to i64
   %44 = urem i64 %43, %27
   %.not19.i.i.i.i = icmp eq i64 %44, %28
-  br i1 %.not19.i.i.i.i, label %37, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !304
-
-..loopexit_crit_edge21.i.i.i.i:                   ; preds = %40
-  br label %.critedge, !llvm.loop !304
+  br i1 %.not19.i.i.i.i, label %37, label %..loopexit_crit_edge21.i.i.i.i13, !llvm.loop !304
 
 _ZNSt13unordered_mapIPK6AstVar13VarAttributesSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEE4findERS9_.exit: ; preds = %37, %20
   br i1 %.not.not.i.i, label %45, label %_ZNSt13unordered_mapIPK6AstVar13VarAttributesSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEE4findERS9_.exit._ZNSt13unordered_mapIPK6AstVar13VarAttributesSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEE4findERS9_.exit.thread46_crit_edge
@@ -8603,10 +8600,10 @@ _ZNSt13unordered_mapIPK6AstVar13VarAttributesSt4hashIS2_ESt8equal_toIS2_ESaISt4p
   %.not19.i.i.i.i12 = icmp eq i64 %70, %55
   br i1 %.not19.i.i.i.i12, label %63, label %..loopexit_crit_edge21.i.i.i.i13, !llvm.loop !304
 
-..loopexit_crit_edge21.i.i.i.i13:                 ; preds = %66
+..loopexit_crit_edge21.i.i.i.i13:                 ; preds = %40, %66
   br label %.critedge, !llvm.loop !304
 
-.critedge:                                        ; preds = %.lr.ph.i.i.i.i, %19, %.lr.ph.i.i.i.i9, %47, %_ZNSt13unordered_mapIPK6AstVar13VarAttributesSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEE4findERS9_.exit.thread46, %..loopexit_crit_edge21.i.i.i.i13, %24, %..loopexit_crit_edge21.i.i.i.i
+.critedge:                                        ; preds = %.lr.ph.i.i.i.i, %19, %.lr.ph.i.i.i.i9, %47, %_ZNSt13unordered_mapIPK6AstVar13VarAttributesSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S3_EEE4findERS9_.exit.thread46, %..loopexit_crit_edge21.i.i.i.i13, %24
   %71 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.1, i32 noundef 161)
   %72 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %73 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull @.str.455)

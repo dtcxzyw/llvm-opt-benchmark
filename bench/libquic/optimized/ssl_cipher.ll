@@ -116,15 +116,15 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.107 = private unnamed_addr constant [12 x i8] c"AES_256_GCM\00", align 1
 @.str.108 = private unnamed_addr constant [18 x i8] c"CHACHA20_POLY1305\00", align 1
 @switch.table.ssl_cipher_process_rulestr = private unnamed_addr constant [9 x i32] [i32 112, i32 128, i32 128, i32 256, i32 128, i32 256, i32 256, i32 poison, i32 256], align 4
-@switch.table.ssl_cipher_process_rulestr.4 = private unnamed_addr constant [9 x i64] [i64 112, i64 128, i64 128, i64 256, i64 128, i64 256, i64 256, i64 0, i64 256], align 8
+@switch.table.ssl_cipher_process_rulestr.5 = private unnamed_addr constant [9 x i64] [i64 112, i64 128, i64 128, i64 256, i64 128, i64 256, i64 256, i64 0, i64 256], align 8
 @switch.table.SSL_CIPHER_get_rfc_name = private unnamed_addr constant [4 x ptr] [ptr @.str.9, ptr @.str.8, ptr @.str.7, ptr @.str.10], align 8
-@switch.table.SSL_CIPHER_get_rfc_name.5 = private unnamed_addr constant [9 x ptr] [ptr @.str.103, ptr @.str.89, ptr @.str.104, ptr @.str.105, ptr @.str.106, ptr @.str.107, ptr @.str.108, ptr @.str.7, ptr @.str.108], align 8
+@switch.table.SSL_CIPHER_get_rfc_name.6 = private unnamed_addr constant [9 x ptr] [ptr @.str.103, ptr @.str.89, ptr @.str.104, ptr @.str.105, ptr @.str.106, ptr @.str.107, ptr @.str.108, ptr @.str.7, ptr @.str.108], align 8
 @switch.table.SSL_CIPHER_get_bits = private unnamed_addr constant [9 x i32] [i32 168, i32 128, i32 128, i32 256, i32 128, i32 256, i32 256, i32 0, i32 256], align 4
-@switch.table.SSL_CIPHER_get_bits.6 = private unnamed_addr constant [9 x i32] [i32 112, i32 128, i32 128, i32 256, i32 128, i32 256, i32 256, i32 0, i32 256], align 4
+@switch.table.SSL_CIPHER_get_bits.7 = private unnamed_addr constant [9 x i32] [i32 112, i32 128, i32 128, i32 256, i32 128, i32 256, i32 256, i32 0, i32 256], align 4
 @switch.table.SSL_CIPHER_description = private unnamed_addr constant [4 x ptr] [ptr @.str.5, ptr @.str.15, ptr @.str.16, ptr @.str.11], align 8
-@switch.table.SSL_CIPHER_description.7 = private unnamed_addr constant [4 x ptr] [ptr @.str.5, ptr @.str.18, ptr @.str.17, ptr @.str.11], align 8
-@switch.table.SSL_CIPHER_description.8 = private unnamed_addr constant [9 x ptr] [ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.27, ptr @.str.26], align 8
-@switch.table.SSL_CIPHER_description.9 = private unnamed_addr constant [5 x ptr] [ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32], align 8
+@switch.table.SSL_CIPHER_description.8 = private unnamed_addr constant [4 x ptr] [ptr @.str.5, ptr @.str.18, ptr @.str.17, ptr @.str.11], align 8
+@switch.table.SSL_CIPHER_description.9 = private unnamed_addr constant [9 x ptr] [ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.27, ptr @.str.26], align 8
+@switch.table.SSL_CIPHER_description.10 = private unnamed_addr constant [5 x ptr] [ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32], align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define hidden ptr @SSL_get_cipher_by_value(i16 noundef zeroext %0) local_unnamed_addr #0 {
@@ -2806,7 +2806,7 @@ define internal fastcc void @ssl_cipher_apply_rule(i32 noundef range(i32 5038389
 
 switch.lookup:                                    ; preds = %.split.i.us.us
   %39 = zext nneg i32 %37 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SSL_CIPHER_get_bits.6, i64 %39
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SSL_CIPHER_get_bits.7, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %SSL_CIPHER_get_bits.exit.us.us
 
@@ -3143,34 +3143,34 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
   br i1 %5, label %.thread18, label %.lr.ph.lr.ph.lr.ph
 
 .lr.ph.lr.ph.lr.ph:                               ; preds = %3, %.critedge40
-  %6 = phi i8 [ %162, %.critedge40 ], [ %4, %3 ]
-  %.0161.ph133 = phi i32 [ %.0161.ph32.ph102, %.critedge40 ], [ 0, %3 ]
-  %.0162.ph132 = phi i32 [ %.2164275280, %.critedge40 ], [ 0, %3 ]
-  %.0166.ph131 = phi i32 [ %.4170, %.critedge40 ], [ 1, %3 ]
-  %.0183.ph130 = phi ptr [ %.6, %.critedge40 ], [ %0, %3 ]
+  %6 = phi i8 [ %198, %.critedge40 ], [ %4, %3 ]
+  %.0161.ph142 = phi i32 [ %.0161.ph33.ph110, %.critedge40 ], [ 0, %3 ]
+  %.0162.ph141 = phi i32 [ %.2164295300, %.critedge40 ], [ 0, %3 ]
+  %.0166.ph140 = phi i32 [ %.4170, %.critedge40 ], [ 1, %3 ]
+  %.0183.ph139 = phi ptr [ %.6, %.critedge40 ], [ %0, %3 ]
   br label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.lr.ph.lr.ph.lr.ph, %.split.us
   %7 = phi i8 [ %6, %.lr.ph.lr.ph.lr.ph ], [ %22, %.split.us ]
-  %.0161.ph32.ph102 = phi i32 [ %.0161.ph133, %.lr.ph.lr.ph.lr.ph ], [ 1, %.split.us ]
-  %.0162.ph31.ph101 = phi i32 [ %.0162.ph132, %.lr.ph.lr.ph.lr.ph ], [ 1, %.split.us ]
-  %.0183.ph30.ph100 = phi ptr [ %.0183.ph130, %.lr.ph.lr.ph.lr.ph ], [ %21, %.split.us ]
+  %.0161.ph33.ph110 = phi i32 [ %.0161.ph142, %.lr.ph.lr.ph.lr.ph ], [ 1, %.split.us ]
+  %.0162.ph32.ph109 = phi i32 [ %.0162.ph141, %.lr.ph.lr.ph.lr.ph ], [ 1, %.split.us ]
+  %.0183.ph31.ph108 = phi ptr [ %.0183.ph139, %.lr.ph.lr.ph.lr.ph ], [ %21, %.split.us ]
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer29.backedge
-  %8 = phi i8 [ %7, %.lr.ph.lr.ph ], [ %29, %.outer29.backedge ]
-  %.0162.ph3195 = phi i32 [ %.0162.ph31.ph101, %.lr.ph.lr.ph ], [ %.0162.ph31.be, %.outer29.backedge ]
-  %.0183.ph3094 = phi ptr [ %.0183.ph30.ph100, %.lr.ph.lr.ph ], [ %.0183.ph30.be, %.outer29.backedge ]
-  %.not = icmp eq i32 %.0162.ph3195, 0
+.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer30.backedge
+  %8 = phi i8 [ %7, %.lr.ph.lr.ph ], [ %29, %.outer30.backedge ]
+  %.0162.ph32103 = phi i32 [ %.0162.ph32.ph109, %.lr.ph.lr.ph ], [ %.0162.ph32.be, %.outer30.backedge ]
+  %.0183.ph31102 = phi ptr [ %.0183.ph31.ph108, %.lr.ph.lr.ph ], [ %.0183.ph31.be, %.outer30.backedge ]
+  %.not = icmp eq i32 %.0162.ph32103, 0
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %.not22.le = icmp eq i32 %.0161.ph32.ph102, 0
+  %.not22.le = icmp eq i32 %.0161.ph33.ph110, 0
   br label %9
 
 9:                                                ; preds = %17, %.lr.ph.split.us
   %10 = phi i8 [ %8, %.lr.ph.split.us ], [ %19, %17 ]
-  %.018365.us = phi ptr [ %.0183.ph3094, %.lr.ph.split.us ], [ %18, %17 ]
+  %.018373.us = phi ptr [ %.0183.ph31102, %.lr.ph.split.us ], [ %18, %17 ]
   switch i8 %10, label %.thread.us [
     i8 45, label %14
     i8 43, label %13
@@ -3191,14 +3191,14 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
 14:                                               ; preds = %13, %12, %11, %9
   %15 = phi i1 [ true, %11 ], [ false, %12 ], [ false, %13 ], [ false, %9 ]
   %.0172.us = phi i32 [ 5, %11 ], [ 2, %12 ], [ 4, %13 ], [ 3, %9 ]
-  %.1184.us = getelementptr inbounds nuw i8, ptr %.018365.us, i64 1
-  br i1 %.not22.le, label %.thread.us, label %.split70.us
+  %.1184.us = getelementptr inbounds nuw i8, ptr %.018373.us, i64 1
+  br i1 %.not22.le, label %.thread.us, label %.split78.us
 
 .thread.us:                                       ; preds = %14, %9
   %.01725.us = phi i32 [ %.0172.us, %14 ], [ 1, %9 ]
   %16 = phi i1 [ %15, %14 ], [ false, %9 ]
-  %.11844.us = phi ptr [ %.1184.us, %14 ], [ %.018365.us, %9 ]
-  switch i8 %10, label %.preheader27 [
+  %.11844.us = phi ptr [ %.1184.us, %14 ], [ %.018373.us, %9 ]
+  switch i8 %10, label %.preheader28 [
     i8 59, label %17
     i8 58, label %17
     i8 44, label %17
@@ -3212,35 +3212,35 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
   br i1 %20, label %.thread18, label %9
 
 .split.us:                                        ; preds = %9
-  %21 = getelementptr inbounds nuw i8, ptr %.018365.us, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.018373.us, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !36
   %23 = icmp eq i8 %22, 0
-  br i1 %23, label %.outer29._crit_edge.thread300, label %.lr.ph.lr.ph
+  br i1 %23, label %.outer30._crit_edge.thread320, label %.lr.ph.lr.ph
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %46
   %24 = phi i8 [ %48, %46 ], [ %8, %.lr.ph ]
-  %.018365 = phi ptr [ %47, %46 ], [ %.0183.ph3094, %.lr.ph ]
+  %.018373 = phi ptr [ %47, %46 ], [ %.0183.ph31102, %.lr.ph ]
   switch i8 %24, label %31 [
     i8 93, label %25
-    i8 124, label %.outer29.backedge
+    i8 124, label %.outer30.backedge
   ]
 
 25:                                               ; preds = %.lr.ph.split
   %26 = load ptr, ptr %2, align 8, !tbaa !31
   %.not215 = icmp eq ptr %26, null
-  br i1 %.not215, label %.outer29.backedge, label %27
+  br i1 %.not215, label %.outer30.backedge, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 0, ptr %28, align 4, !tbaa !35
-  br label %.outer29.backedge
+  br label %.outer30.backedge
 
-.outer29.backedge:                                ; preds = %.lr.ph.split, %25, %27
-  %.0162.ph31.be = phi i32 [ 0, %25 ], [ 0, %27 ], [ 1, %.lr.ph.split ]
-  %.0183.ph30.be = getelementptr inbounds nuw i8, ptr %.018365, i64 1
-  %29 = load i8, ptr %.0183.ph30.be, align 1, !tbaa !36
+.outer30.backedge:                                ; preds = %.lr.ph.split, %25, %27
+  %.0162.ph32.be = phi i32 [ 0, %25 ], [ 0, %27 ], [ 1, %.lr.ph.split ]
+  %.0183.ph31.be = getelementptr inbounds nuw i8, ptr %.018373, i64 1
+  %29 = load i8, ptr %.0183.ph31.be, align 1, !tbaa !36
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %.outer29._crit_edge, label %.lr.ph
+  br i1 %30, label %.outer30._crit_edge, label %.lr.ph
 
 31:                                               ; preds = %.lr.ph.split
   %32 = and i8 %24, -33
@@ -3255,30 +3255,30 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 224, ptr noundef nonnull @.str, i32 noundef 1198) #17
   br label %.thread18
 
-.split70.us:                                      ; preds = %14
+.split78.us:                                      ; preds = %14
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 168, ptr noundef nonnull @.str, i32 noundef 1233) #17
   br label %.thread18
 
 .thread:                                          ; preds = %31
-  switch i8 %24, label %.preheader27.split109.preheader [
+  switch i8 %24, label %.preheader28.split117.preheader [
     i8 59, label %46
     i8 58, label %46
     i8 44, label %46
     i8 32, label %46
   ]
 
-.preheader27:                                     ; preds = %.thread.us
-  br i1 %16, label %.preheader27.split109.us, label %.preheader27.split109.preheader
+.preheader28:                                     ; preds = %.thread.us
+  br i1 %16, label %.preheader28.split117.us, label %.preheader28.split117.preheader
 
-.preheader27.split109.preheader:                  ; preds = %.thread, %.preheader27
-  %.us-phi75223 = phi ptr [ %.11844.us, %.preheader27 ], [ %.018365, %.thread ]
-  %.us-phi73219 = phi i32 [ %.01725.us, %.preheader27 ], [ 1, %.thread ]
-  %.0162.ph3195154216 = phi i32 [ 0, %.preheader27 ], [ 1, %.thread ]
-  br label %.preheader27.split109
+.preheader28.split117.preheader:                  ; preds = %.thread, %.preheader28
+  %.us-phi83243 = phi ptr [ %.11844.us, %.preheader28 ], [ %.018373, %.thread ]
+  %.us-phi81239 = phi i32 [ %.01725.us, %.preheader28 ], [ 1, %.thread ]
+  %.0162.ph32103164236 = phi i32 [ 0, %.preheader28 ], [ 1, %.thread ]
+  br label %.preheader28.split117
 
-.preheader27.split109.us:                         ; preds = %.preheader27, %.critedge.us
-  %.3186.us = phi ptr [ %44, %.critedge.us ], [ %.11844.us, %.preheader27 ]
-  %.0158.us = phi i64 [ %45, %.critedge.us ], [ 0, %.preheader27 ]
+.preheader28.split117.us:                         ; preds = %.preheader28, %.critedge.us
+  %.3186.us = phi ptr [ %44, %.critedge.us ], [ %.11844.us, %.preheader28 ]
+  %.0158.us = phi i64 [ %45, %.critedge.us ], [ 0, %.preheader28 ]
   %.0152.us = load i8, ptr %.3186.us, align 1, !tbaa !36
   %36 = add i8 %.0152.us, -65
   %or.cond22.us = icmp ult i8 %36, 26
@@ -3287,7 +3287,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
   %or.cond219.us = or i1 %or.cond22.us, %or.cond25.us
   br i1 %or.cond219.us, label %.critedge.us, label %38
 
-38:                                               ; preds = %.preheader27.split109.us
+38:                                               ; preds = %.preheader28.split117.us
   %39 = add i8 %.0152.us, -97
   %or.cond28.us = icmp ult i8 %39, 26
   %40 = add i8 %.0152.us, -45
@@ -3297,34 +3297,34 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
 
 42:                                               ; preds = %38
   %43 = icmp eq i64 %.0158.us, 0
-  br i1 %43, label %.split.us110, label %.fold.split
+  br i1 %43, label %.split.us118, label %.fold.split
 
-.critedge.us:                                     ; preds = %38, %.preheader27.split109.us
+.critedge.us:                                     ; preds = %38, %.preheader28.split117.us
   %44 = getelementptr inbounds nuw i8, ptr %.3186.us, i64 1
   %45 = add i64 %.0158.us, 1
-  br label %.preheader27.split109.us, !llvm.loop !46
+  br label %.preheader28.split117.us, !llvm.loop !46
 
 46:                                               ; preds = %.thread, %.thread, %.thread, %.thread
-  %47 = getelementptr inbounds nuw i8, ptr %.018365, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.018373, i64 1
   %48 = load i8, ptr %47, align 1, !tbaa !36
   %49 = icmp eq i8 %48, 0
-  br i1 %49, label %.outer29._crit_edge.thread300, label %.lr.ph.split
+  br i1 %49, label %.outer30._crit_edge.thread320, label %.lr.ph.split
 
-.preheader27.split109:                            ; preds = %.preheader27.split109.preheader, %97
-  %.0198 = phi i32 [ %.2200, %97 ], [ -1, %.preheader27.split109.preheader ]
-  %.0193 = phi i32 [ %.2195, %97 ], [ -1, %.preheader27.split109.preheader ]
-  %.0189 = phi i16 [ %.2191, %97 ], [ 0, %.preheader27.split109.preheader ]
-  %.2185 = phi ptr [ %98, %97 ], [ %.us-phi75223, %.preheader27.split109.preheader ]
-  %.0178 = phi i32 [ %.2180, %97 ], [ -1, %.preheader27.split109.preheader ]
-  %50 = phi i1 [ false, %97 ], [ true, %.preheader27.split109.preheader ]
-  %.0173 = phi i32 [ %.2175, %97 ], [ 0, %.preheader27.split109.preheader ]
-  %.0153 = phi i32 [ %.2155, %97 ], [ 0, %.preheader27.split109.preheader ]
-  %.0151 = phi i32 [ %.2, %97 ], [ -1, %.preheader27.split109.preheader ]
+.preheader28.split117:                            ; preds = %.preheader28.split117.preheader, %97
+  %.0198 = phi i32 [ %.2200, %97 ], [ -1, %.preheader28.split117.preheader ]
+  %.0193 = phi i32 [ %.2195, %97 ], [ -1, %.preheader28.split117.preheader ]
+  %.0189 = phi i16 [ %.2191, %97 ], [ 0, %.preheader28.split117.preheader ]
+  %.2185 = phi ptr [ %98, %97 ], [ %.us-phi83243, %.preheader28.split117.preheader ]
+  %.0178 = phi i32 [ %.2180, %97 ], [ -1, %.preheader28.split117.preheader ]
+  %50 = phi i1 [ false, %97 ], [ true, %.preheader28.split117.preheader ]
+  %.0173 = phi i32 [ %.2175, %97 ], [ 0, %.preheader28.split117.preheader ]
+  %.0153 = phi i32 [ %.2155, %97 ], [ 0, %.preheader28.split117.preheader ]
+  %.0151 = phi i32 [ %.2, %97 ], [ -1, %.preheader28.split117.preheader ]
   br label %51
 
-51:                                               ; preds = %.critedge, %.preheader27.split109
-  %.3186 = phi ptr [ %.2185, %.preheader27.split109 ], [ %58, %.critedge ]
-  %.0158 = phi i64 [ 0, %.preheader27.split109 ], [ %59, %.critedge ]
+51:                                               ; preds = %.critedge, %.preheader28.split117
+  %.3186 = phi ptr [ %.2185, %.preheader28.split117 ], [ %58, %.critedge ]
+  %.0158 = phi i64 [ 0, %.preheader28.split117 ], [ %59, %.critedge ]
   %.0152 = load i8, ptr %.3186, align 1, !tbaa !36
   %52 = add i8 %.0152, -65
   %or.cond22 = icmp ult i8 %52, 26
@@ -3348,38 +3348,38 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
 
 60:                                               ; preds = %54
   %61 = icmp eq i64 %.0158, 0
-  br i1 %61, label %.split.us110, label %63
+  br i1 %61, label %.split.us118, label %63
 
-.split.us110:                                     ; preds = %60, %42
-  %.us-phi74221 = phi i1 [ true, %42 ], [ false, %60 ]
-  %.us-phi73218 = phi i32 [ %.01725.us, %42 ], [ %.us-phi73219, %60 ]
+.split.us118:                                     ; preds = %60, %42
+  %.us-phi82241 = phi i1 [ true, %42 ], [ false, %60 ]
+  %.us-phi81238 = phi i32 [ %.01725.us, %42 ], [ %.us-phi81239, %60 ]
   %.us-phi = phi i32 [ -1, %42 ], [ %.0198, %60 ]
-  %.us-phi111 = phi i32 [ -1, %42 ], [ %.0193, %60 ]
-  %.us-phi112 = phi i16 [ 0, %42 ], [ %.0189, %60 ]
-  %.us-phi113 = phi ptr [ %.11844.us, %42 ], [ %.2185, %60 ]
-  %.us-phi114 = phi i32 [ -1, %42 ], [ %.0178, %60 ]
-  %.us-phi115 = phi i32 [ 0, %42 ], [ %.0173, %60 ]
-  %.us-phi116 = phi i32 [ 0, %42 ], [ %.0153, %60 ]
-  %.us-phi117 = phi i32 [ -1, %42 ], [ %.0151, %60 ]
-  %.us-phi118 = phi ptr [ %.3186.us, %42 ], [ %.3186, %60 ]
+  %.us-phi119 = phi i32 [ -1, %42 ], [ %.0193, %60 ]
+  %.us-phi120 = phi i16 [ 0, %42 ], [ %.0189, %60 ]
+  %.us-phi121 = phi ptr [ %.11844.us, %42 ], [ %.2185, %60 ]
+  %.us-phi122 = phi i32 [ -1, %42 ], [ %.0178, %60 ]
+  %.us-phi123 = phi i32 [ 0, %42 ], [ %.0173, %60 ]
+  %.us-phi124 = phi i32 [ 0, %42 ], [ %.0153, %60 ]
+  %.us-phi125 = phi i32 [ -1, %42 ], [ %.0151, %60 ]
+  %.us-phi126 = phi ptr [ %.3186.us, %42 ], [ %.3186, %60 ]
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 158, ptr noundef nonnull @.str, i32 noundef 1265) #17
-  %62 = getelementptr inbounds nuw i8, ptr %.us-phi118, i64 1
-  br label %.loopexit28
+  %62 = getelementptr inbounds nuw i8, ptr %.us-phi126, i64 1
+  br label %.loopexit29
 
 63:                                               ; preds = %60
   %64 = icmp ne i8 %.0152, 43
   %or.cond34 = and i1 %50, %64
-  br i1 %or.cond34, label %.preheader25, label %.loopexit26
+  br i1 %or.cond34, label %.preheader26, label %.loopexit27
 
-.preheader25:                                     ; preds = %63, %rule_equals.exit.thread
-  %.0159107 = phi i64 [ %74, %rule_equals.exit.thread ], [ 0, %63 ]
-  %65 = getelementptr inbounds nuw [32 x i8], ptr @kCiphers, i64 %.0159107
+.preheader26:                                     ; preds = %63, %rule_equals.exit.thread
+  %.0159115 = phi i64 [ %74, %rule_equals.exit.thread ], [ 0, %63 ]
+  %65 = getelementptr inbounds nuw [32 x i8], ptr @kCiphers, i64 %.0159115
   %66 = load ptr, ptr %65, align 16, !tbaa !47
   %67 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %66, ptr noundef nonnull readonly dereferenceable(1) %.2185, i64 noundef range(i64 1, 0) %.0158) #19
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %rule_equals.exit, label %rule_equals.exit.thread
 
-rule_equals.exit:                                 ; preds = %.preheader25
+rule_equals.exit:                                 ; preds = %.preheader26
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 %.0158
   %70 = load i8, ptr %69, align 1, !tbaa !36
   %.not23 = icmp eq i8 %70, 0
@@ -3388,21 +3388,21 @@ rule_equals.exit:                                 ; preds = %.preheader25
 71:                                               ; preds = %rule_equals.exit
   %72 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !6
-  br label %.loopexit26
+  br label %.loopexit27
 
-rule_equals.exit.thread:                          ; preds = %.preheader25, %rule_equals.exit
-  %74 = add nuw nsw i64 %.0159107, 1
+rule_equals.exit.thread:                          ; preds = %.preheader26, %rule_equals.exit
+  %74 = add nuw nsw i64 %.0159115, 1
   %exitcond.not = icmp eq i64 %74, 40
-  br i1 %exitcond.not, label %.loopexit26, label %.preheader25, !llvm.loop !48
+  br i1 %exitcond.not, label %.loopexit27, label %.preheader26, !llvm.loop !48
 
-.loopexit26:                                      ; preds = %rule_equals.exit.thread, %71, %63
+.loopexit27:                                      ; preds = %rule_equals.exit.thread, %71, %63
   %.2155 = phi i32 [ %73, %71 ], [ %.0153, %63 ], [ %.0153, %rule_equals.exit.thread ]
   %75 = icmp eq i32 %.2155, 0
   br i1 %75, label %.preheader, label %.loopexit.thread
 
-.preheader:                                       ; preds = %.loopexit26, %rule_equals.exit222.thread
-  %.1160108 = phi i64 [ %96, %rule_equals.exit222.thread ], [ 0, %.loopexit26 ]
-  %76 = getelementptr inbounds nuw [32 x i8], ptr @kCipherAliases, i64 %.1160108
+.preheader:                                       ; preds = %.loopexit27, %rule_equals.exit222.thread
+  %.1160116 = phi i64 [ %96, %rule_equals.exit222.thread ], [ 0, %.loopexit27 ]
+  %76 = getelementptr inbounds nuw [32 x i8], ptr @kCipherAliases, i64 %.1160116
   %77 = load ptr, ptr %76, align 16, !tbaa !49
   %78 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %77, ptr noundef nonnull readonly dereferenceable(1) %.2185, i64 noundef range(i64 1, 0) %.0158) #19
   %79 = icmp eq i32 %78, 0
@@ -3432,45 +3432,45 @@ rule_equals.exit222:                              ; preds = %.preheader
   %.pre = load i16, ptr %.phi.trans.insert, align 8, !tbaa !56
   %.not211 = icmp ne i16 %.0189, %.pre
   %.3192 = select i1 %.not210, i16 %.0189, i16 %.pre
-  %.not364 = select i1 %.not210, i1 %.not211, i1 false
-  %94 = icmp eq i64 %.1160108, 37
-  %95 = select i1 %94, i1 true, i1 %.not364
-  %spec.select363 = select i1 %95, i32 1, i32 %.0173
+  %.not393 = select i1 %.not210, i1 %.not211, i1 false
+  %94 = icmp eq i64 %.1160116, 37
+  %95 = select i1 %94, i1 true, i1 %.not393
+  %spec.select392 = select i1 %95, i32 1, i32 %.0173
   br label %.loopexit.thread
 
 rule_equals.exit222.thread:                       ; preds = %.preheader, %rule_equals.exit222
-  %96 = add i64 %.1160108, 1
-  %exitcond201.not = icmp eq i64 %96, 37
-  br i1 %exitcond201.not, label %.loopexit.thread, label %.preheader, !llvm.loop !57
+  %96 = add i64 %.1160116, 1
+  %exitcond214.not = icmp eq i64 %96, 37
+  br i1 %exitcond214.not, label %.loopexit.thread, label %.preheader, !llvm.loop !57
 
-.loopexit.thread:                                 ; preds = %rule_equals.exit222.thread, %.loopexit, %.loopexit26
-  %.2200 = phi i32 [ %.0198, %.loopexit26 ], [ %90, %.loopexit ], [ %.0198, %rule_equals.exit222.thread ]
-  %.2195 = phi i32 [ %.0193, %.loopexit26 ], [ %93, %.loopexit ], [ %.0193, %rule_equals.exit222.thread ]
-  %.2191 = phi i16 [ %.0189, %.loopexit26 ], [ %.3192, %.loopexit ], [ %.0189, %rule_equals.exit222.thread ]
-  %.2180 = phi i32 [ %.0178, %.loopexit26 ], [ %87, %.loopexit ], [ %.0178, %rule_equals.exit222.thread ]
-  %.2175 = phi i32 [ %.0173, %.loopexit26 ], [ %spec.select363, %.loopexit ], [ 1, %rule_equals.exit222.thread ]
-  %.2 = phi i32 [ %.0151, %.loopexit26 ], [ %84, %.loopexit ], [ %.0151, %rule_equals.exit222.thread ]
-  br i1 %64, label %.loopexit28, label %97
+.loopexit.thread:                                 ; preds = %rule_equals.exit222.thread, %.loopexit, %.loopexit27
+  %.2200 = phi i32 [ %.0198, %.loopexit27 ], [ %90, %.loopexit ], [ %.0198, %rule_equals.exit222.thread ]
+  %.2195 = phi i32 [ %.0193, %.loopexit27 ], [ %93, %.loopexit ], [ %.0193, %rule_equals.exit222.thread ]
+  %.2191 = phi i16 [ %.0189, %.loopexit27 ], [ %.3192, %.loopexit ], [ %.0189, %rule_equals.exit222.thread ]
+  %.2180 = phi i32 [ %.0178, %.loopexit27 ], [ %87, %.loopexit ], [ %.0178, %rule_equals.exit222.thread ]
+  %.2175 = phi i32 [ %.0173, %.loopexit27 ], [ %spec.select392, %.loopexit ], [ 1, %rule_equals.exit222.thread ]
+  %.2 = phi i32 [ %.0151, %.loopexit27 ], [ %84, %.loopexit ], [ %.0151, %rule_equals.exit222.thread ]
+  br i1 %64, label %.loopexit29, label %97
 
 97:                                               ; preds = %.loopexit.thread
   %98 = getelementptr inbounds nuw i8, ptr %.3186, i64 1
-  br label %.preheader27.split109
+  br label %.preheader28.split117
 
-.loopexit28:                                      ; preds = %.loopexit.thread, %.split.us110
-  %.us-phi74220 = phi i1 [ %.us-phi74221, %.split.us110 ], [ false, %.loopexit.thread ]
-  %.us-phi73217 = phi i32 [ %.us-phi73218, %.split.us110 ], [ %.us-phi73219, %.loopexit.thread ]
-  %.218558 = phi ptr [ %.us-phi113, %.split.us110 ], [ %.2185, %.loopexit.thread ]
-  %.0158.lcssa47 = phi i64 [ 0, %.split.us110 ], [ %.0158, %.loopexit.thread ]
-  %.1199 = phi i32 [ %.us-phi, %.split.us110 ], [ %.2200, %.loopexit.thread ]
-  %.1194 = phi i32 [ %.us-phi111, %.split.us110 ], [ %.2195, %.loopexit.thread ]
-  %.1190 = phi i16 [ %.us-phi112, %.split.us110 ], [ %.2191, %.loopexit.thread ]
-  %.4187 = phi ptr [ %62, %.split.us110 ], [ %.3186, %.loopexit.thread ]
-  %.1179 = phi i32 [ %.us-phi114, %.split.us110 ], [ %.2180, %.loopexit.thread ]
-  %.1174 = phi i32 [ %.us-phi115, %.split.us110 ], [ %.2175, %.loopexit.thread ]
-  %.2168 = phi i32 [ 0, %.split.us110 ], [ %.0166.ph131, %.loopexit.thread ]
-  %.2164 = phi i32 [ 0, %.split.us110 ], [ %.0162.ph3195154216, %.loopexit.thread ]
-  %.1154 = phi i32 [ %.us-phi116, %.split.us110 ], [ %.2155, %.loopexit.thread ]
-  %.1 = phi i32 [ %.us-phi117, %.split.us110 ], [ %.2, %.loopexit.thread ]
+.loopexit29:                                      ; preds = %.loopexit.thread, %.split.us118
+  %.us-phi82240 = phi i1 [ %.us-phi82241, %.split.us118 ], [ false, %.loopexit.thread ]
+  %.us-phi81237 = phi i32 [ %.us-phi81238, %.split.us118 ], [ %.us-phi81239, %.loopexit.thread ]
+  %.218559 = phi ptr [ %.us-phi121, %.split.us118 ], [ %.2185, %.loopexit.thread ]
+  %.0158.lcssa48 = phi i64 [ 0, %.split.us118 ], [ %.0158, %.loopexit.thread ]
+  %.1199 = phi i32 [ %.us-phi, %.split.us118 ], [ %.2200, %.loopexit.thread ]
+  %.1194 = phi i32 [ %.us-phi119, %.split.us118 ], [ %.2195, %.loopexit.thread ]
+  %.1190 = phi i16 [ %.us-phi120, %.split.us118 ], [ %.2191, %.loopexit.thread ]
+  %.4187 = phi ptr [ %62, %.split.us118 ], [ %.3186, %.loopexit.thread ]
+  %.1179 = phi i32 [ %.us-phi122, %.split.us118 ], [ %.2180, %.loopexit.thread ]
+  %.1174 = phi i32 [ %.us-phi123, %.split.us118 ], [ %.2175, %.loopexit.thread ]
+  %.2168 = phi i32 [ 0, %.split.us118 ], [ %.0166.ph140, %.loopexit.thread ]
+  %.2164 = phi i32 [ 0, %.split.us118 ], [ %.0162.ph32103164236, %.loopexit.thread ]
+  %.1154 = phi i32 [ %.us-phi124, %.split.us118 ], [ %.2155, %.loopexit.thread ]
+  %.1 = phi i32 [ %.us-phi125, %.split.us118 ], [ %.2, %.loopexit.thread ]
   switch i32 %.1154, label %.fold.split [
     i32 50384040, label %100
     i32 50383891, label %100
@@ -3478,58 +3478,58 @@ rule_equals.exit222.thread:                       ; preds = %.preheader, %rule_e
     i32 50383892, label %99
   ]
 
-99:                                               ; preds = %.loopexit28, %.loopexit28
-  br i1 %.us-phi74220, label %101, label %160
+99:                                               ; preds = %.loopexit29, %.loopexit29
+  br i1 %.us-phi82240, label %101, label %196
 
-.fold.split:                                      ; preds = %42, %.loopexit28
-  %.1278 = phi i32 [ %.1, %.loopexit28 ], [ -1, %42 ]
-  %.1154277 = phi i32 [ %.1154, %.loopexit28 ], [ 0, %42 ]
-  %.2164276 = phi i32 [ %.2164, %.loopexit28 ], [ 0, %42 ]
-  %.2168274 = phi i32 [ %.2168, %.loopexit28 ], [ %.0166.ph131, %42 ]
-  %.1174272 = phi i32 [ %.1174, %.loopexit28 ], [ 0, %42 ]
-  %.1179270 = phi i32 [ %.1179, %.loopexit28 ], [ -1, %42 ]
-  %.4187269 = phi ptr [ %.4187, %.loopexit28 ], [ %.3186.us, %42 ]
-  %.1190267 = phi i16 [ %.1190, %.loopexit28 ], [ 0, %42 ]
-  %.1194265 = phi i32 [ %.1194, %.loopexit28 ], [ -1, %42 ]
-  %.1199264 = phi i32 [ %.1199, %.loopexit28 ], [ -1, %42 ]
-  %.0158.lcssa47263 = phi i64 [ %.0158.lcssa47, %.loopexit28 ], [ %.0158.us, %42 ]
-  %.218558261 = phi ptr [ %.218558, %.loopexit28 ], [ %.11844.us, %42 ]
-  %.us-phi73217259 = phi i32 [ %.us-phi73217, %.loopexit28 ], [ %.01725.us, %42 ]
-  %.us-phi74220257 = phi i1 [ %.us-phi74220, %.loopexit28 ], [ true, %42 ]
-  br i1 %.us-phi74220257, label %101, label %160
+.fold.split:                                      ; preds = %42, %.loopexit29
+  %.1298 = phi i32 [ %.1, %.loopexit29 ], [ -1, %42 ]
+  %.1154297 = phi i32 [ %.1154, %.loopexit29 ], [ 0, %42 ]
+  %.2164296 = phi i32 [ %.2164, %.loopexit29 ], [ 0, %42 ]
+  %.2168294 = phi i32 [ %.2168, %.loopexit29 ], [ %.0166.ph140, %42 ]
+  %.1174292 = phi i32 [ %.1174, %.loopexit29 ], [ 0, %42 ]
+  %.1179290 = phi i32 [ %.1179, %.loopexit29 ], [ -1, %42 ]
+  %.4187289 = phi ptr [ %.4187, %.loopexit29 ], [ %.3186.us, %42 ]
+  %.1190287 = phi i16 [ %.1190, %.loopexit29 ], [ 0, %42 ]
+  %.1194285 = phi i32 [ %.1194, %.loopexit29 ], [ -1, %42 ]
+  %.1199284 = phi i32 [ %.1199, %.loopexit29 ], [ -1, %42 ]
+  %.0158.lcssa48283 = phi i64 [ %.0158.lcssa48, %.loopexit29 ], [ %.0158.us, %42 ]
+  %.218559281 = phi ptr [ %.218559, %.loopexit29 ], [ %.11844.us, %42 ]
+  %.us-phi81237279 = phi i32 [ %.us-phi81237, %.loopexit29 ], [ %.01725.us, %42 ]
+  %.us-phi82240277 = phi i1 [ %.us-phi82240, %.loopexit29 ], [ true, %42 ]
+  br i1 %.us-phi82240277, label %101, label %196
 
-100:                                              ; preds = %.loopexit28, %.loopexit28
-  br i1 %.us-phi74220, label %101, label %160
+100:                                              ; preds = %.loopexit29, %.loopexit29
+  br i1 %.us-phi82240, label %101, label %196
 
 101:                                              ; preds = %.fold.split, %99, %100
-  %.218558260289 = phi ptr [ %.218558, %99 ], [ %.218558, %100 ], [ %.218558261, %.fold.split ]
-  %.0158.lcssa47262288 = phi i64 [ %.0158.lcssa47, %99 ], [ %.0158.lcssa47, %100 ], [ %.0158.lcssa47263, %.fold.split ]
-  %.4187268285 = phi ptr [ %.4187, %99 ], [ %.4187, %100 ], [ %.4187269, %.fold.split ]
-  %.2168273283 = phi i32 [ %.2168, %99 ], [ %.2168, %100 ], [ %.2168274, %.fold.split ]
-  %.2164275281 = phi i32 [ %.2164, %99 ], [ %.2164, %100 ], [ %.2164276, %.fold.split ]
-  %102 = icmp eq i64 %.0158.lcssa47262288, 8
+  %.218559280309 = phi ptr [ %.218559, %99 ], [ %.218559, %100 ], [ %.218559281, %.fold.split ]
+  %.0158.lcssa48282308 = phi i64 [ %.0158.lcssa48, %99 ], [ %.0158.lcssa48, %100 ], [ %.0158.lcssa48283, %.fold.split ]
+  %.4187288305 = phi ptr [ %.4187, %99 ], [ %.4187, %100 ], [ %.4187289, %.fold.split ]
+  %.2168293303 = phi i32 [ %.2168, %99 ], [ %.2168, %100 ], [ %.2168294, %.fold.split ]
+  %.2164295301 = phi i32 [ %.2164, %99 ], [ %.2164, %100 ], [ %.2164296, %.fold.split ]
+  %102 = icmp eq i64 %.0158.lcssa48282308, 8
   br i1 %102, label %103, label %.thread13
 
 103:                                              ; preds = %101
-  %104 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.218558260289, ptr noundef nonnull dereferenceable(9) @.str.74, i64 noundef 8) #19
+  %104 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.218559280309, ptr noundef nonnull dereferenceable(9) @.str.74, i64 noundef 8) #19
   %.not213 = icmp eq i32 %104, 0
   br i1 %.not213, label %105, label %.thread13
 
 105:                                              ; preds = %103
-  %.048.i = load ptr, ptr %1, align 8, !tbaa !31
-  %.not49.i = icmp eq ptr %.048.i, null
-  br i1 %.not49.i, label %._crit_edge.i, label %.lr.ph.i
+  %.057.i = load ptr, ptr %1, align 8, !tbaa !31
+  %.not58.i = icmp eq ptr %.057.i, null
+  br i1 %.not58.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %105, %SSL_CIPHER_get_bits.exit39.i
-  %.051.i = phi ptr [ %.0.i, %SSL_CIPHER_get_bits.exit39.i ], [ %.048.i, %105 ]
-  %.02850.i = phi i32 [ %.129.i, %SSL_CIPHER_get_bits.exit39.i ], [ 0, %105 ]
-  %106 = getelementptr inbounds nuw i8, ptr %.051.i, i64 8
+  %.060.i = phi ptr [ %.0.i, %SSL_CIPHER_get_bits.exit39.i ], [ %.057.i, %105 ]
+  %.02859.i = phi i32 [ %.129.i, %SSL_CIPHER_get_bits.exit39.i ], [ 0, %105 ]
+  %106 = getelementptr inbounds nuw i8, ptr %.060.i, i64 8
   %107 = load i32, ptr %106, align 8, !tbaa !34
   %.not34.i = icmp eq i32 %107, 0
   br i1 %.not34.i, label %SSL_CIPHER_get_bits.exit39.i, label %108
 
 108:                                              ; preds = %.lr.ph.i
-  %109 = load ptr, ptr %.051.i, align 8, !tbaa !23
+  %109 = load ptr, ptr %.060.i, align 8, !tbaa !23
   %110 = icmp eq ptr %109, null
   br i1 %110, label %SSL_CIPHER_get_bits.exit39.i, label %111
 
@@ -3553,119 +3553,231 @@ switch.lookup:                                    ; preds = %.split.i.i
   %118 = zext nneg i32 %116 to i64
   %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ssl_cipher_process_rulestr, i64 %118
   %switch.load = load i32, ptr %switch.gep, align 4
-  %119 = icmp samesign ugt i32 %switch.load, %.02850.i
-  br i1 %119, label %switch.lookup424, label %SSL_CIPHER_get_bits.exit39.i
+  %119 = icmp samesign ugt i32 %switch.load, %.02859.i
+  br i1 %119, label %.split.i38.i, label %SSL_CIPHER_get_bits.exit39.i
 
-switch.lookup424:                                 ; preds = %switch.lookup
-  %120 = zext nneg i32 %116 to i64
-  %switch.gep425 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SSL_CIPHER_get_bits.6, i64 %120
-  %switch.load426 = load i32, ptr %switch.gep425, align 4
+.split.i38.i:                                     ; preds = %switch.lookup
+  %120 = icmp samesign ult i32 %116, 9
+  br i1 %120, label %switch.lookup458, label %SSL_CIPHER_get_bits.exit39.i
+
+switch.lookup458:                                 ; preds = %.split.i38.i
+  %121 = zext nneg i32 %116 to i64
+  %switch.gep459 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SSL_CIPHER_get_bits.7, i64 %121
+  %switch.load460 = load i32, ptr %switch.gep459, align 4
   br label %SSL_CIPHER_get_bits.exit39.i
 
-SSL_CIPHER_get_bits.exit39.i:                     ; preds = %switch.lookup424, %.split.i.i, %switch.lookup, %111, %108, %.lr.ph.i
-  %.129.i = phi i32 [ %.02850.i, %111 ], [ %.02850.i, %switch.lookup ], [ %.02850.i, %.lr.ph.i ], [ %switch.load426, %switch.lookup424 ], [ %.02850.i, %.split.i.i ], [ %.02850.i, %108 ]
-  %121 = getelementptr inbounds nuw i8, ptr %.051.i, i64 16
-  %.0.i = load ptr, ptr %121, align 8, !tbaa !31
+SSL_CIPHER_get_bits.exit39.i:                     ; preds = %.split.i38.i, %switch.lookup458, %.split.i.i, %switch.lookup, %111, %108, %.lr.ph.i
+  %.129.i = phi i32 [ %.02859.i, %111 ], [ %.02859.i, %switch.lookup ], [ %.02859.i, %.lr.ph.i ], [ %switch.load460, %switch.lookup458 ], [ %.02859.i, %.split.i.i ], [ %.02859.i, %108 ], [ 0, %.split.i38.i ]
+  %122 = getelementptr inbounds nuw i8, ptr %.060.i, i64 16
+  %.0.i = load ptr, ptr %122, align 8, !tbaa !31
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !58
 
 ._crit_edge.i:                                    ; preds = %SSL_CIPHER_get_bits.exit39.i, %105
   %.028.lcssa.i = phi i32 [ 0, %105 ], [ %.129.i, %SSL_CIPHER_get_bits.exit39.i ]
-  %122 = add nuw nsw i32 %.028.lcssa.i, 1
-  %123 = zext nneg i32 %122 to i64
-  %124 = shl nuw nsw i64 %123, 2
-  %calloc.i = tail call ptr @calloc(i64 1, i64 %124)
+  %123 = add nuw nsw i32 %.028.lcssa.i, 1
+  %124 = zext nneg i32 %123 to i64
+  %125 = shl nuw nsw i64 %124, 2
+  %calloc.i = tail call ptr @calloc(i64 1, i64 %125)
   %.not31.i = icmp eq ptr %calloc.i, null
-  br i1 %.not31.i, label %.thread15, label %125
+  br i1 %.not31.i, label %.thread15, label %126
 
 .thread15:                                        ; preds = %._crit_edge.i
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 1136) #17
-  br label %154
+  br label %190
 
-125:                                              ; preds = %._crit_edge.i
-  br i1 %.not49.i, label %.preheader.i, label %.lr.ph56.i
+126:                                              ; preds = %._crit_edge.i
+  br i1 %.not58.i, label %.preheader.i, label %.lr.ph65.i
 
-.preheader.i:                                     ; preds = %143, %125
-  %126 = zext nneg i32 %.028.lcssa.i to i64
-  br label %145
+.preheader.i:                                     ; preds = %144, %126
+  %127 = zext nneg i32 %.028.lcssa.i to i64
+  br label %146
 
-.lr.ph56.i:                                       ; preds = %125, %143
-  %.154.i = phi ptr [ %.1.i, %143 ], [ %.048.i, %125 ]
-  %127 = getelementptr inbounds nuw i8, ptr %.154.i, i64 8
-  %128 = load i32, ptr %127, align 8, !tbaa !34
-  %.not33.i = icmp eq i32 %128, 0
-  br i1 %.not33.i, label %143, label %129
+.lr.ph65.i:                                       ; preds = %126, %144
+  %.163.i = phi ptr [ %.1.i, %144 ], [ %.057.i, %126 ]
+  %128 = getelementptr inbounds nuw i8, ptr %.163.i, i64 8
+  %129 = load i32, ptr %128, align 8, !tbaa !34
+  %.not33.i = icmp eq i32 %129, 0
+  br i1 %.not33.i, label %144, label %130
 
-129:                                              ; preds = %.lr.ph56.i
-  %130 = load ptr, ptr %.154.i, align 8, !tbaa !23
-  %131 = icmp eq ptr %130, null
-  br i1 %131, label %SSL_CIPHER_get_bits.exit44.i, label %132
+130:                                              ; preds = %.lr.ph65.i
+  %131 = load ptr, ptr %.163.i, align 8, !tbaa !23
+  %132 = icmp eq ptr %131, null
+  br i1 %132, label %SSL_CIPHER_get_bits.exit44.i, label %133
 
-132:                                              ; preds = %129
-  %133 = getelementptr inbounds nuw i8, ptr %130, i64 20
-  %134 = load i32, ptr %133, align 4, !tbaa !19
-  %135 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %134)
-  %136 = icmp eq i32 %135, 1
-  br i1 %136, label %.split.i43.i, label %SSL_CIPHER_get_bits.exit44.i
+133:                                              ; preds = %130
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 20
+  %135 = load i32, ptr %134, align 4, !tbaa !19
+  %136 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %135)
+  %137 = icmp eq i32 %136, 1
+  br i1 %137, label %.split.i43.i, label %SSL_CIPHER_get_bits.exit44.i
 
-.split.i43.i:                                     ; preds = %132
-  %137 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %134, i1 true)
-  %138 = icmp samesign ult i32 %137, 9
-  br i1 %138, label %switch.lookup427, label %SSL_CIPHER_get_bits.exit44.i
+.split.i43.i:                                     ; preds = %133
+  %138 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %135, i1 true)
+  %139 = icmp samesign ult i32 %138, 9
+  br i1 %139, label %switch.lookup461, label %SSL_CIPHER_get_bits.exit44.i
 
-switch.lookup427:                                 ; preds = %.split.i43.i
-  %139 = zext nneg i32 %137 to i64
-  %switch.gep428 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ssl_cipher_process_rulestr.4, i64 %139
-  %switch.load429 = load i64, ptr %switch.gep428, align 8
+switch.lookup461:                                 ; preds = %.split.i43.i
+  %140 = zext nneg i32 %138 to i64
+  %switch.gep462 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ssl_cipher_process_rulestr.5, i64 %140
+  %switch.load463 = load i64, ptr %switch.gep462, align 8
   br label %SSL_CIPHER_get_bits.exit44.i
 
-SSL_CIPHER_get_bits.exit44.i:                     ; preds = %132, %.split.i43.i, %switch.lookup427, %129
-  %.07.i42.i = phi i64 [ 0, %129 ], [ %switch.load429, %switch.lookup427 ], [ 0, %.split.i43.i ], [ 0, %132 ]
-  %140 = getelementptr inbounds nuw [4 x i8], ptr %calloc.i, i64 %.07.i42.i
-  %141 = load i32, ptr %140, align 4, !tbaa !59
-  %142 = add nsw i32 %141, 1
-  store i32 %142, ptr %140, align 4, !tbaa !59
-  br label %143
+SSL_CIPHER_get_bits.exit44.i:                     ; preds = %133, %.split.i43.i, %switch.lookup461, %130
+  %.07.i42.i = phi i64 [ 0, %130 ], [ %switch.load463, %switch.lookup461 ], [ 0, %.split.i43.i ], [ 0, %133 ]
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %calloc.i, i64 %.07.i42.i
+  %142 = load i32, ptr %141, align 4, !tbaa !59
+  %143 = add nsw i32 %142, 1
+  store i32 %143, ptr %141, align 4, !tbaa !59
+  br label %144
 
-143:                                              ; preds = %SSL_CIPHER_get_bits.exit44.i, %.lr.ph56.i
-  %144 = getelementptr inbounds nuw i8, ptr %.154.i, i64 16
-  %.1.i = load ptr, ptr %144, align 8, !tbaa !31
+144:                                              ; preds = %SSL_CIPHER_get_bits.exit44.i, %.lr.ph65.i
+  %145 = getelementptr inbounds nuw i8, ptr %.163.i, i64 16
+  %.1.i = load ptr, ptr %145, align 8, !tbaa !31
   %.not32.i = icmp eq ptr %.1.i, null
-  br i1 %.not32.i, label %.preheader.i, label %.lr.ph56.i, !llvm.loop !60
+  br i1 %.not32.i, label %.preheader.i, label %.lr.ph65.i, !llvm.loop !60
 
-145:                                              ; preds = %151, %.preheader.i
-  %indvars.iv.i = phi i64 [ %126, %.preheader.i ], [ %indvars.iv.next.i, %151 ]
-  %146 = getelementptr inbounds nuw [4 x i8], ptr %calloc.i, i64 %indvars.iv.i
-  %147 = load i32, ptr %146, align 4, !tbaa !59
-  %148 = icmp sgt i32 %147, 0
-  br i1 %148, label %149, label %151
+146:                                              ; preds = %187, %.preheader.i
+  %indvars.iv.i = phi i64 [ %127, %.preheader.i ], [ %indvars.iv.next.i, %187 ]
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %calloc.i, i64 %indvars.iv.i
+  %148 = load i32, ptr %147, align 4, !tbaa !59
+  %149 = icmp sgt i32 %148, 0
+  br i1 %149, label %150, label %187
 
-149:                                              ; preds = %145
-  %150 = trunc nuw nsw i64 %indvars.iv.i to i32
-  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i16 noundef zeroext 0, i32 noundef 4, i32 noundef %150, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull %2)
-  br label %151
+150:                                              ; preds = %146
+  %151 = load ptr, ptr %1, align 8, !tbaa !31
+  %152 = load ptr, ptr %2, align 8, !tbaa !31
+  %153 = icmp eq ptr %152, null
+  %154 = icmp eq ptr %151, null
+  %or.cond101145189.i.i = select i1 %153, i1 true, i1 %154
+  br i1 %or.cond101145189.i.i, label %ssl_cipher_apply_rule.exit.i, label %.lr.ph.i.i
 
-151:                                              ; preds = %149, %145
+.lr.ph.i.i:                                       ; preds = %150, %.outer.i.i
+  %.1.ph196.i.i = phi ptr [ %156, %.outer.i.i ], [ %151, %150 ]
+  %.0.ph193.i.i = phi ptr [ %.1131.i.i, %.outer.i.i ], [ %152, %150 ]
+  %.0132.ph190.i.i = phi ptr [ %.1133.i.i, %.outer.i.i ], [ %151, %150 ]
+  br label %.lr.ph.split.us.split.us.i.i
+
+.lr.ph.split.us.split.us.i.i:                     ; preds = %.backedge.us.us.i.i, %.lr.ph.i.i
+  %.1146.us.us.i.i = phi ptr [ %156, %.backedge.us.us.i.i ], [ %.1.ph196.i.i, %.lr.ph.i.i ]
+  %155 = getelementptr inbounds nuw i8, ptr %.1146.us.us.i.i, i64 16
+  %156 = load ptr, ptr %155, align 8, !tbaa !31
+  %157 = load ptr, ptr %.1146.us.us.i.i, align 8, !tbaa !23
+  %158 = icmp eq ptr %157, null
+  br i1 %158, label %SSL_CIPHER_get_bits.exit.us.us.i.i, label %159
+
+159:                                              ; preds = %.lr.ph.split.us.split.us.i.i
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 20
+  %161 = load i32, ptr %160, align 4, !tbaa !19
+  %162 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %161)
+  %163 = icmp eq i32 %162, 1
+  br i1 %163, label %.split.i.us.us.i.i, label %SSL_CIPHER_get_bits.exit.us.us.i.i
+
+.split.i.us.us.i.i:                               ; preds = %159
+  %164 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %161, i1 true)
+  %165 = icmp samesign ult i32 %164, 9
+  br i1 %165, label %switch.lookup464, label %SSL_CIPHER_get_bits.exit.us.us.i.i
+
+switch.lookup464:                                 ; preds = %.split.i.us.us.i.i
+  %166 = zext nneg i32 %164 to i64
+  %switch.gep465 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ssl_cipher_process_rulestr.5, i64 %166
+  %switch.load466 = load i64, ptr %switch.gep465, align 8
+  br label %SSL_CIPHER_get_bits.exit.us.us.i.i
+
+SSL_CIPHER_get_bits.exit.us.us.i.i:               ; preds = %159, %.split.i.us.us.i.i, %switch.lookup464, %.lr.ph.split.us.split.us.i.i
+  %.07.i.us.us.i.i = phi i64 [ 0, %.lr.ph.split.us.split.us.i.i ], [ %switch.load466, %switch.lookup464 ], [ 0, %.split.i.us.us.i.i ], [ 0, %159 ]
+  %.not94.us.us.i.i = icmp eq i64 %indvars.iv.i, %.07.i.us.us.i.i
+  br i1 %.not94.us.us.i.i, label %.split.us.i.i, label %.backedge.us.us.i.i
+
+.backedge.us.us.i.i:                              ; preds = %SSL_CIPHER_get_bits.exit.us.us.i.i
+  %167 = icmp eq ptr %.1146.us.us.i.i, %152
+  %168 = icmp eq ptr %156, null
+  %or.cond101.us.us.i.i = select i1 %167, i1 true, i1 %168
+  br i1 %or.cond101.us.us.i.i, label %ssl_cipher_apply_rule.exit.i, label %.lr.ph.split.us.split.us.i.i
+
+.split.us.i.i:                                    ; preds = %SSL_CIPHER_get_bits.exit.us.us.i.i
+  %169 = getelementptr inbounds nuw i8, ptr %.1146.us.us.i.i, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %.1146.us.us.i.i, i64 24
+  %171 = getelementptr inbounds nuw i8, ptr %.1146.us.us.i.i, i64 8
+  %172 = load i32, ptr %171, align 8, !tbaa !34
+  %.not99.i.i = icmp eq i32 %172, 0
+  br i1 %.not99.i.i, label %.outer.i.i, label %173
+
+173:                                              ; preds = %.split.us.i.i
+  %174 = icmp eq ptr %.1146.us.us.i.i, %.0.ph193.i.i
+  br i1 %174, label %ll_append_tail.exit108.i.i, label %175
+
+175:                                              ; preds = %173
+  %176 = icmp eq ptr %.1146.us.us.i.i, %.0132.ph190.i.i
+  %..0132141.i.i = select i1 %176, ptr %156, ptr %.0132.ph190.i.i
+  %177 = load ptr, ptr %170, align 8, !tbaa !28
+  %.not.i103.i.i = icmp eq ptr %177, null
+  br i1 %.not.i103.i.i, label %._crit_edge.i106.i.i, label %178
+
+178:                                              ; preds = %175
+  %179 = getelementptr inbounds nuw i8, ptr %177, i64 16
+  store ptr %156, ptr %179, align 8, !tbaa !29
+  br label %._crit_edge.i106.i.i
+
+._crit_edge.i106.i.i:                             ; preds = %178, %175
+  %.not21.i107.i.i = icmp eq ptr %156, null
+  br i1 %.not21.i107.i.i, label %182, label %180
+
+180:                                              ; preds = %._crit_edge.i106.i.i
+  %181 = getelementptr inbounds nuw i8, ptr %156, i64 24
+  store ptr %177, ptr %181, align 8, !tbaa !28
+  br label %182
+
+182:                                              ; preds = %180, %._crit_edge.i106.i.i
+  %183 = getelementptr inbounds nuw i8, ptr %.0.ph193.i.i, i64 16
+  store ptr %.1146.us.us.i.i, ptr %183, align 8, !tbaa !29
+  store ptr %.0.ph193.i.i, ptr %170, align 8, !tbaa !28
+  store ptr null, ptr %169, align 8, !tbaa !29
+  br label %ll_append_tail.exit108.i.i
+
+ll_append_tail.exit108.i.i:                       ; preds = %182, %173
+  %.6138.i.i = phi ptr [ %.0132.ph190.i.i, %173 ], [ %..0132141.i.i, %182 ]
+  %.4.i.i = phi ptr [ %.0.ph193.i.i, %173 ], [ %.1146.us.us.i.i, %182 ]
+  %184 = getelementptr inbounds nuw i8, ptr %.1146.us.us.i.i, i64 12
+  store i32 0, ptr %184, align 4, !tbaa !35
+  br label %.outer.i.i
+
+.outer.i.i:                                       ; preds = %ll_append_tail.exit108.i.i, %.split.us.i.i
+  %.1133.i.i = phi ptr [ %.0132.ph190.i.i, %.split.us.i.i ], [ %.6138.i.i, %ll_append_tail.exit108.i.i ]
+  %.1131.i.i = phi ptr [ %.0.ph193.i.i, %.split.us.i.i ], [ %.4.i.i, %ll_append_tail.exit108.i.i ]
+  %185 = icmp eq ptr %.1146.us.us.i.i, %152
+  %186 = icmp eq ptr %156, null
+  %or.cond101145.i.i = select i1 %185, i1 true, i1 %186
+  br i1 %or.cond101145.i.i, label %ssl_cipher_apply_rule.exit.i, label %.lr.ph.i.i
+
+ssl_cipher_apply_rule.exit.i:                     ; preds = %.outer.i.i, %.backedge.us.us.i.i, %150
+  %.0132.ph.lcssa.i.i = phi ptr [ %.0132.ph190.i.i, %.backedge.us.us.i.i ], [ %151, %150 ], [ %.1133.i.i, %.outer.i.i ]
+  %.0.ph.lcssa.i.i = phi ptr [ %.0.ph193.i.i, %.backedge.us.us.i.i ], [ %152, %150 ], [ %.1131.i.i, %.outer.i.i ]
+  store ptr %.0132.ph.lcssa.i.i, ptr %1, align 8, !tbaa !31
+  store ptr %.0.ph.lcssa.i.i, ptr %2, align 8, !tbaa !31
+  br label %187
+
+187:                                              ; preds = %ssl_cipher_apply_rule.exit.i, %146
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %152 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %152, label %145, label %153, !llvm.loop !61
+  %188 = icmp sgt i64 %indvars.iv.i, 0
+  br i1 %188, label %146, label %189, !llvm.loop !61
 
 .thread13:                                        ; preds = %101, %103
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 158, ptr noundef nonnull @.str, i32 noundef 1347) #17
-  br label %154
+  br label %190
 
-153:                                              ; preds = %151
-  tail call void @free(ptr noundef nonnull %calloc.i) #17
-  br label %154
+189:                                              ; preds = %187
+  tail call void @free(ptr noundef %calloc.i) #17
+  br label %190
 
-154:                                              ; preds = %.thread13, %.thread15, %153
-  %155 = phi i32 [ %.2168273283, %153 ], [ 0, %.thread15 ], [ 0, %.thread13 ]
-  br label %156
+190:                                              ; preds = %.thread13, %.thread15, %189
+  %191 = phi i32 [ %.2168293303, %189 ], [ 0, %.thread15 ], [ 0, %.thread13 ]
+  br label %192
 
-156:                                              ; preds = %158, %154
-  %.5188 = phi ptr [ %.4187268285, %154 ], [ %159, %158 ]
-  %157 = load i8, ptr %.5188, align 1, !tbaa !36
-  switch i8 %157, label %158 [
+192:                                              ; preds = %194, %190
+  %.5188 = phi ptr [ %.4187288305, %190 ], [ %195, %194 ]
+  %193 = load i8, ptr %.5188, align 1, !tbaa !36
+  switch i8 %193, label %194 [
     i8 0, label %.critedge40
     i8 58, label %.critedge40
     i8 32, label %.critedge40
@@ -3673,53 +3785,53 @@ SSL_CIPHER_get_bits.exit44.i:                     ; preds = %132, %.split.i43.i,
     i8 44, label %.critedge40
   ]
 
-158:                                              ; preds = %156
-  %159 = getelementptr inbounds nuw i8, ptr %.5188, i64 1
-  br label %156, !llvm.loop !62
+194:                                              ; preds = %192
+  %195 = getelementptr inbounds nuw i8, ptr %.5188, i64 1
+  br label %192, !llvm.loop !62
 
-160:                                              ; preds = %.fold.split, %99, %100
-  %.4295 = phi i32 [ 4, %99 ], [ 4, %100 ], [ %.1278, %.fold.split ]
-  %.5294 = phi i32 [ 0, %99 ], [ 0, %100 ], [ %.1154277, %.fold.split ]
-  %.4182293 = phi i32 [ 2, %99 ], [ 1, %100 ], [ %.1179270, %.fold.split ]
-  %.4197292 = phi i32 [ 16, %99 ], [ 16, %100 ], [ %.1194265, %.fold.split ]
-  %.4202291 = phi i32 [ 320, %99 ], [ 320, %100 ], [ %.1199264, %.fold.split ]
-  %.us-phi73217258290 = phi i32 [ %.us-phi73217, %99 ], [ %.us-phi73217, %100 ], [ %.us-phi73217259, %.fold.split ]
-  %.1190266287 = phi i16 [ %.1190, %99 ], [ %.1190, %100 ], [ %.1190267, %.fold.split ]
-  %.4187268286 = phi ptr [ %.4187, %99 ], [ %.4187, %100 ], [ %.4187269, %.fold.split ]
-  %.1174271284 = phi i32 [ %.1174, %99 ], [ %.1174, %100 ], [ %.1174272, %.fold.split ]
-  %.2168273282 = phi i32 [ %.2168, %99 ], [ %.2168, %100 ], [ %.2168274, %.fold.split ]
-  %.2164275279 = phi i32 [ %.2164, %99 ], [ %.2164, %100 ], [ %.2164276, %.fold.split ]
-  %.not212 = icmp eq i32 %.1174271284, 0
-  br i1 %.not212, label %161, label %.critedge40thread-pre-split
+196:                                              ; preds = %.fold.split, %99, %100
+  %.4315 = phi i32 [ 4, %99 ], [ 4, %100 ], [ %.1298, %.fold.split ]
+  %.5314 = phi i32 [ 0, %99 ], [ 0, %100 ], [ %.1154297, %.fold.split ]
+  %.4182313 = phi i32 [ 2, %99 ], [ 1, %100 ], [ %.1179290, %.fold.split ]
+  %.4197312 = phi i32 [ 16, %99 ], [ 16, %100 ], [ %.1194285, %.fold.split ]
+  %.4202311 = phi i32 [ 320, %99 ], [ 320, %100 ], [ %.1199284, %.fold.split ]
+  %.us-phi81237278310 = phi i32 [ %.us-phi81237, %99 ], [ %.us-phi81237, %100 ], [ %.us-phi81237279, %.fold.split ]
+  %.1190286307 = phi i16 [ %.1190, %99 ], [ %.1190, %100 ], [ %.1190287, %.fold.split ]
+  %.4187288306 = phi ptr [ %.4187, %99 ], [ %.4187, %100 ], [ %.4187289, %.fold.split ]
+  %.1174291304 = phi i32 [ %.1174, %99 ], [ %.1174, %100 ], [ %.1174292, %.fold.split ]
+  %.2168293302 = phi i32 [ %.2168, %99 ], [ %.2168, %100 ], [ %.2168294, %.fold.split ]
+  %.2164295299 = phi i32 [ %.2164, %99 ], [ %.2164, %100 ], [ %.2164296, %.fold.split ]
+  %.not212 = icmp eq i32 %.1174291304, 0
+  br i1 %.not212, label %197, label %.critedge40thread-pre-split
 
-161:                                              ; preds = %160
-  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef %.5294, i32 noundef %.4295, i32 noundef %.4182293, i32 noundef %.4202291, i32 noundef %.4197292, i16 noundef zeroext %.1190266287, i32 noundef %.us-phi73217258290, i32 noundef -1, i32 noundef %.2164275279, ptr noundef %1, ptr noundef %2)
+197:                                              ; preds = %196
+  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef %.5314, i32 noundef %.4315, i32 noundef %.4182313, i32 noundef %.4202311, i32 noundef %.4197312, i16 noundef zeroext %.1190286307, i32 noundef %.us-phi81237278310, i32 noundef -1, i32 noundef %.2164295299, ptr noundef %1, ptr noundef %2)
   br label %.critedge40thread-pre-split
 
-.critedge40thread-pre-split:                      ; preds = %161, %160
-  %.pr = load i8, ptr %.4187268286, align 1, !tbaa !36
+.critedge40thread-pre-split:                      ; preds = %197, %196
+  %.pr = load i8, ptr %.4187288306, align 1, !tbaa !36
   br label %.critedge40
 
-.critedge40:                                      ; preds = %156, %156, %156, %156, %156, %.critedge40thread-pre-split
-  %162 = phi i8 [ %.pr, %.critedge40thread-pre-split ], [ %157, %156 ], [ %157, %156 ], [ %157, %156 ], [ %157, %156 ], [ %157, %156 ]
-  %.2164275280 = phi i32 [ %.2164275279, %.critedge40thread-pre-split ], [ %.2164275281, %156 ], [ %.2164275281, %156 ], [ %.2164275281, %156 ], [ %.2164275281, %156 ], [ %.2164275281, %156 ]
-  %.6 = phi ptr [ %.4187268286, %.critedge40thread-pre-split ], [ %.5188, %156 ], [ %.5188, %156 ], [ %.5188, %156 ], [ %.5188, %156 ], [ %.5188, %156 ]
-  %.4170 = phi i32 [ %.2168273282, %.critedge40thread-pre-split ], [ %155, %156 ], [ %155, %156 ], [ %155, %156 ], [ %155, %156 ], [ %155, %156 ]
-  %163 = icmp eq i8 %162, 0
-  br i1 %163, label %.outer29._crit_edge, label %.lr.ph.lr.ph.lr.ph
+.critedge40:                                      ; preds = %192, %192, %192, %192, %192, %.critedge40thread-pre-split
+  %198 = phi i8 [ %.pr, %.critedge40thread-pre-split ], [ %193, %192 ], [ %193, %192 ], [ %193, %192 ], [ %193, %192 ], [ %193, %192 ]
+  %.2164295300 = phi i32 [ %.2164295299, %.critedge40thread-pre-split ], [ %.2164295301, %192 ], [ %.2164295301, %192 ], [ %.2164295301, %192 ], [ %.2164295301, %192 ], [ %.2164295301, %192 ]
+  %.6 = phi ptr [ %.4187288306, %.critedge40thread-pre-split ], [ %.5188, %192 ], [ %.5188, %192 ], [ %.5188, %192 ], [ %.5188, %192 ], [ %.5188, %192 ]
+  %.4170 = phi i32 [ %.2168293302, %.critedge40thread-pre-split ], [ %191, %192 ], [ %191, %192 ], [ %191, %192 ], [ %191, %192 ], [ %191, %192 ]
+  %199 = icmp eq i8 %198, 0
+  br i1 %199, label %.outer30._crit_edge, label %.lr.ph.lr.ph.lr.ph
 
-.outer29._crit_edge:                              ; preds = %.critedge40, %.outer29.backedge
-  %.0166.ph.lcssa64 = phi i32 [ %.0166.ph131, %.outer29.backedge ], [ %.4170, %.critedge40 ]
-  %.0162.ph31.lcssa42 = phi i32 [ %.0162.ph31.be, %.outer29.backedge ], [ %.2164275280, %.critedge40 ]
-  %.not216 = icmp eq i32 %.0162.ph31.lcssa42, 0
-  br i1 %.not216, label %.thread18, label %.outer29._crit_edge.thread300
+.outer30._crit_edge:                              ; preds = %.critedge40, %.outer30.backedge
+  %.0166.ph.lcssa72 = phi i32 [ %.0166.ph140, %.outer30.backedge ], [ %.4170, %.critedge40 ]
+  %.0162.ph32.lcssa43 = phi i32 [ %.0162.ph32.be, %.outer30.backedge ], [ %.2164295300, %.critedge40 ]
+  %.not216 = icmp eq i32 %.0162.ph32.lcssa43, 0
+  br i1 %.not216, label %.thread18, label %.outer30._crit_edge.thread320
 
-.outer29._crit_edge.thread300:                    ; preds = %.split.us, %46, %.outer29._crit_edge
+.outer30._crit_edge.thread320:                    ; preds = %.split.us, %46, %.outer30._crit_edge
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 158, ptr noundef nonnull @.str, i32 noundef 1366) #17
   br label %.thread18
 
-.thread18:                                        ; preds = %17, %3, %35, %.split70.us, %.outer29._crit_edge.thread300, %.outer29._crit_edge
-  %.5171 = phi i32 [ 0, %.outer29._crit_edge.thread300 ], [ %.0166.ph.lcssa64, %.outer29._crit_edge ], [ 0, %.split70.us ], [ 0, %35 ], [ 1, %3 ], [ %.0166.ph131, %17 ]
+.thread18:                                        ; preds = %17, %3, %35, %.split78.us, %.outer30._crit_edge.thread320, %.outer30._crit_edge
+  %.5171 = phi i32 [ 0, %.outer30._crit_edge.thread320 ], [ %.0166.ph.lcssa72, %.outer30._crit_edge ], [ 0, %.split78.us ], [ 0, %35 ], [ 1, %3 ], [ %.0166.ph140, %17 ]
   ret i32 %.5171
 }
 
@@ -3968,12 +4080,12 @@ define hidden nonnull ptr @SSL_CIPHER_get_kx_name(ptr noundef readonly captures(
   %14 = load i32, ptr %13, align 8, !tbaa !33
   %switch.tableidx = add i32 %14, -1
   %15 = icmp ult i32 %switch.tableidx, 4
-  br i1 %15, label %switch.lookup, label %19
+  br i1 %15, label %switch.lookup, label %17
 
 16:                                               ; preds = %.split
   br label %19
 
-17:                                               ; preds = %3, %.split
+17:                                               ; preds = %12, %3, %.split
   br label %19
 
 switch.lookup:                                    ; preds = %12
@@ -3982,8 +4094,8 @@ switch.lookup:                                    ; preds = %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %19
 
-19:                                               ; preds = %12, %switch.lookup, %9, %.split, %1, %17, %16
-  %.0 = phi ptr [ @.str.11, %16 ], [ @.str.7, %17 ], [ @.str.4, %1 ], [ %.str.6..str.7, %9 ], [ @.str.5, %.split ], [ %switch.load, %switch.lookup ], [ @.str.7, %12 ]
+19:                                               ; preds = %switch.lookup, %9, %.split, %1, %17, %16
+  %.0 = phi ptr [ @.str.11, %16 ], [ @.str.7, %17 ], [ @.str.4, %1 ], [ %.str.6..str.7, %9 ], [ @.str.5, %.split ], [ %switch.load, %switch.lookup ]
   ret ptr %.0
 }
 
@@ -4020,12 +4132,12 @@ define hidden noundef ptr @SSL_CIPHER_get_rfc_name(ptr noundef readonly captures
   %14 = load i32, ptr %13, align 8, !tbaa !33
   %switch.tableidx = add i32 %14, -1
   %15 = icmp ult i32 %switch.tableidx, 4
-  br i1 %15, label %switch.lookup, label %SSL_CIPHER_get_kx_name.exit
+  br i1 %15, label %switch.lookup, label %17
 
 16:                                               ; preds = %.split.i
   br label %SSL_CIPHER_get_kx_name.exit
 
-17:                                               ; preds = %.split.i, %3
+17:                                               ; preds = %12, %.split.i, %3
   br label %SSL_CIPHER_get_kx_name.exit
 
 switch.lookup:                                    ; preds = %12
@@ -4034,8 +4146,8 @@ switch.lookup:                                    ; preds = %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %SSL_CIPHER_get_kx_name.exit
 
-SSL_CIPHER_get_kx_name.exit:                      ; preds = %12, %switch.lookup, %.split.i, %9, %16, %17
-  %.0.i = phi ptr [ @.str.11, %16 ], [ @.str.7, %17 ], [ %switch.load, %switch.lookup ], [ %.str.6..str.7.i, %9 ], [ @.str.5, %.split.i ], [ @.str.7, %12 ]
+SSL_CIPHER_get_kx_name.exit:                      ; preds = %switch.lookup, %.split.i, %9, %16, %17
+  %.0.i = phi ptr [ @.str.11, %16 ], [ @.str.7, %17 ], [ %switch.load, %switch.lookup ], [ %.str.6..str.7.i, %9 ], [ @.str.5, %.split.i ]
   %19 = getelementptr i8, ptr %0, i64 20
   %.val = load i32, ptr %19, align 4, !tbaa !19
   %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.val)
@@ -4049,7 +4161,7 @@ SSL_CIPHER_get_kx_name.exit:                      ; preds = %12, %switch.lookup,
 
 switch.lookup46:                                  ; preds = %.split.i41
   %24 = zext nneg i32 %22 to i64
-  %switch.gep47 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SSL_CIPHER_get_rfc_name.5, i64 %24
+  %switch.gep47 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SSL_CIPHER_get_rfc_name.6, i64 %24
   %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %ssl_cipher_get_enc_name.exit
 
@@ -4155,7 +4267,7 @@ switch.lookup:                                    ; preds = %.split
   %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SSL_CIPHER_get_bits, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = zext nneg i32 %9 to i64
-  %switch.gep12 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SSL_CIPHER_get_bits.6, i64 %12
+  %switch.gep12 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SSL_CIPHER_get_bits.7, i64 %12
   %switch.load13 = load i32, ptr %switch.gep12, align 4
   br label %13
 
@@ -4207,7 +4319,7 @@ switch.lookup:                                    ; preds = %.split
 
 switch.lookup34:                                  ; preds = %17
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep35 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SSL_CIPHER_description.7, i64 %19
+  %switch.gep35 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SSL_CIPHER_description.8, i64 %19
   %switch.load36 = load ptr, ptr %switch.gep35, align 8
   br label %20
 
@@ -4224,7 +4336,7 @@ switch.lookup34:                                  ; preds = %17
 
 switch.lookup37:                                  ; preds = %.split1
   %25 = zext nneg i32 %23 to i64
-  %switch.gep38 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SSL_CIPHER_description.8, i64 %25
+  %switch.gep38 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SSL_CIPHER_description.9, i64 %25
   %switch.load39 = load ptr, ptr %switch.gep38, align 8
   br label %26
 
@@ -4241,7 +4353,7 @@ switch.lookup37:                                  ; preds = %.split1
 
 switch.lookup40:                                  ; preds = %.split2
   %31 = zext nneg i32 %29 to i64
-  %switch.gep41 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SSL_CIPHER_description.9, i64 %31
+  %switch.gep41 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SSL_CIPHER_description.10, i64 %31
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %32
 

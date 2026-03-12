@@ -7336,21 +7336,18 @@ define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr noundef 
 
 13:                                               ; preds = %11
   %14 = tail call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #29
-  br i1 %14, label %15, label %.thread
+  br i1 %14, label %15, label %.thread209
 
 15:                                               ; preds = %13
   %16 = tail call i32 @errcode(i32 noundef 50856066) #29
   %17 = load ptr, ptr %0, align 8
   %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.120, ptr noundef %17) #29
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3145, ptr noundef nonnull @__func__.parse_and_validate_value) #29
-  br label %.thread
+  br label %.thread209
 
 19:                                               ; preds = %11
   %20 = tail call fastcc zeroext i1 @call_bool_check_hook(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %5, i32 noundef %2, i32 noundef %3)
-  br i1 %20, label %.thread203, label %.thread
-
-.thread:                                          ; preds = %13, %15, %19
-  br label %.thread203
+  br i1 %20, label %.thread203, label %.thread209
 
 21:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -7610,11 +7607,11 @@ guc_free.exit:                                    ; preds = %115, %117
   %141 = tail call fastcc zeroext i1 @call_enum_check_hook(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %5, i32 noundef %2, i32 noundef %3)
   br i1 %141, label %.thread203, label %.thread209
 
-.thread209:                                       ; preds = %136, %138, %137
+.thread209:                                       ; preds = %13, %15, %19, %136, %138, %137
   br label %.thread203
 
-.thread203:                                       ; preds = %guc_strdup.exit.thread, %guc_free.exit, %6, %19, %57, %94, %113, %138, %.thread209, %.thread200, %.thread196, %.thread
-  %.1 = phi i1 [ false, %.thread209 ], [ false, %.thread ], [ false, %.thread196 ], [ false, %.thread200 ], [ true, %6 ], [ true, %138 ], [ true, %113 ], [ true, %94 ], [ true, %57 ], [ true, %19 ], [ false, %guc_free.exit ], [ false, %guc_strdup.exit.thread ]
+.thread203:                                       ; preds = %guc_strdup.exit.thread, %guc_free.exit, %6, %19, %57, %94, %113, %138, %.thread209, %.thread200, %.thread196
+  %.1 = phi i1 [ false, %.thread209 ], [ false, %guc_strdup.exit.thread ], [ false, %.thread196 ], [ false, %.thread200 ], [ true, %6 ], [ true, %138 ], [ true, %113 ], [ true, %94 ], [ true, %57 ], [ true, %19 ], [ false, %guc_free.exit ]
   ret i1 %.1
 }
 

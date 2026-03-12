@@ -31526,7 +31526,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %437
 
-.invoke282:                                       ; preds = %521, %550, %389, %418
+.invoke282:                                       ; preds = %550, %521, %389, %418
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.78a2551d3dc30fad05e2b982c7b45dac.50, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.78a2551d3dc30fad05e2b982c7b45dac.51) #26
           to label %.cont283 unwind label %332
 
@@ -41092,7 +41092,7 @@ _ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h8db8c32c7f5bda11E.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %437
 
-.invoke282:                                       ; preds = %521, %550, %389, %418
+.invoke282:                                       ; preds = %550, %521, %389, %418
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.78a2551d3dc30fad05e2b982c7b45dac.50, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.78a2551d3dc30fad05e2b982c7b45dac.51) #26
           to label %.cont283 unwind label %332
 

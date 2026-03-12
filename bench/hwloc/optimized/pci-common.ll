@@ -1335,35 +1335,35 @@ define ptr @hwloc_pci_find_parent_by_busid(ptr noundef %0, i32 noundef %1, i32 n
 define ptr @hwloc_pci_find_by_busid(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 {
   %6 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef 0, i32 noundef 0) #25
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %.04457 = load ptr, ptr %7, align 8, !tbaa !93
-  %.not58 = icmp eq ptr %.04457, null
-  br i1 %.not58, label %.loopexit, label %.lr.ph
+  %.04458 = load ptr, ptr %7, align 8, !tbaa !93
+  %.not59 = icmp eq ptr %.04458, null
+  br i1 %.not59, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %19
-  %.04459 = phi ptr [ %.044, %19 ], [ %.04457, %5 ]
-  %8 = load i32, ptr %.04459, align 8, !tbaa !68
+  %.04460 = phi ptr [ %.044, %19 ], [ %.04458, %5 ]
+  %8 = load i32, ptr %.04460, align 8, !tbaa !68
   %9 = icmp eq i32 %8, %1
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.04459, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.04460, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !70
   %.not51 = icmp ugt i32 %12, %2
   br i1 %.not51, label %19, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %.04459, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.04460, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !69
   %.not52 = icmp ult i32 %15, %2
   br i1 %.not52, label %19, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %.04459, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.04460, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !67
   br label %.loopexit
 
 19:                                               ; preds = %13, %10, %.lr.ph
-  %20 = getelementptr inbounds nuw i8, ptr %.04459, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %.04460, i64 40
   %.044 = load ptr, ptr %20, align 8, !tbaa !93
   %.not = icmp eq ptr %.044, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !94
@@ -1509,8 +1509,8 @@ tailrecurse.loopexit.i:                           ; preds = %82, %66
 hwloc__pci_find_by_busid.exit:                    ; preds = %tailrecurse.loopexit.i, %45, %50, %.thread.i, %86, %.loopexit
   %.050.i = phi ptr [ %.tr79.i, %86 ], [ %spec.select, %.loopexit ], [ %.070.i, %45 ], [ %.tr79.i, %.thread.i ], [ %.tr79.i, %50 ], [ %.070.i, %tailrecurse.loopexit.i ]
   %88 = icmp eq ptr %.050.i, %6
-  %.043 = select i1 %88, ptr null, ptr %.050.i
-  ret ptr %.043
+  %spec.select54 = select i1 %88, ptr null, ptr %.050.i
+  ret ptr %spec.select54
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -1663,7 +1663,7 @@ define range(i32 -1, 1) i32 @hwloc_pcidisc_find_bridge_buses(i32 noundef %0, i32
 define noundef nonnull ptr @hwloc_pci_class_string(i16 noundef zeroext %0) local_unnamed_addr #13 {
   %2 = lshr i16 %0, 8
   %trunc = trunc nuw i16 %2 to i8
-  switch i8 %trunc, label %47 [
+  switch i8 %trunc, label %46 [
     i8 0, label %3
     i8 1, label %4
     i8 2, label %6
@@ -1674,225 +1674,222 @@ define noundef nonnull ptr @hwloc_pci_class_string(i16 noundef zeroext %0) local
     i8 7, label %16
     i8 8, label %18
     i8 9, label %20
-    i8 10, label %58
+    i8 10, label %57
     i8 11, label %22
-    i8 12, label %30
-    i8 13, label %32
-    i8 14, label %40
-    i8 15, label %41
-    i8 16, label %42
-    i8 17, label %43
-    i8 18, label %44
-    i8 19, label %45
-    i8 64, label %46
+    i8 12, label %29
+    i8 13, label %31
+    i8 14, label %39
+    i8 15, label %40
+    i8 16, label %41
+    i8 17, label %42
+    i8 18, label %43
+    i8 19, label %44
+    i8 64, label %45
   ]
 
 3:                                                ; preds = %1
   %cond1 = icmp eq i16 %0, 1
-  br i1 %cond1, label %58, label %47
+  br i1 %cond1, label %57, label %46
 
 4:                                                ; preds = %1
   %switch.tableidx = add i16 %0, -256
   %5 = icmp ult i16 %switch.tableidx, 9
-  br i1 %5, label %switch.lookup, label %58
+  br i1 %5, label %switch.lookup, label %57
 
 6:                                                ; preds = %1
   %switch.tableidx16 = add i16 %0, -512
   %7 = icmp ult i16 %switch.tableidx16, 9
-  br i1 %7, label %switch.lookup17, label %58
+  br i1 %7, label %switch.lookup17, label %57
 
 8:                                                ; preds = %1
   %switch.tableidx20 = add i16 %0, -768
   %9 = icmp ult i16 %switch.tableidx20, 3
-  br i1 %9, label %switch.lookup21, label %58
+  br i1 %9, label %switch.lookup21, label %57
 
 10:                                               ; preds = %1
   %switch.tableidx24 = add i16 %0, -1024
   %11 = icmp ult i16 %switch.tableidx24, 4
-  br i1 %11, label %switch.lookup25, label %58
+  br i1 %11, label %switch.lookup25, label %57
 
 12:                                               ; preds = %1
   %switch.tableidx28 = add i16 %0, -1280
   %13 = icmp ult i16 %switch.tableidx28, 3
-  br i1 %13, label %switch.lookup29, label %58
+  br i1 %13, label %switch.lookup29, label %57
 
 14:                                               ; preds = %1
   %switch.tableidx32 = add i16 %0, -1536
   %15 = icmp ult i16 %switch.tableidx32, 11
-  br i1 %15, label %switch.lookup33, label %58
+  br i1 %15, label %switch.lookup33, label %57
 
 16:                                               ; preds = %1
   %switch.tableidx36 = add i16 %0, -1792
   %17 = icmp ult i16 %switch.tableidx36, 6
-  br i1 %17, label %switch.lookup37, label %58
+  br i1 %17, label %switch.lookup37, label %57
 
 18:                                               ; preds = %1
   %switch.tableidx40 = add i16 %0, -2048
   %19 = icmp ult i16 %switch.tableidx40, 7
-  br i1 %19, label %switch.lookup41, label %58
+  br i1 %19, label %switch.lookup41, label %57
 
 20:                                               ; preds = %1
   %switch.tableidx44 = add i16 %0, -2304
   %21 = icmp ult i16 %switch.tableidx44, 5
-  br i1 %21, label %switch.lookup45, label %58
+  br i1 %21, label %switch.lookup45, label %57
 
 22:                                               ; preds = %1
-  switch i16 %0, label %29 [
-    i16 2816, label %58
+  switch i16 %0, label %28 [
+    i16 2816, label %57
     i16 2817, label %23
     i16 2818, label %24
     i16 2832, label %25
     i16 2848, label %26
     i16 2864, label %27
-    i16 2880, label %28
+    i16 2880, label %45
   ]
 
 23:                                               ; preds = %22
-  br label %58
+  br label %57
 
 24:                                               ; preds = %22
-  br label %58
+  br label %57
 
 25:                                               ; preds = %22
-  br label %58
+  br label %57
 
 26:                                               ; preds = %22
-  br label %58
+  br label %57
 
 27:                                               ; preds = %22
-  br label %58
+  br label %57
 
 28:                                               ; preds = %22
-  br label %58
+  br label %57
 
-29:                                               ; preds = %22
-  br label %58
-
-30:                                               ; preds = %1
+29:                                               ; preds = %1
   %switch.tableidx48 = add i16 %0, -3072
-  %31 = icmp ult i16 %switch.tableidx48, 10
-  br i1 %31, label %switch.lookup49, label %58
+  %30 = icmp ult i16 %switch.tableidx48, 10
+  br i1 %30, label %switch.lookup49, label %57
 
-32:                                               ; preds = %1
-  switch i16 %0, label %39 [
-    i16 3328, label %58
-    i16 3329, label %33
-    i16 3344, label %34
-    i16 3345, label %35
-    i16 3346, label %36
-    i16 3360, label %37
-    i16 3361, label %38
+31:                                               ; preds = %1
+  switch i16 %0, label %38 [
+    i16 3328, label %57
+    i16 3329, label %32
+    i16 3344, label %33
+    i16 3345, label %34
+    i16 3346, label %35
+    i16 3360, label %36
+    i16 3361, label %37
   ]
 
-33:                                               ; preds = %32
-  br label %58
+32:                                               ; preds = %31
+  br label %57
 
-34:                                               ; preds = %32
-  br label %58
+33:                                               ; preds = %31
+  br label %57
 
-35:                                               ; preds = %32
-  br label %58
+34:                                               ; preds = %31
+  br label %57
 
-36:                                               ; preds = %32
-  br label %58
+35:                                               ; preds = %31
+  br label %57
 
-37:                                               ; preds = %32
-  br label %58
+36:                                               ; preds = %31
+  br label %57
 
-38:                                               ; preds = %32
-  br label %58
+37:                                               ; preds = %31
+  br label %57
 
-39:                                               ; preds = %32
-  br label %58
+38:                                               ; preds = %31
+  br label %57
 
-40:                                               ; preds = %1
+39:                                               ; preds = %1
   %cond = icmp eq i16 %0, 3584
   %.str.105..str.106 = select i1 %cond, ptr @.str.105, ptr @.str.106
-  br label %58
+  br label %57
+
+40:                                               ; preds = %1
+  br label %57
 
 41:                                               ; preds = %1
-  br label %58
+  br label %57
 
 42:                                               ; preds = %1
-  br label %58
+  br label %57
 
 43:                                               ; preds = %1
-  br label %58
+  br label %57
 
 44:                                               ; preds = %1
-  br label %58
+  br label %57
 
-45:                                               ; preds = %1
-  br label %58
+45:                                               ; preds = %22, %1
+  br label %57
 
-46:                                               ; preds = %1
-  br label %58
-
-47:                                               ; preds = %3, %1
-  br label %58
+46:                                               ; preds = %3, %1
+  br label %57
 
 switch.lookup:                                    ; preds = %4
-  %48 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string, i64 %48
+  %47 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string, i64 %47
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %58
+  br label %57
 
 switch.lookup17:                                  ; preds = %6
-  %49 = zext nneg i16 %switch.tableidx16 to i64
-  %switch.gep18 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.3, i64 %49
+  %48 = zext nneg i16 %switch.tableidx16 to i64
+  %switch.gep18 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.3, i64 %48
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
-  br label %58
+  br label %57
 
 switch.lookup21:                                  ; preds = %8
-  %50 = zext nneg i16 %switch.tableidx20 to i64
-  %switch.gep22 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.4, i64 %50
+  %49 = zext nneg i16 %switch.tableidx20 to i64
+  %switch.gep22 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.4, i64 %49
   %switch.load23 = load ptr, ptr %switch.gep22, align 8
-  br label %58
+  br label %57
 
 switch.lookup25:                                  ; preds = %10
-  %51 = zext nneg i16 %switch.tableidx24 to i64
-  %switch.gep26 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.5, i64 %51
+  %50 = zext nneg i16 %switch.tableidx24 to i64
+  %switch.gep26 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.5, i64 %50
   %switch.load27 = load ptr, ptr %switch.gep26, align 8
-  br label %58
+  br label %57
 
 switch.lookup29:                                  ; preds = %12
-  %52 = zext nneg i16 %switch.tableidx28 to i64
-  %switch.gep30 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.6, i64 %52
+  %51 = zext nneg i16 %switch.tableidx28 to i64
+  %switch.gep30 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.6, i64 %51
   %switch.load31 = load ptr, ptr %switch.gep30, align 8
-  br label %58
+  br label %57
 
 switch.lookup33:                                  ; preds = %14
-  %53 = zext nneg i16 %switch.tableidx32 to i64
-  %switch.gep34 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.7, i64 %53
+  %52 = zext nneg i16 %switch.tableidx32 to i64
+  %switch.gep34 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.7, i64 %52
   %switch.load35 = load ptr, ptr %switch.gep34, align 8
-  br label %58
+  br label %57
 
 switch.lookup37:                                  ; preds = %16
-  %54 = zext nneg i16 %switch.tableidx36 to i64
-  %switch.gep38 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.8, i64 %54
+  %53 = zext nneg i16 %switch.tableidx36 to i64
+  %switch.gep38 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.8, i64 %53
   %switch.load39 = load ptr, ptr %switch.gep38, align 8
-  br label %58
+  br label %57
 
 switch.lookup41:                                  ; preds = %18
-  %55 = zext nneg i16 %switch.tableidx40 to i64
-  %switch.gep42 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.9, i64 %55
+  %54 = zext nneg i16 %switch.tableidx40 to i64
+  %switch.gep42 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.9, i64 %54
   %switch.load43 = load ptr, ptr %switch.gep42, align 8
-  br label %58
+  br label %57
 
 switch.lookup45:                                  ; preds = %20
-  %56 = zext nneg i16 %switch.tableidx44 to i64
-  %switch.gep46 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.10, i64 %56
+  %55 = zext nneg i16 %switch.tableidx44 to i64
+  %switch.gep46 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.10, i64 %55
   %switch.load47 = load ptr, ptr %switch.gep46, align 8
-  br label %58
+  br label %57
 
-switch.lookup49:                                  ; preds = %30
-  %57 = zext nneg i16 %switch.tableidx48 to i64
-  %switch.gep50 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.11, i64 %57
+switch.lookup49:                                  ; preds = %29
+  %56 = zext nneg i16 %switch.tableidx48 to i64
+  %switch.gep50 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_pci_class_string.11, i64 %56
   %switch.load51 = load ptr, ptr %switch.gep50, align 8
-  br label %58
+  br label %57
 
-58:                                               ; preds = %30, %switch.lookup49, %20, %switch.lookup45, %18, %switch.lookup41, %16, %switch.lookup37, %14, %switch.lookup33, %12, %switch.lookup29, %10, %switch.lookup25, %8, %switch.lookup21, %6, %switch.lookup17, %4, %switch.lookup, %40, %32, %22, %1, %3, %47, %46, %45, %44, %43, %42, %41, %39, %38, %37, %36, %35, %34, %33, %29, %28, %27, %26, %25, %24, %23
-  %.0 = phi ptr [ @.str.112, %47 ], [ @.str.85, %46 ], [ @.str.102, %37 ], [ @.str.12, %3 ], [ @.str.111, %45 ], [ @.str.110, %44 ], [ @.str.109, %43 ], [ @.str.108, %42 ], [ @.str.107, %41 ], [ @.str.97, %32 ], [ %.str.105..str.106, %40 ], [ @.str.103, %38 ], [ @.str.71, %18 ], [ %switch.load, %switch.lookup ], [ @.str.22, %4 ], [ @.str.101, %36 ], [ @.str.100, %35 ], [ @.str.99, %34 ], [ @.str.98, %33 ], [ %switch.load51, %switch.lookup49 ], [ @.str.104, %39 ], [ @.str.78, %1 ], [ @.str.56, %14 ], [ %switch.load19, %switch.lookup17 ], [ @.str.32, %6 ], [ %switch.load35, %switch.lookup33 ], [ @.str.63, %16 ], [ %switch.load23, %switch.lookup21 ], [ @.str.35, %8 ], [ %switch.load47, %switch.lookup45 ], [ %switch.load39, %switch.lookup37 ], [ @.str.77, %20 ], [ %switch.load27, %switch.lookup25 ], [ @.str.40, %10 ], [ %switch.load43, %switch.lookup41 ], [ @.str.86, %29 ], [ %switch.load31, %switch.lookup29 ], [ @.str.44, %12 ], [ @.str.79, %22 ], [ @.str.80, %23 ], [ @.str.85, %28 ], [ @.str.84, %27 ], [ @.str.83, %26 ], [ @.str.82, %25 ], [ @.str.81, %24 ], [ @.str.96, %30 ]
+57:                                               ; preds = %29, %switch.lookup49, %20, %switch.lookup45, %18, %switch.lookup41, %16, %switch.lookup37, %14, %switch.lookup33, %12, %switch.lookup29, %10, %switch.lookup25, %8, %switch.lookup21, %6, %switch.lookup17, %4, %switch.lookup, %39, %31, %22, %1, %3, %46, %45, %44, %43, %42, %41, %40, %38, %37, %36, %35, %34, %33, %32, %28, %27, %26, %25, %24, %23
+  %.0 = phi ptr [ @.str.112, %46 ], [ @.str.85, %45 ], [ @.str.100, %34 ], [ @.str.12, %3 ], [ @.str.109, %42 ], [ @.str.108, %41 ], [ @.str.107, %40 ], [ @.str.97, %31 ], [ %.str.105..str.106, %39 ], [ @.str.103, %37 ], [ @.str.102, %36 ], [ @.str.101, %35 ], [ %switch.load43, %switch.lookup41 ], [ %switch.load, %switch.lookup ], [ @.str.22, %4 ], [ @.str.99, %33 ], [ @.str.98, %32 ], [ %switch.load51, %switch.lookup49 ], [ @.str.104, %38 ], [ @.str.78, %1 ], [ @.str.111, %44 ], [ @.str.86, %28 ], [ @.str.56, %14 ], [ %switch.load19, %switch.lookup17 ], [ @.str.32, %6 ], [ %switch.load35, %switch.lookup33 ], [ @.str.63, %16 ], [ %switch.load23, %switch.lookup21 ], [ @.str.35, %8 ], [ @.str.71, %18 ], [ %switch.load39, %switch.lookup37 ], [ @.str.79, %22 ], [ %switch.load27, %switch.lookup25 ], [ @.str.40, %10 ], [ @.str.77, %20 ], [ %switch.load47, %switch.lookup45 ], [ %switch.load31, %switch.lookup29 ], [ @.str.44, %12 ], [ @.str.80, %23 ], [ @.str.110, %43 ], [ @.str.84, %27 ], [ @.str.83, %26 ], [ @.str.82, %25 ], [ @.str.81, %24 ], [ @.str.96, %29 ]
   ret ptr %.0
 }
 

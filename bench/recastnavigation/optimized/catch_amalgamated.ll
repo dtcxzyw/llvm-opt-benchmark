@@ -10135,12 +10135,9 @@ define dso_local void @_ZN5Catch14makeColourImplENS_10ColourModeEPNS_7IStreamE(p
   %5 = alloca %"class.Catch::ReusableStringStream", align 8
   switch i8 %1, label %14 [
     i8 1, label %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_114ANSIColourImplEED2Ev.exit
-    i8 3, label %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_112NoColourImplEED2Ev.exit
+    i8 3, label %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_112NoColourImplEED2Ev.exit26
     i8 0, label %6
   ]
-
-_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_112NoColourImplEED2Ev.exit: ; preds = %3
-  br label %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_114ANSIColourImplEED2Ev.exit
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8
@@ -10157,7 +10154,7 @@ _ZN5Catch12_GLOBAL__N_114ANSIColourImpl26useImplementationForStreamERKNS_7IStrea
   store i32 %12, ptr %11, align 4
   br i1 %.not, label %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_112NoColourImplEED2Ev.exit26, label %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_114ANSIColourImplEED2Ev.exit
 
-_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_112NoColourImplEED2Ev.exit26: ; preds = %6, %_ZN5Catch12_GLOBAL__N_114ANSIColourImpl26useImplementationForStreamERKNS_7IStreamE.exit
+_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_112NoColourImplEED2Ev.exit26: ; preds = %3, %6, %_ZN5Catch12_GLOBAL__N_114ANSIColourImpl26useImplementationForStreamERKNS_7IStreamE.exit
   br label %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_114ANSIColourImplEED2Ev.exit
 
 14:                                               ; preds = %3
@@ -10199,8 +10196,8 @@ _ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit: ; preds = %_ZN5Catch20Reusab
   call void @_ZN5Catch20ReusableStringStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #57
   resume { ptr, i32 } %.pn
 
-_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_114ANSIColourImplEED2Ev.exit: ; preds = %_ZN5Catch12_GLOBAL__N_114ANSIColourImpl26useImplementationForStreamERKNS_7IStreamE.exit, %3, %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_112NoColourImplEED2Ev.exit26, %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_112NoColourImplEED2Ev.exit
-  %.sink31 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch12_GLOBAL__N_112NoColourImplE, i64 16), %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_112NoColourImplEED2Ev.exit26 ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch12_GLOBAL__N_114ANSIColourImplE, i64 16), %3 ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch12_GLOBAL__N_112NoColourImplE, i64 16), %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_112NoColourImplEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch12_GLOBAL__N_114ANSIColourImplE, i64 16), %_ZN5Catch12_GLOBAL__N_114ANSIColourImpl26useImplementationForStreamERKNS_7IStreamE.exit ]
+_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_114ANSIColourImplEED2Ev.exit: ; preds = %_ZN5Catch12_GLOBAL__N_114ANSIColourImpl26useImplementationForStreamERKNS_7IStreamE.exit, %3, %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_112NoColourImplEED2Ev.exit26
+  %.sink31 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch12_GLOBAL__N_112NoColourImplE, i64 16), %_ZN5Catch6Detail10unique_ptrINS_12_GLOBAL__N_112NoColourImplEED2Ev.exit26 ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch12_GLOBAL__N_114ANSIColourImplE, i64 16), %3 ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN5Catch12_GLOBAL__N_114ANSIColourImplE, i64 16), %_ZN5Catch12_GLOBAL__N_114ANSIColourImpl26useImplementationForStreamERKNS_7IStreamE.exit ]
   %26 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #58, !noalias !46
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %2, ptr %27, align 8, !noalias !46
@@ -70230,22 +70227,25 @@ define dso_local void @_ZN5Catch17SonarQubeReporter14writeAssertionERKNS_14Asser
 
 24:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #57
-  br i1 %2, label %.invoke, label %27
+  br i1 %2, label %25, label %28
 
-25:                                               ; preds = %.invoke
-  %26 = landingpad { ptr, i32 }
+25:                                               ; preds = %28, %24
+  br label %.invoke
+
+26:                                               ; preds = %.invoke
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-27:                                               ; preds = %24
-  %28 = load i32, ptr %15, align 8
-  switch i32 %28, label %34 [
+28:                                               ; preds = %24
+  %29 = load i32, ptr %15, align 8
+  switch i32 %29, label %34 [
     i32 273, label %.invoke
     i32 528, label %.invoke
-    i32 18, label %29
-    i32 17, label %29
-    i32 274, label %29
-    i32 4, label %30
+    i32 18, label %30
+    i32 17, label %30
+    i32 274, label %30
+    i32 4, label %25
     i32 1, label %31
     i32 2, label %31
     i32 0, label %31
@@ -70254,21 +70254,18 @@ define dso_local void @_ZN5Catch17SonarQubeReporter14writeAssertionERKNS_14Asser
     i32 272, label %31
   ]
 
-29:                                               ; preds = %27, %27, %27
+30:                                               ; preds = %28, %28, %28
   br label %.invoke
 
-30:                                               ; preds = %27
+31:                                               ; preds = %28, %28, %28, %28, %28, %28
   br label %.invoke
 
-31:                                               ; preds = %27, %27, %27, %27, %27, %27
-  br label %.invoke
-
-.invoke:                                          ; preds = %24, %27, %27, %29, %30, %31
-  %32 = phi ptr [ @.str.358, %31 ], [ @.str.327, %30 ], [ @.str.357, %29 ], [ @.str.356, %27 ], [ @.str.356, %27 ], [ @.str.327, %24 ]
+.invoke:                                          ; preds = %28, %28, %25, %30, %31
+  %32 = phi ptr [ @.str.358, %31 ], [ @.str.356, %28 ], [ @.str.357, %30 ], [ @.str.327, %25 ], [ @.str.356, %28 ]
   %33 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %32)
-          to label %34 unwind label %25
+          to label %34 unwind label %26
 
-34:                                               ; preds = %.invoke, %27
+34:                                               ; preds = %.invoke, %28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
   call void @llvm.experimental.noalias.scope.decl(metadata !1088)
   store ptr %35, ptr %7, align 8, !alias.scope !1088
@@ -70604,8 +70601,8 @@ _ZN5Catch9XmlWriter13ScopedElementD2Ev.exit:      ; preds = %129
   call void @_ZN5Catch9XmlWriter13ScopedElementD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #57
   br label %.body
 
-.body:                                            ; preds = %25, %38, %137
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %137 ], [ %26, %25 ], [ %39, %38 ]
+.body:                                            ; preds = %26, %38, %137
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %137 ], [ %27, %26 ], [ %39, %38 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #57
   resume { ptr, i32 } %.pn.pn.pn.pn
 

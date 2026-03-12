@@ -54,7 +54,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.27 = private unnamed_addr constant [61 x i8] c"text search configuration name \22%s\22 must be schema-qualified\00", align 1
 @.str.28 = private unnamed_addr constant [27 x i8] c"column \22%s\22 does not exist\00", align 1
 @.str.29 = private unnamed_addr constant [39 x i8] c"column \22%s\22 is not of a character type\00", align 1
-@switch.table.TS_execute_recurse = private unnamed_addr constant [3 x i32] [i32 1, i32 0, i32 2], align 4
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @tsvector_lt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -3334,103 +3333,98 @@ define internal fastcc i32 @TS_execute_recurse(ptr noundef %0, ptr noundef %1, i
 
 10:                                               ; preds = %7
   %11 = tail call i32 %3(ptr noundef %1, ptr noundef nonnull %0, ptr noundef null) #15
-  br label %54
+  br label %common.ret45
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %14 = load i8, ptr %13, align 1
-  switch i8 %14, label %47 [
+  switch i8 %14, label %46 [
     i8 1, label %15
-    i8 2, label %21
-    i8 3, label %32
-    i8 4, label %43
+    i8 2, label %20
+    i8 3, label %31
+    i8 4, label %42
   ]
 
 15:                                               ; preds = %12
   %16 = and i32 %2, 1
   %.not41 = icmp eq i32 %16, 0
-  br i1 %.not41, label %17, label %54
+  br i1 %.not41, label %17, label %common.ret45
+
+common.ret45:                                     ; preds = %42, %38, %31, %27, %20, %15, %51, %44, %41, %30, %10, %17
+  %common.ret45.op = phi i32 [ %switch.select43, %17 ], [ %25, %27 ], [ %11, %10 ], [ %45, %44 ], [ 0, %51 ], [ %43, %42 ], [ 1, %15 ], [ 1, %41 ], [ %36, %38 ], [ 0, %20 ], [ 1, %31 ], [ 2, %30 ]
+  ret i32 %common.ret45.op
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %19 = tail call fastcc i32 @TS_execute_recurse(ptr noundef nonnull %18, ptr noundef %1, i32 noundef %2, ptr noundef %3)
-  %20 = icmp ult i32 %19, 3
-  br i1 %20, label %switch.lookup, label %52
+  %switch.selectcmp = icmp eq i32 %19, 2
+  %switch.select = select i1 %switch.selectcmp, i32 2, i32 0
+  %switch.selectcmp42 = icmp eq i32 %19, 0
+  %switch.select43 = select i1 %switch.selectcmp42, i32 1, i32 %switch.select
+  br label %common.ret45
 
-21:                                               ; preds = %12
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %23 = load i32, ptr %22, align 4
-  %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %24
-  %26 = tail call fastcc i32 @TS_execute_recurse(ptr noundef nonnull %25, ptr noundef %1, i32 noundef %2, ptr noundef %3)
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %54, label %28
+20:                                               ; preds = %12
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %22 = load i32, ptr %21, align 4
+  %23 = zext i32 %22 to i64
+  %24 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %23
+  %25 = tail call fastcc i32 @TS_execute_recurse(ptr noundef nonnull %24, ptr noundef %1, i32 noundef %2, ptr noundef %3)
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %common.ret45, label %27
 
-28:                                               ; preds = %21
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %30 = tail call fastcc i32 @TS_execute_recurse(ptr noundef nonnull %29, ptr noundef %1, i32 noundef %2, ptr noundef %3)
-  switch i32 %30, label %52 [
-    i32 0, label %54
-    i32 1, label %31
-    i32 2, label %54
+27:                                               ; preds = %20
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %29 = tail call fastcc i32 @TS_execute_recurse(ptr noundef nonnull %28, ptr noundef %1, i32 noundef %2, ptr noundef %3)
+  switch i32 %29, label %51 [
+    i32 2, label %30
+    i32 1, label %common.ret45
   ]
 
-31:                                               ; preds = %28
-  br label %54
+30:                                               ; preds = %38, %27
+  br label %common.ret45
 
-32:                                               ; preds = %12
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %34 = load i32, ptr %33, align 4
-  %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %35
-  %37 = tail call fastcc i32 @TS_execute_recurse(ptr noundef nonnull %36, ptr noundef %1, i32 noundef %2, ptr noundef %3)
-  %38 = icmp eq i32 %37, 1
-  br i1 %38, label %54, label %39
+31:                                               ; preds = %12
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %33 = load i32, ptr %32, align 4
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %34
+  %36 = tail call fastcc i32 @TS_execute_recurse(ptr noundef nonnull %35, ptr noundef %1, i32 noundef %2, ptr noundef %3)
+  %37 = icmp eq i32 %36, 1
+  br i1 %37, label %common.ret45, label %38
 
-39:                                               ; preds = %32
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %41 = tail call fastcc i32 @TS_execute_recurse(ptr noundef nonnull %40, ptr noundef %1, i32 noundef %2, ptr noundef %3)
-  switch i32 %41, label %52 [
-    i32 0, label %54
-    i32 1, label %42
-    i32 2, label %42
+38:                                               ; preds = %31
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %40 = tail call fastcc i32 @TS_execute_recurse(ptr noundef nonnull %39, ptr noundef %1, i32 noundef %2, ptr noundef %3)
+  switch i32 %40, label %51 [
+    i32 0, label %common.ret45
+    i32 1, label %41
+    i32 2, label %30
   ]
 
-42:                                               ; preds = %39, %39
-  br label %54
+41:                                               ; preds = %38
+  br label %common.ret45
 
-43:                                               ; preds = %12
-  %44 = tail call fastcc i32 @TS_phrase_execute(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef null)
-  switch i32 %44, label %52 [
-    i32 0, label %54
-    i32 1, label %54
-    i32 2, label %45
+42:                                               ; preds = %12
+  %43 = tail call fastcc i32 @TS_phrase_execute(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef null)
+  switch i32 %43, label %51 [
+    i32 2, label %44
+    i32 1, label %common.ret45
   ]
 
-45:                                               ; preds = %43
-  %46 = and i32 %2, 2
-  br label %54
+44:                                               ; preds = %42
+  %45 = and i32 %2, 2
+  br label %common.ret45
 
-47:                                               ; preds = %12
-  %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  %49 = load i8, ptr %13, align 1
-  %50 = sext i8 %49 to i32
-  %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %50) #15
+46:                                               ; preds = %12
+  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %48 = load i8, ptr %13, align 1
+  %49 = sext i8 %48 to i32
+  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %49) #15
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1969, ptr noundef nonnull @__func__.TS_execute_recurse) #15
   unreachable
 
-52:                                               ; preds = %17, %43, %39, %28
-  br label %54
-
-switch.lookup:                                    ; preds = %17
-  %53 = zext nneg i32 %19 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.TS_execute_recurse, i64 %53
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %54
-
-54:                                               ; preds = %43, %28, %switch.lookup, %43, %39, %32, %28, %21, %15, %52, %45, %42, %31, %10
-  %.0 = phi i32 [ %11, %10 ], [ %46, %45 ], [ 0, %52 ], [ 1, %15 ], [ %44, %43 ], [ %30, %28 ], [ %switch.load, %switch.lookup ], [ 0, %21 ], [ %26, %31 ], [ %37, %39 ], [ %30, %28 ], [ 1, %32 ], [ %41, %42 ], [ %44, %43 ]
-  ret i32 %.0
+51:                                               ; preds = %42, %38, %27
+  br label %common.ret45
 }
 
 ; Function Attrs: nounwind uwtable

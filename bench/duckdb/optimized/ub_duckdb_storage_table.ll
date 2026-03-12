@@ -69458,7 +69458,7 @@ define linkonce_odr void @_ZN6duckdb8RowGroup13TemplatedScanILNS_13TableScanType
   %62 = load ptr, ptr %61, align 8, !tbaa !1609
   %63 = load ptr, ptr %60, align 8, !tbaa !1606
   %.not.i = icmp eq ptr %62, %63
-  br i1 %.not.i, label %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit218, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %57, %94
   %64 = phi ptr [ %95, %94 ], [ %63, %57 ]
@@ -69561,10 +69561,7 @@ _ZNK6duckdb6vectorINS_12StorageIndexELb1EEixEm.exit: ; preds = %.lr.ph.i
   %96 = phi ptr [ %.pre418, %87 ], [ %65, %_ZNK6duckdb6vectorINS_12StorageIndexELb1EEixEm.exit ]
   %97 = add nuw i64 %.011.i, 1
   %98 = icmp ult i64 %97, %.pre-phi426
-  br i1 %98, label %.lr.ph.i, label %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit, !llvm.loop !1929
-
-_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit: ; preds = %94, %57
-  br label %575, !llvm.loop !1938
+  br i1 %98, label %.lr.ph.i, label %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit218, !llvm.loop !1929
 
 99:                                               ; preds = %51, %44
   %100 = call noundef zeroext i1 @_ZN6duckdb8RowGroup20CheckZonemapSegmentsERNS_19CollectionScanStateE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(136) %2)
@@ -69631,7 +69628,7 @@ _ZN6duckdb8RowGroup12GetSelVectorENS_15TransactionDataEmRNS_15SelectionVectorEm.
   %135 = icmp ult i64 %128, %134
   br i1 %135, label %.lr.ph.i216, label %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit218, !llvm.loop !1929
 
-_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit218: ; preds = %127, %109
+_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit218: ; preds = %127, %94, %57, %109
   br label %575, !llvm.loop !1938
 
 136:                                              ; preds = %_ZN6duckdb8RowGroup12GetSelVectorENS_15TransactionDataEmRNS_15SelectionVectorEm.exit
@@ -70559,8 +70556,8 @@ _ZN6duckdb15SelectionVectorD2Ev.exit:             ; preds = %548, %555, %_ZN9__g
   store i64 %574, ptr %18, align 8, !tbaa !1857
   br label %.loopexit274
 
-575:                                              ; preds = %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit218, %_ZN6duckdb15SelectionVectorD2Ev.exit, %99, %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit
-  %.0 = phi i32 [ 2, %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit ], [ 2, %99 ], [ 2, %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit218 ], [ %.6, %_ZN6duckdb15SelectionVectorD2Ev.exit ]
+575:                                              ; preds = %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit218, %_ZN6duckdb15SelectionVectorD2Ev.exit, %99
+  %.0 = phi i32 [ %.6, %_ZN6duckdb15SelectionVectorD2Ev.exit ], [ 2, %99 ], [ 2, %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit218 ]
   %576 = icmp eq i32 %.0, 2
   br i1 %576, label %40, label %.loopexit274
 
@@ -73013,7 +73010,7 @@ define linkonce_odr void @_ZN6duckdb8RowGroup13TemplatedScanILNS_13TableScanType
   %63 = load ptr, ptr %62, align 8, !tbaa !1609
   %64 = load ptr, ptr %61, align 8, !tbaa !1606
   %.not.i = icmp eq ptr %63, %64
-  br i1 %.not.i, label %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit218, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %58, %95
   %65 = phi ptr [ %96, %95 ], [ %64, %58 ]
@@ -73116,10 +73113,7 @@ _ZNK6duckdb6vectorINS_12StorageIndexELb1EEixEm.exit: ; preds = %.lr.ph.i
   %97 = phi ptr [ %.pre418, %88 ], [ %66, %_ZNK6duckdb6vectorINS_12StorageIndexELb1EEixEm.exit ]
   %98 = add nuw i64 %.011.i, 1
   %99 = icmp ult i64 %98, %.pre-phi426
-  br i1 %99, label %.lr.ph.i, label %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit, !llvm.loop !1929
-
-_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit: ; preds = %95, %58
-  br label %578, !llvm.loop !1966
+  br i1 %99, label %.lr.ph.i, label %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit218, !llvm.loop !1929
 
 100:                                              ; preds = %52, %45
   %101 = call noundef zeroext i1 @_ZN6duckdb8RowGroup20CheckZonemapSegmentsERNS_19CollectionScanStateE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(136) %2)
@@ -73188,7 +73182,7 @@ _ZN6duckdb8RowGroup21GetCommittedSelVectorEmmmRNS_15SelectionVectorEm.exit: ; pr
   %138 = icmp ult i64 %131, %137
   br i1 %138, label %.lr.ph.i216, label %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit218, !llvm.loop !1929
 
-_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit218: ; preds = %130, %112
+_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit218: ; preds = %130, %95, %58, %112
   br label %578, !llvm.loop !1966
 
 139:                                              ; preds = %_ZN6duckdb8RowGroup21GetCommittedSelVectorEmmmRNS_15SelectionVectorEm.exit
@@ -74113,8 +74107,8 @@ _ZN6duckdb15SelectionVectorD2Ev.exit:             ; preds = %551, %558, %_ZN9__g
   store i64 %577, ptr %17, align 8, !tbaa !1857
   br label %.loopexit274
 
-578:                                              ; preds = %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit218, %_ZN6duckdb15SelectionVectorD2Ev.exit, %100, %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit
-  %.0 = phi i32 [ 2, %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit ], [ 2, %100 ], [ 2, %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit218 ], [ %.6, %_ZN6duckdb15SelectionVectorD2Ev.exit ]
+578:                                              ; preds = %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit218, %_ZN6duckdb15SelectionVectorD2Ev.exit, %100
+  %.0 = phi i32 [ %.6, %_ZN6duckdb15SelectionVectorD2Ev.exit ], [ 2, %100 ], [ 2, %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit218 ]
   %579 = icmp eq i32 %.0, 2
   br i1 %579, label %41, label %.loopexit274
 

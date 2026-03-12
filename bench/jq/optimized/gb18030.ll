@@ -122,33 +122,33 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   %.not93 = icmp ult ptr %1, %0
   br i1 %.not93, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %177
-  %.095 = phi i32 [ %.1, %177 ], [ 0, %2 ]
-  %.07694 = phi ptr [ %178, %177 ], [ %1, %2 ]
-  switch i32 %.095, label %177 [
+.lr.ph:                                           ; preds = %2, %168
+  %.095 = phi i32 [ %.1, %168 ], [ 0, %2 ]
+  %.07694 = phi ptr [ %169, %168 ], [ %1, %2 ]
+  switch i32 %.095, label %168 [
     i32 0, label %3
     i32 1, label %11
     i32 2, label %17
     i32 3, label %23
-    i32 4, label %30
-    i32 5, label %38
-    i32 6, label %44
-    i32 7, label %53
-    i32 8, label %62
-    i32 9, label %70
-    i32 10, label %79
-    i32 11, label %87
-    i32 12, label %95
-    i32 13, label %103
-    i32 14, label %111
-    i32 15, label %119
-    i32 16, label %125
-    i32 17, label %134
-    i32 18, label %142
-    i32 19, label %149
-    i32 20, label %155
-    i32 21, label %163
-    i32 22, label %171
+    i32 4, label %29
+    i32 5, label %37
+    i32 6, label %42
+    i32 7, label %50
+    i32 8, label %58
+    i32 9, label %66
+    i32 10, label %75
+    i32 11, label %83
+    i32 12, label %91
+    i32 13, label %98
+    i32 14, label %106
+    i32 15, label %113
+    i32 16, label %119
+    i32 17, label %128
+    i32 18, label %136
+    i32 19, label %142
+    i32 20, label %148
+    i32 21, label %155
+    i32 22, label %163
   ]
 
 3:                                                ; preds = %.lr.ph
@@ -156,7 +156,7 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !4
-  switch i8 %7, label %177 [
+  switch i8 %7, label %168 [
     i8 0, label %.loopexit
     i8 1, label %8
     i8 2, label %9
@@ -164,35 +164,35 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   ]
 
 8:                                                ; preds = %3
-  br label %177
+  br label %168
 
 9:                                                ; preds = %3
-  br label %177
+  br label %168
 
 10:                                               ; preds = %3
-  br label %177
+  br label %168
 
 11:                                               ; preds = %.lr.ph
   %12 = load i8, ptr %.07694, align 1, !tbaa !4
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !4
-  switch i8 %15, label %177 [
+  switch i8 %15, label %168 [
     i8 0, label %.loopexit
     i8 1, label %.loopexit
     i8 2, label %.loopexit
     i8 3, label %16
   ]
 
-16:                                               ; preds = %11
-  br label %177
+16:                                               ; preds = %37, %23, %11
+  br label %168
 
 17:                                               ; preds = %.lr.ph
   %18 = load i8, ptr %.07694, align 1, !tbaa !4
   %19 = zext i8 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !4
-  switch i8 %21, label %177 [
+  switch i8 %21, label %168 [
     i8 0, label %.loopexit
     i8 1, label %.loopexit
     i8 2, label %.loopexit
@@ -200,335 +200,330 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   ]
 
 22:                                               ; preds = %17
-  br label %177
+  br label %168
 
 23:                                               ; preds = %.lr.ph
   %24 = load i8, ptr %.07694, align 1, !tbaa !4
   %25 = zext i8 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !4
-  switch i8 %27, label %177 [
+  switch i8 %27, label %168 [
     i8 0, label %.loopexit
     i8 1, label %.loopexit
     i8 2, label %28
-    i8 3, label %29
+    i8 3, label %16
   ]
 
-28:                                               ; preds = %23
-  br label %177
+28:                                               ; preds = %136, %23
+  br label %168
 
-29:                                               ; preds = %23
-  br label %177
-
-30:                                               ; preds = %.lr.ph
-  %31 = load i8, ptr %.07694, align 1, !tbaa !4
-  %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %32
-  %34 = load i8, ptr %33, align 1, !tbaa !4
-  switch i8 %34, label %177 [
-    i8 0, label %35
-    i8 1, label %35
-    i8 2, label %35
-    i8 3, label %37
+29:                                               ; preds = %.lr.ph
+  %30 = load i8, ptr %.07694, align 1, !tbaa !4
+  %31 = zext i8 %30 to i64
+  %32 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %31
+  %33 = load i8, ptr %32, align 1, !tbaa !4
+  switch i8 %33, label %168 [
+    i8 0, label %34
+    i8 1, label %34
+    i8 2, label %34
+    i8 3, label %36
   ]
 
-35:                                               ; preds = %30, %30, %30
-  %36 = getelementptr inbounds i8, ptr %1, i64 -1
+34:                                               ; preds = %29, %29, %29
+  %35 = getelementptr inbounds i8, ptr %1, i64 -1
   br label %.loopexit
 
-37:                                               ; preds = %30
-  br label %177
+36:                                               ; preds = %42, %29
+  br label %168
 
-38:                                               ; preds = %.lr.ph
-  %39 = load i8, ptr %.07694, align 1, !tbaa !4
-  %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %40
-  %42 = load i8, ptr %41, align 1, !tbaa !4
-  switch i8 %42, label %177 [
+37:                                               ; preds = %.lr.ph
+  %38 = load i8, ptr %.07694, align 1, !tbaa !4
+  %39 = zext i8 %38 to i64
+  %40 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %39
+  %41 = load i8, ptr %40, align 1, !tbaa !4
+  switch i8 %41, label %168 [
     i8 0, label %.loopexit
     i8 1, label %.loopexit
     i8 2, label %.loopexit
-    i8 3, label %43
+    i8 3, label %16
   ]
 
-43:                                               ; preds = %38
-  br label %177
-
-44:                                               ; preds = %.lr.ph
-  %45 = load i8, ptr %.07694, align 1, !tbaa !4
-  %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !4
-  switch i8 %48, label %177 [
-    i8 0, label %49
-    i8 1, label %49
-    i8 2, label %51
-    i8 3, label %52
+42:                                               ; preds = %.lr.ph
+  %43 = load i8, ptr %.07694, align 1, !tbaa !4
+  %44 = zext i8 %43 to i64
+  %45 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !4
+  switch i8 %46, label %168 [
+    i8 0, label %47
+    i8 1, label %47
+    i8 2, label %49
+    i8 3, label %36
   ]
 
-49:                                               ; preds = %44, %44
-  %50 = getelementptr inbounds i8, ptr %1, i64 -1
+47:                                               ; preds = %42, %42
+  %48 = getelementptr inbounds i8, ptr %1, i64 -1
   br label %.loopexit
 
-51:                                               ; preds = %44
-  br label %177
+49:                                               ; preds = %50, %42
+  br label %168
 
-52:                                               ; preds = %44
-  br label %177
-
-53:                                               ; preds = %.lr.ph
-  %54 = load i8, ptr %.07694, align 1, !tbaa !4
-  %55 = zext i8 %54 to i64
-  %56 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %55
-  %57 = load i8, ptr %56, align 1, !tbaa !4
-  switch i8 %57, label %177 [
-    i8 0, label %58
-    i8 1, label %58
-    i8 2, label %60
-    i8 3, label %61
+50:                                               ; preds = %.lr.ph
+  %51 = load i8, ptr %.07694, align 1, !tbaa !4
+  %52 = zext i8 %51 to i64
+  %53 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %52
+  %54 = load i8, ptr %53, align 1, !tbaa !4
+  switch i8 %54, label %168 [
+    i8 0, label %55
+    i8 1, label %55
+    i8 2, label %49
+    i8 3, label %57
   ]
 
-58:                                               ; preds = %53, %53
-  %59 = getelementptr inbounds i8, ptr %1, i64 -1
+55:                                               ; preds = %50, %50
+  %56 = getelementptr inbounds i8, ptr %1, i64 -1
   br label %.loopexit
 
-60:                                               ; preds = %53
-  br label %177
+57:                                               ; preds = %91, %50
+  br label %168
 
-61:                                               ; preds = %53
-  br label %177
-
-62:                                               ; preds = %.lr.ph
-  %63 = load i8, ptr %.07694, align 1, !tbaa !4
-  %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %64
-  %66 = load i8, ptr %65, align 1, !tbaa !4
-  switch i8 %66, label %177 [
-    i8 0, label %67
-    i8 1, label %67
-    i8 2, label %67
-    i8 3, label %69
+58:                                               ; preds = %.lr.ph
+  %59 = load i8, ptr %.07694, align 1, !tbaa !4
+  %60 = zext i8 %59 to i64
+  %61 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %60
+  %62 = load i8, ptr %61, align 1, !tbaa !4
+  switch i8 %62, label %168 [
+    i8 0, label %63
+    i8 1, label %63
+    i8 2, label %63
+    i8 3, label %65
   ]
 
-67:                                               ; preds = %62, %62, %62
-  %68 = getelementptr inbounds i8, ptr %1, i64 -1
+63:                                               ; preds = %58, %58, %58
+  %64 = getelementptr inbounds i8, ptr %1, i64 -1
   br label %.loopexit
 
-69:                                               ; preds = %62
-  br label %177
+65:                                               ; preds = %58
+  br label %168
 
-70:                                               ; preds = %.lr.ph
-  %71 = load i8, ptr %.07694, align 1, !tbaa !4
-  %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %72
-  %74 = load i8, ptr %73, align 1, !tbaa !4
-  switch i8 %74, label %177 [
-    i8 0, label %75
-    i8 1, label %75
-    i8 2, label %77
-    i8 3, label %78
+66:                                               ; preds = %.lr.ph
+  %67 = load i8, ptr %.07694, align 1, !tbaa !4
+  %68 = zext i8 %67 to i64
+  %69 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %68
+  %70 = load i8, ptr %69, align 1, !tbaa !4
+  switch i8 %70, label %168 [
+    i8 0, label %71
+    i8 1, label %71
+    i8 2, label %73
+    i8 3, label %74
   ]
 
-75:                                               ; preds = %70, %70
-  %76 = getelementptr inbounds i8, ptr %1, i64 -3
+71:                                               ; preds = %66, %66
+  %72 = getelementptr inbounds i8, ptr %1, i64 -3
   br label %.loopexit
 
-77:                                               ; preds = %70
-  br label %177
+73:                                               ; preds = %66
+  br label %168
 
-78:                                               ; preds = %70
-  br label %177
+74:                                               ; preds = %106, %66
+  br label %168
 
-79:                                               ; preds = %.lr.ph
-  %80 = load i8, ptr %.07694, align 1, !tbaa !4
-  %81 = zext i8 %80 to i64
-  %82 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %81
-  %83 = load i8, ptr %82, align 1, !tbaa !4
-  switch i8 %83, label %177 [
-    i8 0, label %84
-    i8 1, label %84
-    i8 2, label %84
-    i8 3, label %86
+75:                                               ; preds = %.lr.ph
+  %76 = load i8, ptr %.07694, align 1, !tbaa !4
+  %77 = zext i8 %76 to i64
+  %78 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %77
+  %79 = load i8, ptr %78, align 1, !tbaa !4
+  switch i8 %79, label %168 [
+    i8 0, label %80
+    i8 1, label %80
+    i8 2, label %80
+    i8 3, label %82
   ]
 
-84:                                               ; preds = %79, %79, %79
-  %85 = getelementptr inbounds i8, ptr %1, i64 -3
+80:                                               ; preds = %75, %75, %75
+  %81 = getelementptr inbounds i8, ptr %1, i64 -3
   br label %.loopexit
 
-86:                                               ; preds = %79
-  br label %177
+82:                                               ; preds = %75
+  br label %168
 
-87:                                               ; preds = %.lr.ph
-  %88 = load i8, ptr %.07694, align 1, !tbaa !4
-  %89 = zext i8 %88 to i64
-  %90 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %89
-  %91 = load i8, ptr %90, align 1, !tbaa !4
-  switch i8 %91, label %177 [
-    i8 0, label %92
-    i8 1, label %92
-    i8 2, label %92
-    i8 3, label %94
+83:                                               ; preds = %.lr.ph
+  %84 = load i8, ptr %.07694, align 1, !tbaa !4
+  %85 = zext i8 %84 to i64
+  %86 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %85
+  %87 = load i8, ptr %86, align 1, !tbaa !4
+  switch i8 %87, label %168 [
+    i8 0, label %88
+    i8 1, label %88
+    i8 2, label %88
+    i8 3, label %90
   ]
 
-92:                                               ; preds = %87, %87, %87
-  %93 = getelementptr inbounds i8, ptr %1, i64 -3
+88:                                               ; preds = %83, %83, %83
+  %89 = getelementptr inbounds i8, ptr %1, i64 -3
   br label %.loopexit
 
-94:                                               ; preds = %87
-  br label %177
+90:                                               ; preds = %83
+  br label %168
 
-95:                                               ; preds = %.lr.ph
-  %96 = load i8, ptr %.07694, align 1, !tbaa !4
-  %97 = zext i8 %96 to i64
-  %98 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %97
-  %99 = load i8, ptr %98, align 1, !tbaa !4
-  switch i8 %99, label %177 [
-    i8 0, label %100
-    i8 1, label %100
-    i8 2, label %100
-    i8 3, label %102
+91:                                               ; preds = %.lr.ph
+  %92 = load i8, ptr %.07694, align 1, !tbaa !4
+  %93 = zext i8 %92 to i64
+  %94 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %93
+  %95 = load i8, ptr %94, align 1, !tbaa !4
+  switch i8 %95, label %168 [
+    i8 0, label %96
+    i8 1, label %96
+    i8 2, label %96
+    i8 3, label %57
   ]
 
-100:                                              ; preds = %95, %95, %95
-  %101 = getelementptr inbounds i8, ptr %1, i64 -1
+96:                                               ; preds = %91, %91, %91
+  %97 = getelementptr inbounds i8, ptr %1, i64 -1
   br label %.loopexit
 
-102:                                              ; preds = %95
-  br label %177
-
-103:                                              ; preds = %.lr.ph
-  %104 = load i8, ptr %.07694, align 1, !tbaa !4
-  %105 = zext i8 %104 to i64
-  %106 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %105
-  %107 = load i8, ptr %106, align 1, !tbaa !4
-  switch i8 %107, label %177 [
-    i8 0, label %108
-    i8 1, label %108
-    i8 2, label %108
-    i8 3, label %110
+98:                                               ; preds = %.lr.ph
+  %99 = load i8, ptr %.07694, align 1, !tbaa !4
+  %100 = zext i8 %99 to i64
+  %101 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %100
+  %102 = load i8, ptr %101, align 1, !tbaa !4
+  switch i8 %102, label %168 [
+    i8 0, label %103
+    i8 1, label %103
+    i8 2, label %103
+    i8 3, label %105
   ]
 
-108:                                              ; preds = %103, %103, %103
-  %109 = getelementptr inbounds i8, ptr %1, i64 -1
+103:                                              ; preds = %98, %98, %98
+  %104 = getelementptr inbounds i8, ptr %1, i64 -1
   br label %.loopexit
 
-110:                                              ; preds = %103
-  br label %177
+105:                                              ; preds = %98
+  br label %168
 
-111:                                              ; preds = %.lr.ph
-  %112 = load i8, ptr %.07694, align 1, !tbaa !4
-  %113 = zext i8 %112 to i64
-  %114 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %113
-  %115 = load i8, ptr %114, align 1, !tbaa !4
-  switch i8 %115, label %177 [
-    i8 0, label %116
-    i8 1, label %116
-    i8 2, label %116
+106:                                              ; preds = %.lr.ph
+  %107 = load i8, ptr %.07694, align 1, !tbaa !4
+  %108 = zext i8 %107 to i64
+  %109 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %108
+  %110 = load i8, ptr %109, align 1, !tbaa !4
+  switch i8 %110, label %168 [
+    i8 0, label %111
+    i8 1, label %111
+    i8 2, label %111
+    i8 3, label %74
+  ]
+
+111:                                              ; preds = %106, %106, %106
+  %112 = getelementptr inbounds i8, ptr %1, i64 -3
+  br label %.loopexit
+
+113:                                              ; preds = %.lr.ph
+  %114 = load i8, ptr %.07694, align 1, !tbaa !4
+  %115 = zext i8 %114 to i64
+  %116 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %115
+  %117 = load i8, ptr %116, align 1, !tbaa !4
+  switch i8 %117, label %168 [
+    i8 0, label %.loopexit
+    i8 1, label %.loopexit
+    i8 2, label %.loopexit
     i8 3, label %118
   ]
 
-116:                                              ; preds = %111, %111, %111
-  %117 = getelementptr inbounds i8, ptr %1, i64 -3
-  br label %.loopexit
-
-118:                                              ; preds = %111
-  br label %177
+118:                                              ; preds = %113
+  br label %168
 
 119:                                              ; preds = %.lr.ph
   %120 = load i8, ptr %.07694, align 1, !tbaa !4
   %121 = zext i8 %120 to i64
   %122 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %121
   %123 = load i8, ptr %122, align 1, !tbaa !4
-  switch i8 %123, label %177 [
-    i8 0, label %.loopexit
-    i8 1, label %.loopexit
-    i8 2, label %.loopexit
-    i8 3, label %124
+  switch i8 %123, label %168 [
+    i8 0, label %124
+    i8 1, label %124
+    i8 2, label %126
+    i8 3, label %127
   ]
 
-124:                                              ; preds = %119
-  br label %177
-
-125:                                              ; preds = %.lr.ph
-  %126 = load i8, ptr %.07694, align 1, !tbaa !4
-  %127 = zext i8 %126 to i64
-  %128 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %127
-  %129 = load i8, ptr %128, align 1, !tbaa !4
-  switch i8 %129, label %177 [
-    i8 0, label %130
-    i8 1, label %130
-    i8 2, label %132
-    i8 3, label %133
-  ]
-
-130:                                              ; preds = %125, %125
-  %131 = getelementptr inbounds i8, ptr %1, i64 -2
+124:                                              ; preds = %119, %119
+  %125 = getelementptr inbounds i8, ptr %1, i64 -2
   br label %.loopexit
 
-132:                                              ; preds = %125
-  br label %177
+126:                                              ; preds = %119
+  br label %168
 
-133:                                              ; preds = %125
-  br label %177
+127:                                              ; preds = %148, %119
+  br label %168
 
-134:                                              ; preds = %.lr.ph
-  %135 = load i8, ptr %.07694, align 1, !tbaa !4
-  %136 = zext i8 %135 to i64
-  %137 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %136
-  %138 = load i8, ptr %137, align 1, !tbaa !4
-  switch i8 %138, label %177 [
-    i8 0, label %139
-    i8 1, label %139
-    i8 2, label %139
+128:                                              ; preds = %.lr.ph
+  %129 = load i8, ptr %.07694, align 1, !tbaa !4
+  %130 = zext i8 %129 to i64
+  %131 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %130
+  %132 = load i8, ptr %131, align 1, !tbaa !4
+  switch i8 %132, label %168 [
+    i8 0, label %133
+    i8 1, label %133
+    i8 2, label %133
+    i8 3, label %135
+  ]
+
+133:                                              ; preds = %128, %128, %128
+  %134 = getelementptr inbounds i8, ptr %1, i64 -2
+  br label %.loopexit
+
+135:                                              ; preds = %128
+  br label %168
+
+136:                                              ; preds = %.lr.ph
+  %137 = load i8, ptr %.07694, align 1, !tbaa !4
+  %138 = zext i8 %137 to i64
+  %139 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %138
+  %140 = load i8, ptr %139, align 1, !tbaa !4
+  switch i8 %140, label %168 [
+    i8 0, label %.loopexit
+    i8 1, label %.loopexit
+    i8 2, label %28
     i8 3, label %141
   ]
 
-139:                                              ; preds = %134, %134, %134
-  %140 = getelementptr inbounds i8, ptr %1, i64 -2
-  br label %.loopexit
-
-141:                                              ; preds = %134
-  br label %177
+141:                                              ; preds = %163, %136
+  br label %168
 
 142:                                              ; preds = %.lr.ph
   %143 = load i8, ptr %.07694, align 1, !tbaa !4
   %144 = zext i8 %143 to i64
   %145 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %144
   %146 = load i8, ptr %145, align 1, !tbaa !4
-  switch i8 %146, label %177 [
-    i8 0, label %.loopexit
-    i8 1, label %.loopexit
-    i8 2, label %147
-    i8 3, label %148
-  ]
-
-147:                                              ; preds = %142
-  br label %177
-
-148:                                              ; preds = %142
-  br label %177
-
-149:                                              ; preds = %.lr.ph
-  %150 = load i8, ptr %.07694, align 1, !tbaa !4
-  %151 = zext i8 %150 to i64
-  %152 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %151
-  %153 = load i8, ptr %152, align 1, !tbaa !4
-  switch i8 %153, label %177 [
+  switch i8 %146, label %168 [
     i8 0, label %.loopexit
     i8 1, label %.loopexit
     i8 2, label %.loopexit
-    i8 3, label %154
+    i8 3, label %147
   ]
 
-154:                                              ; preds = %149
-  br label %177
+147:                                              ; preds = %142
+  br label %168
+
+148:                                              ; preds = %.lr.ph
+  %149 = load i8, ptr %.07694, align 1, !tbaa !4
+  %150 = zext i8 %149 to i64
+  %151 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %150
+  %152 = load i8, ptr %151, align 1, !tbaa !4
+  switch i8 %152, label %168 [
+    i8 0, label %153
+    i8 1, label %153
+    i8 2, label %153
+    i8 3, label %127
+  ]
+
+153:                                              ; preds = %148, %148, %148
+  %154 = getelementptr inbounds i8, ptr %1, i64 -2
+  br label %.loopexit
 
 155:                                              ; preds = %.lr.ph
   %156 = load i8, ptr %.07694, align 1, !tbaa !4
   %157 = zext i8 %156 to i64
   %158 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %157
   %159 = load i8, ptr %158, align 1, !tbaa !4
-  switch i8 %159, label %177 [
+  switch i8 %159, label %168 [
     i8 0, label %160
     i8 1, label %160
     i8 2, label %160
@@ -540,124 +535,102 @@ define internal ptr @gb18030_left_adjust_char_head(ptr noundef readnone captures
   br label %.loopexit
 
 162:                                              ; preds = %155
-  br label %177
+  br label %168
 
 163:                                              ; preds = %.lr.ph
   %164 = load i8, ptr %.07694, align 1, !tbaa !4
   %165 = zext i8 %164 to i64
   %166 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %165
   %167 = load i8, ptr %166, align 1, !tbaa !4
-  switch i8 %167, label %177 [
-    i8 0, label %168
-    i8 1, label %168
-    i8 2, label %168
-    i8 3, label %170
-  ]
-
-168:                                              ; preds = %163, %163, %163
-  %169 = getelementptr inbounds i8, ptr %1, i64 -2
-  br label %.loopexit
-
-170:                                              ; preds = %163
-  br label %177
-
-171:                                              ; preds = %.lr.ph
-  %172 = load i8, ptr %.07694, align 1, !tbaa !4
-  %173 = zext i8 %172 to i64
-  %174 = getelementptr inbounds nuw i8, ptr @GB18030_MAP, i64 %173
-  %175 = load i8, ptr %174, align 1, !tbaa !4
-  switch i8 %175, label %177 [
+  switch i8 %167, label %168 [
     i8 0, label %.loopexit
     i8 1, label %.loopexit
     i8 2, label %.loopexit
-    i8 3, label %176
+    i8 3, label %141
   ]
 
-176:                                              ; preds = %171
-  br label %177
-
-177:                                              ; preds = %.lr.ph, %10, %9, %8, %3, %16, %11, %22, %17, %29, %28, %23, %37, %30, %43, %38, %52, %51, %44, %61, %60, %53, %69, %62, %78, %77, %70, %86, %79, %94, %87, %102, %95, %110, %103, %118, %111, %124, %119, %133, %132, %125, %141, %134, %148, %147, %142, %154, %149, %162, %155, %170, %163, %176, %171
-  %.1 = phi i32 [ %.095, %.lr.ph ], [ 0, %3 ], [ 1, %8 ], [ 2, %9 ], [ 3, %10 ], [ 1, %11 ], [ 4, %16 ], [ 2, %17 ], [ 6, %22 ], [ 3, %23 ], [ 15, %28 ], [ 4, %29 ], [ 4, %30 ], [ 5, %37 ], [ 5, %38 ], [ 4, %43 ], [ 6, %44 ], [ 8, %51 ], [ 5, %52 ], [ 7, %53 ], [ 8, %60 ], [ 11, %61 ], [ 8, %62 ], [ 9, %69 ], [ 9, %70 ], [ 10, %77 ], [ 13, %78 ], [ 10, %79 ], [ 7, %86 ], [ 11, %87 ], [ 12, %94 ], [ 12, %95 ], [ 11, %102 ], [ 13, %103 ], [ 14, %110 ], [ 14, %111 ], [ 13, %118 ], [ 15, %119 ], [ 16, %124 ], [ 16, %125 ], [ 17, %132 ], [ 19, %133 ], [ 17, %134 ], [ 18, %141 ], [ 18, %142 ], [ 15, %147 ], [ 21, %148 ], [ 19, %149 ], [ 20, %154 ], [ 20, %155 ], [ 19, %162 ], [ 21, %163 ], [ 22, %170 ], [ 22, %171 ], [ 21, %176 ]
-  %178 = getelementptr inbounds i8, ptr %.07694, i64 -1
-  %.not = icmp ult ptr %178, %0
+168:                                              ; preds = %.lr.ph, %10, %9, %8, %3, %16, %11, %22, %17, %28, %23, %36, %29, %37, %49, %42, %57, %50, %65, %58, %74, %73, %66, %82, %75, %90, %83, %91, %105, %98, %106, %118, %113, %127, %126, %119, %135, %128, %141, %136, %147, %142, %148, %162, %155, %163
+  %.1 = phi i32 [ %.095, %.lr.ph ], [ 0, %3 ], [ 1, %8 ], [ 2, %9 ], [ 3, %10 ], [ 1, %11 ], [ 4, %16 ], [ 2, %17 ], [ 6, %22 ], [ 3, %23 ], [ 15, %28 ], [ 21, %141 ], [ 4, %29 ], [ 5, %36 ], [ 5, %37 ], [ 22, %163 ], [ 6, %42 ], [ 8, %49 ], [ 22, %162 ], [ 7, %50 ], [ 21, %155 ], [ 11, %57 ], [ 8, %58 ], [ 9, %65 ], [ 9, %66 ], [ 10, %73 ], [ 13, %74 ], [ 10, %75 ], [ 7, %82 ], [ 11, %83 ], [ 12, %90 ], [ 12, %91 ], [ 19, %142 ], [ 13, %98 ], [ 14, %105 ], [ 14, %106 ], [ 20, %148 ], [ 15, %113 ], [ 16, %118 ], [ 16, %119 ], [ 17, %126 ], [ 19, %127 ], [ 17, %128 ], [ 18, %135 ], [ 18, %136 ], [ 20, %147 ]
+  %169 = getelementptr inbounds i8, ptr %.07694, i64 -1
+  %.not = icmp ult ptr %169, %0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %177
+._crit_edge:                                      ; preds = %168
   switch i32 %.1, label %.loopexit [
-    i32 21, label %205
-    i32 20, label %203
-    i32 17, label %201
-    i32 16, label %199
-    i32 4, label %179
-    i32 14, label %197
-    i32 6, label %181
-    i32 7, label %183
-    i32 8, label %185
-    i32 9, label %187
-    i32 10, label %189
-    i32 11, label %191
-    i32 12, label %193
-    i32 13, label %195
+    i32 21, label %196
+    i32 20, label %194
+    i32 17, label %192
+    i32 16, label %190
+    i32 4, label %170
+    i32 14, label %188
+    i32 6, label %172
+    i32 7, label %174
+    i32 8, label %176
+    i32 9, label %178
+    i32 10, label %180
+    i32 11, label %182
+    i32 12, label %184
+    i32 13, label %186
   ]
 
-179:                                              ; preds = %._crit_edge
-  %180 = getelementptr inbounds i8, ptr %1, i64 -1
+170:                                              ; preds = %._crit_edge
+  %171 = getelementptr inbounds i8, ptr %1, i64 -1
   br label %.loopexit
 
-181:                                              ; preds = %._crit_edge
-  %182 = getelementptr inbounds i8, ptr %1, i64 -1
+172:                                              ; preds = %._crit_edge
+  %173 = getelementptr inbounds i8, ptr %1, i64 -1
   br label %.loopexit
 
-183:                                              ; preds = %._crit_edge
-  %184 = getelementptr inbounds i8, ptr %1, i64 -1
+174:                                              ; preds = %._crit_edge
+  %175 = getelementptr inbounds i8, ptr %1, i64 -1
   br label %.loopexit
 
-185:                                              ; preds = %._crit_edge
-  %186 = getelementptr inbounds i8, ptr %1, i64 -1
+176:                                              ; preds = %._crit_edge
+  %177 = getelementptr inbounds i8, ptr %1, i64 -1
   br label %.loopexit
 
-187:                                              ; preds = %._crit_edge
-  %188 = getelementptr inbounds i8, ptr %1, i64 -3
+178:                                              ; preds = %._crit_edge
+  %179 = getelementptr inbounds i8, ptr %1, i64 -3
   br label %.loopexit
 
-189:                                              ; preds = %._crit_edge
-  %190 = getelementptr inbounds i8, ptr %1, i64 -3
+180:                                              ; preds = %._crit_edge
+  %181 = getelementptr inbounds i8, ptr %1, i64 -3
   br label %.loopexit
 
-191:                                              ; preds = %._crit_edge
-  %192 = getelementptr inbounds i8, ptr %1, i64 -3
+182:                                              ; preds = %._crit_edge
+  %183 = getelementptr inbounds i8, ptr %1, i64 -3
   br label %.loopexit
 
-193:                                              ; preds = %._crit_edge
-  %194 = getelementptr inbounds i8, ptr %1, i64 -1
+184:                                              ; preds = %._crit_edge
+  %185 = getelementptr inbounds i8, ptr %1, i64 -1
   br label %.loopexit
 
-195:                                              ; preds = %._crit_edge
-  %196 = getelementptr inbounds i8, ptr %1, i64 -1
+186:                                              ; preds = %._crit_edge
+  %187 = getelementptr inbounds i8, ptr %1, i64 -1
   br label %.loopexit
 
-197:                                              ; preds = %._crit_edge
-  %198 = getelementptr inbounds i8, ptr %1, i64 -3
+188:                                              ; preds = %._crit_edge
+  %189 = getelementptr inbounds i8, ptr %1, i64 -3
   br label %.loopexit
 
-199:                                              ; preds = %._crit_edge
-  %200 = getelementptr inbounds i8, ptr %1, i64 -2
+190:                                              ; preds = %._crit_edge
+  %191 = getelementptr inbounds i8, ptr %1, i64 -2
   br label %.loopexit
 
-201:                                              ; preds = %._crit_edge
-  %202 = getelementptr inbounds i8, ptr %1, i64 -2
+192:                                              ; preds = %._crit_edge
+  %193 = getelementptr inbounds i8, ptr %1, i64 -2
   br label %.loopexit
 
-203:                                              ; preds = %._crit_edge
-  %204 = getelementptr inbounds i8, ptr %1, i64 -2
+194:                                              ; preds = %._crit_edge
+  %195 = getelementptr inbounds i8, ptr %1, i64 -2
   br label %.loopexit
 
-205:                                              ; preds = %._crit_edge
-  %206 = getelementptr inbounds i8, ptr %1, i64 -2
+196:                                              ; preds = %._crit_edge
+  %197 = getelementptr inbounds i8, ptr %1, i64 -2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %171, %171, %171, %149, %149, %149, %142, %142, %119, %119, %119, %38, %38, %38, %23, %23, %17, %17, %17, %11, %11, %11, %3, %2, %._crit_edge, %205, %203, %201, %199, %197, %195, %193, %191, %189, %187, %185, %183, %181, %179, %168, %160, %139, %130, %116, %108, %100, %92, %84, %75, %67, %58, %49, %35
-  %.077 = phi ptr [ %1, %._crit_edge ], [ %182, %181 ], [ %184, %183 ], [ %186, %185 ], [ %36, %35 ], [ %188, %187 ], [ %50, %49 ], [ %59, %58 ], [ %68, %67 ], [ %76, %75 ], [ %85, %84 ], [ %93, %92 ], [ %101, %100 ], [ %109, %108 ], [ %117, %116 ], [ %190, %189 ], [ %131, %130 ], [ %140, %139 ], [ %192, %191 ], [ %194, %193 ], [ %161, %160 ], [ %169, %168 ], [ %196, %195 ], [ %198, %197 ], [ %204, %203 ], [ %200, %199 ], [ %202, %201 ], [ %206, %205 ], [ %180, %179 ], [ %1, %2 ], [ %1, %3 ], [ %1, %11 ], [ %1, %11 ], [ %1, %11 ], [ %1, %17 ], [ %1, %17 ], [ %1, %17 ], [ %1, %23 ], [ %1, %23 ], [ %1, %38 ], [ %1, %38 ], [ %1, %38 ], [ %1, %119 ], [ %1, %119 ], [ %1, %119 ], [ %1, %142 ], [ %1, %142 ], [ %1, %149 ], [ %1, %149 ], [ %1, %149 ], [ %1, %171 ], [ %1, %171 ], [ %1, %171 ]
+.loopexit:                                        ; preds = %163, %163, %163, %142, %142, %142, %136, %136, %113, %113, %113, %37, %37, %37, %23, %23, %17, %17, %17, %11, %11, %11, %3, %2, %._crit_edge, %196, %194, %192, %190, %188, %186, %184, %182, %180, %178, %176, %174, %172, %170, %160, %153, %133, %124, %111, %103, %96, %88, %80, %71, %63, %55, %47, %34
+  %.077 = phi ptr [ %1, %._crit_edge ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ], [ %35, %34 ], [ %179, %178 ], [ %48, %47 ], [ %56, %55 ], [ %64, %63 ], [ %72, %71 ], [ %81, %80 ], [ %89, %88 ], [ %97, %96 ], [ %104, %103 ], [ %112, %111 ], [ %181, %180 ], [ %125, %124 ], [ %134, %133 ], [ %183, %182 ], [ %185, %184 ], [ %154, %153 ], [ %161, %160 ], [ %187, %186 ], [ %189, %188 ], [ %195, %194 ], [ %191, %190 ], [ %193, %192 ], [ %197, %196 ], [ %171, %170 ], [ %1, %2 ], [ %1, %3 ], [ %1, %11 ], [ %1, %11 ], [ %1, %11 ], [ %1, %17 ], [ %1, %17 ], [ %1, %17 ], [ %1, %23 ], [ %1, %23 ], [ %1, %37 ], [ %1, %37 ], [ %1, %37 ], [ %1, %113 ], [ %1, %113 ], [ %1, %113 ], [ %1, %136 ], [ %1, %136 ], [ %1, %142 ], [ %1, %142 ], [ %1, %142 ], [ %1, %163 ], [ %1, %163 ], [ %1, %163 ]
   ret ptr %.077
 }
 

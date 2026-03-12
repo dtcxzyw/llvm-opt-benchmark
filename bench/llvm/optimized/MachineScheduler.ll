@@ -5827,10 +5827,7 @@ define dso_local void @_ZN4llvm17ScheduleDAGMILive19updatePressureDiffsENS_8Arra
 48:                                               ; preds = %42, %39, %33
   %49 = add i32 %.020.i.i, 256
   %.not.i.i = icmp ult i32 %49, %31
-  br i1 %.not.i.i, label %33, label %..critedge.loopexit.i_crit_edge.i, !llvm.loop !391
-
-..critedge.loopexit.i_crit_edge.i:                ; preds = %48
-  br label %_ZNK4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE13iterator_baseIPS3_EneERKS6_.exit, !llvm.loop !391
+  br i1 %.not.i.i, label %33, label %..critedge.loopexit.i_crit_edge.i80, !llvm.loop !391
 
 _ZN4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE4findERKNS_8RegisterE.exit: ; preds = %42
   %50 = icmp eq i32 %.020.i.i, -1
@@ -6268,7 +6265,7 @@ _ZNK4llvm9LiveRange15getVNInfoBeforeENS_9SlotIndexE.exit: ; preds = %247, %235, 
   %.not.i.i79 = icmp ult i32 %281, %263
   br i1 %.not.i.i79, label %265, label %..critedge.loopexit.i_crit_edge.i80, !llvm.loop !391
 
-..critedge.loopexit.i_crit_edge.i80:              ; preds = %280
+..critedge.loopexit.i_crit_edge.i80:              ; preds = %280, %48
   br label %_ZNK4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE13iterator_baseIPS3_EneERKS6_.exit, !llvm.loop !391
 
 _ZN4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE4findERKNS_8RegisterE.exit83: ; preds = %274
@@ -6478,7 +6475,7 @@ _ZNK4llvm9LiveRange5QueryENS_9SlotIndexE.exit144: ; preds = %369, %357, %._crit_
   %393 = icmp eq i32 %392, -1
   br i1 %393, label %_ZNK4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE13iterator_baseIPS3_EneERKS6_.exit, label %286
 
-_ZNK4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE13iterator_baseIPS3_EneERKS6_.exit: ; preds = %388, %70, %..critedge.loopexit.i_crit_edge.i80, %_ZNK4llvm9LiveRange15getVNInfoBeforeENS_9SlotIndexE.exit, %..critedge.loopexit.i_crit_edge.i, %21, %_ZN4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE4findERKNS_8RegisterE.exit83, %_ZN4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE4findERKNS_8RegisterE.exit, %15
+_ZNK4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE13iterator_baseIPS3_EneERKS6_.exit: ; preds = %388, %70, %..critedge.loopexit.i_crit_edge.i80, %_ZNK4llvm9LiveRange15getVNInfoBeforeENS_9SlotIndexE.exit, %21, %_ZN4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE4findERKNS_8RegisterE.exit83, %_ZN4llvm14SparseMultiSetINS_10VReg2SUnitENS_20VirtReg2IndexFunctorEhE4findERKNS_8RegisterE.exit, %15
   %394 = getelementptr inbounds nuw i8, ptr %.0211, i64 16
   %.not54 = icmp eq ptr %394, %4
   br i1 %.not54, label %._crit_edge, label %15

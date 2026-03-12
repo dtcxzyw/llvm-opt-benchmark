@@ -16656,28 +16656,22 @@ _ZNK5clang22NestedNameSpecifierLoc9getPrefixEv.exit: ; preds = %3
 
 11:                                               ; preds = %_ZNK5clang22NestedNameSpecifierLoc9getPrefixEv.exit, %8
   %12 = tail call noundef i32 @_ZNK5clang19NestedNameSpecifier7getKindEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #18
-  switch i32 %12, label %18 [
-    i32 0, label %19
-    i32 1, label %19
-    i32 2, label %19
-    i32 5, label %19
-    i32 6, label %19
-    i32 3, label %13
-    i32 4, label %13
-  ]
+  %.off = add i32 %12, -3
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %13, label %18
 
-13:                                               ; preds = %11, %11
+13:                                               ; preds = %11
   %14 = call { ptr, ptr } @_ZNK5clang22NestedNameSpecifierLoc10getTypeLocEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
   %15 = extractvalue { ptr, ptr } %14, 0
   %16 = extractvalue { ptr, ptr } %14, 1
   %17 = call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %15, ptr %16)
   br i1 %17, label %18, label %19
 
-18:                                               ; preds = %13, %11
+18:                                               ; preds = %11, %13
   br label %19
 
-19:                                               ; preds = %8, %13, %11, %11, %11, %11, %11, %3, %18
-  %.0 = phi i1 [ true, %18 ], [ true, %3 ], [ true, %11 ], [ false, %13 ], [ true, %11 ], [ true, %11 ], [ true, %11 ], [ true, %11 ], [ false, %8 ]
+19:                                               ; preds = %8, %13, %3, %18
+  %.0 = phi i1 [ true, %18 ], [ true, %3 ], [ false, %13 ], [ false, %8 ]
   ret i1 %.0
 }
 
@@ -19481,17 +19475,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 
 9:                                                ; preds = %6, %3
   %10 = tail call noundef i32 @_ZNK5clang19NestedNameSpecifier7getKindEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #18
-  switch i32 %10, label %19 [
-    i32 0, label %20
-    i32 1, label %20
-    i32 2, label %20
-    i32 5, label %20
-    i32 6, label %20
-    i32 3, label %11
-    i32 4, label %11
-  ]
+  %.off = add i32 %10, -3
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %11, label %19
 
-11:                                               ; preds = %9, %9
+11:                                               ; preds = %9
   %.0.copyload.i.i.i.i10 = load i64, ptr %4, align 8
   %12 = and i64 %.0.copyload.i.i.i.i10, 4
   %switch.not.i = icmp eq i64 %12, 0
@@ -19503,11 +19491,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %18 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseTypeENS_8QualTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %17)
   br i1 %18, label %19, label %20
 
-19:                                               ; preds = %11, %9
+19:                                               ; preds = %9, %11
   br label %20
 
-20:                                               ; preds = %11, %9, %9, %9, %9, %9, %6, %2, %19
-  %.0 = phi i1 [ true, %19 ], [ false, %6 ], [ true, %9 ], [ true, %2 ], [ true, %9 ], [ true, %9 ], [ true, %9 ], [ true, %9 ], [ false, %11 ]
+20:                                               ; preds = %11, %6, %2, %19
+  %.0 = phi i1 [ true, %19 ], [ false, %6 ], [ true, %2 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -46693,7 +46681,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i16, ptr %4, align 8
-  switch i16 %5, label %192 [
+  switch i16 %5, label %184 [
     i16 53, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 54, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 105, label %6
@@ -46865,7 +46853,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
     i16 225, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 226, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 227, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-    i16 228, label %76
+    i16 228, label %75
     i16 405, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 229, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 406, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
@@ -46878,9 +46866,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
     i16 64, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 45, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 407, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-    i16 234, label %84
-    i16 235, label %88
-    i16 408, label %90
+    i16 234, label %82
+    i16 235, label %86
+    i16 408, label %88
     i16 236, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 65, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 237, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
@@ -46939,18 +46927,18 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
     i16 280, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 281, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 282, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-    i16 20, label %94
-    i16 21, label %98
+    i16 20, label %92
+    i16 21, label %96
     i16 95, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 283, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-    i16 284, label %102
+    i16 284, label %100
     i16 285, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 412, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 286, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-    i16 413, label %104
-    i16 287, label %106
-    i16 288, label %110
-    i16 414, label %112
+    i16 413, label %102
+    i16 287, label %104
+    i16 288, label %108
+    i16 414, label %110
     i16 289, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 96, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 290, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
@@ -47000,7 +46988,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
     i16 312, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 425, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 313, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-    i16 314, label %116
+    i16 314, label %114
     i16 315, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 316, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 317, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
@@ -47008,18 +46996,18 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
     i16 97, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 318, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 70, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-    i16 319, label %124
+    i16 319, label %121
     i16 320, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 321, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 322, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 323, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 324, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-    i16 325, label %132
-    i16 326, label %140
+    i16 325, label %128
+    i16 326, label %135
     i16 71, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 72, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 73, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-    i16 327, label %148
+    i16 327, label %142
     i16 328, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 32, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 33, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
@@ -47030,10 +47018,10 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
     i16 332, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 75, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 333, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-    i16 334, label %152
+    i16 334, label %146
     i16 98, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 335, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-    i16 336, label %154
+    i16 336, label %148
     i16 337, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 338, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 339, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
@@ -47041,16 +47029,16 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
     i16 341, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 34, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 342, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-    i16 343, label %156
+    i16 343, label %150
     i16 344, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 345, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 346, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 347, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 348, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 349, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-    i16 350, label %164
-    i16 76, label %166
-    i16 77, label %170
+    i16 350, label %157
+    i16 76, label %159
+    i16 77, label %163
     i16 351, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 352, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 78, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
@@ -47088,12 +47076,12 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
     i16 429, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 371, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 372, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-    i16 373, label %174
+    i16 373, label %167
     i16 35, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 36, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 84, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 37, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-    i16 374, label %176
+    i16 374, label %169
     i16 375, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 38, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 376, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
@@ -47107,7 +47095,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
     i16 382, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 383, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 384, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-    i16 385, label %184
+    i16 385, label %176
     i16 85, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 386, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
     i16 387, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
@@ -47238,237 +47226,213 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %70 = load ptr, ptr %69, align 8, !tbaa !1333
   %.not.i = icmp eq ptr %70, null
-  br i1 %.not.i, label %75, label %71
+  br i1 %.not.i, label %183, label %71
 
 71:                                               ; preds = %68
   %.sroa.0.0.copyload.i.i = load i64, ptr %70, align 8, !tbaa !465
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = inttoptr i64 %.sroa.0.0.copyload.i.i to ptr
   %74 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %73, ptr nonnull %72)
-  br i1 %74, label %75, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
+  br i1 %74, label %183, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
-75:                                               ; preds = %71, %68
+75:                                               ; preds = %3
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %77 = load ptr, ptr %76, align 8, !tbaa !1336
+  %.not.i436 = icmp eq ptr %77, null
+  br i1 %.not.i436, label %183, label %78
+
+78:                                               ; preds = %75
+  %.sroa.0.0.copyload.i.i437 = load i64, ptr %77, align 8, !tbaa !465
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %80 = inttoptr i64 %.sroa.0.0.copyload.i.i437 to ptr
+  %81 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %80, ptr nonnull %79)
+  br i1 %81, label %183, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
+
+82:                                               ; preds = %3
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %84 = load ptr, ptr %83, align 8, !tbaa !1338
+  %85 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %84, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
-76:                                               ; preds = %3
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %78 = load ptr, ptr %77, align 8, !tbaa !1336
-  %.not.i436 = icmp eq ptr %78, null
-  br i1 %.not.i436, label %83, label %79
-
-79:                                               ; preds = %76
-  %.sroa.0.0.copyload.i.i437 = load i64, ptr %78, align 8, !tbaa !465
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %81 = inttoptr i64 %.sroa.0.0.copyload.i.i437 to ptr
-  %82 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %81, ptr nonnull %80)
-  br i1 %82, label %83, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-
-83:                                               ; preds = %79, %76
-  br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-
-84:                                               ; preds = %3
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %86 = load ptr, ptr %85, align 8, !tbaa !1338
-  %87 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %86, ptr noundef null)
+86:                                               ; preds = %3
+  %87 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE25TraverseLocksExcludedAttrEPNS_17LocksExcludedAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
 88:                                               ; preds = %3
-  %89 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE25TraverseLocksExcludedAttrEPNS_17LocksExcludedAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %90 = load ptr, ptr %89, align 8, !tbaa !1340
+  %91 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %90, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
-90:                                               ; preds = %3
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %92 = load ptr, ptr %91, align 8, !tbaa !1340
-  %93 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %92, ptr noundef null)
+92:                                               ; preds = %3
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %94 = load ptr, ptr %93, align 8, !tbaa !1344
+  %95 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %94, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
-94:                                               ; preds = %3
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %96 = load ptr, ptr %95, align 8, !tbaa !1344
-  %97 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %96, ptr noundef null)
+96:                                               ; preds = %3
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %98 = load ptr, ptr %97, align 8, !tbaa !1346
+  %99 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %98, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
-98:                                               ; preds = %3
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %100 = load ptr, ptr %99, align 8, !tbaa !1346
-  %101 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %100, ptr noundef null)
+100:                                              ; preds = %3
+  %101 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseOMPAllocateDeclAttrEPNS_19OMPAllocateDeclAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
 102:                                              ; preds = %3
-  %103 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseOMPAllocateDeclAttrEPNS_19OMPAllocateDeclAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  %103 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE30TraverseOMPDeclareSimdDeclAttrEPNS_22OMPDeclareSimdDeclAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
 104:                                              ; preds = %3
-  %105 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE30TraverseOMPDeclareSimdDeclAttrEPNS_22OMPDeclareSimdDeclAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %106 = load ptr, ptr %105, align 8, !tbaa !1348
+  %107 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %106, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
-106:                                              ; preds = %3
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %108 = load ptr, ptr %107, align 8, !tbaa !1348
-  %109 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %108, ptr noundef null)
+108:                                              ; preds = %3
+  %109 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseOMPDeclareVariantAttrEPNS_21OMPDeclareVariantAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
 110:                                              ; preds = %3
-  %111 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseOMPDeclareVariantAttrEPNS_21OMPDeclareVariantAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %112 = load ptr, ptr %111, align 8, !tbaa !1352
+  %113 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %112, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
-112:                                              ; preds = %3
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %114 = load ptr, ptr %113, align 8, !tbaa !1352
-  %115 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %114, ptr noundef null)
+114:                                              ; preds = %3
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %116 = load ptr, ptr %115, align 8, !tbaa !1354
+  %.not.i438 = icmp eq ptr %116, null
+  br i1 %.not.i438, label %183, label %117
+
+117:                                              ; preds = %114
+  %.sroa.0.0.copyload.i.i439 = load i64, ptr %116, align 8, !tbaa !465
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %119 = inttoptr i64 %.sroa.0.0.copyload.i.i439 to ptr
+  %120 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %119, ptr nonnull %118)
+  br i1 %120, label %183, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
+
+121:                                              ; preds = %3
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %123 = load ptr, ptr %122, align 8, !tbaa !1356
+  %.not.i440 = icmp eq ptr %123, null
+  br i1 %.not.i440, label %183, label %124
+
+124:                                              ; preds = %121
+  %.sroa.0.0.copyload.i.i441 = load i64, ptr %123, align 8, !tbaa !465
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %126 = inttoptr i64 %.sroa.0.0.copyload.i.i441 to ptr
+  %127 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %126, ptr nonnull %125)
+  br i1 %127, label %183, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
+
+128:                                              ; preds = %3
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %130 = load ptr, ptr %129, align 8, !tbaa !1358
+  %.not.i442 = icmp eq ptr %130, null
+  br i1 %.not.i442, label %183, label %131
+
+131:                                              ; preds = %128
+  %.sroa.0.0.copyload.i.i443 = load i64, ptr %130, align 8, !tbaa !465
+  %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %133 = inttoptr i64 %.sroa.0.0.copyload.i.i443 to ptr
+  %134 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %133, ptr nonnull %132)
+  br i1 %134, label %183, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
+
+135:                                              ; preds = %3
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %137 = load ptr, ptr %136, align 8, !tbaa !1360
+  %.not.i444 = icmp eq ptr %137, null
+  br i1 %.not.i444, label %183, label %138
+
+138:                                              ; preds = %135
+  %.sroa.0.0.copyload.i.i445 = load i64, ptr %137, align 8, !tbaa !465
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  %140 = inttoptr i64 %.sroa.0.0.copyload.i.i445 to ptr
+  %141 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %140, ptr nonnull %139)
+  br i1 %141, label %183, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
+
+142:                                              ; preds = %3
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %144 = load ptr, ptr %143, align 8, !tbaa !1362
+  %145 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %144, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
-116:                                              ; preds = %3
-  %117 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %118 = load ptr, ptr %117, align 8, !tbaa !1354
-  %.not.i438 = icmp eq ptr %118, null
-  br i1 %.not.i438, label %123, label %119
-
-119:                                              ; preds = %116
-  %.sroa.0.0.copyload.i.i439 = load i64, ptr %118, align 8, !tbaa !465
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %121 = inttoptr i64 %.sroa.0.0.copyload.i.i439 to ptr
-  %122 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %121, ptr nonnull %120)
-  br i1 %122, label %123, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-
-123:                                              ; preds = %119, %116
-  br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-
-124:                                              ; preds = %3
-  %125 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %126 = load ptr, ptr %125, align 8, !tbaa !1356
-  %.not.i440 = icmp eq ptr %126, null
-  br i1 %.not.i440, label %131, label %127
-
-127:                                              ; preds = %124
-  %.sroa.0.0.copyload.i.i441 = load i64, ptr %126, align 8, !tbaa !465
-  %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %129 = inttoptr i64 %.sroa.0.0.copyload.i.i441 to ptr
-  %130 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %129, ptr nonnull %128)
-  br i1 %130, label %131, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-
-131:                                              ; preds = %127, %124
-  br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-
-132:                                              ; preds = %3
-  %133 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %134 = load ptr, ptr %133, align 8, !tbaa !1358
-  %.not.i442 = icmp eq ptr %134, null
-  br i1 %.not.i442, label %139, label %135
-
-135:                                              ; preds = %132
-  %.sroa.0.0.copyload.i.i443 = load i64, ptr %134, align 8, !tbaa !465
-  %136 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %137 = inttoptr i64 %.sroa.0.0.copyload.i.i443 to ptr
-  %138 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %137, ptr nonnull %136)
-  br i1 %138, label %139, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-
-139:                                              ; preds = %135, %132
-  br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-
-140:                                              ; preds = %3
-  %141 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %142 = load ptr, ptr %141, align 8, !tbaa !1360
-  %.not.i444 = icmp eq ptr %142, null
-  br i1 %.not.i444, label %147, label %143
-
-143:                                              ; preds = %140
-  %.sroa.0.0.copyload.i.i445 = load i64, ptr %142, align 8, !tbaa !465
-  %144 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %145 = inttoptr i64 %.sroa.0.0.copyload.i.i445 to ptr
-  %146 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %145, ptr nonnull %144)
-  br i1 %146, label %147, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-
-147:                                              ; preds = %143, %140
+146:                                              ; preds = %3
+  %147 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseReleaseCapabilityAttrEPNS_21ReleaseCapabilityAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
 148:                                              ; preds = %3
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %150 = load ptr, ptr %149, align 8, !tbaa !1362
-  %151 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %150, ptr noundef null)
+  %149 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE30TraverseRequiresCapabilityAttrEPNS_22RequiresCapabilityAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
-152:                                              ; preds = %3
-  %153 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseReleaseCapabilityAttrEPNS_21ReleaseCapabilityAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+150:                                              ; preds = %3
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %152 = load ptr, ptr %151, align 8, !tbaa !1364
+  %.not.i446 = icmp eq ptr %152, null
+  br i1 %.not.i446, label %183, label %153
+
+153:                                              ; preds = %150
+  %.sroa.0.0.copyload.i.i447 = load i64, ptr %152, align 8, !tbaa !465
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 8
+  %155 = inttoptr i64 %.sroa.0.0.copyload.i.i447 to ptr
+  %156 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %155, ptr nonnull %154)
+  br i1 %156, label %183, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
+
+157:                                              ; preds = %3
+  %158 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE33TraverseSharedTrylockFunctionAttrEPNS_25SharedTrylockFunctionAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
-154:                                              ; preds = %3
-  %155 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE30TraverseRequiresCapabilityAttrEPNS_22RequiresCapabilityAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+159:                                              ; preds = %3
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %161 = load ptr, ptr %160, align 8, !tbaa !1366
+  %162 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %161, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
-156:                                              ; preds = %3
-  %157 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %158 = load ptr, ptr %157, align 8, !tbaa !1364
-  %.not.i446 = icmp eq ptr %158, null
-  br i1 %.not.i446, label %163, label %159
-
-159:                                              ; preds = %156
-  %.sroa.0.0.copyload.i.i447 = load i64, ptr %158, align 8, !tbaa !465
-  %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
-  %161 = inttoptr i64 %.sroa.0.0.copyload.i.i447 to ptr
-  %162 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %161, ptr nonnull %160)
-  br i1 %162, label %163, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-
-163:                                              ; preds = %159, %156
+163:                                              ; preds = %3
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %165 = load ptr, ptr %164, align 8, !tbaa !1368
+  %166 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %165, ptr noundef null)
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
-164:                                              ; preds = %3
-  %165 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE33TraverseSharedTrylockFunctionAttrEPNS_25SharedTrylockFunctionAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
+167:                                              ; preds = %3
+  %168 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE32TraverseTryAcquireCapabilityAttrEPNS_24TryAcquireCapabilityAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
-166:                                              ; preds = %3
-  %167 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %168 = load ptr, ptr %167, align 8, !tbaa !1366
-  %169 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %168, ptr noundef null)
-  br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
+169:                                              ; preds = %3
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %171 = load ptr, ptr %170, align 8, !tbaa !1370
+  %.not.i448 = icmp eq ptr %171, null
+  br i1 %.not.i448, label %183, label %172
 
-170:                                              ; preds = %3
-  %171 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %172 = load ptr, ptr %171, align 8, !tbaa !1368
-  %173 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %172, ptr noundef null)
-  br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-
-174:                                              ; preds = %3
-  %175 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE32TraverseTryAcquireCapabilityAttrEPNS_24TryAcquireCapabilityAttrE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %1)
-  br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
+172:                                              ; preds = %169
+  %.sroa.0.0.copyload.i.i449 = load i64, ptr %171, align 8, !tbaa !465
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 8
+  %174 = inttoptr i64 %.sroa.0.0.copyload.i.i449 to ptr
+  %175 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %174, ptr nonnull %173)
+  br i1 %175, label %183, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
 176:                                              ; preds = %3
-  %177 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %178 = load ptr, ptr %177, align 8, !tbaa !1370
-  %.not.i448 = icmp eq ptr %178, null
-  br i1 %.not.i448, label %183, label %179
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %178 = load ptr, ptr %177, align 8, !tbaa !1372
+  %.not.i450 = icmp eq ptr %178, null
+  br i1 %.not.i450, label %183, label %179
 
 179:                                              ; preds = %176
-  %.sroa.0.0.copyload.i.i449 = load i64, ptr %178, align 8, !tbaa !465
+  %.sroa.0.0.copyload.i.i451 = load i64, ptr %178, align 8, !tbaa !465
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  %181 = inttoptr i64 %.sroa.0.0.copyload.i.i449 to ptr
+  %181 = inttoptr i64 %.sroa.0.0.copyload.i.i451 to ptr
   %182 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %181, ptr nonnull %180)
   br i1 %182, label %183, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
-183:                                              ; preds = %179, %176
+183:                                              ; preds = %68, %71, %75, %78, %114, %117, %121, %124, %128, %131, %135, %138, %150, %153, %169, %172, %179, %176
   br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
 
 184:                                              ; preds = %3
-  %185 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %186 = load ptr, ptr %185, align 8, !tbaa !1372
-  %.not.i450 = icmp eq ptr %186, null
-  br i1 %.not.i450, label %191, label %187
-
-187:                                              ; preds = %184
-  %.sroa.0.0.copyload.i.i451 = load i64, ptr %186, align 8, !tbaa !465
-  %188 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %189 = inttoptr i64 %.sroa.0.0.copyload.i.i451 to ptr
-  %190 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %189, ptr nonnull %188)
-  br i1 %190, label %191, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-
-191:                                              ; preds = %187, %184
-  br label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit
-
-192:                                              ; preds = %3
   unreachable
 
-_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit: ; preds = %191, %187, %183, %179, %163, %159, %147, %143, %139, %135, %131, %127, %123, %119, %83, %79, %75, %71, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %2, %174, %170, %166, %164, %154, %152, %148, %112, %110, %106, %104, %102, %98, %94, %90, %88, %84, %64, %62, %58, %54, %50, %46, %42, %38, %36, %34, %32, %30, %28, %26, %24, %22, %18, %16, %14, %12, %10, %8, %6
-  %.0 = phi i1 [ true, %2 ], [ true, %3 ], [ %7, %6 ], [ true, %3 ], [ %9, %8 ], [ true, %3 ], [ true, %3 ], [ %11, %10 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %13, %12 ], [ true, %3 ], [ %15, %14 ], [ %17, %16 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %21, %18 ], [ %23, %22 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %25, %24 ], [ %27, %26 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %37, %36 ], [ true, %3 ], [ true, %3 ], [ %41, %38 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %45, %42 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %49, %46 ], [ %53, %50 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %57, %54 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %61, %58 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %63, %62 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %67, %64 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ false, %71 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %87, %84 ], [ %89, %88 ], [ %93, %90 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %97, %94 ], [ %101, %98 ], [ true, %3 ], [ true, %3 ], [ %103, %102 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %105, %104 ], [ %109, %106 ], [ %111, %110 ], [ %115, %112 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ false, %79 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ false, %119 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ false, %127 ], [ false, %135 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %151, %148 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %153, %152 ], [ true, %3 ], [ true, %3 ], [ %155, %154 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ false, %143 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %165, %164 ], [ %169, %166 ], [ %173, %170 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %175, %174 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ false, %159 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ false, %179 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %75 ], [ true, %83 ], [ true, %123 ], [ true, %131 ], [ true, %139 ], [ true, %147 ], [ true, %163 ], [ true, %183 ], [ true, %191 ], [ false, %187 ]
+_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE29TraverseHLSLContainedTypeAttrEPNS_21HLSLContainedTypeAttrE.exit: ; preds = %183, %179, %172, %153, %138, %131, %124, %117, %78, %71, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %2, %167, %163, %159, %157, %148, %146, %142, %110, %108, %104, %102, %100, %96, %92, %88, %86, %82, %64, %62, %58, %54, %50, %46, %42, %38, %36, %34, %32, %30, %28, %26, %24, %22, %18, %16, %14, %12, %10, %8, %6
+  %.0 = phi i1 [ true, %2 ], [ true, %3 ], [ %7, %6 ], [ true, %3 ], [ %9, %8 ], [ true, %3 ], [ true, %3 ], [ %11, %10 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %13, %12 ], [ true, %3 ], [ %15, %14 ], [ %17, %16 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %21, %18 ], [ %23, %22 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %25, %24 ], [ %27, %26 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %37, %36 ], [ true, %3 ], [ true, %3 ], [ %41, %38 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %45, %42 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %49, %46 ], [ %53, %50 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %57, %54 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %61, %58 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %63, %62 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %67, %64 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ false, %71 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %85, %82 ], [ %87, %86 ], [ %91, %88 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %95, %92 ], [ %99, %96 ], [ true, %3 ], [ true, %3 ], [ %101, %100 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %103, %102 ], [ %107, %104 ], [ %109, %108 ], [ %113, %110 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ false, %78 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ false, %117 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ false, %124 ], [ false, %131 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %145, %142 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %147, %146 ], [ true, %3 ], [ true, %3 ], [ %149, %148 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ false, %138 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %158, %157 ], [ %162, %159 ], [ %166, %163 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ %168, %167 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ false, %153 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ false, %172 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ true, %3 ], [ false, %179 ], [ true, %183 ]
   ret i1 %.0
 }
 

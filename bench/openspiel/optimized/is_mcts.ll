@@ -2881,7 +2881,7 @@ define void @_ZNK10open_spiel10algorithms9ISMCTSBot14GetFinalPolicyERKNS_5StateE
   br i1 %49, label %.invoke, label %51
 
 .invoke:                                          ; preds = %365, %226, %91, %276, %141, %46
-  %50 = phi ptr [ @.str.46, %276 ], [ @.str.46, %46 ], [ @.str.44, %91 ], [ @.str.46, %141 ], [ @.str.44, %226 ], [ @.str.44, %365 ]
+  %50 = phi ptr [ @.str.46, %276 ], [ @.str.46, %46 ], [ @.str.46, %141 ], [ @.str.44, %91 ], [ @.str.44, %226 ], [ @.str.44, %365 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %50) #29
           to label %.cont unwind label %.loopexit.split-lp327.loopexit.split-lp.loopexit.split-lp
 

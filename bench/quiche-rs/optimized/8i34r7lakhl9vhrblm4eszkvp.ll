@@ -5667,7 +5667,7 @@ _ZN6quiche8recovery11gcongestion4bbr25BBRv228get_target_congestion_window17h119d
   unreachable
 
 "_ZN91_$LT$quiche..recovery..gcongestion..bbr2..mode..Mode$u20$as$u20$core..ops..deref..Deref$GT$5deref17h0ce56462a52d0a19E.exit4.i7": ; preds = %207, %_ZN6quiche8recovery11gcongestion4bbr25BBRv228get_target_congestion_window17h119d8af269bed966E.exit.i
-  %.sroa.0.0.i3.i8 = phi ptr [ %62, %207 ], [ %0, %_ZN6quiche8recovery11gcongestion4bbr25BBRv228get_target_congestion_window17h119d8af269bed966E.exit.i ]
+  %.sroa.0.0.i3.i8 = phi ptr [ %0, %_ZN6quiche8recovery11gcongestion4bbr25BBRv228get_target_congestion_window17h119d8af269bed966E.exit.i ], [ %62, %207 ]
   %209 = call noundef zeroext i1 @_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2NetworkModel22full_bandwidth_reached17h9b9a99e992aa5252E(ptr noalias noundef nonnull readonly align 8 dereferenceable(656) %.sroa.0.0.i3.i8)
   br i1 %209, label %212, label %210
 

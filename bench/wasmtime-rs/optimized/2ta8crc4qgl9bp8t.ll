@@ -32759,15 +32759,15 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$object..read..any..Symbol$LT$R$GT$$
   %4 = load i64, ptr %0, align 8, !range !4, !noundef !5
   switch i64 %4, label %default.unreachable29 [
     i64 0, label %5
-    i64 1, label %23
-    i64 2, label %38
-    i64 3, label %59
-    i64 4, label %80
-    i64 5, label %86
-    i64 6, label %92
-    i64 7, label %110
-    i64 8, label %128
-    i64 9, label %153
+    i64 1, label %22
+    i64 2, label %36
+    i64 3, label %56
+    i64 4, label %76
+    i64 5, label %82
+    i64 6, label %88
+    i64 7, label %105
+    i64 8, label %123
+    i64 9, label %148
   ]
 
 default.unreachable29:                            ; preds = %1
@@ -32790,8 +32790,8 @@ default.unreachable29:                            ; preds = %1
   %16 = load i8, ptr %15, align 1, !alias.scope !6143, !noundef !5
   switch i8 %16, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit [
     i8 3, label %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i
-    i8 2, label %22
-    i8 105, label %22
+    i8 2, label %122
+    i8 105, label %122
   ]
 
 _ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i: ; preds = %14
@@ -32804,299 +32804,284 @@ _ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.ll
   %.0.i1.i = select i1 %.not.i.not.i, i1 true, i1 %21
   br label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
 
-22:                                               ; preds = %14, %14
-  br label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
+22:                                               ; preds = %1
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = load ptr, ptr %23, align 8, !nonnull !5, !align !13, !noundef !5
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  %26 = load i32, ptr %25, align 1, !alias.scope !6152
+  %27 = icmp slt i32 %26, 1
+  br i1 %27, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit, label %28
 
-23:                                               ; preds = %1
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !nonnull !5, !align !13, !noundef !5
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
-  %27 = load i32, ptr %26, align 1, !alias.scope !6152
-  %28 = icmp slt i32 %27, 1
-  br i1 %28, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit, label %29
-
-29:                                               ; preds = %23
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 18
-  %31 = load i8, ptr %30, align 1, !alias.scope !6157, !noundef !5
-  switch i8 %31, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit [
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 18
+  %30 = load i8, ptr %29, align 1, !alias.scope !6157, !noundef !5
+  switch i8 %30, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit [
     i8 3, label %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h5074a52184272765E.llvm.5281577753466666573.exit.i
-    i8 2, label %37
-    i8 105, label %37
+    i8 2, label %122
+    i8 105, label %122
   ]
 
-_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h5074a52184272765E.llvm.5281577753466666573.exit.i: ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %25, i64 19
-  %33 = load i8, ptr %32, align 1, !alias.scope !6160, !noundef !5
-  %.not.i.not.i2 = icmp eq i8 %33, 0
-  %34 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %35 = load i16, ptr %34, align 1, !alias.scope !6165
-  %36 = icmp ne i16 %35, 0
-  %.0.i.i3 = select i1 %.not.i.not.i2, i1 true, i1 %36
+_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h5074a52184272765E.llvm.5281577753466666573.exit.i: ; preds = %28
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 19
+  %32 = load i8, ptr %31, align 1, !alias.scope !6160, !noundef !5
+  %.not.i.not.i2 = icmp eq i8 %32, 0
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %34 = load i16, ptr %33, align 1, !alias.scope !6165
+  %35 = icmp ne i16 %34, 0
+  %.0.i.i3 = select i1 %.not.i.not.i2, i1 true, i1 %35
   br label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
 
-37:                                               ; preds = %29, %29
-  br label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
+36:                                               ; preds = %1
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %38 = load ptr, ptr %37, align 8, !nonnull !5, !align !38, !noundef !5
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %40 = load i8, ptr %39, align 8, !range !85, !noundef !5
+  %41 = trunc nuw i8 %40 to i1
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 14
+  %43 = load i16, ptr %42, align 2, !alias.scope !6166, !noundef !5
+  %44 = tail call i16 @llvm.bswap.i16(i16 %43)
+  %.0.i.i.i = select i1 %41, i16 %44, i16 %43
+  %45 = icmp eq i16 %.0.i.i.i, 0
+  %46 = add i16 %.0.i.i.i, 256
+  %or.cond.i = icmp ult i16 %46, 255
+  %or.cond2.i = or i1 %45, %or.cond.i
+  br i1 %or.cond2.i, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit, label %47
 
-38:                                               ; preds = %1
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8, !nonnull !5, !align !38, !noundef !5
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = load i8, ptr %41, align 8, !range !85, !noundef !5
-  %43 = trunc nuw i8 %42 to i1
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 14
-  %45 = load i16, ptr %44, align 2, !alias.scope !6166, !noundef !5
-  %46 = tail call i16 @llvm.bswap.i16(i16 %45)
-  %.0.i.i.i = select i1 %43, i16 %46, i16 %45
-  %47 = icmp eq i16 %.0.i.i.i, 0
-  %48 = add i16 %.0.i.i.i, 256
-  %or.cond.i = icmp ult i16 %48, 255
-  %or.cond2.i = or i1 %47, %or.cond.i
-  br i1 %or.cond2.i, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit, label %49
-
-49:                                               ; preds = %38
-  %50 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  %51 = load i8, ptr %50, align 4, !alias.scope !6171, !noundef !5
-  %52 = and i8 %51, 15
-  switch i8 %52, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit [
-    i8 0, label %53
-    i8 2, label %58
-    i8 1, label %58
+47:                                               ; preds = %36
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 12
+  %49 = load i8, ptr %48, align 4, !alias.scope !6171, !noundef !5
+  %50 = and i8 %49, 15
+  switch i8 %50, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit [
+    i8 0, label %51
+    i8 2, label %122
+    i8 1, label %122
   ]
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %55 = load i32, ptr %54, align 4, !alias.scope !6174, !noundef !5
-  %56 = tail call i32 @llvm.bswap.i32(i32 %55)
-  %.0.i.i3.i = select i1 %43, i32 %56, i32 %55
-  %57 = icmp ne i32 %.0.i.i3.i, 0
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %53 = load i32, ptr %52, align 4, !alias.scope !6174, !noundef !5
+  %54 = tail call i32 @llvm.bswap.i32(i32 %53)
+  %.0.i.i3.i = select i1 %41, i32 %54, i32 %53
+  %55 = icmp ne i32 %.0.i.i3.i, 0
   br label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
 
-58:                                               ; preds = %49, %49
-  br label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
+56:                                               ; preds = %1
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = load ptr, ptr %57, align 8, !nonnull !5, !align !12, !noundef !5
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %60 = load i8, ptr %59, align 8, !range !85, !noundef !5
+  %61 = trunc nuw i8 %60 to i1
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 6
+  %63 = load i16, ptr %62, align 2, !alias.scope !6177, !noundef !5
+  %64 = tail call i16 @llvm.bswap.i16(i16 %63)
+  %.0.i.i.i5 = select i1 %61, i16 %64, i16 %63
+  %65 = icmp eq i16 %.0.i.i.i5, 0
+  %66 = add i16 %.0.i.i.i5, 256
+  %or.cond.i6 = icmp ult i16 %66, 255
+  %or.cond2.i7 = or i1 %65, %or.cond.i6
+  br i1 %or.cond2.i7, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit, label %67
 
-59:                                               ; preds = %1
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %61 = load ptr, ptr %60, align 8, !nonnull !5, !align !12, !noundef !5
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %63 = load i8, ptr %62, align 8, !range !85, !noundef !5
-  %64 = trunc nuw i8 %63 to i1
-  %65 = getelementptr inbounds nuw i8, ptr %61, i64 6
-  %66 = load i16, ptr %65, align 2, !alias.scope !6177, !noundef !5
-  %67 = tail call i16 @llvm.bswap.i16(i16 %66)
-  %.0.i.i.i5 = select i1 %64, i16 %67, i16 %66
-  %68 = icmp eq i16 %.0.i.i.i5, 0
-  %69 = add i16 %.0.i.i.i5, 256
-  %or.cond.i6 = icmp ult i16 %69, 255
-  %or.cond2.i7 = or i1 %68, %or.cond.i6
-  br i1 %or.cond2.i7, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit, label %70
-
-70:                                               ; preds = %59
-  %71 = getelementptr inbounds nuw i8, ptr %61, i64 4
-  %72 = load i8, ptr %71, align 4, !alias.scope !6182, !noundef !5
-  %73 = and i8 %72, 15
-  switch i8 %73, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit [
-    i8 0, label %74
-    i8 2, label %79
-    i8 1, label %79
+67:                                               ; preds = %56
+  %68 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  %69 = load i8, ptr %68, align 4, !alias.scope !6182, !noundef !5
+  %70 = and i8 %69, 15
+  switch i8 %70, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit [
+    i8 0, label %71
+    i8 2, label %122
+    i8 1, label %122
   ]
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %76 = load i64, ptr %75, align 8, !alias.scope !6185, !noundef !5
-  %77 = tail call i64 @llvm.bswap.i64(i64 %76)
-  %.0.i.i3.i9 = select i1 %64, i64 %77, i64 %76
-  %78 = icmp ne i64 %.0.i.i3.i9, 0
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %73 = load i64, ptr %72, align 8, !alias.scope !6185, !noundef !5
+  %74 = tail call i64 @llvm.bswap.i64(i64 %73)
+  %.0.i.i3.i9 = select i1 %61, i64 %74, i64 %73
+  %75 = icmp ne i64 %.0.i.i3.i9, 0
   br label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
 
-79:                                               ; preds = %70, %70
+76:                                               ; preds = %1
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %78 = load ptr, ptr %77, align 8, !nonnull !5, !align !38, !noundef !5
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  %80 = load i8, ptr %79, align 4, !alias.scope !6188, !noundef !5
+  %81 = and i8 %80, -18
+  %.0.i10 = icmp eq i8 %81, 14
   br label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
 
-80:                                               ; preds = %1
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %82 = load ptr, ptr %81, align 8, !nonnull !5, !align !38, !noundef !5
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  %84 = load i8, ptr %83, align 4, !alias.scope !6188, !noundef !5
-  %85 = and i8 %84, -18
-  %.0.i10 = icmp eq i8 %85, 14
+82:                                               ; preds = %1
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %84 = load ptr, ptr %83, align 8, !nonnull !5, !align !38, !noundef !5
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %86 = load i8, ptr %85, align 4, !alias.scope !6193, !noundef !5
+  %87 = and i8 %86, -18
+  %.0.i11 = icmp eq i8 %87, 14
   br label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
 
-86:                                               ; preds = %1
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %88 = load ptr, ptr %87, align 8, !nonnull !5, !align !38, !noundef !5
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  %90 = load i8, ptr %89, align 4, !alias.scope !6193, !noundef !5
-  %91 = and i8 %90, -18
-  %.0.i11 = icmp eq i8 %91, 14
-  br label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
+88:                                               ; preds = %1
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %90 = load ptr, ptr %89, align 8, !nonnull !5, !align !13, !noundef !5
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 12
+  %92 = load i16, ptr %91, align 1, !alias.scope !6198
+  %93 = icmp ugt i16 %92, -258
+  %94 = sext i16 %92 to i32
+  %95 = zext i16 %92 to i32
+  %.0.i.i12 = select i1 %93, i32 %94, i32 %95
+  %96 = icmp slt i32 %.0.i.i12, 1
+  br i1 %96, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit, label %97
 
-92:                                               ; preds = %1
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %94 = load ptr, ptr %93, align 8, !nonnull !5, !align !13, !noundef !5
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 12
-  %96 = load i16, ptr %95, align 1, !alias.scope !6198
-  %97 = icmp ugt i16 %96, -258
-  %98 = sext i16 %96 to i32
-  %99 = zext i16 %96 to i32
-  %.0.i.i12 = select i1 %97, i32 %98, i32 %99
-  %100 = icmp slt i32 %.0.i.i12, 1
-  br i1 %100, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit, label %101
-
-101:                                              ; preds = %92
-  %102 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %103 = load i8, ptr %102, align 1, !alias.scope !6203, !noundef !5
-  switch i8 %103, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit [
+97:                                               ; preds = %88
+  %98 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %99 = load i8, ptr %98, align 1, !alias.scope !6203, !noundef !5
+  switch i8 %99, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit [
     i8 3, label %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i14
-    i8 2, label %109
-    i8 105, label %109
+    i8 2, label %122
+    i8 105, label %122
   ]
 
-_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i14: ; preds = %101
-  %104 = getelementptr inbounds nuw i8, ptr %94, i64 17
-  %105 = load i8, ptr %104, align 1, !alias.scope !6206, !noundef !5
-  %.not.i.not.i15 = icmp eq i8 %105, 0
-  %106 = getelementptr inbounds nuw i8, ptr %94, i64 14
-  %107 = load i16, ptr %106, align 1, !alias.scope !6211
-  %108 = icmp ne i16 %107, 0
-  %.0.i1.i16 = select i1 %.not.i.not.i15, i1 true, i1 %108
+_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i14: ; preds = %97
+  %100 = getelementptr inbounds nuw i8, ptr %90, i64 17
+  %101 = load i8, ptr %100, align 1, !alias.scope !6206, !noundef !5
+  %.not.i.not.i15 = icmp eq i8 %101, 0
+  %102 = getelementptr inbounds nuw i8, ptr %90, i64 14
+  %103 = load i16, ptr %102, align 1, !alias.scope !6211
+  %104 = icmp ne i16 %103, 0
+  %.0.i1.i16 = select i1 %.not.i.not.i15, i1 true, i1 %104
   br label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
 
-109:                                              ; preds = %101, %101
-  br label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
+105:                                              ; preds = %1
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %107 = load ptr, ptr %106, align 8, !nonnull !5, !align !13, !noundef !5
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 12
+  %109 = load i16, ptr %108, align 1, !alias.scope !6212
+  %110 = icmp ugt i16 %109, -258
+  %111 = sext i16 %109 to i32
+  %112 = zext i16 %109 to i32
+  %.0.i.i18 = select i1 %110, i32 %111, i32 %112
+  %113 = icmp slt i32 %.0.i.i18, 1
+  br i1 %113, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit, label %114
 
-110:                                              ; preds = %1
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %112 = load ptr, ptr %111, align 8, !nonnull !5, !align !13, !noundef !5
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 12
-  %114 = load i16, ptr %113, align 1, !alias.scope !6212
-  %115 = icmp ugt i16 %114, -258
-  %116 = sext i16 %114 to i32
-  %117 = zext i16 %114 to i32
-  %.0.i.i18 = select i1 %115, i32 %116, i32 %117
-  %118 = icmp slt i32 %.0.i.i18, 1
-  br i1 %118, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit, label %119
-
-119:                                              ; preds = %110
-  %120 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  %121 = load i8, ptr %120, align 1, !alias.scope !6217, !noundef !5
-  switch i8 %121, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit [
+114:                                              ; preds = %105
+  %115 = getelementptr inbounds nuw i8, ptr %107, i64 16
+  %116 = load i8, ptr %115, align 1, !alias.scope !6217, !noundef !5
+  switch i8 %116, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit [
     i8 3, label %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i20
-    i8 2, label %127
-    i8 105, label %127
+    i8 2, label %122
+    i8 105, label %122
   ]
 
-_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i20: ; preds = %119
-  %122 = getelementptr inbounds nuw i8, ptr %112, i64 17
-  %123 = load i8, ptr %122, align 1, !alias.scope !6220, !noundef !5
-  %.not.i.not.i21 = icmp eq i8 %123, 0
-  %124 = getelementptr inbounds nuw i8, ptr %112, i64 14
-  %125 = load i16, ptr %124, align 1, !alias.scope !6225
-  %126 = icmp ne i16 %125, 0
-  %.0.i1.i22 = select i1 %.not.i.not.i21, i1 true, i1 %126
+_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i20: ; preds = %114
+  %117 = getelementptr inbounds nuw i8, ptr %107, i64 17
+  %118 = load i8, ptr %117, align 1, !alias.scope !6220, !noundef !5
+  %.not.i.not.i21 = icmp eq i8 %118, 0
+  %119 = getelementptr inbounds nuw i8, ptr %107, i64 14
+  %120 = load i16, ptr %119, align 1, !alias.scope !6225
+  %121 = icmp ne i16 %120, 0
+  %.0.i1.i22 = select i1 %.not.i.not.i21, i1 true, i1 %121
   br label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
 
-127:                                              ; preds = %119, %119
+122:                                              ; preds = %14, %14, %28, %28, %47, %47, %67, %67, %97, %97, %114, %114
   br label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
 
-128:                                              ; preds = %1
+123:                                              ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6226)
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %130 = load ptr, ptr %129, align 8, !alias.scope !6226, !nonnull !5, !align !38, !noundef !5
-  %131 = tail call noundef i16 @"_ZN79_$LT$object..xcoff..Symbol32$u20$as$u20$object..read..xcoff..symbol..Symbol$GT$7n_scnum17h7e28bf40f247fb88E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %130), !noalias !6226
-  %132 = icmp slt i16 %131, 1
-  br i1 %132, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit, label %133
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %125 = load ptr, ptr %124, align 8, !alias.scope !6226, !nonnull !5, !align !38, !noundef !5
+  %126 = tail call noundef i16 @"_ZN79_$LT$object..xcoff..Symbol32$u20$as$u20$object..read..xcoff..symbol..Symbol$GT$7n_scnum17h7e28bf40f247fb88E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %125), !noalias !6226
+  %127 = icmp slt i16 %126, 1
+  br i1 %127, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit, label %128
 
-133:                                              ; preds = %128
-  %134 = getelementptr inbounds nuw i8, ptr %130, i64 17
-  %135 = load i8, ptr %134, align 1, !alias.scope !6229, !noalias !6226, !noundef !5
-  %.not.i.i = icmp eq i8 %135, 0
-  br i1 %.not.i.i, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit, label %136
+128:                                              ; preds = %123
+  %129 = getelementptr inbounds nuw i8, ptr %125, i64 17
+  %130 = load i8, ptr %129, align 1, !alias.scope !6229, !noalias !6226, !noundef !5
+  %.not.i.i = icmp eq i8 %130, 0
+  br i1 %.not.i.i, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit, label %131
 
-136:                                              ; preds = %133
-  %137 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  %138 = load i8, ptr %137, align 4, !alias.scope !6234, !noalias !6226, !noundef !5
-  switch i8 %138, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit [
+131:                                              ; preds = %128
+  %132 = getelementptr inbounds nuw i8, ptr %125, i64 16
+  %133 = load i8, ptr %132, align 4, !alias.scope !6234, !noalias !6226, !noundef !5
+  switch i8 %133, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit [
     i8 2, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i
     i8 111, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i
     i8 107, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i
   ]
 
-_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i: ; preds = %136, %136, %136
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %140 = load ptr, ptr %139, align 8, !alias.scope !6226, !nonnull !5, !align !12, !noundef !5
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %142 = load i64, ptr %141, align 8, !alias.scope !6226, !noundef !5
-  %143 = zext i8 %135 to i64
+_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i: ; preds = %131, %131, %131
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %135 = load ptr, ptr %134, align 8, !alias.scope !6226, !nonnull !5, !align !12, !noundef !5
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %137 = load i64, ptr %136, align 8, !alias.scope !6226, !noundef !5
+  %138 = zext i8 %130 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !6237
-  call void @"_ZN6object4read5xcoff6symbol28SymbolTable$LT$Xcoff$C$R$GT$3get17hc9d1ce4d2b3479c5E.llvm.17514045976136648023"(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %140, i64 noundef %142, i64 noundef %143), !noalias !6241
-  %144 = load ptr, ptr %3, align 8, !noalias !6237, !noundef !5
-  %145 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %146 = load ptr, ptr %145, align 8, !noalias !6237
+  call void @"_ZN6object4read5xcoff6symbol28SymbolTable$LT$Xcoff$C$R$GT$3get17hc9d1ce4d2b3479c5E.llvm.17514045976136648023"(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %135, i64 noundef %137, i64 noundef %138), !noalias !6241
+  %139 = load ptr, ptr %3, align 8, !noalias !6237, !noundef !5
+  %140 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %141 = load ptr, ptr %140, align 8, !noalias !6237
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !6237
-  %147 = icmp eq ptr %144, null
-  br i1 %147, label %148, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
+  %142 = icmp eq ptr %139, null
+  br i1 %142, label %143, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
 
-148:                                              ; preds = %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i
-  %149 = getelementptr inbounds nuw i8, ptr %146, i64 10
-  %150 = load i8, ptr %149, align 2, !alias.scope !6242, !noalias !6226, !noundef !5
-  %151 = and i8 %150, 7
-  %152 = add nsw i8 %151, -1
-  %spec.select.i = icmp ult i8 %152, 3
+143:                                              ; preds = %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 10
+  %145 = load i8, ptr %144, align 2, !alias.scope !6242, !noalias !6226, !noundef !5
+  %146 = and i8 %145, 7
+  %147 = add nsw i8 %146, -1
+  %spec.select.i = icmp ult i8 %147, 3
   br label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
 
-153:                                              ; preds = %1
+148:                                              ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6247)
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %155 = load ptr, ptr %154, align 8, !alias.scope !6247, !nonnull !5, !align !12, !noundef !5
-  %156 = tail call noundef i16 @"_ZN79_$LT$object..xcoff..Symbol64$u20$as$u20$object..read..xcoff..symbol..Symbol$GT$7n_scnum17h2dfd72ff99b3e433E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %155), !noalias !6247
-  %157 = icmp slt i16 %156, 1
-  br i1 %157, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit, label %158
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %150 = load ptr, ptr %149, align 8, !alias.scope !6247, !nonnull !5, !align !12, !noundef !5
+  %151 = tail call noundef i16 @"_ZN79_$LT$object..xcoff..Symbol64$u20$as$u20$object..read..xcoff..symbol..Symbol$GT$7n_scnum17h2dfd72ff99b3e433E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %150), !noalias !6247
+  %152 = icmp slt i16 %151, 1
+  br i1 %152, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit, label %153
 
-158:                                              ; preds = %153
-  %159 = getelementptr inbounds nuw i8, ptr %155, i64 17
-  %160 = load i8, ptr %159, align 1, !alias.scope !6250, !noalias !6247, !noundef !5
-  %.not.i.i25 = icmp eq i8 %160, 0
-  br i1 %.not.i.i25, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit, label %161
+153:                                              ; preds = %148
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 17
+  %155 = load i8, ptr %154, align 1, !alias.scope !6250, !noalias !6247, !noundef !5
+  %.not.i.i25 = icmp eq i8 %155, 0
+  br i1 %.not.i.i25, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit, label %156
 
-161:                                              ; preds = %158
-  %162 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  %163 = load i8, ptr %162, align 8, !alias.scope !6255, !noalias !6247, !noundef !5
-  switch i8 %163, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit [
+156:                                              ; preds = %153
+  %157 = getelementptr inbounds nuw i8, ptr %150, i64 16
+  %158 = load i8, ptr %157, align 8, !alias.scope !6255, !noalias !6247, !noundef !5
+  switch i8 %158, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit [
     i8 2, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i
     i8 111, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i
     i8 107, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i
   ]
 
-_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i: ; preds = %161, %161, %161
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %165 = load ptr, ptr %164, align 8, !alias.scope !6247, !nonnull !5, !align !12, !noundef !5
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %167 = load i64, ptr %166, align 8, !alias.scope !6247, !noundef !5
-  %168 = zext i8 %160 to i64
+_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i: ; preds = %156, %156, %156
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %160 = load ptr, ptr %159, align 8, !alias.scope !6247, !nonnull !5, !align !12, !noundef !5
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %162 = load i64, ptr %161, align 8, !alias.scope !6247, !noundef !5
+  %163 = zext i8 %155 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !6258
-  call void @"_ZN6object4read5xcoff6symbol28SymbolTable$LT$Xcoff$C$R$GT$3get17h3b345915da61539eE.llvm.17514045976136648023"(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %165, i64 noundef %167, i64 noundef %168), !noalias !6262
-  %169 = load ptr, ptr %2, align 8, !noalias !6258, !noundef !5
-  %170 = icmp eq ptr %169, null
-  %171 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %172 = load ptr, ptr %171, align 8, !noalias !6258
+  call void @"_ZN6object4read5xcoff6symbol28SymbolTable$LT$Xcoff$C$R$GT$3get17h3b345915da61539eE.llvm.17514045976136648023"(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %160, i64 noundef %162, i64 noundef %163), !noalias !6262
+  %164 = load ptr, ptr %2, align 8, !noalias !6258, !noundef !5
+  %165 = icmp eq ptr %164, null
+  %166 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %167 = load ptr, ptr %166, align 8, !noalias !6258
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !6258
-  br i1 %170, label %173, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
+  br i1 %165, label %168, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
 
-173:                                              ; preds = %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i
-  %174 = getelementptr inbounds nuw i8, ptr %172, i64 17
-  %175 = load i8, ptr %174, align 1, !alias.scope !6263, !noalias !6262, !noundef !5
-  %.not.i1.i = icmp eq i8 %175, -5
-  br i1 %.not.i1.i, label %176, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
+168:                                              ; preds = %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 17
+  %170 = load i8, ptr %169, align 1, !alias.scope !6263, !noalias !6262, !noundef !5
+  %.not.i1.i = icmp eq i8 %170, -5
+  br i1 %.not.i1.i, label %171, label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
 
-176:                                              ; preds = %173
-  %177 = getelementptr inbounds nuw i8, ptr %172, i64 10
-  %178 = load i8, ptr %177, align 2, !alias.scope !6266, !noalias !6247, !noundef !5
-  %179 = and i8 %178, 7
-  %180 = add nsw i8 %179, -1
-  %spec.select.i27 = icmp ult i8 %180, 3
+171:                                              ; preds = %168
+  %172 = getelementptr inbounds nuw i8, ptr %167, i64 10
+  %173 = load i8, ptr %172, align 2, !alias.scope !6266, !noalias !6247, !noundef !5
+  %174 = and i8 %173, 7
+  %175 = add nsw i8 %174, -1
+  %spec.select.i27 = icmp ult i8 %175, 3
   br label %_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit
 
-_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit: ; preds = %176, %173, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i, %161, %158, %153, %148, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i, %136, %133, %128, %127, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i20, %119, %110, %109, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i14, %101, %92, %79, %74, %70, %59, %58, %53, %49, %38, %37, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h5074a52184272765E.llvm.5281577753466666573.exit.i, %29, %23, %22, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i, %14, %5, %86, %80
-  %.0.in = phi i1 [ false, %136 ], [ false, %14 ], [ false, %29 ], [ false, %49 ], [ %.0.i10, %80 ], [ %.0.i11, %86 ], [ false, %70 ], [ false, %101 ], [ false, %119 ], [ true, %22 ], [ false, %5 ], [ %.0.i1.i, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i ], [ true, %37 ], [ false, %23 ], [ %.0.i.i3, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h5074a52184272765E.llvm.5281577753466666573.exit.i ], [ true, %58 ], [ false, %38 ], [ %57, %53 ], [ true, %79 ], [ false, %59 ], [ %78, %74 ], [ true, %109 ], [ false, %92 ], [ %.0.i1.i16, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i14 ], [ true, %127 ], [ false, %110 ], [ %.0.i1.i22, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i20 ], [ false, %128 ], [ false, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i ], [ %spec.select.i, %148 ], [ false, %133 ], [ false, %153 ], [ false, %161 ], [ %spec.select.i27, %176 ], [ false, %158 ], [ false, %173 ], [ false, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i ]
+_ZN6object4read4coff6symbol11ImageSymbol13is_definition17h83abc3d7137b2e36E.exit: ; preds = %171, %168, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i, %156, %153, %148, %143, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i, %131, %128, %123, %122, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i20, %114, %105, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i14, %97, %88, %71, %67, %56, %51, %47, %36, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h5074a52184272765E.llvm.5281577753466666573.exit.i, %28, %22, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i, %14, %5, %82, %76
+  %.0.in = phi i1 [ false, %131 ], [ false, %14 ], [ false, %28 ], [ false, %47 ], [ %.0.i10, %76 ], [ %.0.i11, %82 ], [ false, %67 ], [ false, %97 ], [ false, %114 ], [ false, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i ], [ false, %5 ], [ %.0.i1.i, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i ], [ false, %168 ], [ false, %22 ], [ %.0.i.i3, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h5074a52184272765E.llvm.5281577753466666573.exit.i ], [ false, %153 ], [ false, %36 ], [ %55, %51 ], [ %spec.select.i27, %171 ], [ false, %56 ], [ %75, %71 ], [ false, %156 ], [ false, %88 ], [ %.0.i1.i16, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i14 ], [ true, %122 ], [ false, %105 ], [ %.0.i1.i22, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i20 ], [ false, %123 ], [ false, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i ], [ %spec.select.i, %143 ], [ false, %128 ], [ false, %148 ]
   ret i1 %.0.in
 }
 
@@ -33109,15 +33094,15 @@ define hidden noundef range(i8 0, 8) i8 @"_ZN89_$LT$object..read..any..Symbol$LT
   %6 = load i64, ptr %0, align 8, !range !4, !noundef !5
   switch i64 %6, label %default.unreachable36 [
     i64 0, label %7
-    i64 1, label %24
-    i64 2, label %41
-    i64 3, label %56
-    i64 4, label %71
-    i64 5, label %90
-    i64 6, label %109
-    i64 7, label %126
-    i64 8, label %143
-    i64 9, label %171
+    i64 1, label %20
+    i64 2, label %33
+    i64 3, label %43
+    i64 4, label %53
+    i64 5, label %72
+    i64 6, label %91
+    i64 7, label %104
+    i64 8, label %120
+    i64 9, label %148
   ]
 
 default.unreachable36:                            ; preds = %1
@@ -33135,474 +33120,417 @@ default.unreachable36:                            ; preds = %1
   %..i = select i1 %13, i8 2, i8 3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %15 = load i8, ptr %14, align 1, !alias.scope !6279, !noalias !6271, !noundef !5
-  switch i8 %15, label %16 [
-    i8 3, label %17
+  switch i8 %15, label %179 [
+    i8 3, label %16
     i8 2, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
     i8 105, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-    i8 104, label %21
-    i8 103, label %22
-    i8 6, label %23
+    i8 104, label %117
+    i8 103, label %118
+    i8 6, label %119
   ]
 
 16:                                               ; preds = %7
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-17:                                               ; preds = %7
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 17
-  %19 = load i8, ptr %18, align 1, !alias.scope !6282, !noalias !6271, !noundef !5
-  %.not.i.not.i = icmp eq i8 %19, 0
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 17
+  %18 = load i8, ptr %17, align 1, !alias.scope !6282, !noalias !6271, !noundef !5
+  %.not.i.not.i = icmp eq i8 %18, 0
   br i1 %.not.i.not.i, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit", label %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i
 
-_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i: ; preds = %17
-  %20 = icmp eq i16 %.fr.i, 0
-  %spec.select.i = select i1 %20, i8 4, i8 %..i
+_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i: ; preds = %16
+  %19 = icmp eq i16 %.fr.i, 0
+  %spec.select.i = select i1 %19, i8 4, i8 %..i
   br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-21:                                               ; preds = %7
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-22:                                               ; preds = %7
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-23:                                               ; preds = %7
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-24:                                               ; preds = %1
+20:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6287)
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load ptr, ptr %25, align 8, !alias.scope !6287, !nonnull !5, !align !13, !noundef !5
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = load i16, ptr %27, align 1, !alias.scope !6290, !noalias !6287
-  %.fr.i1 = freeze i16 %28
-  %29 = and i16 %.fr.i1, 48
-  %30 = icmp eq i16 %29, 32
-  %..i2 = select i1 %30, i8 2, i8 3
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 18
-  %32 = load i8, ptr %31, align 1, !alias.scope !6295, !noalias !6287, !noundef !5
-  switch i8 %32, label %33 [
-    i8 3, label %34
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8, !alias.scope !6287, !nonnull !5, !align !13, !noundef !5
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %24 = load i16, ptr %23, align 1, !alias.scope !6290, !noalias !6287
+  %.fr.i1 = freeze i16 %24
+  %25 = and i16 %.fr.i1, 48
+  %26 = icmp eq i16 %25, 32
+  %..i2 = select i1 %26, i8 2, i8 3
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 18
+  %28 = load i8, ptr %27, align 1, !alias.scope !6295, !noalias !6287, !noundef !5
+  switch i8 %28, label %179 [
+    i8 3, label %29
     i8 2, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
     i8 105, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-    i8 104, label %38
-    i8 103, label %39
-    i8 6, label %40
+    i8 104, label %117
+    i8 103, label %118
+    i8 6, label %119
   ]
 
-33:                                               ; preds = %24
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-34:                                               ; preds = %24
-  %35 = getelementptr inbounds nuw i8, ptr %26, i64 19
-  %36 = load i8, ptr %35, align 1, !alias.scope !6298, !noalias !6287, !noundef !5
-  %.not.i.not.i4 = icmp eq i8 %36, 0
+29:                                               ; preds = %20
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 19
+  %31 = load i8, ptr %30, align 1, !alias.scope !6298, !noalias !6287, !noundef !5
+  %.not.i.not.i4 = icmp eq i8 %31, 0
   br i1 %.not.i.not.i4, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit", label %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h5074a52184272765E.llvm.5281577753466666573.exit.i
 
-_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h5074a52184272765E.llvm.5281577753466666573.exit.i: ; preds = %34
-  %37 = icmp eq i16 %.fr.i1, 0
-  %spec.select.i5 = select i1 %37, i8 4, i8 %..i2
+_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h5074a52184272765E.llvm.5281577753466666573.exit.i: ; preds = %29
+  %32 = icmp eq i16 %.fr.i1, 0
+  %spec.select.i5 = select i1 %32, i8 4, i8 %..i2
   br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-38:                                               ; preds = %24
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-39:                                               ; preds = %24
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-40:                                               ; preds = %24
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-41:                                               ; preds = %1
+33:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6303)
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load ptr, ptr %42, align 8, !alias.scope !6303, !nonnull !5, !align !38, !noundef !5
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 12
-  %45 = load i8, ptr %44, align 4, !alias.scope !6306, !noalias !6303, !noundef !5
-  %46 = and i8 %45, 15
-  switch i8 %46, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit" [
-    i8 0, label %47
-    i8 1, label %51
-    i8 5, label %51
-    i8 2, label %52
-    i8 10, label %52
-    i8 3, label %53
-    i8 4, label %54
-    i8 6, label %55
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = load ptr, ptr %34, align 8, !alias.scope !6303, !nonnull !5, !align !38, !noundef !5
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 12
+  %37 = load i8, ptr %36, align 4, !alias.scope !6306, !noalias !6303, !noundef !5
+  %38 = and i8 %37, 15
+  switch i8 %38, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit" [
+    i8 0, label %39
+    i8 1, label %181
+    i8 5, label %181
+    i8 2, label %180
+    i8 10, label %180
+    i8 3, label %117
+    i8 4, label %118
+    i8 6, label %182
   ]
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load i64, ptr %48, align 8, !alias.scope !6303, !noundef !5
-  %50 = icmp eq i64 %49, 0
-  %..i6 = zext i1 %50 to i8
+39:                                               ; preds = %33
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %41 = load i64, ptr %40, align 8, !alias.scope !6303, !noundef !5
+  %42 = icmp eq i64 %41, 0
+  %..i6 = zext i1 %42 to i8
   br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-51:                                               ; preds = %41, %41
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-52:                                               ; preds = %41, %41
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-53:                                               ; preds = %41
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-54:                                               ; preds = %41
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-55:                                               ; preds = %41
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-56:                                               ; preds = %1
+43:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6309)
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %58 = load ptr, ptr %57, align 8, !alias.scope !6309, !nonnull !5, !align !12, !noundef !5
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  %60 = load i8, ptr %59, align 4, !alias.scope !6312, !noalias !6309, !noundef !5
-  %61 = and i8 %60, 15
-  switch i8 %61, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit" [
-    i8 0, label %62
-    i8 1, label %66
-    i8 5, label %66
-    i8 2, label %67
-    i8 10, label %67
-    i8 3, label %68
-    i8 4, label %69
-    i8 6, label %70
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %45 = load ptr, ptr %44, align 8, !alias.scope !6309, !nonnull !5, !align !12, !noundef !5
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %47 = load i8, ptr %46, align 4, !alias.scope !6312, !noalias !6309, !noundef !5
+  %48 = and i8 %47, 15
+  switch i8 %48, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit" [
+    i8 0, label %49
+    i8 1, label %181
+    i8 5, label %181
+    i8 2, label %180
+    i8 10, label %180
+    i8 3, label %117
+    i8 4, label %118
+    i8 6, label %182
   ]
 
-62:                                               ; preds = %56
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %64 = load i64, ptr %63, align 8, !alias.scope !6309, !noundef !5
-  %65 = icmp eq i64 %64, 0
-  %..i8 = zext i1 %65 to i8
+49:                                               ; preds = %43
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %51 = load i64, ptr %50, align 8, !alias.scope !6309, !noundef !5
+  %52 = icmp eq i64 %51, 0
+  %..i8 = zext i1 %52 to i8
   br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-66:                                               ; preds = %56, %56
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-67:                                               ; preds = %56, %56
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-68:                                               ; preds = %56
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-69:                                               ; preds = %56
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-70:                                               ; preds = %56
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-71:                                               ; preds = %1
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
+53:                                               ; preds = %1
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6315)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6318)
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %74 = load ptr, ptr %73, align 8, !alias.scope !6321, !nonnull !5, !align !38, !noundef !5
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  %76 = load i8, ptr %75, align 4, !alias.scope !6322, !noalias !6321, !noundef !5
-  %77 = and i8 %76, 14
-  %cond.i = icmp eq i8 %77, 14
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %56 = load ptr, ptr %55, align 8, !alias.scope !6321, !nonnull !5, !align !38, !noundef !5
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %58 = load i8, ptr %57, align 4, !alias.scope !6322, !noalias !6321, !noundef !5
+  %59 = and i8 %58, 14
+  %cond.i = icmp eq i8 %59, 14
   br i1 %cond.i, label %"_ZN111_$LT$object..read..macho..symbol..MachOSymbol$LT$Mach$C$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7section17h3ae9d238619551b2E.llvm.17514045976136648023.exit.i", label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-"_ZN111_$LT$object..read..macho..symbol..MachOSymbol$LT$Mach$C$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7section17h3ae9d238619551b2E.llvm.17514045976136648023.exit.i": ; preds = %71
-  %78 = getelementptr inbounds nuw i8, ptr %74, i64 5
-  %79 = load i8, ptr %78, align 1, !alias.scope !6325, !noalias !6321, !noundef !5
-  %.not.i = icmp eq i8 %79, 0
-  br i1 %.not.i, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit", label %80
+"_ZN111_$LT$object..read..macho..symbol..MachOSymbol$LT$Mach$C$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7section17h3ae9d238619551b2E.llvm.17514045976136648023.exit.i": ; preds = %53
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 5
+  %61 = load i8, ptr %60, align 1, !alias.scope !6325, !noalias !6321, !noundef !5
+  %.not.i = icmp eq i8 %61, 0
+  br i1 %.not.i, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit", label %62
 
-80:                                               ; preds = %"_ZN111_$LT$object..read..macho..symbol..MachOSymbol$LT$Mach$C$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7section17h3ae9d238619551b2E.llvm.17514045976136648023.exit.i"
-  %81 = zext i8 %79 to i64
+62:                                               ; preds = %"_ZN111_$LT$object..read..macho..symbol..MachOSymbol$LT$Mach$C$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7section17h3ae9d238619551b2E.llvm.17514045976136648023.exit.i"
+  %63 = zext i8 %61 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !6315
-  %82 = load ptr, ptr %72, align 8, !alias.scope !6315, !nonnull !5, !align !12, !noundef !5
-  call void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$16section_internal17h48189eb5074ff932E.llvm.17514045976136648023"(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %82, i64 noundef %81), !noalias !6315
-  %83 = load ptr, ptr %5, align 8, !noalias !6315, !noundef !5
-  %84 = icmp eq ptr %83, null
-  %85 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %86 = load ptr, ptr %85, align 8, !noalias !6315, !nonnull !5, !align !12
+  %64 = load ptr, ptr %54, align 8, !alias.scope !6315, !nonnull !5, !align !12, !noundef !5
+  call void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$16section_internal17h48189eb5074ff932E.llvm.17514045976136648023"(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %64, i64 noundef %63), !noalias !6315
+  %65 = load ptr, ptr %5, align 8, !noalias !6315, !noundef !5
+  %66 = icmp eq ptr %65, null
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %68 = load ptr, ptr %67, align 8, !noalias !6315, !nonnull !5, !align !12
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !6315
-  br i1 %84, label %87, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
+  br i1 %66, label %69, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-87:                                               ; preds = %80
-  %88 = load i32, ptr %86, align 8, !range !6328, !noalias !6315, !noundef !5
-  %switch.tableidx = add nsw i32 %88, -1
-  %89 = icmp ult i32 %switch.tableidx, 10
-  br i1 %89, label %switch.lookup, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
+69:                                               ; preds = %62
+  %70 = load i32, ptr %68, align 8, !range !6328, !noalias !6315, !noundef !5
+  %switch.tableidx = add nsw i32 %70, -1
+  %71 = icmp ult i32 %switch.tableidx, 10
+  br i1 %71, label %switch.lookup, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-90:                                               ; preds = %1
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
+72:                                               ; preds = %1
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6329)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6332)
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %93 = load ptr, ptr %92, align 8, !alias.scope !6335, !nonnull !5, !align !38, !noundef !5
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
-  %95 = load i8, ptr %94, align 4, !alias.scope !6336, !noalias !6335, !noundef !5
-  %96 = and i8 %95, 14
-  %cond.i9 = icmp eq i8 %96, 14
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %75 = load ptr, ptr %74, align 8, !alias.scope !6335, !nonnull !5, !align !38, !noundef !5
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  %77 = load i8, ptr %76, align 4, !alias.scope !6336, !noalias !6335, !noundef !5
+  %78 = and i8 %77, 14
+  %cond.i9 = icmp eq i8 %78, 14
   br i1 %cond.i9, label %"_ZN111_$LT$object..read..macho..symbol..MachOSymbol$LT$Mach$C$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7section17h4e79e27b4754c700E.llvm.17514045976136648023.exit.i", label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-"_ZN111_$LT$object..read..macho..symbol..MachOSymbol$LT$Mach$C$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7section17h4e79e27b4754c700E.llvm.17514045976136648023.exit.i": ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %93, i64 5
-  %98 = load i8, ptr %97, align 1, !alias.scope !6339, !noalias !6335, !noundef !5
-  %.not.i10 = icmp eq i8 %98, 0
-  br i1 %.not.i10, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit", label %99
+"_ZN111_$LT$object..read..macho..symbol..MachOSymbol$LT$Mach$C$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7section17h4e79e27b4754c700E.llvm.17514045976136648023.exit.i": ; preds = %72
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 5
+  %80 = load i8, ptr %79, align 1, !alias.scope !6339, !noalias !6335, !noundef !5
+  %.not.i10 = icmp eq i8 %80, 0
+  br i1 %.not.i10, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit", label %81
 
-99:                                               ; preds = %"_ZN111_$LT$object..read..macho..symbol..MachOSymbol$LT$Mach$C$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7section17h4e79e27b4754c700E.llvm.17514045976136648023.exit.i"
-  %100 = zext i8 %98 to i64
+81:                                               ; preds = %"_ZN111_$LT$object..read..macho..symbol..MachOSymbol$LT$Mach$C$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7section17h4e79e27b4754c700E.llvm.17514045976136648023.exit.i"
+  %82 = zext i8 %80 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !6329
-  %101 = load ptr, ptr %91, align 8, !alias.scope !6329, !nonnull !5, !align !12, !noundef !5
-  call void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$16section_internal17h16ae12682ca7c7c8E.llvm.17514045976136648023"(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %101, i64 noundef %100), !noalias !6329
-  %102 = load ptr, ptr %4, align 8, !noalias !6329, !noundef !5
-  %103 = icmp eq ptr %102, null
-  %104 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %105 = load ptr, ptr %104, align 8, !noalias !6329, !nonnull !5, !align !12
+  %83 = load ptr, ptr %73, align 8, !alias.scope !6329, !nonnull !5, !align !12, !noundef !5
+  call void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$16section_internal17h16ae12682ca7c7c8E.llvm.17514045976136648023"(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %83, i64 noundef %82), !noalias !6329
+  %84 = load ptr, ptr %4, align 8, !noalias !6329, !noundef !5
+  %85 = icmp eq ptr %84, null
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %87 = load ptr, ptr %86, align 8, !noalias !6329, !nonnull !5, !align !12
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6329
-  br i1 %103, label %106, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
+  br i1 %85, label %88, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-106:                                              ; preds = %99
-  %107 = load i32, ptr %105, align 8, !range !6328, !noalias !6329, !noundef !5
-  %switch.tableidx37 = add nsw i32 %107, -1
-  %108 = icmp ult i32 %switch.tableidx37, 10
-  br i1 %108, label %switch.lookup38, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
+88:                                               ; preds = %81
+  %89 = load i32, ptr %87, align 8, !range !6328, !noalias !6329, !noundef !5
+  %switch.tableidx37 = add nsw i32 %89, -1
+  %90 = icmp ult i32 %switch.tableidx37, 10
+  br i1 %90, label %switch.lookup38, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-109:                                              ; preds = %1
+91:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6342)
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %111 = load ptr, ptr %110, align 8, !alias.scope !6342, !nonnull !5, !align !13, !noundef !5
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 14
-  %113 = load i16, ptr %112, align 1, !alias.scope !6345, !noalias !6342
-  %.fr.i11 = freeze i16 %113
-  %114 = and i16 %.fr.i11, 48
-  %115 = icmp eq i16 %114, 32
-  %..i12 = select i1 %115, i8 2, i8 3
-  %116 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  %117 = load i8, ptr %116, align 1, !alias.scope !6350, !noalias !6342, !noundef !5
-  switch i8 %117, label %118 [
-    i8 3, label %119
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %93 = load ptr, ptr %92, align 8, !alias.scope !6342, !nonnull !5, !align !13, !noundef !5
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 14
+  %95 = load i16, ptr %94, align 1, !alias.scope !6345, !noalias !6342
+  %.fr.i11 = freeze i16 %95
+  %96 = and i16 %.fr.i11, 48
+  %97 = icmp eq i16 %96, 32
+  %..i12 = select i1 %97, i8 2, i8 3
+  %98 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %99 = load i8, ptr %98, align 1, !alias.scope !6350, !noalias !6342, !noundef !5
+  switch i8 %99, label %179 [
+    i8 3, label %100
     i8 2, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
     i8 105, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-    i8 104, label %123
-    i8 103, label %124
-    i8 6, label %125
+    i8 104, label %117
+    i8 103, label %118
+    i8 6, label %119
   ]
 
-118:                                              ; preds = %109
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-119:                                              ; preds = %109
-  %120 = getelementptr inbounds nuw i8, ptr %111, i64 17
-  %121 = load i8, ptr %120, align 1, !alias.scope !6353, !noalias !6342, !noundef !5
-  %.not.i.not.i14 = icmp eq i8 %121, 0
+100:                                              ; preds = %91
+  %101 = getelementptr inbounds nuw i8, ptr %93, i64 17
+  %102 = load i8, ptr %101, align 1, !alias.scope !6353, !noalias !6342, !noundef !5
+  %.not.i.not.i14 = icmp eq i8 %102, 0
   br i1 %.not.i.not.i14, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit", label %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i15
 
-_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i15: ; preds = %119
-  %122 = icmp eq i16 %.fr.i11, 0
-  %spec.select.i16 = select i1 %122, i8 4, i8 %..i12
+_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i15: ; preds = %100
+  %103 = icmp eq i16 %.fr.i11, 0
+  %spec.select.i16 = select i1 %103, i8 4, i8 %..i12
   br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-123:                                              ; preds = %109
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-124:                                              ; preds = %109
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-125:                                              ; preds = %109
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-126:                                              ; preds = %1
+104:                                              ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6358)
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %128 = load ptr, ptr %127, align 8, !alias.scope !6358, !nonnull !5, !align !13, !noundef !5
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 14
-  %130 = load i16, ptr %129, align 1, !alias.scope !6361, !noalias !6358
-  %.fr.i18 = freeze i16 %130
-  %131 = and i16 %.fr.i18, 48
-  %132 = icmp eq i16 %131, 32
-  %..i19 = select i1 %132, i8 2, i8 3
-  %133 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  %134 = load i8, ptr %133, align 1, !alias.scope !6366, !noalias !6358, !noundef !5
-  switch i8 %134, label %135 [
-    i8 3, label %136
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %106 = load ptr, ptr %105, align 8, !alias.scope !6358, !nonnull !5, !align !13, !noundef !5
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 14
+  %108 = load i16, ptr %107, align 1, !alias.scope !6361, !noalias !6358
+  %.fr.i18 = freeze i16 %108
+  %109 = and i16 %.fr.i18, 48
+  %110 = icmp eq i16 %109, 32
+  %..i19 = select i1 %110, i8 2, i8 3
+  %111 = getelementptr inbounds nuw i8, ptr %106, i64 16
+  %112 = load i8, ptr %111, align 1, !alias.scope !6366, !noalias !6358, !noundef !5
+  switch i8 %112, label %179 [
+    i8 3, label %113
     i8 2, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
     i8 105, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-    i8 104, label %140
-    i8 103, label %141
-    i8 6, label %142
+    i8 104, label %117
+    i8 103, label %118
+    i8 6, label %119
   ]
 
-135:                                              ; preds = %126
-  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-
-136:                                              ; preds = %126
-  %137 = getelementptr inbounds nuw i8, ptr %128, i64 17
-  %138 = load i8, ptr %137, align 1, !alias.scope !6369, !noalias !6358, !noundef !5
-  %.not.i.not.i21 = icmp eq i8 %138, 0
+113:                                              ; preds = %104
+  %114 = getelementptr inbounds nuw i8, ptr %106, i64 17
+  %115 = load i8, ptr %114, align 1, !alias.scope !6369, !noalias !6358, !noundef !5
+  %.not.i.not.i21 = icmp eq i8 %115, 0
   br i1 %.not.i.not.i21, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit", label %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i22
 
-_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i22: ; preds = %136
-  %139 = icmp eq i16 %.fr.i18, 0
-  %spec.select.i23 = select i1 %139, i8 4, i8 %..i19
+_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i22: ; preds = %113
+  %116 = icmp eq i16 %.fr.i18, 0
+  %spec.select.i23 = select i1 %116, i8 4, i8 %..i19
   br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-140:                                              ; preds = %126
+117:                                              ; preds = %7, %20, %33, %43, %91, %104
   br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-141:                                              ; preds = %126
+118:                                              ; preds = %7, %20, %33, %43, %91, %104
   br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-142:                                              ; preds = %126
+119:                                              ; preds = %7, %20, %91, %104
   br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-143:                                              ; preds = %1
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
+120:                                              ; preds = %1
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6374)
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %146 = load ptr, ptr %145, align 8, !alias.scope !6374, !nonnull !5, !align !38, !noundef !5
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 17
-  %148 = load i8, ptr %147, align 1, !alias.scope !6377, !noalias !6374, !noundef !5
-  %.not.i.i = icmp eq i8 %148, 0
-  br i1 %.not.i.i, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.thread.i, label %149
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %123 = load ptr, ptr %122, align 8, !alias.scope !6374, !nonnull !5, !align !38, !noundef !5
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 17
+  %125 = load i8, ptr %124, align 1, !alias.scope !6377, !noalias !6374, !noundef !5
+  %.not.i.i = icmp eq i8 %125, 0
+  br i1 %.not.i.i, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.thread.i, label %126
 
-149:                                              ; preds = %143
-  %150 = getelementptr inbounds nuw i8, ptr %146, i64 16
-  %151 = load i8, ptr %150, align 4, !alias.scope !6382, !noalias !6374, !noundef !5
-  switch i8 %151, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.thread.i [
+126:                                              ; preds = %120
+  %127 = getelementptr inbounds nuw i8, ptr %123, i64 16
+  %128 = load i8, ptr %127, align 4, !alias.scope !6382, !noalias !6374, !noundef !5
+  switch i8 %128, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.thread.i [
     i8 2, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i
     i8 111, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i
     i8 107, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i
   ]
 
-_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.thread.i: ; preds = %163, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i, %149, %143
-  %152 = getelementptr inbounds nuw i8, ptr %146, i64 16
-  %153 = load i8, ptr %152, align 4, !alias.scope !6385, !noalias !6374, !noundef !5
-  %switch.selectcmp.i = icmp eq i8 %153, 103
+_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.thread.i: ; preds = %140, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i, %126, %120
+  %129 = getelementptr inbounds nuw i8, ptr %123, i64 16
+  %130 = load i8, ptr %129, align 4, !alias.scope !6385, !noalias !6374, !noundef !5
+  %switch.selectcmp.i = icmp eq i8 %130, 103
   %switch.select.i = select i1 %switch.selectcmp.i, i8 5, i8 0
-  %switch.selectcmp1.i = icmp eq i8 %153, 0
+  %switch.selectcmp1.i = icmp eq i8 %130, 0
   %switch.select2.i = select i1 %switch.selectcmp1.i, i8 1, i8 %switch.select.i
   br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i: ; preds = %149, %149, %149
-  %154 = load ptr, ptr %144, align 8, !alias.scope !6374, !nonnull !5, !align !12, !noundef !5
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 40
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %157 = load i64, ptr %156, align 8, !alias.scope !6374, !noundef !5
-  %158 = zext i8 %148 to i64
+_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i: ; preds = %126, %126, %126
+  %131 = load ptr, ptr %121, align 8, !alias.scope !6374, !nonnull !5, !align !12, !noundef !5
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 40
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %134 = load i64, ptr %133, align 8, !alias.scope !6374, !noundef !5
+  %135 = zext i8 %125 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !6388
-  call void @"_ZN6object4read5xcoff6symbol28SymbolTable$LT$Xcoff$C$R$GT$3get17hc9d1ce4d2b3479c5E.llvm.17514045976136648023"(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %155, i64 noundef %157, i64 noundef %158), !noalias !6392
-  %159 = load ptr, ptr %3, align 8, !noalias !6388, !noundef !5
-  %160 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %161 = load ptr, ptr %160, align 8, !noalias !6388
+  call void @"_ZN6object4read5xcoff6symbol28SymbolTable$LT$Xcoff$C$R$GT$3get17hc9d1ce4d2b3479c5E.llvm.17514045976136648023"(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %132, i64 noundef %134, i64 noundef %135), !noalias !6392
+  %136 = load ptr, ptr %3, align 8, !noalias !6388, !noundef !5
+  %137 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %138 = load ptr, ptr %137, align 8, !noalias !6388
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !6388
-  %162 = icmp eq ptr %159, null
-  br i1 %162, label %163, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.thread.i
+  %139 = icmp eq ptr %136, null
+  br i1 %139, label %140, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.thread.i
 
-163:                                              ; preds = %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i
-  %164 = getelementptr inbounds nuw i8, ptr %161, i64 10
-  %165 = load i8, ptr %164, align 2, !alias.scope !6393, !noalias !6374, !noundef !5
-  %166 = and i8 %165, 7
-  switch i8 %166, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.thread.i [
-    i8 1, label %167
-    i8 3, label %167
+140:                                              ; preds = %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.i
+  %141 = getelementptr inbounds nuw i8, ptr %138, i64 10
+  %142 = load i8, ptr %141, align 2, !alias.scope !6393, !noalias !6374, !noundef !5
+  %143 = and i8 %142, 7
+  switch i8 %143, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.thread.i [
+    i8 1, label %144
+    i8 3, label %144
     i8 2, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-    i8 0, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
+    i8 0, label %179
   ]
 
-167:                                              ; preds = %163, %163
-  %168 = getelementptr inbounds nuw i8, ptr %161, i64 11
-  %169 = load i8, ptr %168, align 1, !alias.scope !6398, !noalias !6374, !noundef !5
-  %170 = icmp ult i8 %169, 22
-  br i1 %170, label %switch.lookup41, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
+144:                                              ; preds = %140, %140
+  %145 = getelementptr inbounds nuw i8, ptr %138, i64 11
+  %146 = load i8, ptr %145, align 1, !alias.scope !6398, !noalias !6374, !noundef !5
+  %147 = icmp ult i8 %146, 22
+  br i1 %147, label %switch.lookup41, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-171:                                              ; preds = %1
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 8
+148:                                              ; preds = %1
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6401)
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %174 = load ptr, ptr %173, align 8, !alias.scope !6401, !nonnull !5, !align !12, !noundef !5
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 17
-  %176 = load i8, ptr %175, align 1, !alias.scope !6404, !noalias !6401, !noundef !5
-  %.not.i.i26 = icmp eq i8 %176, 0
-  br i1 %.not.i.i26, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.thread.i, label %177
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %151 = load ptr, ptr %150, align 8, !alias.scope !6401, !nonnull !5, !align !12, !noundef !5
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 17
+  %153 = load i8, ptr %152, align 1, !alias.scope !6404, !noalias !6401, !noundef !5
+  %.not.i.i26 = icmp eq i8 %153, 0
+  br i1 %.not.i.i26, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.thread.i, label %154
 
-177:                                              ; preds = %171
-  %178 = getelementptr inbounds nuw i8, ptr %174, i64 16
-  %179 = load i8, ptr %178, align 8, !alias.scope !6409, !noalias !6401, !noundef !5
-  switch i8 %179, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.thread.i [
+154:                                              ; preds = %148
+  %155 = getelementptr inbounds nuw i8, ptr %151, i64 16
+  %156 = load i8, ptr %155, align 8, !alias.scope !6409, !noalias !6401, !noundef !5
+  switch i8 %156, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.thread.i [
     i8 2, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i
     i8 111, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i
     i8 107, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i
   ]
 
-_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.thread.i: ; preds = %194, %191, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i, %177, %171
-  %180 = getelementptr inbounds nuw i8, ptr %174, i64 16
-  %181 = load i8, ptr %180, align 8, !alias.scope !6412, !noalias !6401, !noundef !5
-  %switch.selectcmp.i27 = icmp eq i8 %181, 103
+_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.thread.i: ; preds = %171, %168, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i, %154, %148
+  %157 = getelementptr inbounds nuw i8, ptr %151, i64 16
+  %158 = load i8, ptr %157, align 8, !alias.scope !6412, !noalias !6401, !noundef !5
+  %switch.selectcmp.i27 = icmp eq i8 %158, 103
   %switch.select.i28 = select i1 %switch.selectcmp.i27, i8 5, i8 0
-  %switch.selectcmp1.i29 = icmp eq i8 %181, 0
+  %switch.selectcmp1.i29 = icmp eq i8 %158, 0
   %switch.select2.i30 = select i1 %switch.selectcmp1.i29, i8 1, i8 %switch.select.i28
   br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i: ; preds = %177, %177, %177
-  %182 = load ptr, ptr %172, align 8, !alias.scope !6401, !nonnull !5, !align !12, !noundef !5
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 40
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %185 = load i64, ptr %184, align 8, !alias.scope !6401, !noundef !5
-  %186 = zext i8 %176 to i64
+_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i: ; preds = %154, %154, %154
+  %159 = load ptr, ptr %149, align 8, !alias.scope !6401, !nonnull !5, !align !12, !noundef !5
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 40
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %162 = load i64, ptr %161, align 8, !alias.scope !6401, !noundef !5
+  %163 = zext i8 %153 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !6415
-  call void @"_ZN6object4read5xcoff6symbol28SymbolTable$LT$Xcoff$C$R$GT$3get17h3b345915da61539eE.llvm.17514045976136648023"(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %183, i64 noundef %185, i64 noundef %186), !noalias !6419
-  %187 = load ptr, ptr %2, align 8, !noalias !6415, !noundef !5
-  %188 = icmp eq ptr %187, null
-  %189 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %190 = load ptr, ptr %189, align 8, !noalias !6415
+  call void @"_ZN6object4read5xcoff6symbol28SymbolTable$LT$Xcoff$C$R$GT$3get17h3b345915da61539eE.llvm.17514045976136648023"(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %160, i64 noundef %162, i64 noundef %163), !noalias !6419
+  %164 = load ptr, ptr %2, align 8, !noalias !6415, !noundef !5
+  %165 = icmp eq ptr %164, null
+  %166 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %167 = load ptr, ptr %166, align 8, !noalias !6415
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !6415
-  br i1 %188, label %191, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.thread.i
+  br i1 %165, label %168, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.thread.i
 
-191:                                              ; preds = %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i
-  %192 = getelementptr inbounds nuw i8, ptr %190, i64 17
-  %193 = load i8, ptr %192, align 1, !alias.scope !6420, !noalias !6419, !noundef !5
-  %.not.i3.i = icmp eq i8 %193, -5
-  br i1 %.not.i3.i, label %194, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.thread.i
+168:                                              ; preds = %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.i
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 17
+  %170 = load i8, ptr %169, align 1, !alias.scope !6420, !noalias !6419, !noundef !5
+  %.not.i3.i = icmp eq i8 %170, -5
+  br i1 %.not.i3.i, label %171, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.thread.i
 
-194:                                              ; preds = %191
-  %195 = getelementptr inbounds nuw i8, ptr %190, i64 10
-  %196 = load i8, ptr %195, align 2, !alias.scope !6423, !noalias !6401, !noundef !5
-  %197 = and i8 %196, 7
-  switch i8 %197, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.thread.i [
-    i8 1, label %198
-    i8 3, label %198
+171:                                              ; preds = %168
+  %172 = getelementptr inbounds nuw i8, ptr %167, i64 10
+  %173 = load i8, ptr %172, align 2, !alias.scope !6423, !noalias !6401, !noundef !5
+  %174 = and i8 %173, 7
+  switch i8 %174, label %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.thread.i [
+    i8 1, label %175
+    i8 3, label %175
     i8 2, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
-    i8 0, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
+    i8 0, label %179
   ]
 
-198:                                              ; preds = %194, %194
-  %199 = getelementptr inbounds nuw i8, ptr %190, i64 11
-  %200 = load i8, ptr %199, align 1, !alias.scope !6428, !noalias !6401, !noundef !5
-  %201 = icmp ult i8 %200, 22
-  br i1 %201, label %switch.lookup44, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
+175:                                              ; preds = %171, %171
+  %176 = getelementptr inbounds nuw i8, ptr %167, i64 11
+  %177 = load i8, ptr %176, align 1, !alias.scope !6428, !noalias !6401, !noundef !5
+  %178 = icmp ult i8 %177, 22
+  br i1 %178, label %switch.lookup44, label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-switch.lookup:                                    ; preds = %87
-  %202 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN89_$LT$object..read..any..Symbol$LT$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17h8a9482ce8c947810E.146", i64 %202
+179:                                              ; preds = %7, %20, %91, %104, %140, %171
+  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
+
+180:                                              ; preds = %33, %33, %43, %43
+  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
+
+181:                                              ; preds = %33, %33, %43, %43
+  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
+
+182:                                              ; preds = %33, %43
+  br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
+
+switch.lookup:                                    ; preds = %69
+  %183 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN89_$LT$object..read..any..Symbol$LT$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17h8a9482ce8c947810E.146", i64 %183
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-switch.lookup38:                                  ; preds = %106
-  %203 = zext nneg i32 %switch.tableidx37 to i64
-  %switch.gep39 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN89_$LT$object..read..any..Symbol$LT$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17h8a9482ce8c947810E.146", i64 %203
+switch.lookup38:                                  ; preds = %88
+  %184 = zext nneg i32 %switch.tableidx37 to i64
+  %switch.gep39 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN89_$LT$object..read..any..Symbol$LT$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17h8a9482ce8c947810E.146", i64 %184
   %switch.load40 = load i8, ptr %switch.gep39, align 1
   br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-switch.lookup41:                                  ; preds = %167
-  %204 = zext nneg i8 %169 to i64
-  %switch.gep42 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN89_$LT$object..read..any..Symbol$LT$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17h8a9482ce8c947810E.148", i64 %204
+switch.lookup41:                                  ; preds = %144
+  %185 = zext nneg i8 %146 to i64
+  %switch.gep42 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN89_$LT$object..read..any..Symbol$LT$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17h8a9482ce8c947810E.148", i64 %185
   %switch.load43 = load i8, ptr %switch.gep42, align 1
   br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-switch.lookup44:                                  ; preds = %198
-  %205 = zext nneg i8 %200 to i64
-  %switch.gep45 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN89_$LT$object..read..any..Symbol$LT$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17h8a9482ce8c947810E.148", i64 %205
+switch.lookup44:                                  ; preds = %175
+  %186 = zext nneg i8 %177 to i64
+  %switch.gep45 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN89_$LT$object..read..any..Symbol$LT$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17h8a9482ce8c947810E.148", i64 %186
   %switch.load46 = load i8, ptr %switch.gep45, align 1
   br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit"
 
-"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit": ; preds = %194, %switch.lookup44, %198, %163, %switch.lookup41, %167, %switch.lookup38, %106, %switch.lookup, %87, %194, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.thread.i, %163, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.thread.i, %142, %141, %140, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i22, %136, %135, %126, %126, %125, %124, %123, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i15, %119, %118, %109, %109, %99, %"_ZN111_$LT$object..read..macho..symbol..MachOSymbol$LT$Mach$C$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7section17h4e79e27b4754c700E.llvm.17514045976136648023.exit.i", %90, %80, %"_ZN111_$LT$object..read..macho..symbol..MachOSymbol$LT$Mach$C$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7section17h3ae9d238619551b2E.llvm.17514045976136648023.exit.i", %71, %70, %69, %68, %67, %66, %62, %56, %55, %54, %53, %52, %51, %47, %41, %40, %39, %38, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h5074a52184272765E.llvm.5281577753466666573.exit.i, %34, %33, %24, %24, %23, %22, %21, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i, %17, %16, %7, %7
-  %.0 = phi i8 [ %switch.load43, %switch.lookup41 ], [ %spec.select.i, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i ], [ %spec.select.i5, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h5074a52184272765E.llvm.5281577753466666573.exit.i ], [ 5, %54 ], [ 5, %69 ], [ %switch.load46, %switch.lookup44 ], [ 0, %167 ], [ %spec.select.i16, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i15 ], [ %spec.select.i23, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i22 ], [ 0, %16 ], [ 6, %23 ], [ 5, %22 ], [ %..i, %7 ], [ %..i, %7 ], [ 4, %21 ], [ %..i, %17 ], [ 0, %33 ], [ 6, %40 ], [ 5, %39 ], [ %..i2, %24 ], [ %..i2, %24 ], [ 4, %38 ], [ %..i2, %34 ], [ 7, %55 ], [ %..i6, %47 ], [ 0, %41 ], [ 3, %51 ], [ 2, %52 ], [ 4, %53 ], [ 7, %70 ], [ %..i8, %62 ], [ 0, %56 ], [ 3, %66 ], [ 2, %67 ], [ 4, %68 ], [ 0, %198 ], [ 0, %80 ], [ 0, %"_ZN111_$LT$object..read..macho..symbol..MachOSymbol$LT$Mach$C$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7section17h3ae9d238619551b2E.llvm.17514045976136648023.exit.i" ], [ %switch.load, %switch.lookup ], [ 0, %71 ], [ 0, %87 ], [ %switch.select2.i30, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.thread.i ], [ 0, %99 ], [ 0, %"_ZN111_$LT$object..read..macho..symbol..MachOSymbol$LT$Mach$C$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7section17h4e79e27b4754c700E.llvm.17514045976136648023.exit.i" ], [ %switch.load40, %switch.lookup38 ], [ 0, %90 ], [ 0, %106 ], [ 0, %118 ], [ 6, %125 ], [ 5, %124 ], [ %..i12, %109 ], [ %..i12, %109 ], [ 4, %123 ], [ %..i12, %119 ], [ 0, %135 ], [ 6, %142 ], [ 5, %141 ], [ %..i19, %126 ], [ %..i19, %126 ], [ 4, %140 ], [ %..i19, %136 ], [ %switch.select2.i, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.thread.i ], [ %166, %163 ], [ %166, %163 ], [ %197, %194 ], [ %197, %194 ]
+"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$4kind17hdee2d57c88a8f8aaE.exit": ; preds = %switch.lookup44, %175, %switch.lookup41, %144, %switch.lookup38, %88, %switch.lookup, %69, %182, %181, %180, %179, %171, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.thread.i, %140, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.thread.i, %119, %118, %117, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i22, %113, %104, %104, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i15, %100, %91, %91, %81, %"_ZN111_$LT$object..read..macho..symbol..MachOSymbol$LT$Mach$C$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7section17h4e79e27b4754c700E.llvm.17514045976136648023.exit.i", %72, %62, %"_ZN111_$LT$object..read..macho..symbol..MachOSymbol$LT$Mach$C$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7section17h3ae9d238619551b2E.llvm.17514045976136648023.exit.i", %53, %49, %43, %39, %33, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h5074a52184272765E.llvm.5281577753466666573.exit.i, %29, %20, %20, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i, %16, %7, %7
+  %.0 = phi i8 [ 0, %88 ], [ %spec.select.i, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i ], [ %spec.select.i5, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h5074a52184272765E.llvm.5281577753466666573.exit.i ], [ %143, %140 ], [ %..i19, %104 ], [ 0, %72 ], [ %..i12, %91 ], [ %spec.select.i16, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i15 ], [ %spec.select.i23, %_ZN6object4read4coff6symbol11ImageSymbol15has_aux_section17h7459dddb9a6c3cb5E.llvm.5281577753466666573.exit.i22 ], [ 0, %179 ], [ 3, %181 ], [ 7, %182 ], [ %..i, %7 ], [ %..i, %7 ], [ 0, %175 ], [ %..i, %16 ], [ 2, %180 ], [ 0, %144 ], [ %switch.select2.i30, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hc7eff246ddc2cb07E.exit.thread.i ], [ %..i2, %20 ], [ %..i2, %20 ], [ %174, %171 ], [ %..i2, %29 ], [ %switch.select2.i, %_ZN6object4read5xcoff6symbol6Symbol13has_aux_csect17hf7af840d457c1584E.exit.thread.i ], [ %..i6, %39 ], [ 0, %33 ], [ %..i12, %91 ], [ 0, %81 ], [ 0, %"_ZN111_$LT$object..read..macho..symbol..MachOSymbol$LT$Mach$C$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7section17h4e79e27b4754c700E.llvm.17514045976136648023.exit.i" ], [ 5, %118 ], [ %..i8, %49 ], [ 0, %43 ], [ %..i19, %113 ], [ 4, %117 ], [ %..i19, %104 ], [ %..i12, %100 ], [ 0, %62 ], [ 0, %"_ZN111_$LT$object..read..macho..symbol..MachOSymbol$LT$Mach$C$R$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7section17h3ae9d238619551b2E.llvm.17514045976136648023.exit.i" ], [ 6, %119 ], [ 0, %53 ], [ 0, %69 ], [ %switch.load, %switch.lookup ], [ %switch.load40, %switch.lookup38 ], [ %switch.load43, %switch.lookup41 ], [ %switch.load46, %switch.lookup44 ]
   ret i8 %.0
 }
 
@@ -35977,7 +35905,7 @@ switch.lookup29:                                  ; preds = %10
   br label %"_ZN6object4read4coff7section48_$LT$impl$u20$object..pe..ImageSectionHeader$GT$14coff_alignment17hfc4ddb828c991596E.exit"
 
 "_ZN6object4read4coff7section48_$LT$impl$u20$object..pe..ImageSectionHeader$GT$14coff_alignment17hfc4ddb828c991596E.exit": ; preds = %switch.lookup29, %10, %switch.lookup, %3, %"_ZN115_$LT$object..read..xcoff..section..XcoffSection$LT$Xcoff$C$R$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$4kind17hd93422947853c8e6E.exit.thread.i", %99, %"_ZN115_$LT$object..read..xcoff..section..XcoffSection$LT$Xcoff$C$R$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$4kind17h8644dce067346626E.exit.thread.i", %80, %51, %38, %28, %17, %72, %64
-  %.0 = phi i64 [ 4, %80 ], [ 16, %10 ], [ %27, %17 ], [ %.013, %28 ], [ %.1, %38 ], [ %.2, %51 ], [ %71, %64 ], [ %79, %72 ], [ 16, %3 ], [ %switch.load31, %switch.lookup29 ], [ %switch.load, %switch.lookup ], [ 4, %99 ], [ %.1.i24, %"_ZN115_$LT$object..read..xcoff..section..XcoffSection$LT$Xcoff$C$R$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$4kind17hd93422947853c8e6E.exit.thread.i" ], [ %.1.i, %"_ZN115_$LT$object..read..xcoff..section..XcoffSection$LT$Xcoff$C$R$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$4kind17h8644dce067346626E.exit.thread.i" ]
+  %.0 = phi i64 [ 4, %80 ], [ %switch.load31, %switch.lookup29 ], [ %27, %17 ], [ %.013, %28 ], [ %.1, %38 ], [ %.2, %51 ], [ %71, %64 ], [ %79, %72 ], [ 16, %10 ], [ %switch.load, %switch.lookup ], [ 4, %99 ], [ %.1.i24, %"_ZN115_$LT$object..read..xcoff..section..XcoffSection$LT$Xcoff$C$R$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$4kind17hd93422947853c8e6E.exit.thread.i" ], [ %.1.i, %"_ZN115_$LT$object..read..xcoff..section..XcoffSection$LT$Xcoff$C$R$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$4kind17h8644dce067346626E.exit.thread.i" ], [ 16, %3 ]
   ret i64 %.0
 }
 

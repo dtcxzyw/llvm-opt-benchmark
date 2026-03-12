@@ -1365,8 +1365,8 @@ SDL_GetBT601ConversionMatrix.exit.sink.split:     ; preds = %19, %24, %14, %10, 
   %switch.load31 = load ptr, ptr %switch.gep30, align 8
   br label %SDL_GetBT601ConversionMatrix.exit
 
-SDL_GetBT601ConversionMatrix.exit:                ; preds = %19, %SDL_GetBT601ConversionMatrix.exit.sink.split, %24, %14, %10, %6, %18, %4
-  %.0 = phi ptr [ null, %24 ], [ null, %18 ], [ %switch.load31, %SDL_GetBT601ConversionMatrix.exit.sink.split ], [ null, %19 ], [ null, %10 ], [ null, %6 ], [ null, %4 ], [ null, %14 ]
+SDL_GetBT601ConversionMatrix.exit:                ; preds = %19, %SDL_GetBT601ConversionMatrix.exit.sink.split, %6, %10, %14, %24, %18, %4
+  %.0 = phi ptr [ null, %24 ], [ null, %18 ], [ %switch.load31, %SDL_GetBT601ConversionMatrix.exit.sink.split ], [ null, %19 ], [ null, %14 ], [ null, %10 ], [ null, %4 ], [ null, %6 ]
   ret ptr %.0
 }
 

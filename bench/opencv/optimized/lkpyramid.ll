@@ -3823,7 +3823,7 @@ _ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i
   %476 = icmp ult i64 %472, %465
   br i1 %476, label %.invoke, label %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i241
 
-.invoke:                                          ; preds = %332, %291, %253, %475, %435
+.invoke:                                          ; preds = %253, %291, %332, %475, %435
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.26) #32
           to label %.cont unwind label %370
 

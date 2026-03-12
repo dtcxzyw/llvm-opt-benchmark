@@ -33002,7 +33002,7 @@ switch.lookup778:                                 ; preds = %628
   br label %ma_channel_map_get_channel.exit365.us.us
 
 ma_channel_map_get_channel.exit365.us.us:         ; preds = %switch.lookup778, %619, %621, %623, %626, %switch.lookup775, %switch.lookup772, %switch.lookup769, %switch.lookup, %630, %625, %switch.lookup.i68.i.us.us, %.lr.ph.split.us.us
-  %.0.i364.us.us = phi i64 [ %switch.load771, %switch.lookup769 ], [ %switch.offset.i70.i.us.us, %switch.lookup.i68.i.us.us ], [ %switch.load, %switch.lookup ], [ %spec.select, %630 ], [ %switch.select20.i.i.us.us, %625 ], [ 1, %.lr.ph.split.us.us ], [ 0, %619 ], [ %switch.load774, %switch.lookup772 ], [ %switch.load780, %switch.lookup778 ], [ %switch.load777, %switch.lookup775 ], [ 0, %626 ], [ 0, %623 ], [ 0, %621 ]
+  %.0.i364.us.us = phi i64 [ %switch.select20.i.i.us.us, %625 ], [ %switch.offset.i70.i.us.us, %switch.lookup.i68.i.us.us ], [ %spec.select, %630 ], [ 0, %619 ], [ 1, %.lr.ph.split.us.us ], [ %switch.load777, %switch.lookup775 ], [ 0, %623 ], [ 0, %621 ], [ %switch.load, %switch.lookup ], [ %switch.load771, %switch.lookup769 ], [ %switch.load780, %switch.lookup778 ], [ 0, %626 ], [ %switch.load774, %switch.lookup772 ]
   %633 = trunc nuw i64 %indvars.iv552 to i32
   %634 = add i32 %571, %633
   %635 = zext i32 %634 to i64
@@ -38051,187 +38051,267 @@ define internal fastcc range(i32 -2, 1) i32 @ma_channel_map_build_shuffle_table(
 .preheader:                                       ; preds = %5
   %9 = icmp eq ptr %2, null
   %10 = icmp eq ptr %0, null
-  %11 = icmp ugt i32 %1, 8
-  %wide.trip.count104 = zext i32 %3 to i64
   br i1 %10, label %.preheader.split.us.split.us, label %.preheader.split.us.split.preheader
 
 .preheader.split.us.split.preheader:              ; preds = %.preheader
+  %wide.trip.count115 = zext i32 %3 to i64
   %wide.trip.count = zext i32 %1 to i64
-  %wide.trip.count88 = zext i32 %1 to i64
-  %wide.trip.count93 = zext i32 %1 to i64
+  %wide.trip.count105 = zext i32 %1 to i64
+  %wide.trip.count110 = zext i32 %1 to i64
   br label %.preheader.split.us.split
 
-.preheader.split.us.split.us:                     ; preds = %.preheader, %..loopexit_crit_edge.split.us.us.us
-  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %..loopexit_crit_edge.split.us.us.us ], [ 0, %.preheader ]
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv101
+.preheader.split.us.split.us:                     ; preds = %.preheader
+  %11 = icmp ugt i32 %1, 8
+  %wide.trip.count127 = zext i32 %3 to i64
+  br i1 %11, label %.preheader.split.us.split.us.split.us, label %.preheader.split.us.split.us.split
+
+.preheader.split.us.split.us.split.us:            ; preds = %.preheader.split.us.split.us, %..loopexit_crit_edge.split.us.us.us.split.us88
+  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %..loopexit_crit_edge.split.us.us.us.split.us88 ], [ 0, %.preheader.split.us.split.us ]
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv124
   store i8 -1, ptr %12, align 1, !tbaa !7
   br i1 %9, label %16, label %13
 
-13:                                               ; preds = %.preheader.split.us.split.us
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv101
+13:                                               ; preds = %.preheader.split.us.split.us.split.us
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv124
   %15 = load i8, ptr %14, align 1, !tbaa !7
-  br label %ma_channel_map_get_channel.exit.us.us
+  br label %ma_channel_map_get_channel.exit.us.us.us
 
-16:                                               ; preds = %.preheader.split.us.split.us
-  %17 = trunc nuw i64 %indvars.iv101 to i32
+16:                                               ; preds = %.preheader.split.us.split.us.split.us
+  %17 = trunc nuw i64 %indvars.iv124 to i32
   %18 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %3, i32 noundef %17)
-  br label %ma_channel_map_get_channel.exit.us.us
+  br label %ma_channel_map_get_channel.exit.us.us.us
 
-ma_channel_map_get_channel.exit.us.us:            ; preds = %16, %13
-  %.0.i.us.us = phi i8 [ %18, %16 ], [ %15, %13 ]
+ma_channel_map_get_channel.exit.us.us.us:         ; preds = %16, %13
+  %.0.i.us.us.us = phi i8 [ %18, %16 ], [ %15, %13 ]
   br label %19
 
-..loopexit_crit_edge.split.us.us.us:              ; preds = %45, %.split.us.us.us
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
-  br i1 %exitcond105.not, label %.loopexit49, label %.preheader.split.us.split.us, !llvm.loop !967
+..loopexit_crit_edge.split.us.us.us.split.us88:   ; preds = %32, %.split.us.us.us.split.us86
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127
+  br i1 %exitcond128.not, label %.loopexit49, label %.preheader.split.us.split.us.split.us, !llvm.loop !967
 
-19:                                               ; preds = %45, %ma_channel_map_get_channel.exit.us.us
-  %.03551.us.us.us = phi i32 [ 0, %ma_channel_map_get_channel.exit.us.us ], [ %46, %45 ]
-  switch i32 %1, label %29 [
-    i32 7, label %27
-    i32 1, label %ma_channel_map_get_channel.exit45.us.us.us
-    i32 2, label %26
-    i32 3, label %switch.lookup.i68.i.us.us.us
-    i32 4, label %24
-    i32 5, label %22
-    i32 6, label %20
+19:                                               ; preds = %32, %ma_channel_map_get_channel.exit.us.us.us
+  %.03551.us.us.us.us75 = phi i32 [ 0, %ma_channel_map_get_channel.exit.us.us.us ], [ %33, %32 ]
+  %20 = icmp ult i32 %.03551.us.us.us.us75, 8
+  br i1 %20, label %switch.lookup, label %21
+
+21:                                               ; preds = %19
+  %22 = icmp ult i32 %.03551.us.us.us.us75, 32
+  br i1 %22, label %23, label %ma_channel_map_get_channel.exit45.us.us.us.us84
+
+23:                                               ; preds = %21
+  %24 = trunc nuw nsw i32 %.03551.us.us.us.us75 to i8
+  %25 = add nuw nsw i8 %24, 12
+  br label %ma_channel_map_get_channel.exit45.us.us.us.us84
+
+switch.lookup:                                    ; preds = %19
+  %26 = shl nuw nsw i32 %.03551.us.us.us.us75, 3
+  %switch.shiftamt = zext nneg i32 %26 to i64
+  %switch.downshift = lshr i64 867795075634299650, %switch.shiftamt
+  %switch.masked = trunc i64 %switch.downshift to i8
+  br label %ma_channel_map_get_channel.exit45.us.us.us.us84
+
+ma_channel_map_get_channel.exit45.us.us.us.us84:  ; preds = %switch.lookup, %23, %21
+  %.0.i44.us.us.us.us85 = phi i8 [ 0, %21 ], [ %25, %23 ], [ %switch.masked, %switch.lookup ]
+  %27 = icmp eq i8 %.0.i.us.us.us, %.0.i44.us.us.us.us85
+  br i1 %27, label %.split.us.us.us.split.us86, label %28
+
+28:                                               ; preds = %ma_channel_map_get_channel.exit45.us.us.us.us84
+  switch i8 %.0.i.us.us.us, label %32 [
+    i8 2, label %30
+    i8 11, label %30
+    i8 3, label %29
+    i8 12, label %29
   ]
 
-20:                                               ; preds = %19
-  %21 = icmp ult i32 %.03551.us.us.us, 6
-  br i1 %21, label %switch.lookup, label %ma_channel_map_get_channel.exit45.us.us.us
-
-22:                                               ; preds = %19
-  %23 = icmp ult i32 %.03551.us.us.us, 5
-  br i1 %23, label %switch.lookup132, label %ma_channel_map_get_channel.exit45.us.us.us
-
-24:                                               ; preds = %19
-  %25 = icmp ult i32 %.03551.us.us.us, 4
-  br i1 %25, label %switch.lookup137, label %ma_channel_map_get_channel.exit45.us.us.us
-
-switch.lookup.i68.i.us.us.us:                     ; preds = %19
-  %switch.idx.cast.i69.i.us.us.us = trunc nuw nsw i32 %.03551.us.us.us to i8
-  %switch.offset.i70.i.us.us.us = add nuw nsw i8 %switch.idx.cast.i69.i.us.us.us, 2
-  br label %ma_channel_map_get_channel.exit45.us.us.us
-
-26:                                               ; preds = %19
-  %switch.selectcmp.i71.i.us.us.us = icmp eq i32 %.03551.us.us.us, 1
-  %switch.select.i72.i.us.us.us = select i1 %switch.selectcmp.i71.i.us.us.us, i8 3, i8 0
-  %switch.selectcmp19.i.i.us.us.us = icmp eq i32 %.03551.us.us.us, 0
-  %switch.select20.i.i.us.us.us = select i1 %switch.selectcmp19.i.i.us.us.us, i8 2, i8 %switch.select.i72.i.us.us.us
-  br label %ma_channel_map_get_channel.exit45.us.us.us
-
-27:                                               ; preds = %19
-  %28 = icmp ult i32 %.03551.us.us.us, 7
-  br i1 %28, label %switch.lookup141, label %ma_channel_map_get_channel.exit45.us.us.us
-
-29:                                               ; preds = %19
-  %30 = icmp ult i32 %.03551.us.us.us, 8
-  br i1 %30, label %switch.lookup146, label %31
-
-31:                                               ; preds = %29
-  %32 = icmp ult i32 %.03551.us.us.us, 32
-  %or.cond.i73.i.us.us.us = and i1 %11, %32
-  br i1 %or.cond.i73.i.us.us.us, label %33, label %ma_channel_map_get_channel.exit45.us.us.us
-
-33:                                               ; preds = %31
-  %34 = trunc nuw nsw i32 %.03551.us.us.us to i8
-  %35 = add nuw nsw i8 %34, 12
-  br label %ma_channel_map_get_channel.exit45.us.us.us
-
-switch.lookup:                                    ; preds = %20
-  %36 = shl nuw nsw i32 %.03551.us.us.us, 3
-  %switch.shiftamt = zext nneg i32 %36 to i48
-  %switch.downshift = lshr i48 13241468322562, %switch.shiftamt
-  %switch.masked = trunc i48 %switch.downshift to i8
-  br label %ma_channel_map_get_channel.exit45.us.us.us
-
-switch.lookup132:                                 ; preds = %22
-  %37 = shl nuw nsw i32 %.03551.us.us.us, 3
-  %switch.shiftamt134 = zext nneg i32 %37 to i40
-  %switch.downshift135 = lshr i40 30165697282, %switch.shiftamt134
-  %switch.masked136 = trunc i40 %switch.downshift135 to i8
-  br label %ma_channel_map_get_channel.exit45.us.us.us
-
-switch.lookup137:                                 ; preds = %24
-  %switch.shiftamt138 = shl nuw nsw i32 %.03551.us.us.us, 3
-  %switch.downshift139 = lshr i32 168035074, %switch.shiftamt138
-  %switch.masked140 = trunc i32 %switch.downshift139 to i8
-  br label %ma_channel_map_get_channel.exit45.us.us.us
-
-switch.lookup141:                                 ; preds = %27
-  %38 = shl nuw nsw i32 %.03551.us.us.us, 3
-  %switch.shiftamt143 = zext nneg i32 %38 to i56
-  %switch.downshift144 = lshr i56 3389837382255362, %switch.shiftamt143
-  %switch.masked145 = trunc i56 %switch.downshift144 to i8
-  br label %ma_channel_map_get_channel.exit45.us.us.us
-
-switch.lookup146:                                 ; preds = %29
-  %39 = shl nuw nsw i32 %.03551.us.us.us, 3
-  %switch.shiftamt148 = zext nneg i32 %39 to i64
-  %switch.downshift149 = lshr i64 867795075634299650, %switch.shiftamt148
-  %switch.masked150 = trunc i64 %switch.downshift149 to i8
-  br label %ma_channel_map_get_channel.exit45.us.us.us
-
-ma_channel_map_get_channel.exit45.us.us.us:       ; preds = %switch.lookup146, %20, %22, %24, %27, %switch.lookup141, %switch.lookup137, %switch.lookup132, %switch.lookup, %33, %31, %26, %switch.lookup.i68.i.us.us.us, %19
-  %.0.i44.us.us.us = phi i8 [ %switch.offset.i70.i.us.us.us, %switch.lookup.i68.i.us.us.us ], [ %switch.masked136, %switch.lookup132 ], [ %switch.masked, %switch.lookup ], [ %switch.select20.i.i.us.us.us, %26 ], [ %switch.masked140, %switch.lookup137 ], [ 1, %19 ], [ 0, %31 ], [ %35, %33 ], [ %switch.masked150, %switch.lookup146 ], [ %switch.masked145, %switch.lookup141 ], [ 0, %24 ], [ 0, %22 ], [ 0, %20 ], [ 0, %27 ]
-  %40 = icmp eq i8 %.0.i.us.us, %.0.i44.us.us.us
-  br i1 %40, label %.split.us.us.us, label %41
-
-41:                                               ; preds = %ma_channel_map_get_channel.exit45.us.us.us
-  switch i8 %.0.i.us.us, label %45 [
-    i8 2, label %43
-    i8 11, label %43
-    i8 3, label %42
-    i8 12, label %42
-  ]
-
-42:                                               ; preds = %41, %41
-  switch i8 %.0.i44.us.us.us, label %45 [
+29:                                               ; preds = %28, %28
+  switch i8 %.0.i44.us.us.us.us85, label %32 [
     i8 3, label %.sink.split
     i8 12, label %.sink.split
   ]
 
-43:                                               ; preds = %41, %41
-  switch i8 %.0.i44.us.us.us, label %45 [
+30:                                               ; preds = %28, %28
+  switch i8 %.0.i44.us.us.us.us85, label %32 [
     i8 2, label %.sink.split
     i8 11, label %.sink.split
   ]
 
-.sink.split:                                      ; preds = %43, %43, %42, %42
-  %44 = trunc i32 %.03551.us.us.us to i8
-  store i8 %44, ptr %12, align 1, !tbaa !7
-  br label %45
+.sink.split:                                      ; preds = %30, %30, %29, %29
+  %31 = trunc i32 %.03551.us.us.us.us75 to i8
+  store i8 %31, ptr %12, align 1, !tbaa !7
+  br label %32
 
-45:                                               ; preds = %.sink.split, %43, %42, %41
-  %46 = add nuw i32 %.03551.us.us.us, 1
-  %exitcond100.not = icmp eq i32 %46, %1
-  br i1 %exitcond100.not, label %..loopexit_crit_edge.split.us.us.us, label %19, !llvm.loop !968
+32:                                               ; preds = %.sink.split, %30, %29, %28
+  %33 = add nuw i32 %.03551.us.us.us.us75, 1
+  %exitcond123.not = icmp eq i32 %33, %1
+  br i1 %exitcond123.not, label %..loopexit_crit_edge.split.us.us.us.split.us88, label %19, !llvm.loop !968
 
-.split.us.us.us:                                  ; preds = %ma_channel_map_get_channel.exit45.us.us.us
-  %47 = trunc i32 %.03551.us.us.us to i8
-  store i8 %47, ptr %12, align 1, !tbaa !7
-  br label %..loopexit_crit_edge.split.us.us.us
+.split.us.us.us.split.us86:                       ; preds = %ma_channel_map_get_channel.exit45.us.us.us.us84
+  %34 = trunc i32 %.03551.us.us.us.us75 to i8
+  store i8 %34, ptr %12, align 1, !tbaa !7
+  br label %..loopexit_crit_edge.split.us.us.us.split.us88
+
+.preheader.split.us.split.us.split:               ; preds = %.preheader.split.us.split.us, %..loopexit_crit_edge.split.us.us.us.split.us
+  %indvars.iv118 = phi i64 [ %indvars.iv.next119, %..loopexit_crit_edge.split.us.us.us.split.us ], [ 0, %.preheader.split.us.split.us ]
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv118
+  store i8 -1, ptr %35, align 1, !tbaa !7
+  br i1 %9, label %39, label %36
+
+36:                                               ; preds = %.preheader.split.us.split.us.split
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv118
+  %38 = load i8, ptr %37, align 1, !tbaa !7
+  br label %ma_channel_map_get_channel.exit.us.us
+
+39:                                               ; preds = %.preheader.split.us.split.us.split
+  %40 = trunc nuw i64 %indvars.iv118 to i32
+  %41 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %3, i32 noundef %40)
+  br label %ma_channel_map_get_channel.exit.us.us
+
+ma_channel_map_get_channel.exit.us.us:            ; preds = %39, %36
+  %.0.i.us.us = phi i8 [ %41, %39 ], [ %38, %36 ]
+  br label %42
+
+..loopexit_crit_edge.split.us.us.us.split.us:     ; preds = %63, %.split.us.us.us.split.us
+  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
+  %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count127
+  br i1 %exitcond122.not, label %.loopexit49, label %.preheader.split.us.split.us.split, !llvm.loop !967
+
+42:                                               ; preds = %63, %ma_channel_map_get_channel.exit.us.us
+  %.03551.us.us.us.us = phi i32 [ 0, %ma_channel_map_get_channel.exit.us.us ], [ %64, %63 ]
+  switch i32 %1, label %52 [
+    i32 7, label %50
+    i32 1, label %ma_channel_map_get_channel.exit45.us.us.us.us
+    i32 2, label %49
+    i32 3, label %switch.lookup.i68.i.us.us.us.us
+    i32 4, label %47
+    i32 5, label %45
+    i32 6, label %43
+  ]
+
+43:                                               ; preds = %42
+  %44 = icmp ult i32 %.03551.us.us.us.us, 6
+  br i1 %44, label %switch.lookup161, label %ma_channel_map_get_channel.exit45.us.us.us.us
+
+45:                                               ; preds = %42
+  %46 = icmp ult i32 %.03551.us.us.us.us, 5
+  br i1 %46, label %switch.lookup166, label %ma_channel_map_get_channel.exit45.us.us.us.us
+
+47:                                               ; preds = %42
+  %48 = icmp ult i32 %.03551.us.us.us.us, 4
+  br i1 %48, label %switch.lookup171, label %ma_channel_map_get_channel.exit45.us.us.us.us
+
+switch.lookup.i68.i.us.us.us.us:                  ; preds = %42
+  %switch.idx.cast.i69.i.us.us.us.us = trunc nuw nsw i32 %.03551.us.us.us.us to i8
+  %switch.offset.i70.i.us.us.us.us = add nuw nsw i8 %switch.idx.cast.i69.i.us.us.us.us, 2
+  br label %ma_channel_map_get_channel.exit45.us.us.us.us
+
+49:                                               ; preds = %42
+  %switch.selectcmp.i71.i.us.us.us.us = icmp eq i32 %.03551.us.us.us.us, 1
+  %switch.select.i72.i.us.us.us.us = select i1 %switch.selectcmp.i71.i.us.us.us.us, i8 3, i8 0
+  %switch.selectcmp19.i.i.us.us.us.us = icmp eq i32 %.03551.us.us.us.us, 0
+  %switch.select20.i.i.us.us.us.us = select i1 %switch.selectcmp19.i.i.us.us.us.us, i8 2, i8 %switch.select.i72.i.us.us.us.us
+  br label %ma_channel_map_get_channel.exit45.us.us.us.us
+
+50:                                               ; preds = %42
+  %51 = icmp ult i32 %.03551.us.us.us.us, 7
+  br i1 %51, label %switch.lookup175, label %ma_channel_map_get_channel.exit45.us.us.us.us
+
+52:                                               ; preds = %42
+  %53 = icmp ult i32 %.03551.us.us.us.us, 8
+  br i1 %53, label %switch.lookup180, label %ma_channel_map_get_channel.exit45.us.us.us.us
+
+switch.lookup161:                                 ; preds = %43
+  %54 = shl nuw nsw i32 %.03551.us.us.us.us, 3
+  %switch.shiftamt163 = zext nneg i32 %54 to i48
+  %switch.downshift164 = lshr i48 13241468322562, %switch.shiftamt163
+  %switch.masked165 = trunc i48 %switch.downshift164 to i8
+  br label %ma_channel_map_get_channel.exit45.us.us.us.us
+
+switch.lookup166:                                 ; preds = %45
+  %55 = shl nuw nsw i32 %.03551.us.us.us.us, 3
+  %switch.shiftamt168 = zext nneg i32 %55 to i40
+  %switch.downshift169 = lshr i40 30165697282, %switch.shiftamt168
+  %switch.masked170 = trunc i40 %switch.downshift169 to i8
+  br label %ma_channel_map_get_channel.exit45.us.us.us.us
+
+switch.lookup171:                                 ; preds = %47
+  %switch.shiftamt172 = shl nuw nsw i32 %.03551.us.us.us.us, 3
+  %switch.downshift173 = lshr i32 168035074, %switch.shiftamt172
+  %switch.masked174 = trunc i32 %switch.downshift173 to i8
+  br label %ma_channel_map_get_channel.exit45.us.us.us.us
+
+switch.lookup175:                                 ; preds = %50
+  %56 = shl nuw nsw i32 %.03551.us.us.us.us, 3
+  %switch.shiftamt177 = zext nneg i32 %56 to i56
+  %switch.downshift178 = lshr i56 3389837382255362, %switch.shiftamt177
+  %switch.masked179 = trunc i56 %switch.downshift178 to i8
+  br label %ma_channel_map_get_channel.exit45.us.us.us.us
+
+switch.lookup180:                                 ; preds = %52
+  %57 = shl nuw nsw i32 %.03551.us.us.us.us, 3
+  %switch.shiftamt182 = zext nneg i32 %57 to i64
+  %switch.downshift183 = lshr i64 867795075634299650, %switch.shiftamt182
+  %switch.masked184 = trunc i64 %switch.downshift183 to i8
+  br label %ma_channel_map_get_channel.exit45.us.us.us.us
+
+ma_channel_map_get_channel.exit45.us.us.us.us:    ; preds = %43, %45, %47, %50, %52, %switch.lookup180, %switch.lookup175, %switch.lookup171, %switch.lookup166, %switch.lookup161, %49, %switch.lookup.i68.i.us.us.us.us, %42
+  %.0.i44.us.us.us.us = phi i8 [ 1, %42 ], [ %switch.offset.i70.i.us.us.us.us, %switch.lookup.i68.i.us.us.us.us ], [ %switch.masked170, %switch.lookup166 ], [ %switch.select20.i.i.us.us.us.us, %49 ], [ %switch.masked184, %switch.lookup180 ], [ %switch.masked179, %switch.lookup175 ], [ %switch.masked165, %switch.lookup161 ], [ %switch.masked174, %switch.lookup171 ], [ 0, %52 ], [ 0, %50 ], [ 0, %47 ], [ 0, %45 ], [ 0, %43 ]
+  %58 = icmp eq i8 %.0.i.us.us, %.0.i44.us.us.us.us
+  br i1 %58, label %.split.us.us.us.split.us, label %59
+
+59:                                               ; preds = %ma_channel_map_get_channel.exit45.us.us.us.us
+  switch i8 %.0.i.us.us, label %63 [
+    i8 2, label %61
+    i8 11, label %61
+    i8 3, label %60
+    i8 12, label %60
+  ]
+
+60:                                               ; preds = %59, %59
+  switch i8 %.0.i44.us.us.us.us, label %63 [
+    i8 3, label %.sink.split149
+    i8 12, label %.sink.split149
+  ]
+
+61:                                               ; preds = %59, %59
+  switch i8 %.0.i44.us.us.us.us, label %63 [
+    i8 2, label %.sink.split149
+    i8 11, label %.sink.split149
+  ]
+
+.sink.split149:                                   ; preds = %61, %61, %60, %60
+  %62 = trunc i32 %.03551.us.us.us.us to i8
+  store i8 %62, ptr %35, align 1, !tbaa !7
+  br label %63
+
+63:                                               ; preds = %.sink.split149, %61, %60, %59
+  %64 = add nuw i32 %.03551.us.us.us.us, 1
+  %exitcond117.not = icmp eq i32 %64, %1
+  br i1 %exitcond117.not, label %..loopexit_crit_edge.split.us.us.us.split.us, label %42, !llvm.loop !968
+
+.split.us.us.us.split.us:                         ; preds = %ma_channel_map_get_channel.exit45.us.us.us.us
+  %65 = trunc i32 %.03551.us.us.us.us to i8
+  store i8 %65, ptr %35, align 1, !tbaa !7
+  br label %..loopexit_crit_edge.split.us.us.us.split.us
 
 .preheader.split.us.split:                        ; preds = %.preheader.split.us.split.preheader, %..loopexit_crit_edge.split.us70
-  %indvars.iv95 = phi i64 [ 0, %.preheader.split.us.split.preheader ], [ %indvars.iv.next96, %..loopexit_crit_edge.split.us70 ]
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv95
-  store i8 -1, ptr %48, align 1, !tbaa !7
-  br i1 %9, label %52, label %49
+  %indvars.iv112 = phi i64 [ 0, %.preheader.split.us.split.preheader ], [ %indvars.iv.next113, %..loopexit_crit_edge.split.us70 ]
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv112
+  store i8 -1, ptr %66, align 1, !tbaa !7
+  br i1 %9, label %70, label %67
 
-49:                                               ; preds = %.preheader.split.us.split
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv95
-  %51 = load i8, ptr %50, align 1, !tbaa !7
+67:                                               ; preds = %.preheader.split.us.split
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv112
+  %69 = load i8, ptr %68, align 1, !tbaa !7
   br label %ma_channel_map_get_channel.exit.us
 
-52:                                               ; preds = %.preheader.split.us.split
-  %53 = trunc nuw i64 %indvars.iv95 to i32
-  %54 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %3, i32 noundef %53)
+70:                                               ; preds = %.preheader.split.us.split
+  %71 = trunc nuw i64 %indvars.iv112 to i32
+  %72 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %3, i32 noundef %71)
   br label %ma_channel_map_get_channel.exit.us
 
-ma_channel_map_get_channel.exit.us:               ; preds = %52, %49
-  %.0.i.us = phi i8 [ %54, %52 ], [ %51, %49 ]
+ma_channel_map_get_channel.exit.us:               ; preds = %70, %67
+  %.0.i.us = phi i8 [ %72, %70 ], [ %69, %67 ]
   %.0.i.fr.us = freeze i8 %.0.i.us
   switch i8 %.0.i.fr.us, label %ma_channel_map_get_channel.exit45.us62 [
     i8 2, label %ma_channel_map_get_channel.exit45.us52.us.preheader
@@ -38246,77 +38326,77 @@ ma_channel_map_get_channel.exit45.us57.us.preheader: ; preds = %ma_channel_map_g
 ma_channel_map_get_channel.exit45.us52.us.preheader: ; preds = %ma_channel_map_get_channel.exit.us, %ma_channel_map_get_channel.exit.us
   br label %ma_channel_map_get_channel.exit45.us52.us
 
-ma_channel_map_get_channel.exit45.us62:           ; preds = %ma_channel_map_get_channel.exit.us, %58
-  %indvars.iv90 = phi i64 [ %indvars.iv.next91, %58 ], [ 0, %ma_channel_map_get_channel.exit.us ]
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv90
-  %56 = load i8, ptr %55, align 1, !tbaa !7
-  %57 = icmp eq i8 %.0.i.fr.us, %56
-  br i1 %57, label %.split.us69, label %58
+ma_channel_map_get_channel.exit45.us62:           ; preds = %ma_channel_map_get_channel.exit.us, %76
+  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %76 ], [ 0, %ma_channel_map_get_channel.exit.us ]
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv107
+  %74 = load i8, ptr %73, align 1, !tbaa !7
+  %75 = icmp eq i8 %.0.i.fr.us, %74
+  br i1 %75, label %.split.us69, label %76
 
-58:                                               ; preds = %ma_channel_map_get_channel.exit45.us62
-  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
-  br i1 %exitcond94.not, label %..loopexit_crit_edge.split.us70, label %ma_channel_map_get_channel.exit45.us62, !llvm.loop !968
+76:                                               ; preds = %ma_channel_map_get_channel.exit45.us62
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
+  %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
+  br i1 %exitcond111.not, label %..loopexit_crit_edge.split.us70, label %ma_channel_map_get_channel.exit45.us62, !llvm.loop !968
 
-..loopexit_crit_edge.split.us70:                  ; preds = %73, %66, %58, %.split.us69
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count104
-  br i1 %exitcond99.not, label %.loopexit49, label %.preheader.split.us.split, !llvm.loop !967
+..loopexit_crit_edge.split.us70:                  ; preds = %91, %84, %76, %.split.us69
+  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
+  %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
+  br i1 %exitcond116.not, label %.loopexit49, label %.preheader.split.us.split, !llvm.loop !967
 
 .split.us69:                                      ; preds = %ma_channel_map_get_channel.exit45.us57.us, %ma_channel_map_get_channel.exit45.us52.us, %ma_channel_map_get_channel.exit45.us62
-  %.us-phi55.us.in = phi i64 [ %indvars.iv90, %ma_channel_map_get_channel.exit45.us62 ], [ %indvars.iv85, %ma_channel_map_get_channel.exit45.us52.us ], [ %indvars.iv, %ma_channel_map_get_channel.exit45.us57.us ]
-  %59 = trunc i64 %.us-phi55.us.in to i8
-  store i8 %59, ptr %48, align 1, !tbaa !7
+  %.us-phi55.us.in = phi i64 [ %indvars.iv107, %ma_channel_map_get_channel.exit45.us62 ], [ %indvars.iv102, %ma_channel_map_get_channel.exit45.us52.us ], [ %indvars.iv, %ma_channel_map_get_channel.exit45.us57.us ]
+  %77 = trunc i64 %.us-phi55.us.in to i8
+  store i8 %77, ptr %66, align 1, !tbaa !7
   br label %..loopexit_crit_edge.split.us70
 
-ma_channel_map_get_channel.exit45.us52.us:        ; preds = %ma_channel_map_get_channel.exit45.us52.us.preheader, %66
-  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %66 ], [ 0, %ma_channel_map_get_channel.exit45.us52.us.preheader ]
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv85
-  %61 = load i8, ptr %60, align 1, !tbaa !7
-  %62 = icmp eq i8 %.0.i.fr.us, %61
-  br i1 %62, label %.split.us69, label %63
+ma_channel_map_get_channel.exit45.us52.us:        ; preds = %ma_channel_map_get_channel.exit45.us52.us.preheader, %84
+  %indvars.iv102 = phi i64 [ %indvars.iv.next103, %84 ], [ 0, %ma_channel_map_get_channel.exit45.us52.us.preheader ]
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv102
+  %79 = load i8, ptr %78, align 1, !tbaa !7
+  %80 = icmp eq i8 %.0.i.fr.us, %79
+  br i1 %80, label %.split.us69, label %81
 
-63:                                               ; preds = %ma_channel_map_get_channel.exit45.us52.us
-  switch i8 %61, label %66 [
-    i8 2, label %64
-    i8 11, label %64
+81:                                               ; preds = %ma_channel_map_get_channel.exit45.us52.us
+  switch i8 %79, label %84 [
+    i8 2, label %82
+    i8 11, label %82
   ]
 
-64:                                               ; preds = %63, %63
-  %65 = trunc i64 %indvars.iv85 to i8
-  store i8 %65, ptr %48, align 1, !tbaa !7
-  br label %66
+82:                                               ; preds = %81, %81
+  %83 = trunc i64 %indvars.iv102 to i8
+  store i8 %83, ptr %66, align 1, !tbaa !7
+  br label %84
 
-66:                                               ; preds = %64, %63
-  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
-  br i1 %exitcond89.not, label %..loopexit_crit_edge.split.us70, label %ma_channel_map_get_channel.exit45.us52.us, !llvm.loop !968
+84:                                               ; preds = %82, %81
+  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
+  %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
+  br i1 %exitcond106.not, label %..loopexit_crit_edge.split.us70, label %ma_channel_map_get_channel.exit45.us52.us, !llvm.loop !968
 
-ma_channel_map_get_channel.exit45.us57.us:        ; preds = %ma_channel_map_get_channel.exit45.us57.us.preheader, %73
-  %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %ma_channel_map_get_channel.exit45.us57.us.preheader ]
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %68 = load i8, ptr %67, align 1, !tbaa !7
-  %69 = icmp eq i8 %.0.i.fr.us, %68
-  br i1 %69, label %.split.us69, label %70
+ma_channel_map_get_channel.exit45.us57.us:        ; preds = %ma_channel_map_get_channel.exit45.us57.us.preheader, %91
+  %indvars.iv = phi i64 [ %indvars.iv.next, %91 ], [ 0, %ma_channel_map_get_channel.exit45.us57.us.preheader ]
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %86 = load i8, ptr %85, align 1, !tbaa !7
+  %87 = icmp eq i8 %.0.i.fr.us, %86
+  br i1 %87, label %.split.us69, label %88
 
-70:                                               ; preds = %ma_channel_map_get_channel.exit45.us57.us
-  switch i8 %68, label %73 [
-    i8 3, label %71
-    i8 12, label %71
+88:                                               ; preds = %ma_channel_map_get_channel.exit45.us57.us
+  switch i8 %86, label %91 [
+    i8 3, label %89
+    i8 12, label %89
   ]
 
-71:                                               ; preds = %70, %70
-  %72 = trunc i64 %indvars.iv to i8
-  store i8 %72, ptr %48, align 1, !tbaa !7
-  br label %73
+89:                                               ; preds = %88, %88
+  %90 = trunc i64 %indvars.iv to i8
+  store i8 %90, ptr %66, align 1, !tbaa !7
+  br label %91
 
-73:                                               ; preds = %71, %70
+91:                                               ; preds = %89, %88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.split.us70, label %ma_channel_map_get_channel.exit45.us57.us, !llvm.loop !968
 
-.loopexit49:                                      ; preds = %..loopexit_crit_edge.split.us70, %..loopexit_crit_edge.split.us.us.us, %5
-  %.0 = phi i32 [ -2, %5 ], [ 0, %..loopexit_crit_edge.split.us.us.us ], [ 0, %..loopexit_crit_edge.split.us70 ]
+.loopexit49:                                      ; preds = %..loopexit_crit_edge.split.us70, %..loopexit_crit_edge.split.us.us.us.split.us, %..loopexit_crit_edge.split.us.us.us.split.us88, %5
+  %.0 = phi i32 [ -2, %5 ], [ 0, %..loopexit_crit_edge.split.us.us.us.split.us ], [ 0, %..loopexit_crit_edge.split.us.us.us.split.us88 ], [ 0, %..loopexit_crit_edge.split.us70 ]
   ret i32 %.0
 }
 
@@ -42874,8 +42954,8 @@ switch.lookup214:                                 ; preds = %115
   %switch.masked218 = trunc i64 %switch.downshift217 to i8
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
-ma_channel_map_init_standard_channel_alsa.exit:   ; preds = %107, %109, %111, %113, %switch.lookup214, %switch.lookup209, %switch.lookup204, %switch.lookup199, %switch.lookup195, %93, %95, %switch.lookup190, %switch.lookup185, %switch.lookup181, %75, %77, %79, %81, %switch.lookup176, %switch.lookup171, %switch.lookup166, %switch.lookup161, %switch.lookup157, %55, %57, %59, %61, %63, %switch.lookup152, %switch.lookup147, %switch.lookup142, %switch.lookup137, %switch.lookup133, %switch.lookup128, %39, %41, %43, %switch.lookup123, %switch.lookup118, %switch.lookup113, %switch.lookup109, %25, %27, %switch.lookup104, %switch.lookup99, %switch.lookup95, %7, %9, %11, %13, %switch.lookup90, %switch.lookup85, %switch.lookup80, %switch.lookup76, %switch.lookup, %switch.lookup.i68, %120, %117, %106, %105, %switch.lookup.i58, %102, %99, %92, %91, %switch.lookup.i48, %88, %85, %74, %73, %70, %67, %54, %53, %switch.lookup18.i, %switch.lookup.i31, %50, %47, %38, %37, %switch.lookup.i23, %34, %31, %24, %23, %switch.lookup.i, %20, %17, %6, %5, %3
-  %.0 = phi i8 [ %switch.masked175, %switch.lookup171 ], [ 0, %81 ], [ 0, %3 ], [ 0, %43 ], [ 0, %13 ], [ %switch.offset20.i, %switch.lookup18.i ], [ 0, %67 ], [ %22, %20 ], [ %switch.masked94, %switch.lookup90 ], [ %switch.masked89, %switch.lookup85 ], [ %switch.offset.i50, %switch.lookup.i48 ], [ 0, %117 ], [ 0, %75 ], [ %switch.select20.i, %106 ], [ 1, %105 ], [ %switch.masked180, %switch.lookup176 ], [ 0, %57 ], [ %switch.offset.i70, %switch.lookup.i68 ], [ 0, %93 ], [ 1, %5 ], [ %switch.select16.i, %6 ], [ %switch.masked117, %switch.lookup113 ], [ 0, %17 ], [ 0, %95 ], [ %switch.offset.i, %switch.lookup.i ], [ 0, %85 ], [ %switch.masked165, %switch.lookup161 ], [ %switch.masked208, %switch.lookup204 ], [ %switch.masked, %switch.lookup ], [ %switch.select16.i54, %74 ], [ 0, %59 ], [ %switch.masked160, %switch.lookup157 ], [ 1, %53 ], [ %switch.masked79, %switch.lookup76 ], [ %switch.select16.i44, %54 ], [ %switch.masked203, %switch.lookup199 ], [ 1, %73 ], [ 0, %39 ], [ 0, %41 ], [ %switch.masked84, %switch.lookup80 ], [ %switch.masked132, %switch.lookup128 ], [ %switch.masked198, %switch.lookup195 ], [ %36, %34 ], [ %switch.masked108, %switch.lookup104 ], [ %switch.masked103, %switch.lookup99 ], [ %72, %70 ], [ %switch.masked156, %switch.lookup152 ], [ %switch.masked151, %switch.lookup147 ], [ %switch.masked213, %switch.lookup209 ], [ %switch.masked218, %switch.lookup214 ], [ %switch.offset.i60, %switch.lookup.i58 ], [ %switch.masked146, %switch.lookup142 ], [ 1, %23 ], [ %switch.select14.i, %24 ], [ %122, %120 ], [ 0, %31 ], [ 0, %99 ], [ %switch.offset.i25, %switch.lookup.i23 ], [ 0, %7 ], [ 0, %9 ], [ 0, %11 ], [ %switch.masked98, %switch.lookup95 ], [ %52, %50 ], [ %switch.masked127, %switch.lookup123 ], [ %switch.masked122, %switch.lookup118 ], [ %switch.masked141, %switch.lookup137 ], [ 0, %61 ], [ %104, %102 ], [ %switch.masked136, %switch.lookup133 ], [ 0, %63 ], [ %90, %88 ], [ %switch.masked170, %switch.lookup166 ], [ 1, %91 ], [ %switch.select14.i64, %92 ], [ 1, %37 ], [ %switch.select16.i37, %38 ], [ %switch.masked189, %switch.lookup185 ], [ 0, %47 ], [ %switch.masked194, %switch.lookup190 ], [ %switch.offset.i33, %switch.lookup.i31 ], [ 0, %25 ], [ 0, %27 ], [ 0, %55 ], [ %switch.masked112, %switch.lookup109 ], [ %switch.masked184, %switch.lookup181 ], [ 0, %79 ], [ 0, %77 ], [ 0, %113 ], [ 0, %111 ], [ 0, %109 ], [ 0, %107 ]
+ma_channel_map_init_standard_channel_alsa.exit:   ; preds = %7, %9, %11, %13, %25, %27, %39, %41, %43, %55, %57, %59, %61, %63, %75, %77, %79, %81, %93, %95, %107, %109, %111, %113, %switch.lookup214, %switch.lookup209, %switch.lookup204, %switch.lookup199, %switch.lookup195, %switch.lookup190, %switch.lookup185, %switch.lookup181, %switch.lookup176, %switch.lookup171, %switch.lookup166, %switch.lookup161, %switch.lookup157, %switch.lookup152, %switch.lookup147, %switch.lookup142, %switch.lookup137, %switch.lookup133, %switch.lookup128, %switch.lookup123, %switch.lookup118, %switch.lookup113, %switch.lookup109, %switch.lookup104, %switch.lookup99, %switch.lookup95, %switch.lookup90, %switch.lookup85, %switch.lookup80, %switch.lookup76, %switch.lookup, %switch.lookup.i68, %120, %117, %106, %105, %switch.lookup.i58, %102, %99, %92, %91, %switch.lookup.i48, %88, %85, %74, %73, %70, %67, %54, %53, %switch.lookup18.i, %switch.lookup.i31, %50, %47, %38, %37, %switch.lookup.i23, %34, %31, %24, %23, %switch.lookup.i, %20, %17, %6, %5, %3
+  %.0 = phi i8 [ %switch.masked160, %switch.lookup157 ], [ 0, %99 ], [ 0, %3 ], [ %switch.masked, %switch.lookup ], [ %switch.offset.i25, %switch.lookup.i23 ], [ %switch.offset20.i, %switch.lookup18.i ], [ %switch.masked136, %switch.lookup133 ], [ %22, %20 ], [ %switch.masked94, %switch.lookup90 ], [ %switch.masked89, %switch.lookup85 ], [ %switch.masked132, %switch.lookup128 ], [ 0, %117 ], [ %switch.masked165, %switch.lookup161 ], [ %switch.select20.i, %106 ], [ 1, %105 ], [ %switch.masked198, %switch.lookup195 ], [ %switch.masked208, %switch.lookup204 ], [ %switch.offset.i70, %switch.lookup.i68 ], [ %switch.masked84, %switch.lookup80 ], [ 1, %5 ], [ %switch.select16.i, %6 ], [ %switch.masked146, %switch.lookup142 ], [ 0, %17 ], [ %switch.masked79, %switch.lookup76 ], [ %switch.offset.i, %switch.lookup.i ], [ %36, %34 ], [ %switch.masked108, %switch.lookup104 ], [ %switch.masked103, %switch.lookup99 ], [ %switch.select16.i44, %54 ], [ 0, %85 ], [ 0, %67 ], [ %switch.masked141, %switch.lookup137 ], [ %switch.masked213, %switch.lookup209 ], [ 1, %53 ], [ %switch.select16.i54, %74 ], [ 1, %23 ], [ %switch.select14.i, %24 ], [ %switch.masked218, %switch.lookup214 ], [ 0, %31 ], [ %switch.masked98, %switch.lookup95 ], [ %52, %50 ], [ %switch.masked127, %switch.lookup123 ], [ %switch.masked122, %switch.lookup118 ], [ %switch.masked203, %switch.lookup199 ], [ %90, %88 ], [ %switch.select14.i64, %92 ], [ 1, %91 ], [ %switch.offset.i60, %switch.lookup.i58 ], [ %switch.masked184, %switch.lookup181 ], [ %switch.masked180, %switch.lookup176 ], [ %switch.masked117, %switch.lookup113 ], [ %switch.masked112, %switch.lookup109 ], [ 1, %37 ], [ %switch.select16.i37, %38 ], [ %switch.masked175, %switch.lookup171 ], [ 0, %47 ], [ %122, %120 ], [ %switch.offset.i33, %switch.lookup.i31 ], [ %72, %70 ], [ %switch.masked156, %switch.lookup152 ], [ %switch.masked151, %switch.lookup147 ], [ 1, %73 ], [ %switch.masked170, %switch.lookup166 ], [ %switch.masked189, %switch.lookup185 ], [ %switch.masked194, %switch.lookup190 ], [ %104, %102 ], [ %switch.offset.i50, %switch.lookup.i48 ], [ 0, %113 ], [ 0, %111 ], [ 0, %109 ], [ 0, %107 ], [ 0, %95 ], [ 0, %93 ], [ 0, %81 ], [ 0, %79 ], [ 0, %77 ], [ 0, %75 ], [ 0, %63 ], [ 0, %61 ], [ 0, %59 ], [ 0, %57 ], [ 0, %55 ], [ 0, %43 ], [ 0, %41 ], [ 0, %39 ], [ 0, %27 ], [ 0, %25 ], [ 0, %13 ], [ 0, %11 ], [ 0, %9 ], [ 0, %7 ]
   ret i8 %.0
 }
 

@@ -19488,7 +19488,7 @@ _ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit: ; preds = %142, %142, 
   store i8 %195, ptr %184, align 4
   br label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit.thread
 
-_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit.thread: ; preds = %172, %165, %158, %151, %142, %168, %161, %154, %147, %131, %175, %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
+_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit.thread: ; preds = %142, %151, %158, %165, %172, %168, %161, %154, %147, %131, %175, %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
   %196 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %197 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %198 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -20661,8 +20661,8 @@ _ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit: ; preds = %67, %67, %6
   %71 = call noundef i32 @_ZN7glslang13TIntermediate23computeTypeLocationSizeERKNS_5TTypeE11EShLanguage(ptr noundef nonnull align 8 dereferenceable(152) %2, i32 noundef %70) #26
   br label %74
 
-_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit.thread: ; preds = %34, %67, %61, %55, %49, %42, %64, %58, %52, %46, %41
-  %72 = phi i32 [ %40, %41 ], [ 13, %67 ], [ 4, %61 ], [ 2, %55 ], [ 1, %49 ], [ 3, %42 ], [ 13, %64 ], [ 4, %58 ], [ 2, %52 ], [ 1, %46 ], [ %40, %34 ]
+_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit.thread: ; preds = %34, %42, %49, %55, %61, %67, %64, %58, %52, %46, %41
+  %72 = phi i32 [ %40, %41 ], [ 3, %42 ], [ 1, %49 ], [ 2, %55 ], [ 4, %61 ], [ 13, %67 ], [ 13, %64 ], [ 4, %58 ], [ 2, %52 ], [ 1, %46 ], [ %40, %34 ]
   %73 = tail call noundef i32 @_ZN7glslang13TIntermediate23computeTypeLocationSizeERKNS_5TTypeE11EShLanguage(ptr noundef nonnull align 8 dereferenceable(152) %6, i32 noundef %72) #26
   br label %74
 
@@ -26396,8 +26396,8 @@ switch.lookup16:                                  ; preds = %55
   %switch.masked20 = trunc i31 %switch.downshift19 to i1
   br label %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
 
-_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit: ; preds = %55, %switch.lookup16, %47, %switch.lookup11, %39, %switch.lookup6, %31, %switch.lookup1, %21, %switch.lookup, %10, %27, %35, %43, %51
-  %.0.i = phi i1 [ %switch.masked15, %switch.lookup11 ], [ false, %10 ], [ %switch.masked10, %switch.lookup6 ], [ %switch.masked, %switch.lookup ], [ %switch.masked5, %switch.lookup1 ], [ false, %27 ], [ %switch.masked20, %switch.lookup16 ], [ false, %35 ], [ false, %43 ], [ false, %51 ], [ false, %21 ], [ false, %47 ], [ false, %31 ], [ false, %39 ], [ false, %55 ]
+_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit: ; preds = %21, %31, %39, %47, %55, %switch.lookup16, %switch.lookup11, %switch.lookup6, %switch.lookup1, %switch.lookup, %10, %27, %35, %43, %51
+  %.0.i = phi i1 [ %switch.masked15, %switch.lookup11 ], [ false, %10 ], [ %switch.masked10, %switch.lookup6 ], [ %switch.masked, %switch.lookup ], [ %switch.masked5, %switch.lookup1 ], [ false, %27 ], [ %switch.masked20, %switch.lookup16 ], [ false, %35 ], [ false, %43 ], [ false, %51 ], [ false, %55 ], [ false, %47 ], [ false, %39 ], [ false, %31 ], [ false, %21 ]
   tail call void @_ZN7glslang16HlslParseContext7flattenERKNS_9TVariableEbb(ptr noundef nonnull align 8 dereferenceable(2489) %.0.val, ptr noundef nonnull align 8 dereferenceable(236) %0, i1 noundef zeroext false, i1 noundef zeroext %.0.i)
   br label %59
 

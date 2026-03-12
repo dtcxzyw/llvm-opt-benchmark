@@ -2712,79 +2712,64 @@ define internal fastcc noundef range(i32 100000, 400001) i32 @i9xx_hrawclk(ptr n
   %10 = load i64, ptr %9, align 4
   %11 = and i64 %10, 1
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %21, label %13
+  br i1 %12, label %16, label %13
 
 13:                                               ; preds = %1
-  switch i32 %6, label %19 [
-    i32 0, label %28
-    i32 1, label %14
-    i32 3, label %15
-    i32 2, label %16
-    i32 6, label %17
-    i32 7, label %18
+  switch i32 %6, label %14 [
+    i32 0, label %23
+    i32 1, label %17
+    i32 3, label %18
+    i32 2, label %19
+    i32 6, label %20
+    i32 7, label %21
   ]
 
 14:                                               ; preds = %13
-  br label %28
-
-15:                                               ; preds = %13
-  br label %28
-
-16:                                               ; preds = %13
-  br label %28
-
-17:                                               ; preds = %13
-  br label %28
-
-18:                                               ; preds = %13
-  br label %28
-
-19:                                               ; preds = %13
   tail call void asm sideeffect "1075: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1075b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1075) #15, !srcloc !62
-  %20 = zext nneg i32 %6 to i64
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, i64 noundef %20) #15
+  %15 = zext nneg i32 %6 to i64
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, i64 noundef %15) #15
   tail call void asm sideeffect "1076: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1076b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1076) #15, !srcloc !63
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 3434, i32 2313, i64 12) #15, !srcloc !64
   tail call void asm sideeffect "1077: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1077b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1077) #15, !srcloc !65
   tail call void asm sideeffect "1078: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1078b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1078) #15, !srcloc !66
-  br label %28
+  br label %23
 
-21:                                               ; preds = %1
+16:                                               ; preds = %1
   switch i32 %6, label %default.unreachable1 [
-    i32 5, label %28
-    i32 1, label %22
-    i32 3, label %23
-    i32 2, label %24
-    i32 0, label %25
-    i32 4, label %26
-    i32 6, label %27
-    i32 7, label %22
+    i32 5, label %23
+    i32 1, label %17
+    i32 3, label %18
+    i32 2, label %19
+    i32 0, label %20
+    i32 4, label %21
+    i32 6, label %22
+    i32 7, label %17
   ]
 
-22:                                               ; preds = %21, %21
-  br label %28
+17:                                               ; preds = %13, %16, %16
+  br label %23
 
-23:                                               ; preds = %21
-  br label %28
+18:                                               ; preds = %13, %16
+  br label %23
 
-24:                                               ; preds = %21
-  br label %28
+19:                                               ; preds = %13, %16
+  br label %23
 
-25:                                               ; preds = %21
-  br label %28
+20:                                               ; preds = %13, %16
+  br label %23
 
-26:                                               ; preds = %21
-  br label %28
+21:                                               ; preds = %13, %16
+  br label %23
 
-27:                                               ; preds = %21
-  br label %28
+22:                                               ; preds = %16
+  br label %23
 
-default.unreachable1:                             ; preds = %21
+default.unreachable1:                             ; preds = %16
   unreachable
 
-28:                                               ; preds = %21, %27, %26, %25, %24, %23, %22, %19, %18, %17, %16, %15, %14, %13
-  %29 = phi i32 [ 133333, %19 ], [ 333333, %18 ], [ 266667, %17 ], [ 200000, %16 ], [ 166667, %15 ], [ 133333, %14 ], [ 100000, %21 ], [ 400000, %27 ], [ 333333, %26 ], [ 266667, %25 ], [ 200000, %24 ], [ 166667, %23 ], [ 133333, %22 ], [ 100000, %13 ]
-  ret i32 %29
+23:                                               ; preds = %16, %22, %21, %20, %19, %18, %17, %14, %13
+  %24 = phi i32 [ 133333, %14 ], [ 266667, %20 ], [ 200000, %19 ], [ 166667, %18 ], [ 133333, %17 ], [ 100000, %13 ], [ 100000, %16 ], [ 400000, %22 ], [ 333333, %21 ]
+  ret i32 %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -5464,7 +5449,7 @@ define internal void @skl_get_cdclk(ptr noundef %0, ptr noundef captures(none) i
   store i32 %50, ptr %51, align 4
   store i32 %50, ptr %1, align 4
   %52 = icmp eq i32 %.pr, 0
-  br i1 %52, label %70, label %53
+  br i1 %52, label %69, label %53
 
 53:                                               ; preds = %.thread, %49
   %54 = load ptr, ptr %6, align 8
@@ -5473,68 +5458,65 @@ define internal void @skl_get_cdclk(ptr noundef %0, ptr noundef captures(none) i
   %57 = icmp eq i32 %56, 8640000
   %58 = lshr i32 %55, 26
   %59 = and i32 %58, 3
-  br i1 %57, label %60, label %64
+  br i1 %57, label %60, label %63
 
 60:                                               ; preds = %53
   switch i32 %59, label %default.unreachable7 [
-    i32 0, label %68
+    i32 0, label %67
     i32 2, label %61
-    i32 1, label %62
-    i32 3, label %63
+    i32 1, label %65
+    i32 3, label %62
   ]
 
 61:                                               ; preds = %60
-  br label %68
+  br label %67
 
 62:                                               ; preds = %60
-  br label %68
+  br label %67
 
-63:                                               ; preds = %60
-  br label %68
-
-default.unreachable7:                             ; preds = %64, %60
+default.unreachable7:                             ; preds = %63, %60
   unreachable
 
-64:                                               ; preds = %53
+63:                                               ; preds = %53
   switch i32 %59, label %default.unreachable7 [
-    i32 0, label %68
-    i32 2, label %65
-    i32 1, label %66
-    i32 3, label %67
+    i32 0, label %67
+    i32 2, label %64
+    i32 1, label %65
+    i32 3, label %66
   ]
 
-65:                                               ; preds = %64
-  br label %68
+64:                                               ; preds = %63
+  br label %67
 
-66:                                               ; preds = %64
-  br label %68
+65:                                               ; preds = %60, %63
+  br label %67
 
-67:                                               ; preds = %64
-  br label %68
+66:                                               ; preds = %63
+  br label %67
 
-68:                                               ; preds = %67, %66, %65, %64, %63, %62, %61, %60
-  %69 = phi i32 [ 617143, %63 ], [ 540000, %62 ], [ 308571, %61 ], [ 675000, %67 ], [ 540000, %66 ], [ 337500, %65 ], [ 432000, %60 ], [ 450000, %64 ]
-  store i32 %69, ptr %1, align 4
-  br label %70
+67:                                               ; preds = %66, %65, %64, %63, %62, %61, %60
+  %68 = phi i32 [ 617143, %62 ], [ 450000, %63 ], [ 308571, %61 ], [ 675000, %66 ], [ 540000, %65 ], [ 337500, %64 ], [ 432000, %60 ]
+  store i32 %68, ptr %1, align 4
+  br label %69
 
-70:                                               ; preds = %68, %49
-  %71 = phi i32 [ %69, %68 ], [ %50, %49 ]
-  %72 = icmp sgt i32 %71, 540000
-  br i1 %72, label %78, label %73
+69:                                               ; preds = %67, %49
+  %70 = phi i32 [ %68, %67 ], [ %50, %49 ]
+  %71 = icmp sgt i32 %70, 540000
+  br i1 %71, label %77, label %72
 
-73:                                               ; preds = %70
-  %74 = icmp sgt i32 %71, 450000
-  br i1 %74, label %78, label %75
+72:                                               ; preds = %69
+  %73 = icmp sgt i32 %70, 450000
+  br i1 %73, label %77, label %74
 
-75:                                               ; preds = %73
-  %76 = icmp sgt i32 %71, 337500
-  %77 = zext i1 %76 to i8
-  br label %78
+74:                                               ; preds = %72
+  %75 = icmp sgt i32 %70, 337500
+  %76 = zext i1 %75 to i8
+  br label %77
 
-78:                                               ; preds = %75, %73, %70
-  %79 = phi i8 [ 3, %70 ], [ 2, %73 ], [ %77, %75 ]
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 %79, ptr %80, align 4
+77:                                               ; preds = %74, %72, %69
+  %78 = phi i8 [ 3, %69 ], [ 2, %72 ], [ %76, %74 ]
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i8 %78, ptr %79, align 4
   ret void
 }
 

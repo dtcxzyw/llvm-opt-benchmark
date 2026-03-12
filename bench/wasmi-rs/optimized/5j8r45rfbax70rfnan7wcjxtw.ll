@@ -10273,10 +10273,9 @@ define noundef range(i8 0, 12) i8 @_ZN5wasmi5error5Error12as_trap_code17h2cfe97f
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load i64, ptr %18, align 8, !range !11, !alias.scope !858, !noundef !10
   %20 = trunc nuw i64 %19 to i1
-  %spec.select = select i1 %20, i8 9, i8 11
-  br label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
+  br i1 %20, label %21, label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
 
-21:                                               ; preds = %1
+21:                                               ; preds = %17, %1
   br label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
 
 switch.lookup:                                    ; preds = %9
@@ -10292,8 +10291,8 @@ switch.lookup2:                                   ; preds = %13
   %switch.masked5 = trunc i56 %switch.downshift4 to i8
   br label %_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit
 
-_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit: ; preds = %17, %switch.lookup2, %13, %switch.lookup, %9, %1, %6, %21
-  %.sroa.0.0.i = phi i8 [ 11, %1 ], [ %spec.select, %17 ], [ 11, %13 ], [ 11, %9 ], [ %8, %6 ], [ 9, %21 ], [ %switch.masked5, %switch.lookup2 ], [ %switch.masked, %switch.lookup ]
+_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd7ef51ce3d5b09E.exit: ; preds = %switch.lookup2, %13, %switch.lookup, %9, %1, %6, %17, %21
+  %.sroa.0.0.i = phi i8 [ 11, %1 ], [ 11, %17 ], [ 11, %13 ], [ 11, %9 ], [ %8, %6 ], [ %switch.masked, %switch.lookup ], [ %switch.masked5, %switch.lookup2 ], [ 9, %21 ]
   ret i8 %.sroa.0.0.i
 }
 
@@ -10494,10 +10493,9 @@ define noundef range(i8 0, 12) i8 @_ZN5wasmi5error9ErrorKind12as_trap_code17h3dd
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 8, !range !11, !noundef !10
   %19 = trunc nuw i64 %18 to i1
-  %spec.select = select i1 %19, i8 9, i8 11
-  br label %21
+  br i1 %19, label %20, label %21
 
-20:                                               ; preds = %1
+20:                                               ; preds = %1, %16
   br label %21
 
 switch.lookup:                                    ; preds = %8
@@ -10513,8 +10511,8 @@ switch.lookup3:                                   ; preds = %12
   %switch.masked6 = trunc i56 %switch.downshift5 to i8
   br label %21
 
-21:                                               ; preds = %16, %switch.lookup3, %12, %switch.lookup, %8, %5, %1, %20
-  %.sroa.0.0 = phi i8 [ 11, %1 ], [ %spec.select, %16 ], [ 11, %12 ], [ 11, %8 ], [ %7, %5 ], [ 9, %20 ], [ %switch.masked6, %switch.lookup3 ], [ %switch.masked, %switch.lookup ]
+21:                                               ; preds = %switch.lookup3, %12, %switch.lookup, %8, %5, %20, %1, %16
+  %.sroa.0.0 = phi i8 [ 11, %1 ], [ 11, %16 ], [ 11, %12 ], [ 11, %8 ], [ %7, %5 ], [ %switch.masked, %switch.lookup ], [ %switch.masked6, %switch.lookup3 ], [ 9, %20 ]
   ret i8 %.sroa.0.0
 }
 

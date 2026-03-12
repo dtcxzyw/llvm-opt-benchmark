@@ -3346,7 +3346,7 @@ define internal fastcc noundef zeroext i1 @_ZL14ranges_overlapPK11TypeIntegerS1_
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(22) %2) #8
   %31 = icmp eq i8 %5, 10
-  br i1 %31, label %32, label %79
+  br i1 %31, label %32, label %78
 
 32:                                               ; preds = %6
   %33 = trunc i64 %10 to i32
@@ -3431,14 +3431,14 @@ define internal fastcc noundef zeroext i1 @_ZL14ranges_overlapPK11TypeIntegerS1_
 73:                                               ; preds = %72
   %74 = icmp slt i32 %.sink11.i, 0
   %spec.select.i81.i = and i1 %or.cond.i80.sink.i, %74
-  br i1 %spec.select.i81.i, label %75, label %78
+  br i1 %spec.select.i81.i, label %75, label %118
 
 75:                                               ; preds = %73
   %.not62.i = icmp sgt i32 %.054.ph.i, %37
   %or.cond65.i = and i1 %.not62.i, %.052.in.ph.i
   %.not63.i = icmp slt i32 %.053.ph.i, %37
   %or.cond66.i = or i1 %.not63.i, %or.cond65.i
-  br i1 %or.cond66.i, label %78, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
+  br i1 %or.cond66.i, label %118, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
 76:                                               ; preds = %67, %51
   %.054.i = phi i32 [ %59, %67 ], [ %43, %51 ]
@@ -3459,123 +3459,120 @@ define internal fastcc noundef zeroext i1 @_ZL14ranges_overlapPK11TypeIntegerS1_
   %.not59.i = icmp slt i32 %.053.i, %38
   %or.cond71.i = and i1 %.not59.i, %.0.in.i
   %or.cond72.i = or i1 %or.cond70.i, %or.cond71.i
-  br i1 %or.cond72.i, label %78, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
+  br i1 %or.cond72.i, label %118, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
-78:                                               ; preds = %77, %75, %73
-  br label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
+78:                                               ; preds = %6
+  %79 = getelementptr i8, ptr %3, i64 44
+  %.val24 = load i32, ptr %79, align 4
+  %80 = and i32 %.val24, 127
+  %81 = icmp eq i32 %80, 64
+  br i1 %81, label %82, label %98
 
-79:                                               ; preds = %6
-  %80 = getelementptr i8, ptr %3, i64 44
-  %.val24 = load i32, ptr %80, align 4
-  %81 = and i32 %.val24, 127
-  %82 = icmp eq i32 %81, 64
-  br i1 %82, label %83, label %99
+82:                                               ; preds = %78
+  %83 = sub i64 %10, %22
+  %84 = sub i64 %14, %18
+  br i1 %4, label %85, label %91
 
-83:                                               ; preds = %79
-  %84 = sub i64 %10, %22
-  %85 = sub i64 %14, %18
-  br i1 %4, label %86, label %92
+85:                                               ; preds = %82
+  %86 = icmp sgt i64 %10, -1
+  %87 = and i64 %83, %22
+  %88 = icmp slt i64 %87, 0
+  %spec.select.i.i67 = and i1 %86, %88
+  %89 = icmp sgt i64 %14, -1
+  %90 = and i64 %84, %18
+  br label %112
 
-86:                                               ; preds = %83
-  %87 = icmp sgt i64 %10, -1
-  %88 = and i64 %84, %22
-  %89 = icmp slt i64 %88, 0
-  %spec.select.i.i67 = and i1 %87, %89
-  %90 = icmp sgt i64 %14, -1
-  %91 = and i64 %85, %18
-  br label %113
+91:                                               ; preds = %82
+  %92 = icmp slt i64 %10, 0
+  %93 = icmp sgt i64 %22, 0
+  %or.cond.i.i63 = and i1 %92, %93
+  %94 = icmp sgt i64 %83, 0
+  %spec.select.i73.i64 = and i1 %or.cond.i.i63, %94
+  %95 = icmp slt i64 %14, 0
+  %96 = icmp sgt i64 %18, 0
+  %or.cond.i75.i65 = and i1 %95, %96
+  %97 = icmp sgt i64 %84, 0
+  %spec.select.i76.i66 = and i1 %or.cond.i75.i65, %97
+  br label %116
 
-92:                                               ; preds = %83
-  %93 = icmp slt i64 %10, 0
-  %94 = icmp sgt i64 %22, 0
-  %or.cond.i.i63 = and i1 %93, %94
-  %95 = icmp sgt i64 %84, 0
-  %spec.select.i73.i64 = and i1 %or.cond.i.i63, %95
-  %96 = icmp slt i64 %14, 0
-  %97 = icmp sgt i64 %18, 0
-  %or.cond.i75.i65 = and i1 %96, %97
-  %98 = icmp sgt i64 %85, 0
-  %spec.select.i76.i66 = and i1 %or.cond.i75.i65, %98
-  br label %117
+98:                                               ; preds = %78
+  %99 = add i64 %18, %10
+  %100 = add i64 %22, %14
+  br i1 %4, label %101, label %107
 
-99:                                               ; preds = %79
-  %100 = add i64 %18, %10
-  %101 = add i64 %22, %14
-  br i1 %4, label %102, label %108
+101:                                              ; preds = %98
+  %102 = icmp sgt i64 %10, 0
+  %103 = icmp sgt i64 %18, 0
+  %or.cond.i77.i45 = and i1 %102, %103
+  %104 = icmp slt i64 %99, 0
+  %spec.select.i78.i46 = and i1 %or.cond.i77.i45, %104
+  %105 = icmp sgt i64 %14, 0
+  %106 = icmp sgt i64 %22, 0
+  %or.cond.i80.i47 = and i1 %105, %106
+  br label %112
 
-102:                                              ; preds = %99
-  %103 = icmp sgt i64 %10, 0
-  %104 = icmp sgt i64 %18, 0
-  %or.cond.i77.i45 = and i1 %103, %104
-  %105 = icmp slt i64 %100, 0
-  %spec.select.i78.i46 = and i1 %or.cond.i77.i45, %105
-  %106 = icmp sgt i64 %14, 0
-  %107 = icmp sgt i64 %22, 0
-  %or.cond.i80.i47 = and i1 %106, %107
-  br label %113
+107:                                              ; preds = %98
+  %108 = and i64 %18, %10
+  %or.cond.not.i.i25 = icmp slt i64 %108, 0
+  %109 = icmp sgt i64 %99, -1
+  %spec.select.i79.i26 = and i1 %or.cond.not.i.i25, %109
+  %110 = and i64 %22, %14
+  %or.cond.not.i82.i27 = icmp slt i64 %110, 0
+  %111 = icmp sgt i64 %100, -1
+  %spec.select.i83.i28 = and i1 %or.cond.not.i82.i27, %111
+  br label %116
 
-108:                                              ; preds = %99
-  %109 = and i64 %18, %10
-  %or.cond.not.i.i25 = icmp slt i64 %109, 0
-  %110 = icmp sgt i64 %100, -1
-  %spec.select.i79.i26 = and i1 %or.cond.not.i.i25, %110
-  %111 = and i64 %22, %14
-  %or.cond.not.i82.i27 = icmp slt i64 %111, 0
-  %112 = icmp sgt i64 %101, -1
-  %spec.select.i83.i28 = and i1 %or.cond.not.i82.i27, %112
-  br label %117
-
-113:                                              ; preds = %102, %86
-  %.sink11.i48 = phi i64 [ %101, %102 ], [ %91, %86 ]
-  %or.cond.i80.sink.i49 = phi i1 [ %or.cond.i80.i47, %102 ], [ %90, %86 ]
-  %.054.ph.i50 = phi i64 [ %100, %102 ], [ %84, %86 ]
-  %.053.ph.i51 = phi i64 [ %101, %102 ], [ %85, %86 ]
-  %.052.in.ph.i52 = phi i1 [ %spec.select.i78.i46, %102 ], [ %spec.select.i.i67, %86 ]
+112:                                              ; preds = %101, %85
+  %.sink11.i48 = phi i64 [ %100, %101 ], [ %90, %85 ]
+  %or.cond.i80.sink.i49 = phi i1 [ %or.cond.i80.i47, %101 ], [ %89, %85 ]
+  %.054.ph.i50 = phi i64 [ %99, %101 ], [ %83, %85 ]
+  %.053.ph.i51 = phi i64 [ %100, %101 ], [ %84, %85 ]
+  %.052.in.ph.i52 = phi i1 [ %spec.select.i78.i46, %101 ], [ %spec.select.i.i67, %85 ]
   %.052.in.not.i53 = xor i1 %.052.in.ph.i52, true
   %.not60.i54 = icmp sgt i64 %26, %.054.ph.i50
   %or.cond.i55 = or i1 %.not60.i54, %.052.in.not.i53
   %.not61.i56 = icmp sgt i64 %.054.ph.i50, %30
   %or.cond64.i57 = or i1 %.not61.i56, %or.cond.i55
-  br i1 %or.cond64.i57, label %114, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
+  br i1 %or.cond64.i57, label %113, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
-114:                                              ; preds = %113
-  %115 = icmp slt i64 %.sink11.i48, 0
-  %spec.select.i81.i58 = and i1 %or.cond.i80.sink.i49, %115
-  br i1 %spec.select.i81.i58, label %116, label %119
+113:                                              ; preds = %112
+  %114 = icmp slt i64 %.sink11.i48, 0
+  %spec.select.i81.i58 = and i1 %or.cond.i80.sink.i49, %114
+  br i1 %spec.select.i81.i58, label %115, label %118
 
-116:                                              ; preds = %114
+115:                                              ; preds = %113
   %.not62.i59 = icmp sgt i64 %.054.ph.i50, %26
   %or.cond65.i60 = and i1 %.not62.i59, %.052.in.ph.i52
   %.not63.i61 = icmp sgt i64 %26, %.053.ph.i51
   %or.cond66.i62 = or i1 %.not63.i61, %or.cond65.i60
-  br i1 %or.cond66.i62, label %119, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
+  br i1 %or.cond66.i62, label %118, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
-117:                                              ; preds = %108, %92
-  %.054.i29 = phi i64 [ %100, %108 ], [ %84, %92 ]
-  %.053.i30 = phi i64 [ %101, %108 ], [ %85, %92 ]
-  %.052.in.i31 = phi i1 [ %spec.select.i79.i26, %108 ], [ %spec.select.i73.i64, %92 ]
-  %.0.in.i32 = phi i1 [ %spec.select.i83.i28, %108 ], [ %spec.select.i76.i66, %92 ]
+116:                                              ; preds = %107, %91
+  %.054.i29 = phi i64 [ %99, %107 ], [ %83, %91 ]
+  %.053.i30 = phi i64 [ %100, %107 ], [ %84, %91 ]
+  %.052.in.i31 = phi i1 [ %spec.select.i79.i26, %107 ], [ %spec.select.i73.i64, %91 ]
+  %.0.in.i32 = phi i1 [ %spec.select.i83.i28, %107 ], [ %spec.select.i76.i66, %91 ]
   %.0.in.not.i33 = xor i1 %.0.in.i32, true
   %.not.i34 = icmp sgt i64 %26, %.053.i30
   %or.cond67.i35 = or i1 %.not.i34, %.0.in.not.i33
   %.not57.i36 = icmp sgt i64 %.053.i30, %30
   %or.cond68.i37 = or i1 %.not57.i36, %or.cond67.i35
-  br i1 %or.cond68.i37, label %118, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
+  br i1 %or.cond68.i37, label %117, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
-118:                                              ; preds = %117
+117:                                              ; preds = %116
   %.052.in.not69.i39 = xor i1 %.052.in.i31, true
   %.not58.i40 = icmp sgt i64 %.054.i29, %30
   %or.cond70.i41 = or i1 %.not58.i40, %.052.in.not69.i39
   %.not59.i42 = icmp sgt i64 %30, %.053.i30
   %or.cond71.i43 = and i1 %.not59.i42, %.0.in.i32
   %or.cond72.i44 = or i1 %or.cond70.i41, %or.cond71.i43
-  br i1 %or.cond72.i44, label %119, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
+  br i1 %or.cond72.i44, label %118, label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
-119:                                              ; preds = %118, %116, %114
+118:                                              ; preds = %73, %75, %77, %117, %115, %113
   br label %_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit
 
-_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit: ; preds = %119, %118, %117, %116, %113, %78, %77, %76, %75, %72
-  %.0 = phi i1 [ true, %77 ], [ true, %76 ], [ true, %72 ], [ false, %78 ], [ true, %75 ], [ true, %117 ], [ true, %113 ], [ false, %119 ], [ true, %116 ], [ true, %118 ]
+_ZL14ranges_overlapIiEbT_S0_S0_S0_S0_S0_PK4Nodeb.exit: ; preds = %118, %117, %116, %115, %112, %77, %76, %75, %72
+  %.0 = phi i1 [ true, %77 ], [ true, %76 ], [ true, %72 ], [ true, %117 ], [ true, %75 ], [ true, %116 ], [ true, %112 ], [ false, %118 ], [ true, %115 ]
   ret i1 %.0
 }
 

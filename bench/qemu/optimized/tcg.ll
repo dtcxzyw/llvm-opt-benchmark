@@ -420,48 +420,48 @@ define dso_local void @tb_target_set_jmp_target(ptr noundef readonly captures(no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i32 -1, 1025) i32 @tcg_can_emit_vec_op(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
-  switch i32 %0, label %81 [
-    i32 155, label %82
-    i32 156, label %82
-    i32 168, label %82
-    i32 169, label %82
-    i32 170, label %82
-    i32 171, label %82
-    i32 172, label %82
-    i32 173, label %82
-    i32 174, label %82
-    i32 175, label %82
-    i32 176, label %82
-    i32 191, label %82
+  switch i32 %0, label %78 [
+    i32 155, label %79
+    i32 156, label %79
+    i32 168, label %79
+    i32 169, label %79
+    i32 170, label %79
+    i32 171, label %79
+    i32 172, label %79
+    i32 173, label %79
+    i32 174, label %79
+    i32 175, label %79
+    i32 176, label %79
+    i32 191, label %79
     i32 190, label %4
     i32 192, label %4
     i32 180, label %5
     i32 177, label %11
     i32 178, label %11
     i32 179, label %14
-    i32 181, label %23
-    i32 182, label %23
-    i32 183, label %26
-    i32 184, label %33
-    i32 185, label %35
-    i32 186, label %35
-    i32 187, label %43
-    i32 188, label %56
-    i32 189, label %56
-    i32 157, label %66
-    i32 160, label %72
-    i32 161, label %72
-    i32 162, label %72
-    i32 163, label %72
-    i32 164, label %75
-    i32 166, label %75
-    i32 165, label %75
-    i32 167, label %75
-    i32 159, label %75
+    i32 181, label %21
+    i32 182, label %21
+    i32 183, label %24
+    i32 184, label %30
+    i32 185, label %32
+    i32 186, label %32
+    i32 187, label %40
+    i32 188, label %53
+    i32 189, label %53
+    i32 157, label %63
+    i32 160, label %69
+    i32 161, label %69
+    i32 162, label %69
+    i32 163, label %69
+    i32 164, label %72
+    i32 166, label %72
+    i32 165, label %72
+    i32 167, label %72
+    i32 159, label %72
   ]
 
 4:                                                ; preds = %3, %3
-  br label %82
+  br label %79
 
 5:                                                ; preds = %3
   %6 = load i32, ptr @cpuinfo, align 4
@@ -470,168 +470,159 @@ define dso_local range(i32 -1, 1025) i32 @tcg_can_emit_vec_op(i32 noundef %0, i3
   %8 = icmp ugt i32 %2, 1
   %9 = and i1 %8, %or.cond.not
   %10 = select i1 %9, i32 1, i32 -1
-  br label %82
+  br label %79
 
 11:                                               ; preds = %3, %3
   %12 = icmp eq i32 %2, 0
   %13 = select i1 %12, i32 -1, i32 1
-  br label %82
+  br label %79
 
 14:                                               ; preds = %3
-  switch i32 %2, label %22 [
-    i32 0, label %82
-    i32 1, label %15
-    i32 2, label %15
-    i32 3, label %16
+  switch i32 %2, label %78 [
+    i32 0, label %79
+    i32 1, label %68
+    i32 2, label %68
+    i32 3, label %15
   ]
 
-15:                                               ; preds = %14, %14
-  br label %82
+15:                                               ; preds = %14
+  %16 = load i32, ptr @cpuinfo, align 4
+  %17 = and i32 %16, 6144
+  %or.cond26.not = icmp eq i32 %17, 6144
+  br i1 %or.cond26.not, label %79, label %18
 
-16:                                               ; preds = %14
-  %17 = load i32, ptr @cpuinfo, align 4
-  %18 = and i32 %17, 6144
-  %or.cond26.not = icmp eq i32 %18, 6144
-  br i1 %or.cond26.not, label %82, label %19
+18:                                               ; preds = %15
+  %19 = icmp ugt i32 %1, 4
+  %20 = sext i1 %19 to i32
+  br label %79
 
-19:                                               ; preds = %16
-  %20 = icmp ugt i32 %1, 4
-  %21 = sext i1 %20 to i32
-  br label %82
+21:                                               ; preds = %3, %3
+  %22 = icmp ne i32 %2, 0
+  %23 = zext i1 %22 to i32
+  br label %79
 
-22:                                               ; preds = %14
-  br label %82
-
-23:                                               ; preds = %3, %3
-  %24 = icmp ne i32 %2, 0
-  %25 = zext i1 %24 to i32
-  br label %82
-
-26:                                               ; preds = %3
-  switch i32 %2, label %32 [
-    i32 1, label %82
-    i32 2, label %82
-    i32 3, label %27
+24:                                               ; preds = %3
+  switch i32 %2, label %78 [
+    i32 1, label %79
+    i32 2, label %79
+    i32 3, label %25
   ]
 
-27:                                               ; preds = %26
-  %28 = load i32, ptr @cpuinfo, align 4
-  %29 = and i32 %28, 6144
-  %30 = icmp eq i32 %29, 6144
-  %31 = zext i1 %30 to i32
-  br label %82
+25:                                               ; preds = %24
+  %26 = load i32, ptr @cpuinfo, align 4
+  %27 = and i32 %26, 6144
+  %28 = icmp eq i32 %27, 6144
+  %29 = zext i1 %28 to i32
+  br label %79
 
-32:                                               ; preds = %26
-  br label %82
-
-33:                                               ; preds = %3
+30:                                               ; preds = %3
   %.not21 = icmp ne i32 %2, 0
-  %34 = sext i1 %.not21 to i32
-  br label %82
+  %31 = sext i1 %.not21 to i32
+  br label %79
 
-35:                                               ; preds = %3, %3
-  switch i32 %2, label %82 [
-    i32 1, label %36
-    i32 2, label %40
-    i32 3, label %40
+32:                                               ; preds = %3, %3
+  switch i32 %2, label %79 [
+    i32 1, label %33
+    i32 2, label %37
+    i32 3, label %37
   ]
 
-36:                                               ; preds = %35
-  %37 = load i32, ptr @cpuinfo, align 4
-  %38 = and i32 %37, 14336
-  %narrow31 = icmp eq i32 %38, 14336
-  %39 = zext i1 %narrow31 to i32
-  br label %82
+33:                                               ; preds = %32
+  %34 = load i32, ptr @cpuinfo, align 4
+  %35 = and i32 %34, 14336
+  %narrow31 = icmp eq i32 %35, 14336
+  %36 = zext i1 %narrow31 to i32
+  br label %79
 
-40:                                               ; preds = %35, %35
-  %41 = load i32, ptr @cpuinfo, align 4
-  %42 = and i32 %41, 1024
-  br label %82
+37:                                               ; preds = %32, %32
+  %38 = load i32, ptr @cpuinfo, align 4
+  %39 = and i32 %38, 1024
+  br label %79
 
-43:                                               ; preds = %3
-  switch i32 %2, label %82 [
-    i32 1, label %44
-    i32 2, label %48
-    i32 3, label %51
+40:                                               ; preds = %3
+  switch i32 %2, label %79 [
+    i32 1, label %41
+    i32 2, label %45
+    i32 3, label %48
   ]
 
-44:                                               ; preds = %43
-  %45 = load i32, ptr @cpuinfo, align 4
-  %46 = and i32 %45, 14336
-  %narrow30 = icmp eq i32 %46, 14336
-  %47 = zext i1 %narrow30 to i32
-  br label %82
+41:                                               ; preds = %40
+  %42 = load i32, ptr @cpuinfo, align 4
+  %43 = and i32 %42, 14336
+  %narrow30 = icmp eq i32 %43, 14336
+  %44 = zext i1 %narrow30 to i32
+  br label %79
 
-48:                                               ; preds = %43
+45:                                               ; preds = %40
+  %46 = load i32, ptr @cpuinfo, align 4
+  %47 = and i32 %46, 1024
+  br label %79
+
+48:                                               ; preds = %40
   %49 = load i32, ptr @cpuinfo, align 4
-  %50 = and i32 %49, 1024
-  br label %82
+  %50 = and i32 %49, 6144
+  %51 = icmp eq i32 %50, 6144
+  %52 = zext i1 %51 to i32
+  br label %79
 
-51:                                               ; preds = %43
-  %52 = load i32, ptr @cpuinfo, align 4
-  %53 = and i32 %52, 6144
-  %54 = icmp eq i32 %53, 6144
-  %55 = zext i1 %54 to i32
-  br label %82
-
-56:                                               ; preds = %3, %3
-  switch i32 %2, label %82 [
-    i32 1, label %57
-    i32 2, label %61
-    i32 3, label %61
+53:                                               ; preds = %3, %3
+  switch i32 %2, label %79 [
+    i32 1, label %54
+    i32 2, label %58
+    i32 3, label %58
   ]
 
-57:                                               ; preds = %56
-  %58 = load i32, ptr @cpuinfo, align 4
-  %59 = and i32 %58, 38912
-  %narrow29 = icmp eq i32 %59, 38912
-  %60 = sext i1 %narrow29 to i32
-  br label %82
+54:                                               ; preds = %53
+  %55 = load i32, ptr @cpuinfo, align 4
+  %56 = and i32 %55, 38912
+  %narrow29 = icmp eq i32 %56, 38912
+  %57 = sext i1 %narrow29 to i32
+  br label %79
 
-61:                                               ; preds = %56, %56
-  %62 = load i32, ptr @cpuinfo, align 4
-  %63 = and i32 %62, 6144
-  %or.cond27.not = icmp eq i32 %63, 6144
-  %64 = shl i32 %62, 21
-  %sext = ashr i32 %64, 31
-  %65 = select i1 %or.cond27.not, i32 1, i32 %sext
-  br label %82
+58:                                               ; preds = %53, %53
+  %59 = load i32, ptr @cpuinfo, align 4
+  %60 = and i32 %59, 6144
+  %or.cond27.not = icmp eq i32 %60, 6144
+  %61 = shl i32 %59, 21
+  %sext = ashr i32 %61, 31
+  %62 = select i1 %or.cond27.not, i32 1, i32 %sext
+  br label %79
 
-66:                                               ; preds = %3
-  switch i32 %2, label %71 [
-    i32 0, label %82
-    i32 3, label %67
+63:                                               ; preds = %3
+  switch i32 %2, label %68 [
+    i32 0, label %79
+    i32 3, label %64
   ]
 
-67:                                               ; preds = %66
-  %68 = load i32, ptr @cpuinfo, align 4
-  %69 = and i32 %68, 22528
-  %narrow28 = icmp eq i32 %69, 22528
-  %70 = zext i1 %narrow28 to i32
-  br label %82
+64:                                               ; preds = %63
+  %65 = load i32, ptr @cpuinfo, align 4
+  %66 = and i32 %65, 22528
+  %narrow28 = icmp eq i32 %66, 22528
+  %67 = zext i1 %narrow28 to i32
+  br label %79
 
-71:                                               ; preds = %66
-  br label %82
+68:                                               ; preds = %14, %14, %63
+  br label %79
 
-72:                                               ; preds = %3, %3, %3, %3
-  %73 = icmp ult i32 %2, 2
-  %74 = zext i1 %73 to i32
-  br label %82
+69:                                               ; preds = %3, %3, %3, %3
+  %70 = icmp ult i32 %2, 2
+  %71 = zext i1 %70 to i32
+  br label %79
 
-75:                                               ; preds = %3, %3, %3, %3, %3
-  %76 = icmp ult i32 %2, 3
-  %77 = load i32, ptr @cpuinfo, align 4
-  %78 = and i32 %77, 6144
-  %79 = icmp eq i32 %78, 6144
-  %narrow = select i1 %76, i1 true, i1 %79
-  %80 = zext i1 %narrow to i32
-  br label %82
+72:                                               ; preds = %3, %3, %3, %3, %3
+  %73 = icmp ult i32 %2, 3
+  %74 = load i32, ptr @cpuinfo, align 4
+  %75 = and i32 %74, 6144
+  %76 = icmp eq i32 %75, 6144
+  %narrow = select i1 %73, i1 true, i1 %76
+  %77 = zext i1 %narrow to i32
+  br label %79
 
-81:                                               ; preds = %3
-  br label %82
+78:                                               ; preds = %14, %24, %3
+  br label %79
 
-82:                                               ; preds = %66, %56, %43, %35, %26, %26, %16, %14, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %81, %75, %72, %71, %67, %61, %57, %51, %48, %44, %40, %36, %33, %32, %27, %23, %22, %19, %15, %11, %5, %4
-  %.0 = phi i32 [ 0, %81 ], [ %80, %75 ], [ -1, %4 ], [ %10, %5 ], [ %13, %11 ], [ 0, %22 ], [ 1, %3 ], [ 1, %15 ], [ -1, %14 ], [ %21, %19 ], [ %25, %23 ], [ 0, %32 ], [ 1, %16 ], [ %31, %27 ], [ %34, %33 ], [ 1, %26 ], [ %39, %36 ], [ %42, %40 ], [ 0, %35 ], [ %47, %44 ], [ %50, %48 ], [ %55, %51 ], [ 0, %43 ], [ %60, %57 ], [ %65, %61 ], [ 1, %71 ], [ 0, %56 ], [ %70, %67 ], [ %74, %72 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %26 ], [ -1, %66 ]
+79:                                               ; preds = %63, %53, %40, %32, %24, %24, %15, %14, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %78, %72, %69, %68, %64, %58, %54, %48, %45, %41, %37, %33, %30, %25, %21, %18, %11, %5, %4
+  %.0 = phi i32 [ 0, %78 ], [ %77, %72 ], [ -1, %4 ], [ %10, %5 ], [ %13, %11 ], [ 1, %24 ], [ 1, %3 ], [ -1, %63 ], [ -1, %14 ], [ %20, %18 ], [ %23, %21 ], [ 1, %3 ], [ 1, %15 ], [ %29, %25 ], [ %31, %30 ], [ 1, %24 ], [ %36, %33 ], [ %39, %37 ], [ 0, %32 ], [ %44, %41 ], [ %47, %45 ], [ %52, %48 ], [ 0, %40 ], [ %57, %54 ], [ %62, %58 ], [ 1, %68 ], [ 0, %53 ], [ %67, %64 ], [ %71, %69 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
   ret i32 %.0
 }
 

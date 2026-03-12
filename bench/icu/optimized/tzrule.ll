@@ -1984,7 +1984,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule12ge
   %indvars.iv105159 = phi i64 [ %indvars.iv.next106, %.lr.ph.split.us.split.split ], [ %17, %.lr.ph.split.us.split.split.preheader ]
   store double %29, ptr %5, align 8, !tbaa !24
   %30 = icmp sgt i64 %indvars.iv105159, 0
-  br i1 %30, label %.lr.ph.split.us.split.split, label %..thread.loopexit_crit_edge, !llvm.loop !37
+  br i1 %30, label %.lr.ph.split.us.split.split, label %..thread.loopexit143_crit_edge, !llvm.loop !37
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %31 = fsub double %19, %14
@@ -2032,7 +2032,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule12ge
   %indvars.iv96154 = phi i64 [ %indvars.iv.next97, %.lr.ph.split.split.us.split ], [ %17, %.lr.ph.split.split.us.split.preheader ]
   store double %46, ptr %5, align 8, !tbaa !24
   %47 = icmp sgt i64 %indvars.iv96154, 0
-  br i1 %47, label %.lr.ph.split.split.us.split, label %..thread.loopexit140_crit_edge, !llvm.loop !37
+  br i1 %47, label %.lr.ph.split.split.us.split, label %..thread.loopexit143_crit_edge, !llvm.loop !37
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not, label %.lr.ph.split.split.split.preheader, label %.lr.ph.split.split.split.us
@@ -2091,25 +2091,19 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule12ge
   %64 = trunc nuw nsw i64 %indvars.iv105159 to i32
   br label %.thread
 
-..thread.loopexit_crit_edge:                      ; preds = %.lr.ph160
-  br label %.thread, !llvm.loop !37
-
 .lr.ph.split.split.us.split..thread.loopexit140_crit_edge: ; preds = %.lr.ph.split.split.us.split
   %65 = trunc nuw nsw i64 %indvars.iv96154 to i32
   br label %.thread
-
-..thread.loopexit140_crit_edge:                   ; preds = %.lr.ph155
-  br label %.thread, !llvm.loop !37
 
 .lr.ph.split.split.split..thread.loopexit143_crit_edge: ; preds = %.lr.ph.split.split.split
   %66 = trunc nuw nsw i64 %indvars.iv90150 to i32
   br label %.thread
 
-..thread.loopexit143_crit_edge:                   ; preds = %.lr.ph151
+..thread.loopexit143_crit_edge:                   ; preds = %.lr.ph151, %.lr.ph155, %.lr.ph160
   br label %.thread, !llvm.loop !37
 
-.thread:                                          ; preds = %.lr.ph49, %.lr.ph54, %.lr.ph70.split, %.lr.ph.split.split.split.preheader, %.lr.ph.split.split.split..thread.loopexit143_crit_edge, %..thread.loopexit143_crit_edge, %.lr.ph.split.split.us.split.preheader, %.lr.ph.split.split.us.split..thread.loopexit140_crit_edge, %..thread.loopexit140_crit_edge, %.lr.ph.split.us.split.split.preheader, %.lr.ph.split.us.split.split..thread.loopexit_crit_edge, %..thread.loopexit_crit_edge, %.thread.loopexit131.split.loop.exit, %.thread.loopexit127.split.loop.exit, %.thread.loopexit123.split.loop.exit, %.lr.ph.split.us.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split.us, %6
-  %.016.in.lcssa = phi i32 [ %8, %6 ], [ %8, %.lr.ph.split.split.split.us ], [ %63, %.thread.loopexit131.split.loop.exit ], [ %8, %.lr.ph.split.split.split.preheader ], [ %62, %.thread.loopexit127.split.loop.exit ], [ %8, %.lr.ph.split.us.split.us ], [ %8, %.lr.ph.split.split.us.split.preheader ], [ %8, %.lr.ph.split.split.us.split.us ], [ 0, %.lr.ph70.split ], [ 0, %.lr.ph54 ], [ %61, %.thread.loopexit123.split.loop.exit ], [ %8, %.lr.ph.split.us.split.split.preheader ], [ 0, %..thread.loopexit_crit_edge ], [ %64, %.lr.ph.split.us.split.split..thread.loopexit_crit_edge ], [ %65, %.lr.ph.split.split.us.split..thread.loopexit140_crit_edge ], [ 0, %..thread.loopexit140_crit_edge ], [ %66, %.lr.ph.split.split.split..thread.loopexit143_crit_edge ], [ 0, %..thread.loopexit143_crit_edge ], [ 0, %.lr.ph49 ]
+.thread:                                          ; preds = %.lr.ph49, %.lr.ph54, %.lr.ph70.split, %.lr.ph.split.split.split.preheader, %.lr.ph.split.split.split..thread.loopexit143_crit_edge, %..thread.loopexit143_crit_edge, %.lr.ph.split.split.us.split.preheader, %.lr.ph.split.split.us.split..thread.loopexit140_crit_edge, %.lr.ph.split.us.split.split.preheader, %.lr.ph.split.us.split.split..thread.loopexit_crit_edge, %.thread.loopexit131.split.loop.exit, %.thread.loopexit127.split.loop.exit, %.thread.loopexit123.split.loop.exit, %.lr.ph.split.us.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split.us, %6
+  %.016.in.lcssa = phi i32 [ %8, %6 ], [ %8, %.lr.ph.split.split.split.us ], [ %63, %.thread.loopexit131.split.loop.exit ], [ %8, %.lr.ph.split.split.split.preheader ], [ %62, %.thread.loopexit127.split.loop.exit ], [ %8, %.lr.ph.split.us.split.us ], [ %8, %.lr.ph.split.split.us.split.preheader ], [ %8, %.lr.ph.split.split.us.split.us ], [ %66, %.lr.ph.split.split.split..thread.loopexit143_crit_edge ], [ 0, %.lr.ph54 ], [ %61, %.thread.loopexit123.split.loop.exit ], [ %8, %.lr.ph.split.us.split.split.preheader ], [ 0, %.lr.ph70.split ], [ %64, %.lr.ph.split.us.split.split..thread.loopexit_crit_edge ], [ %65, %.lr.ph.split.split.us.split..thread.loopexit140_crit_edge ], [ 0, %..thread.loopexit143_crit_edge ], [ 0, %.lr.ph49 ]
   %67 = icmp ne i32 %.016.in.lcssa, %8
   %. = zext i1 %67 to i8
   ret i8 %.

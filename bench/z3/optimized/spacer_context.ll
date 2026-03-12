@@ -57461,68 +57461,65 @@ _ZN15ref_vector_coreIN6spacer10reach_factE21ref_unmanaged_wrapperIS1_EED2Ev.exit
 define hidden noundef range(i32 0, 2) i32 @_ZN6spacer7context14handle_unknownERNS_3pobEPKN7datalog4ruleER5model(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(712) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(160) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %"struct.obj_map<const datalog::rule, spacer::pred_transformer::pt_rule *>::key_data", align 8
   %6 = icmp eq ptr %2, null
-  br i1 %6, label %7, label %14
+  br i1 %6, label %7, label %13
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !93
   %10 = tail call noundef zeroext i1 @_ZN5model7is_trueEP4expr(ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef %9)
-  br i1 %10, label %11, label %13
+  br i1 %10, label %11, label %37
 
 11:                                               ; preds = %7
   %12 = tail call noundef zeroext i1 @_ZN6spacer7context20mk_mdl_rf_consistentER5model(ptr noundef nonnull align 8 dereferenceable(712) %0, ptr noundef nonnull align 8 dereferenceable(160) %3)
-  br i1 %12, label %39, label %13
+  br i1 %12, label %38, label %37
 
-13:                                               ; preds = %11, %7
-  br label %39
-
-14:                                               ; preds = %4
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !111
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
+13:                                               ; preds = %4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = load ptr, ptr %14, align 8, !tbaa !111
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8, !tbaa !392
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %18, align 8, !tbaa !395
-  %19 = call noundef ptr @_ZNK14core_hashtableIN7obj_mapIKN7datalog4ruleEPN6spacer16pred_transformer7pt_ruleEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE9find_coreERKSB_(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr null, ptr %17, align 8, !tbaa !395
+  %18 = call noundef ptr @_ZNK14core_hashtableIN7obj_mapIKN7datalog4ruleEPN6spacer16pred_transformer7pt_ruleEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE9find_coreERKSB_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %_ZN6spacer16pred_transformer14get_transitionERKN7datalog4ruleE.exit, label %20
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %_ZN6spacer16pred_transformer14get_transitionERKN7datalog4ruleE.exit, label %19
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !395
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !93
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !395
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !93
   br label %_ZN6spacer16pred_transformer14get_transitionERKN7datalog4ruleE.exit
 
-_ZN6spacer16pred_transformer14get_transitionERKN7datalog4ruleE.exit: ; preds = %14, %20
-  %25 = phi ptr [ %24, %20 ], [ null, %14 ]
-  %26 = call noundef zeroext i1 @_ZN5model7is_trueEP4expr(ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef %25)
-  br i1 %26, label %27, label %38
+_ZN6spacer16pred_transformer14get_transitionERKN7datalog4ruleE.exit: ; preds = %13, %19
+  %24 = phi ptr [ %23, %19 ], [ null, %13 ]
+  %25 = call noundef zeroext i1 @_ZN5model7is_trueEP4expr(ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef %24)
+  br i1 %25, label %26, label %37
 
-27:                                               ; preds = %_ZN6spacer16pred_transformer14get_transitionERKN7datalog4ruleE.exit
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !93
-  %30 = call noundef zeroext i1 @_ZN5model7is_trueEP4expr(ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef %29)
-  br i1 %30, label %31, label %38
+26:                                               ; preds = %_ZN6spacer16pred_transformer14get_transitionERKN7datalog4ruleE.exit
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %28 = load ptr, ptr %27, align 8, !tbaa !93
+  %29 = call noundef zeroext i1 @_ZN5model7is_trueEP4expr(ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef %28)
+  br i1 %29, label %30, label %37
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %33 = load i32, ptr %32, align 4, !tbaa !488
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %38
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %32 = load i32, ptr %31, align 4, !tbaa !488
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %37
 
-35:                                               ; preds = %31
-  %36 = load ptr, ptr %15, align 8, !tbaa !111
-  %37 = call noundef zeroext i1 @_ZN6spacer16pred_transformer20mk_mdl_rf_consistentEPKN7datalog4ruleER5model(ptr noundef nonnull align 8 dereferenceable(472) %36, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(160) %3)
-  br i1 %37, label %39, label %38
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %14, align 8, !tbaa !111
+  %36 = call noundef zeroext i1 @_ZN6spacer16pred_transformer20mk_mdl_rf_consistentEPKN7datalog4ruleER5model(ptr noundef nonnull align 8 dereferenceable(472) %35, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(160) %3)
+  br i1 %36, label %38, label %37
 
-38:                                               ; preds = %35, %31, %27, %_ZN6spacer16pred_transformer14get_transitionERKN7datalog4ruleE.exit
-  br label %39
+37:                                               ; preds = %7, %11, %34, %30, %26, %_ZN6spacer16pred_transformer14get_transitionERKN7datalog4ruleE.exit
+  br label %38
 
-39:                                               ; preds = %35, %11, %38, %13
-  %.0 = phi i32 [ 0, %38 ], [ 0, %13 ], [ 1, %11 ], [ 1, %35 ]
+38:                                               ; preds = %34, %11, %37
+  %.0 = phi i32 [ 0, %37 ], [ 1, %34 ], [ 1, %11 ]
   ret i32 %.0
 }
 

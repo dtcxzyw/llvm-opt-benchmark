@@ -707,7 +707,7 @@ define internal fastcc i32 @jspIsMutableWalker(ptr noundef nonnull readonly capt
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = load i32, ptr %.0109, align 8
   switch i32 %15, label %.thread [
-    i32 53, label %119
+    i32 53, label %118
     i32 26, label %18
     i32 29, label %20
     i32 28, label %25
@@ -735,27 +735,27 @@ define internal fastcc i32 @jspIsMutableWalker(ptr noundef nonnull readonly capt
     i32 24, label %103
     i32 37, label %105
     i32 42, label %113
-    i32 51, label %119
-    i32 52, label %118
-    i32 45, label %118
-    i32 50, label %118
-    i32 25, label %117
-    i32 22, label %117
-    i32 39, label %117
-    i32 40, label %117
-    i32 31, label %117
-    i32 32, label %117
-    i32 33, label %117
-    i32 34, label %117
-    i32 35, label %117
-    i32 36, label %117
-    i32 38, label %117
-    i32 43, label %117
-    i32 44, label %117
-    i32 46, label %117
-    i32 47, label %117
-    i32 48, label %117
-    i32 49, label %117
+    i32 51, label %118
+    i32 52, label %117
+    i32 45, label %117
+    i32 50, label %117
+    i32 25, label %60
+    i32 22, label %60
+    i32 39, label %60
+    i32 40, label %60
+    i32 31, label %60
+    i32 32, label %60
+    i32 33, label %60
+    i32 34, label %60
+    i32 35, label %60
+    i32 36, label %60
+    i32 38, label %60
+    i32 43, label %60
+    i32 44, label %60
+    i32 46, label %60
+    i32 47, label %60
+    i32 48, label %60
+    i32 49, label %60
   ]
 
 .preheader:                                       ; preds = %14
@@ -846,7 +846,7 @@ define internal fastcc i32 @jspIsMutableWalker(ptr noundef nonnull readonly capt
 59:                                               ; preds = %.split103, %.split103
   br label %.thread
 
-60:                                               ; preds = %.split103
+60:                                               ; preds = %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %.split103
   br label %.thread
 
 61:                                               ; preds = %50
@@ -966,34 +966,31 @@ jspGetArraySubscript.exit:                        ; preds = %.lr.ph, %94
   %116 = call fastcc i32 @jspIsMutableWalker(ptr noundef %4, ptr noundef %1)
   br label %.thread
 
-117:                                              ; preds = %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14, %14
-  br label %.thread
-
-118:                                              ; preds = %14, %14, %14
+117:                                              ; preds = %14, %14, %14
   store i8 1, ptr %7, align 1
   br label %.thread
 
-119:                                              ; preds = %14, %14
+118:                                              ; preds = %14, %14
   store i8 1, ptr %7, align 1
   br label %.thread
 
-.thread:                                          ; preds = %43, %45, %25, %.split103, %.split103, %.split103, %60, %59, %103, %.loopexit, %105, %110, %107, %71, %62, %74, %119, %118, %117, %113, %79, %75, %20, %18, %14
-  %.2 = phi i32 [ %.069108, %14 ], [ %19, %18 ], [ %.069108, %20 ], [ 3, %118 ], [ %.069108, %74 ], [ %.069108, %71 ], [ %.069108, %62 ], [ %.069108, %75 ], [ %.069108, %79 ], [ 1, %105 ], [ 0, %117 ], [ %spec.select, %.loopexit ], [ %., %110 ], [ %spec.select86, %103 ], [ 0, %107 ], [ %.069108, %113 ], [ 3, %119 ], [ 3, %.split103 ], [ 2, %59 ], [ 0, %60 ], [ 3, %.split103 ], [ 3, %.split103 ], [ %.069108, %25 ], [ %.069108, %45 ], [ %.069108, %43 ]
-  %120 = load i32, ptr %.0109.sroa.phi118, align 4
-  %121 = icmp sgt i32 %120, 0
-  br i1 %121, label %jspGetNext.exit, label %jspGetNext.exit.thread
+.thread:                                          ; preds = %43, %45, %25, %.split103, %.split103, %.split103, %60, %59, %103, %.loopexit, %105, %110, %107, %71, %62, %74, %118, %117, %113, %79, %75, %20, %18, %14
+  %.2 = phi i32 [ %.069108, %14 ], [ %19, %18 ], [ %.069108, %20 ], [ 3, %117 ], [ %.069108, %74 ], [ %.069108, %71 ], [ %.069108, %62 ], [ %.069108, %75 ], [ %.069108, %79 ], [ 1, %105 ], [ %.069108, %25 ], [ %spec.select, %.loopexit ], [ %., %110 ], [ %spec.select86, %103 ], [ 0, %107 ], [ %.069108, %113 ], [ 3, %118 ], [ 3, %.split103 ], [ 2, %59 ], [ 0, %60 ], [ 3, %.split103 ], [ 3, %.split103 ], [ %.069108, %45 ], [ %.069108, %43 ]
+  %119 = load i32, ptr %.0109.sroa.phi118, align 4
+  %120 = icmp sgt i32 %119, 0
+  br i1 %120, label %jspGetNext.exit, label %jspGetNext.exit.thread
 
 jspGetNext.exit.thread:                           ; preds = %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit96
 
 jspGetNext.exit:                                  ; preds = %.thread
-  %122 = load ptr, ptr %.0109.sroa.phi, align 8
-  call void @jspInitByBuffer(ptr noundef nonnull %3, ptr noundef %122, i32 noundef %120)
+  %121 = load ptr, ptr %.0109.sroa.phi, align 8
+  call void @jspInitByBuffer(ptr noundef nonnull %3, ptr noundef %121, i32 noundef %119)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %123 = load i8, ptr %7, align 1, !range !4, !noundef !5
-  %124 = trunc nuw i8 %123 to i1
-  br i1 %124, label %.loopexit96, label %14
+  %122 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %123 = trunc nuw i8 %122 to i1
+  br i1 %123, label %.loopexit96, label %14
 
 .loopexit96:                                      ; preds = %jspGetNext.exit, %2, %jspGetNext.exit.thread
   %.170 = phi i32 [ %.2, %jspGetNext.exit.thread ], [ 0, %2 ], [ %.2, %jspGetNext.exit ]

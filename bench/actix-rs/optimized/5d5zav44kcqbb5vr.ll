@@ -1241,7 +1241,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit222: ; p
   br i1 %311, label %.invoke649, label %313
 
 .invoke649:                                       ; preds = %423, %413, %320, %309
-  %312 = phi ptr [ @anon.3ce6b816cb19b0461f38b33c0e713f57.40, %413 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.36, %309 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.36, %320 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.40, %423 ]
+  %312 = phi ptr [ @anon.3ce6b816cb19b0461f38b33c0e713f57.36, %320 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.36, %309 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.40, %413 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.40, %423 ]
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr nonnull align 1 @anon.3ce6b816cb19b0461f38b33c0e713f57.35, i64 34, ptr nonnull align 8 %312) #14
           to label %.cont650 unwind label %.loopexit.split-lp
 

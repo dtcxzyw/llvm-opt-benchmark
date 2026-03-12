@@ -99166,7 +99166,7 @@ define linkonce_odr dso_local void @_ZZN4mold24claim_unresolved_symbolsINS_6X86_
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3240
   %8 = load ptr, ptr %7, align 8, !tbaa !71
   %9 = icmp eq ptr %1, %8
-  br i1 %9, label %159, label %10
+  br i1 %9, label %158, label %10
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -99185,13 +99185,13 @@ define linkonce_odr dso_local void @_ZZN4mold24claim_unresolved_symbolsINS_6X86_
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %20
 
-._crit_edge:                                      ; preds = %152, %10
+._crit_edge:                                      ; preds = %151, %10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %159
+  br label %158
 
-20:                                               ; preds = %.lr.ph, %152
-  %21 = phi ptr [ %1, %.lr.ph ], [ %153, %152 ]
-  %storemerge54 = phi i64 [ %12, %.lr.ph ], [ %155, %152 ]
+20:                                               ; preds = %.lr.ph, %151
+  %21 = phi ptr [ %1, %.lr.ph ], [ %152, %151 ]
+  %storemerge54 = phi i64 [ %12, %.lr.ph ], [ %154, %151 ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !943
   %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %storemerge54
@@ -99202,7 +99202,7 @@ define linkonce_odr dso_local void @_ZZN4mold24claim_unresolved_symbolsINS_6X86_
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 6
   %30 = load i16, ptr %29, align 1
   %31 = icmp eq i16 %30, 0
-  br i1 %31, label %32, label %152
+  br i1 %31, label %32, label %151
 
 32:                                               ; preds = %20
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 47
@@ -99260,7 +99260,7 @@ _ZNSt11scoped_lockIJN3tbb6detail2d110spin_mutexEEEC2ERS3_.exit._crit_edge: ; pre
   %55 = load i16, ptr %54, align 1
   %56 = icmp eq i16 %55, 0
   %.pre57.pre58 = load ptr, ptr %3, align 8, !tbaa !64
-  br i1 %56, label %57, label %151
+  br i1 %56, label %57, label %150
 
 57:                                               ; preds = %47
   %58 = getelementptr inbounds nuw i8, ptr %46, i64 120
@@ -99268,7 +99268,7 @@ _ZNSt11scoped_lockIJN3tbb6detail2d110spin_mutexEEEC2ERS3_.exit._crit_edge: ; pre
   %60 = getelementptr inbounds nuw i8, ptr %.pre57.pre58, i64 120
   %61 = load i64, ptr %60, align 8, !tbaa !321
   %.not27 = icmp sgt i64 %59, %61
-  br i1 %.not27, label %62, label %151
+  br i1 %.not27, label %62, label %150
 
 62:                                               ; preds = %_ZNSt11scoped_lockIJN3tbb6detail2d110spin_mutexEEEC2ERS3_.exit._crit_edge, %57
   %63 = phi ptr [ %.pre, %_ZNSt11scoped_lockIJN3tbb6detail2d110spin_mutexEEEC2ERS3_.exit._crit_edge ], [ %.pre57.pre58, %57 ]
@@ -99379,7 +99379,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %113
   %122 = load i16, ptr %121, align 1
   %123 = or i16 %122, 16
   store i16 %123, ptr %121, align 1
-  br label %151
+  br label %150
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread: ; preds = %_ZNK4mold6SymbolINS_6X86_64EE11get_versionEv.exit.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNK4mold6SymbolINS_6X86_64EE11get_versionEv.exit, %97, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %62
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -99408,56 +99408,53 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread: ; preds
   %136 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %137 = load atomic i8, ptr %136 monotonic, align 1
   %.not31 = icmp eq i8 %137, 2
-  br i1 %.not31, label %138, label %150
+  br i1 %.not31, label %138, label %149
 
-138:                                              ; preds = %135, %131
-  br label %150
+138:                                              ; preds = %139, %143, %146, %135, %131
+  br label %149
 
 139:                                              ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
   %140 = getelementptr inbounds nuw i8, ptr %124, i64 199
   %141 = load i8, ptr %140, align 1, !tbaa !659, !range !438, !noundef !439
   %142 = trunc nuw i8 %141 to i1
-  br i1 %142, label %143, label %149
+  br i1 %142, label %143, label %138
 
 143:                                              ; preds = %139
   %144 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %145 = load atomic i8, ptr %144 monotonic, align 1
   %.not29 = icmp eq i8 %145, 2
-  br i1 %.not29, label %149, label %146
+  br i1 %.not29, label %138, label %146
 
 146:                                              ; preds = %143
   %147 = getelementptr inbounds nuw i8, ptr %124, i64 152
   %148 = load i32, ptr %147, align 8, !tbaa !1157
   %.not30 = icmp eq i32 %148, 0
-  br i1 %.not30, label %149, label %150
+  br i1 %.not30, label %138, label %149
 
-149:                                              ; preds = %146, %143, %139
-  br label %150
-
-150:                                              ; preds = %146, %135, %138, %149
-  %.sink = phi i1 [ true, %135 ], [ false, %138 ], [ false, %149 ], [ true, %146 ]
+149:                                              ; preds = %146, %135, %138
+  %.sink = phi i1 [ true, %135 ], [ false, %138 ], [ true, %146 ]
   call void @_ZZZN4mold24claim_unresolved_symbolsINS_6X86_64EEEvRNS_7ContextIT_EEENKUlPNS_10ObjectFileIS1_EEE_clES8_ENKUlbE_clEb(ptr noundef nonnull align 8 dereferenceable(40) %5, i1 noundef zeroext %.sink)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre57.pre = load ptr, ptr %3, align 8, !tbaa !64
-  br label %151
+  br label %150
 
-151:                                              ; preds = %.critedge, %47, %57, %150
-  %.pre57 = phi ptr [ %116, %.critedge ], [ %.pre57.pre58, %47 ], [ %.pre57.pre58, %57 ], [ %.pre57.pre, %150 ]
+150:                                              ; preds = %.critedge, %47, %57, %149
+  %.pre57 = phi ptr [ %116, %.critedge ], [ %.pre57.pre58, %47 ], [ %.pre57.pre58, %57 ], [ %.pre57.pre, %149 ]
   store atomic i8 0, ptr %33 release, align 1
   %.pre56 = load i64, ptr %4, align 8, !tbaa !11
-  br label %152
+  br label %151
 
-152:                                              ; preds = %20, %151
-  %153 = phi ptr [ %21, %20 ], [ %.pre57, %151 ]
-  %154 = phi i64 [ %storemerge54, %20 ], [ %.pre56, %151 ]
-  %155 = add nsw i64 %154, 1
-  store i64 %155, ptr %4, align 8, !tbaa !11
-  %156 = getelementptr inbounds nuw i8, ptr %153, i64 40
-  %157 = load i64, ptr %156, align 8, !tbaa !1004
-  %158 = icmp ult i64 %155, %157
-  br i1 %158, label %20, label %._crit_edge, !llvm.loop !3071
+151:                                              ; preds = %20, %150
+  %152 = phi ptr [ %21, %20 ], [ %.pre57, %150 ]
+  %153 = phi i64 [ %storemerge54, %20 ], [ %.pre56, %150 ]
+  %154 = add nsw i64 %153, 1
+  store i64 %154, ptr %4, align 8, !tbaa !11
+  %155 = getelementptr inbounds nuw i8, ptr %152, i64 40
+  %156 = load i64, ptr %155, align 8, !tbaa !1004
+  %157 = icmp ult i64 %154, %156
+  br i1 %157, label %20, label %._crit_edge, !llvm.loop !3071
 
-159:                                              ; preds = %2, %._crit_edge
+158:                                              ; preds = %2, %._crit_edge
   ret void
 }
 

@@ -271,27 +271,22 @@ select.unfold.i:                                  ; preds = %77, %75
 
 85:                                               ; preds = %83
   %86 = icmp eq i32 %.089179, 101
-  br i1 %86, label %87, label %.critedge.i
+  br i1 %86, label %87, label %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit76.thread.i
 
 87:                                               ; preds = %85
   %88 = icmp samesign ult i32 %72, 96
   %89 = add nsw i32 %72, -241
   %or.cond.i = icmp ult i32 %89, 4
   %or.cond51.i = select i1 %88, i1 true, i1 %or.cond.i
-  br i1 %or.cond51.i, label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit, label %.critedge.i
-
-.critedge.i:                                      ; preds = %87, %85
-  br label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit
+  br i1 %or.cond51.i, label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit, label %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit76.thread.i
 
 90:                                               ; preds = %69
   %91 = icmp ugt i32 %.089179, 98
   br i1 %91, label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit.thread.thread, label %134
 
 .thread.i:                                        ; preds = %77
-  switch i32 %.089179, label %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit90.thread26.i [
-    i32 99, label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit
-    i32 100, label %92
-  ]
+  %cond.i = icmp eq i32 %.089179, 100
+  br i1 %cond.i, label %92, label %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit90.thread26.i
 
 92:                                               ; preds = %.thread.i
   %93 = add nsw i32 %.091176, 2
@@ -349,7 +344,7 @@ select.unfold.i:                                  ; preds = %77, %75
   %or.cond3.i74.i = icmp ult i32 %121, -10
   br i1 %or.cond3.i74.i, label %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit76.thread.i, label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit
 
-_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit76.thread.i: ; preds = %117, %115, %110, %108
+_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit76.thread.i: ; preds = %117, %115, %110, %108, %87, %85
   br label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit
 
 _ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit69.i: ; preds = %103
@@ -417,8 +412,8 @@ _ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE
 _ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit90.thread26.i: ; preds = %143, %.thread.i
   br label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit
 
-_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit: ; preds = %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit83.i, %129, %.lr.ph.i, %125, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit90.thread26.i, %143, %141, %136, %134, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit69.i, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit76.thread.i, %117, %103, %101, %99, %92, %.thread.i, %.critedge.i, %87, %83, %select.unfold.i, %.lr.ph185
-  %.042.i = phi i32 [ %..i, %select.unfold.i ], [ 100, %103 ], [ 101, %87 ], [ 100, %143 ], [ 99, %117 ], [ 100, %101 ], [ 100, %141 ], [ %.089179, %.thread.i ], [ 100, %.lr.ph185 ], [ 100, %99 ], [ 100, %.critedge.i ], [ 101, %83 ], [ 100, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit76.thread.i ], [ 99, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit69.i ], [ 100, %134 ], [ 99, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit90.thread26.i ], [ 100, %136 ], [ 100, %92 ], [ 100, %129 ], [ 99, %125 ], [ 99, %.lr.ph.i ], [ 100, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit83.i ]
+_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit: ; preds = %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit83.i, %129, %.lr.ph.i, %125, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit90.thread26.i, %143, %141, %136, %134, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit69.i, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit76.thread.i, %117, %103, %101, %99, %92, %87, %83, %select.unfold.i, %.lr.ph185
+  %.042.i = phi i32 [ %..i, %select.unfold.i ], [ 100, %103 ], [ 101, %87 ], [ 100, %143 ], [ 99, %117 ], [ 100, %136 ], [ 100, %141 ], [ 100, %101 ], [ 100, %.lr.ph185 ], [ 100, %99 ], [ 100, %92 ], [ 101, %83 ], [ 100, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit76.thread.i ], [ 99, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit69.i ], [ 100, %134 ], [ 99, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit90.thread26.i ], [ 99, %125 ], [ 99, %.lr.ph.i ], [ 100, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit83.i ], [ 100, %129 ]
   %148 = icmp eq i32 %.042.i, %.089179
   br i1 %148, label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit.thread, label %173
 

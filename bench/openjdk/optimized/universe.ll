@@ -2643,10 +2643,7 @@ _ZNK6HandleclEv.exit.us:                          ; preds = %.lr.ph11
 .lr.ph11:                                         ; preds = %_ZN8Universe20out_of_memory_errorsEv.exit.split.us, %_ZNK6HandleclEv.exit.us
   %indvars.iv16 = phi i64 [ %indvars.iv.next17, %_ZNK6HandleclEv.exit.us ], [ 1, %_ZN8Universe20out_of_memory_errorsEv.exit.split.us ]
   %exitcond19 = icmp eq i64 %indvars.iv16, 7
-  br i1 %exitcond19, label %..split.us_crit_edge, label %_ZNK6HandleclEv.exit.us, !llvm.loop !18
-
-..split.us_crit_edge:                             ; preds = %.lr.ph11
-  br label %.split.us, !llvm.loop !18
+  br i1 %exitcond19, label %..split_crit_edge, label %_ZNK6HandleclEv.exit.us, !llvm.loop !18
 
 _ZN8Universe20out_of_memory_errorsEv.exit.split:  ; preds = %_ZN8Universe20out_of_memory_errorsEv.exit
   %27 = load ptr, ptr %0, align 8
@@ -2683,11 +2680,11 @@ _ZNK6HandleclEv.exit:                             ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %46, label %.split.us, label %.lr.ph, !llvm.loop !18
 
-..split_crit_edge:                                ; preds = %.lr.ph
+..split_crit_edge:                                ; preds = %.lr.ph, %.lr.ph11
   br label %.split.us, !llvm.loop !18
 
-.split.us:                                        ; preds = %_ZNK6HandleclEv.exit, %_ZNK6HandleclEv.exit.us, %_ZN8Universe20out_of_memory_errorsEv.exit.split, %..split_crit_edge, %_ZN8Universe20out_of_memory_errorsEv.exit.split.us, %..split.us_crit_edge
-  %.us-phi = phi i1 [ false, %_ZNK6HandleclEv.exit.us ], [ true, %..split.us_crit_edge ], [ false, %_ZN8Universe20out_of_memory_errorsEv.exit.split.us ], [ true, %..split_crit_edge ], [ false, %_ZN8Universe20out_of_memory_errorsEv.exit.split ], [ false, %_ZNK6HandleclEv.exit ]
+.split.us:                                        ; preds = %_ZNK6HandleclEv.exit, %_ZNK6HandleclEv.exit.us, %_ZN8Universe20out_of_memory_errorsEv.exit.split, %..split_crit_edge, %_ZN8Universe20out_of_memory_errorsEv.exit.split.us
+  %.us-phi = phi i1 [ false, %_ZN8Universe20out_of_memory_errorsEv.exit.split ], [ false, %_ZNK6HandleclEv.exit.us ], [ false, %_ZN8Universe20out_of_memory_errorsEv.exit.split.us ], [ true, %..split_crit_edge ], [ false, %_ZNK6HandleclEv.exit ]
   ret i1 %.us-phi
 }
 

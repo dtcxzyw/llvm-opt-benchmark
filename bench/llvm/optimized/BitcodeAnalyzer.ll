@@ -6563,23 +6563,23 @@ define internal fastcc { ptr, i8 } @_ZL11GetCodeNamejjRKN4llvm18BitstreamBlockIn
 
 5:                                                ; preds = %3
   %6 = icmp eq i32 %1, 0
-  br i1 %6, label %7, label %236
+  br i1 %6, label %7, label %228
 
 7:                                                ; preds = %5
-  switch i32 %0, label %236 [
+  switch i32 %0, label %228 [
     i32 1, label %8
     i32 2, label %9
     i32 3, label %10
   ]
 
 8:                                                ; preds = %7
-  br label %236
+  br label %228
 
 9:                                                ; preds = %7
-  br label %236
+  br label %228
 
 10:                                               ; preds = %7
-  br label %236
+  br label %228
 
 11:                                               ; preds = %3
   %12 = icmp eq ptr %.0.val, %.8.val
@@ -6625,862 +6625,838 @@ _ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit: ; preds = %.lr.ph.i, %13
 26:                                               ; preds = %.lr.ph
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.01.030, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !45
-  br label %236
+  br label %228
 
 _ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.thread: ; preds = %18, %.critedge, %_ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit, %11
   %.not44 = icmp eq i32 %2, 1
-  br i1 %.not44, label %29, label %236
+  br i1 %.not44, label %29, label %228
 
 29:                                               ; preds = %_ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.thread
-  switch i32 %1, label %236 [
+  switch i32 %1, label %228 [
     i32 8, label %30
-    i32 13, label %46
-    i32 9, label %49
-    i32 10, label %50
-    i32 17, label %51
-    i32 11, label %74
-    i32 12, label %101
-    i32 14, label %147
-    i32 19, label %152
-    i32 20, label %155
-    i32 24, label %155
-    i32 16, label %188
-    i32 15, label %189
-    i32 22, label %229
-    i32 18, label %230
-    i32 21, label %233
-    i32 23, label %234
-    i32 25, label %235
+    i32 13, label %42
+    i32 9, label %44
+    i32 10, label %45
+    i32 17, label %46
+    i32 11, label %67
+    i32 12, label %94
+    i32 14, label %140
+    i32 19, label %144
+    i32 20, label %147
+    i32 24, label %147
+    i32 16, label %180
+    i32 15, label %181
+    i32 22, label %221
+    i32 18, label %222
+    i32 21, label %225
+    i32 23, label %226
+    i32 25, label %227
   ]
 
 30:                                               ; preds = %29
-  switch i32 %0, label %236 [
-    i32 1, label %31
-    i32 2, label %32
-    i32 3, label %33
-    i32 4, label %34
-    i32 5, label %35
-    i32 6, label %36
-    i32 7, label %37
-    i32 8, label %38
-    i32 14, label %39
-    i32 11, label %40
-    i32 12, label %41
-    i32 13, label %42
-    i32 15, label %43
-    i32 16, label %44
-    i32 17, label %45
+  switch i32 %0, label %228 [
+    i32 1, label %159
+    i32 2, label %31
+    i32 3, label %32
+    i32 4, label %33
+    i32 5, label %34
+    i32 6, label %35
+    i32 7, label %36
+    i32 8, label %64
+    i32 14, label %156
+    i32 11, label %37
+    i32 12, label %38
+    i32 13, label %39
+    i32 15, label %40
+    i32 16, label %41
+    i32 17, label %146
   ]
 
 31:                                               ; preds = %30
-  br label %236
+  br label %228
 
 32:                                               ; preds = %30
-  br label %236
+  br label %228
 
 33:                                               ; preds = %30
-  br label %236
+  br label %228
 
 34:                                               ; preds = %30
-  br label %236
+  br label %228
 
 35:                                               ; preds = %30
-  br label %236
+  br label %228
 
 36:                                               ; preds = %30
-  br label %236
+  br label %228
 
 37:                                               ; preds = %30
-  br label %236
+  br label %228
 
 38:                                               ; preds = %30
-  br label %236
+  br label %228
 
 39:                                               ; preds = %30
-  br label %236
+  br label %228
 
 40:                                               ; preds = %30
-  br label %236
+  br label %228
 
 41:                                               ; preds = %30
-  br label %236
+  br label %228
 
-42:                                               ; preds = %30
-  br label %236
+42:                                               ; preds = %29
+  switch i32 %0, label %228 [
+    i32 1, label %75
+    i32 2, label %43
+  ]
 
-43:                                               ; preds = %30
-  br label %236
+43:                                               ; preds = %42
+  br label %228
 
-44:                                               ; preds = %30
-  br label %236
+44:                                               ; preds = %29
+  %.off = add i32 %0, -1
+  %switch = icmp ult i32 %.off, 2
+  br label %228
 
-45:                                               ; preds = %30
-  br label %236
+45:                                               ; preds = %29
+  %cond5 = icmp eq i32 %0, 3
+  br label %228
 
 46:                                               ; preds = %29
-  switch i32 %0, label %236 [
+  switch i32 %0, label %228 [
     i32 1, label %47
     i32 2, label %48
+    i32 3, label %73
+    i32 4, label %49
+    i32 5, label %50
+    i32 6, label %51
+    i32 7, label %71
+    i32 8, label %52
+    i32 10, label %53
+    i32 11, label %54
+    i32 12, label %55
+    i32 13, label %56
+    i32 14, label %57
+    i32 15, label %58
+    i32 16, label %59
+    i32 17, label %60
+    i32 18, label %61
+    i32 19, label %62
+    i32 20, label %63
+    i32 21, label %64
+    i32 22, label %65
+    i32 23, label %66
   ]
 
 47:                                               ; preds = %46
-  br label %236
+  br label %228
 
 48:                                               ; preds = %46
-  br label %236
+  br label %228
 
-49:                                               ; preds = %29
-  %.off = add i32 %0, -1
-  %switch = icmp ult i32 %.off, 2
-  br label %236
+49:                                               ; preds = %46
+  br label %228
 
-50:                                               ; preds = %29
-  %cond5 = icmp eq i32 %0, 3
-  br label %236
+50:                                               ; preds = %46
+  br label %228
 
-51:                                               ; preds = %29
-  switch i32 %0, label %236 [
-    i32 1, label %52
-    i32 2, label %53
-    i32 3, label %54
-    i32 4, label %55
-    i32 5, label %56
-    i32 6, label %57
-    i32 7, label %58
-    i32 8, label %59
-    i32 10, label %60
-    i32 11, label %61
-    i32 12, label %62
-    i32 13, label %63
-    i32 14, label %64
-    i32 15, label %65
-    i32 16, label %66
-    i32 17, label %67
-    i32 18, label %68
-    i32 19, label %69
-    i32 20, label %70
-    i32 21, label %71
-    i32 22, label %72
-    i32 23, label %73
+51:                                               ; preds = %46
+  br label %228
+
+52:                                               ; preds = %46
+  br label %228
+
+53:                                               ; preds = %46
+  br label %228
+
+54:                                               ; preds = %46
+  br label %228
+
+55:                                               ; preds = %46
+  br label %228
+
+56:                                               ; preds = %46
+  br label %228
+
+57:                                               ; preds = %46
+  br label %228
+
+58:                                               ; preds = %46
+  br label %228
+
+59:                                               ; preds = %46
+  br label %228
+
+60:                                               ; preds = %46
+  br label %228
+
+61:                                               ; preds = %46
+  br label %228
+
+62:                                               ; preds = %46
+  br label %228
+
+63:                                               ; preds = %46
+  br label %228
+
+64:                                               ; preds = %30, %46
+  br label %228
+
+65:                                               ; preds = %46
+  br label %228
+
+66:                                               ; preds = %46
+  br label %228
+
+67:                                               ; preds = %29
+  switch i32 %0, label %228 [
+    i32 1, label %68
+    i32 2, label %69
+    i32 3, label %70
+    i32 4, label %71
+    i32 5, label %72
+    i32 6, label %73
+    i32 7, label %74
+    i32 8, label %75
+    i32 9, label %76
+    i32 10, label %77
+    i32 11, label %78
+    i32 32, label %79
+    i32 20, label %80
+    i32 13, label %81
+    i32 14, label %82
+    i32 15, label %83
+    i32 16, label %84
+    i32 17, label %85
+    i32 30, label %86
+    i32 19, label %87
+    i32 25, label %88
+    i32 27, label %89
+    i32 29, label %90
+    i32 33, label %91
+    i32 21, label %92
+    i32 22, label %93
   ]
 
-52:                                               ; preds = %51
-  br label %236
+68:                                               ; preds = %67
+  br label %228
 
-53:                                               ; preds = %51
-  br label %236
+69:                                               ; preds = %67
+  br label %228
 
-54:                                               ; preds = %51
-  br label %236
+70:                                               ; preds = %67
+  br label %228
 
-55:                                               ; preds = %51
-  br label %236
+71:                                               ; preds = %46, %67
+  br label %228
 
-56:                                               ; preds = %51
-  br label %236
+72:                                               ; preds = %67
+  br label %228
 
-57:                                               ; preds = %51
-  br label %236
+73:                                               ; preds = %46, %67
+  br label %228
 
-58:                                               ; preds = %51
-  br label %236
+74:                                               ; preds = %67
+  br label %228
 
-59:                                               ; preds = %51
-  br label %236
+75:                                               ; preds = %42, %67
+  br label %228
 
-60:                                               ; preds = %51
-  br label %236
+76:                                               ; preds = %67
+  br label %228
 
-61:                                               ; preds = %51
-  br label %236
+77:                                               ; preds = %67
+  br label %228
 
-62:                                               ; preds = %51
-  br label %236
+78:                                               ; preds = %67
+  br label %228
 
-63:                                               ; preds = %51
-  br label %236
+79:                                               ; preds = %67
+  br label %228
 
-64:                                               ; preds = %51
-  br label %236
+80:                                               ; preds = %67
+  br label %228
 
-65:                                               ; preds = %51
-  br label %236
+81:                                               ; preds = %67
+  br label %228
 
-66:                                               ; preds = %51
-  br label %236
+82:                                               ; preds = %67
+  br label %228
 
-67:                                               ; preds = %51
-  br label %236
+83:                                               ; preds = %67
+  br label %228
 
-68:                                               ; preds = %51
-  br label %236
+84:                                               ; preds = %67
+  br label %228
 
-69:                                               ; preds = %51
-  br label %236
+85:                                               ; preds = %67
+  br label %228
 
-70:                                               ; preds = %51
-  br label %236
+86:                                               ; preds = %67
+  br label %228
 
-71:                                               ; preds = %51
-  br label %236
+87:                                               ; preds = %67
+  br label %228
 
-72:                                               ; preds = %51
-  br label %236
+88:                                               ; preds = %67
+  br label %228
 
-73:                                               ; preds = %51
-  br label %236
+89:                                               ; preds = %67
+  br label %228
 
-74:                                               ; preds = %29
-  switch i32 %0, label %236 [
-    i32 1, label %75
-    i32 2, label %76
-    i32 3, label %77
-    i32 4, label %78
-    i32 5, label %79
-    i32 6, label %80
-    i32 7, label %81
-    i32 8, label %82
-    i32 9, label %83
-    i32 10, label %84
-    i32 11, label %85
-    i32 32, label %86
-    i32 20, label %87
-    i32 13, label %88
-    i32 14, label %89
-    i32 15, label %90
-    i32 16, label %91
-    i32 17, label %92
-    i32 30, label %93
-    i32 19, label %94
-    i32 25, label %95
-    i32 27, label %96
-    i32 29, label %97
-    i32 33, label %98
-    i32 21, label %99
-    i32 22, label %100
+90:                                               ; preds = %67
+  br label %228
+
+91:                                               ; preds = %67
+  br label %228
+
+92:                                               ; preds = %67
+  br label %228
+
+93:                                               ; preds = %67
+  br label %228
+
+94:                                               ; preds = %29
+  switch i32 %0, label %228 [
+    i32 1, label %95
+    i32 2, label %96
+    i32 3, label %97
+    i32 4, label %98
+    i32 30, label %99
+    i32 5, label %100
+    i32 6, label %101
+    i32 7, label %102
+    i32 8, label %103
+    i32 9, label %104
+    i32 10, label %105
+    i32 11, label %106
+    i32 12, label %107
+    i32 13, label %108
+    i32 56, label %109
+    i32 15, label %110
+    i32 48, label %111
+    i32 49, label %112
+    i32 50, label %113
+    i32 16, label %114
+    i32 19, label %115
+    i32 20, label %116
+    i32 23, label %117
+    i32 44, label %118
+    i32 26, label %119
+    i32 27, label %120
+    i32 28, label %121
+    i32 29, label %122
+    i32 33, label %123
+    i32 34, label %124
+    i32 35, label %125
+    i32 43, label %126
+    i32 55, label %127
+    i32 36, label %128
+    i32 59, label %129
+    i32 41, label %130
+    i32 45, label %131
+    i32 46, label %132
+    i32 57, label %133
+    i32 60, label %134
+    i32 62, label %135
+    i32 61, label %136
+    i32 63, label %137
+    i32 64, label %138
+    i32 65, label %139
   ]
 
-75:                                               ; preds = %74
-  br label %236
+95:                                               ; preds = %94
+  br label %228
 
-76:                                               ; preds = %74
-  br label %236
+96:                                               ; preds = %94
+  br label %228
 
-77:                                               ; preds = %74
-  br label %236
+97:                                               ; preds = %94
+  br label %228
 
-78:                                               ; preds = %74
-  br label %236
+98:                                               ; preds = %94
+  br label %228
 
-79:                                               ; preds = %74
-  br label %236
+99:                                               ; preds = %94
+  br label %228
 
-80:                                               ; preds = %74
-  br label %236
+100:                                              ; preds = %94
+  br label %228
 
-81:                                               ; preds = %74
-  br label %236
+101:                                              ; preds = %94
+  br label %228
 
-82:                                               ; preds = %74
-  br label %236
+102:                                              ; preds = %94
+  br label %228
 
-83:                                               ; preds = %74
-  br label %236
+103:                                              ; preds = %94
+  br label %228
 
-84:                                               ; preds = %74
-  br label %236
+104:                                              ; preds = %94
+  br label %228
 
-85:                                               ; preds = %74
-  br label %236
+105:                                              ; preds = %94
+  br label %228
 
-86:                                               ; preds = %74
-  br label %236
+106:                                              ; preds = %94
+  br label %228
 
-87:                                               ; preds = %74
-  br label %236
+107:                                              ; preds = %94
+  br label %228
 
-88:                                               ; preds = %74
-  br label %236
+108:                                              ; preds = %94
+  br label %228
 
-89:                                               ; preds = %74
-  br label %236
+109:                                              ; preds = %94
+  br label %228
 
-90:                                               ; preds = %74
-  br label %236
+110:                                              ; preds = %94
+  br label %228
 
-91:                                               ; preds = %74
-  br label %236
+111:                                              ; preds = %94
+  br label %228
 
-92:                                               ; preds = %74
-  br label %236
+112:                                              ; preds = %94
+  br label %228
 
-93:                                               ; preds = %74
-  br label %236
+113:                                              ; preds = %94
+  br label %228
 
-94:                                               ; preds = %74
-  br label %236
+114:                                              ; preds = %94
+  br label %228
 
-95:                                               ; preds = %74
-  br label %236
+115:                                              ; preds = %94
+  br label %228
 
-96:                                               ; preds = %74
-  br label %236
+116:                                              ; preds = %94
+  br label %228
 
-97:                                               ; preds = %74
-  br label %236
+117:                                              ; preds = %94
+  br label %228
 
-98:                                               ; preds = %74
-  br label %236
+118:                                              ; preds = %94
+  br label %228
 
-99:                                               ; preds = %74
-  br label %236
+119:                                              ; preds = %94
+  br label %228
 
-100:                                              ; preds = %74
-  br label %236
+120:                                              ; preds = %94
+  br label %228
 
-101:                                              ; preds = %29
-  switch i32 %0, label %236 [
-    i32 1, label %102
-    i32 2, label %103
-    i32 3, label %104
-    i32 4, label %105
-    i32 30, label %106
-    i32 5, label %107
-    i32 6, label %108
-    i32 7, label %109
-    i32 8, label %110
-    i32 9, label %111
-    i32 10, label %112
-    i32 11, label %113
-    i32 12, label %114
-    i32 13, label %115
-    i32 56, label %116
-    i32 15, label %117
-    i32 48, label %118
-    i32 49, label %119
-    i32 50, label %120
-    i32 16, label %121
-    i32 19, label %122
-    i32 20, label %123
-    i32 23, label %124
-    i32 44, label %125
-    i32 26, label %126
-    i32 27, label %127
-    i32 28, label %128
-    i32 29, label %129
-    i32 33, label %130
-    i32 34, label %131
-    i32 35, label %132
-    i32 43, label %133
-    i32 55, label %134
-    i32 36, label %135
-    i32 59, label %136
-    i32 41, label %137
-    i32 45, label %138
-    i32 46, label %139
-    i32 57, label %140
-    i32 60, label %141
-    i32 62, label %142
-    i32 61, label %143
-    i32 63, label %144
-    i32 64, label %145
-    i32 65, label %146
+121:                                              ; preds = %94
+  br label %228
+
+122:                                              ; preds = %94
+  br label %228
+
+123:                                              ; preds = %94
+  br label %228
+
+124:                                              ; preds = %94
+  br label %228
+
+125:                                              ; preds = %94
+  br label %228
+
+126:                                              ; preds = %94
+  br label %228
+
+127:                                              ; preds = %94
+  br label %228
+
+128:                                              ; preds = %94
+  br label %228
+
+129:                                              ; preds = %94
+  br label %228
+
+130:                                              ; preds = %94
+  br label %228
+
+131:                                              ; preds = %94
+  br label %228
+
+132:                                              ; preds = %94
+  br label %228
+
+133:                                              ; preds = %94
+  br label %228
+
+134:                                              ; preds = %94
+  br label %228
+
+135:                                              ; preds = %94
+  br label %228
+
+136:                                              ; preds = %94
+  br label %228
+
+137:                                              ; preds = %94
+  br label %228
+
+138:                                              ; preds = %94
+  br label %228
+
+139:                                              ; preds = %94
+  br label %228
+
+140:                                              ; preds = %29
+  switch i32 %0, label %228 [
+    i32 1, label %145
+    i32 2, label %141
+    i32 3, label %142
+    i32 5, label %143
   ]
 
-102:                                              ; preds = %101
-  br label %236
+141:                                              ; preds = %140
+  br label %228
 
-103:                                              ; preds = %101
-  br label %236
+142:                                              ; preds = %140
+  br label %228
 
-104:                                              ; preds = %101
-  br label %236
+143:                                              ; preds = %140
+  br label %228
 
-105:                                              ; preds = %101
-  br label %236
+144:                                              ; preds = %29
+  switch i32 %0, label %228 [
+    i32 1, label %145
+    i32 2, label %146
+  ]
 
-106:                                              ; preds = %101
-  br label %236
+145:                                              ; preds = %140, %144
+  br label %228
 
-107:                                              ; preds = %101
-  br label %236
+146:                                              ; preds = %30, %144
+  br label %228
 
-108:                                              ; preds = %101
-  br label %236
-
-109:                                              ; preds = %101
-  br label %236
-
-110:                                              ; preds = %101
-  br label %236
-
-111:                                              ; preds = %101
-  br label %236
-
-112:                                              ; preds = %101
-  br label %236
-
-113:                                              ; preds = %101
-  br label %236
-
-114:                                              ; preds = %101
-  br label %236
-
-115:                                              ; preds = %101
-  br label %236
-
-116:                                              ; preds = %101
-  br label %236
-
-117:                                              ; preds = %101
-  br label %236
-
-118:                                              ; preds = %101
-  br label %236
-
-119:                                              ; preds = %101
-  br label %236
-
-120:                                              ; preds = %101
-  br label %236
-
-121:                                              ; preds = %101
-  br label %236
-
-122:                                              ; preds = %101
-  br label %236
-
-123:                                              ; preds = %101
-  br label %236
-
-124:                                              ; preds = %101
-  br label %236
-
-125:                                              ; preds = %101
-  br label %236
-
-126:                                              ; preds = %101
-  br label %236
-
-127:                                              ; preds = %101
-  br label %236
-
-128:                                              ; preds = %101
-  br label %236
-
-129:                                              ; preds = %101
-  br label %236
-
-130:                                              ; preds = %101
-  br label %236
-
-131:                                              ; preds = %101
-  br label %236
-
-132:                                              ; preds = %101
-  br label %236
-
-133:                                              ; preds = %101
-  br label %236
-
-134:                                              ; preds = %101
-  br label %236
-
-135:                                              ; preds = %101
-  br label %236
-
-136:                                              ; preds = %101
-  br label %236
-
-137:                                              ; preds = %101
-  br label %236
-
-138:                                              ; preds = %101
-  br label %236
-
-139:                                              ; preds = %101
-  br label %236
-
-140:                                              ; preds = %101
-  br label %236
-
-141:                                              ; preds = %101
-  br label %236
-
-142:                                              ; preds = %101
-  br label %236
-
-143:                                              ; preds = %101
-  br label %236
-
-144:                                              ; preds = %101
-  br label %236
-
-145:                                              ; preds = %101
-  br label %236
-
-146:                                              ; preds = %101
-  br label %236
-
-147:                                              ; preds = %29
-  switch i32 %0, label %236 [
+147:                                              ; preds = %29, %29
+  switch i32 %0, label %228 [
     i32 1, label %148
     i32 2, label %149
-    i32 3, label %150
-    i32 5, label %151
+    i32 19, label %150
+    i32 3, label %151
+    i32 23, label %152
+    i32 4, label %153
+    i32 5, label %154
+    i32 6, label %155
+    i32 7, label %156
+    i32 8, label %157
+    i32 9, label %158
+    i32 10, label %159
+    i32 20, label %160
+    i32 11, label %161
+    i32 12, label %162
+    i32 13, label %163
+    i32 14, label %164
+    i32 15, label %165
+    i32 16, label %166
+    i32 17, label %167
+    i32 18, label %168
+    i32 21, label %169
+    i32 22, label %170
+    i32 24, label %171
+    i32 25, label %172
+    i32 26, label %173
+    i32 27, label %174
+    i32 28, label %175
+    i32 29, label %176
+    i32 30, label %177
+    i32 31, label %178
+    i32 32, label %179
   ]
 
 148:                                              ; preds = %147
-  br label %236
+  br label %228
 
 149:                                              ; preds = %147
-  br label %236
+  br label %228
 
 150:                                              ; preds = %147
-  br label %236
+  br label %228
 
 151:                                              ; preds = %147
-  br label %236
+  br label %228
 
-152:                                              ; preds = %29
-  switch i32 %0, label %236 [
-    i32 1, label %153
-    i32 2, label %154
-  ]
+152:                                              ; preds = %147
+  br label %228
 
-153:                                              ; preds = %152
-  br label %236
+153:                                              ; preds = %147
+  br label %228
 
-154:                                              ; preds = %152
-  br label %236
+154:                                              ; preds = %147
+  br label %228
 
-155:                                              ; preds = %29, %29
-  switch i32 %0, label %236 [
-    i32 1, label %156
-    i32 2, label %157
-    i32 19, label %158
-    i32 3, label %159
-    i32 23, label %160
-    i32 4, label %161
-    i32 5, label %162
-    i32 6, label %163
-    i32 7, label %164
-    i32 8, label %165
-    i32 9, label %166
-    i32 10, label %167
-    i32 20, label %168
-    i32 11, label %169
-    i32 12, label %170
-    i32 13, label %171
-    i32 14, label %172
-    i32 15, label %173
-    i32 16, label %174
-    i32 17, label %175
-    i32 18, label %176
-    i32 21, label %177
-    i32 22, label %178
-    i32 24, label %179
-    i32 25, label %180
-    i32 26, label %181
-    i32 27, label %182
-    i32 28, label %183
-    i32 29, label %184
-    i32 30, label %185
-    i32 31, label %186
-    i32 32, label %187
-  ]
+155:                                              ; preds = %147
+  br label %228
 
-156:                                              ; preds = %155
-  br label %236
+156:                                              ; preds = %30, %147
+  br label %228
 
-157:                                              ; preds = %155
-  br label %236
+157:                                              ; preds = %147
+  br label %228
 
-158:                                              ; preds = %155
-  br label %236
+158:                                              ; preds = %147
+  br label %228
 
-159:                                              ; preds = %155
-  br label %236
+159:                                              ; preds = %30, %147
+  br label %228
 
-160:                                              ; preds = %155
-  br label %236
+160:                                              ; preds = %147
+  br label %228
 
-161:                                              ; preds = %155
-  br label %236
+161:                                              ; preds = %147
+  br label %228
 
-162:                                              ; preds = %155
-  br label %236
+162:                                              ; preds = %147
+  br label %228
 
-163:                                              ; preds = %155
-  br label %236
+163:                                              ; preds = %147
+  br label %228
 
-164:                                              ; preds = %155
-  br label %236
+164:                                              ; preds = %147
+  br label %228
 
-165:                                              ; preds = %155
-  br label %236
+165:                                              ; preds = %147
+  br label %228
 
-166:                                              ; preds = %155
-  br label %236
+166:                                              ; preds = %147
+  br label %228
 
-167:                                              ; preds = %155
-  br label %236
+167:                                              ; preds = %147
+  br label %228
 
-168:                                              ; preds = %155
-  br label %236
+168:                                              ; preds = %147
+  br label %228
 
-169:                                              ; preds = %155
-  br label %236
+169:                                              ; preds = %147
+  br label %228
 
-170:                                              ; preds = %155
-  br label %236
+170:                                              ; preds = %147
+  br label %228
 
-171:                                              ; preds = %155
-  br label %236
+171:                                              ; preds = %147
+  br label %228
 
-172:                                              ; preds = %155
-  br label %236
+172:                                              ; preds = %147
+  br label %228
 
-173:                                              ; preds = %155
-  br label %236
+173:                                              ; preds = %147
+  br label %228
 
-174:                                              ; preds = %155
-  br label %236
+174:                                              ; preds = %147
+  br label %228
 
-175:                                              ; preds = %155
-  br label %236
+175:                                              ; preds = %147
+  br label %228
 
-176:                                              ; preds = %155
-  br label %236
+176:                                              ; preds = %147
+  br label %228
 
-177:                                              ; preds = %155
-  br label %236
+177:                                              ; preds = %147
+  br label %228
 
-178:                                              ; preds = %155
-  br label %236
+178:                                              ; preds = %147
+  br label %228
 
-179:                                              ; preds = %155
-  br label %236
+179:                                              ; preds = %147
+  br label %228
 
-180:                                              ; preds = %155
-  br label %236
-
-181:                                              ; preds = %155
-  br label %236
-
-182:                                              ; preds = %155
-  br label %236
-
-183:                                              ; preds = %155
-  br label %236
-
-184:                                              ; preds = %155
-  br label %236
-
-185:                                              ; preds = %155
-  br label %236
-
-186:                                              ; preds = %155
-  br label %236
-
-187:                                              ; preds = %155
-  br label %236
-
-188:                                              ; preds = %29
+180:                                              ; preds = %29
   %cond4 = icmp eq i32 %0, 11
-  br label %236
+  br label %228
 
-189:                                              ; preds = %29
-  switch i32 %0, label %236 [
-    i32 1, label %190
-    i32 2, label %191
-    i32 3, label %192
-    i32 4, label %193
-    i32 5, label %194
-    i32 6, label %195
-    i32 7, label %196
-    i32 8, label %197
-    i32 9, label %198
-    i32 10, label %199
-    i32 12, label %200
-    i32 13, label %201
-    i32 14, label %202
-    i32 15, label %203
-    i32 16, label %204
-    i32 17, label %205
-    i32 18, label %206
-    i32 19, label %207
-    i32 20, label %208
-    i32 21, label %209
-    i32 22, label %210
-    i32 23, label %211
-    i32 24, label %212
-    i32 25, label %213
-    i32 26, label %214
-    i32 27, label %215
-    i32 28, label %216
-    i32 29, label %217
-    i32 30, label %218
-    i32 31, label %219
-    i32 32, label %220
-    i32 33, label %221
-    i32 34, label %222
-    i32 35, label %223
-    i32 36, label %224
-    i32 37, label %225
-    i32 38, label %226
-    i32 39, label %227
-    i32 46, label %228
+181:                                              ; preds = %29
+  switch i32 %0, label %228 [
+    i32 1, label %182
+    i32 2, label %183
+    i32 3, label %184
+    i32 4, label %185
+    i32 5, label %186
+    i32 6, label %187
+    i32 7, label %188
+    i32 8, label %189
+    i32 9, label %190
+    i32 10, label %191
+    i32 12, label %192
+    i32 13, label %193
+    i32 14, label %194
+    i32 15, label %195
+    i32 16, label %196
+    i32 17, label %197
+    i32 18, label %198
+    i32 19, label %199
+    i32 20, label %200
+    i32 21, label %201
+    i32 22, label %202
+    i32 23, label %203
+    i32 24, label %204
+    i32 25, label %205
+    i32 26, label %206
+    i32 27, label %207
+    i32 28, label %208
+    i32 29, label %209
+    i32 30, label %210
+    i32 31, label %211
+    i32 32, label %212
+    i32 33, label %213
+    i32 34, label %214
+    i32 35, label %215
+    i32 36, label %216
+    i32 37, label %217
+    i32 38, label %218
+    i32 39, label %219
+    i32 46, label %220
   ]
 
-190:                                              ; preds = %189
-  br label %236
+182:                                              ; preds = %181
+  br label %228
 
-191:                                              ; preds = %189
-  br label %236
+183:                                              ; preds = %181
+  br label %228
 
-192:                                              ; preds = %189
-  br label %236
+184:                                              ; preds = %181
+  br label %228
 
-193:                                              ; preds = %189
-  br label %236
+185:                                              ; preds = %181
+  br label %228
 
-194:                                              ; preds = %189
-  br label %236
+186:                                              ; preds = %181
+  br label %228
 
-195:                                              ; preds = %189
-  br label %236
+187:                                              ; preds = %181
+  br label %228
 
-196:                                              ; preds = %189
-  br label %236
+188:                                              ; preds = %181
+  br label %228
 
-197:                                              ; preds = %189
-  br label %236
+189:                                              ; preds = %181
+  br label %228
 
-198:                                              ; preds = %189
-  br label %236
+190:                                              ; preds = %181
+  br label %228
 
-199:                                              ; preds = %189
-  br label %236
+191:                                              ; preds = %181
+  br label %228
 
-200:                                              ; preds = %189
-  br label %236
+192:                                              ; preds = %181
+  br label %228
 
-201:                                              ; preds = %189
-  br label %236
+193:                                              ; preds = %181
+  br label %228
 
-202:                                              ; preds = %189
-  br label %236
+194:                                              ; preds = %181
+  br label %228
 
-203:                                              ; preds = %189
-  br label %236
+195:                                              ; preds = %181
+  br label %228
 
-204:                                              ; preds = %189
-  br label %236
+196:                                              ; preds = %181
+  br label %228
 
-205:                                              ; preds = %189
-  br label %236
+197:                                              ; preds = %181
+  br label %228
 
-206:                                              ; preds = %189
-  br label %236
+198:                                              ; preds = %181
+  br label %228
 
-207:                                              ; preds = %189
-  br label %236
+199:                                              ; preds = %181
+  br label %228
 
-208:                                              ; preds = %189
-  br label %236
+200:                                              ; preds = %181
+  br label %228
 
-209:                                              ; preds = %189
-  br label %236
+201:                                              ; preds = %181
+  br label %228
 
-210:                                              ; preds = %189
-  br label %236
+202:                                              ; preds = %181
+  br label %228
 
-211:                                              ; preds = %189
-  br label %236
+203:                                              ; preds = %181
+  br label %228
 
-212:                                              ; preds = %189
-  br label %236
+204:                                              ; preds = %181
+  br label %228
 
-213:                                              ; preds = %189
-  br label %236
+205:                                              ; preds = %181
+  br label %228
 
-214:                                              ; preds = %189
-  br label %236
+206:                                              ; preds = %181
+  br label %228
 
-215:                                              ; preds = %189
-  br label %236
+207:                                              ; preds = %181
+  br label %228
 
-216:                                              ; preds = %189
-  br label %236
+208:                                              ; preds = %181
+  br label %228
 
-217:                                              ; preds = %189
-  br label %236
+209:                                              ; preds = %181
+  br label %228
 
-218:                                              ; preds = %189
-  br label %236
+210:                                              ; preds = %181
+  br label %228
 
-219:                                              ; preds = %189
-  br label %236
+211:                                              ; preds = %181
+  br label %228
 
-220:                                              ; preds = %189
-  br label %236
+212:                                              ; preds = %181
+  br label %228
 
-221:                                              ; preds = %189
-  br label %236
+213:                                              ; preds = %181
+  br label %228
 
-222:                                              ; preds = %189
-  br label %236
+214:                                              ; preds = %181
+  br label %228
 
-223:                                              ; preds = %189
-  br label %236
+215:                                              ; preds = %181
+  br label %228
 
-224:                                              ; preds = %189
-  br label %236
+216:                                              ; preds = %181
+  br label %228
 
-225:                                              ; preds = %189
-  br label %236
+217:                                              ; preds = %181
+  br label %228
 
-226:                                              ; preds = %189
-  br label %236
+218:                                              ; preds = %181
+  br label %228
 
-227:                                              ; preds = %189
-  br label %236
+219:                                              ; preds = %181
+  br label %228
 
-228:                                              ; preds = %189
-  br label %236
+220:                                              ; preds = %181
+  br label %228
 
-229:                                              ; preds = %29
+221:                                              ; preds = %29
   %cond3 = icmp eq i32 %0, 6
-  br label %236
+  br label %228
 
-230:                                              ; preds = %29
-  switch i32 %0, label %236 [
-    i32 1, label %231
-    i32 2, label %232
+222:                                              ; preds = %29
+  switch i32 %0, label %228 [
+    i32 1, label %223
+    i32 2, label %224
   ]
 
-231:                                              ; preds = %230
-  br label %236
+223:                                              ; preds = %222
+  br label %228
 
-232:                                              ; preds = %230
-  br label %236
+224:                                              ; preds = %222
+  br label %228
 
-233:                                              ; preds = %29
+225:                                              ; preds = %29
   %cond2 = icmp eq i32 %0, 1
-  br label %236
+  br label %228
 
-234:                                              ; preds = %29
+226:                                              ; preds = %29
   %cond1 = icmp eq i32 %0, 1
-  br label %236
+  br label %228
 
-235:                                              ; preds = %29
+227:                                              ; preds = %29
   %cond = icmp eq i32 %0, 1
-  br label %236
+  br label %228
 
-236:                                              ; preds = %235, %234, %233, %229, %188, %50, %49, %230, %189, %155, %152, %147, %101, %74, %51, %46, %30, %29, %_ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.thread, %26, %5, %7, %232, %231, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %154, %153, %151, %150, %149, %148, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %48, %47, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %10, %9, %8
-  %.sroa.04.3 = phi ptr [ %28, %26 ], [ @.str.115, %8 ], [ @.str.116, %9 ], [ @.str.117, %10 ], [ undef, %7 ], [ undef, %_ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.thread ], [ undef, %29 ], [ @.str.118, %31 ], [ @.str.119, %32 ], [ @.str.120, %33 ], [ @.str.121, %34 ], [ @.str.122, %35 ], [ @.str.123, %36 ], [ @.str.124, %37 ], [ @.str.125, %38 ], [ @.str.126, %39 ], [ @.str.127, %40 ], [ @.str.128, %41 ], [ @.str.129, %42 ], [ @.str.130, %43 ], [ @.str.131, %44 ], [ @.str.132, %45 ], [ undef, %30 ], [ @.str.133, %47 ], [ @.str.134, %48 ], [ undef, %46 ], [ @.str.264, %229 ], [ @.str.301, %235 ], [ undef, %5 ], [ @.str.135, %49 ], [ undef, %230 ], [ @.str.136, %52 ], [ @.str.137, %53 ], [ @.str.138, %54 ], [ @.str.139, %55 ], [ @.str.140, %56 ], [ @.str.141, %57 ], [ @.str.142, %58 ], [ @.str.143, %59 ], [ @.str.144, %60 ], [ @.str.145, %61 ], [ @.str.146, %62 ], [ @.str.147, %63 ], [ @.str.148, %64 ], [ @.str.149, %65 ], [ @.str.150, %66 ], [ @.str.151, %67 ], [ @.str.152, %68 ], [ @.str.153, %69 ], [ @.str.154, %70 ], [ @.str.125, %71 ], [ @.str.155, %72 ], [ @.str.156, %73 ], [ undef, %51 ], [ @.str.157, %75 ], [ @.str.158, %76 ], [ @.str.159, %77 ], [ @.str.142, %78 ], [ @.str.160, %79 ], [ @.str.138, %80 ], [ @.str.161, %81 ], [ @.str.133, %82 ], [ @.str.162, %83 ], [ @.str.163, %84 ], [ @.str.164, %85 ], [ @.str.165, %86 ], [ @.str.166, %87 ], [ @.str.167, %88 ], [ @.str.168, %89 ], [ @.str.169, %90 ], [ @.str.170, %91 ], [ @.str.171, %92 ], [ @.str.172, %93 ], [ @.str.173, %94 ], [ @.str.174, %95 ], [ @.str.175, %96 ], [ @.str.176, %97 ], [ @.str.177, %98 ], [ @.str.178, %99 ], [ @.str.179, %100 ], [ undef, %74 ], [ @.str.180, %102 ], [ @.str.181, %103 ], [ @.str.182, %104 ], [ @.str.183, %105 ], [ @.str.184, %106 ], [ @.str.185, %107 ], [ @.str.186, %108 ], [ @.str.187, %109 ], [ @.str.188, %110 ], [ @.str.189, %111 ], [ @.str.190, %112 ], [ @.str.191, %113 ], [ @.str.192, %114 ], [ @.str.193, %115 ], [ @.str.194, %116 ], [ @.str.195, %117 ], [ @.str.196, %118 ], [ @.str.197, %119 ], [ @.str.198, %120 ], [ @.str.199, %121 ], [ @.str.200, %122 ], [ @.str.201, %123 ], [ @.str.202, %124 ], [ @.str.203, %125 ], [ @.str.204, %126 ], [ @.str.205, %127 ], [ @.str.206, %128 ], [ @.str.207, %129 ], [ @.str.208, %130 ], [ @.str.209, %131 ], [ @.str.210, %132 ], [ @.str.211, %133 ], [ @.str.212, %134 ], [ @.str.213, %135 ], [ @.str.214, %136 ], [ @.str.215, %137 ], [ @.str.216, %138 ], [ @.str.217, %139 ], [ @.str.218, %140 ], [ @.str.219, %141 ], [ @.str.220, %142 ], [ @.str.221, %143 ], [ @.str.222, %144 ], [ @.str.223, %145 ], [ @.str.224, %146 ], [ undef, %101 ], [ @.str.135, %148 ], [ @.str.225, %149 ], [ @.str.226, %150 ], [ @.str.227, %151 ], [ undef, %147 ], [ @.str.135, %153 ], [ @.str.132, %154 ], [ undef, %152 ], [ @.str.228, %156 ], [ @.str.229, %157 ], [ @.str.230, %158 ], [ @.str.231, %159 ], [ @.str.232, %160 ], [ @.str.233, %161 ], [ @.str.234, %162 ], [ @.str.235, %163 ], [ @.str.126, %164 ], [ @.str.236, %165 ], [ @.str.237, %166 ], [ @.str.118, %167 ], [ @.str.238, %168 ], [ @.str.239, %169 ], [ @.str.240, %170 ], [ @.str.241, %171 ], [ @.str.242, %172 ], [ @.str.243, %173 ], [ @.str.244, %174 ], [ @.str.245, %175 ], [ @.str.246, %176 ], [ @.str.247, %177 ], [ @.str.248, %178 ], [ @.str.249, %179 ], [ @.str.250, %180 ], [ @.str.251, %181 ], [ @.str.252, %182 ], [ @.str.253, %183 ], [ @.str.254, %184 ], [ @.str.255, %185 ], [ @.str.256, %186 ], [ @.str.257, %187 ], [ @.str.135, %50 ], [ undef, %155 ], [ @.str.301, %234 ], [ @.str.259, %190 ], [ @.str.260, %191 ], [ @.str.261, %192 ], [ @.str.262, %193 ], [ @.str.263, %194 ], [ @.str.264, %195 ], [ @.str.265, %196 ], [ @.str.266, %197 ], [ @.str.267, %198 ], [ @.str.268, %199 ], [ @.str.269, %200 ], [ @.str.270, %201 ], [ @.str.271, %202 ], [ @.str.272, %203 ], [ @.str.273, %204 ], [ @.str.274, %205 ], [ @.str.275, %206 ], [ @.str.276, %207 ], [ @.str.277, %208 ], [ @.str.278, %209 ], [ @.str.279, %210 ], [ @.str.280, %211 ], [ @.str.281, %212 ], [ @.str.282, %213 ], [ @.str.283, %214 ], [ @.str.284, %215 ], [ @.str.285, %216 ], [ @.str.286, %217 ], [ @.str.287, %218 ], [ @.str.288, %219 ], [ @.str.289, %220 ], [ @.str.290, %221 ], [ @.str.291, %222 ], [ @.str.292, %223 ], [ @.str.293, %224 ], [ @.str.294, %225 ], [ @.str.295, %226 ], [ @.str.296, %227 ], [ @.str.297, %228 ], [ @.str.258, %188 ], [ undef, %189 ], [ @.str.300, %233 ], [ @.str.298, %231 ], [ @.str.299, %232 ]
-  %.sroa.202.3.shrunk = phi i1 [ true, %26 ], [ true, %8 ], [ true, %9 ], [ true, %10 ], [ false, %7 ], [ false, %_ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.thread ], [ false, %29 ], [ true, %31 ], [ true, %32 ], [ true, %33 ], [ true, %34 ], [ true, %35 ], [ true, %36 ], [ true, %37 ], [ true, %38 ], [ true, %39 ], [ true, %40 ], [ true, %41 ], [ true, %42 ], [ true, %43 ], [ true, %44 ], [ true, %45 ], [ false, %30 ], [ true, %47 ], [ true, %48 ], [ false, %46 ], [ %cond3, %229 ], [ %cond, %235 ], [ false, %5 ], [ %switch, %49 ], [ false, %230 ], [ true, %52 ], [ true, %53 ], [ true, %54 ], [ true, %55 ], [ true, %56 ], [ true, %57 ], [ true, %58 ], [ true, %59 ], [ true, %60 ], [ true, %61 ], [ true, %62 ], [ true, %63 ], [ true, %64 ], [ true, %65 ], [ true, %66 ], [ true, %67 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ false, %51 ], [ true, %75 ], [ true, %76 ], [ true, %77 ], [ true, %78 ], [ true, %79 ], [ true, %80 ], [ true, %81 ], [ true, %82 ], [ true, %83 ], [ true, %84 ], [ true, %85 ], [ true, %86 ], [ true, %87 ], [ true, %88 ], [ true, %89 ], [ true, %90 ], [ true, %91 ], [ true, %92 ], [ true, %93 ], [ true, %94 ], [ true, %95 ], [ true, %96 ], [ true, %97 ], [ true, %98 ], [ true, %99 ], [ true, %100 ], [ false, %74 ], [ true, %102 ], [ true, %103 ], [ true, %104 ], [ true, %105 ], [ true, %106 ], [ true, %107 ], [ true, %108 ], [ true, %109 ], [ true, %110 ], [ true, %111 ], [ true, %112 ], [ true, %113 ], [ true, %114 ], [ true, %115 ], [ true, %116 ], [ true, %117 ], [ true, %118 ], [ true, %119 ], [ true, %120 ], [ true, %121 ], [ true, %122 ], [ true, %123 ], [ true, %124 ], [ true, %125 ], [ true, %126 ], [ true, %127 ], [ true, %128 ], [ true, %129 ], [ true, %130 ], [ true, %131 ], [ true, %132 ], [ true, %133 ], [ true, %134 ], [ true, %135 ], [ true, %136 ], [ true, %137 ], [ true, %138 ], [ true, %139 ], [ true, %140 ], [ true, %141 ], [ true, %142 ], [ true, %143 ], [ true, %144 ], [ true, %145 ], [ true, %146 ], [ false, %101 ], [ true, %148 ], [ true, %149 ], [ true, %150 ], [ true, %151 ], [ false, %147 ], [ true, %153 ], [ true, %154 ], [ false, %152 ], [ true, %156 ], [ true, %157 ], [ true, %158 ], [ true, %159 ], [ true, %160 ], [ true, %161 ], [ true, %162 ], [ true, %163 ], [ true, %164 ], [ true, %165 ], [ true, %166 ], [ true, %167 ], [ true, %168 ], [ true, %169 ], [ true, %170 ], [ true, %171 ], [ true, %172 ], [ true, %173 ], [ true, %174 ], [ true, %175 ], [ true, %176 ], [ true, %177 ], [ true, %178 ], [ true, %179 ], [ true, %180 ], [ true, %181 ], [ true, %182 ], [ true, %183 ], [ true, %184 ], [ true, %185 ], [ true, %186 ], [ true, %187 ], [ %cond5, %50 ], [ false, %155 ], [ %cond1, %234 ], [ true, %190 ], [ true, %191 ], [ true, %192 ], [ true, %193 ], [ true, %194 ], [ true, %195 ], [ true, %196 ], [ true, %197 ], [ true, %198 ], [ true, %199 ], [ true, %200 ], [ true, %201 ], [ true, %202 ], [ true, %203 ], [ true, %204 ], [ true, %205 ], [ true, %206 ], [ true, %207 ], [ true, %208 ], [ true, %209 ], [ true, %210 ], [ true, %211 ], [ true, %212 ], [ true, %213 ], [ true, %214 ], [ true, %215 ], [ true, %216 ], [ true, %217 ], [ true, %218 ], [ true, %219 ], [ true, %220 ], [ true, %221 ], [ true, %222 ], [ true, %223 ], [ true, %224 ], [ true, %225 ], [ true, %226 ], [ true, %227 ], [ true, %228 ], [ %cond4, %188 ], [ false, %189 ], [ %cond2, %233 ], [ true, %231 ], [ true, %232 ]
+228:                                              ; preds = %227, %226, %225, %221, %180, %45, %44, %222, %181, %147, %144, %140, %94, %67, %46, %42, %30, %29, %_ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.thread, %26, %5, %7, %224, %223, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %146, %145, %143, %142, %141, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %43, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %10, %9, %8
+  %.sroa.04.3 = phi ptr [ %28, %26 ], [ @.str.115, %8 ], [ @.str.116, %9 ], [ @.str.117, %10 ], [ undef, %7 ], [ undef, %_ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.thread ], [ undef, %29 ], [ @.str.299, %224 ], [ @.str.119, %31 ], [ @.str.120, %32 ], [ @.str.121, %33 ], [ @.str.122, %34 ], [ @.str.123, %35 ], [ @.str.124, %36 ], [ @.str.298, %223 ], [ @.str.300, %225 ], [ @.str.127, %37 ], [ @.str.128, %38 ], [ @.str.129, %39 ], [ @.str.130, %40 ], [ @.str.131, %41 ], [ undef, %181 ], [ undef, %30 ], [ @.str.258, %180 ], [ @.str.134, %43 ], [ undef, %42 ], [ @.str.264, %221 ], [ @.str.301, %227 ], [ undef, %5 ], [ @.str.135, %44 ], [ undef, %222 ], [ @.str.136, %47 ], [ @.str.137, %48 ], [ @.str.297, %220 ], [ @.str.139, %49 ], [ @.str.140, %50 ], [ @.str.141, %51 ], [ @.str.296, %219 ], [ @.str.143, %52 ], [ @.str.144, %53 ], [ @.str.145, %54 ], [ @.str.146, %55 ], [ @.str.147, %56 ], [ @.str.148, %57 ], [ @.str.149, %58 ], [ @.str.150, %59 ], [ @.str.151, %60 ], [ @.str.152, %61 ], [ @.str.153, %62 ], [ @.str.154, %63 ], [ @.str.125, %64 ], [ @.str.155, %65 ], [ @.str.156, %66 ], [ undef, %46 ], [ @.str.157, %68 ], [ @.str.158, %69 ], [ @.str.159, %70 ], [ @.str.142, %71 ], [ @.str.160, %72 ], [ @.str.138, %73 ], [ @.str.161, %74 ], [ @.str.133, %75 ], [ @.str.162, %76 ], [ @.str.163, %77 ], [ @.str.164, %78 ], [ @.str.165, %79 ], [ @.str.166, %80 ], [ @.str.167, %81 ], [ @.str.168, %82 ], [ @.str.169, %83 ], [ @.str.170, %84 ], [ @.str.171, %85 ], [ @.str.172, %86 ], [ @.str.173, %87 ], [ @.str.174, %88 ], [ @.str.175, %89 ], [ @.str.176, %90 ], [ @.str.177, %91 ], [ @.str.178, %92 ], [ @.str.179, %93 ], [ undef, %67 ], [ @.str.180, %95 ], [ @.str.181, %96 ], [ @.str.182, %97 ], [ @.str.183, %98 ], [ @.str.184, %99 ], [ @.str.185, %100 ], [ @.str.186, %101 ], [ @.str.187, %102 ], [ @.str.188, %103 ], [ @.str.189, %104 ], [ @.str.190, %105 ], [ @.str.191, %106 ], [ @.str.192, %107 ], [ @.str.193, %108 ], [ @.str.194, %109 ], [ @.str.195, %110 ], [ @.str.196, %111 ], [ @.str.197, %112 ], [ @.str.198, %113 ], [ @.str.199, %114 ], [ @.str.200, %115 ], [ @.str.201, %116 ], [ @.str.202, %117 ], [ @.str.203, %118 ], [ @.str.204, %119 ], [ @.str.205, %120 ], [ @.str.206, %121 ], [ @.str.207, %122 ], [ @.str.208, %123 ], [ @.str.209, %124 ], [ @.str.210, %125 ], [ @.str.211, %126 ], [ @.str.212, %127 ], [ @.str.213, %128 ], [ @.str.214, %129 ], [ @.str.215, %130 ], [ @.str.216, %131 ], [ @.str.217, %132 ], [ @.str.218, %133 ], [ @.str.219, %134 ], [ @.str.220, %135 ], [ @.str.221, %136 ], [ @.str.222, %137 ], [ @.str.223, %138 ], [ @.str.224, %139 ], [ undef, %94 ], [ @.str.295, %218 ], [ @.str.225, %141 ], [ @.str.226, %142 ], [ @.str.227, %143 ], [ undef, %140 ], [ @.str.135, %145 ], [ @.str.132, %146 ], [ undef, %144 ], [ @.str.228, %148 ], [ @.str.229, %149 ], [ @.str.230, %150 ], [ @.str.231, %151 ], [ @.str.232, %152 ], [ @.str.233, %153 ], [ @.str.234, %154 ], [ @.str.235, %155 ], [ @.str.126, %156 ], [ @.str.236, %157 ], [ @.str.237, %158 ], [ @.str.118, %159 ], [ @.str.238, %160 ], [ @.str.239, %161 ], [ @.str.240, %162 ], [ @.str.241, %163 ], [ @.str.242, %164 ], [ @.str.243, %165 ], [ @.str.244, %166 ], [ @.str.245, %167 ], [ @.str.246, %168 ], [ @.str.247, %169 ], [ @.str.248, %170 ], [ @.str.249, %171 ], [ @.str.250, %172 ], [ @.str.251, %173 ], [ @.str.252, %174 ], [ @.str.253, %175 ], [ @.str.254, %176 ], [ @.str.255, %177 ], [ @.str.256, %178 ], [ @.str.257, %179 ], [ @.str.135, %45 ], [ undef, %147 ], [ @.str.301, %226 ], [ @.str.259, %182 ], [ @.str.260, %183 ], [ @.str.261, %184 ], [ @.str.262, %185 ], [ @.str.263, %186 ], [ @.str.264, %187 ], [ @.str.265, %188 ], [ @.str.266, %189 ], [ @.str.267, %190 ], [ @.str.268, %191 ], [ @.str.269, %192 ], [ @.str.270, %193 ], [ @.str.271, %194 ], [ @.str.272, %195 ], [ @.str.273, %196 ], [ @.str.274, %197 ], [ @.str.275, %198 ], [ @.str.276, %199 ], [ @.str.277, %200 ], [ @.str.278, %201 ], [ @.str.279, %202 ], [ @.str.280, %203 ], [ @.str.281, %204 ], [ @.str.282, %205 ], [ @.str.283, %206 ], [ @.str.284, %207 ], [ @.str.285, %208 ], [ @.str.286, %209 ], [ @.str.287, %210 ], [ @.str.288, %211 ], [ @.str.289, %212 ], [ @.str.290, %213 ], [ @.str.291, %214 ], [ @.str.292, %215 ], [ @.str.293, %216 ], [ @.str.294, %217 ]
+  %.sroa.202.3.shrunk = phi i1 [ true, %26 ], [ true, %8 ], [ true, %9 ], [ true, %10 ], [ false, %7 ], [ false, %_ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.thread ], [ false, %29 ], [ true, %224 ], [ true, %31 ], [ true, %32 ], [ true, %33 ], [ true, %34 ], [ true, %35 ], [ true, %36 ], [ true, %223 ], [ %cond2, %225 ], [ true, %37 ], [ true, %38 ], [ true, %39 ], [ true, %40 ], [ true, %41 ], [ false, %181 ], [ false, %30 ], [ %cond4, %180 ], [ true, %43 ], [ false, %42 ], [ %cond3, %221 ], [ %cond, %227 ], [ false, %5 ], [ %switch, %44 ], [ false, %222 ], [ true, %47 ], [ true, %48 ], [ true, %220 ], [ true, %49 ], [ true, %50 ], [ true, %51 ], [ true, %219 ], [ true, %52 ], [ true, %53 ], [ true, %54 ], [ true, %55 ], [ true, %56 ], [ true, %57 ], [ true, %58 ], [ true, %59 ], [ true, %60 ], [ true, %61 ], [ true, %62 ], [ true, %63 ], [ true, %64 ], [ true, %65 ], [ true, %66 ], [ false, %46 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %72 ], [ true, %73 ], [ true, %74 ], [ true, %75 ], [ true, %76 ], [ true, %77 ], [ true, %78 ], [ true, %79 ], [ true, %80 ], [ true, %81 ], [ true, %82 ], [ true, %83 ], [ true, %84 ], [ true, %85 ], [ true, %86 ], [ true, %87 ], [ true, %88 ], [ true, %89 ], [ true, %90 ], [ true, %91 ], [ true, %92 ], [ true, %93 ], [ false, %67 ], [ true, %95 ], [ true, %96 ], [ true, %97 ], [ true, %98 ], [ true, %99 ], [ true, %100 ], [ true, %101 ], [ true, %102 ], [ true, %103 ], [ true, %104 ], [ true, %105 ], [ true, %106 ], [ true, %107 ], [ true, %108 ], [ true, %109 ], [ true, %110 ], [ true, %111 ], [ true, %112 ], [ true, %113 ], [ true, %114 ], [ true, %115 ], [ true, %116 ], [ true, %117 ], [ true, %118 ], [ true, %119 ], [ true, %120 ], [ true, %121 ], [ true, %122 ], [ true, %123 ], [ true, %124 ], [ true, %125 ], [ true, %126 ], [ true, %127 ], [ true, %128 ], [ true, %129 ], [ true, %130 ], [ true, %131 ], [ true, %132 ], [ true, %133 ], [ true, %134 ], [ true, %135 ], [ true, %136 ], [ true, %137 ], [ true, %138 ], [ true, %139 ], [ false, %94 ], [ true, %218 ], [ true, %141 ], [ true, %142 ], [ true, %143 ], [ false, %140 ], [ true, %145 ], [ true, %146 ], [ false, %144 ], [ true, %148 ], [ true, %149 ], [ true, %150 ], [ true, %151 ], [ true, %152 ], [ true, %153 ], [ true, %154 ], [ true, %155 ], [ true, %156 ], [ true, %157 ], [ true, %158 ], [ true, %159 ], [ true, %160 ], [ true, %161 ], [ true, %162 ], [ true, %163 ], [ true, %164 ], [ true, %165 ], [ true, %166 ], [ true, %167 ], [ true, %168 ], [ true, %169 ], [ true, %170 ], [ true, %171 ], [ true, %172 ], [ true, %173 ], [ true, %174 ], [ true, %175 ], [ true, %176 ], [ true, %177 ], [ true, %178 ], [ true, %179 ], [ %cond5, %45 ], [ false, %147 ], [ %cond1, %226 ], [ true, %182 ], [ true, %183 ], [ true, %184 ], [ true, %185 ], [ true, %186 ], [ true, %187 ], [ true, %188 ], [ true, %189 ], [ true, %190 ], [ true, %191 ], [ true, %192 ], [ true, %193 ], [ true, %194 ], [ true, %195 ], [ true, %196 ], [ true, %197 ], [ true, %198 ], [ true, %199 ], [ true, %200 ], [ true, %201 ], [ true, %202 ], [ true, %203 ], [ true, %204 ], [ true, %205 ], [ true, %206 ], [ true, %207 ], [ true, %208 ], [ true, %209 ], [ true, %210 ], [ true, %211 ], [ true, %212 ], [ true, %213 ], [ true, %214 ], [ true, %215 ], [ true, %216 ], [ true, %217 ]
   %.sroa.202.3 = zext i1 %.sroa.202.3.shrunk to i8
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.04.3, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.202.3, 1

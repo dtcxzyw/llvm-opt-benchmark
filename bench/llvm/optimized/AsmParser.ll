@@ -37444,29 +37444,29 @@ define internal fastcc noundef range(i32 0, 7) i32 @_ZN12_GLOBAL__N_19AsmParser1
   %4 = load i8, ptr %3, align 8, !tbaa !1462, !range !393, !noundef !394
   %5 = trunc nuw i8 %4 to i1
   %6 = trunc nuw i8 %.868.val to i1
-  br i1 %6, label %7, label %26
+  br i1 %6, label %7, label %16
 
 7:                                                ; preds = %2
   switch i32 %0, label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit [
     i32 34, label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
-    i32 31, label %8
-    i32 30, label %9
-    i32 32, label %10
-    i32 33, label %11
-    i32 29, label %12
-    i32 36, label %13
-    i32 42, label %13
-    i32 39, label %14
-    i32 40, label %15
-    i32 43, label %16
-    i32 44, label %17
-    i32 41, label %18
-    i32 45, label %19
-    i32 12, label %21
-    i32 13, label %22
-    i32 24, label %23
-    i32 15, label %24
-    i32 37, label %25
+    i32 31, label %18
+    i32 30, label %8
+    i32 32, label %9
+    i32 33, label %10
+    i32 29, label %19
+    i32 36, label %20
+    i32 42, label %20
+    i32 39, label %21
+    i32 40, label %22
+    i32 43, label %23
+    i32 44, label %24
+    i32 41, label %11
+    i32 45, label %12
+    i32 12, label %14
+    i32 13, label %15
+    i32 24, label %33
+    i32 15, label %34
+    i32 37, label %35
   ]
 
 8:                                                ; preds = %7
@@ -37482,9 +37482,7 @@ define internal fastcc noundef range(i32 0, 7) i32 @_ZN12_GLOBAL__N_19AsmParser1
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
 12:                                               ; preds = %7
-  br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
-
-13:                                               ; preds = %7, %7
+  %13 = select i1 %5, i32 17, i32 16
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
 14:                                               ; preds = %7
@@ -37493,132 +37491,104 @@ define internal fastcc noundef range(i32 0, 7) i32 @_ZN12_GLOBAL__N_19AsmParser1
 15:                                               ; preds = %7
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-16:                                               ; preds = %7
-  br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
-
-17:                                               ; preds = %7
-  br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
-
-18:                                               ; preds = %7
-  br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
-
-19:                                               ; preds = %7
-  %20 = select i1 %5, i32 17, i32 16
-  br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
-
-21:                                               ; preds = %7
-  br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
-
-22:                                               ; preds = %7
-  br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
-
-23:                                               ; preds = %7
-  br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
-
-24:                                               ; preds = %7
-  br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
-
-25:                                               ; preds = %7
-  br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
-
-26:                                               ; preds = %2
-  %27 = getelementptr i8, ptr %.240.val, i64 48
-  %.val = load ptr, ptr %27, align 8
+16:                                               ; preds = %2
+  %17 = getelementptr i8, ptr %.240.val, i64 48
+  %.val = load ptr, ptr %17, align 8
   switch i32 %0, label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit [
     i32 34, label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
-    i32 31, label %28
-    i32 29, label %29
-    i32 36, label %30
-    i32 42, label %30
-    i32 39, label %31
-    i32 40, label %32
-    i32 43, label %33
-    i32 44, label %34
-    i32 12, label %35
-    i32 13, label %36
-    i32 30, label %37
-    i32 35, label %38
-    i32 32, label %41
-    i32 33, label %42
-    i32 24, label %43
-    i32 15, label %44
-    i32 37, label %45
-    i32 41, label %46
-    i32 45, label %47
+    i32 31, label %18
+    i32 29, label %19
+    i32 36, label %20
+    i32 42, label %20
+    i32 39, label %21
+    i32 40, label %22
+    i32 43, label %23
+    i32 44, label %24
+    i32 12, label %25
+    i32 13, label %26
+    i32 30, label %27
+    i32 35, label %28
+    i32 32, label %31
+    i32 33, label %32
+    i32 24, label %33
+    i32 15, label %34
+    i32 37, label %35
+    i32 41, label %36
+    i32 45, label %37
   ]
 
-28:                                               ; preds = %26
+18:                                               ; preds = %7, %16
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-29:                                               ; preds = %26
+19:                                               ; preds = %7, %16
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-30:                                               ; preds = %26, %26
+20:                                               ; preds = %7, %7, %16, %16
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-31:                                               ; preds = %26
+21:                                               ; preds = %7, %16
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-32:                                               ; preds = %26
+22:                                               ; preds = %7, %16
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-33:                                               ; preds = %26
+23:                                               ; preds = %7, %16
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-34:                                               ; preds = %26
+24:                                               ; preds = %7, %16
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-35:                                               ; preds = %26
+25:                                               ; preds = %16
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-36:                                               ; preds = %26
+26:                                               ; preds = %16
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-37:                                               ; preds = %26
+27:                                               ; preds = %16
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-38:                                               ; preds = %26
-  %39 = getelementptr i8, ptr %.240.val, i64 56
-  %.val6 = load i64, ptr %39, align 8
+28:                                               ; preds = %16
+  %29 = getelementptr i8, ptr %.240.val, i64 56
+  %.val6 = load i64, ptr %29, align 8
   %.not.i.i = icmp eq i64 %.val6, 1
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %38
+_ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %28
   %lhsc.i = load i8, ptr %.val, align 1
-  %40 = icmp eq i8 %lhsc.i, 64
-  br i1 %40, label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit, label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
+  %30 = icmp eq i8 %lhsc.i, 64
+  br i1 %30, label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit, label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-41:                                               ; preds = %26
+31:                                               ; preds = %16
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-42:                                               ; preds = %26
+32:                                               ; preds = %16
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-43:                                               ; preds = %26
+33:                                               ; preds = %7, %16
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-44:                                               ; preds = %26
+34:                                               ; preds = %7, %16
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-45:                                               ; preds = %26
+35:                                               ; preds = %7, %16
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-46:                                               ; preds = %26
+36:                                               ; preds = %16
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-47:                                               ; preds = %26
-  %48 = select i1 %5, i32 17, i32 16
+37:                                               ; preds = %16
+  %38 = select i1 %5, i32 17, i32 16
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split
 
-_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split: ; preds = %26, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %41, %42, %43, %44, %45, %46, %47, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %21, %22, %23, %24, %25
-  %.sink.i7.sink = phi i32 [ 6, %7 ], [ 10, %25 ], [ 2, %24 ], [ 11, %23 ], [ 18, %22 ], [ 0, %21 ], [ %20, %19 ], [ 15, %18 ], [ 5, %17 ], [ 4, %16 ], [ 9, %15 ], [ 8, %14 ], [ 12, %13 ], [ 3, %12 ], [ 1, %11 ], [ 19, %10 ], [ 13, %9 ], [ 7, %8 ], [ %48, %47 ], [ 15, %46 ], [ 10, %45 ], [ 2, %44 ], [ 11, %43 ], [ 1, %42 ], [ 19, %41 ], [ 6, %26 ], [ 13, %37 ], [ 18, %36 ], [ 0, %35 ], [ 5, %34 ], [ 4, %33 ], [ 9, %32 ], [ 8, %31 ], [ 12, %30 ], [ 3, %29 ], [ 7, %28 ], [ 14, %38 ], [ 14, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %.ph = phi i32 [ 1, %7 ], [ 6, %25 ], [ 6, %24 ], [ 6, %23 ], [ 5, %22 ], [ 5, %21 ], [ 4, %19 ], [ 4, %18 ], [ 3, %17 ], [ 3, %16 ], [ 3, %15 ], [ 3, %14 ], [ 3, %13 ], [ 3, %12 ], [ 2, %11 ], [ 2, %10 ], [ 2, %9 ], [ 1, %8 ], [ 6, %47 ], [ 6, %46 ], [ 6, %45 ], [ 6, %44 ], [ 6, %43 ], [ 5, %42 ], [ 5, %41 ], [ 2, %26 ], [ 5, %37 ], [ 4, %36 ], [ 4, %35 ], [ 3, %34 ], [ 3, %33 ], [ 3, %32 ], [ 3, %31 ], [ 3, %30 ], [ 3, %29 ], [ 1, %28 ], [ 5, %38 ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split: ; preds = %16, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %31, %32, %33, %34, %35, %36, %37, %7, %8, %9, %10, %11, %12, %14, %15
+  %.sink.i7.sink = phi i32 [ 6, %7 ], [ 0, %25 ], [ 5, %24 ], [ 4, %23 ], [ 18, %15 ], [ 0, %14 ], [ %13, %12 ], [ 15, %11 ], [ 9, %22 ], [ 8, %21 ], [ 12, %20 ], [ 3, %19 ], [ 7, %18 ], [ 14, %28 ], [ 1, %10 ], [ 19, %9 ], [ 13, %8 ], [ 14, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %38, %37 ], [ 15, %36 ], [ 10, %35 ], [ 2, %34 ], [ 11, %33 ], [ 1, %32 ], [ 19, %31 ], [ 6, %16 ], [ 13, %27 ], [ 18, %26 ]
+  %.ph = phi i32 [ 1, %7 ], [ 4, %25 ], [ 3, %24 ], [ 3, %23 ], [ 5, %15 ], [ 5, %14 ], [ 4, %12 ], [ 4, %11 ], [ 3, %22 ], [ 3, %21 ], [ 3, %20 ], [ 3, %19 ], [ 1, %18 ], [ 5, %28 ], [ 2, %10 ], [ 2, %9 ], [ 2, %8 ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 6, %37 ], [ 6, %36 ], [ 6, %35 ], [ 6, %34 ], [ 6, %33 ], [ 5, %32 ], [ 5, %31 ], [ 2, %16 ], [ 5, %27 ], [ 4, %26 ]
   store i32 %.sink.i7.sink, ptr %1, align 4, !tbaa !1444
   br label %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit
 
-_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit: ; preds = %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %26, %7
-  %49 = phi i32 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 0, %7 ], [ 0, %26 ], [ %.ph, %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split ]
-  ret i32 %49
+_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit: ; preds = %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %16, %7
+  %39 = phi i32 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 0, %7 ], [ 0, %16 ], [ %.ph, %_ZL24getDarwinBinOpPrecedenceN4llvm8AsmToken9TokenKindERNS_12MCBinaryExpr6OpcodeEb.exit.sink.split ]
+  ret i32 %39
 }
 
 declare noundef ptr @_ZN4llvm12MCBinaryExpr6createENS0_6OpcodeEPKNS_6MCExprES4_RNS_9MCContextENS_5SMLocE(i32 noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(2432), ptr) local_unnamed_addr #4

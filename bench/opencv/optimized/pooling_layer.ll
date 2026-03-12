@@ -4050,7 +4050,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn16PoolingLayerImpl14sup
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %5 = load i32, ptr %4, align 4, !tbaa !75
   %6 = icmp ult i32 %5, 5
-  br i1 %6, label %switch.lookup, label %switch.edge
+  br i1 %6, label %switch.lookup, label %.fold.split
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -4126,7 +4126,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn16PoolingLayerImpl14sup
   %.not12 = icmp eq i64 %51, 0
   br label %switch.edge
 
-.fold.split:                                      ; preds = %35
+.fold.split:                                      ; preds = %3, %35
   br label %switch.edge
 
 switch.lookup:                                    ; preds = %3
@@ -4135,8 +4135,8 @@ switch.lookup:                                    ; preds = %3
   %switch.masked = trunc i5 %switch.downshift to i1
   br label %switch.edge
 
-switch.edge:                                      ; preds = %3, %switch.lookup, %23, %2, %33, %38, %42, %45, %49, %.fold.split, %35, %21, %16
-  %.0 = phi i1 [ false, %2 ], [ %spec.select, %16 ], [ %22, %21 ], [ false, %23 ], [ false, %42 ], [ %switch.masked, %switch.lookup ], [ false, %.fold.split ], [ %.not12, %49 ], [ false, %38 ], [ false, %33 ], [ true, %35 ], [ false, %45 ], [ false, %3 ]
+switch.edge:                                      ; preds = %switch.lookup, %23, %2, %33, %38, %42, %45, %49, %.fold.split, %35, %21, %16
+  %.0 = phi i1 [ false, %2 ], [ %spec.select, %16 ], [ %22, %21 ], [ false, %23 ], [ %.not12, %49 ], [ %switch.masked, %switch.lookup ], [ false, %.fold.split ], [ false, %38 ], [ false, %42 ], [ false, %33 ], [ true, %35 ], [ false, %45 ]
   ret i1 %.0
 }
 

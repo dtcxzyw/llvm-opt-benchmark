@@ -30789,7 +30789,7 @@ _ZN4cvc58internal6theory11quantifiers19QuantifiersRewriter10isStandardERNS2_11QA
   %18 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory11quantifiers11QAttributes10isStandardEv(ptr noundef nonnull align 8 dereferenceable(80) %3)
   %19 = select i1 %18, i1 %17, i1 false
   %20 = icmp eq i32 %2, 0
-  br i1 %20, label %134, label %21
+  br i1 %20, label %133, label %21
 
 21:                                               ; preds = %_ZN4cvc58internal6theory11quantifiers19QuantifiersRewriter10isStandardERNS2_11QAttributesERKNS0_7OptionsE.exit
   %22 = icmp ne i32 %2, 2
@@ -30876,7 +30876,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %52, %55, %61
 
 65:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %66 = call noundef zeroext i1 @_ZNK4cvc58internal6theory11quantifiers11QAttributes10isStandardEv(ptr noundef nonnull align 8 dereferenceable(80) %3)
-  br label %134
+  br label %133
 
 67:                                               ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit
   %68 = landingpad { ptr, i32 }
@@ -30886,7 +30886,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %52, %55, %61
   resume { ptr, i32 } %68
 
 69:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  br i1 %19, label %70, label %134
+  br i1 %19, label %70, label %133
 
 70:                                               ; preds = %69
   %71 = load ptr, ptr %9, align 8, !tbaa !290
@@ -30901,21 +30901,21 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %52, %55, %61
   %or.cond32 = select i1 %.not30, i1 %78, i1 false
   %brmerge = or i1 %22, %or.cond32
   %not.or.cond32 = xor i1 %or.cond32, true
-  br i1 %brmerge, label %134, label %79
+  br i1 %brmerge, label %133, label %79
 
 79:                                               ; preds = %70
   %80 = getelementptr inbounds nuw i8, ptr %73, i64 300
   %81 = load i32, ptr %80, align 4, !tbaa !916
   %82 = icmp eq i32 %81, 4
-  br label %134
+  br label %133
 
 83:                                               ; preds = %21
-  switch i32 %2, label %133 [
+  switch i32 %2, label %132 [
     i32 7, label %84
-    i32 3, label %134
+    i32 3, label %133
     i32 6, label %91
-    i32 4, label %102
-    i32 5, label %120
+    i32 4, label %101
+    i32 5, label %119
   ]
 
 84:                                               ; preds = %83
@@ -30925,7 +30925,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %52, %55, %61
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 151
   %89 = load i8, ptr %88, align 1, !tbaa !917, !range !515, !noundef !516
   %90 = trunc nuw i8 %89 to i1
-  br label %134
+  br label %133
 
 91:                                               ; preds = %83
   %92 = load ptr, ptr %9, align 8, !tbaa !290
@@ -30934,74 +30934,71 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %52, %55, %61
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 259
   %96 = load i8, ptr %95, align 1, !tbaa !918, !range !515, !noundef !516
   %97 = trunc nuw i8 %96 to i1
-  br i1 %97, label %101, label %98
+  br i1 %97, label %131, label %98
 
 98:                                               ; preds = %91
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 68
   %100 = load i32, ptr %99, align 4, !tbaa !919
   %.not29 = icmp eq i32 %100, 0
-  br i1 %.not29, label %134, label %101
+  br i1 %.not29, label %133, label %131
 
-101:                                              ; preds = %98, %91
-  br label %134
+101:                                              ; preds = %83
+  %102 = load ptr, ptr %9, align 8, !tbaa !290
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 344
+  %104 = load ptr, ptr %103, align 8, !tbaa !291
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 337
+  %106 = load i8, ptr %105, align 1, !tbaa !475, !range !515, !noundef !516
+  %107 = trunc nuw i8 %106 to i1
+  %.not33 = xor i1 %107, true
+  %108 = load i8, ptr %3, align 8, !range !515
+  %109 = trunc nuw i8 %108 to i1
+  %or.cond35 = select i1 %.not33, i1 %109, i1 false
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %111 = load i8, ptr %110, align 1, !range !515
+  %112 = trunc nuw i8 %111 to i1
+  %or.cond39 = select i1 %or.cond35, i1 true, i1 %112
+  br i1 %or.cond39, label %133, label %113
 
-102:                                              ; preds = %83
-  %103 = load ptr, ptr %9, align 8, !tbaa !290
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 344
-  %105 = load ptr, ptr %104, align 8, !tbaa !291
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 337
-  %107 = load i8, ptr %106, align 1, !tbaa !475, !range !515, !noundef !516
-  %108 = trunc nuw i8 %107 to i1
-  %.not33 = xor i1 %108, true
-  %109 = load i8, ptr %3, align 8, !range !515
-  %110 = trunc nuw i8 %109 to i1
-  %or.cond35 = select i1 %.not33, i1 %110, i1 false
-  %111 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %112 = load i8, ptr %111, align 1, !range !515
-  %113 = trunc nuw i8 %112 to i1
-  %or.cond39 = select i1 %or.cond35, i1 true, i1 %113
-  br i1 %or.cond39, label %134, label %114
+113:                                              ; preds = %101
+  %114 = getelementptr inbounds nuw i8, ptr %104, i64 332
+  %115 = load i32, ptr %114, align 4, !tbaa !920
+  %.not = icmp eq i32 %115, 0
+  br i1 %.not, label %133, label %116
 
-114:                                              ; preds = %102
-  %115 = getelementptr inbounds nuw i8, ptr %105, i64 332
-  %116 = load i32, ptr %115, align 4, !tbaa !920
-  %.not = icmp eq i32 %116, 0
-  br i1 %.not, label %134, label %117
-
-117:                                              ; preds = %114
-  %118 = getelementptr inbounds nuw i8, ptr %105, i64 300
-  %119 = load i32, ptr %118, align 4, !tbaa !916
-  %.not28 = icmp ne i32 %119, 4
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds nuw i8, ptr %104, i64 300
+  %118 = load i32, ptr %117, align 4, !tbaa !916
+  %.not28 = icmp ne i32 %118, 4
   %spec.select = select i1 %.not28, i1 %19, i1 false
-  br label %134
+  br label %133
 
-120:                                              ; preds = %83
-  %121 = load ptr, ptr %9, align 8, !tbaa !290
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 344
-  %123 = load ptr, ptr %122, align 8, !tbaa !291
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 785
-  %125 = load i8, ptr %124, align 1, !tbaa !921, !range !515, !noundef !516
-  %126 = trunc nuw i8 %125 to i1
-  br i1 %126, label %131, label %127
+119:                                              ; preds = %83
+  %120 = load ptr, ptr %9, align 8, !tbaa !290
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 344
+  %122 = load ptr, ptr %121, align 8, !tbaa !291
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 785
+  %124 = load i8, ptr %123, align 1, !tbaa !921, !range !515, !noundef !516
+  %125 = trunc nuw i8 %124 to i1
+  br i1 %125, label %130, label %126
 
-127:                                              ; preds = %120
-  %128 = getelementptr inbounds nuw i8, ptr %123, i64 125
-  %129 = load i8, ptr %128, align 1, !tbaa !922, !range !515, !noundef !516
-  %130 = trunc nuw i8 %129 to i1
-  %or.cond3 = and i1 %19, %130
-  br i1 %or.cond3, label %132, label %134
+126:                                              ; preds = %119
+  %127 = getelementptr inbounds nuw i8, ptr %122, i64 125
+  %128 = load i8, ptr %127, align 1, !tbaa !922, !range !515, !noundef !516
+  %129 = trunc nuw i8 %128 to i1
+  %or.cond3 = and i1 %19, %129
+  br i1 %or.cond3, label %131, label %133
 
-131:                                              ; preds = %120
-  br i1 %19, label %132, label %134
+130:                                              ; preds = %119
+  br i1 %19, label %131, label %133
 
-132:                                              ; preds = %127, %131
-  br label %134
+131:                                              ; preds = %91, %98, %126, %130
+  br label %133
 
-133:                                              ; preds = %83
-  br label %134
+132:                                              ; preds = %83
+  br label %133
 
-134:                                              ; preds = %117, %70, %127, %131, %132, %83, %114, %102, %98, %101, %69, %_ZN4cvc58internal6theory11quantifiers19QuantifiersRewriter10isStandardERNS2_11QAttributesERKNS0_7OptionsE.exit, %133, %84, %79, %65
-  %.0 = phi i1 [ false, %133 ], [ %66, %65 ], [ %82, %79 ], [ %not.or.cond32, %70 ], [ false, %69 ], [ true, %_ZN4cvc58internal6theory11quantifiers19QuantifiersRewriter10isStandardERNS2_11QAttributesERKNS0_7OptionsE.exit ], [ %90, %84 ], [ %17, %132 ], [ true, %83 ], [ false, %102 ], [ false, %127 ], [ %17, %101 ], [ false, %131 ], [ false, %98 ], [ %spec.select, %117 ], [ false, %114 ]
+133:                                              ; preds = %116, %70, %126, %130, %131, %83, %113, %101, %98, %69, %_ZN4cvc58internal6theory11quantifiers19QuantifiersRewriter10isStandardERNS2_11QAttributesERKNS0_7OptionsE.exit, %132, %84, %79, %65
+  %.0 = phi i1 [ false, %132 ], [ %66, %65 ], [ %82, %79 ], [ %not.or.cond32, %70 ], [ false, %69 ], [ true, %_ZN4cvc58internal6theory11quantifiers19QuantifiersRewriter10isStandardERNS2_11QAttributesERKNS0_7OptionsE.exit ], [ %90, %84 ], [ %17, %131 ], [ true, %83 ], [ false, %101 ], [ false, %126 ], [ false, %113 ], [ false, %130 ], [ false, %98 ], [ %spec.select, %116 ]
   ret i1 %.0
 }
 

@@ -1068,7 +1068,7 @@ createEmptyEventPipe.exit.thread:                 ; preds = %.preheader.i, %261,
   %272 = load i32, ptr %271, align 4, !tbaa !114
   %273 = call ptr @strerror(i32 noundef %272) #13
   call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65544, ptr noundef nonnull %.str.115.sink.i, ptr noundef %273) #13
-  br label %1072
+  br label %1061
 
 createEmptyEventPipe.exit:                        ; preds = %252
   %274 = call ptr @_glfwPlatformLoadModule(ptr noundef nonnull @.str.116) #13
@@ -1658,1259 +1658,1226 @@ thread-pre-split40.i:                             ; preds = %433
   %559 = add i32 %554, 1
   br label %560
 
-560:                                              ; preds = %710, %.lr.ph64.i.i
-  %indvars.iv95.i.i = phi i64 [ %557, %.lr.ph64.i.i ], [ %indvars.iv.next96.i.i, %710 ]
+560:                                              ; preds = %699, %.lr.ph64.i.i
+  %indvars.iv95.i.i = phi i64 [ %557, %.lr.ph64.i.i ], [ %indvars.iv.next96.i.i, %699 ]
   %561 = getelementptr inbounds [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i64 %indvars.iv95.i.i
   %562 = load i16, ptr %561, align 2, !tbaa !318
   %563 = icmp slt i16 %562, 0
-  br i1 %563, label %564, label %703
+  br i1 %563, label %564, label %692
 
 564:                                              ; preds = %560
   %565 = sub nsw i64 %indvars.iv95.i.i, %557
   %566 = mul nsw i64 %565, %558
   %567 = getelementptr inbounds nuw [8 x i8], ptr %552, i64 %566
-  br i1 %556, label %568, label %583
+  br i1 %556, label %568, label %572
 
 568:                                              ; preds = %564
   %569 = getelementptr inbounds nuw i8, ptr %567, i64 8
   %570 = load i64, ptr %569, align 8, !tbaa !268
-  switch i64 %570, label %583 [
+  switch i64 %570, label %572 [
     i64 65456, label %translateKeySyms.exit.i.i
-    i64 65457, label %571
-    i64 65458, label %572
-    i64 65459, label %573
-    i64 65460, label %574
-    i64 65461, label %575
-    i64 65462, label %576
-    i64 65463, label %577
-    i64 65464, label %578
-    i64 65465, label %579
-    i64 65452, label %580
-    i64 65454, label %580
-    i64 65469, label %581
-    i64 65421, label %582
+    i64 65457, label %631
+    i64 65458, label %632
+    i64 65459, label %633
+    i64 65460, label %634
+    i64 65461, label %571
+    i64 65462, label %635
+    i64 65463, label %636
+    i64 65464, label %637
+    i64 65465, label %638
+    i64 65452, label %639
+    i64 65454, label %639
+    i64 65469, label %640
+    i64 65421, label %641
   ]
 
 571:                                              ; preds = %568
   br label %translateKeySyms.exit.i.i
 
-572:                                              ; preds = %568
-  br label %translateKeySyms.exit.i.i
-
-573:                                              ; preds = %568
-  br label %translateKeySyms.exit.i.i
-
-574:                                              ; preds = %568
-  br label %translateKeySyms.exit.i.i
-
-575:                                              ; preds = %568
-  br label %translateKeySyms.exit.i.i
-
-576:                                              ; preds = %568
-  br label %translateKeySyms.exit.i.i
-
-577:                                              ; preds = %568
-  br label %translateKeySyms.exit.i.i
-
-578:                                              ; preds = %568
-  br label %translateKeySyms.exit.i.i
-
-579:                                              ; preds = %568
-  br label %translateKeySyms.exit.i.i
-
-580:                                              ; preds = %568, %568
-  br label %translateKeySyms.exit.i.i
-
-581:                                              ; preds = %568
-  br label %translateKeySyms.exit.i.i
-
-582:                                              ; preds = %568
-  br label %translateKeySyms.exit.i.i
-
-583:                                              ; preds = %568, %564
-  %584 = load i64, ptr %567, align 8, !tbaa !268
-  switch i64 %584, label %702 [
+572:                                              ; preds = %568, %564
+  %573 = load i64, ptr %567, align 8, !tbaa !268
+  switch i64 %573, label %691 [
     i64 65307, label %translateKeySyms.exit.i.i
-    i64 65289, label %585
-    i64 65505, label %586
-    i64 65506, label %587
-    i64 65507, label %588
-    i64 65508, label %589
-    i64 65511, label %590
-    i64 65513, label %590
-    i64 65406, label %591
-    i64 65027, label %591
-    i64 65512, label %591
-    i64 65514, label %591
-    i64 65515, label %592
-    i64 65516, label %593
-    i64 65383, label %594
-    i64 65407, label %595
-    i64 65509, label %596
-    i64 65377, label %597
-    i64 65300, label %598
-    i64 65299, label %599
-    i64 65535, label %600
-    i64 65288, label %601
-    i64 65293, label %602
-    i64 65360, label %603
-    i64 65367, label %604
-    i64 65365, label %605
-    i64 65366, label %606
-    i64 65379, label %607
-    i64 65361, label %608
-    i64 65363, label %609
-    i64 65364, label %610
-    i64 65362, label %611
-    i64 65470, label %612
-    i64 65471, label %613
-    i64 65472, label %614
-    i64 65473, label %615
-    i64 65474, label %616
-    i64 65475, label %617
-    i64 65476, label %618
-    i64 65477, label %619
-    i64 65478, label %620
-    i64 65479, label %621
-    i64 65480, label %622
-    i64 65481, label %623
-    i64 65482, label %624
-    i64 65483, label %625
-    i64 65484, label %626
-    i64 65485, label %627
-    i64 65486, label %628
-    i64 65487, label %629
-    i64 65488, label %630
-    i64 65489, label %631
-    i64 65490, label %632
-    i64 65491, label %633
-    i64 65492, label %634
-    i64 65493, label %635
-    i64 65494, label %636
-    i64 65455, label %637
-    i64 65450, label %638
-    i64 65453, label %639
-    i64 65451, label %640
-    i64 65438, label %641
-    i64 65436, label %642
-    i64 65433, label %643
-    i64 65435, label %644
-    i64 65430, label %645
-    i64 65432, label %646
-    i64 65429, label %647
-    i64 65431, label %648
-    i64 65434, label %649
-    i64 65439, label %650
-    i64 65469, label %651
-    i64 65421, label %652
-    i64 97, label %653
-    i64 98, label %654
-    i64 99, label %655
-    i64 100, label %656
-    i64 101, label %657
-    i64 102, label %658
-    i64 103, label %659
-    i64 104, label %660
-    i64 105, label %661
-    i64 106, label %662
-    i64 107, label %663
-    i64 108, label %664
-    i64 109, label %665
-    i64 110, label %666
-    i64 111, label %667
-    i64 112, label %668
-    i64 113, label %669
-    i64 114, label %670
-    i64 115, label %671
-    i64 116, label %672
-    i64 117, label %673
-    i64 118, label %674
-    i64 119, label %675
-    i64 120, label %676
-    i64 121, label %677
-    i64 122, label %678
-    i64 49, label %679
-    i64 50, label %680
-    i64 51, label %681
-    i64 52, label %682
-    i64 53, label %683
-    i64 54, label %684
-    i64 55, label %685
-    i64 56, label %686
-    i64 57, label %687
-    i64 48, label %688
-    i64 32, label %689
-    i64 45, label %690
-    i64 61, label %691
-    i64 91, label %692
-    i64 93, label %693
-    i64 92, label %694
-    i64 59, label %695
-    i64 39, label %696
-    i64 96, label %697
-    i64 44, label %698
-    i64 46, label %699
-    i64 47, label %700
-    i64 60, label %701
+    i64 65289, label %574
+    i64 65505, label %575
+    i64 65506, label %576
+    i64 65507, label %577
+    i64 65508, label %578
+    i64 65511, label %579
+    i64 65513, label %579
+    i64 65406, label %580
+    i64 65027, label %580
+    i64 65512, label %580
+    i64 65514, label %580
+    i64 65515, label %581
+    i64 65516, label %582
+    i64 65383, label %583
+    i64 65407, label %584
+    i64 65509, label %585
+    i64 65377, label %586
+    i64 65300, label %587
+    i64 65299, label %588
+    i64 65535, label %589
+    i64 65288, label %590
+    i64 65293, label %591
+    i64 65360, label %592
+    i64 65367, label %593
+    i64 65365, label %594
+    i64 65366, label %595
+    i64 65379, label %596
+    i64 65361, label %597
+    i64 65363, label %598
+    i64 65364, label %599
+    i64 65362, label %600
+    i64 65470, label %601
+    i64 65471, label %602
+    i64 65472, label %603
+    i64 65473, label %604
+    i64 65474, label %605
+    i64 65475, label %606
+    i64 65476, label %607
+    i64 65477, label %608
+    i64 65478, label %609
+    i64 65479, label %610
+    i64 65480, label %611
+    i64 65481, label %612
+    i64 65482, label %613
+    i64 65483, label %614
+    i64 65484, label %615
+    i64 65485, label %616
+    i64 65486, label %617
+    i64 65487, label %618
+    i64 65488, label %619
+    i64 65489, label %620
+    i64 65490, label %621
+    i64 65491, label %622
+    i64 65492, label %623
+    i64 65493, label %624
+    i64 65494, label %625
+    i64 65455, label %626
+    i64 65450, label %627
+    i64 65453, label %628
+    i64 65451, label %629
+    i64 65438, label %630
+    i64 65436, label %631
+    i64 65433, label %632
+    i64 65435, label %633
+    i64 65430, label %634
+    i64 65432, label %635
+    i64 65429, label %636
+    i64 65431, label %637
+    i64 65434, label %638
+    i64 65439, label %639
+    i64 65469, label %640
+    i64 65421, label %641
+    i64 97, label %642
+    i64 98, label %643
+    i64 99, label %644
+    i64 100, label %645
+    i64 101, label %646
+    i64 102, label %647
+    i64 103, label %648
+    i64 104, label %649
+    i64 105, label %650
+    i64 106, label %651
+    i64 107, label %652
+    i64 108, label %653
+    i64 109, label %654
+    i64 110, label %655
+    i64 111, label %656
+    i64 112, label %657
+    i64 113, label %658
+    i64 114, label %659
+    i64 115, label %660
+    i64 116, label %661
+    i64 117, label %662
+    i64 118, label %663
+    i64 119, label %664
+    i64 120, label %665
+    i64 121, label %666
+    i64 122, label %667
+    i64 49, label %668
+    i64 50, label %669
+    i64 51, label %670
+    i64 52, label %671
+    i64 53, label %672
+    i64 54, label %673
+    i64 55, label %674
+    i64 56, label %675
+    i64 57, label %676
+    i64 48, label %677
+    i64 32, label %678
+    i64 45, label %679
+    i64 61, label %680
+    i64 91, label %681
+    i64 93, label %682
+    i64 92, label %683
+    i64 59, label %684
+    i64 39, label %685
+    i64 96, label %686
+    i64 44, label %687
+    i64 46, label %688
+    i64 47, label %689
+    i64 60, label %690
   ]
 
-585:                                              ; preds = %583
+574:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-586:                                              ; preds = %583
+575:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-587:                                              ; preds = %583
+576:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-588:                                              ; preds = %583
+577:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-589:                                              ; preds = %583
+578:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-590:                                              ; preds = %583, %583
+579:                                              ; preds = %572, %572
   br label %translateKeySyms.exit.i.i
 
-591:                                              ; preds = %583, %583, %583, %583
+580:                                              ; preds = %572, %572, %572, %572
   br label %translateKeySyms.exit.i.i
 
-592:                                              ; preds = %583
+581:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-593:                                              ; preds = %583
+582:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-594:                                              ; preds = %583
+583:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-595:                                              ; preds = %583
+584:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-596:                                              ; preds = %583
+585:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-597:                                              ; preds = %583
+586:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-598:                                              ; preds = %583
+587:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-599:                                              ; preds = %583
+588:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-600:                                              ; preds = %583
+589:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-601:                                              ; preds = %583
+590:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-602:                                              ; preds = %583
+591:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-603:                                              ; preds = %583
+592:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-604:                                              ; preds = %583
+593:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-605:                                              ; preds = %583
+594:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-606:                                              ; preds = %583
+595:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-607:                                              ; preds = %583
+596:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-608:                                              ; preds = %583
+597:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-609:                                              ; preds = %583
+598:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-610:                                              ; preds = %583
+599:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-611:                                              ; preds = %583
+600:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-612:                                              ; preds = %583
+601:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-613:                                              ; preds = %583
+602:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-614:                                              ; preds = %583
+603:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-615:                                              ; preds = %583
+604:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-616:                                              ; preds = %583
+605:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-617:                                              ; preds = %583
+606:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-618:                                              ; preds = %583
+607:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-619:                                              ; preds = %583
+608:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-620:                                              ; preds = %583
+609:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-621:                                              ; preds = %583
+610:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-622:                                              ; preds = %583
+611:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-623:                                              ; preds = %583
+612:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-624:                                              ; preds = %583
+613:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-625:                                              ; preds = %583
+614:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-626:                                              ; preds = %583
+615:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-627:                                              ; preds = %583
+616:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-628:                                              ; preds = %583
+617:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-629:                                              ; preds = %583
+618:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-630:                                              ; preds = %583
+619:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-631:                                              ; preds = %583
+620:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-632:                                              ; preds = %583
+621:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-633:                                              ; preds = %583
+622:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-634:                                              ; preds = %583
+623:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-635:                                              ; preds = %583
+624:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-636:                                              ; preds = %583
+625:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-637:                                              ; preds = %583
+626:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-638:                                              ; preds = %583
+627:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-639:                                              ; preds = %583
+628:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-640:                                              ; preds = %583
+629:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-641:                                              ; preds = %583
+630:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-642:                                              ; preds = %583
+631:                                              ; preds = %572, %568
   br label %translateKeySyms.exit.i.i
 
-643:                                              ; preds = %583
+632:                                              ; preds = %572, %568
   br label %translateKeySyms.exit.i.i
 
-644:                                              ; preds = %583
+633:                                              ; preds = %572, %568
   br label %translateKeySyms.exit.i.i
 
-645:                                              ; preds = %583
+634:                                              ; preds = %572, %568
   br label %translateKeySyms.exit.i.i
 
-646:                                              ; preds = %583
+635:                                              ; preds = %572, %568
   br label %translateKeySyms.exit.i.i
 
-647:                                              ; preds = %583
+636:                                              ; preds = %572, %568
   br label %translateKeySyms.exit.i.i
 
-648:                                              ; preds = %583
+637:                                              ; preds = %572, %568
   br label %translateKeySyms.exit.i.i
 
-649:                                              ; preds = %583
+638:                                              ; preds = %572, %568
   br label %translateKeySyms.exit.i.i
 
-650:                                              ; preds = %583
+639:                                              ; preds = %572, %568, %568
   br label %translateKeySyms.exit.i.i
 
-651:                                              ; preds = %583
+640:                                              ; preds = %572, %568
   br label %translateKeySyms.exit.i.i
 
-652:                                              ; preds = %583
+641:                                              ; preds = %572, %568
   br label %translateKeySyms.exit.i.i
 
-653:                                              ; preds = %583
+642:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-654:                                              ; preds = %583
+643:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-655:                                              ; preds = %583
+644:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-656:                                              ; preds = %583
+645:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-657:                                              ; preds = %583
+646:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-658:                                              ; preds = %583
+647:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-659:                                              ; preds = %583
+648:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-660:                                              ; preds = %583
+649:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-661:                                              ; preds = %583
+650:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-662:                                              ; preds = %583
+651:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-663:                                              ; preds = %583
+652:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-664:                                              ; preds = %583
+653:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-665:                                              ; preds = %583
+654:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-666:                                              ; preds = %583
+655:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-667:                                              ; preds = %583
+656:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-668:                                              ; preds = %583
+657:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-669:                                              ; preds = %583
+658:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-670:                                              ; preds = %583
+659:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-671:                                              ; preds = %583
+660:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-672:                                              ; preds = %583
+661:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-673:                                              ; preds = %583
+662:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-674:                                              ; preds = %583
+663:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-675:                                              ; preds = %583
+664:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-676:                                              ; preds = %583
+665:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-677:                                              ; preds = %583
+666:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-678:                                              ; preds = %583
+667:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-679:                                              ; preds = %583
+668:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-680:                                              ; preds = %583
+669:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-681:                                              ; preds = %583
+670:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-682:                                              ; preds = %583
+671:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-683:                                              ; preds = %583
+672:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-684:                                              ; preds = %583
+673:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-685:                                              ; preds = %583
+674:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-686:                                              ; preds = %583
+675:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-687:                                              ; preds = %583
+676:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-688:                                              ; preds = %583
+677:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-689:                                              ; preds = %583
+678:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-690:                                              ; preds = %583
+679:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-691:                                              ; preds = %583
+680:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-692:                                              ; preds = %583
+681:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-693:                                              ; preds = %583
+682:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-694:                                              ; preds = %583
+683:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-695:                                              ; preds = %583
+684:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-696:                                              ; preds = %583
+685:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-697:                                              ; preds = %583
+686:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-698:                                              ; preds = %583
+687:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-699:                                              ; preds = %583
+688:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-700:                                              ; preds = %583
+689:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-701:                                              ; preds = %583
+690:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-702:                                              ; preds = %583
+691:                                              ; preds = %572
   br label %translateKeySyms.exit.i.i
 
-translateKeySyms.exit.i.i:                        ; preds = %702, %701, %700, %699, %698, %697, %696, %695, %694, %693, %692, %691, %690, %689, %688, %687, %686, %685, %684, %683, %682, %681, %680, %679, %678, %677, %676, %675, %674, %673, %672, %671, %670, %669, %668, %667, %666, %665, %664, %663, %662, %661, %660, %659, %658, %657, %656, %655, %654, %653, %652, %651, %650, %649, %648, %647, %646, %645, %644, %643, %642, %641, %640, %639, %638, %637, %636, %635, %634, %633, %632, %631, %630, %629, %628, %627, %626, %625, %624, %623, %622, %621, %620, %619, %618, %617, %616, %615, %614, %613, %612, %611, %610, %609, %608, %607, %606, %605, %604, %603, %602, %601, %600, %599, %598, %597, %596, %595, %594, %593, %592, %591, %590, %589, %588, %587, %586, %585, %583, %582, %581, %580, %579, %578, %577, %576, %575, %574, %573, %572, %571, %568
-  %.0.i.i.i = phi i16 [ -1, %702 ], [ 320, %568 ], [ 258, %585 ], [ 340, %586 ], [ 344, %587 ], [ 341, %588 ], [ 345, %589 ], [ 342, %590 ], [ 346, %591 ], [ 343, %592 ], [ 347, %593 ], [ 348, %594 ], [ 282, %595 ], [ 280, %596 ], [ 283, %597 ], [ 281, %598 ], [ 284, %599 ], [ 261, %600 ], [ 259, %601 ], [ 257, %602 ], [ 268, %603 ], [ 269, %604 ], [ 266, %605 ], [ 267, %606 ], [ 260, %607 ], [ 263, %608 ], [ 262, %609 ], [ 264, %610 ], [ 265, %611 ], [ 290, %612 ], [ 291, %613 ], [ 292, %614 ], [ 293, %615 ], [ 294, %616 ], [ 295, %617 ], [ 296, %618 ], [ 297, %619 ], [ 298, %620 ], [ 299, %621 ], [ 300, %622 ], [ 301, %623 ], [ 302, %624 ], [ 303, %625 ], [ 304, %626 ], [ 305, %627 ], [ 306, %628 ], [ 307, %629 ], [ 308, %630 ], [ 309, %631 ], [ 310, %632 ], [ 311, %633 ], [ 312, %634 ], [ 313, %635 ], [ 314, %636 ], [ 331, %637 ], [ 332, %638 ], [ 333, %639 ], [ 334, %640 ], [ 320, %641 ], [ 321, %642 ], [ 322, %643 ], [ 323, %644 ], [ 324, %645 ], [ 326, %646 ], [ 327, %647 ], [ 328, %648 ], [ 329, %649 ], [ 330, %650 ], [ 336, %651 ], [ 335, %652 ], [ 65, %653 ], [ 66, %654 ], [ 67, %655 ], [ 68, %656 ], [ 69, %657 ], [ 70, %658 ], [ 71, %659 ], [ 72, %660 ], [ 73, %661 ], [ 74, %662 ], [ 75, %663 ], [ 76, %664 ], [ 77, %665 ], [ 78, %666 ], [ 79, %667 ], [ 80, %668 ], [ 81, %669 ], [ 82, %670 ], [ 83, %671 ], [ 84, %672 ], [ 85, %673 ], [ 86, %674 ], [ 87, %675 ], [ 88, %676 ], [ 89, %677 ], [ 90, %678 ], [ 49, %679 ], [ 50, %680 ], [ 51, %681 ], [ 52, %682 ], [ 53, %683 ], [ 54, %684 ], [ 55, %685 ], [ 56, %686 ], [ 57, %687 ], [ 48, %688 ], [ 32, %689 ], [ 45, %690 ], [ 61, %691 ], [ 91, %692 ], [ 93, %693 ], [ 92, %694 ], [ 59, %695 ], [ 39, %696 ], [ 96, %697 ], [ 44, %698 ], [ 46, %699 ], [ 47, %700 ], [ 161, %701 ], [ 335, %582 ], [ 321, %571 ], [ 322, %572 ], [ 323, %573 ], [ 324, %574 ], [ 325, %575 ], [ 326, %576 ], [ 327, %577 ], [ 328, %578 ], [ 329, %579 ], [ 330, %580 ], [ 336, %581 ], [ 256, %583 ]
+translateKeySyms.exit.i.i:                        ; preds = %691, %690, %689, %688, %687, %686, %685, %684, %683, %682, %681, %680, %679, %678, %677, %676, %675, %674, %673, %672, %671, %670, %669, %668, %667, %666, %665, %664, %663, %662, %661, %660, %659, %658, %657, %656, %655, %654, %653, %652, %651, %650, %649, %648, %647, %646, %645, %644, %643, %642, %641, %640, %639, %638, %637, %636, %635, %634, %633, %632, %631, %630, %629, %628, %627, %626, %625, %624, %623, %622, %621, %620, %619, %618, %617, %616, %615, %614, %613, %612, %611, %610, %609, %608, %607, %606, %605, %604, %603, %602, %601, %600, %599, %598, %597, %596, %595, %594, %593, %592, %591, %590, %589, %588, %587, %586, %585, %584, %583, %582, %581, %580, %579, %578, %577, %576, %575, %574, %572, %571, %568
+  %.0.i.i.i = phi i16 [ -1, %691 ], [ 320, %568 ], [ 258, %574 ], [ 340, %575 ], [ 344, %576 ], [ 341, %577 ], [ 345, %578 ], [ 342, %579 ], [ 346, %580 ], [ 343, %581 ], [ 347, %582 ], [ 348, %583 ], [ 282, %584 ], [ 280, %585 ], [ 283, %586 ], [ 281, %587 ], [ 284, %588 ], [ 261, %589 ], [ 259, %590 ], [ 257, %591 ], [ 268, %592 ], [ 269, %593 ], [ 266, %594 ], [ 267, %595 ], [ 260, %596 ], [ 263, %597 ], [ 262, %598 ], [ 264, %599 ], [ 265, %600 ], [ 290, %601 ], [ 291, %602 ], [ 292, %603 ], [ 293, %604 ], [ 294, %605 ], [ 295, %606 ], [ 296, %607 ], [ 297, %608 ], [ 298, %609 ], [ 299, %610 ], [ 300, %611 ], [ 301, %612 ], [ 302, %613 ], [ 303, %614 ], [ 304, %615 ], [ 305, %616 ], [ 306, %617 ], [ 307, %618 ], [ 308, %619 ], [ 309, %620 ], [ 310, %621 ], [ 311, %622 ], [ 312, %623 ], [ 313, %624 ], [ 314, %625 ], [ 331, %626 ], [ 332, %627 ], [ 333, %628 ], [ 334, %629 ], [ 320, %630 ], [ 321, %631 ], [ 322, %632 ], [ 323, %633 ], [ 324, %634 ], [ 326, %635 ], [ 327, %636 ], [ 328, %637 ], [ 329, %638 ], [ 330, %639 ], [ 336, %640 ], [ 335, %641 ], [ 65, %642 ], [ 66, %643 ], [ 67, %644 ], [ 68, %645 ], [ 69, %646 ], [ 70, %647 ], [ 71, %648 ], [ 72, %649 ], [ 73, %650 ], [ 74, %651 ], [ 75, %652 ], [ 76, %653 ], [ 77, %654 ], [ 78, %655 ], [ 79, %656 ], [ 80, %657 ], [ 81, %658 ], [ 82, %659 ], [ 83, %660 ], [ 84, %661 ], [ 85, %662 ], [ 86, %663 ], [ 87, %664 ], [ 88, %665 ], [ 89, %666 ], [ 90, %667 ], [ 49, %668 ], [ 50, %669 ], [ 51, %670 ], [ 52, %671 ], [ 53, %672 ], [ 54, %673 ], [ 55, %674 ], [ 56, %675 ], [ 57, %676 ], [ 48, %677 ], [ 32, %678 ], [ 45, %679 ], [ 61, %680 ], [ 91, %681 ], [ 93, %682 ], [ 92, %683 ], [ 59, %684 ], [ 39, %685 ], [ 96, %686 ], [ 44, %687 ], [ 46, %688 ], [ 47, %689 ], [ 161, %690 ], [ 325, %571 ], [ 256, %572 ]
   store i16 %.0.i.i.i, ptr %561, align 2, !tbaa !318
-  br label %703
+  br label %692
 
-703:                                              ; preds = %translateKeySyms.exit.i.i, %560
-  %704 = phi i16 [ %.0.i.i.i, %translateKeySyms.exit.i.i ], [ %562, %560 ]
-  %705 = icmp sgt i16 %704, 0
-  br i1 %705, label %706, label %710
+692:                                              ; preds = %translateKeySyms.exit.i.i, %560
+  %693 = phi i16 [ %.0.i.i.i, %translateKeySyms.exit.i.i ], [ %562, %560 ]
+  %694 = icmp sgt i16 %693, 0
+  br i1 %694, label %695, label %699
 
-706:                                              ; preds = %703
-  %707 = trunc i64 %indvars.iv95.i.i to i16
-  %708 = zext nneg i16 %704 to i64
-  %709 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140194), i64 %708
-  store i16 %707, ptr %709, align 2, !tbaa !318
-  br label %710
+695:                                              ; preds = %692
+  %696 = trunc i64 %indvars.iv95.i.i to i16
+  %697 = zext nneg i16 %693 to i64
+  %698 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140194), i64 %697
+  store i16 %696, ptr %698, align 2, !tbaa !318
+  br label %699
 
-710:                                              ; preds = %706, %703
+699:                                              ; preds = %695, %692
   %indvars.iv.next96.i.i = add nsw i64 %indvars.iv95.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next96.i.i to i32
   %exitcond98.not.i.i = icmp eq i32 %559, %lftr.wideiv.i.i
   br i1 %exitcond98.not.i.i, label %createKeyTables.exit.i, label %560
 
-createKeyTables.exit.i:                           ; preds = %710, %545
-  %711 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !144
-  %712 = call i32 %711(ptr noundef %552) #13
+createKeyTables.exit.i:                           ; preds = %699, %545
+  %700 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !144
+  %701 = call i32 %700(ptr noundef %552) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %713 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %714 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %715 = call i64 %713(ptr noundef %714, ptr noundef nonnull @.str.166, i32 noundef 0) #13
-  store i64 %715, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141288), align 8, !tbaa !320
-  %716 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %717 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %718 = call i64 %716(ptr noundef %717, ptr noundef nonnull @.str.167, i32 noundef 0) #13
-  store i64 %718, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141296), align 8, !tbaa !321
-  %719 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %720 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %721 = call i64 %719(ptr noundef %720, ptr noundef nonnull @.str.168, i32 noundef 0) #13
-  store i64 %721, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141312), align 8, !tbaa !322
-  %722 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %723 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %724 = call i64 %722(ptr noundef %723, ptr noundef nonnull @.str.169, i32 noundef 0) #13
-  store i64 %724, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141320), align 8, !tbaa !323
-  %725 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %726 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %727 = call i64 %725(ptr noundef %726, ptr noundef nonnull @.str.170, i32 noundef 0) #13
-  store i64 %727, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141232), align 8, !tbaa !324
-  %728 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %729 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %730 = call i64 %728(ptr noundef %729, ptr noundef nonnull @.str.171, i32 noundef 0) #13
-  store i64 %730, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141240), align 8, !tbaa !325
-  %731 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %732 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %733 = call i64 %731(ptr noundef %732, ptr noundef nonnull @.str.172, i32 noundef 0) #13
-  store i64 %733, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141264), align 8, !tbaa !326
-  %734 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %735 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %736 = call i64 %734(ptr noundef %735, ptr noundef nonnull @.str.173, i32 noundef 0) #13
-  store i64 %736, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141248), align 8, !tbaa !327
-  %737 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %738 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %739 = call i64 %737(ptr noundef %738, ptr noundef nonnull @.str.174, i32 noundef 0) #13
-  store i64 %739, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141256), align 8, !tbaa !328
-  %740 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %741 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %742 = call i64 %740(ptr noundef %741, ptr noundef nonnull @.str.175, i32 noundef 0) #13
-  store i64 %742, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141272), align 8, !tbaa !329
-  %743 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %744 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %745 = call i64 %743(ptr noundef %744, ptr noundef nonnull @.str.176, i32 noundef 0) #13
-  store i64 %745, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141280), align 8, !tbaa !330
-  %746 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %747 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %748 = call i64 %746(ptr noundef %747, ptr noundef nonnull @.str.177, i32 noundef 0) #13
-  store i64 %748, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141152), align 8, !tbaa !331
-  %749 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %750 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %751 = call i64 %749(ptr noundef %750, ptr noundef nonnull @.str.178, i32 noundef 0) #13
-  store i64 %751, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141160), align 8, !tbaa !332
-  %752 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %753 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %754 = call i64 %752(ptr noundef %753, ptr noundef nonnull @.str.179, i32 noundef 0) #13
-  store i64 %754, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141168), align 8, !tbaa !333
-  %755 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %756 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %757 = call i64 %755(ptr noundef %756, ptr noundef nonnull @.str.180, i32 noundef 0) #13
-  store i64 %757, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141176), align 8, !tbaa !334
-  %758 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %759 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %760 = call i64 %758(ptr noundef %759, ptr noundef nonnull @.str.181, i32 noundef 0) #13
-  store i64 %760, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141184), align 8, !tbaa !335
-  %761 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %762 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %763 = call i64 %761(ptr noundef %762, ptr noundef nonnull @.str.182, i32 noundef 0) #13
-  store i64 %763, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141192), align 8, !tbaa !336
-  %764 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %765 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %766 = call i64 %764(ptr noundef %765, ptr noundef nonnull @.str.183, i32 noundef 0) #13
-  store i64 %766, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141200), align 8, !tbaa !337
-  %767 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %768 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %769 = call i64 %767(ptr noundef %768, ptr noundef nonnull @.str.184, i32 noundef 0) #13
-  store i64 %769, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141208), align 8, !tbaa !338
-  %770 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %771 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %772 = call i64 %770(ptr noundef %771, ptr noundef nonnull @.str.185, i32 noundef 0) #13
-  store i64 %772, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141216), align 8, !tbaa !339
-  %773 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %774 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %775 = call i64 %773(ptr noundef %774, ptr noundef nonnull @.str.186, i32 noundef 0) #13
-  store i64 %775, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141224), align 8, !tbaa !340
-  %776 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %777 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %778 = call i64 %776(ptr noundef %777, ptr noundef nonnull @.str.187, i32 noundef 0) #13
-  store i64 %778, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140944), align 8, !tbaa !341
-  %779 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %780 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %781 = call i64 %779(ptr noundef %780, ptr noundef nonnull @.str.188, i32 noundef 0) #13
-  store i64 %781, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140952), align 8, !tbaa !342
-  %782 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %783 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %784 = call i64 %782(ptr noundef %783, ptr noundef nonnull @.str.189, i32 noundef 0) #13
-  store i64 %784, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140960), align 8, !tbaa !343
-  %785 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %786 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %787 = call i64 %785(ptr noundef %786, ptr noundef nonnull @.str.190, i32 noundef 0) #13
-  store i64 %787, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140928), align 8, !tbaa !344
-  %788 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %789 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %790 = call i64 %788(ptr noundef %789, ptr noundef nonnull @.str.191, i32 noundef 0) #13
-  store i64 %790, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140936), align 8, !tbaa !345
-  %791 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %792 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %793 = call i64 %791(ptr noundef %792, ptr noundef nonnull @.str.192, i32 noundef 0) #13
-  store i64 %793, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140984), align 8, !tbaa !346
-  %794 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %795 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %796 = call i64 %794(ptr noundef %795, ptr noundef nonnull @.str.193, i32 noundef 0) #13
-  store i64 %796, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141000), align 8, !tbaa !347
-  %797 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %798 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %799 = call i64 %797(ptr noundef %798, ptr noundef nonnull @.str.194, i32 noundef 0) #13
-  store i64 %799, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140992), align 8, !tbaa !348
-  %800 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %801 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %802 = call i64 %800(ptr noundef %801, ptr noundef nonnull @.str.195, i32 noundef 0) #13
-  store i64 %802, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140968), align 8, !tbaa !349
-  %803 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %804 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %805 = call i64 %803(ptr noundef %804, ptr noundef nonnull @.str.196, i32 noundef 0) #13
-  store i64 %805, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140976), align 8, !tbaa !350
+  %702 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %703 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %704 = call i64 %702(ptr noundef %703, ptr noundef nonnull @.str.166, i32 noundef 0) #13
+  store i64 %704, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141288), align 8, !tbaa !320
+  %705 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %706 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %707 = call i64 %705(ptr noundef %706, ptr noundef nonnull @.str.167, i32 noundef 0) #13
+  store i64 %707, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141296), align 8, !tbaa !321
+  %708 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %709 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %710 = call i64 %708(ptr noundef %709, ptr noundef nonnull @.str.168, i32 noundef 0) #13
+  store i64 %710, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141312), align 8, !tbaa !322
+  %711 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %712 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %713 = call i64 %711(ptr noundef %712, ptr noundef nonnull @.str.169, i32 noundef 0) #13
+  store i64 %713, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141320), align 8, !tbaa !323
+  %714 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %715 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %716 = call i64 %714(ptr noundef %715, ptr noundef nonnull @.str.170, i32 noundef 0) #13
+  store i64 %716, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141232), align 8, !tbaa !324
+  %717 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %718 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %719 = call i64 %717(ptr noundef %718, ptr noundef nonnull @.str.171, i32 noundef 0) #13
+  store i64 %719, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141240), align 8, !tbaa !325
+  %720 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %721 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %722 = call i64 %720(ptr noundef %721, ptr noundef nonnull @.str.172, i32 noundef 0) #13
+  store i64 %722, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141264), align 8, !tbaa !326
+  %723 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %724 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %725 = call i64 %723(ptr noundef %724, ptr noundef nonnull @.str.173, i32 noundef 0) #13
+  store i64 %725, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141248), align 8, !tbaa !327
+  %726 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %727 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %728 = call i64 %726(ptr noundef %727, ptr noundef nonnull @.str.174, i32 noundef 0) #13
+  store i64 %728, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141256), align 8, !tbaa !328
+  %729 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %730 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %731 = call i64 %729(ptr noundef %730, ptr noundef nonnull @.str.175, i32 noundef 0) #13
+  store i64 %731, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141272), align 8, !tbaa !329
+  %732 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %733 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %734 = call i64 %732(ptr noundef %733, ptr noundef nonnull @.str.176, i32 noundef 0) #13
+  store i64 %734, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141280), align 8, !tbaa !330
+  %735 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %736 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %737 = call i64 %735(ptr noundef %736, ptr noundef nonnull @.str.177, i32 noundef 0) #13
+  store i64 %737, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141152), align 8, !tbaa !331
+  %738 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %739 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %740 = call i64 %738(ptr noundef %739, ptr noundef nonnull @.str.178, i32 noundef 0) #13
+  store i64 %740, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141160), align 8, !tbaa !332
+  %741 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %742 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %743 = call i64 %741(ptr noundef %742, ptr noundef nonnull @.str.179, i32 noundef 0) #13
+  store i64 %743, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141168), align 8, !tbaa !333
+  %744 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %745 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %746 = call i64 %744(ptr noundef %745, ptr noundef nonnull @.str.180, i32 noundef 0) #13
+  store i64 %746, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141176), align 8, !tbaa !334
+  %747 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %748 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %749 = call i64 %747(ptr noundef %748, ptr noundef nonnull @.str.181, i32 noundef 0) #13
+  store i64 %749, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141184), align 8, !tbaa !335
+  %750 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %751 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %752 = call i64 %750(ptr noundef %751, ptr noundef nonnull @.str.182, i32 noundef 0) #13
+  store i64 %752, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141192), align 8, !tbaa !336
+  %753 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %754 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %755 = call i64 %753(ptr noundef %754, ptr noundef nonnull @.str.183, i32 noundef 0) #13
+  store i64 %755, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141200), align 8, !tbaa !337
+  %756 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %757 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %758 = call i64 %756(ptr noundef %757, ptr noundef nonnull @.str.184, i32 noundef 0) #13
+  store i64 %758, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141208), align 8, !tbaa !338
+  %759 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %760 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %761 = call i64 %759(ptr noundef %760, ptr noundef nonnull @.str.185, i32 noundef 0) #13
+  store i64 %761, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141216), align 8, !tbaa !339
+  %762 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %763 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %764 = call i64 %762(ptr noundef %763, ptr noundef nonnull @.str.186, i32 noundef 0) #13
+  store i64 %764, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141224), align 8, !tbaa !340
+  %765 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %766 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %767 = call i64 %765(ptr noundef %766, ptr noundef nonnull @.str.187, i32 noundef 0) #13
+  store i64 %767, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140944), align 8, !tbaa !341
+  %768 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %769 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %770 = call i64 %768(ptr noundef %769, ptr noundef nonnull @.str.188, i32 noundef 0) #13
+  store i64 %770, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140952), align 8, !tbaa !342
+  %771 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %772 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %773 = call i64 %771(ptr noundef %772, ptr noundef nonnull @.str.189, i32 noundef 0) #13
+  store i64 %773, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140960), align 8, !tbaa !343
+  %774 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %775 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %776 = call i64 %774(ptr noundef %775, ptr noundef nonnull @.str.190, i32 noundef 0) #13
+  store i64 %776, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140928), align 8, !tbaa !344
+  %777 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %778 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %779 = call i64 %777(ptr noundef %778, ptr noundef nonnull @.str.191, i32 noundef 0) #13
+  store i64 %779, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140936), align 8, !tbaa !345
+  %780 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %781 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %782 = call i64 %780(ptr noundef %781, ptr noundef nonnull @.str.192, i32 noundef 0) #13
+  store i64 %782, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140984), align 8, !tbaa !346
+  %783 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %784 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %785 = call i64 %783(ptr noundef %784, ptr noundef nonnull @.str.193, i32 noundef 0) #13
+  store i64 %785, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141000), align 8, !tbaa !347
+  %786 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %787 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %788 = call i64 %786(ptr noundef %787, ptr noundef nonnull @.str.194, i32 noundef 0) #13
+  store i64 %788, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140992), align 8, !tbaa !348
+  %789 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %790 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %791 = call i64 %789(ptr noundef %790, ptr noundef nonnull @.str.195, i32 noundef 0) #13
+  store i64 %791, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140968), align 8, !tbaa !349
+  %792 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %793 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %794 = call i64 %792(ptr noundef %793, ptr noundef nonnull @.str.196, i32 noundef 0) #13
+  store i64 %794, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140976), align 8, !tbaa !350
+  %795 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %796 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %797 = call i64 %795(ptr noundef %796, ptr noundef nonnull @.str.197, i32 noundef 0) #13
+  store i64 %797, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141072), align 8, !tbaa !351
+  %798 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %799 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %800 = call i64 %798(ptr noundef %799, ptr noundef nonnull @.str.198, i32 noundef 0) #13
+  store i64 %800, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141088), align 8, !tbaa !352
+  %801 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %802 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %803 = call i64 %801(ptr noundef %802, ptr noundef nonnull @.str.199, i32 noundef 0) #13
+  store i64 %803, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141144), align 8, !tbaa !353
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  %804 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !220
+  %805 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 32, ptr noundef nonnull @.str.200, i32 noundef %804) #13
   %806 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %807 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %808 = call i64 %806(ptr noundef %807, ptr noundef nonnull @.str.197, i32 noundef 0) #13
-  store i64 %808, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141072), align 8, !tbaa !351
-  %809 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %810 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %811 = call i64 %809(ptr noundef %810, ptr noundef nonnull @.str.198, i32 noundef 0) #13
-  store i64 %811, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141088), align 8, !tbaa !352
-  %812 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %813 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %814 = call i64 %812(ptr noundef %813, ptr noundef nonnull @.str.199, i32 noundef 0) #13
-  store i64 %814, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141144), align 8, !tbaa !353
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %815 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !220
-  %816 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 32, ptr noundef nonnull @.str.200, i32 noundef %815) #13
-  %817 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %818 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %819 = call i64 %817(ptr noundef %818, ptr noundef nonnull %11, i32 noundef 0) #13
-  store i64 %819, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141096), align 8, !tbaa !354
+  %808 = call i64 %806(ptr noundef %807, ptr noundef nonnull %11, i32 noundef 0) #13
+  store i64 %808, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141096), align 8, !tbaa !354
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !355
-  %820 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !225
-  %821 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140936), align 8, !tbaa !345
-  %822 = call i64 @_glfwGetWindowPropertyX11(i64 noundef %820, i64 noundef %821, i64 noundef 33, ptr noundef nonnull %3) #13
-  %.not.i38.i = icmp eq i64 %822, 0
-  br i1 %.not.i38.i, label %initExtensions.exit, label %823
+  %809 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !225
+  %810 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140936), align 8, !tbaa !345
+  %811 = call i64 @_glfwGetWindowPropertyX11(i64 noundef %809, i64 noundef %810, i64 noundef 33, ptr noundef nonnull %3) #13
+  %.not.i38.i = icmp eq i64 %811, 0
+  br i1 %.not.i38.i, label %initExtensions.exit, label %812
 
-823:                                              ; preds = %createKeyTables.exit.i
+812:                                              ; preds = %createKeyTables.exit.i
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137912), align 8, !tbaa !3
-  %824 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141856), align 8, !tbaa !93
-  %825 = call ptr %824(ptr noundef nonnull @errorHandler) #13
-  store ptr %825, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137904), align 8, !tbaa !94
+  %813 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141856), align 8, !tbaa !93
+  %814 = call ptr %813(ptr noundef nonnull @errorHandler) #13
+  store ptr %814, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137904), align 8, !tbaa !94
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !355
-  %826 = load ptr, ptr %3, align 8, !tbaa !355
-  %827 = load i64, ptr %826, align 8, !tbaa !268
-  %828 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140936), align 8, !tbaa !345
-  %829 = call i64 @_glfwGetWindowPropertyX11(i64 noundef %827, i64 noundef %828, i64 noundef 33, ptr noundef nonnull %4) #13
-  %.not14.i.i = icmp eq i64 %829, 0
-  br i1 %.not14.i.i, label %830, label %834
+  %815 = load ptr, ptr %3, align 8, !tbaa !355
+  %816 = load i64, ptr %815, align 8, !tbaa !268
+  %817 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140936), align 8, !tbaa !345
+  %818 = call i64 @_glfwGetWindowPropertyX11(i64 noundef %816, i64 noundef %817, i64 noundef 33, ptr noundef nonnull %4) #13
+  %.not14.i.i = icmp eq i64 %818, 0
+  br i1 %.not14.i.i, label %819, label %823
 
-830:                                              ; preds = %823
-  %831 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !144
-  %832 = load ptr, ptr %3, align 8, !tbaa !355
-  %833 = call i32 %831(ptr noundef %832) #13
-  br label %1006
+819:                                              ; preds = %812
+  %820 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !144
+  %821 = load ptr, ptr %3, align 8, !tbaa !355
+  %822 = call i32 %820(ptr noundef %821) #13
+  br label %995
 
-834:                                              ; preds = %823
-  %835 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141944), align 8, !tbaa !98
-  %836 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %837 = call i32 %835(ptr noundef %836, i32 noundef 0) #13
-  %838 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141856), align 8, !tbaa !93
-  %839 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137904), align 8, !tbaa !94
-  %840 = call ptr %838(ptr noundef %839) #13
+823:                                              ; preds = %812
+  %824 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141944), align 8, !tbaa !98
+  %825 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %826 = call i32 %824(ptr noundef %825, i32 noundef 0) #13
+  %827 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141856), align 8, !tbaa !93
+  %828 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137904), align 8, !tbaa !94
+  %829 = call ptr %827(ptr noundef %828) #13
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137904), align 8, !tbaa !94
-  %841 = load ptr, ptr %3, align 8, !tbaa !355
-  %842 = load i64, ptr %841, align 8, !tbaa !268
-  %843 = load ptr, ptr %4, align 8, !tbaa !355
-  %844 = load i64, ptr %843, align 8, !tbaa !268
-  %.not15.i.i = icmp eq i64 %842, %844
-  %845 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !144
-  %846 = call i32 %845(ptr noundef nonnull %841) #13
-  %847 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !144
-  %848 = load ptr, ptr %4, align 8, !tbaa !355
-  %849 = call i32 %847(ptr noundef %848) #13
-  br i1 %.not15.i.i, label %850, label %1006
+  %830 = load ptr, ptr %3, align 8, !tbaa !355
+  %831 = load i64, ptr %830, align 8, !tbaa !268
+  %832 = load ptr, ptr %4, align 8, !tbaa !355
+  %833 = load i64, ptr %832, align 8, !tbaa !268
+  %.not15.i.i = icmp eq i64 %831, %833
+  %834 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !144
+  %835 = call i32 %834(ptr noundef nonnull %830) #13
+  %836 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !144
+  %837 = load ptr, ptr %4, align 8, !tbaa !355
+  %838 = call i32 %836(ptr noundef %837) #13
+  br i1 %.not15.i.i, label %839, label %995
 
-850:                                              ; preds = %834
+839:                                              ; preds = %823
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !355
-  %851 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !225
-  %852 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140928), align 8, !tbaa !344
-  %853 = call i64 @_glfwGetWindowPropertyX11(i64 noundef %851, i64 noundef %852, i64 noundef 4, ptr noundef nonnull %5) #13
-  %854 = load ptr, ptr %5, align 8, !tbaa !355
-  %855 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %856 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %857 = call i64 %855(ptr noundef %856, ptr noundef nonnull @.str.322, i32 noundef 0) #13
-  %.not12.not.i.i.i = icmp eq i64 %853, 0
+  %840 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !225
+  %841 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140928), align 8, !tbaa !344
+  %842 = call i64 @_glfwGetWindowPropertyX11(i64 noundef %840, i64 noundef %841, i64 noundef 4, ptr noundef nonnull %5) #13
+  %843 = load ptr, ptr %5, align 8, !tbaa !355
+  %844 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %845 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %846 = call i64 %844(ptr noundef %845, ptr noundef nonnull @.str.322, i32 noundef 0) #13
+  %.not12.not.i.i.i = icmp eq i64 %842, 0
   br i1 %.not12.not.i.i.i, label %getAtomIfSupported.exit22.critedge.i.i, label %.lr.ph.i.i.i
 
-858:                                              ; preds = %.lr.ph.i.i.i
-  %859 = add nuw i64 %.0913.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %859, %853
+847:                                              ; preds = %.lr.ph.i.i.i
+  %848 = add nuw i64 %.0913.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %848, %842
   br i1 %exitcond.not.i.i.i, label %.lr.ph.i18.preheader.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %850, %858
-  %.0913.i.i.i = phi i64 [ %859, %858 ], [ 0, %850 ]
-  %860 = getelementptr inbounds nuw [8 x i8], ptr %854, i64 %.0913.i.i.i
-  %861 = load i64, ptr %860, align 8, !tbaa !268
-  %862 = icmp eq i64 %861, %857
-  br i1 %862, label %.lr.ph.i18.preheader.i.i, label %858
+.lr.ph.i.i.i:                                     ; preds = %839, %847
+  %.0913.i.i.i = phi i64 [ %848, %847 ], [ 0, %839 ]
+  %849 = getelementptr inbounds nuw [8 x i8], ptr %843, i64 %.0913.i.i.i
+  %850 = load i64, ptr %849, align 8, !tbaa !268
+  %851 = icmp eq i64 %850, %846
+  br i1 %851, label %.lr.ph.i18.preheader.i.i, label %847
 
-.lr.ph.i18.preheader.i.i:                         ; preds = %.lr.ph.i.i.i, %858
-  %spec.select.i.i.i = phi i64 [ %857, %.lr.ph.i.i.i ], [ 0, %858 ]
+.lr.ph.i18.preheader.i.i:                         ; preds = %.lr.ph.i.i.i, %847
+  %spec.select.i.i.i = phi i64 [ %846, %.lr.ph.i.i.i ], [ 0, %847 ]
   store i64 %spec.select.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141024), align 8, !tbaa !356
-  %863 = load ptr, ptr %5, align 8, !tbaa !355
-  %864 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %865 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %866 = call i64 %864(ptr noundef %865, ptr noundef nonnull @.str.323, i32 noundef 0) #13
+  %852 = load ptr, ptr %5, align 8, !tbaa !355
+  %853 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %854 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %855 = call i64 %853(ptr noundef %854, ptr noundef nonnull @.str.323, i32 noundef 0) #13
   br label %.lr.ph.i18.i.i
 
-867:                                              ; preds = %.lr.ph.i18.i.i
-  %868 = add nuw i64 %.0913.i19.i.i, 1
-  %exitcond.not.i20.i.i = icmp eq i64 %868, %853
+856:                                              ; preds = %.lr.ph.i18.i.i
+  %857 = add nuw i64 %.0913.i19.i.i, 1
+  %exitcond.not.i20.i.i = icmp eq i64 %857, %842
   br i1 %exitcond.not.i20.i.i, label %getAtomIfSupported.exit22.i.i, label %.lr.ph.i18.i.i
 
-.lr.ph.i18.i.i:                                   ; preds = %867, %.lr.ph.i18.preheader.i.i
-  %.0913.i19.i.i = phi i64 [ %868, %867 ], [ 0, %.lr.ph.i18.preheader.i.i ]
-  %869 = getelementptr inbounds nuw [8 x i8], ptr %863, i64 %.0913.i19.i.i
-  %870 = load i64, ptr %869, align 8, !tbaa !268
-  %871 = icmp eq i64 %870, %866
-  br i1 %871, label %getAtomIfSupported.exit22.i.i, label %867
+.lr.ph.i18.i.i:                                   ; preds = %856, %.lr.ph.i18.preheader.i.i
+  %.0913.i19.i.i = phi i64 [ %857, %856 ], [ 0, %.lr.ph.i18.preheader.i.i ]
+  %858 = getelementptr inbounds nuw [8 x i8], ptr %852, i64 %.0913.i19.i.i
+  %859 = load i64, ptr %858, align 8, !tbaa !268
+  %860 = icmp eq i64 %859, %855
+  br i1 %860, label %getAtomIfSupported.exit22.i.i, label %856
 
-getAtomIfSupported.exit22.critedge.i.i:           ; preds = %850
+getAtomIfSupported.exit22.critedge.i.i:           ; preds = %839
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141024), align 8, !tbaa !356
-  %872 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %873 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %874 = call i64 %872(ptr noundef %873, ptr noundef nonnull @.str.323, i32 noundef 0) #13
+  %861 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %862 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %863 = call i64 %861(ptr noundef %862, ptr noundef nonnull @.str.323, i32 noundef 0) #13
   br label %getAtomIfSupported.exit22.i.i
 
-getAtomIfSupported.exit22.i.i:                    ; preds = %.lr.ph.i18.i.i, %867, %getAtomIfSupported.exit22.critedge.i.i
-  %spec.select.i21.i.i = phi i64 [ 0, %getAtomIfSupported.exit22.critedge.i.i ], [ %866, %.lr.ph.i18.i.i ], [ 0, %867 ]
+getAtomIfSupported.exit22.i.i:                    ; preds = %.lr.ph.i18.i.i, %856, %getAtomIfSupported.exit22.critedge.i.i
+  %spec.select.i21.i.i = phi i64 [ 0, %getAtomIfSupported.exit22.critedge.i.i ], [ %855, %.lr.ph.i18.i.i ], [ 0, %856 ]
   store i64 %spec.select.i21.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141032), align 8, !tbaa !357
-  %875 = load ptr, ptr %5, align 8, !tbaa !355
-  %876 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %877 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %878 = call i64 %876(ptr noundef %877, ptr noundef nonnull @.str.324, i32 noundef 0) #13
+  %864 = load ptr, ptr %5, align 8, !tbaa !355
+  %865 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %866 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %867 = call i64 %865(ptr noundef %866, ptr noundef nonnull @.str.324, i32 noundef 0) #13
   br i1 %.not12.not.i.i.i, label %getAtomIfSupported.exit34.critedge.i.i, label %.lr.ph.i24.i.i
 
-879:                                              ; preds = %.lr.ph.i24.i.i
-  %880 = add nuw i64 %.0913.i25.i.i, 1
-  %exitcond.not.i26.i.i = icmp eq i64 %880, %853
+868:                                              ; preds = %.lr.ph.i24.i.i
+  %869 = add nuw i64 %.0913.i25.i.i, 1
+  %exitcond.not.i26.i.i = icmp eq i64 %869, %842
   br i1 %exitcond.not.i26.i.i, label %.lr.ph.i30.preheader.i.i, label %.lr.ph.i24.i.i
 
-.lr.ph.i24.i.i:                                   ; preds = %getAtomIfSupported.exit22.i.i, %879
-  %.0913.i25.i.i = phi i64 [ %880, %879 ], [ 0, %getAtomIfSupported.exit22.i.i ]
-  %881 = getelementptr inbounds nuw [8 x i8], ptr %875, i64 %.0913.i25.i.i
-  %882 = load i64, ptr %881, align 8, !tbaa !268
-  %883 = icmp eq i64 %882, %878
-  br i1 %883, label %.lr.ph.i30.preheader.i.i, label %879
+.lr.ph.i24.i.i:                                   ; preds = %getAtomIfSupported.exit22.i.i, %868
+  %.0913.i25.i.i = phi i64 [ %869, %868 ], [ 0, %getAtomIfSupported.exit22.i.i ]
+  %870 = getelementptr inbounds nuw [8 x i8], ptr %864, i64 %.0913.i25.i.i
+  %871 = load i64, ptr %870, align 8, !tbaa !268
+  %872 = icmp eq i64 %871, %867
+  br i1 %872, label %.lr.ph.i30.preheader.i.i, label %868
 
-.lr.ph.i30.preheader.i.i:                         ; preds = %.lr.ph.i24.i.i, %879
-  %spec.select.i27.ph.i.i = phi i64 [ 0, %879 ], [ %878, %.lr.ph.i24.i.i ]
+.lr.ph.i30.preheader.i.i:                         ; preds = %.lr.ph.i24.i.i, %868
+  %spec.select.i27.ph.i.i = phi i64 [ 0, %868 ], [ %867, %.lr.ph.i24.i.i ]
   store i64 %spec.select.i27.ph.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141040), align 8, !tbaa !358
-  %884 = load ptr, ptr %5, align 8, !tbaa !355
-  %885 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %886 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %887 = call i64 %885(ptr noundef %886, ptr noundef nonnull @.str.325, i32 noundef 0) #13
+  %873 = load ptr, ptr %5, align 8, !tbaa !355
+  %874 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %875 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %876 = call i64 %874(ptr noundef %875, ptr noundef nonnull @.str.325, i32 noundef 0) #13
   br label %.lr.ph.i30.i.i
 
-888:                                              ; preds = %.lr.ph.i30.i.i
-  %889 = add nuw i64 %.0913.i31.i.i, 1
-  %exitcond.not.i32.i.i = icmp eq i64 %889, %853
+877:                                              ; preds = %.lr.ph.i30.i.i
+  %878 = add nuw i64 %.0913.i31.i.i, 1
+  %exitcond.not.i32.i.i = icmp eq i64 %878, %842
   br i1 %exitcond.not.i32.i.i, label %getAtomIfSupported.exit34.i.i, label %.lr.ph.i30.i.i
 
-.lr.ph.i30.i.i:                                   ; preds = %888, %.lr.ph.i30.preheader.i.i
-  %.0913.i31.i.i = phi i64 [ %889, %888 ], [ 0, %.lr.ph.i30.preheader.i.i ]
-  %890 = getelementptr inbounds nuw [8 x i8], ptr %884, i64 %.0913.i31.i.i
-  %891 = load i64, ptr %890, align 8, !tbaa !268
-  %892 = icmp eq i64 %891, %887
-  br i1 %892, label %getAtomIfSupported.exit34.i.i, label %888
+.lr.ph.i30.i.i:                                   ; preds = %877, %.lr.ph.i30.preheader.i.i
+  %.0913.i31.i.i = phi i64 [ %878, %877 ], [ 0, %.lr.ph.i30.preheader.i.i ]
+  %879 = getelementptr inbounds nuw [8 x i8], ptr %873, i64 %.0913.i31.i.i
+  %880 = load i64, ptr %879, align 8, !tbaa !268
+  %881 = icmp eq i64 %880, %876
+  br i1 %881, label %getAtomIfSupported.exit34.i.i, label %877
 
 getAtomIfSupported.exit34.critedge.i.i:           ; preds = %getAtomIfSupported.exit22.i.i
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141040), align 8, !tbaa !358
-  %893 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %894 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %895 = call i64 %893(ptr noundef %894, ptr noundef nonnull @.str.325, i32 noundef 0) #13
+  %882 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %883 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %884 = call i64 %882(ptr noundef %883, ptr noundef nonnull @.str.325, i32 noundef 0) #13
   br label %getAtomIfSupported.exit34.i.i
 
-getAtomIfSupported.exit34.i.i:                    ; preds = %.lr.ph.i30.i.i, %888, %getAtomIfSupported.exit34.critedge.i.i
-  %spec.select.i33.i.i = phi i64 [ 0, %getAtomIfSupported.exit34.critedge.i.i ], [ %887, %.lr.ph.i30.i.i ], [ 0, %888 ]
+getAtomIfSupported.exit34.i.i:                    ; preds = %.lr.ph.i30.i.i, %877, %getAtomIfSupported.exit34.critedge.i.i
+  %spec.select.i33.i.i = phi i64 [ 0, %getAtomIfSupported.exit34.critedge.i.i ], [ %876, %.lr.ph.i30.i.i ], [ 0, %877 ]
   store i64 %spec.select.i33.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141048), align 8, !tbaa !359
-  %896 = load ptr, ptr %5, align 8, !tbaa !355
-  %897 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %898 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %899 = call i64 %897(ptr noundef %898, ptr noundef nonnull @.str.326, i32 noundef 0) #13
+  %885 = load ptr, ptr %5, align 8, !tbaa !355
+  %886 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %887 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %888 = call i64 %886(ptr noundef %887, ptr noundef nonnull @.str.326, i32 noundef 0) #13
   br i1 %.not12.not.i.i.i, label %getAtomIfSupported.exit46.critedge.i.i, label %.lr.ph.i36.i.i
 
-900:                                              ; preds = %.lr.ph.i36.i.i
-  %901 = add nuw i64 %.0913.i37.i.i, 1
-  %exitcond.not.i38.i.i = icmp eq i64 %901, %853
+889:                                              ; preds = %.lr.ph.i36.i.i
+  %890 = add nuw i64 %.0913.i37.i.i, 1
+  %exitcond.not.i38.i.i = icmp eq i64 %890, %842
   br i1 %exitcond.not.i38.i.i, label %getAtomIfSupported.exit40.i.i, label %.lr.ph.i36.i.i
 
-.lr.ph.i36.i.i:                                   ; preds = %getAtomIfSupported.exit34.i.i, %900
-  %.0913.i37.i.i = phi i64 [ %901, %900 ], [ 0, %getAtomIfSupported.exit34.i.i ]
-  %902 = getelementptr inbounds nuw [8 x i8], ptr %896, i64 %.0913.i37.i.i
-  %903 = load i64, ptr %902, align 8, !tbaa !268
-  %904 = icmp eq i64 %903, %899
-  br i1 %904, label %getAtomIfSupported.exit40.i.i, label %900
+.lr.ph.i36.i.i:                                   ; preds = %getAtomIfSupported.exit34.i.i, %889
+  %.0913.i37.i.i = phi i64 [ %890, %889 ], [ 0, %getAtomIfSupported.exit34.i.i ]
+  %891 = getelementptr inbounds nuw [8 x i8], ptr %885, i64 %.0913.i37.i.i
+  %892 = load i64, ptr %891, align 8, !tbaa !268
+  %893 = icmp eq i64 %892, %888
+  br i1 %893, label %getAtomIfSupported.exit40.i.i, label %889
 
-getAtomIfSupported.exit40.i.i:                    ; preds = %.lr.ph.i36.i.i, %900
-  %spec.select.i39.ph.i.i = phi i64 [ 0, %900 ], [ %899, %.lr.ph.i36.i.i ]
+getAtomIfSupported.exit40.i.i:                    ; preds = %.lr.ph.i36.i.i, %889
+  %spec.select.i39.ph.i.i = phi i64 [ 0, %889 ], [ %888, %.lr.ph.i36.i.i ]
   store i64 %spec.select.i39.ph.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141056), align 8, !tbaa !360
-  %905 = load ptr, ptr %5, align 8, !tbaa !355
-  %906 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %907 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %908 = call i64 %906(ptr noundef %907, ptr noundef nonnull @.str.327, i32 noundef 0) #13
+  %894 = load ptr, ptr %5, align 8, !tbaa !355
+  %895 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %896 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %897 = call i64 %895(ptr noundef %896, ptr noundef nonnull @.str.327, i32 noundef 0) #13
   br label %.lr.ph.i42.i.i
 
-909:                                              ; preds = %.lr.ph.i42.i.i
-  %910 = add nuw i64 %.0913.i43.i.i, 1
-  %exitcond.not.i44.i.i = icmp eq i64 %910, %853
+898:                                              ; preds = %.lr.ph.i42.i.i
+  %899 = add nuw i64 %.0913.i43.i.i, 1
+  %exitcond.not.i44.i.i = icmp eq i64 %899, %842
   br i1 %exitcond.not.i44.i.i, label %getAtomIfSupported.exit46.i.i, label %.lr.ph.i42.i.i
 
-.lr.ph.i42.i.i:                                   ; preds = %909, %getAtomIfSupported.exit40.i.i
-  %.0913.i43.i.i = phi i64 [ %910, %909 ], [ 0, %getAtomIfSupported.exit40.i.i ]
-  %911 = getelementptr inbounds nuw [8 x i8], ptr %905, i64 %.0913.i43.i.i
-  %912 = load i64, ptr %911, align 8, !tbaa !268
-  %913 = icmp eq i64 %912, %908
-  br i1 %913, label %getAtomIfSupported.exit46.i.i, label %909
+.lr.ph.i42.i.i:                                   ; preds = %898, %getAtomIfSupported.exit40.i.i
+  %.0913.i43.i.i = phi i64 [ %899, %898 ], [ 0, %getAtomIfSupported.exit40.i.i ]
+  %900 = getelementptr inbounds nuw [8 x i8], ptr %894, i64 %.0913.i43.i.i
+  %901 = load i64, ptr %900, align 8, !tbaa !268
+  %902 = icmp eq i64 %901, %897
+  br i1 %902, label %getAtomIfSupported.exit46.i.i, label %898
 
 getAtomIfSupported.exit46.critedge.i.i:           ; preds = %getAtomIfSupported.exit34.i.i
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141056), align 8, !tbaa !360
-  %914 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %915 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %916 = call i64 %914(ptr noundef %915, ptr noundef nonnull @.str.327, i32 noundef 0) #13
+  %903 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %904 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %905 = call i64 %903(ptr noundef %904, ptr noundef nonnull @.str.327, i32 noundef 0) #13
   br label %getAtomIfSupported.exit46.i.i
 
-getAtomIfSupported.exit46.i.i:                    ; preds = %.lr.ph.i42.i.i, %909, %getAtomIfSupported.exit46.critedge.i.i
-  %spec.select.i45.i.i = phi i64 [ 0, %getAtomIfSupported.exit46.critedge.i.i ], [ %908, %.lr.ph.i42.i.i ], [ 0, %909 ]
+getAtomIfSupported.exit46.i.i:                    ; preds = %.lr.ph.i42.i.i, %898, %getAtomIfSupported.exit46.critedge.i.i
+  %spec.select.i45.i.i = phi i64 [ 0, %getAtomIfSupported.exit46.critedge.i.i ], [ %897, %.lr.ph.i42.i.i ], [ 0, %898 ]
   store i64 %spec.select.i45.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141064), align 8, !tbaa !361
-  %917 = load ptr, ptr %5, align 8, !tbaa !355
-  %918 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %919 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %920 = call i64 %918(ptr noundef %919, ptr noundef nonnull @.str.328, i32 noundef 0) #13
+  %906 = load ptr, ptr %5, align 8, !tbaa !355
+  %907 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %908 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %909 = call i64 %907(ptr noundef %908, ptr noundef nonnull @.str.328, i32 noundef 0) #13
   br i1 %.not12.not.i.i.i, label %getAtomIfSupported.exit58.critedge.i.i, label %.lr.ph.i48.i.i
 
-921:                                              ; preds = %.lr.ph.i48.i.i
-  %922 = add nuw i64 %.0913.i49.i.i, 1
-  %exitcond.not.i50.i.i = icmp eq i64 %922, %853
+910:                                              ; preds = %.lr.ph.i48.i.i
+  %911 = add nuw i64 %.0913.i49.i.i, 1
+  %exitcond.not.i50.i.i = icmp eq i64 %911, %842
   br i1 %exitcond.not.i50.i.i, label %getAtomIfSupported.exit52.i.i, label %.lr.ph.i48.i.i
 
-.lr.ph.i48.i.i:                                   ; preds = %getAtomIfSupported.exit46.i.i, %921
-  %.0913.i49.i.i = phi i64 [ %922, %921 ], [ 0, %getAtomIfSupported.exit46.i.i ]
-  %923 = getelementptr inbounds nuw [8 x i8], ptr %917, i64 %.0913.i49.i.i
-  %924 = load i64, ptr %923, align 8, !tbaa !268
-  %925 = icmp eq i64 %924, %920
-  br i1 %925, label %getAtomIfSupported.exit52.i.i, label %921
+.lr.ph.i48.i.i:                                   ; preds = %getAtomIfSupported.exit46.i.i, %910
+  %.0913.i49.i.i = phi i64 [ %911, %910 ], [ 0, %getAtomIfSupported.exit46.i.i ]
+  %912 = getelementptr inbounds nuw [8 x i8], ptr %906, i64 %.0913.i49.i.i
+  %913 = load i64, ptr %912, align 8, !tbaa !268
+  %914 = icmp eq i64 %913, %909
+  br i1 %914, label %getAtomIfSupported.exit52.i.i, label %910
 
-getAtomIfSupported.exit52.i.i:                    ; preds = %.lr.ph.i48.i.i, %921
-  %spec.select.i51.i.i = phi i64 [ 0, %921 ], [ %920, %.lr.ph.i48.i.i ]
+getAtomIfSupported.exit52.i.i:                    ; preds = %.lr.ph.i48.i.i, %910
+  %spec.select.i51.i.i = phi i64 [ 0, %910 ], [ %909, %.lr.ph.i48.i.i ]
   store i64 %spec.select.i51.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141080), align 8, !tbaa !362
-  %926 = load ptr, ptr %5, align 8, !tbaa !355
-  %927 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %928 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %929 = call i64 %927(ptr noundef %928, ptr noundef nonnull @.str.329, i32 noundef 0) #13
+  %915 = load ptr, ptr %5, align 8, !tbaa !355
+  %916 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %917 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %918 = call i64 %916(ptr noundef %917, ptr noundef nonnull @.str.329, i32 noundef 0) #13
   br label %.lr.ph.i54.i.i
 
-930:                                              ; preds = %.lr.ph.i54.i.i
-  %931 = add nuw i64 %.0913.i55.i.i, 1
-  %exitcond.not.i56.i.i = icmp eq i64 %931, %853
+919:                                              ; preds = %.lr.ph.i54.i.i
+  %920 = add nuw i64 %.0913.i55.i.i, 1
+  %exitcond.not.i56.i.i = icmp eq i64 %920, %842
   br i1 %exitcond.not.i56.i.i, label %getAtomIfSupported.exit58.i.i, label %.lr.ph.i54.i.i
 
-.lr.ph.i54.i.i:                                   ; preds = %930, %getAtomIfSupported.exit52.i.i
-  %.0913.i55.i.i = phi i64 [ %931, %930 ], [ 0, %getAtomIfSupported.exit52.i.i ]
-  %932 = getelementptr inbounds nuw [8 x i8], ptr %926, i64 %.0913.i55.i.i
-  %933 = load i64, ptr %932, align 8, !tbaa !268
-  %934 = icmp eq i64 %933, %929
-  br i1 %934, label %getAtomIfSupported.exit58.i.i, label %930
+.lr.ph.i54.i.i:                                   ; preds = %919, %getAtomIfSupported.exit52.i.i
+  %.0913.i55.i.i = phi i64 [ %920, %919 ], [ 0, %getAtomIfSupported.exit52.i.i ]
+  %921 = getelementptr inbounds nuw [8 x i8], ptr %915, i64 %.0913.i55.i.i
+  %922 = load i64, ptr %921, align 8, !tbaa !268
+  %923 = icmp eq i64 %922, %918
+  br i1 %923, label %getAtomIfSupported.exit58.i.i, label %919
 
 getAtomIfSupported.exit58.critedge.i.i:           ; preds = %getAtomIfSupported.exit46.i.i
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141080), align 8, !tbaa !362
-  %935 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %936 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %937 = call i64 %935(ptr noundef %936, ptr noundef nonnull @.str.329, i32 noundef 0) #13
+  %924 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %925 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %926 = call i64 %924(ptr noundef %925, ptr noundef nonnull @.str.329, i32 noundef 0) #13
   br label %getAtomIfSupported.exit58.i.i
 
-getAtomIfSupported.exit58.i.i:                    ; preds = %.lr.ph.i54.i.i, %930, %getAtomIfSupported.exit58.critedge.i.i
-  %spec.select.i57.i.i = phi i64 [ 0, %getAtomIfSupported.exit58.critedge.i.i ], [ %929, %.lr.ph.i54.i.i ], [ 0, %930 ]
+getAtomIfSupported.exit58.i.i:                    ; preds = %.lr.ph.i54.i.i, %919, %getAtomIfSupported.exit58.critedge.i.i
+  %spec.select.i57.i.i = phi i64 [ 0, %getAtomIfSupported.exit58.critedge.i.i ], [ %918, %.lr.ph.i54.i.i ], [ 0, %919 ]
   store i64 %spec.select.i57.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141008), align 8, !tbaa !363
-  %938 = load ptr, ptr %5, align 8, !tbaa !355
-  %939 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %940 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %941 = call i64 %939(ptr noundef %940, ptr noundef nonnull @.str.330, i32 noundef 0) #13
+  %927 = load ptr, ptr %5, align 8, !tbaa !355
+  %928 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %929 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %930 = call i64 %928(ptr noundef %929, ptr noundef nonnull @.str.330, i32 noundef 0) #13
   br i1 %.not12.not.i.i.i, label %getAtomIfSupported.exit70.critedge.i.i, label %.lr.ph.i60.i.i
 
-942:                                              ; preds = %.lr.ph.i60.i.i
-  %943 = add nuw i64 %.0913.i61.i.i, 1
-  %exitcond.not.i62.i.i = icmp eq i64 %943, %853
+931:                                              ; preds = %.lr.ph.i60.i.i
+  %932 = add nuw i64 %.0913.i61.i.i, 1
+  %exitcond.not.i62.i.i = icmp eq i64 %932, %842
   br i1 %exitcond.not.i62.i.i, label %getAtomIfSupported.exit64.i.i, label %.lr.ph.i60.i.i
 
-.lr.ph.i60.i.i:                                   ; preds = %getAtomIfSupported.exit58.i.i, %942
-  %.0913.i61.i.i = phi i64 [ %943, %942 ], [ 0, %getAtomIfSupported.exit58.i.i ]
-  %944 = getelementptr inbounds nuw [8 x i8], ptr %938, i64 %.0913.i61.i.i
-  %945 = load i64, ptr %944, align 8, !tbaa !268
-  %946 = icmp eq i64 %945, %941
-  br i1 %946, label %getAtomIfSupported.exit64.i.i, label %942
+.lr.ph.i60.i.i:                                   ; preds = %getAtomIfSupported.exit58.i.i, %931
+  %.0913.i61.i.i = phi i64 [ %932, %931 ], [ 0, %getAtomIfSupported.exit58.i.i ]
+  %933 = getelementptr inbounds nuw [8 x i8], ptr %927, i64 %.0913.i61.i.i
+  %934 = load i64, ptr %933, align 8, !tbaa !268
+  %935 = icmp eq i64 %934, %930
+  br i1 %935, label %getAtomIfSupported.exit64.i.i, label %931
 
-getAtomIfSupported.exit64.i.i:                    ; preds = %.lr.ph.i60.i.i, %942
-  %spec.select.i63.i.i = phi i64 [ 0, %942 ], [ %941, %.lr.ph.i60.i.i ]
+getAtomIfSupported.exit64.i.i:                    ; preds = %.lr.ph.i60.i.i, %931
+  %spec.select.i63.i.i = phi i64 [ 0, %931 ], [ %930, %.lr.ph.i60.i.i ]
   store i64 %spec.select.i63.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141016), align 8, !tbaa !364
-  %947 = load ptr, ptr %5, align 8, !tbaa !355
-  %948 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %949 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %950 = call i64 %948(ptr noundef %949, ptr noundef nonnull @.str.331, i32 noundef 0) #13
+  %936 = load ptr, ptr %5, align 8, !tbaa !355
+  %937 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %938 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %939 = call i64 %937(ptr noundef %938, ptr noundef nonnull @.str.331, i32 noundef 0) #13
   br label %.lr.ph.i66.i.i
 
-951:                                              ; preds = %.lr.ph.i66.i.i
-  %952 = add nuw i64 %.0913.i67.i.i, 1
-  %exitcond.not.i68.i.i = icmp eq i64 %952, %853
+940:                                              ; preds = %.lr.ph.i66.i.i
+  %941 = add nuw i64 %.0913.i67.i.i, 1
+  %exitcond.not.i68.i.i = icmp eq i64 %941, %842
   br i1 %exitcond.not.i68.i.i, label %getAtomIfSupported.exit70.i.i, label %.lr.ph.i66.i.i
 
-.lr.ph.i66.i.i:                                   ; preds = %951, %getAtomIfSupported.exit64.i.i
-  %.0913.i67.i.i = phi i64 [ %952, %951 ], [ 0, %getAtomIfSupported.exit64.i.i ]
-  %953 = getelementptr inbounds nuw [8 x i8], ptr %947, i64 %.0913.i67.i.i
-  %954 = load i64, ptr %953, align 8, !tbaa !268
-  %955 = icmp eq i64 %954, %950
-  br i1 %955, label %getAtomIfSupported.exit70.i.i, label %951
+.lr.ph.i66.i.i:                                   ; preds = %940, %getAtomIfSupported.exit64.i.i
+  %.0913.i67.i.i = phi i64 [ %941, %940 ], [ 0, %getAtomIfSupported.exit64.i.i ]
+  %942 = getelementptr inbounds nuw [8 x i8], ptr %936, i64 %.0913.i67.i.i
+  %943 = load i64, ptr %942, align 8, !tbaa !268
+  %944 = icmp eq i64 %943, %939
+  br i1 %944, label %getAtomIfSupported.exit70.i.i, label %940
 
 getAtomIfSupported.exit70.critedge.i.i:           ; preds = %getAtomIfSupported.exit58.i.i
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141016), align 8, !tbaa !364
-  %956 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %957 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %958 = call i64 %956(ptr noundef %957, ptr noundef nonnull @.str.331, i32 noundef 0) #13
+  %945 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %946 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %947 = call i64 %945(ptr noundef %946, ptr noundef nonnull @.str.331, i32 noundef 0) #13
   br label %getAtomIfSupported.exit70.i.i
 
-getAtomIfSupported.exit70.i.i:                    ; preds = %.lr.ph.i66.i.i, %951, %getAtomIfSupported.exit70.critedge.i.i
-  %spec.select.i69.i.i = phi i64 [ 0, %getAtomIfSupported.exit70.critedge.i.i ], [ %950, %.lr.ph.i66.i.i ], [ 0, %951 ]
+getAtomIfSupported.exit70.i.i:                    ; preds = %.lr.ph.i66.i.i, %940, %getAtomIfSupported.exit70.critedge.i.i
+  %spec.select.i69.i.i = phi i64 [ 0, %getAtomIfSupported.exit70.critedge.i.i ], [ %939, %.lr.ph.i66.i.i ], [ 0, %940 ]
   store i64 %spec.select.i69.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141104), align 8, !tbaa !365
-  %959 = load ptr, ptr %5, align 8, !tbaa !355
-  %960 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %961 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %962 = call i64 %960(ptr noundef %961, ptr noundef nonnull @.str.332, i32 noundef 0) #13
+  %948 = load ptr, ptr %5, align 8, !tbaa !355
+  %949 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %950 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %951 = call i64 %949(ptr noundef %950, ptr noundef nonnull @.str.332, i32 noundef 0) #13
   br i1 %.not12.not.i.i.i, label %getAtomIfSupported.exit82.critedge.i.i, label %.lr.ph.i72.i.i
 
-963:                                              ; preds = %.lr.ph.i72.i.i
-  %964 = add nuw i64 %.0913.i73.i.i, 1
-  %exitcond.not.i74.i.i = icmp eq i64 %964, %853
+952:                                              ; preds = %.lr.ph.i72.i.i
+  %953 = add nuw i64 %.0913.i73.i.i, 1
+  %exitcond.not.i74.i.i = icmp eq i64 %953, %842
   br i1 %exitcond.not.i74.i.i, label %.lr.ph.i78.i.preheader.i, label %.lr.ph.i72.i.i
 
-.lr.ph.i72.i.i:                                   ; preds = %getAtomIfSupported.exit70.i.i, %963
-  %.0913.i73.i.i = phi i64 [ %964, %963 ], [ 0, %getAtomIfSupported.exit70.i.i ]
-  %965 = getelementptr inbounds nuw [8 x i8], ptr %959, i64 %.0913.i73.i.i
-  %966 = load i64, ptr %965, align 8, !tbaa !268
-  %967 = icmp eq i64 %966, %962
-  br i1 %967, label %.lr.ph.i78.i.preheader.i, label %963
+.lr.ph.i72.i.i:                                   ; preds = %getAtomIfSupported.exit70.i.i, %952
+  %.0913.i73.i.i = phi i64 [ %953, %952 ], [ 0, %getAtomIfSupported.exit70.i.i ]
+  %954 = getelementptr inbounds nuw [8 x i8], ptr %948, i64 %.0913.i73.i.i
+  %955 = load i64, ptr %954, align 8, !tbaa !268
+  %956 = icmp eq i64 %955, %951
+  br i1 %956, label %.lr.ph.i78.i.preheader.i, label %952
 
-.lr.ph.i78.i.preheader.i:                         ; preds = %.lr.ph.i72.i.i, %963
-  %spec.select.i75.i.ph.i = phi i64 [ 0, %963 ], [ %962, %.lr.ph.i72.i.i ]
+.lr.ph.i78.i.preheader.i:                         ; preds = %.lr.ph.i72.i.i, %952
+  %spec.select.i75.i.ph.i = phi i64 [ 0, %952 ], [ %951, %.lr.ph.i72.i.i ]
   store i64 %spec.select.i75.i.ph.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141112), align 8, !tbaa !366
-  %968 = load ptr, ptr %5, align 8, !tbaa !355
-  %969 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %970 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %971 = call i64 %969(ptr noundef %970, ptr noundef nonnull @.str.333, i32 noundef 0) #13
+  %957 = load ptr, ptr %5, align 8, !tbaa !355
+  %958 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %959 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %960 = call i64 %958(ptr noundef %959, ptr noundef nonnull @.str.333, i32 noundef 0) #13
   br label %.lr.ph.i78.i.i
 
-972:                                              ; preds = %.lr.ph.i78.i.i
-  %973 = add nuw i64 %.0913.i79.i.i, 1
-  %exitcond.not.i80.i.i = icmp eq i64 %973, %853
+961:                                              ; preds = %.lr.ph.i78.i.i
+  %962 = add nuw i64 %.0913.i79.i.i, 1
+  %exitcond.not.i80.i.i = icmp eq i64 %962, %842
   br i1 %exitcond.not.i80.i.i, label %getAtomIfSupported.exit82.i.i, label %.lr.ph.i78.i.i
 
-.lr.ph.i78.i.i:                                   ; preds = %972, %.lr.ph.i78.i.preheader.i
-  %.0913.i79.i.i = phi i64 [ %973, %972 ], [ 0, %.lr.ph.i78.i.preheader.i ]
-  %974 = getelementptr inbounds nuw [8 x i8], ptr %968, i64 %.0913.i79.i.i
-  %975 = load i64, ptr %974, align 8, !tbaa !268
-  %976 = icmp eq i64 %975, %971
-  br i1 %976, label %getAtomIfSupported.exit82.i.i, label %972
+.lr.ph.i78.i.i:                                   ; preds = %961, %.lr.ph.i78.i.preheader.i
+  %.0913.i79.i.i = phi i64 [ %962, %961 ], [ 0, %.lr.ph.i78.i.preheader.i ]
+  %963 = getelementptr inbounds nuw [8 x i8], ptr %957, i64 %.0913.i79.i.i
+  %964 = load i64, ptr %963, align 8, !tbaa !268
+  %965 = icmp eq i64 %964, %960
+  br i1 %965, label %getAtomIfSupported.exit82.i.i, label %961
 
 getAtomIfSupported.exit82.critedge.i.i:           ; preds = %getAtomIfSupported.exit70.i.i
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141112), align 8, !tbaa !366
-  %977 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %978 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %979 = call i64 %977(ptr noundef %978, ptr noundef nonnull @.str.333, i32 noundef 0) #13
+  %966 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %967 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %968 = call i64 %966(ptr noundef %967, ptr noundef nonnull @.str.333, i32 noundef 0) #13
   br label %getAtomIfSupported.exit82.i.i
 
-getAtomIfSupported.exit82.i.i:                    ; preds = %.lr.ph.i78.i.i, %972, %getAtomIfSupported.exit82.critedge.i.i
-  %spec.select.i81.i.i = phi i64 [ 0, %getAtomIfSupported.exit82.critedge.i.i ], [ %971, %.lr.ph.i78.i.i ], [ 0, %972 ]
+getAtomIfSupported.exit82.i.i:                    ; preds = %.lr.ph.i78.i.i, %961, %getAtomIfSupported.exit82.critedge.i.i
+  %spec.select.i81.i.i = phi i64 [ 0, %getAtomIfSupported.exit82.critedge.i.i ], [ %960, %.lr.ph.i78.i.i ], [ 0, %961 ]
   store i64 %spec.select.i81.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141120), align 8, !tbaa !367
-  %980 = load ptr, ptr %5, align 8, !tbaa !355
-  %981 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %982 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %983 = call i64 %981(ptr noundef %982, ptr noundef nonnull @.str.334, i32 noundef 0) #13
+  %969 = load ptr, ptr %5, align 8, !tbaa !355
+  %970 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %971 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %972 = call i64 %970(ptr noundef %971, ptr noundef nonnull @.str.334, i32 noundef 0) #13
   br i1 %.not12.not.i.i.i, label %getAtomIfSupported.exit94.critedge.i.i, label %.lr.ph.i84.i.i
 
-984:                                              ; preds = %.lr.ph.i84.i.i
-  %985 = add nuw i64 %.0913.i85.i.i, 1
-  %exitcond.not.i86.i.i = icmp eq i64 %985, %853
+973:                                              ; preds = %.lr.ph.i84.i.i
+  %974 = add nuw i64 %.0913.i85.i.i, 1
+  %exitcond.not.i86.i.i = icmp eq i64 %974, %842
   br i1 %exitcond.not.i86.i.i, label %.lr.ph.i90.i.preheader.i, label %.lr.ph.i84.i.i
 
-.lr.ph.i84.i.i:                                   ; preds = %getAtomIfSupported.exit82.i.i, %984
-  %.0913.i85.i.i = phi i64 [ %985, %984 ], [ 0, %getAtomIfSupported.exit82.i.i ]
-  %986 = getelementptr inbounds nuw [8 x i8], ptr %980, i64 %.0913.i85.i.i
-  %987 = load i64, ptr %986, align 8, !tbaa !268
-  %988 = icmp eq i64 %987, %983
-  br i1 %988, label %.lr.ph.i90.i.preheader.i, label %984
+.lr.ph.i84.i.i:                                   ; preds = %getAtomIfSupported.exit82.i.i, %973
+  %.0913.i85.i.i = phi i64 [ %974, %973 ], [ 0, %getAtomIfSupported.exit82.i.i ]
+  %975 = getelementptr inbounds nuw [8 x i8], ptr %969, i64 %.0913.i85.i.i
+  %976 = load i64, ptr %975, align 8, !tbaa !268
+  %977 = icmp eq i64 %976, %972
+  br i1 %977, label %.lr.ph.i90.i.preheader.i, label %973
 
-.lr.ph.i90.i.preheader.i:                         ; preds = %.lr.ph.i84.i.i, %984
-  %spec.select.i87.i.ph.i = phi i64 [ %983, %.lr.ph.i84.i.i ], [ 0, %984 ]
+.lr.ph.i90.i.preheader.i:                         ; preds = %.lr.ph.i84.i.i, %973
+  %spec.select.i87.i.ph.i = phi i64 [ %972, %.lr.ph.i84.i.i ], [ 0, %973 ]
   store i64 %spec.select.i87.i.ph.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141128), align 8, !tbaa !368
-  %989 = load ptr, ptr %5, align 8, !tbaa !355
-  %990 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %991 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %992 = call i64 %990(ptr noundef %991, ptr noundef nonnull @.str.335, i32 noundef 0) #13
+  %978 = load ptr, ptr %5, align 8, !tbaa !355
+  %979 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %980 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %981 = call i64 %979(ptr noundef %980, ptr noundef nonnull @.str.335, i32 noundef 0) #13
   br label %.lr.ph.i90.i.i
 
-993:                                              ; preds = %.lr.ph.i90.i.i
-  %994 = add nuw i64 %.0913.i91.i.i, 1
-  %exitcond.not.i92.i.i = icmp eq i64 %994, %853
+982:                                              ; preds = %.lr.ph.i90.i.i
+  %983 = add nuw i64 %.0913.i91.i.i, 1
+  %exitcond.not.i92.i.i = icmp eq i64 %983, %842
   br i1 %exitcond.not.i92.i.i, label %getAtomIfSupported.exit94.i.i, label %.lr.ph.i90.i.i
 
-.lr.ph.i90.i.i:                                   ; preds = %993, %.lr.ph.i90.i.preheader.i
-  %.0913.i91.i.i = phi i64 [ %994, %993 ], [ 0, %.lr.ph.i90.i.preheader.i ]
-  %995 = getelementptr inbounds nuw [8 x i8], ptr %989, i64 %.0913.i91.i.i
-  %996 = load i64, ptr %995, align 8, !tbaa !268
-  %997 = icmp eq i64 %996, %992
-  br i1 %997, label %getAtomIfSupported.exit94.i.i, label %993
+.lr.ph.i90.i.i:                                   ; preds = %982, %.lr.ph.i90.i.preheader.i
+  %.0913.i91.i.i = phi i64 [ %983, %982 ], [ 0, %.lr.ph.i90.i.preheader.i ]
+  %984 = getelementptr inbounds nuw [8 x i8], ptr %978, i64 %.0913.i91.i.i
+  %985 = load i64, ptr %984, align 8, !tbaa !268
+  %986 = icmp eq i64 %985, %981
+  br i1 %986, label %getAtomIfSupported.exit94.i.i, label %982
 
 getAtomIfSupported.exit94.critedge.i.i:           ; preds = %getAtomIfSupported.exit82.i.i
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141128), align 8, !tbaa !368
-  %998 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
-  %999 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %1000 = call i64 %998(ptr noundef %999, ptr noundef nonnull @.str.335, i32 noundef 0) #13
+  %987 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
+  %988 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %989 = call i64 %987(ptr noundef %988, ptr noundef nonnull @.str.335, i32 noundef 0) #13
   br label %getAtomIfSupported.exit94.i.i
 
-getAtomIfSupported.exit94.i.i:                    ; preds = %.lr.ph.i90.i.i, %993, %getAtomIfSupported.exit94.critedge.i.i
-  %spec.select.i93.i.i = phi i64 [ 0, %getAtomIfSupported.exit94.critedge.i.i ], [ 0, %993 ], [ %992, %.lr.ph.i90.i.i ]
+getAtomIfSupported.exit94.i.i:                    ; preds = %.lr.ph.i90.i.i, %982, %getAtomIfSupported.exit94.critedge.i.i
+  %spec.select.i93.i.i = phi i64 [ 0, %getAtomIfSupported.exit94.critedge.i.i ], [ 0, %982 ], [ %981, %.lr.ph.i90.i.i ]
   store i64 %spec.select.i93.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141136), align 8, !tbaa !369
-  %1001 = load ptr, ptr %5, align 8, !tbaa !355
-  %.not16.i.i = icmp eq ptr %1001, null
-  br i1 %.not16.i.i, label %1005, label %1002
+  %990 = load ptr, ptr %5, align 8, !tbaa !355
+  %.not16.i.i = icmp eq ptr %990, null
+  br i1 %.not16.i.i, label %994, label %991
 
-1002:                                             ; preds = %getAtomIfSupported.exit94.i.i
-  %1003 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !144
-  %1004 = call i32 %1003(ptr noundef nonnull %1001) #13
-  br label %1005
+991:                                              ; preds = %getAtomIfSupported.exit94.i.i
+  %992 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !144
+  %993 = call i32 %992(ptr noundef nonnull %990) #13
+  br label %994
 
-1005:                                             ; preds = %1002, %getAtomIfSupported.exit94.i.i
+994:                                              ; preds = %991, %getAtomIfSupported.exit94.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %1006
+  br label %995
 
-1006:                                             ; preds = %1005, %834, %830
+995:                                              ; preds = %994, %823, %819
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %initExtensions.exit
 
-initExtensions.exit:                              ; preds = %createKeyTables.exit.i, %1006
+initExtensions.exit:                              ; preds = %createKeyTables.exit.i, %995
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %1007 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store i64 4194304, ptr %1007, align 8, !tbaa !370
-  %1008 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141456), align 8, !tbaa !132
-  %1009 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %1010 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !225
-  %1011 = getelementptr inbounds nuw i8, ptr %1009, i64 232
-  %1012 = load ptr, ptr %1011, align 8, !tbaa !221
-  %1013 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !220
-  %1014 = sext i32 %1013 to i64
-  %1015 = getelementptr inbounds [128 x i8], ptr %1012, i64 %1014
-  %1016 = getelementptr inbounds nuw i8, ptr %1015, i64 64
-  %1017 = load ptr, ptr %1016, align 8, !tbaa !372
-  %1018 = call i64 %1008(ptr noundef %1009, i64 noundef %1010, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef %1017, i64 noundef 2048, ptr noundef nonnull %2) #13
+  %996 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store i64 4194304, ptr %996, align 8, !tbaa !370
+  %997 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141456), align 8, !tbaa !132
+  %998 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %999 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !225
+  %1000 = getelementptr inbounds nuw i8, ptr %998, i64 232
+  %1001 = load ptr, ptr %1000, align 8, !tbaa !221
+  %1002 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !220
+  %1003 = sext i32 %1002 to i64
+  %1004 = getelementptr inbounds [128 x i8], ptr %1001, i64 %1003
+  %1005 = getelementptr inbounds nuw i8, ptr %1004, i64 64
+  %1006 = load ptr, ptr %1005, align 8, !tbaa !372
+  %1007 = call i64 %997(ptr noundef %998, i64 noundef %999, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef %1006, i64 noundef 2048, ptr noundef nonnull %2) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  store i64 %1018, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137872), align 8, !tbaa !373
+  store i64 %1007, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137872), align 8, !tbaa !373
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %1, i8 0, i64 1024, i1 false)
-  %1019 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142392), align 8, !tbaa !100
-  %.not.i.i10 = icmp eq ptr %1019, null
-  br i1 %.not.i.i10, label %createHiddenCursor.exit, label %1020
+  %1008 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142392), align 8, !tbaa !100
+  %.not.i.i10 = icmp eq ptr %1008, null
+  br i1 %.not.i.i10, label %createHiddenCursor.exit, label %1009
 
-1020:                                             ; preds = %initExtensions.exit
-  %1021 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142400), align 8, !tbaa !101
-  %1022 = call ptr %1021(i32 noundef 16, i32 noundef 16) #13
-  %1023 = icmp eq ptr %1022, null
-  br i1 %1023, label %createHiddenCursor.exit, label %.lr.ph.preheader.i.i
+1009:                                             ; preds = %initExtensions.exit
+  %1010 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142400), align 8, !tbaa !101
+  %1011 = call ptr %1010(i32 noundef 16, i32 noundef 16) #13
+  %1012 = icmp eq ptr %1011, null
+  br i1 %1012, label %createHiddenCursor.exit, label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %1020
-  %1024 = getelementptr inbounds nuw i8, ptr %1022, i64 16
-  store i32 0, ptr %1024, align 8, !tbaa !105
-  %1025 = getelementptr inbounds nuw i8, ptr %1022, i64 20
-  store i32 0, ptr %1025, align 4, !tbaa !108
-  %1026 = getelementptr inbounds nuw i8, ptr %1022, i64 32
-  %1027 = load ptr, ptr %1026, align 8, !tbaa !109
+.lr.ph.preheader.i.i:                             ; preds = %1009
+  %1013 = getelementptr inbounds nuw i8, ptr %1011, i64 16
+  store i32 0, ptr %1013, align 8, !tbaa !105
+  %1014 = getelementptr inbounds nuw i8, ptr %1011, i64 20
+  store i32 0, ptr %1014, align 4, !tbaa !108
+  %1015 = getelementptr inbounds nuw i8, ptr %1011, i64 32
+  %1016 = load ptr, ptr %1015, align 8, !tbaa !109
   br label %.lr.ph.i.i11
 
 ._crit_edge.i.i12:                                ; preds = %.lr.ph.i.i11
-  %1028 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142416), align 8, !tbaa !111
-  %1029 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %1030 = call i64 %1028(ptr noundef %1029, ptr noundef nonnull %1022) #13
-  %1031 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142408), align 8, !tbaa !112
-  call void %1031(ptr noundef nonnull %1022) #13
+  %1017 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142416), align 8, !tbaa !111
+  %1018 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %1019 = call i64 %1017(ptr noundef %1018, ptr noundef nonnull %1011) #13
+  %1020 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142408), align 8, !tbaa !112
+  call void %1020(ptr noundef nonnull %1011) #13
   br label %createHiddenCursor.exit
 
 .lr.ph.i.i11:                                     ; preds = %.lr.ph.i.i11, %.lr.ph.preheader.i.i
-  %.02737.i.i = phi i32 [ %1057, %.lr.ph.i.i11 ], [ 0, %.lr.ph.preheader.i.i ]
-  %.02836.i.i = phi ptr [ %1058, %.lr.ph.i.i11 ], [ %1027, %.lr.ph.preheader.i.i ]
-  %.02935.i.i = phi ptr [ %1059, %.lr.ph.i.i11 ], [ %1, %.lr.ph.preheader.i.i ]
-  %1032 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 3
-  %1033 = load i8, ptr %1032, align 1, !tbaa !113
-  %1034 = zext i8 %1033 to i32
-  %1035 = shl nuw i32 %1034, 24
-  %1036 = load i8, ptr %.02935.i.i, align 1, !tbaa !113
-  %1037 = zext i8 %1036 to i32
-  %1038 = mul nuw nsw i32 %1037, %1034
-  %.lhs.trunc.i.i = trunc nuw i32 %1038 to i16
-  %1039 = udiv i16 %.lhs.trunc.i.i, 255
-  %.zext.i.i = zext nneg i16 %1039 to i32
-  %1040 = shl nuw nsw i32 %.zext.i.i, 16
-  %1041 = and i32 %1040, 16711680
-  %1042 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 1
-  %1043 = load i8, ptr %1042, align 1, !tbaa !113
-  %1044 = zext i8 %1043 to i32
-  %1045 = mul nuw nsw i32 %1044, %1034
-  %.lhs.trunc31.i.i = trunc nuw i32 %1045 to i16
-  %1046 = udiv i16 %.lhs.trunc31.i.i, 255
-  %.zext32.i.i = zext nneg i16 %1046 to i32
-  %1047 = shl nuw nsw i32 %.zext32.i.i, 8
-  %1048 = and i32 %1047, 65280
-  %1049 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 2
-  %1050 = load i8, ptr %1049, align 1, !tbaa !113
-  %1051 = zext i8 %1050 to i32
-  %1052 = mul nuw nsw i32 %1051, %1034
-  %.lhs.trunc33.i.i = trunc nuw i32 %1052 to i16
-  %1053 = udiv i16 %.lhs.trunc33.i.i, 255
-  %.zext34.i.i = zext nneg i16 %1053 to i32
-  %1054 = or disjoint i32 %1041, %1035
-  %1055 = or disjoint i32 %1054, %.zext34.i.i
-  %1056 = add nuw nsw i32 %1055, %1048
-  store i32 %1056, ptr %.02836.i.i, align 4, !tbaa !114
-  %1057 = add nuw nsw i32 %.02737.i.i, 1
-  %1058 = getelementptr inbounds nuw i8, ptr %.02836.i.i, i64 4
-  %1059 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 4
-  %exitcond.not.i = icmp eq i32 %1057, 256
+  %.02737.i.i = phi i32 [ %1046, %.lr.ph.i.i11 ], [ 0, %.lr.ph.preheader.i.i ]
+  %.02836.i.i = phi ptr [ %1047, %.lr.ph.i.i11 ], [ %1016, %.lr.ph.preheader.i.i ]
+  %.02935.i.i = phi ptr [ %1048, %.lr.ph.i.i11 ], [ %1, %.lr.ph.preheader.i.i ]
+  %1021 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 3
+  %1022 = load i8, ptr %1021, align 1, !tbaa !113
+  %1023 = zext i8 %1022 to i32
+  %1024 = shl nuw i32 %1023, 24
+  %1025 = load i8, ptr %.02935.i.i, align 1, !tbaa !113
+  %1026 = zext i8 %1025 to i32
+  %1027 = mul nuw nsw i32 %1026, %1023
+  %.lhs.trunc.i.i = trunc nuw i32 %1027 to i16
+  %1028 = udiv i16 %.lhs.trunc.i.i, 255
+  %.zext.i.i = zext nneg i16 %1028 to i32
+  %1029 = shl nuw nsw i32 %.zext.i.i, 16
+  %1030 = and i32 %1029, 16711680
+  %1031 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 1
+  %1032 = load i8, ptr %1031, align 1, !tbaa !113
+  %1033 = zext i8 %1032 to i32
+  %1034 = mul nuw nsw i32 %1033, %1023
+  %.lhs.trunc31.i.i = trunc nuw i32 %1034 to i16
+  %1035 = udiv i16 %.lhs.trunc31.i.i, 255
+  %.zext32.i.i = zext nneg i16 %1035 to i32
+  %1036 = shl nuw nsw i32 %.zext32.i.i, 8
+  %1037 = and i32 %1036, 65280
+  %1038 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 2
+  %1039 = load i8, ptr %1038, align 1, !tbaa !113
+  %1040 = zext i8 %1039 to i32
+  %1041 = mul nuw nsw i32 %1040, %1023
+  %.lhs.trunc33.i.i = trunc nuw i32 %1041 to i16
+  %1042 = udiv i16 %.lhs.trunc33.i.i, 255
+  %.zext34.i.i = zext nneg i16 %1042 to i32
+  %1043 = or disjoint i32 %1030, %1024
+  %1044 = or disjoint i32 %1043, %.zext34.i.i
+  %1045 = add nuw nsw i32 %1044, %1037
+  store i32 %1045, ptr %.02836.i.i, align 4, !tbaa !114
+  %1046 = add nuw nsw i32 %.02737.i.i, 1
+  %1047 = getelementptr inbounds nuw i8, ptr %.02836.i.i, i64 4
+  %1048 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 4
+  %exitcond.not.i = icmp eq i32 %1046, 256
   br i1 %exitcond.not.i, label %._crit_edge.i.i12, label %.lr.ph.i.i11
 
-createHiddenCursor.exit:                          ; preds = %initExtensions.exit, %1020, %._crit_edge.i.i12
-  %.0.i.i = phi i64 [ 0, %initExtensions.exit ], [ %1030, %._crit_edge.i.i12 ], [ 0, %1020 ]
+createHiddenCursor.exit:                          ; preds = %initExtensions.exit, %1009, %._crit_edge.i.i12
+  %.0.i.i = phi i64 [ 0, %initExtensions.exit ], [ %1019, %._crit_edge.i.i12 ], [ 0, %1009 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   store i64 %.0.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137880), align 8, !tbaa !374
-  %1060 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141936), align 8, !tbaa !190
-  %1061 = call i32 %1060() #13
-  %1062 = icmp ne i32 %1061, 0
-  %1063 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141336), align 8
-  %1064 = icmp ne i32 %1063, 0
-  %or.cond3 = select i1 %1062, i1 %1064, i1 false
-  br i1 %or.cond3, label %1065, label %1071
+  %1049 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141936), align 8, !tbaa !190
+  %1050 = call i32 %1049() #13
+  %1051 = icmp ne i32 %1050, 0
+  %1052 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141336), align 8
+  %1053 = icmp ne i32 %1052, 0
+  %or.cond3 = select i1 %1051, i1 %1053, i1 false
+  br i1 %or.cond3, label %1054, label %1060
 
-1065:                                             ; preds = %createHiddenCursor.exit
-  %1066 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141888), align 8, !tbaa !184
-  %1067 = call ptr %1066(ptr noundef nonnull @.str.2) #13
-  %1068 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141800), align 8, !tbaa !174
-  %1069 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %1070 = call i32 %1068(ptr noundef %1069, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @inputMethodInstantiateCallback, ptr noundef null) #13
-  br label %1071
+1054:                                             ; preds = %createHiddenCursor.exit
+  %1055 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141888), align 8, !tbaa !184
+  %1056 = call ptr %1055(ptr noundef nonnull @.str.2) #13
+  %1057 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141800), align 8, !tbaa !174
+  %1058 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
+  %1059 = call i32 %1057(ptr noundef %1058, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @inputMethodInstantiateCallback, ptr noundef null) #13
+  br label %1060
 
-1071:                                             ; preds = %1065, %createHiddenCursor.exit
+1060:                                             ; preds = %1054, %createHiddenCursor.exit
   call void @_glfwPollMonitorsX11() #13
-  br label %1072
+  br label %1061
 
-1072:                                             ; preds = %createEmptyEventPipe.exit.thread, %1071
-  %.0 = phi i32 [ 1, %1071 ], [ 0, %createEmptyEventPipe.exit.thread ]
+1061:                                             ; preds = %createEmptyEventPipe.exit.thread, %1060
+  %.0 = phi i32 [ 1, %1060 ], [ 0, %createEmptyEventPipe.exit.thread ]
   ret i32 %.0
 }
 

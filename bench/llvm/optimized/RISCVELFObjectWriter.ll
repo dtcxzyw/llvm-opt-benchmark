@@ -69,17 +69,17 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_120RISCVELFObje
 
 14:                                               ; preds = %5
   %15 = add i32 %12, -256
-  br label %78
+  br label %76
 
 16:                                               ; preds = %5
   %trunc23 = trunc nuw i32 %12 to i8
-  br i1 %4, label %17, label %40
+  br i1 %4, label %17, label %38
 
 17:                                               ; preds = %16
   switch i8 %trunc23, label %18 [
     i8 3, label %22
     i8 8, label %22
-    i8 -124, label %78
+    i8 -124, label %76
     i8 -123, label %26
     i8 -122, label %27
     i8 -121, label %28
@@ -87,14 +87,14 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_120RISCVELFObje
     i8 -115, label %30
     i8 -106, label %31
     i8 -105, label %32
-    i8 -104, label %33
-    i8 -103, label %34
-    i8 -114, label %35
-    i8 -113, label %36
-    i8 -112, label %37
-    i8 -111, label %38
-    i8 -110, label %39
-    i8 -109, label %39
+    i8 -104, label %43
+    i8 -103, label %44
+    i8 -114, label %33
+    i8 -113, label %34
+    i8 -112, label %35
+    i8 -111, label %36
+    i8 -110, label %37
+    i8 -109, label %37
   ]
 
 18:                                               ; preds = %17
@@ -108,173 +108,167 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_120RISCVELFObje
   store i8 3, ptr %20, align 8, !tbaa !27
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(34) %6) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %78
+  br label %76
 
 22:                                               ; preds = %17, %17
   %23 = tail call noundef zeroext i16 @_ZNK4llvm7MCValue16getAccessVariantEv(ptr noundef nonnull align 8 dereferenceable(28) %2) #7
   %24 = icmp eq i16 %23, 13
   %25 = select i1 %24, i32 59, i32 57
-  br label %78
+  br label %76
 
 26:                                               ; preds = %17
-  br label %78
+  br label %76
 
 27:                                               ; preds = %17
-  br label %78
+  br label %76
 
 28:                                               ; preds = %17
-  br label %78
+  br label %76
 
 29:                                               ; preds = %17
-  br label %78
+  br label %76
 
 30:                                               ; preds = %17
-  br label %78
+  br label %76
 
 31:                                               ; preds = %17
-  br label %78
+  br label %76
 
 32:                                               ; preds = %17
-  br label %78
+  br label %76
 
 33:                                               ; preds = %17
-  br label %78
+  br label %76
 
 34:                                               ; preds = %17
-  br label %78
+  br label %76
 
 35:                                               ; preds = %17
-  br label %78
+  br label %76
 
 36:                                               ; preds = %17
-  br label %78
+  br label %76
 
-37:                                               ; preds = %17
-  br label %78
+37:                                               ; preds = %17, %17
+  br label %76
 
-38:                                               ; preds = %17
-  br label %78
-
-39:                                               ; preds = %17, %17
-  br label %78
-
-40:                                               ; preds = %16
-  switch i8 %trunc23, label %41 [
-    i8 -105, label %78
-    i8 -104, label %45
-    i8 -103, label %46
-    i8 1, label %47
-    i8 2, label %51
-    i8 3, label %55
-    i8 4, label %68
-    i8 -128, label %69
-    i8 -127, label %70
-    i8 -125, label %71
-    i8 -120, label %72
-    i8 -119, label %73
-    i8 -118, label %74
-    i8 -117, label %75
-    i8 -108, label %76
-    i8 -107, label %77
+38:                                               ; preds = %16
+  switch i8 %trunc23, label %39 [
+    i8 -105, label %76
+    i8 -104, label %43
+    i8 -103, label %44
+    i8 1, label %45
+    i8 2, label %49
+    i8 3, label %53
+    i8 4, label %66
+    i8 -128, label %67
+    i8 -127, label %68
+    i8 -125, label %69
+    i8 -120, label %70
+    i8 -119, label %71
+    i8 -118, label %72
+    i8 -117, label %73
+    i8 -108, label %74
+    i8 -107, label %75
   ]
 
-41:                                               ; preds = %40
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.0.0.copyload.i24 = load ptr, ptr %42, align 8, !tbaa !22
+39:                                               ; preds = %38
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.0.0.copyload.i24 = load ptr, ptr %40, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %44, align 1, !tbaa !23
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 1, ptr %42, align 1, !tbaa !23
   store ptr @.str, ptr %7, align 8, !tbaa !26
-  store i8 3, ptr %43, align 8, !tbaa !27
+  store i8 3, ptr %41, align 8, !tbaa !27
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i24, ptr noundef nonnull align 8 dereferenceable(34) %7) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %78
+  br label %76
 
-45:                                               ; preds = %40
-  br label %78
+43:                                               ; preds = %17, %38
+  br label %76
 
-46:                                               ; preds = %40
-  br label %78
+44:                                               ; preds = %17, %38
+  br label %76
 
-47:                                               ; preds = %40
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.0.0.copyload.i25 = load ptr, ptr %48, align 8, !tbaa !22
+45:                                               ; preds = %38
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.0.0.copyload.i25 = load ptr, ptr %46, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %49 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %50 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  store i8 1, ptr %50, align 1, !tbaa !23
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 33
+  store i8 1, ptr %48, align 1, !tbaa !23
   store ptr @.str.1, ptr %8, align 8, !tbaa !26
-  store i8 3, ptr %49, align 8, !tbaa !27
+  store i8 3, ptr %47, align 8, !tbaa !27
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i25, ptr noundef nonnull align 8 dereferenceable(34) %8) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %78
+  br label %76
 
-51:                                               ; preds = %40
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.0.0.copyload.i26 = load ptr, ptr %52, align 8, !tbaa !22
+49:                                               ; preds = %38
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.0.0.copyload.i26 = load ptr, ptr %50, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %53 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %54 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  store i8 1, ptr %54, align 1, !tbaa !23
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 33
+  store i8 1, ptr %52, align 1, !tbaa !23
   store ptr @.str.2, ptr %9, align 8, !tbaa !26
-  store i8 3, ptr %53, align 8, !tbaa !27
+  store i8 3, ptr %51, align 8, !tbaa !27
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i26, ptr noundef nonnull align 8 dereferenceable(34) %9) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %78
+  br label %76
 
-55:                                               ; preds = %40
-  %56 = load i8, ptr %10, align 8, !tbaa !28
-  %57 = icmp eq i8 %56, 4
-  br i1 %57, label %58, label %62
+53:                                               ; preds = %38
+  %54 = load i8, ptr %10, align 8, !tbaa !28
+  %55 = icmp eq i8 %54, 4
+  br i1 %55, label %56, label %60
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %60 = load i32, ptr %59, align 8, !tbaa !31
-  %61 = icmp eq i32 %60, 13
-  br i1 %61, label %78, label %62
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %58 = load i32, ptr %57, align 8, !tbaa !31
+  %59 = icmp eq i32 %58, 13
+  br i1 %59, label %76, label %60
 
-62:                                               ; preds = %58, %55
-  %63 = load ptr, ptr %2, align 8, !tbaa !35
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1
-  %65 = load i32, ptr %64, align 1
-  %66 = and i32 %65, 65535
-  %67 = icmp eq i32 %66, 7
-  %. = select i1 %67, i32 41, i32 1
-  br label %78
+60:                                               ; preds = %56, %53
+  %61 = load ptr, ptr %2, align 8, !tbaa !35
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
+  %63 = load i32, ptr %62, align 1
+  %64 = and i32 %63, 65535
+  %65 = icmp eq i32 %64, 7
+  %. = select i1 %65, i32 41, i32 1
+  br label %76
 
-68:                                               ; preds = %40
-  br label %78
+66:                                               ; preds = %38
+  br label %76
 
-69:                                               ; preds = %40
-  br label %78
+67:                                               ; preds = %38
+  br label %76
 
-70:                                               ; preds = %40
-  br label %78
+68:                                               ; preds = %38
+  br label %76
 
-71:                                               ; preds = %40
-  br label %78
+69:                                               ; preds = %38
+  br label %76
 
-72:                                               ; preds = %40
-  br label %78
+70:                                               ; preds = %38
+  br label %76
 
-73:                                               ; preds = %40
-  br label %78
+71:                                               ; preds = %38
+  br label %76
 
-74:                                               ; preds = %40
-  br label %78
+72:                                               ; preds = %38
+  br label %76
 
-75:                                               ; preds = %40
-  br label %78
+73:                                               ; preds = %38
+  br label %76
 
-76:                                               ; preds = %40
-  br label %78
+74:                                               ; preds = %38
+  br label %76
 
-77:                                               ; preds = %40
-  br label %78
+75:                                               ; preds = %38
+  br label %76
 
-78:                                               ; preds = %62, %58, %40, %17, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %51, %47, %46, %45, %41, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %22, %18, %14
-  %.0 = phi i32 [ %15, %14 ], [ 0, %18 ], [ %25, %22 ], [ 43, %77 ], [ 24, %26 ], [ 25, %27 ], [ 20, %28 ], [ 21, %29 ], [ 22, %30 ], [ 62, %31 ], [ 63, %32 ], [ 64, %33 ], [ 65, %34 ], [ 17, %35 ], [ 16, %36 ], [ 45, %37 ], [ 44, %38 ], [ 19, %39 ], [ 23, %17 ], [ 0, %41 ], [ 51, %76 ], [ 64, %45 ], [ 65, %46 ], [ 0, %47 ], [ 0, %51 ], [ 63, %40 ], [ %., %62 ], [ 57, %58 ], [ 2, %68 ], [ 26, %69 ], [ 27, %70 ], [ 28, %71 ], [ 29, %72 ], [ 30, %73 ], [ 31, %74 ], [ 32, %75 ]
+76:                                               ; preds = %60, %56, %38, %17, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %49, %45, %44, %43, %39, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %22, %18, %14
+  %.0 = phi i32 [ %15, %14 ], [ 0, %18 ], [ %25, %22 ], [ 43, %75 ], [ 24, %26 ], [ 25, %27 ], [ 20, %28 ], [ 21, %29 ], [ 22, %30 ], [ 62, %31 ], [ 63, %32 ], [ 32, %73 ], [ 31, %72 ], [ 17, %33 ], [ 16, %34 ], [ 45, %35 ], [ 44, %36 ], [ 19, %37 ], [ 23, %17 ], [ 0, %39 ], [ 51, %74 ], [ 64, %43 ], [ 65, %44 ], [ 0, %45 ], [ 0, %49 ], [ 63, %38 ], [ %., %60 ], [ 57, %56 ], [ 2, %66 ], [ 26, %67 ], [ 27, %68 ], [ 28, %69 ], [ 29, %70 ], [ 30, %71 ]
   ret i32 %.0
 }
 

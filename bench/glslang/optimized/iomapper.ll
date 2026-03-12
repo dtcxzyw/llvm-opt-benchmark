@@ -1430,7 +1430,7 @@ _ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit: ; preds = %39, %39, %3
   %42 = call noundef i32 @_ZN7glslang13TIntermediate23computeTypeLocationSizeERKNS_5TTypeE11EShLanguage(ptr noundef nonnull align 8 dereferenceable(152) %4, i32 noundef %2) #24
   br label %45
 
-43:                                               ; preds = %39, %32, %25, %18, %9, %3, %14, %21, %28, %35
+43:                                               ; preds = %9, %18, %25, %32, %39, %3, %14, %21, %28, %35
   %44 = tail call noundef i32 @_ZN7glslang13TIntermediate23computeTypeLocationSizeERKNS_5TTypeE11EShLanguage(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %2) #24
   br label %45
 
@@ -1553,8 +1553,8 @@ switch.lookup31:                                  ; preds = %37
   %switch.masked35 = trunc i31 %switch.downshift34 to i1
   br label %_ZNK7glslang10TQualifier11isPipeInputEv.exit
 
-_ZNK7glslang10TQualifier11isPipeInputEv.exit:     ; preds = %37, %switch.lookup31, %29, %switch.lookup26, %21, %switch.lookup21, %13, %switch.lookup16, %3, %switch.lookup, %2, %33, %25, %17, %9
-  %.0 = phi i1 [ %switch.masked30, %switch.lookup26 ], [ false, %2 ], [ %switch.masked25, %switch.lookup21 ], [ %switch.masked, %switch.lookup ], [ %switch.masked20, %switch.lookup16 ], [ false, %9 ], [ %switch.masked35, %switch.lookup31 ], [ false, %17 ], [ false, %25 ], [ false, %33 ], [ false, %3 ], [ false, %29 ], [ false, %13 ], [ false, %21 ], [ false, %37 ]
+_ZNK7glslang10TQualifier11isPipeInputEv.exit:     ; preds = %3, %13, %21, %29, %37, %switch.lookup31, %switch.lookup26, %switch.lookup21, %switch.lookup16, %switch.lookup, %2, %33, %25, %17, %9
+  %.0 = phi i1 [ %switch.masked30, %switch.lookup26 ], [ false, %2 ], [ %switch.masked25, %switch.lookup21 ], [ %switch.masked, %switch.lookup ], [ %switch.masked20, %switch.lookup16 ], [ false, %9 ], [ %switch.masked35, %switch.lookup31 ], [ false, %17 ], [ false, %25 ], [ false, %33 ], [ false, %37 ], [ false, %29 ], [ false, %21 ], [ false, %13 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -10537,8 +10537,8 @@ _ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit: ; preds = %88, %88, %8
   call void @_ZN7glslang5TTypeC2ERKS0_ib(ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef nonnull align 8 dereferenceable(152) %29, i32 noundef 0, i1 noundef zeroext false)
   br label %91
 
-91:                                               ; preds = %84, %77, %70, %63, %.split.loop.exit438, %58, %67, %74, %81, %88, %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
-  %.sink = phi ptr [ %5, %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit ], [ %29, %88 ], [ %29, %81 ], [ %29, %74 ], [ %29, %67 ], [ %29, %58 ], [ %29, %.split.loop.exit438 ], [ %29, %63 ], [ %29, %70 ], [ %29, %77 ], [ %29, %84 ]
+91:                                               ; preds = %84, %77, %70, %63, %.split.loop.exit438, %88, %81, %74, %67, %58, %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit
+  %.sink = phi ptr [ %5, %_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit ], [ %29, %58 ], [ %29, %67 ], [ %29, %74 ], [ %29, %81 ], [ %29, %88 ], [ %29, %.split.loop.exit438 ], [ %29, %63 ], [ %29, %70 ], [ %29, %77 ], [ %29, %84 ]
   call void @_ZNK7glslang5TType17appendMangledNameERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(152) %.sink, ptr noundef nonnull align 8 dereferenceable(40) %3)
   %92 = load ptr, ptr %25, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 264
@@ -10870,7 +10870,7 @@ _ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit166: ; preds = %239, %23
   call void @_ZN7glslang5TTypeC2ERKS0_ib(ptr noundef nonnull align 8 dereferenceable(152) %8, ptr noundef nonnull align 8 dereferenceable(152) %246, i32 noundef 0, i1 noundef zeroext false)
   br label %253
 
-247:                                              ; preds = %239, %232, %225, %218, %209, %.critedge137, %214, %221, %228, %235
+247:                                              ; preds = %209, %218, %225, %232, %239, %.critedge137, %214, %221, %228, %235
   %248 = load ptr, ptr %184, align 8
   %249 = load ptr, ptr %248, align 8
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 240

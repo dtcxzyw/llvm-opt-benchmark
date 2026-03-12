@@ -105579,7 +105579,7 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %3
 141:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
   unreachable
 
-_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread: ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %3, %137, %133, %129, %125, %124, %120, %119, %118, %114, %113, %109, %105, %101, %97, %93, %89, %85, %81, %80, %76, %72, %71, %70, %69, %65, %64, %63, %62, %58, %54, %53, %52, %51, %47, %46, %42, %41, %37, %36, %32, %31, %30, %26, %25, %21, %17, %14, %13, %12, %11, %10, %9
+_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread: ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %3, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %137, %133, %129, %125, %124, %120, %119, %118, %114, %113, %109, %105, %101, %97, %93, %89, %85, %81, %80, %76, %72, %71, %70, %69, %65, %64, %63, %62, %58, %54, %53, %52, %51, %47, %46, %42, %41, %37, %36, %32, %31, %30, %26, %25, %21, %17, %14, %13, %12, %11, %10, %9
   ret void
 }
 

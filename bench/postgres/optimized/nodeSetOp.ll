@@ -447,8 +447,8 @@ setop_fill_hash_table.exit:                       ; preds = %ExecProcNode.exit34
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 149, ptr noundef nonnull @__func__.set_output_count) #5
   unreachable
 
-set_output_count.exit:                            ; preds = %131, %124, %127, %113, %116, %120
-  %.sink.i = phi i64 [ 0, %124 ], [ 0, %113 ], [ %..i, %120 ], [ %spec.select, %131 ], [ 0, %116 ], [ 0, %127 ]
+set_output_count.exit:                            ; preds = %131, %113, %116, %124, %127, %120
+  %.sink.i = phi i64 [ %spec.select, %131 ], [ 0, %113 ], [ %..i, %120 ], [ 0, %127 ], [ 0, %124 ], [ 0, %116 ]
   store i64 %.sink.i, ptr %10, align 8
   %142 = icmp sgt i64 %.sink.i, 0
   br i1 %142, label %.loopexit.loopexit, label %95, !llvm.loop !9
@@ -623,7 +623,7 @@ ExecProcNode.exit.i17:                            ; preds = %163, %160
   %223 = icmp sgt i64 %.sroa.0.0.i, 0
   %224 = icmp sgt i64 %.sroa.8.0.i, 0
   %or.cond.i = select i1 %223, i1 %224, i1 false
-  br i1 %or.cond.i, label %.thread65.i, label %set_output_count.exit.thread.i
+  br i1 %or.cond.i, label %.thread65.i, label %set_output_count.exit.thread60.i
 
 225:                                              ; preds = %218
   %..i.i = tail call i64 @llvm.smin.i64(i64 %.sroa.0.0.i, i64 %.sroa.8.0.i)
@@ -633,12 +633,12 @@ ExecProcNode.exit.i17:                            ; preds = %163, %160
   %227 = icmp sgt i64 %.sroa.0.0.i, 0
   %228 = icmp eq i64 %.sroa.8.0.i, 0
   %or.cond68.i = select i1 %227, i1 %228, i1 false
-  br i1 %or.cond68.i, label %.thread65.i, label %set_output_count.exit.thread.i
+  br i1 %or.cond68.i, label %.thread65.i, label %set_output_count.exit.thread60.i
 
 229:                                              ; preds = %218
   %230 = icmp slt i64 %.sroa.0.0.i, %.sroa.8.0.i
   %231 = sub i64 %.sroa.0.0.i, %.sroa.8.0.i
-  br i1 %230, label %set_output_count.exit.thread.i, label %set_output_count.exit.i
+  br i1 %230, label %set_output_count.exit.thread60.i, label %set_output_count.exit.i
 
 232:                                              ; preds = %218
   %233 = getelementptr inbounds nuw i8, ptr %219, i64 104
@@ -648,12 +648,12 @@ ExecProcNode.exit.i17:                            ; preds = %163, %160
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 149, ptr noundef nonnull @__func__.set_output_count) #5
   unreachable
 
-set_output_count.exit.thread.i:                   ; preds = %229, %226, %222
+set_output_count.exit.thread60.i:                 ; preds = %229, %226, %222
   store i64 0, ptr %10, align 8
   br label %239
 
 set_output_count.exit.i:                          ; preds = %229, %225
-  %.sink.i.i = phi i64 [ %..i.i, %225 ], [ %231, %229 ]
+  %.sink.i.i = phi i64 [ %231, %229 ], [ %..i.i, %225 ]
   store i64 %.sink.i.i, ptr %10, align 8
   %237 = icmp sgt i64 %.sink.i.i, 0
   br i1 %237, label %.thread65.loopexit.i, label %239
@@ -663,11 +663,11 @@ set_output_count.exit.i:                          ; preds = %229, %225
   br label %.thread65.i
 
 .thread65.i:                                      ; preds = %226, %222, %.thread65.loopexit.i
-  %.sink.i61.i = phi i64 [ %238, %.thread65.loopexit.i ], [ 0, %222 ], [ 0, %226 ]
-  store i64 %.sink.i61.i, ptr %10, align 8
+  %.sink.i58.i = phi i64 [ %238, %.thread65.loopexit.i ], [ 0, %222 ], [ 0, %226 ]
+  store i64 %.sink.i58.i, ptr %10, align 8
   br label %setop_retrieve_hash_table.exit
 
-239:                                              ; preds = %set_output_count.exit.i, %set_output_count.exit.thread.i, %217
+239:                                              ; preds = %set_output_count.exit.i, %set_output_count.exit.thread60.i, %217
   %240 = load i8, ptr %16, align 8, !range !4, !noundef !5
   %241 = trunc nuw i8 %240 to i1
   br i1 %241, label %.loopexit.i, label %192

@@ -27815,7 +27815,7 @@ _ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit1954: ; preds = %3
 
 _ZN4llvm5ErrorD2Ev.exit1955:                      ; preds = %_ZN12_GLOBAL__N_113BitcodeReader21getDecodedSyncScopeIDEj.exit1954
   %3528 = icmp ult i32 %3468, 7
-  br i1 %3528, label %switch.lookup, label %3531
+  br i1 %3528, label %switch.lookup, label %3533
 
 switch.lookup:                                    ; preds = %_ZN4llvm5ErrorD2Ev.exit1955
   %3529 = sext i32 %.0.i1948.ph to i64
@@ -27824,34 +27824,34 @@ switch.lookup:                                    ; preds = %_ZN4llvm5ErrorD2Ev.
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %3541
 
-3531:                                             ; preds = %_ZN4llvm5ErrorD2Ev.exit1955
-  %3532 = zext i32 %3496 to i64
-  %3533 = load ptr, ptr %14, align 8, !tbaa !25
-  %3534 = getelementptr inbounds nuw [8 x i8], ptr %3533, i64 %3532
-  %3535 = load i64, ptr %3534, align 8, !tbaa !55
-  %3536 = trunc i64 %3535 to i32
-  switch i32 %3536, label %3540 [
+3531:                                             ; preds = %3533
+  br label %3541
+
+3532:                                             ; preds = %3533
+  br label %3541
+
+3533:                                             ; preds = %_ZN4llvm5ErrorD2Ev.exit1955
+  %3534 = zext i32 %3496 to i64
+  %3535 = load ptr, ptr %14, align 8, !tbaa !25
+  %3536 = getelementptr inbounds nuw [8 x i8], ptr %3535, i64 %3534
+  %3537 = load i64, ptr %3536, align 8, !tbaa !55
+  %3538 = trunc i64 %3537 to i32
+  switch i32 %3538, label %3532 [
     i32 0, label %_ZN4llvm17AtomicCmpXchgInst27getStrongestFailureOrderingENS_14AtomicOrderingE.exit
     i32 1, label %_ZN4llvm17AtomicCmpXchgInst27getStrongestFailureOrderingENS_14AtomicOrderingE.exit
     i32 2, label %3541
-    i32 3, label %3537
-    i32 4, label %3538
-    i32 5, label %3539
+    i32 3, label %3531
+    i32 4, label %3539
+    i32 5, label %3540
   ]
 
-3537:                                             ; preds = %3531
+3539:                                             ; preds = %3533
   br label %3541
 
-3538:                                             ; preds = %3531
+3540:                                             ; preds = %3533
   br label %3541
 
-3539:                                             ; preds = %3531
-  br label %3541
-
-3540:                                             ; preds = %3531
-  br label %3541
-
-_ZN4llvm17AtomicCmpXchgInst27getStrongestFailureOrderingENS_14AtomicOrderingE.exit: ; preds = %3531, %3531
+_ZN4llvm17AtomicCmpXchgInst27getStrongestFailureOrderingENS_14AtomicOrderingE.exit: ; preds = %3533, %3533
   call void @llvm.lifetime.start.p0(ptr nonnull %333)
   store i8 1, ptr %589, align 1, !tbaa !83
   store ptr @.str.54, ptr %333, align 8, !tbaa !84
@@ -27860,8 +27860,8 @@ _ZN4llvm17AtomicCmpXchgInst27getStrongestFailureOrderingENS_14AtomicOrderingE.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %333)
   br label %.critedge1392
 
-3541:                                             ; preds = %switch.lookup, %3531, %3540, %3539, %3537, %3538
-  %.ph = phi i32 [ 5, %3538 ], [ 4, %3537 ], [ %switch.load, %switch.lookup ], [ 6, %3539 ], [ 7, %3540 ], [ %3536, %3531 ]
+3541:                                             ; preds = %switch.lookup, %3533, %3532, %3531, %3540, %3539
+  %.ph = phi i32 [ 5, %3539 ], [ %3538, %3533 ], [ %switch.load, %switch.lookup ], [ 6, %3540 ], [ 7, %3532 ], [ 4, %3531 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %334)
   %3542 = load ptr, ptr %561, align 8, !tbaa !569
   %3543 = getelementptr inbounds nuw i8, ptr %3542, i64 288

@@ -33155,7 +33155,7 @@ define internal fastcc void @_ZN12polars_arrow2io3ipc4read6schema27deserialize_f
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %100
 
-100:                                              ; preds = %28, %40, %53, %58, %66, %109, %98
+100:                                              ; preds = %53, %58, %40, %28, %66, %109, %98
   ret void
 
 101:                                              ; preds = %97
@@ -34567,7 +34567,7 @@ switch.lookup:                                    ; preds = %294
   store i64 1, ptr %0, align 8
   br label %346
 
-346:                                              ; preds = %311, %351, %324, %349, %337, %347, %344
+346:                                              ; preds = %311, %351, %349, %324, %347, %337, %344
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %.thread1719
 

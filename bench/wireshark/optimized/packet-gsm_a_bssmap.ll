@@ -1529,22 +1529,22 @@ define hidden zeroext i16 @be_chan_type(ptr noundef %0, ptr noundef %1, ptr noun
 
 25:                                               ; preds = %22
   %26 = trunc nuw nsw i32 %4 to i16
-  br label %138
+  br label %137
 
 27:                                               ; preds = %22
   %28 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %23)
-  switch i8 %9, label %125 [
+  switch i8 %9, label %124 [
     i8 4, label %29
     i8 1, label %29
     i8 2, label %41
-    i8 3, label %115
+    i8 3, label %114
   ]
 
 29:                                               ; preds = %27, %27
   %30 = load i32, ptr @hf_gsm_a_bssmap_channel_rate_and_type, align 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %30, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef 0)
   %32 = icmp eq i32 %4, 2
-  br i1 %32, label %138, label %.preheader
+  br i1 %32, label %137, label %.preheader
 
 .preheader:                                       ; preds = %29
   %33 = add i32 %3, 2
@@ -1596,7 +1596,7 @@ define hidden zeroext i16 @be_chan_type(ptr noundef %0, ptr noundef %1, ptr noun
   %.not186192 = phi i1 [ true, %.thread ], [ false, %47 ]
   %55 = add i32 %3, 2
   %56 = icmp eq i32 %4, 2
-  br i1 %56, label %138, label %57
+  br i1 %56, label %137, label %57
 
 57:                                               ; preds = %54
   %58 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %55)
@@ -1608,14 +1608,14 @@ define hidden zeroext i16 @be_chan_type(ptr noundef %0, ptr noundef %1, ptr noun
   %64 = and i32 %63, 64
   %.not188 = icmp eq i32 %64, 0
   %65 = and i32 %63, 63
-  br i1 %.not186192, label %66, label %84
+  br i1 %.not186192, label %66, label %82
 
 66:                                               ; preds = %57
-  br i1 %.not188, label %74, label %67
+  br i1 %.not188, label %73, label %67
 
 67:                                               ; preds = %66
-  switch i32 %65, label %73 [
-    i32 0, label %91
+  switch i32 %65, label %85 [
+    i32 0, label %90
     i32 24, label %68
     i32 16, label %69
     i32 17, label %70
@@ -1624,163 +1624,160 @@ define hidden zeroext i16 @be_chan_type(ptr noundef %0, ptr noundef %1, ptr noun
   ]
 
 68:                                               ; preds = %67
-  br label %91
+  br label %90
 
 69:                                               ; preds = %67
-  br label %91
+  br label %90
 
 70:                                               ; preds = %67
-  br label %91
+  br label %90
 
 71:                                               ; preds = %67
-  br label %91
+  br label %90
 
 72:                                               ; preds = %67
-  br label %91
+  br label %90
 
-73:                                               ; preds = %67
-  br label %91
-
-74:                                               ; preds = %66
-  switch i32 %65, label %83 [
-    i32 24, label %91
-    i32 16, label %75
-    i32 17, label %76
-    i32 18, label %77
-    i32 19, label %78
-    i32 20, label %79
-    i32 21, label %80
-    i32 57, label %81
-    i32 58, label %82
+73:                                               ; preds = %66
+  switch i32 %65, label %85 [
+    i32 24, label %90
+    i32 16, label %74
+    i32 17, label %75
+    i32 18, label %76
+    i32 19, label %77
+    i32 20, label %78
+    i32 21, label %79
+    i32 57, label %80
+    i32 58, label %81
   ]
 
-75:                                               ; preds = %74
-  br label %91
+74:                                               ; preds = %73
+  br label %90
 
-76:                                               ; preds = %74
-  br label %91
+75:                                               ; preds = %73
+  br label %90
 
-77:                                               ; preds = %74
-  br label %91
+76:                                               ; preds = %73
+  br label %90
 
-78:                                               ; preds = %74
-  br label %91
+77:                                               ; preds = %73
+  br label %90
 
-79:                                               ; preds = %74
-  br label %91
+78:                                               ; preds = %73
+  br label %90
 
-80:                                               ; preds = %74
-  br label %91
+79:                                               ; preds = %73
+  br label %90
 
-81:                                               ; preds = %74
-  br label %91
+80:                                               ; preds = %73
+  br label %90
 
-82:                                               ; preds = %74
-  br label %91
+81:                                               ; preds = %73
+  br label %90
 
-83:                                               ; preds = %74
-  br label %91
-
-84:                                               ; preds = %57
+82:                                               ; preds = %57
   %switch.tableidx206 = add nsw i32 %65, -16
-  br i1 %.not188, label %87, label %85
+  br i1 %.not188, label %86, label %83
 
-85:                                               ; preds = %84
-  %86 = icmp ult i32 %switch.tableidx206, 7
-  br i1 %86, label %switch.lookup, label %91
+83:                                               ; preds = %82
+  %84 = icmp ult i32 %switch.tableidx206, 7
+  br i1 %84, label %switch.lookup, label %85
 
-87:                                               ; preds = %84
-  %88 = icmp ult i32 %switch.tableidx206, 16
-  br i1 %88, label %switch.lookup207, label %91
+85:                                               ; preds = %86, %83, %73, %67
+  br label %90
 
-switch.lookup:                                    ; preds = %85
-  %89 = zext nneg i32 %switch.tableidx206 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.be_chan_type, i64 %89
+86:                                               ; preds = %82
+  %87 = icmp ult i32 %switch.tableidx206, 16
+  br i1 %87, label %switch.lookup207, label %85
+
+switch.lookup:                                    ; preds = %83
+  %88 = zext nneg i32 %switch.tableidx206 to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.be_chan_type, i64 %88
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %91
+  br label %90
 
-switch.lookup207:                                 ; preds = %87
-  %90 = zext nneg i32 %switch.tableidx206 to i64
-  %switch.gep208 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.be_chan_type.1, i64 %90
+switch.lookup207:                                 ; preds = %86
+  %89 = zext nneg i32 %switch.tableidx206 to i64
+  %switch.gep208 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.be_chan_type.1, i64 %89
   %switch.load209 = load ptr, ptr %switch.gep208, align 8
-  br label %91
+  br label %90
 
-91:                                               ; preds = %87, %switch.lookup207, %85, %switch.lookup, %74, %67, %73, %72, %71, %70, %69, %68, %83, %82, %81, %80, %79, %78, %77, %76, %75
-  %.0 = phi ptr [ @.str.28, %73 ], [ %switch.load, %switch.lookup ], [ @.str.99, %68 ], [ @.str.100, %69 ], [ @.str.101, %70 ], [ @.str.102, %71 ], [ @.str.103, %72 ], [ @.str.28, %83 ], [ @.str.98, %67 ], [ @.str.105, %75 ], [ @.str.106, %76 ], [ @.str.107, %77 ], [ @.str.108, %78 ], [ @.str.109, %79 ], [ @.str.110, %80 ], [ @.str.111, %81 ], [ @.str.112, %82 ], [ @.str.28, %85 ], [ @.str.104, %74 ], [ %switch.load209, %switch.lookup207 ], [ @.str.28, %87 ]
-  %92 = load i32, ptr @hf_gsm_a_bssmap_rate, align 4
-  %93 = and i8 %58, 63
-  %94 = zext nneg i8 %93 to i32
-  %95 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %92, ptr noundef %0, i32 noundef %55, i32 noundef 1, i32 noundef %94, ptr noundef nonnull @.str.127, ptr noundef nonnull %.0)
-  %96 = icmp ult i32 %4, 4
-  br i1 %96, label %138, label %97
+90:                                               ; preds = %switch.lookup207, %switch.lookup, %73, %67, %85, %72, %71, %70, %69, %68, %81, %80, %79, %78, %77, %76, %75, %74
+  %.0 = phi ptr [ %switch.load209, %switch.lookup207 ], [ @.str.104, %73 ], [ @.str.99, %68 ], [ @.str.100, %69 ], [ @.str.101, %70 ], [ @.str.102, %71 ], [ @.str.103, %72 ], [ %switch.load, %switch.lookup ], [ @.str.98, %67 ], [ @.str.105, %74 ], [ @.str.106, %75 ], [ @.str.107, %76 ], [ @.str.108, %77 ], [ @.str.109, %78 ], [ @.str.110, %79 ], [ @.str.111, %80 ], [ @.str.112, %81 ], [ @.str.28, %85 ]
+  %91 = load i32, ptr @hf_gsm_a_bssmap_rate, align 4
+  %92 = and i8 %58, 63
+  %93 = zext nneg i8 %92 to i32
+  %94 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %91, ptr noundef %0, i32 noundef %55, i32 noundef 1, i32 noundef %93, ptr noundef nonnull @.str.127, ptr noundef nonnull %.0)
+  %95 = icmp ult i32 %4, 4
+  br i1 %95, label %137, label %96
 
-97:                                               ; preds = %91
-  %98 = add i32 %3, 3
-  %99 = load i32, ptr @hf_gsm_a_bssmap_chan_type_extension, align 4
-  %100 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %99, ptr noundef %0, i32 noundef %98, i32 noundef 1, i32 noundef 0)
-  %101 = load i32, ptr @hf_gsm_a_bssmap_spare_bits, align 4
-  %102 = shl i32 %98, 3
-  %103 = or disjoint i32 %102, 1
-  %104 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %101, ptr noundef %0, i32 noundef %103, i32 noundef 3, i32 noundef 0)
-  %105 = or disjoint i32 %102, 6
+96:                                               ; preds = %90
+  %97 = add i32 %3, 3
+  %98 = load i32, ptr @hf_gsm_a_bssmap_chan_type_extension, align 4
+  %99 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %98, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0)
+  %100 = load i32, ptr @hf_gsm_a_bssmap_spare_bits, align 4
+  %101 = shl i32 %97, 3
+  %102 = or disjoint i32 %101, 1
+  %103 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %100, ptr noundef %0, i32 noundef %102, i32 noundef 3, i32 noundef 0)
+  %104 = or disjoint i32 %101, 6
   %hf_gsm_a_bssmap_tch_14_5kb.val = load i32, ptr @hf_gsm_a_bssmap_tch_14_5kb, align 4
   %hf_gsm_a_bssmap_tch_14_5_14_4kb.val = load i32, ptr @hf_gsm_a_bssmap_tch_14_5_14_4kb, align 4
-  %106 = select i1 %.not186192, i32 %hf_gsm_a_bssmap_tch_14_5kb.val, i32 %hf_gsm_a_bssmap_tch_14_5_14_4kb.val
-  %107 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %106, ptr noundef %0, i32 noundef %98, i32 noundef 1, i32 noundef 0)
-  %108 = load i32, ptr @hf_gsm_a_bssmap_spare_bits, align 4
-  %109 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %108, ptr noundef %0, i32 noundef %105, i32 noundef 1, i32 noundef 0)
+  %105 = select i1 %.not186192, i32 %hf_gsm_a_bssmap_tch_14_5kb.val, i32 %hf_gsm_a_bssmap_tch_14_5_14_4kb.val
+  %106 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %105, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0)
+  %107 = load i32, ptr @hf_gsm_a_bssmap_spare_bits, align 4
+  %108 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %107, ptr noundef %0, i32 noundef %104, i32 noundef 1, i32 noundef 0)
   %hf_gsm_a_bssmap_tch_12kb.val = load i32, ptr @hf_gsm_a_bssmap_tch_12kb, align 4
   %hf_gsm_a_bssmap_tch_12_9kb.val = load i32, ptr @hf_gsm_a_bssmap_tch_12_9kb, align 4
-  %110 = select i1 %.not186192, i32 %hf_gsm_a_bssmap_tch_12kb.val, i32 %hf_gsm_a_bssmap_tch_12_9kb.val
-  %111 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %110, ptr noundef %0, i32 noundef %98, i32 noundef 1, i32 noundef 0)
+  %109 = select i1 %.not186192, i32 %hf_gsm_a_bssmap_tch_12kb.val, i32 %hf_gsm_a_bssmap_tch_12_9kb.val
+  %110 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %109, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0)
   %hf_gsm_a_bssmap_tch_6kb.val = load i32, ptr @hf_gsm_a_bssmap_tch_6kb, align 4
   %hf_gsm_a_bssmap_tch_6_4_8kb.val = load i32, ptr @hf_gsm_a_bssmap_tch_6_4_8kb, align 4
-  %112 = select i1 %.not186192, i32 %hf_gsm_a_bssmap_tch_6kb.val, i32 %hf_gsm_a_bssmap_tch_6_4_8kb.val
-  %113 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %112, ptr noundef %0, i32 noundef %98, i32 noundef 1, i32 noundef 0)
-  %114 = add i32 %3, 4
+  %111 = select i1 %.not186192, i32 %hf_gsm_a_bssmap_tch_6kb.val, i32 %hf_gsm_a_bssmap_tch_6_4_8kb.val
+  %112 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %111, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0)
+  %113 = add i32 %3, 4
   br label %.loopexit
 
-115:                                              ; preds = %27
-  %116 = load i32, ptr @hf_gsm_a_bssmap_data_channel_rate_and_type, align 4
-  %117 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %116, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef 0)
-  %118 = icmp eq i32 %4, 2
-  br i1 %118, label %138, label %119
+114:                                              ; preds = %27
+  %115 = load i32, ptr @hf_gsm_a_bssmap_data_channel_rate_and_type, align 4
+  %116 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %115, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef 0)
+  %117 = icmp eq i32 %4, 2
+  br i1 %117, label %137, label %118
 
-119:                                              ; preds = %115
-  %120 = add i32 %3, 2
-  %121 = load i32, ptr @hf_gsm_a_bssmap_spare, align 4
-  %122 = add i32 %4, -2
-  %123 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %121, ptr noundef %0, i32 noundef %120, i32 noundef %122, i32 noundef 0)
-  %124 = add i32 %4, %3
+118:                                              ; preds = %114
+  %119 = add i32 %3, 2
+  %120 = load i32, ptr @hf_gsm_a_bssmap_spare, align 4
+  %121 = add i32 %4, -2
+  %122 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %120, ptr noundef %0, i32 noundef %119, i32 noundef %121, i32 noundef 0)
+  %123 = add i32 %4, %3
   br label %.loopexit
 
-125:                                              ; preds = %27
-  %126 = load i32, ptr @hf_gsm_a_bssmap_unknown_format, align 4
-  %127 = add i32 %4, -1
-  %128 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %126, ptr noundef %0, i32 noundef %23, i32 noundef %127, i32 noundef 0)
-  %129 = add i32 %4, %3
+124:                                              ; preds = %27
+  %125 = load i32, ptr @hf_gsm_a_bssmap_unknown_format, align 4
+  %126 = add i32 %4, -1
+  %127 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %125, ptr noundef %0, i32 noundef %23, i32 noundef %126, i32 noundef 0)
+  %128 = add i32 %4, %3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %35, %97, %125, %119
-  %.1 = phi i32 [ %129, %125 ], [ %114, %97 ], [ %124, %119 ], [ %40, %35 ]
-  %130 = sub i32 %.1, %3
-  %131 = icmp ugt i32 %4, %130
-  br i1 %131, label %132, label %136
+.loopexit:                                        ; preds = %35, %96, %124, %118
+  %.1 = phi i32 [ %128, %124 ], [ %113, %96 ], [ %123, %118 ], [ %40, %35 ]
+  %129 = sub i32 %.1, %3
+  %130 = icmp ugt i32 %4, %129
+  br i1 %130, label %131, label %135
 
-132:                                              ; preds = %.loopexit
-  %133 = sub nuw i32 %4, %130
-  %134 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %133)
-  %135 = add i32 %133, %.1
-  %.pre = sub i32 %135, %3
-  br label %136
+131:                                              ; preds = %.loopexit
+  %132 = sub nuw i32 %4, %129
+  %133 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %.1, i32 noundef %132)
+  %134 = add i32 %132, %.1
+  %.pre = sub i32 %134, %3
+  br label %135
 
-136:                                              ; preds = %132, %.loopexit
-  %.pre-phi = phi i32 [ %.pre, %132 ], [ %130, %.loopexit ]
-  %137 = trunc i32 %.pre-phi to i16
-  br label %138
+135:                                              ; preds = %131, %.loopexit
+  %.pre-phi = phi i32 [ %.pre, %131 ], [ %129, %.loopexit ]
+  %136 = trunc i32 %.pre-phi to i16
+  br label %137
 
-138:                                              ; preds = %115, %91, %54, %29, %136, %25
-  %.0177 = phi i16 [ %26, %25 ], [ 3, %91 ], [ %137, %136 ], [ 2, %29 ], [ 2, %54 ], [ 2, %115 ]
+137:                                              ; preds = %114, %90, %54, %29, %135, %25
+  %.0177 = phi i16 [ %26, %25 ], [ 3, %90 ], [ %136, %135 ], [ 2, %29 ], [ 2, %54 ], [ 2, %114 ]
   ret i16 %.0177
 }
 

@@ -1512,78 +1512,78 @@ define dso_local void @_ZN4llvm6X86_MC27verifyInstructionPredicatesEjRKNS_13Feat
 define dso_local noundef range(i32 0, 2518) i32 @_ZN4llvm6X86_MC28resolveVariantSchedClassImplEjPKNS_6MCInstEPKNS_11MCInstrInfoEj(i32 noundef %0, ptr noundef readonly %1, ptr readnone captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   switch i32 %0, label %switch.edge1963 [
     i32 668, label %5
-    i32 687, label %14
-    i32 691, label %23
-    i32 694, label %32
-    i32 700, label %41
-    i32 790, label %50
-    i32 807, label %56
-    i32 808, label %137
-    i32 809, label %202
-    i32 810, label %275
-    i32 811, label %340
-    i32 812, label %405
-    i32 813, label %470
-    i32 814, label %543
-    i32 815, label %592
-    i32 816, label %647
-    i32 817, label %696
-    i32 900, label %752
-    i32 901, label %809
-    i32 902, label %866
-    i32 903, label %923
-    i32 911, label %934
-    i32 958, label %991
-    i32 1013, label %1005
-    i32 1015, label %1054
-    i32 1016, label %1063
-    i32 1050, label %1072
-    i32 1051, label %1089
-    i32 1052, label %1106
-    i32 1053, label %1187
-    i32 1054, label %1220
-    i32 1055, label %1245
-    i32 1056, label %1326
-    i32 1057, label %1359
-    i32 1058, label %1376
-    i32 1146, label %1457
-    i32 1147, label %1467
-    i32 1148, label %1477
-    i32 1149, label %1487
-    i32 1150, label %1497
-    i32 1151, label %1507
-    i32 1152, label %1517
-    i32 1153, label %1542
-    i32 1154, label %1567
-    i32 1156, label %1592
-    i32 1194, label %1598
-    i32 1195, label %1615
-    i32 1196, label %1632
-    i32 1197, label %1649
-    i32 1198, label %1666
-    i32 1199, label %1683
-    i32 1200, label %1692
-    i32 1201, label %1701
-    i32 1202, label %1710
-    i32 1204, label %1716
-    i32 1205, label %1726
-    i32 1207, label %1736
-    i32 1224, label %1753
-    i32 1225, label %1818
-    i32 1226, label %1899
-    i32 1254, label %1956
-    i32 1255, label %1966
-    i32 1256, label %1976
-    i32 1410, label %1986
-    i32 1411, label %2011
-    i32 1412, label %2036
-    i32 1413, label %2061
-    i32 1414, label %2086
-    i32 1415, label %2111
-    i32 1457, label %2136
-    i32 1464, label %2142
-    i32 1465, label %2223
-    i32 1650, label %2240
+    i32 687, label %13
+    i32 691, label %21
+    i32 694, label %29
+    i32 700, label %37
+    i32 790, label %45
+    i32 807, label %51
+    i32 808, label %132
+    i32 809, label %197
+    i32 810, label %270
+    i32 811, label %335
+    i32 812, label %400
+    i32 813, label %465
+    i32 814, label %538
+    i32 815, label %587
+    i32 816, label %642
+    i32 817, label %691
+    i32 900, label %747
+    i32 901, label %804
+    i32 902, label %861
+    i32 903, label %918
+    i32 911, label %929
+    i32 958, label %986
+    i32 1013, label %1000
+    i32 1015, label %1046
+    i32 1016, label %1054
+    i32 1050, label %1062
+    i32 1051, label %1079
+    i32 1052, label %1096
+    i32 1053, label %1177
+    i32 1054, label %1210
+    i32 1055, label %1235
+    i32 1056, label %1316
+    i32 1057, label %1349
+    i32 1058, label %1366
+    i32 1146, label %1447
+    i32 1147, label %1457
+    i32 1148, label %1467
+    i32 1149, label %1477
+    i32 1150, label %1487
+    i32 1151, label %1497
+    i32 1152, label %1507
+    i32 1153, label %1532
+    i32 1154, label %1557
+    i32 1156, label %1582
+    i32 1194, label %1588
+    i32 1195, label %1605
+    i32 1196, label %1622
+    i32 1197, label %1639
+    i32 1198, label %1656
+    i32 1199, label %1673
+    i32 1200, label %1682
+    i32 1201, label %1691
+    i32 1202, label %1700
+    i32 1204, label %1706
+    i32 1205, label %1716
+    i32 1207, label %1726
+    i32 1224, label %1743
+    i32 1225, label %1808
+    i32 1226, label %1889
+    i32 1254, label %1946
+    i32 1255, label %1956
+    i32 1256, label %1966
+    i32 1410, label %1976
+    i32 1411, label %2001
+    i32 1412, label %2026
+    i32 1413, label %2051
+    i32 1414, label %2076
+    i32 1415, label %2101
+    i32 1457, label %2126
+    i32 1464, label %2132
+    i32 1465, label %2213
+    i32 1650, label %2230
   ]
 
 5:                                                ; preds = %4
@@ -1599,2957 +1599,7 @@ define dso_local noundef range(i32 0, 2518) i32 @_ZN4llvm6X86_MC28resolveVariant
   br i1 %.not2034, label %12, label %11
 
 11:                                               ; preds = %7
-  switch i32 %.pre2043, label %13 [
-    i32 1341, label %switch.edge1963
-    i32 2091, label %switch.edge1963
-    i32 1334, label %switch.edge1963.fold.split
-    i32 2087, label %switch.edge1963.fold.split
-    i32 2090, label %switch.edge1963.fold.split2068
-    i32 1342, label %switch.edge1963.fold.split2068
-    i32 2088, label %switch.edge1963.fold.split2069
-    i32 2089, label %switch.edge1963.fold.split2069
-    i32 1335, label %switch.edge1963.fold.split2069
-    i32 1337, label %switch.edge1963.fold.split2069
-    i32 1339, label %switch.edge1963.fold.split2069
-    i32 2086, label %switch.edge1963.fold.split2069
-    i32 1343, label %switch.edge
-  ]
-
-12:                                               ; preds = %7
-  switch i32 %.pre2043, label %13 [
-    i32 1341, label %switch.edge1963.fold.split2070
-    i32 2091, label %switch.edge1963.fold.split2070
-    i32 1334, label %switch.edge1963
-    i32 2087, label %switch.edge1963
-    i32 2090, label %.fold.split1911
-    i32 1342, label %.fold.split1911
-    i32 1335, label %.fold.split1913
-    i32 1337, label %.fold.split1913
-    i32 1339, label %.fold.split1913
-    i32 2086, label %.fold.split1913
-    i32 2088, label %.fold.split1913
-    i32 2089, label %.fold.split1913
-    i32 1343, label %switch.edge
-  ]
-
-switch.edge:                                      ; preds = %11, %12
-  br label %switch.edge1963
-
-13:                                               ; preds = %11, %12
-  br label %switch.edge1963
-
-14:                                               ; preds = %4
-  %15 = icmp eq i32 %3, 8
-  br i1 %15, label %16, label %switch.edge1963
-
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !22
-  %19 = and i32 %18, 16
-  %.not2033 = icmp eq i32 %19, 0
-  %.pre2042 = load i32, ptr %1, align 8, !tbaa !3
-  br i1 %.not2033, label %21, label %20
-
-20:                                               ; preds = %16
-  switch i32 %.pre2042, label %22 [
-    i32 1341, label %switch.edge1963
-    i32 2091, label %switch.edge1963
-    i32 1334, label %switch.edge1963.fold.split2071
-    i32 2087, label %switch.edge1963.fold.split2071
-    i32 2090, label %switch.edge1963.fold.split2072
-    i32 1342, label %switch.edge1963.fold.split2072
-    i32 2088, label %switch.edge1963.fold.split2073
-    i32 2089, label %switch.edge1963.fold.split2073
-    i32 1335, label %switch.edge1963.fold.split2073
-    i32 1337, label %switch.edge1963.fold.split2073
-    i32 1339, label %switch.edge1963.fold.split2073
-    i32 2086, label %switch.edge1963.fold.split2073
-    i32 1343, label %switch.edge1929
-  ]
-
-21:                                               ; preds = %16
-  switch i32 %.pre2042, label %22 [
-    i32 1341, label %switch.edge1963.fold.split2074
-    i32 2091, label %switch.edge1963.fold.split2074
-    i32 1334, label %switch.edge1963
-    i32 2087, label %switch.edge1963
-    i32 2090, label %.fold.split1921
-    i32 1342, label %.fold.split1921
-    i32 1335, label %.fold.split1923
-    i32 1337, label %.fold.split1923
-    i32 1339, label %.fold.split1923
-    i32 2086, label %.fold.split1923
-    i32 2088, label %.fold.split1923
-    i32 2089, label %.fold.split1923
-    i32 1343, label %switch.edge1929
-  ]
-
-switch.edge1929:                                  ; preds = %20, %21
-  br label %switch.edge1963
-
-22:                                               ; preds = %20, %21
-  br label %switch.edge1963
-
-23:                                               ; preds = %4
-  %24 = icmp eq i32 %3, 8
-  br i1 %24, label %25, label %switch.edge1963
-
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !22
-  %28 = and i32 %27, 16
-  %.not2032 = icmp eq i32 %28, 0
-  %.pre2041 = load i32, ptr %1, align 8, !tbaa !3
-  br i1 %.not2032, label %30, label %29
-
-29:                                               ; preds = %25
-  switch i32 %.pre2041, label %31 [
-    i32 1341, label %switch.edge1963
-    i32 2091, label %switch.edge1963
-    i32 1334, label %switch.edge1963.fold.split2075
-    i32 2087, label %switch.edge1963.fold.split2075
-    i32 2090, label %switch.edge1963.fold.split2076
-    i32 1342, label %switch.edge1963.fold.split2076
-    i32 2088, label %switch.edge1963.fold.split2077
-    i32 2089, label %switch.edge1963.fold.split2077
-    i32 1335, label %switch.edge1963.fold.split2077
-    i32 1337, label %switch.edge1963.fold.split2077
-    i32 1339, label %switch.edge1963.fold.split2077
-    i32 2086, label %switch.edge1963.fold.split2077
-    i32 1343, label %switch.edge1940
-  ]
-
-30:                                               ; preds = %25
-  switch i32 %.pre2041, label %31 [
-    i32 1341, label %switch.edge1963.fold.split2078
-    i32 2091, label %switch.edge1963.fold.split2078
-    i32 1334, label %switch.edge1963
-    i32 2087, label %switch.edge1963
-    i32 2090, label %.fold.split1932
-    i32 1342, label %.fold.split1932
-    i32 1335, label %.fold.split1934
-    i32 1337, label %.fold.split1934
-    i32 1339, label %.fold.split1934
-    i32 2086, label %.fold.split1934
-    i32 2088, label %.fold.split1934
-    i32 2089, label %.fold.split1934
-    i32 1343, label %switch.edge1940
-  ]
-
-switch.edge1940:                                  ; preds = %29, %30
-  br label %switch.edge1963
-
-31:                                               ; preds = %29, %30
-  br label %switch.edge1963
-
-32:                                               ; preds = %4
-  %33 = icmp eq i32 %3, 8
-  br i1 %33, label %34, label %switch.edge1963
-
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %36 = load i32, ptr %35, align 4, !tbaa !22
-  %37 = and i32 %36, 16
-  %.not2031 = icmp eq i32 %37, 0
-  %.pre2040 = load i32, ptr %1, align 8, !tbaa !3
-  br i1 %.not2031, label %39, label %38
-
-38:                                               ; preds = %34
-  switch i32 %.pre2040, label %40 [
-    i32 1341, label %switch.edge1963
-    i32 2091, label %switch.edge1963
-    i32 1334, label %switch.edge1963.fold.split2079
-    i32 2087, label %switch.edge1963.fold.split2079
-    i32 2090, label %switch.edge1963.fold.split2080
-    i32 1342, label %switch.edge1963.fold.split2080
-    i32 2088, label %switch.edge1963.fold.split2081
-    i32 2089, label %switch.edge1963.fold.split2081
-    i32 1335, label %switch.edge1963.fold.split2081
-    i32 1337, label %switch.edge1963.fold.split2081
-    i32 1339, label %switch.edge1963.fold.split2081
-    i32 2086, label %switch.edge1963.fold.split2081
-    i32 1343, label %switch.edge1951
-  ]
-
-39:                                               ; preds = %34
-  switch i32 %.pre2040, label %40 [
-    i32 1341, label %switch.edge1963.fold.split2082
-    i32 2091, label %switch.edge1963.fold.split2082
-    i32 1334, label %switch.edge1963
-    i32 2087, label %switch.edge1963
-    i32 2090, label %.fold.split1943
-    i32 1342, label %.fold.split1943
-    i32 1335, label %.fold.split1945
-    i32 1337, label %.fold.split1945
-    i32 1339, label %.fold.split1945
-    i32 2086, label %.fold.split1945
-    i32 2088, label %.fold.split1945
-    i32 2089, label %.fold.split1945
-    i32 1343, label %switch.edge1951
-  ]
-
-switch.edge1951:                                  ; preds = %38, %39
-  br label %switch.edge1963
-
-40:                                               ; preds = %38, %39
-  br label %switch.edge1963
-
-41:                                               ; preds = %4
-  %42 = icmp eq i32 %3, 8
-  br i1 %42, label %43, label %switch.edge1963
-
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %45 = load i32, ptr %44, align 4, !tbaa !22
-  %46 = and i32 %45, 16
-  %.not2030 = icmp eq i32 %46, 0
-  %.pre2039 = load i32, ptr %1, align 8, !tbaa !3
-  br i1 %.not2030, label %48, label %47
-
-47:                                               ; preds = %43
-  switch i32 %.pre2039, label %49 [
-    i32 1341, label %switch.edge1963
-    i32 2091, label %switch.edge1963
-    i32 1334, label %switch.edge1963.fold.split2083
-    i32 2087, label %switch.edge1963.fold.split2083
-    i32 2090, label %switch.edge1963.fold.split2084
-    i32 1342, label %switch.edge1963.fold.split2084
-    i32 2088, label %switch.edge1963.fold.split2085
-    i32 2089, label %switch.edge1963.fold.split2085
-    i32 1335, label %switch.edge1963.fold.split2085
-    i32 1337, label %switch.edge1963.fold.split2085
-    i32 1339, label %switch.edge1963.fold.split2085
-    i32 2086, label %switch.edge1963.fold.split2085
-    i32 1343, label %switch.edge1962
-  ]
-
-48:                                               ; preds = %43
-  switch i32 %.pre2039, label %49 [
-    i32 1341, label %switch.edge1963.fold.split2086
-    i32 2091, label %switch.edge1963.fold.split2086
-    i32 1334, label %switch.edge1963
-    i32 2087, label %switch.edge1963
-    i32 2090, label %.fold.split1954
-    i32 1342, label %.fold.split1954
-    i32 1335, label %.fold.split1956
-    i32 1337, label %.fold.split1956
-    i32 1339, label %.fold.split1956
-    i32 2086, label %.fold.split1956
-    i32 2088, label %.fold.split1956
-    i32 2089, label %.fold.split1956
-    i32 1343, label %switch.edge1962
-  ]
-
-switch.edge1962:                                  ; preds = %47, %48
-  br label %switch.edge1963
-
-49:                                               ; preds = %47, %48
-  br label %switch.edge1963
-
-50:                                               ; preds = %4
-  %51 = icmp eq i32 %3, 8
-  br i1 %51, label %52, label %switch.edge1963
-
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %54 = load i32, ptr %53, align 4, !tbaa !22
-  %55 = and i32 %54, 16
-  %.not2029 = icmp eq i32 %55, 0
-  %.1176 = select i1 %.not2029, i32 2446, i32 2445
-  br label %switch.edge1963
-
-56:                                               ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 5, label %57
-    i32 7, label %65
-    i32 8, label %73
-    i32 9, label %81
-    i32 10, label %89
-    i32 11, label %97
-    i32 13, label %105
-    i32 15, label %113
-    i32 17, label %121
-    i32 18, label %129
-  ]
-
-57:                                               ; preds = %56
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !17
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %61 = load i32, ptr %60, align 8, !tbaa !21
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  %63 = load i32, ptr %62, align 8, !tbaa !21
-  %64 = icmp eq i32 %61, %63
-  %.1177 = select i1 %64, i32 2453, i32 2448
-  br label %switch.edge1963
-
-65:                                               ; preds = %56
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !17
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %69 = load i32, ptr %68, align 8, !tbaa !21
-  %70 = getelementptr inbounds nuw i8, ptr %67, i64 40
-  %71 = load i32, ptr %70, align 8, !tbaa !21
-  %72 = icmp eq i32 %69, %71
-  %.1178 = select i1 %72, i32 2450, i32 2448
-  br label %switch.edge1963
-
-73:                                               ; preds = %56
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %75 = load ptr, ptr %74, align 8, !tbaa !17
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %77 = load i32, ptr %76, align 8, !tbaa !21
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 40
-  %79 = load i32, ptr %78, align 8, !tbaa !21
-  %80 = icmp eq i32 %77, %79
-  %.1179 = select i1 %80, i32 2454, i32 2448
-  br label %switch.edge1963
-
-81:                                               ; preds = %56
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %83 = load ptr, ptr %82, align 8, !tbaa !17
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  %85 = load i32, ptr %84, align 8, !tbaa !21
-  %86 = getelementptr inbounds nuw i8, ptr %83, i64 40
-  %87 = load i32, ptr %86, align 8, !tbaa !21
-  %88 = icmp eq i32 %85, %87
-  %.1180 = select i1 %88, i32 2456, i32 2448
-  br label %switch.edge1963
-
-89:                                               ; preds = %56
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %91 = load ptr, ptr %90, align 8, !tbaa !17
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  %93 = load i32, ptr %92, align 8, !tbaa !21
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 40
-  %95 = load i32, ptr %94, align 8, !tbaa !21
-  %96 = icmp eq i32 %93, %95
-  %.1181 = select i1 %96, i32 2447, i32 2448
-  br label %switch.edge1963
-
-97:                                               ; preds = %56
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !17
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  %101 = load i32, ptr %100, align 8, !tbaa !21
-  %102 = getelementptr inbounds nuw i8, ptr %99, i64 40
-  %103 = load i32, ptr %102, align 8, !tbaa !21
-  %104 = icmp eq i32 %101, %103
-  %.1182 = select i1 %104, i32 2449, i32 2448
-  br label %switch.edge1963
-
-105:                                              ; preds = %56
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %107 = load ptr, ptr %106, align 8, !tbaa !17
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  %109 = load i32, ptr %108, align 8, !tbaa !21
-  %110 = getelementptr inbounds nuw i8, ptr %107, i64 40
-  %111 = load i32, ptr %110, align 8, !tbaa !21
-  %112 = icmp eq i32 %109, %111
-  %.1183 = select i1 %112, i32 2457, i32 2448
-  br label %switch.edge1963
-
-113:                                              ; preds = %56
-  %114 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %115 = load ptr, ptr %114, align 8, !tbaa !17
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
-  %117 = load i32, ptr %116, align 8, !tbaa !21
-  %118 = getelementptr inbounds nuw i8, ptr %115, i64 40
-  %119 = load i32, ptr %118, align 8, !tbaa !21
-  %120 = icmp eq i32 %117, %119
-  %.1184 = select i1 %120, i32 2455, i32 2448
-  br label %switch.edge1963
-
-121:                                              ; preds = %56
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %123 = load ptr, ptr %122, align 8, !tbaa !17
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  %125 = load i32, ptr %124, align 8, !tbaa !21
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 40
-  %127 = load i32, ptr %126, align 8, !tbaa !21
-  %128 = icmp eq i32 %125, %127
-  %.1185 = select i1 %128, i32 2451, i32 2448
-  br label %switch.edge1963
-
-129:                                              ; preds = %56
-  %130 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %131 = load ptr, ptr %130, align 8, !tbaa !17
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 24
-  %133 = load i32, ptr %132, align 8, !tbaa !21
-  %134 = getelementptr inbounds nuw i8, ptr %131, i64 40
-  %135 = load i32, ptr %134, align 8, !tbaa !21
-  %136 = icmp eq i32 %133, %135
-  %.1186 = select i1 %136, i32 2452, i32 2448
-  br label %switch.edge1963
-
-137:                                              ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 5, label %138
-    i32 7, label %146
-    i32 8, label %154
-    i32 9, label %162
-    i32 10, label %170
-    i32 11, label %178
-    i32 13, label %186
-    i32 15, label %194
-  ]
-
-138:                                              ; preds = %137
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %140 = load ptr, ptr %139, align 8, !tbaa !17
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
-  %142 = load i32, ptr %141, align 8, !tbaa !21
-  %143 = getelementptr inbounds nuw i8, ptr %140, i64 40
-  %144 = load i32, ptr %143, align 8, !tbaa !21
-  %145 = icmp eq i32 %142, %144
-  %.1187 = select i1 %145, i32 2453, i32 2458
-  br label %switch.edge1963
-
-146:                                              ; preds = %137
-  %147 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %148 = load ptr, ptr %147, align 8, !tbaa !17
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
-  %150 = load i32, ptr %149, align 8, !tbaa !21
-  %151 = getelementptr inbounds nuw i8, ptr %148, i64 40
-  %152 = load i32, ptr %151, align 8, !tbaa !21
-  %153 = icmp eq i32 %150, %152
-  %.1188 = select i1 %153, i32 2450, i32 2458
-  br label %switch.edge1963
-
-154:                                              ; preds = %137
-  %155 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %156 = load ptr, ptr %155, align 8, !tbaa !17
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 24
-  %158 = load i32, ptr %157, align 8, !tbaa !21
-  %159 = getelementptr inbounds nuw i8, ptr %156, i64 40
-  %160 = load i32, ptr %159, align 8, !tbaa !21
-  %161 = icmp eq i32 %158, %160
-  %.1189 = select i1 %161, i32 2454, i32 2458
-  br label %switch.edge1963
-
-162:                                              ; preds = %137
-  %163 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %164 = load ptr, ptr %163, align 8, !tbaa !17
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 24
-  %166 = load i32, ptr %165, align 8, !tbaa !21
-  %167 = getelementptr inbounds nuw i8, ptr %164, i64 40
-  %168 = load i32, ptr %167, align 8, !tbaa !21
-  %169 = icmp eq i32 %166, %168
-  %.1190 = select i1 %169, i32 2456, i32 2458
-  br label %switch.edge1963
-
-170:                                              ; preds = %137
-  %171 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %172 = load ptr, ptr %171, align 8, !tbaa !17
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 24
-  %174 = load i32, ptr %173, align 8, !tbaa !21
-  %175 = getelementptr inbounds nuw i8, ptr %172, i64 40
-  %176 = load i32, ptr %175, align 8, !tbaa !21
-  %177 = icmp eq i32 %174, %176
-  %.1191 = select i1 %177, i32 2447, i32 2458
-  br label %switch.edge1963
-
-178:                                              ; preds = %137
-  %179 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %180 = load ptr, ptr %179, align 8, !tbaa !17
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 24
-  %182 = load i32, ptr %181, align 8, !tbaa !21
-  %183 = getelementptr inbounds nuw i8, ptr %180, i64 40
-  %184 = load i32, ptr %183, align 8, !tbaa !21
-  %185 = icmp eq i32 %182, %184
-  %.1192 = select i1 %185, i32 2449, i32 2458
-  br label %switch.edge1963
-
-186:                                              ; preds = %137
-  %187 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %188 = load ptr, ptr %187, align 8, !tbaa !17
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 24
-  %190 = load i32, ptr %189, align 8, !tbaa !21
-  %191 = getelementptr inbounds nuw i8, ptr %188, i64 40
-  %192 = load i32, ptr %191, align 8, !tbaa !21
-  %193 = icmp eq i32 %190, %192
-  %.1193 = select i1 %193, i32 2457, i32 2458
-  br label %switch.edge1963
-
-194:                                              ; preds = %137
-  %195 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %196 = load ptr, ptr %195, align 8, !tbaa !17
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 24
-  %198 = load i32, ptr %197, align 8, !tbaa !21
-  %199 = getelementptr inbounds nuw i8, ptr %196, i64 40
-  %200 = load i32, ptr %199, align 8, !tbaa !21
-  %201 = icmp eq i32 %198, %200
-  %.1194 = select i1 %201, i32 2455, i32 2458
-  br label %switch.edge1963
-
-202:                                              ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 7, label %203
-    i32 8, label %211
-    i32 9, label %219
-    i32 10, label %227
-    i32 11, label %235
-    i32 13, label %243
-    i32 15, label %251
-    i32 17, label %259
-    i32 18, label %267
-  ]
-
-203:                                              ; preds = %202
-  %204 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %205 = load ptr, ptr %204, align 8, !tbaa !17
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 24
-  %207 = load i32, ptr %206, align 8, !tbaa !21
-  %208 = getelementptr inbounds nuw i8, ptr %205, i64 40
-  %209 = load i32, ptr %208, align 8, !tbaa !21
-  %210 = icmp eq i32 %207, %209
-  %.1195 = select i1 %210, i32 2450, i32 2459
-  br label %switch.edge1963
-
-211:                                              ; preds = %202
-  %212 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %213 = load ptr, ptr %212, align 8, !tbaa !17
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 24
-  %215 = load i32, ptr %214, align 8, !tbaa !21
-  %216 = getelementptr inbounds nuw i8, ptr %213, i64 40
-  %217 = load i32, ptr %216, align 8, !tbaa !21
-  %218 = icmp eq i32 %215, %217
-  %.1196 = select i1 %218, i32 2460, i32 2459
-  br label %switch.edge1963
-
-219:                                              ; preds = %202
-  %220 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %221 = load ptr, ptr %220, align 8, !tbaa !17
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 24
-  %223 = load i32, ptr %222, align 8, !tbaa !21
-  %224 = getelementptr inbounds nuw i8, ptr %221, i64 40
-  %225 = load i32, ptr %224, align 8, !tbaa !21
-  %226 = icmp eq i32 %223, %225
-  %.1197 = select i1 %226, i32 2456, i32 2459
-  br label %switch.edge1963
-
-227:                                              ; preds = %202
-  %228 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %229 = load ptr, ptr %228, align 8, !tbaa !17
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 24
-  %231 = load i32, ptr %230, align 8, !tbaa !21
-  %232 = getelementptr inbounds nuw i8, ptr %229, i64 40
-  %233 = load i32, ptr %232, align 8, !tbaa !21
-  %234 = icmp eq i32 %231, %233
-  %.1198 = select i1 %234, i32 2447, i32 2459
-  br label %switch.edge1963
-
-235:                                              ; preds = %202
-  %236 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %237 = load ptr, ptr %236, align 8, !tbaa !17
-  %238 = getelementptr inbounds nuw i8, ptr %237, i64 24
-  %239 = load i32, ptr %238, align 8, !tbaa !21
-  %240 = getelementptr inbounds nuw i8, ptr %237, i64 40
-  %241 = load i32, ptr %240, align 8, !tbaa !21
-  %242 = icmp eq i32 %239, %241
-  %.1199 = select i1 %242, i32 2449, i32 2459
-  br label %switch.edge1963
-
-243:                                              ; preds = %202
-  %244 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %245 = load ptr, ptr %244, align 8, !tbaa !17
-  %246 = getelementptr inbounds nuw i8, ptr %245, i64 24
-  %247 = load i32, ptr %246, align 8, !tbaa !21
-  %248 = getelementptr inbounds nuw i8, ptr %245, i64 40
-  %249 = load i32, ptr %248, align 8, !tbaa !21
-  %250 = icmp eq i32 %247, %249
-  %.1200 = select i1 %250, i32 2457, i32 2459
-  br label %switch.edge1963
-
-251:                                              ; preds = %202
-  %252 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %253 = load ptr, ptr %252, align 8, !tbaa !17
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 24
-  %255 = load i32, ptr %254, align 8, !tbaa !21
-  %256 = getelementptr inbounds nuw i8, ptr %253, i64 40
-  %257 = load i32, ptr %256, align 8, !tbaa !21
-  %258 = icmp eq i32 %255, %257
-  %.1201 = select i1 %258, i32 2455, i32 2459
-  br label %switch.edge1963
-
-259:                                              ; preds = %202
-  %260 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %261 = load ptr, ptr %260, align 8, !tbaa !17
-  %262 = getelementptr inbounds nuw i8, ptr %261, i64 24
-  %263 = load i32, ptr %262, align 8, !tbaa !21
-  %264 = getelementptr inbounds nuw i8, ptr %261, i64 40
-  %265 = load i32, ptr %264, align 8, !tbaa !21
-  %266 = icmp eq i32 %263, %265
-  %.1202 = select i1 %266, i32 2451, i32 2459
-  br label %switch.edge1963
-
-267:                                              ; preds = %202
-  %268 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %269 = load ptr, ptr %268, align 8, !tbaa !17
-  %270 = getelementptr inbounds nuw i8, ptr %269, i64 24
-  %271 = load i32, ptr %270, align 8, !tbaa !21
-  %272 = getelementptr inbounds nuw i8, ptr %269, i64 40
-  %273 = load i32, ptr %272, align 8, !tbaa !21
-  %274 = icmp eq i32 %271, %273
-  %.1203 = select i1 %274, i32 2452, i32 2459
-  br label %switch.edge1963
-
-275:                                              ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 5, label %276
-    i32 7, label %284
-    i32 8, label %292
-    i32 9, label %300
-    i32 10, label %308
-    i32 11, label %316
-    i32 13, label %324
-    i32 15, label %332
-  ]
-
-276:                                              ; preds = %275
-  %277 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %278 = load ptr, ptr %277, align 8, !tbaa !17
-  %279 = getelementptr inbounds nuw i8, ptr %278, i64 24
-  %280 = load i32, ptr %279, align 8, !tbaa !21
-  %281 = getelementptr inbounds nuw i8, ptr %278, i64 40
-  %282 = load i32, ptr %281, align 8, !tbaa !21
-  %283 = icmp eq i32 %280, %282
-  %.1204 = select i1 %283, i32 2453, i32 2461
-  br label %switch.edge1963
-
-284:                                              ; preds = %275
-  %285 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %286 = load ptr, ptr %285, align 8, !tbaa !17
-  %287 = getelementptr inbounds nuw i8, ptr %286, i64 24
-  %288 = load i32, ptr %287, align 8, !tbaa !21
-  %289 = getelementptr inbounds nuw i8, ptr %286, i64 40
-  %290 = load i32, ptr %289, align 8, !tbaa !21
-  %291 = icmp eq i32 %288, %290
-  %.1205 = select i1 %291, i32 2450, i32 2461
-  br label %switch.edge1963
-
-292:                                              ; preds = %275
-  %293 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %294 = load ptr, ptr %293, align 8, !tbaa !17
-  %295 = getelementptr inbounds nuw i8, ptr %294, i64 24
-  %296 = load i32, ptr %295, align 8, !tbaa !21
-  %297 = getelementptr inbounds nuw i8, ptr %294, i64 40
-  %298 = load i32, ptr %297, align 8, !tbaa !21
-  %299 = icmp eq i32 %296, %298
-  %.1206 = select i1 %299, i32 2454, i32 2461
-  br label %switch.edge1963
-
-300:                                              ; preds = %275
-  %301 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %302 = load ptr, ptr %301, align 8, !tbaa !17
-  %303 = getelementptr inbounds nuw i8, ptr %302, i64 24
-  %304 = load i32, ptr %303, align 8, !tbaa !21
-  %305 = getelementptr inbounds nuw i8, ptr %302, i64 40
-  %306 = load i32, ptr %305, align 8, !tbaa !21
-  %307 = icmp eq i32 %304, %306
-  %.1207 = select i1 %307, i32 2456, i32 2461
-  br label %switch.edge1963
-
-308:                                              ; preds = %275
-  %309 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %310 = load ptr, ptr %309, align 8, !tbaa !17
-  %311 = getelementptr inbounds nuw i8, ptr %310, i64 24
-  %312 = load i32, ptr %311, align 8, !tbaa !21
-  %313 = getelementptr inbounds nuw i8, ptr %310, i64 40
-  %314 = load i32, ptr %313, align 8, !tbaa !21
-  %315 = icmp eq i32 %312, %314
-  %.1208 = select i1 %315, i32 2447, i32 2461
-  br label %switch.edge1963
-
-316:                                              ; preds = %275
-  %317 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %318 = load ptr, ptr %317, align 8, !tbaa !17
-  %319 = getelementptr inbounds nuw i8, ptr %318, i64 24
-  %320 = load i32, ptr %319, align 8, !tbaa !21
-  %321 = getelementptr inbounds nuw i8, ptr %318, i64 40
-  %322 = load i32, ptr %321, align 8, !tbaa !21
-  %323 = icmp eq i32 %320, %322
-  %.1209 = select i1 %323, i32 2449, i32 2461
-  br label %switch.edge1963
-
-324:                                              ; preds = %275
-  %325 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %326 = load ptr, ptr %325, align 8, !tbaa !17
-  %327 = getelementptr inbounds nuw i8, ptr %326, i64 24
-  %328 = load i32, ptr %327, align 8, !tbaa !21
-  %329 = getelementptr inbounds nuw i8, ptr %326, i64 40
-  %330 = load i32, ptr %329, align 8, !tbaa !21
-  %331 = icmp eq i32 %328, %330
-  %.1210 = select i1 %331, i32 2457, i32 2461
-  br label %switch.edge1963
-
-332:                                              ; preds = %275
-  %333 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %334 = load ptr, ptr %333, align 8, !tbaa !17
-  %335 = getelementptr inbounds nuw i8, ptr %334, i64 24
-  %336 = load i32, ptr %335, align 8, !tbaa !21
-  %337 = getelementptr inbounds nuw i8, ptr %334, i64 40
-  %338 = load i32, ptr %337, align 8, !tbaa !21
-  %339 = icmp eq i32 %336, %338
-  %.1211 = select i1 %339, i32 2455, i32 2461
-  br label %switch.edge1963
-
-340:                                              ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 5, label %341
-    i32 7, label %349
-    i32 8, label %357
-    i32 9, label %365
-    i32 10, label %373
-    i32 11, label %381
-    i32 13, label %389
-    i32 15, label %397
-  ]
-
-341:                                              ; preds = %340
-  %342 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %343 = load ptr, ptr %342, align 8, !tbaa !17
-  %344 = getelementptr inbounds nuw i8, ptr %343, i64 24
-  %345 = load i32, ptr %344, align 8, !tbaa !21
-  %346 = getelementptr inbounds nuw i8, ptr %343, i64 40
-  %347 = load i32, ptr %346, align 8, !tbaa !21
-  %348 = icmp eq i32 %345, %347
-  %.1212 = select i1 %348, i32 2453, i32 2462
-  br label %switch.edge1963
-
-349:                                              ; preds = %340
-  %350 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %351 = load ptr, ptr %350, align 8, !tbaa !17
-  %352 = getelementptr inbounds nuw i8, ptr %351, i64 24
-  %353 = load i32, ptr %352, align 8, !tbaa !21
-  %354 = getelementptr inbounds nuw i8, ptr %351, i64 40
-  %355 = load i32, ptr %354, align 8, !tbaa !21
-  %356 = icmp eq i32 %353, %355
-  %.1213 = select i1 %356, i32 2450, i32 2462
-  br label %switch.edge1963
-
-357:                                              ; preds = %340
-  %358 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %359 = load ptr, ptr %358, align 8, !tbaa !17
-  %360 = getelementptr inbounds nuw i8, ptr %359, i64 24
-  %361 = load i32, ptr %360, align 8, !tbaa !21
-  %362 = getelementptr inbounds nuw i8, ptr %359, i64 40
-  %363 = load i32, ptr %362, align 8, !tbaa !21
-  %364 = icmp eq i32 %361, %363
-  %.1214 = select i1 %364, i32 2454, i32 2462
-  br label %switch.edge1963
-
-365:                                              ; preds = %340
-  %366 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %367 = load ptr, ptr %366, align 8, !tbaa !17
-  %368 = getelementptr inbounds nuw i8, ptr %367, i64 24
-  %369 = load i32, ptr %368, align 8, !tbaa !21
-  %370 = getelementptr inbounds nuw i8, ptr %367, i64 40
-  %371 = load i32, ptr %370, align 8, !tbaa !21
-  %372 = icmp eq i32 %369, %371
-  %.1215 = select i1 %372, i32 2456, i32 2464
-  br label %switch.edge1963
-
-373:                                              ; preds = %340
-  %374 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %375 = load ptr, ptr %374, align 8, !tbaa !17
-  %376 = getelementptr inbounds nuw i8, ptr %375, i64 24
-  %377 = load i32, ptr %376, align 8, !tbaa !21
-  %378 = getelementptr inbounds nuw i8, ptr %375, i64 40
-  %379 = load i32, ptr %378, align 8, !tbaa !21
-  %380 = icmp eq i32 %377, %379
-  %.1216 = select i1 %380, i32 2447, i32 2462
-  br label %switch.edge1963
-
-381:                                              ; preds = %340
-  %382 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %383 = load ptr, ptr %382, align 8, !tbaa !17
-  %384 = getelementptr inbounds nuw i8, ptr %383, i64 24
-  %385 = load i32, ptr %384, align 8, !tbaa !21
-  %386 = getelementptr inbounds nuw i8, ptr %383, i64 40
-  %387 = load i32, ptr %386, align 8, !tbaa !21
-  %388 = icmp eq i32 %385, %387
-  %.1217 = select i1 %388, i32 2449, i32 2462
-  br label %switch.edge1963
-
-389:                                              ; preds = %340
-  %390 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %391 = load ptr, ptr %390, align 8, !tbaa !17
-  %392 = getelementptr inbounds nuw i8, ptr %391, i64 24
-  %393 = load i32, ptr %392, align 8, !tbaa !21
-  %394 = getelementptr inbounds nuw i8, ptr %391, i64 40
-  %395 = load i32, ptr %394, align 8, !tbaa !21
-  %396 = icmp eq i32 %393, %395
-  %.1218 = select i1 %396, i32 2457, i32 2465
-  br label %switch.edge1963
-
-397:                                              ; preds = %340
-  %398 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %399 = load ptr, ptr %398, align 8, !tbaa !17
-  %400 = getelementptr inbounds nuw i8, ptr %399, i64 24
-  %401 = load i32, ptr %400, align 8, !tbaa !21
-  %402 = getelementptr inbounds nuw i8, ptr %399, i64 40
-  %403 = load i32, ptr %402, align 8, !tbaa !21
-  %404 = icmp eq i32 %401, %403
-  %.1219 = select i1 %404, i32 2455, i32 2463
-  br label %switch.edge1963
-
-405:                                              ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 5, label %406
-    i32 7, label %414
-    i32 8, label %422
-    i32 9, label %430
-    i32 10, label %438
-    i32 11, label %446
-    i32 13, label %454
-    i32 15, label %462
-  ]
-
-406:                                              ; preds = %405
-  %407 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %408 = load ptr, ptr %407, align 8, !tbaa !17
-  %409 = getelementptr inbounds nuw i8, ptr %408, i64 24
-  %410 = load i32, ptr %409, align 8, !tbaa !21
-  %411 = getelementptr inbounds nuw i8, ptr %408, i64 40
-  %412 = load i32, ptr %411, align 8, !tbaa !21
-  %413 = icmp eq i32 %410, %412
-  %.1220 = select i1 %413, i32 2453, i32 2462
-  br label %switch.edge1963
-
-414:                                              ; preds = %405
-  %415 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %416 = load ptr, ptr %415, align 8, !tbaa !17
-  %417 = getelementptr inbounds nuw i8, ptr %416, i64 24
-  %418 = load i32, ptr %417, align 8, !tbaa !21
-  %419 = getelementptr inbounds nuw i8, ptr %416, i64 40
-  %420 = load i32, ptr %419, align 8, !tbaa !21
-  %421 = icmp eq i32 %418, %420
-  %.1221 = select i1 %421, i32 2450, i32 2462
-  br label %switch.edge1963
-
-422:                                              ; preds = %405
-  %423 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %424 = load ptr, ptr %423, align 8, !tbaa !17
-  %425 = getelementptr inbounds nuw i8, ptr %424, i64 24
-  %426 = load i32, ptr %425, align 8, !tbaa !21
-  %427 = getelementptr inbounds nuw i8, ptr %424, i64 40
-  %428 = load i32, ptr %427, align 8, !tbaa !21
-  %429 = icmp eq i32 %426, %428
-  %.1222 = select i1 %429, i32 2454, i32 2462
-  br label %switch.edge1963
-
-430:                                              ; preds = %405
-  %431 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %432 = load ptr, ptr %431, align 8, !tbaa !17
-  %433 = getelementptr inbounds nuw i8, ptr %432, i64 24
-  %434 = load i32, ptr %433, align 8, !tbaa !21
-  %435 = getelementptr inbounds nuw i8, ptr %432, i64 40
-  %436 = load i32, ptr %435, align 8, !tbaa !21
-  %437 = icmp eq i32 %434, %436
-  %.1223 = select i1 %437, i32 2456, i32 2464
-  br label %switch.edge1963
-
-438:                                              ; preds = %405
-  %439 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %440 = load ptr, ptr %439, align 8, !tbaa !17
-  %441 = getelementptr inbounds nuw i8, ptr %440, i64 24
-  %442 = load i32, ptr %441, align 8, !tbaa !21
-  %443 = getelementptr inbounds nuw i8, ptr %440, i64 40
-  %444 = load i32, ptr %443, align 8, !tbaa !21
-  %445 = icmp eq i32 %442, %444
-  %.1224 = select i1 %445, i32 2447, i32 2462
-  br label %switch.edge1963
-
-446:                                              ; preds = %405
-  %447 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %448 = load ptr, ptr %447, align 8, !tbaa !17
-  %449 = getelementptr inbounds nuw i8, ptr %448, i64 24
-  %450 = load i32, ptr %449, align 8, !tbaa !21
-  %451 = getelementptr inbounds nuw i8, ptr %448, i64 40
-  %452 = load i32, ptr %451, align 8, !tbaa !21
-  %453 = icmp eq i32 %450, %452
-  %.1225 = select i1 %453, i32 2449, i32 2462
-  br label %switch.edge1963
-
-454:                                              ; preds = %405
-  %455 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %456 = load ptr, ptr %455, align 8, !tbaa !17
-  %457 = getelementptr inbounds nuw i8, ptr %456, i64 24
-  %458 = load i32, ptr %457, align 8, !tbaa !21
-  %459 = getelementptr inbounds nuw i8, ptr %456, i64 40
-  %460 = load i32, ptr %459, align 8, !tbaa !21
-  %461 = icmp eq i32 %458, %460
-  %.1226 = select i1 %461, i32 2457, i32 2465
-  br label %switch.edge1963
-
-462:                                              ; preds = %405
-  %463 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %464 = load ptr, ptr %463, align 8, !tbaa !17
-  %465 = getelementptr inbounds nuw i8, ptr %464, i64 24
-  %466 = load i32, ptr %465, align 8, !tbaa !21
-  %467 = getelementptr inbounds nuw i8, ptr %464, i64 40
-  %468 = load i32, ptr %467, align 8, !tbaa !21
-  %469 = icmp eq i32 %466, %468
-  %.1227 = select i1 %469, i32 2455, i32 2463
-  br label %switch.edge1963
-
-470:                                              ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 7, label %471
-    i32 8, label %479
-    i32 9, label %487
-    i32 10, label %495
-    i32 11, label %503
-    i32 13, label %511
-    i32 15, label %519
-    i32 17, label %527
-    i32 18, label %535
-  ]
-
-471:                                              ; preds = %470
-  %472 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %473 = load ptr, ptr %472, align 8, !tbaa !17
-  %474 = getelementptr inbounds nuw i8, ptr %473, i64 24
-  %475 = load i32, ptr %474, align 8, !tbaa !21
-  %476 = getelementptr inbounds nuw i8, ptr %473, i64 40
-  %477 = load i32, ptr %476, align 8, !tbaa !21
-  %478 = icmp eq i32 %475, %477
-  %.1228 = select i1 %478, i32 2450, i32 2468
-  br label %switch.edge1963
-
-479:                                              ; preds = %470
-  %480 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %481 = load ptr, ptr %480, align 8, !tbaa !17
-  %482 = getelementptr inbounds nuw i8, ptr %481, i64 24
-  %483 = load i32, ptr %482, align 8, !tbaa !21
-  %484 = getelementptr inbounds nuw i8, ptr %481, i64 40
-  %485 = load i32, ptr %484, align 8, !tbaa !21
-  %486 = icmp eq i32 %483, %485
-  %.1229 = select i1 %486, i32 2454, i32 2462
-  br label %switch.edge1963
-
-487:                                              ; preds = %470
-  %488 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %489 = load ptr, ptr %488, align 8, !tbaa !17
-  %490 = getelementptr inbounds nuw i8, ptr %489, i64 24
-  %491 = load i32, ptr %490, align 8, !tbaa !21
-  %492 = getelementptr inbounds nuw i8, ptr %489, i64 40
-  %493 = load i32, ptr %492, align 8, !tbaa !21
-  %494 = icmp eq i32 %491, %493
-  %.1230 = select i1 %494, i32 2456, i32 2470
-  br label %switch.edge1963
-
-495:                                              ; preds = %470
-  %496 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %497 = load ptr, ptr %496, align 8, !tbaa !17
-  %498 = getelementptr inbounds nuw i8, ptr %497, i64 24
-  %499 = load i32, ptr %498, align 8, !tbaa !21
-  %500 = getelementptr inbounds nuw i8, ptr %497, i64 40
-  %501 = load i32, ptr %500, align 8, !tbaa !21
-  %502 = icmp eq i32 %499, %501
-  %.1231 = select i1 %502, i32 2447, i32 2466
-  br label %switch.edge1963
-
-503:                                              ; preds = %470
-  %504 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %505 = load ptr, ptr %504, align 8, !tbaa !17
-  %506 = getelementptr inbounds nuw i8, ptr %505, i64 24
-  %507 = load i32, ptr %506, align 8, !tbaa !21
-  %508 = getelementptr inbounds nuw i8, ptr %505, i64 40
-  %509 = load i32, ptr %508, align 8, !tbaa !21
-  %510 = icmp eq i32 %507, %509
-  %.1232 = select i1 %510, i32 2449, i32 2467
-  br label %switch.edge1963
-
-511:                                              ; preds = %470
-  %512 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %513 = load ptr, ptr %512, align 8, !tbaa !17
-  %514 = getelementptr inbounds nuw i8, ptr %513, i64 24
-  %515 = load i32, ptr %514, align 8, !tbaa !21
-  %516 = getelementptr inbounds nuw i8, ptr %513, i64 40
-  %517 = load i32, ptr %516, align 8, !tbaa !21
-  %518 = icmp eq i32 %515, %517
-  %.1233 = select i1 %518, i32 2457, i32 2471
-  br label %switch.edge1963
-
-519:                                              ; preds = %470
-  %520 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %521 = load ptr, ptr %520, align 8, !tbaa !17
-  %522 = getelementptr inbounds nuw i8, ptr %521, i64 24
-  %523 = load i32, ptr %522, align 8, !tbaa !21
-  %524 = getelementptr inbounds nuw i8, ptr %521, i64 40
-  %525 = load i32, ptr %524, align 8, !tbaa !21
-  %526 = icmp eq i32 %523, %525
-  %.1234 = select i1 %526, i32 2455, i32 2469
-  br label %switch.edge1963
-
-527:                                              ; preds = %470
-  %528 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %529 = load ptr, ptr %528, align 8, !tbaa !17
-  %530 = getelementptr inbounds nuw i8, ptr %529, i64 24
-  %531 = load i32, ptr %530, align 8, !tbaa !21
-  %532 = getelementptr inbounds nuw i8, ptr %529, i64 40
-  %533 = load i32, ptr %532, align 8, !tbaa !21
-  %534 = icmp eq i32 %531, %533
-  %.1235 = select i1 %534, i32 2451, i32 2462
-  br label %switch.edge1963
-
-535:                                              ; preds = %470
-  %536 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %537 = load ptr, ptr %536, align 8, !tbaa !17
-  %538 = getelementptr inbounds nuw i8, ptr %537, i64 24
-  %539 = load i32, ptr %538, align 8, !tbaa !21
-  %540 = getelementptr inbounds nuw i8, ptr %537, i64 40
-  %541 = load i32, ptr %540, align 8, !tbaa !21
-  %542 = icmp eq i32 %539, %541
-  %.1236 = select i1 %542, i32 2452, i32 2462
-  br label %switch.edge1963
-
-543:                                              ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 7, label %544
-    i32 9, label %552
-    i32 10, label %560
-    i32 11, label %568
-    i32 13, label %576
-    i32 15, label %584
-  ]
-
-544:                                              ; preds = %543
-  %545 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %546 = load ptr, ptr %545, align 8, !tbaa !17
-  %547 = getelementptr inbounds nuw i8, ptr %546, i64 56
-  %548 = load i64, ptr %547, align 8, !tbaa !21
-  %549 = icmp eq i64 %548, 7
-  br i1 %549, label %switch.edge1963, label %550
-
-550:                                              ; preds = %544
-  %551 = icmp eq i64 %548, 6
-  %spec.select = select i1 %551, i32 2475, i32 2473
-  br label %switch.edge1963
-
-552:                                              ; preds = %543
-  %553 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %554 = load ptr, ptr %553, align 8, !tbaa !17
-  %555 = getelementptr inbounds nuw i8, ptr %554, i64 56
-  %556 = load i64, ptr %555, align 8, !tbaa !21
-  %557 = icmp eq i64 %556, 7
-  br i1 %557, label %switch.edge1963, label %558
-
-558:                                              ; preds = %552
-  %559 = icmp eq i64 %556, 6
-  %spec.select1410 = select i1 %559, i32 2477, i32 2473
-  br label %switch.edge1963
-
-560:                                              ; preds = %543
-  %561 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %562 = load ptr, ptr %561, align 8, !tbaa !17
-  %563 = getelementptr inbounds nuw i8, ptr %562, i64 56
-  %564 = load i64, ptr %563, align 8, !tbaa !21
-  %565 = icmp eq i64 %564, 7
-  br i1 %565, label %switch.edge1963, label %566
-
-566:                                              ; preds = %560
-  %567 = icmp eq i64 %564, 6
-  %spec.select1411 = select i1 %567, i32 2472, i32 2473
-  br label %switch.edge1963
-
-568:                                              ; preds = %543
-  %569 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %570 = load ptr, ptr %569, align 8, !tbaa !17
-  %571 = getelementptr inbounds nuw i8, ptr %570, i64 56
-  %572 = load i64, ptr %571, align 8, !tbaa !21
-  %573 = icmp eq i64 %572, 7
-  br i1 %573, label %switch.edge1963, label %574
-
-574:                                              ; preds = %568
-  %575 = icmp eq i64 %572, 6
-  %spec.select1412 = select i1 %575, i32 2474, i32 2473
-  br label %switch.edge1963
-
-576:                                              ; preds = %543
-  %577 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %578 = load ptr, ptr %577, align 8, !tbaa !17
-  %579 = getelementptr inbounds nuw i8, ptr %578, i64 56
-  %580 = load i64, ptr %579, align 8, !tbaa !21
-  %581 = icmp eq i64 %580, 7
-  br i1 %581, label %switch.edge1963, label %582
-
-582:                                              ; preds = %576
-  %583 = icmp eq i64 %580, 6
-  %spec.select1413 = select i1 %583, i32 2478, i32 2473
-  br label %switch.edge1963
-
-584:                                              ; preds = %543
-  %585 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %586 = load ptr, ptr %585, align 8, !tbaa !17
-  %587 = getelementptr inbounds nuw i8, ptr %586, i64 56
-  %588 = load i64, ptr %587, align 8, !tbaa !21
-  %589 = icmp eq i64 %588, 7
-  br i1 %589, label %switch.edge1963, label %590
-
-590:                                              ; preds = %584
-  %591 = icmp eq i64 %588, 6
-  %spec.select1414 = select i1 %591, i32 2476, i32 2473
-  br label %switch.edge1963
-
-592:                                              ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 5, label %593
-    i32 7, label %599
-    i32 9, label %607
-    i32 10, label %615
-    i32 11, label %623
-    i32 13, label %631
-    i32 15, label %639
-  ]
-
-593:                                              ; preds = %592
-  %594 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %595 = load ptr, ptr %594, align 8, !tbaa !17
-  %596 = getelementptr inbounds nuw i8, ptr %595, i64 120
-  %597 = load i64, ptr %596, align 8, !tbaa !21
-  %switch.tableidx = add i64 %597, -6
-  %598 = icmp ult i64 %switch.tableidx, 10
-  br i1 %598, label %switch.lookup, label %switch.edge1963
-
-599:                                              ; preds = %592
-  %600 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %601 = load ptr, ptr %600, align 8, !tbaa !17
-  %602 = getelementptr inbounds nuw i8, ptr %601, i64 120
-  %603 = load i64, ptr %602, align 8, !tbaa !21
-  %604 = icmp eq i64 %603, 7
-  br i1 %604, label %switch.edge1963, label %605
-
-605:                                              ; preds = %599
-  %606 = icmp eq i64 %603, 6
-  %spec.select1415 = select i1 %606, i32 2482, i32 2480
-  br label %switch.edge1963
-
-607:                                              ; preds = %592
-  %608 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %609 = load ptr, ptr %608, align 8, !tbaa !17
-  %610 = getelementptr inbounds nuw i8, ptr %609, i64 120
-  %611 = load i64, ptr %610, align 8, !tbaa !21
-  %612 = icmp eq i64 %611, 7
-  br i1 %612, label %switch.edge1963, label %613
-
-613:                                              ; preds = %607
-  %614 = icmp eq i64 %611, 6
-  %spec.select1416 = select i1 %614, i32 2485, i32 2480
-  br label %switch.edge1963
-
-615:                                              ; preds = %592
-  %616 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %617 = load ptr, ptr %616, align 8, !tbaa !17
-  %618 = getelementptr inbounds nuw i8, ptr %617, i64 120
-  %619 = load i64, ptr %618, align 8, !tbaa !21
-  %620 = icmp eq i64 %619, 7
-  br i1 %620, label %switch.edge1963, label %621
-
-621:                                              ; preds = %615
-  %622 = icmp eq i64 %619, 6
-  %spec.select1417 = select i1 %622, i32 2479, i32 2480
-  br label %switch.edge1963
-
-623:                                              ; preds = %592
-  %624 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %625 = load ptr, ptr %624, align 8, !tbaa !17
-  %626 = getelementptr inbounds nuw i8, ptr %625, i64 120
-  %627 = load i64, ptr %626, align 8, !tbaa !21
-  %628 = icmp eq i64 %627, 7
-  br i1 %628, label %switch.edge1963, label %629
-
-629:                                              ; preds = %623
-  %630 = icmp eq i64 %627, 6
-  %spec.select1418 = select i1 %630, i32 2481, i32 2480
-  br label %switch.edge1963
-
-631:                                              ; preds = %592
-  %632 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %633 = load ptr, ptr %632, align 8, !tbaa !17
-  %634 = getelementptr inbounds nuw i8, ptr %633, i64 120
-  %635 = load i64, ptr %634, align 8, !tbaa !21
-  %636 = icmp eq i64 %635, 7
-  br i1 %636, label %switch.edge1963, label %637
-
-637:                                              ; preds = %631
-  %638 = icmp eq i64 %635, 6
-  %spec.select1419 = select i1 %638, i32 2486, i32 2480
-  br label %switch.edge1963
-
-639:                                              ; preds = %592
-  %640 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %641 = load ptr, ptr %640, align 8, !tbaa !17
-  %642 = getelementptr inbounds nuw i8, ptr %641, i64 120
-  %643 = load i64, ptr %642, align 8, !tbaa !21
-  %644 = icmp eq i64 %643, 7
-  br i1 %644, label %switch.edge1963, label %645
-
-645:                                              ; preds = %639
-  %646 = icmp eq i64 %643, 6
-  %spec.select1420 = select i1 %646, i32 2484, i32 2480
-  br label %switch.edge1963
-
-647:                                              ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 7, label %648
-    i32 9, label %656
-    i32 10, label %664
-    i32 11, label %672
-    i32 13, label %680
-    i32 15, label %688
-  ]
-
-648:                                              ; preds = %647
-  %649 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %650 = load ptr, ptr %649, align 8, !tbaa !17
-  %651 = getelementptr inbounds nuw i8, ptr %650, i64 24
-  %652 = load i64, ptr %651, align 8, !tbaa !21
-  %653 = icmp eq i64 %652, 7
-  br i1 %653, label %switch.edge1963, label %654
-
-654:                                              ; preds = %648
-  %655 = icmp eq i64 %652, 6
-  %spec.select1421 = select i1 %655, i32 2490, i32 2488
-  br label %switch.edge1963
-
-656:                                              ; preds = %647
-  %657 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %658 = load ptr, ptr %657, align 8, !tbaa !17
-  %659 = getelementptr inbounds nuw i8, ptr %658, i64 24
-  %660 = load i64, ptr %659, align 8, !tbaa !21
-  %661 = icmp eq i64 %660, 7
-  br i1 %661, label %switch.edge1963, label %662
-
-662:                                              ; preds = %656
-  %663 = icmp eq i64 %660, 6
-  %spec.select1422 = select i1 %663, i32 2492, i32 2488
-  br label %switch.edge1963
-
-664:                                              ; preds = %647
-  %665 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %666 = load ptr, ptr %665, align 8, !tbaa !17
-  %667 = getelementptr inbounds nuw i8, ptr %666, i64 24
-  %668 = load i64, ptr %667, align 8, !tbaa !21
-  %669 = icmp eq i64 %668, 7
-  br i1 %669, label %switch.edge1963, label %670
-
-670:                                              ; preds = %664
-  %671 = icmp eq i64 %668, 6
-  %spec.select1423 = select i1 %671, i32 2487, i32 2488
-  br label %switch.edge1963
-
-672:                                              ; preds = %647
-  %673 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %674 = load ptr, ptr %673, align 8, !tbaa !17
-  %675 = getelementptr inbounds nuw i8, ptr %674, i64 24
-  %676 = load i64, ptr %675, align 8, !tbaa !21
-  %677 = icmp eq i64 %676, 7
-  br i1 %677, label %switch.edge1963, label %678
-
-678:                                              ; preds = %672
-  %679 = icmp eq i64 %676, 6
-  %spec.select1424 = select i1 %679, i32 2489, i32 2488
-  br label %switch.edge1963
-
-680:                                              ; preds = %647
-  %681 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %682 = load ptr, ptr %681, align 8, !tbaa !17
-  %683 = getelementptr inbounds nuw i8, ptr %682, i64 24
-  %684 = load i64, ptr %683, align 8, !tbaa !21
-  %685 = icmp eq i64 %684, 7
-  br i1 %685, label %switch.edge1963, label %686
-
-686:                                              ; preds = %680
-  %687 = icmp eq i64 %684, 6
-  %spec.select1425 = select i1 %687, i32 2493, i32 2488
-  br label %switch.edge1963
-
-688:                                              ; preds = %647
-  %689 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %690 = load ptr, ptr %689, align 8, !tbaa !17
-  %691 = getelementptr inbounds nuw i8, ptr %690, i64 24
-  %692 = load i64, ptr %691, align 8, !tbaa !21
-  %693 = icmp eq i64 %692, 7
-  br i1 %693, label %switch.edge1963, label %694
-
-694:                                              ; preds = %688
-  %695 = icmp eq i64 %692, 6
-  %spec.select1426 = select i1 %695, i32 2491, i32 2488
-  br label %switch.edge1963
-
-696:                                              ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 5, label %697
-    i32 7, label %704
-    i32 9, label %712
-    i32 10, label %720
-    i32 11, label %728
-    i32 13, label %736
-    i32 15, label %744
-  ]
-
-697:                                              ; preds = %696
-  %698 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %699 = load ptr, ptr %698, align 8, !tbaa !17
-  %700 = getelementptr inbounds nuw i8, ptr %699, i64 88
-  %701 = load i64, ptr %700, align 8, !tbaa !21
-  %702 = and i64 %701, -4
-  %switch.selectcmp = icmp eq i64 %702, 12
-  %703 = select i1 %switch.selectcmp, i32 2498, i32 2495
-  br label %switch.edge1963
-
-704:                                              ; preds = %696
-  %705 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %706 = load ptr, ptr %705, align 8, !tbaa !17
-  %707 = getelementptr inbounds nuw i8, ptr %706, i64 88
-  %708 = load i64, ptr %707, align 8, !tbaa !21
-  %709 = icmp eq i64 %708, 7
-  br i1 %709, label %switch.edge1963, label %710
-
-710:                                              ; preds = %704
-  %711 = icmp eq i64 %708, 6
-  %spec.select1427 = select i1 %711, i32 2497, i32 2495
-  br label %switch.edge1963
-
-712:                                              ; preds = %696
-  %713 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %714 = load ptr, ptr %713, align 8, !tbaa !17
-  %715 = getelementptr inbounds nuw i8, ptr %714, i64 88
-  %716 = load i64, ptr %715, align 8, !tbaa !21
-  %717 = icmp eq i64 %716, 7
-  br i1 %717, label %switch.edge1963, label %718
-
-718:                                              ; preds = %712
-  %719 = icmp eq i64 %716, 6
-  %spec.select1428 = select i1 %719, i32 2500, i32 2495
-  br label %switch.edge1963
-
-720:                                              ; preds = %696
-  %721 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %722 = load ptr, ptr %721, align 8, !tbaa !17
-  %723 = getelementptr inbounds nuw i8, ptr %722, i64 88
-  %724 = load i64, ptr %723, align 8, !tbaa !21
-  %725 = icmp eq i64 %724, 7
-  br i1 %725, label %switch.edge1963, label %726
-
-726:                                              ; preds = %720
-  %727 = icmp eq i64 %724, 6
-  %spec.select1429 = select i1 %727, i32 2494, i32 2495
-  br label %switch.edge1963
-
-728:                                              ; preds = %696
-  %729 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %730 = load ptr, ptr %729, align 8, !tbaa !17
-  %731 = getelementptr inbounds nuw i8, ptr %730, i64 88
-  %732 = load i64, ptr %731, align 8, !tbaa !21
-  %733 = icmp eq i64 %732, 7
-  br i1 %733, label %switch.edge1963, label %734
-
-734:                                              ; preds = %728
-  %735 = icmp eq i64 %732, 6
-  %spec.select1430 = select i1 %735, i32 2496, i32 2495
-  br label %switch.edge1963
-
-736:                                              ; preds = %696
-  %737 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %738 = load ptr, ptr %737, align 8, !tbaa !17
-  %739 = getelementptr inbounds nuw i8, ptr %738, i64 88
-  %740 = load i64, ptr %739, align 8, !tbaa !21
-  %741 = icmp eq i64 %740, 7
-  br i1 %741, label %switch.edge1963, label %742
-
-742:                                              ; preds = %736
-  %743 = icmp eq i64 %740, 6
-  %spec.select1431 = select i1 %743, i32 2501, i32 2495
-  br label %switch.edge1963
-
-744:                                              ; preds = %696
-  %745 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %746 = load ptr, ptr %745, align 8, !tbaa !17
-  %747 = getelementptr inbounds nuw i8, ptr %746, i64 88
-  %748 = load i64, ptr %747, align 8, !tbaa !21
-  %749 = icmp eq i64 %748, 7
-  br i1 %749, label %switch.edge1963, label %750
-
-750:                                              ; preds = %744
-  %751 = icmp eq i64 %748, 6
-  %spec.select1432 = select i1 %751, i32 2499, i32 2495
-  br label %switch.edge1963
-
-752:                                              ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 7, label %753
-    i32 9, label %761
-    i32 11, label %769
-    i32 13, label %777
-    i32 15, label %785
-    i32 17, label %793
-    i32 18, label %801
-  ]
-
-753:                                              ; preds = %752
-  %754 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %755 = load ptr, ptr %754, align 8, !tbaa !17
-  %756 = getelementptr inbounds nuw i8, ptr %755, i64 24
-  %757 = load i32, ptr %756, align 8, !tbaa !21
-  %758 = getelementptr inbounds nuw i8, ptr %755, i64 40
-  %759 = load i32, ptr %758, align 8, !tbaa !21
-  %760 = icmp eq i32 %757, %759
-  %.1239 = select i1 %760, i32 2450, i32 2502
-  br label %switch.edge1963
-
-761:                                              ; preds = %752
-  %762 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %763 = load ptr, ptr %762, align 8, !tbaa !17
-  %764 = getelementptr inbounds nuw i8, ptr %763, i64 24
-  %765 = load i32, ptr %764, align 8, !tbaa !21
-  %766 = getelementptr inbounds nuw i8, ptr %763, i64 40
-  %767 = load i32, ptr %766, align 8, !tbaa !21
-  %768 = icmp eq i32 %765, %767
-  %.1240 = select i1 %768, i32 2456, i32 2502
-  br label %switch.edge1963
-
-769:                                              ; preds = %752
-  %770 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %771 = load ptr, ptr %770, align 8, !tbaa !17
-  %772 = getelementptr inbounds nuw i8, ptr %771, i64 24
-  %773 = load i32, ptr %772, align 8, !tbaa !21
-  %774 = getelementptr inbounds nuw i8, ptr %771, i64 40
-  %775 = load i32, ptr %774, align 8, !tbaa !21
-  %776 = icmp eq i32 %773, %775
-  %.1241 = select i1 %776, i32 2449, i32 2502
-  br label %switch.edge1963
-
-777:                                              ; preds = %752
-  %778 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %779 = load ptr, ptr %778, align 8, !tbaa !17
-  %780 = getelementptr inbounds nuw i8, ptr %779, i64 24
-  %781 = load i32, ptr %780, align 8, !tbaa !21
-  %782 = getelementptr inbounds nuw i8, ptr %779, i64 40
-  %783 = load i32, ptr %782, align 8, !tbaa !21
-  %784 = icmp eq i32 %781, %783
-  %.1242 = select i1 %784, i32 2457, i32 2502
-  br label %switch.edge1963
-
-785:                                              ; preds = %752
-  %786 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %787 = load ptr, ptr %786, align 8, !tbaa !17
-  %788 = getelementptr inbounds nuw i8, ptr %787, i64 24
-  %789 = load i32, ptr %788, align 8, !tbaa !21
-  %790 = getelementptr inbounds nuw i8, ptr %787, i64 40
-  %791 = load i32, ptr %790, align 8, !tbaa !21
-  %792 = icmp eq i32 %789, %791
-  %.1243 = select i1 %792, i32 2455, i32 2502
-  br label %switch.edge1963
-
-793:                                              ; preds = %752
-  %794 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %795 = load ptr, ptr %794, align 8, !tbaa !17
-  %796 = getelementptr inbounds nuw i8, ptr %795, i64 24
-  %797 = load i32, ptr %796, align 8, !tbaa !21
-  %798 = getelementptr inbounds nuw i8, ptr %795, i64 40
-  %799 = load i32, ptr %798, align 8, !tbaa !21
-  %800 = icmp eq i32 %797, %799
-  %.1244 = select i1 %800, i32 2451, i32 2502
-  br label %switch.edge1963
-
-801:                                              ; preds = %752
-  %802 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %803 = load ptr, ptr %802, align 8, !tbaa !17
-  %804 = getelementptr inbounds nuw i8, ptr %803, i64 24
-  %805 = load i32, ptr %804, align 8, !tbaa !21
-  %806 = getelementptr inbounds nuw i8, ptr %803, i64 40
-  %807 = load i32, ptr %806, align 8, !tbaa !21
-  %808 = icmp eq i32 %805, %807
-  %.1245 = select i1 %808, i32 2452, i32 2502
-  br label %switch.edge1963
-
-809:                                              ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 7, label %810
-    i32 9, label %818
-    i32 11, label %826
-    i32 13, label %834
-    i32 15, label %842
-    i32 17, label %850
-    i32 18, label %858
-  ]
-
-810:                                              ; preds = %809
-  %811 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %812 = load ptr, ptr %811, align 8, !tbaa !17
-  %813 = getelementptr inbounds nuw i8, ptr %812, i64 24
-  %814 = load i32, ptr %813, align 8, !tbaa !21
-  %815 = getelementptr inbounds nuw i8, ptr %812, i64 40
-  %816 = load i32, ptr %815, align 8, !tbaa !21
-  %817 = icmp eq i32 %814, %816
-  %.1246 = select i1 %817, i32 2450, i32 2503
-  br label %switch.edge1963
-
-818:                                              ; preds = %809
-  %819 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %820 = load ptr, ptr %819, align 8, !tbaa !17
-  %821 = getelementptr inbounds nuw i8, ptr %820, i64 24
-  %822 = load i32, ptr %821, align 8, !tbaa !21
-  %823 = getelementptr inbounds nuw i8, ptr %820, i64 40
-  %824 = load i32, ptr %823, align 8, !tbaa !21
-  %825 = icmp eq i32 %822, %824
-  %.1247 = select i1 %825, i32 2456, i32 2464
-  br label %switch.edge1963
-
-826:                                              ; preds = %809
-  %827 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %828 = load ptr, ptr %827, align 8, !tbaa !17
-  %829 = getelementptr inbounds nuw i8, ptr %828, i64 24
-  %830 = load i32, ptr %829, align 8, !tbaa !21
-  %831 = getelementptr inbounds nuw i8, ptr %828, i64 40
-  %832 = load i32, ptr %831, align 8, !tbaa !21
-  %833 = icmp eq i32 %830, %832
-  %.1248 = select i1 %833, i32 2449, i32 2503
-  br label %switch.edge1963
-
-834:                                              ; preds = %809
-  %835 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %836 = load ptr, ptr %835, align 8, !tbaa !17
-  %837 = getelementptr inbounds nuw i8, ptr %836, i64 24
-  %838 = load i32, ptr %837, align 8, !tbaa !21
-  %839 = getelementptr inbounds nuw i8, ptr %836, i64 40
-  %840 = load i32, ptr %839, align 8, !tbaa !21
-  %841 = icmp eq i32 %838, %840
-  %.1249 = select i1 %841, i32 2457, i32 2465
-  br label %switch.edge1963
-
-842:                                              ; preds = %809
-  %843 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %844 = load ptr, ptr %843, align 8, !tbaa !17
-  %845 = getelementptr inbounds nuw i8, ptr %844, i64 24
-  %846 = load i32, ptr %845, align 8, !tbaa !21
-  %847 = getelementptr inbounds nuw i8, ptr %844, i64 40
-  %848 = load i32, ptr %847, align 8, !tbaa !21
-  %849 = icmp eq i32 %846, %848
-  %.1250 = select i1 %849, i32 2455, i32 2463
-  br label %switch.edge1963
-
-850:                                              ; preds = %809
-  %851 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %852 = load ptr, ptr %851, align 8, !tbaa !17
-  %853 = getelementptr inbounds nuw i8, ptr %852, i64 24
-  %854 = load i32, ptr %853, align 8, !tbaa !21
-  %855 = getelementptr inbounds nuw i8, ptr %852, i64 40
-  %856 = load i32, ptr %855, align 8, !tbaa !21
-  %857 = icmp eq i32 %854, %856
-  %.1251 = select i1 %857, i32 2451, i32 2503
-  br label %switch.edge1963
-
-858:                                              ; preds = %809
-  %859 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %860 = load ptr, ptr %859, align 8, !tbaa !17
-  %861 = getelementptr inbounds nuw i8, ptr %860, i64 24
-  %862 = load i32, ptr %861, align 8, !tbaa !21
-  %863 = getelementptr inbounds nuw i8, ptr %860, i64 40
-  %864 = load i32, ptr %863, align 8, !tbaa !21
-  %865 = icmp eq i32 %862, %864
-  %.1252 = select i1 %865, i32 2452, i32 2503
-  br label %switch.edge1963
-
-866:                                              ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 7, label %867
-    i32 9, label %875
-    i32 11, label %883
-    i32 13, label %891
-    i32 15, label %899
-    i32 17, label %907
-    i32 18, label %915
-  ]
-
-867:                                              ; preds = %866
-  %868 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %869 = load ptr, ptr %868, align 8, !tbaa !17
-  %870 = getelementptr inbounds nuw i8, ptr %869, i64 24
-  %871 = load i32, ptr %870, align 8, !tbaa !21
-  %872 = getelementptr inbounds nuw i8, ptr %869, i64 40
-  %873 = load i32, ptr %872, align 8, !tbaa !21
-  %874 = icmp eq i32 %871, %873
-  %.1253 = select i1 %874, i32 2450, i32 2468
-  br label %switch.edge1963
-
-875:                                              ; preds = %866
-  %876 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %877 = load ptr, ptr %876, align 8, !tbaa !17
-  %878 = getelementptr inbounds nuw i8, ptr %877, i64 24
-  %879 = load i32, ptr %878, align 8, !tbaa !21
-  %880 = getelementptr inbounds nuw i8, ptr %877, i64 40
-  %881 = load i32, ptr %880, align 8, !tbaa !21
-  %882 = icmp eq i32 %879, %881
-  %.1254 = select i1 %882, i32 2456, i32 2470
-  br label %switch.edge1963
-
-883:                                              ; preds = %866
-  %884 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %885 = load ptr, ptr %884, align 8, !tbaa !17
-  %886 = getelementptr inbounds nuw i8, ptr %885, i64 24
-  %887 = load i32, ptr %886, align 8, !tbaa !21
-  %888 = getelementptr inbounds nuw i8, ptr %885, i64 40
-  %889 = load i32, ptr %888, align 8, !tbaa !21
-  %890 = icmp eq i32 %887, %889
-  %.1255 = select i1 %890, i32 2449, i32 2467
-  br label %switch.edge1963
-
-891:                                              ; preds = %866
-  %892 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %893 = load ptr, ptr %892, align 8, !tbaa !17
-  %894 = getelementptr inbounds nuw i8, ptr %893, i64 24
-  %895 = load i32, ptr %894, align 8, !tbaa !21
-  %896 = getelementptr inbounds nuw i8, ptr %893, i64 40
-  %897 = load i32, ptr %896, align 8, !tbaa !21
-  %898 = icmp eq i32 %895, %897
-  %.1256 = select i1 %898, i32 2457, i32 2471
-  br label %switch.edge1963
-
-899:                                              ; preds = %866
-  %900 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %901 = load ptr, ptr %900, align 8, !tbaa !17
-  %902 = getelementptr inbounds nuw i8, ptr %901, i64 24
-  %903 = load i32, ptr %902, align 8, !tbaa !21
-  %904 = getelementptr inbounds nuw i8, ptr %901, i64 40
-  %905 = load i32, ptr %904, align 8, !tbaa !21
-  %906 = icmp eq i32 %903, %905
-  %.1257 = select i1 %906, i32 2455, i32 2469
-  br label %switch.edge1963
-
-907:                                              ; preds = %866
-  %908 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %909 = load ptr, ptr %908, align 8, !tbaa !17
-  %910 = getelementptr inbounds nuw i8, ptr %909, i64 24
-  %911 = load i32, ptr %910, align 8, !tbaa !21
-  %912 = getelementptr inbounds nuw i8, ptr %909, i64 40
-  %913 = load i32, ptr %912, align 8, !tbaa !21
-  %914 = icmp eq i32 %911, %913
-  %.1258 = select i1 %914, i32 2451, i32 2503
-  br label %switch.edge1963
-
-915:                                              ; preds = %866
-  %916 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %917 = load ptr, ptr %916, align 8, !tbaa !17
-  %918 = getelementptr inbounds nuw i8, ptr %917, i64 24
-  %919 = load i32, ptr %918, align 8, !tbaa !21
-  %920 = getelementptr inbounds nuw i8, ptr %917, i64 40
-  %921 = load i32, ptr %920, align 8, !tbaa !21
-  %922 = icmp eq i32 %919, %921
-  %.1259 = select i1 %922, i32 2452, i32 2503
-  br label %switch.edge1963
-
-923:                                              ; preds = %4
-  %924 = icmp eq i32 %3, 11
-  br i1 %924, label %925, label %switch.edge1963
-
-925:                                              ; preds = %923
-  %926 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %927 = load ptr, ptr %926, align 8, !tbaa !17
-  %928 = getelementptr inbounds nuw i8, ptr %927, i64 40
-  %929 = load i64, ptr %928, align 8, !tbaa !21
-  %930 = icmp eq i64 %929, 0
-  br i1 %930, label %931, label %.critedge
-
-931:                                              ; preds = %925
-  %932 = getelementptr inbounds nuw i8, ptr %927, i64 24
-  %933 = load i32, ptr %932, align 8, !tbaa !21
-  switch i32 %933, label %switch.edge1963 [
-    i32 3, label %.critedge
-    i32 22, label %.critedge
-    i32 51, label %.critedge
-  ]
-
-.critedge:                                        ; preds = %931, %931, %931, %925
-  br label %switch.edge1963
-
-934:                                              ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 7, label %935
-    i32 8, label %943
-    i32 9, label %951
-    i32 10, label %959
-    i32 11, label %967
-    i32 13, label %975
-    i32 15, label %983
-  ]
-
-935:                                              ; preds = %934
-  %936 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %937 = load ptr, ptr %936, align 8, !tbaa !17
-  %938 = getelementptr inbounds nuw i8, ptr %937, i64 24
-  %939 = load i32, ptr %938, align 8, !tbaa !21
-  %940 = getelementptr inbounds nuw i8, ptr %937, i64 40
-  %941 = load i32, ptr %940, align 8, !tbaa !21
-  %942 = icmp eq i32 %939, %941
-  %.1260 = select i1 %942, i32 2450, i32 2468
-  br label %switch.edge1963
-
-943:                                              ; preds = %934
-  %944 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %945 = load ptr, ptr %944, align 8, !tbaa !17
-  %946 = getelementptr inbounds nuw i8, ptr %945, i64 24
-  %947 = load i32, ptr %946, align 8, !tbaa !21
-  %948 = getelementptr inbounds nuw i8, ptr %945, i64 40
-  %949 = load i32, ptr %948, align 8, !tbaa !21
-  %950 = icmp eq i32 %947, %949
-  %.1261 = select i1 %950, i32 2454, i32 2462
-  br label %switch.edge1963
-
-951:                                              ; preds = %934
-  %952 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %953 = load ptr, ptr %952, align 8, !tbaa !17
-  %954 = getelementptr inbounds nuw i8, ptr %953, i64 24
-  %955 = load i32, ptr %954, align 8, !tbaa !21
-  %956 = getelementptr inbounds nuw i8, ptr %953, i64 40
-  %957 = load i32, ptr %956, align 8, !tbaa !21
-  %958 = icmp eq i32 %955, %957
-  %.1262 = select i1 %958, i32 2456, i32 2470
-  br label %switch.edge1963
-
-959:                                              ; preds = %934
-  %960 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %961 = load ptr, ptr %960, align 8, !tbaa !17
-  %962 = getelementptr inbounds nuw i8, ptr %961, i64 24
-  %963 = load i32, ptr %962, align 8, !tbaa !21
-  %964 = getelementptr inbounds nuw i8, ptr %961, i64 40
-  %965 = load i32, ptr %964, align 8, !tbaa !21
-  %966 = icmp eq i32 %963, %965
-  %.1263 = select i1 %966, i32 2447, i32 2466
-  br label %switch.edge1963
-
-967:                                              ; preds = %934
-  %968 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %969 = load ptr, ptr %968, align 8, !tbaa !17
-  %970 = getelementptr inbounds nuw i8, ptr %969, i64 24
-  %971 = load i32, ptr %970, align 8, !tbaa !21
-  %972 = getelementptr inbounds nuw i8, ptr %969, i64 40
-  %973 = load i32, ptr %972, align 8, !tbaa !21
-  %974 = icmp eq i32 %971, %973
-  %.1264 = select i1 %974, i32 2449, i32 2467
-  br label %switch.edge1963
-
-975:                                              ; preds = %934
-  %976 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %977 = load ptr, ptr %976, align 8, !tbaa !17
-  %978 = getelementptr inbounds nuw i8, ptr %977, i64 24
-  %979 = load i32, ptr %978, align 8, !tbaa !21
-  %980 = getelementptr inbounds nuw i8, ptr %977, i64 40
-  %981 = load i32, ptr %980, align 8, !tbaa !21
-  %982 = icmp eq i32 %979, %981
-  %.1265 = select i1 %982, i32 2457, i32 2471
-  br label %switch.edge1963
-
-983:                                              ; preds = %934
-  %984 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %985 = load ptr, ptr %984, align 8, !tbaa !17
-  %986 = getelementptr inbounds nuw i8, ptr %985, i64 24
-  %987 = load i32, ptr %986, align 8, !tbaa !21
-  %988 = getelementptr inbounds nuw i8, ptr %985, i64 40
-  %989 = load i32, ptr %988, align 8, !tbaa !21
-  %990 = icmp eq i32 %987, %989
-  %.1266 = select i1 %990, i32 2455, i32 2469
-  br label %switch.edge1963
-
-991:                                              ; preds = %4
-  %992 = icmp eq i32 %3, 8
-  br i1 %992, label %993, label %switch.edge1963
-
-993:                                              ; preds = %991
-  %994 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %995 = load ptr, ptr %994, align 8, !tbaa !17
-  %996 = getelementptr inbounds nuw i8, ptr %995, i64 24
-  %997 = load i32, ptr %996, align 8, !tbaa !21
-  %998 = getelementptr inbounds nuw i8, ptr %995, i64 40
-  %999 = load i32, ptr %998, align 8, !tbaa !21
-  %1000 = icmp eq i32 %997, %999
-  br i1 %1000, label %1001, label %.critedge2
-
-1001:                                             ; preds = %993
-  %1002 = getelementptr inbounds nuw i8, ptr %995, i64 56
-  %1003 = load i64, ptr %1002, align 8, !tbaa !21
-  %1004 = icmp eq i64 %1003, 136
-  br i1 %1004, label %switch.edge1963, label %.critedge2
-
-.critedge2:                                       ; preds = %993, %1001
-  br label %switch.edge1963
-
-1005:                                             ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 5, label %1006
-    i32 8, label %1018
-    i32 17, label %1030
-    i32 18, label %1042
-  ]
-
-1006:                                             ; preds = %1005
-  %1007 = tail call noundef zeroext i1 @_ZN4llvm6X86_MC18isThreeOperandsLEAERKNS_6MCInstE(ptr noundef nonnull align 8 dereferenceable(128) %1)
-  br i1 %1007, label %switch.edge1963, label %1008
-
-1008:                                             ; preds = %1006
-  %1009 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1010 = load ptr, ptr %1009, align 8, !tbaa !17
-  %1011 = getelementptr inbounds nuw i8, ptr %1010, i64 32
-  %1012 = load i8, ptr %1011, align 8, !tbaa !18
-  %1013 = icmp eq i8 %1012, 2
-  br i1 %1013, label %1014, label %1017
-
-1014:                                             ; preds = %1008
-  %1015 = getelementptr inbounds nuw i8, ptr %1010, i64 40
-  %1016 = load i64, ptr %1015, align 8, !tbaa !21
-  %.not1171 = icmp eq i64 %1016, 1
-  br i1 %.not1171, label %1017, label %switch.edge1963
-
-1017:                                             ; preds = %1014, %1008
-  br label %switch.edge1963
-
-1018:                                             ; preds = %1005
-  %1019 = tail call noundef zeroext i1 @_ZN4llvm6X86_MC18isThreeOperandsLEAERKNS_6MCInstE(ptr noundef nonnull align 8 dereferenceable(128) %1)
-  br i1 %1019, label %switch.edge1963, label %1020
-
-1020:                                             ; preds = %1018
-  %1021 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1022 = load ptr, ptr %1021, align 8, !tbaa !17
-  %1023 = getelementptr inbounds nuw i8, ptr %1022, i64 32
-  %1024 = load i8, ptr %1023, align 8, !tbaa !18
-  %1025 = icmp eq i8 %1024, 2
-  br i1 %1025, label %1026, label %1029
-
-1026:                                             ; preds = %1020
-  %1027 = getelementptr inbounds nuw i8, ptr %1022, i64 40
-  %1028 = load i64, ptr %1027, align 8, !tbaa !21
-  %.not1170 = icmp eq i64 %1028, 1
-  br i1 %.not1170, label %1029, label %switch.edge1963
-
-1029:                                             ; preds = %1026, %1020
-  br label %switch.edge1963
-
-1030:                                             ; preds = %1005
-  %1031 = tail call noundef zeroext i1 @_ZN4llvm6X86_MC18isThreeOperandsLEAERKNS_6MCInstE(ptr noundef nonnull align 8 dereferenceable(128) %1)
-  br i1 %1031, label %switch.edge1963, label %1032
-
-1032:                                             ; preds = %1030
-  %1033 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1034 = load ptr, ptr %1033, align 8, !tbaa !17
-  %1035 = getelementptr inbounds nuw i8, ptr %1034, i64 32
-  %1036 = load i8, ptr %1035, align 8, !tbaa !18
-  %1037 = icmp eq i8 %1036, 2
-  br i1 %1037, label %1038, label %1041
-
-1038:                                             ; preds = %1032
-  %1039 = getelementptr inbounds nuw i8, ptr %1034, i64 40
-  %1040 = load i64, ptr %1039, align 8, !tbaa !21
-  %.not1169 = icmp eq i64 %1040, 1
-  br i1 %.not1169, label %1041, label %switch.edge1963
-
-1041:                                             ; preds = %1038, %1032
-  br label %switch.edge1963
-
-1042:                                             ; preds = %1005
-  %1043 = tail call noundef zeroext i1 @_ZN4llvm6X86_MC18isThreeOperandsLEAERKNS_6MCInstE(ptr noundef nonnull align 8 dereferenceable(128) %1)
-  br i1 %1043, label %switch.edge1963, label %1044
-
-1044:                                             ; preds = %1042
-  %1045 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1046 = load ptr, ptr %1045, align 8, !tbaa !17
-  %1047 = getelementptr inbounds nuw i8, ptr %1046, i64 32
-  %1048 = load i8, ptr %1047, align 8, !tbaa !18
-  %1049 = icmp eq i8 %1048, 2
-  br i1 %1049, label %1050, label %1053
-
-1050:                                             ; preds = %1044
-  %1051 = getelementptr inbounds nuw i8, ptr %1046, i64 40
-  %1052 = load i64, ptr %1051, align 8, !tbaa !21
-  %.not = icmp eq i64 %1052, 1
-  br i1 %.not, label %1053, label %switch.edge1963
-
-1053:                                             ; preds = %1050, %1044
-  br label %switch.edge1963
-
-1054:                                             ; preds = %4
-  %1055 = icmp eq i32 %3, 8
-  br i1 %1055, label %1056, label %switch.edge1963
-
-1056:                                             ; preds = %1054
-  %1057 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1058 = load i32, ptr %1057, align 4, !tbaa !22
-  %1059 = and i32 %1058, 16
-  %.not2028 = icmp eq i32 %1059, 0
-  %.pre2038 = load i32, ptr %1, align 8, !tbaa !3
-  br i1 %.not2028, label %1061, label %1060
-
-1060:                                             ; preds = %1056
-  switch i32 %.pre2038, label %1062 [
-    i32 1341, label %switch.edge1963
-    i32 2091, label %switch.edge1963
-    i32 1334, label %switch.edge1963.fold.split2087
-    i32 2087, label %switch.edge1963.fold.split2087
-    i32 2090, label %switch.edge1963.fold.split2088
-    i32 1342, label %switch.edge1963.fold.split2088
-    i32 2088, label %switch.edge1963.fold.split2089
-    i32 2089, label %switch.edge1963.fold.split2089
-    i32 1335, label %switch.edge1963.fold.split2089
-    i32 1337, label %switch.edge1963.fold.split2089
-    i32 1339, label %switch.edge1963.fold.split2089
-    i32 2086, label %switch.edge1963.fold.split2089
-    i32 1343, label %switch.edge1975
-  ]
-
-1061:                                             ; preds = %1056
-  switch i32 %.pre2038, label %1062 [
-    i32 1341, label %switch.edge1963.fold.split2090
-    i32 2091, label %switch.edge1963.fold.split2090
-    i32 1334, label %switch.edge1963
-    i32 2087, label %switch.edge1963
-    i32 2090, label %.fold.split1967
-    i32 1342, label %.fold.split1967
-    i32 1335, label %.fold.split1969
-    i32 1337, label %.fold.split1969
-    i32 1339, label %.fold.split1969
-    i32 2086, label %.fold.split1969
-    i32 2088, label %.fold.split1969
-    i32 2089, label %.fold.split1969
-    i32 1343, label %switch.edge1975
-  ]
-
-switch.edge1975:                                  ; preds = %1060, %1061
-  br label %switch.edge1963
-
-1062:                                             ; preds = %1060, %1061
-  br label %switch.edge1963
-
-1063:                                             ; preds = %4
-  %1064 = icmp eq i32 %3, 8
-  br i1 %1064, label %1065, label %switch.edge1963
-
-1065:                                             ; preds = %1063
-  %1066 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1067 = load i32, ptr %1066, align 4, !tbaa !22
-  %1068 = and i32 %1067, 16
-  %.not2027 = icmp eq i32 %1068, 0
-  %.pre2037 = load i32, ptr %1, align 8, !tbaa !3
-  br i1 %.not2027, label %1070, label %1069
-
-1069:                                             ; preds = %1065
-  switch i32 %.pre2037, label %1071 [
-    i32 1341, label %switch.edge1963
-    i32 2091, label %switch.edge1963
-    i32 1334, label %switch.edge1963.fold.split2091
-    i32 2087, label %switch.edge1963.fold.split2091
-    i32 2090, label %switch.edge1963.fold.split2092
-    i32 1342, label %switch.edge1963.fold.split2092
-    i32 2088, label %switch.edge1963.fold.split2093
-    i32 2089, label %switch.edge1963.fold.split2093
-    i32 1335, label %switch.edge1963.fold.split2093
-    i32 1337, label %switch.edge1963.fold.split2093
-    i32 1339, label %switch.edge1963.fold.split2093
-    i32 2086, label %switch.edge1963.fold.split2093
-    i32 1343, label %switch.edge1986
-  ]
-
-1070:                                             ; preds = %1065
-  switch i32 %.pre2037, label %1071 [
-    i32 1341, label %switch.edge1963.fold.split2094
-    i32 2091, label %switch.edge1963.fold.split2094
-    i32 1334, label %switch.edge1963
-    i32 2087, label %switch.edge1963
-    i32 2090, label %.fold.split1978
-    i32 1342, label %.fold.split1978
-    i32 1335, label %.fold.split1980
-    i32 1337, label %.fold.split1980
-    i32 1339, label %.fold.split1980
-    i32 2086, label %.fold.split1980
-    i32 2088, label %.fold.split1980
-    i32 2089, label %.fold.split1980
-    i32 1343, label %switch.edge1986
-  ]
-
-switch.edge1986:                                  ; preds = %1069, %1070
-  br label %switch.edge1963
-
-1071:                                             ; preds = %1069, %1070
-  br label %switch.edge1963
-
-1072:                                             ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 17, label %1073
-    i32 18, label %1081
-  ]
-
-1073:                                             ; preds = %1072
-  %1074 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1075 = load ptr, ptr %1074, align 8, !tbaa !17
-  %1076 = getelementptr inbounds nuw i8, ptr %1075, i64 24
-  %1077 = load i32, ptr %1076, align 8, !tbaa !21
-  %1078 = getelementptr inbounds nuw i8, ptr %1075, i64 40
-  %1079 = load i32, ptr %1078, align 8, !tbaa !21
-  %1080 = icmp eq i32 %1077, %1079
-  %.1269 = select i1 %1080, i32 2451, i32 2448
-  br label %switch.edge1963
-
-1081:                                             ; preds = %1072
-  %1082 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1083 = load ptr, ptr %1082, align 8, !tbaa !17
-  %1084 = getelementptr inbounds nuw i8, ptr %1083, i64 24
-  %1085 = load i32, ptr %1084, align 8, !tbaa !21
-  %1086 = getelementptr inbounds nuw i8, ptr %1083, i64 40
-  %1087 = load i32, ptr %1086, align 8, !tbaa !21
-  %1088 = icmp eq i32 %1085, %1087
-  %.1270 = select i1 %1088, i32 2452, i32 2448
-  br label %switch.edge1963
-
-1089:                                             ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 17, label %1090
-    i32 18, label %1098
-  ]
-
-1090:                                             ; preds = %1089
-  %1091 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1092 = load ptr, ptr %1091, align 8, !tbaa !17
-  %1093 = getelementptr inbounds nuw i8, ptr %1092, i64 8
-  %1094 = load i32, ptr %1093, align 8, !tbaa !21
-  %1095 = getelementptr inbounds nuw i8, ptr %1092, i64 24
-  %1096 = load i32, ptr %1095, align 8, !tbaa !21
-  %1097 = icmp eq i32 %1094, %1096
-  %.1271 = select i1 %1097, i32 2451, i32 2448
-  br label %switch.edge1963
-
-1098:                                             ; preds = %1089
-  %1099 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1100 = load ptr, ptr %1099, align 8, !tbaa !17
-  %1101 = getelementptr inbounds nuw i8, ptr %1100, i64 8
-  %1102 = load i32, ptr %1101, align 8, !tbaa !21
-  %1103 = getelementptr inbounds nuw i8, ptr %1100, i64 24
-  %1104 = load i32, ptr %1103, align 8, !tbaa !21
-  %1105 = icmp eq i32 %1102, %1104
-  %.1272 = select i1 %1105, i32 2452, i32 2448
-  br label %switch.edge1963
-
-1106:                                             ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 5, label %1107
-    i32 7, label %1115
-    i32 8, label %1123
-    i32 9, label %1131
-    i32 10, label %1139
-    i32 11, label %1147
-    i32 13, label %1155
-    i32 15, label %1163
-    i32 17, label %1171
-    i32 18, label %1179
-  ]
-
-1107:                                             ; preds = %1106
-  %1108 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1109 = load ptr, ptr %1108, align 8, !tbaa !17
-  %1110 = getelementptr inbounds nuw i8, ptr %1109, i64 24
-  %1111 = load i32, ptr %1110, align 8, !tbaa !21
-  %1112 = getelementptr inbounds nuw i8, ptr %1109, i64 40
-  %1113 = load i32, ptr %1112, align 8, !tbaa !21
-  %1114 = icmp eq i32 %1111, %1113
-  %.1273 = select i1 %1114, i32 2453, i32 2458
-  br label %switch.edge1963
-
-1115:                                             ; preds = %1106
-  %1116 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1117 = load ptr, ptr %1116, align 8, !tbaa !17
-  %1118 = getelementptr inbounds nuw i8, ptr %1117, i64 24
-  %1119 = load i32, ptr %1118, align 8, !tbaa !21
-  %1120 = getelementptr inbounds nuw i8, ptr %1117, i64 40
-  %1121 = load i32, ptr %1120, align 8, !tbaa !21
-  %1122 = icmp eq i32 %1119, %1121
-  %.1274 = select i1 %1122, i32 2450, i32 2458
-  br label %switch.edge1963
-
-1123:                                             ; preds = %1106
-  %1124 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1125 = load ptr, ptr %1124, align 8, !tbaa !17
-  %1126 = getelementptr inbounds nuw i8, ptr %1125, i64 24
-  %1127 = load i32, ptr %1126, align 8, !tbaa !21
-  %1128 = getelementptr inbounds nuw i8, ptr %1125, i64 40
-  %1129 = load i32, ptr %1128, align 8, !tbaa !21
-  %1130 = icmp eq i32 %1127, %1129
-  %.1275 = select i1 %1130, i32 2454, i32 2458
-  br label %switch.edge1963
-
-1131:                                             ; preds = %1106
-  %1132 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1133 = load ptr, ptr %1132, align 8, !tbaa !17
-  %1134 = getelementptr inbounds nuw i8, ptr %1133, i64 24
-  %1135 = load i32, ptr %1134, align 8, !tbaa !21
-  %1136 = getelementptr inbounds nuw i8, ptr %1133, i64 40
-  %1137 = load i32, ptr %1136, align 8, !tbaa !21
-  %1138 = icmp eq i32 %1135, %1137
-  %.1276 = select i1 %1138, i32 2456, i32 2458
-  br label %switch.edge1963
-
-1139:                                             ; preds = %1106
-  %1140 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1141 = load ptr, ptr %1140, align 8, !tbaa !17
-  %1142 = getelementptr inbounds nuw i8, ptr %1141, i64 24
-  %1143 = load i32, ptr %1142, align 8, !tbaa !21
-  %1144 = getelementptr inbounds nuw i8, ptr %1141, i64 40
-  %1145 = load i32, ptr %1144, align 8, !tbaa !21
-  %1146 = icmp eq i32 %1143, %1145
-  %.1277 = select i1 %1146, i32 2447, i32 2458
-  br label %switch.edge1963
-
-1147:                                             ; preds = %1106
-  %1148 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1149 = load ptr, ptr %1148, align 8, !tbaa !17
-  %1150 = getelementptr inbounds nuw i8, ptr %1149, i64 24
-  %1151 = load i32, ptr %1150, align 8, !tbaa !21
-  %1152 = getelementptr inbounds nuw i8, ptr %1149, i64 40
-  %1153 = load i32, ptr %1152, align 8, !tbaa !21
-  %1154 = icmp eq i32 %1151, %1153
-  %.1278 = select i1 %1154, i32 2449, i32 2458
-  br label %switch.edge1963
-
-1155:                                             ; preds = %1106
-  %1156 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1157 = load ptr, ptr %1156, align 8, !tbaa !17
-  %1158 = getelementptr inbounds nuw i8, ptr %1157, i64 24
-  %1159 = load i32, ptr %1158, align 8, !tbaa !21
-  %1160 = getelementptr inbounds nuw i8, ptr %1157, i64 40
-  %1161 = load i32, ptr %1160, align 8, !tbaa !21
-  %1162 = icmp eq i32 %1159, %1161
-  %.1279 = select i1 %1162, i32 2457, i32 2458
-  br label %switch.edge1963
-
-1163:                                             ; preds = %1106
-  %1164 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1165 = load ptr, ptr %1164, align 8, !tbaa !17
-  %1166 = getelementptr inbounds nuw i8, ptr %1165, i64 24
-  %1167 = load i32, ptr %1166, align 8, !tbaa !21
-  %1168 = getelementptr inbounds nuw i8, ptr %1165, i64 40
-  %1169 = load i32, ptr %1168, align 8, !tbaa !21
-  %1170 = icmp eq i32 %1167, %1169
-  %.1280 = select i1 %1170, i32 2455, i32 2458
-  br label %switch.edge1963
-
-1171:                                             ; preds = %1106
-  %1172 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1173 = load ptr, ptr %1172, align 8, !tbaa !17
-  %1174 = getelementptr inbounds nuw i8, ptr %1173, i64 24
-  %1175 = load i32, ptr %1174, align 8, !tbaa !21
-  %1176 = getelementptr inbounds nuw i8, ptr %1173, i64 40
-  %1177 = load i32, ptr %1176, align 8, !tbaa !21
-  %1178 = icmp eq i32 %1175, %1177
-  %.1281 = select i1 %1178, i32 2451, i32 2458
-  br label %switch.edge1963
-
-1179:                                             ; preds = %1106
-  %1180 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1181 = load ptr, ptr %1180, align 8, !tbaa !17
-  %1182 = getelementptr inbounds nuw i8, ptr %1181, i64 24
-  %1183 = load i32, ptr %1182, align 8, !tbaa !21
-  %1184 = getelementptr inbounds nuw i8, ptr %1181, i64 40
-  %1185 = load i32, ptr %1184, align 8, !tbaa !21
-  %1186 = icmp eq i32 %1183, %1185
-  %.1282 = select i1 %1186, i32 2452, i32 2458
-  br label %switch.edge1963
-
-1187:                                             ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 5, label %1188
-    i32 8, label %1196
-    i32 17, label %1204
-    i32 18, label %1212
-  ]
-
-1188:                                             ; preds = %1187
-  %1189 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1190 = load ptr, ptr %1189, align 8, !tbaa !17
-  %1191 = getelementptr inbounds nuw i8, ptr %1190, i64 24
-  %1192 = load i32, ptr %1191, align 8, !tbaa !21
-  %1193 = getelementptr inbounds nuw i8, ptr %1190, i64 40
-  %1194 = load i32, ptr %1193, align 8, !tbaa !21
-  %1195 = icmp eq i32 %1192, %1194
-  %.1283 = select i1 %1195, i32 2453, i32 2458
-  br label %switch.edge1963
-
-1196:                                             ; preds = %1187
-  %1197 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1198 = load ptr, ptr %1197, align 8, !tbaa !17
-  %1199 = getelementptr inbounds nuw i8, ptr %1198, i64 24
-  %1200 = load i32, ptr %1199, align 8, !tbaa !21
-  %1201 = getelementptr inbounds nuw i8, ptr %1198, i64 40
-  %1202 = load i32, ptr %1201, align 8, !tbaa !21
-  %1203 = icmp eq i32 %1200, %1202
-  %.1284 = select i1 %1203, i32 2454, i32 2458
-  br label %switch.edge1963
-
-1204:                                             ; preds = %1187
-  %1205 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1206 = load ptr, ptr %1205, align 8, !tbaa !17
-  %1207 = getelementptr inbounds nuw i8, ptr %1206, i64 24
-  %1208 = load i32, ptr %1207, align 8, !tbaa !21
-  %1209 = getelementptr inbounds nuw i8, ptr %1206, i64 40
-  %1210 = load i32, ptr %1209, align 8, !tbaa !21
-  %1211 = icmp eq i32 %1208, %1210
-  %.1285 = select i1 %1211, i32 2451, i32 2458
-  br label %switch.edge1963
-
-1212:                                             ; preds = %1187
-  %1213 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1214 = load ptr, ptr %1213, align 8, !tbaa !17
-  %1215 = getelementptr inbounds nuw i8, ptr %1214, i64 24
-  %1216 = load i32, ptr %1215, align 8, !tbaa !21
-  %1217 = getelementptr inbounds nuw i8, ptr %1214, i64 40
-  %1218 = load i32, ptr %1217, align 8, !tbaa !21
-  %1219 = icmp eq i32 %1216, %1218
-  %.1286 = select i1 %1219, i32 2452, i32 2458
-  br label %switch.edge1963
-
-1220:                                             ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 8, label %1221
-    i32 17, label %1229
-    i32 18, label %1237
-  ]
-
-1221:                                             ; preds = %1220
-  %1222 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1223 = load ptr, ptr %1222, align 8, !tbaa !17
-  %1224 = getelementptr inbounds nuw i8, ptr %1223, i64 24
-  %1225 = load i32, ptr %1224, align 8, !tbaa !21
-  %1226 = getelementptr inbounds nuw i8, ptr %1223, i64 40
-  %1227 = load i32, ptr %1226, align 8, !tbaa !21
-  %1228 = icmp eq i32 %1225, %1227
-  %.1287 = select i1 %1228, i32 2460, i32 2459
-  br label %switch.edge1963
-
-1229:                                             ; preds = %1220
-  %1230 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1231 = load ptr, ptr %1230, align 8, !tbaa !17
-  %1232 = getelementptr inbounds nuw i8, ptr %1231, i64 24
-  %1233 = load i32, ptr %1232, align 8, !tbaa !21
-  %1234 = getelementptr inbounds nuw i8, ptr %1231, i64 40
-  %1235 = load i32, ptr %1234, align 8, !tbaa !21
-  %1236 = icmp eq i32 %1233, %1235
-  %.1288 = select i1 %1236, i32 2451, i32 2459
-  br label %switch.edge1963
-
-1237:                                             ; preds = %1220
-  %1238 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1239 = load ptr, ptr %1238, align 8, !tbaa !17
-  %1240 = getelementptr inbounds nuw i8, ptr %1239, i64 24
-  %1241 = load i32, ptr %1240, align 8, !tbaa !21
-  %1242 = getelementptr inbounds nuw i8, ptr %1239, i64 40
-  %1243 = load i32, ptr %1242, align 8, !tbaa !21
-  %1244 = icmp eq i32 %1241, %1243
-  %.1289 = select i1 %1244, i32 2452, i32 2459
-  br label %switch.edge1963
-
-1245:                                             ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 5, label %1246
-    i32 7, label %1254
-    i32 8, label %1262
-    i32 9, label %1270
-    i32 10, label %1278
-    i32 11, label %1286
-    i32 13, label %1294
-    i32 15, label %1302
-    i32 17, label %1310
-    i32 18, label %1318
-  ]
-
-1246:                                             ; preds = %1245
-  %1247 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1248 = load ptr, ptr %1247, align 8, !tbaa !17
-  %1249 = getelementptr inbounds nuw i8, ptr %1248, i64 24
-  %1250 = load i32, ptr %1249, align 8, !tbaa !21
-  %1251 = getelementptr inbounds nuw i8, ptr %1248, i64 40
-  %1252 = load i32, ptr %1251, align 8, !tbaa !21
-  %1253 = icmp eq i32 %1250, %1252
-  %.1290 = select i1 %1253, i32 2453, i32 2461
-  br label %switch.edge1963
-
-1254:                                             ; preds = %1245
-  %1255 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1256 = load ptr, ptr %1255, align 8, !tbaa !17
-  %1257 = getelementptr inbounds nuw i8, ptr %1256, i64 24
-  %1258 = load i32, ptr %1257, align 8, !tbaa !21
-  %1259 = getelementptr inbounds nuw i8, ptr %1256, i64 40
-  %1260 = load i32, ptr %1259, align 8, !tbaa !21
-  %1261 = icmp eq i32 %1258, %1260
-  %.1291 = select i1 %1261, i32 2450, i32 2461
-  br label %switch.edge1963
-
-1262:                                             ; preds = %1245
-  %1263 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1264 = load ptr, ptr %1263, align 8, !tbaa !17
-  %1265 = getelementptr inbounds nuw i8, ptr %1264, i64 24
-  %1266 = load i32, ptr %1265, align 8, !tbaa !21
-  %1267 = getelementptr inbounds nuw i8, ptr %1264, i64 40
-  %1268 = load i32, ptr %1267, align 8, !tbaa !21
-  %1269 = icmp eq i32 %1266, %1268
-  %.1292 = select i1 %1269, i32 2454, i32 2461
-  br label %switch.edge1963
-
-1270:                                             ; preds = %1245
-  %1271 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1272 = load ptr, ptr %1271, align 8, !tbaa !17
-  %1273 = getelementptr inbounds nuw i8, ptr %1272, i64 24
-  %1274 = load i32, ptr %1273, align 8, !tbaa !21
-  %1275 = getelementptr inbounds nuw i8, ptr %1272, i64 40
-  %1276 = load i32, ptr %1275, align 8, !tbaa !21
-  %1277 = icmp eq i32 %1274, %1276
-  %.1293 = select i1 %1277, i32 2456, i32 2461
-  br label %switch.edge1963
-
-1278:                                             ; preds = %1245
-  %1279 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1280 = load ptr, ptr %1279, align 8, !tbaa !17
-  %1281 = getelementptr inbounds nuw i8, ptr %1280, i64 24
-  %1282 = load i32, ptr %1281, align 8, !tbaa !21
-  %1283 = getelementptr inbounds nuw i8, ptr %1280, i64 40
-  %1284 = load i32, ptr %1283, align 8, !tbaa !21
-  %1285 = icmp eq i32 %1282, %1284
-  %.1294 = select i1 %1285, i32 2447, i32 2461
-  br label %switch.edge1963
-
-1286:                                             ; preds = %1245
-  %1287 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1288 = load ptr, ptr %1287, align 8, !tbaa !17
-  %1289 = getelementptr inbounds nuw i8, ptr %1288, i64 24
-  %1290 = load i32, ptr %1289, align 8, !tbaa !21
-  %1291 = getelementptr inbounds nuw i8, ptr %1288, i64 40
-  %1292 = load i32, ptr %1291, align 8, !tbaa !21
-  %1293 = icmp eq i32 %1290, %1292
-  %.1295 = select i1 %1293, i32 2449, i32 2461
-  br label %switch.edge1963
-
-1294:                                             ; preds = %1245
-  %1295 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1296 = load ptr, ptr %1295, align 8, !tbaa !17
-  %1297 = getelementptr inbounds nuw i8, ptr %1296, i64 24
-  %1298 = load i32, ptr %1297, align 8, !tbaa !21
-  %1299 = getelementptr inbounds nuw i8, ptr %1296, i64 40
-  %1300 = load i32, ptr %1299, align 8, !tbaa !21
-  %1301 = icmp eq i32 %1298, %1300
-  %.1296 = select i1 %1301, i32 2457, i32 2461
-  br label %switch.edge1963
-
-1302:                                             ; preds = %1245
-  %1303 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1304 = load ptr, ptr %1303, align 8, !tbaa !17
-  %1305 = getelementptr inbounds nuw i8, ptr %1304, i64 24
-  %1306 = load i32, ptr %1305, align 8, !tbaa !21
-  %1307 = getelementptr inbounds nuw i8, ptr %1304, i64 40
-  %1308 = load i32, ptr %1307, align 8, !tbaa !21
-  %1309 = icmp eq i32 %1306, %1308
-  %.1297 = select i1 %1309, i32 2455, i32 2461
-  br label %switch.edge1963
-
-1310:                                             ; preds = %1245
-  %1311 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1312 = load ptr, ptr %1311, align 8, !tbaa !17
-  %1313 = getelementptr inbounds nuw i8, ptr %1312, i64 24
-  %1314 = load i32, ptr %1313, align 8, !tbaa !21
-  %1315 = getelementptr inbounds nuw i8, ptr %1312, i64 40
-  %1316 = load i32, ptr %1315, align 8, !tbaa !21
-  %1317 = icmp eq i32 %1314, %1316
-  %.1298 = select i1 %1317, i32 2451, i32 2461
-  br label %switch.edge1963
-
-1318:                                             ; preds = %1245
-  %1319 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1320 = load ptr, ptr %1319, align 8, !tbaa !17
-  %1321 = getelementptr inbounds nuw i8, ptr %1320, i64 24
-  %1322 = load i32, ptr %1321, align 8, !tbaa !21
-  %1323 = getelementptr inbounds nuw i8, ptr %1320, i64 40
-  %1324 = load i32, ptr %1323, align 8, !tbaa !21
-  %1325 = icmp eq i32 %1322, %1324
-  %.1299 = select i1 %1325, i32 2452, i32 2461
-  br label %switch.edge1963
-
-1326:                                             ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 5, label %1327
-    i32 8, label %1335
-    i32 17, label %1343
-    i32 18, label %1351
-  ]
-
-1327:                                             ; preds = %1326
-  %1328 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1329 = load ptr, ptr %1328, align 8, !tbaa !17
-  %1330 = getelementptr inbounds nuw i8, ptr %1329, i64 24
-  %1331 = load i32, ptr %1330, align 8, !tbaa !21
-  %1332 = getelementptr inbounds nuw i8, ptr %1329, i64 40
-  %1333 = load i32, ptr %1332, align 8, !tbaa !21
-  %1334 = icmp eq i32 %1331, %1333
-  %.1300 = select i1 %1334, i32 2453, i32 2461
-  br label %switch.edge1963
-
-1335:                                             ; preds = %1326
-  %1336 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1337 = load ptr, ptr %1336, align 8, !tbaa !17
-  %1338 = getelementptr inbounds nuw i8, ptr %1337, i64 24
-  %1339 = load i32, ptr %1338, align 8, !tbaa !21
-  %1340 = getelementptr inbounds nuw i8, ptr %1337, i64 40
-  %1341 = load i32, ptr %1340, align 8, !tbaa !21
-  %1342 = icmp eq i32 %1339, %1341
-  %.1301 = select i1 %1342, i32 2454, i32 2461
-  br label %switch.edge1963
-
-1343:                                             ; preds = %1326
-  %1344 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1345 = load ptr, ptr %1344, align 8, !tbaa !17
-  %1346 = getelementptr inbounds nuw i8, ptr %1345, i64 24
-  %1347 = load i32, ptr %1346, align 8, !tbaa !21
-  %1348 = getelementptr inbounds nuw i8, ptr %1345, i64 40
-  %1349 = load i32, ptr %1348, align 8, !tbaa !21
-  %1350 = icmp eq i32 %1347, %1349
-  %.1302 = select i1 %1350, i32 2451, i32 2461
-  br label %switch.edge1963
-
-1351:                                             ; preds = %1326
-  %1352 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1353 = load ptr, ptr %1352, align 8, !tbaa !17
-  %1354 = getelementptr inbounds nuw i8, ptr %1353, i64 24
-  %1355 = load i32, ptr %1354, align 8, !tbaa !21
-  %1356 = getelementptr inbounds nuw i8, ptr %1353, i64 40
-  %1357 = load i32, ptr %1356, align 8, !tbaa !21
-  %1358 = icmp eq i32 %1355, %1357
-  %.1303 = select i1 %1358, i32 2452, i32 2461
-  br label %switch.edge1963
-
-1359:                                             ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 17, label %1360
-    i32 18, label %1368
-  ]
-
-1360:                                             ; preds = %1359
-  %1361 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1362 = load ptr, ptr %1361, align 8, !tbaa !17
-  %1363 = getelementptr inbounds nuw i8, ptr %1362, i64 24
-  %1364 = load i32, ptr %1363, align 8, !tbaa !21
-  %1365 = getelementptr inbounds nuw i8, ptr %1362, i64 40
-  %1366 = load i32, ptr %1365, align 8, !tbaa !21
-  %1367 = icmp eq i32 %1364, %1366
-  %.1304 = select i1 %1367, i32 2451, i32 2502
-  br label %switch.edge1963
-
-1368:                                             ; preds = %1359
-  %1369 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1370 = load ptr, ptr %1369, align 8, !tbaa !17
-  %1371 = getelementptr inbounds nuw i8, ptr %1370, i64 24
-  %1372 = load i32, ptr %1371, align 8, !tbaa !21
-  %1373 = getelementptr inbounds nuw i8, ptr %1370, i64 40
-  %1374 = load i32, ptr %1373, align 8, !tbaa !21
-  %1375 = icmp eq i32 %1372, %1374
-  %.1305 = select i1 %1375, i32 2452, i32 2502
-  br label %switch.edge1963
-
-1376:                                             ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 5, label %1377
-    i32 7, label %1385
-    i32 8, label %1393
-    i32 9, label %1401
-    i32 10, label %1409
-    i32 11, label %1417
-    i32 13, label %1425
-    i32 15, label %1433
-    i32 17, label %1441
-    i32 18, label %1449
-  ]
-
-1377:                                             ; preds = %1376
-  %1378 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1379 = load ptr, ptr %1378, align 8, !tbaa !17
-  %1380 = getelementptr inbounds nuw i8, ptr %1379, i64 24
-  %1381 = load i32, ptr %1380, align 8, !tbaa !21
-  %1382 = getelementptr inbounds nuw i8, ptr %1379, i64 40
-  %1383 = load i32, ptr %1382, align 8, !tbaa !21
-  %1384 = icmp eq i32 %1381, %1383
-  %.1306 = select i1 %1384, i32 2453, i32 2462
-  br label %switch.edge1963
-
-1385:                                             ; preds = %1376
-  %1386 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1387 = load ptr, ptr %1386, align 8, !tbaa !17
-  %1388 = getelementptr inbounds nuw i8, ptr %1387, i64 24
-  %1389 = load i32, ptr %1388, align 8, !tbaa !21
-  %1390 = getelementptr inbounds nuw i8, ptr %1387, i64 40
-  %1391 = load i32, ptr %1390, align 8, !tbaa !21
-  %1392 = icmp eq i32 %1389, %1391
-  %.1307 = select i1 %1392, i32 2450, i32 2462
-  br label %switch.edge1963
-
-1393:                                             ; preds = %1376
-  %1394 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1395 = load ptr, ptr %1394, align 8, !tbaa !17
-  %1396 = getelementptr inbounds nuw i8, ptr %1395, i64 24
-  %1397 = load i32, ptr %1396, align 8, !tbaa !21
-  %1398 = getelementptr inbounds nuw i8, ptr %1395, i64 40
-  %1399 = load i32, ptr %1398, align 8, !tbaa !21
-  %1400 = icmp eq i32 %1397, %1399
-  %.1308 = select i1 %1400, i32 2454, i32 2462
-  br label %switch.edge1963
-
-1401:                                             ; preds = %1376
-  %1402 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1403 = load ptr, ptr %1402, align 8, !tbaa !17
-  %1404 = getelementptr inbounds nuw i8, ptr %1403, i64 24
-  %1405 = load i32, ptr %1404, align 8, !tbaa !21
-  %1406 = getelementptr inbounds nuw i8, ptr %1403, i64 40
-  %1407 = load i32, ptr %1406, align 8, !tbaa !21
-  %1408 = icmp eq i32 %1405, %1407
-  %.1309 = select i1 %1408, i32 2456, i32 2464
-  br label %switch.edge1963
-
-1409:                                             ; preds = %1376
-  %1410 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1411 = load ptr, ptr %1410, align 8, !tbaa !17
-  %1412 = getelementptr inbounds nuw i8, ptr %1411, i64 24
-  %1413 = load i32, ptr %1412, align 8, !tbaa !21
-  %1414 = getelementptr inbounds nuw i8, ptr %1411, i64 40
-  %1415 = load i32, ptr %1414, align 8, !tbaa !21
-  %1416 = icmp eq i32 %1413, %1415
-  %.1310 = select i1 %1416, i32 2447, i32 2462
-  br label %switch.edge1963
-
-1417:                                             ; preds = %1376
-  %1418 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1419 = load ptr, ptr %1418, align 8, !tbaa !17
-  %1420 = getelementptr inbounds nuw i8, ptr %1419, i64 24
-  %1421 = load i32, ptr %1420, align 8, !tbaa !21
-  %1422 = getelementptr inbounds nuw i8, ptr %1419, i64 40
-  %1423 = load i32, ptr %1422, align 8, !tbaa !21
-  %1424 = icmp eq i32 %1421, %1423
-  %.1311 = select i1 %1424, i32 2449, i32 2462
-  br label %switch.edge1963
-
-1425:                                             ; preds = %1376
-  %1426 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1427 = load ptr, ptr %1426, align 8, !tbaa !17
-  %1428 = getelementptr inbounds nuw i8, ptr %1427, i64 24
-  %1429 = load i32, ptr %1428, align 8, !tbaa !21
-  %1430 = getelementptr inbounds nuw i8, ptr %1427, i64 40
-  %1431 = load i32, ptr %1430, align 8, !tbaa !21
-  %1432 = icmp eq i32 %1429, %1431
-  %.1312 = select i1 %1432, i32 2457, i32 2465
-  br label %switch.edge1963
-
-1433:                                             ; preds = %1376
-  %1434 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1435 = load ptr, ptr %1434, align 8, !tbaa !17
-  %1436 = getelementptr inbounds nuw i8, ptr %1435, i64 24
-  %1437 = load i32, ptr %1436, align 8, !tbaa !21
-  %1438 = getelementptr inbounds nuw i8, ptr %1435, i64 40
-  %1439 = load i32, ptr %1438, align 8, !tbaa !21
-  %1440 = icmp eq i32 %1437, %1439
-  %.1313 = select i1 %1440, i32 2455, i32 2463
-  br label %switch.edge1963
-
-1441:                                             ; preds = %1376
-  %1442 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1443 = load ptr, ptr %1442, align 8, !tbaa !17
-  %1444 = getelementptr inbounds nuw i8, ptr %1443, i64 24
-  %1445 = load i32, ptr %1444, align 8, !tbaa !21
-  %1446 = getelementptr inbounds nuw i8, ptr %1443, i64 40
-  %1447 = load i32, ptr %1446, align 8, !tbaa !21
-  %1448 = icmp eq i32 %1445, %1447
-  %.1314 = select i1 %1448, i32 2451, i32 2462
-  br label %switch.edge1963
-
-1449:                                             ; preds = %1376
-  %1450 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1451 = load ptr, ptr %1450, align 8, !tbaa !17
-  %1452 = getelementptr inbounds nuw i8, ptr %1451, i64 24
-  %1453 = load i32, ptr %1452, align 8, !tbaa !21
-  %1454 = getelementptr inbounds nuw i8, ptr %1451, i64 40
-  %1455 = load i32, ptr %1454, align 8, !tbaa !21
-  %1456 = icmp eq i32 %1453, %1455
-  %.1315 = select i1 %1456, i32 2452, i32 2462
-  br label %switch.edge1963
-
-1457:                                             ; preds = %4
-  %1458 = icmp eq i32 %3, 18
-  br i1 %1458, label %1459, label %switch.edge1963
-
-1459:                                             ; preds = %1457
-  %1460 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1461 = load ptr, ptr %1460, align 8, !tbaa !17
-  %1462 = getelementptr inbounds nuw i8, ptr %1461, i64 24
-  %1463 = load i32, ptr %1462, align 8, !tbaa !21
-  %1464 = getelementptr inbounds nuw i8, ptr %1461, i64 40
-  %1465 = load i32, ptr %1464, align 8, !tbaa !21
-  %1466 = icmp eq i32 %1463, %1465
-  %.1316 = select i1 %1466, i32 2452, i32 2458
-  br label %switch.edge1963
-
-1467:                                             ; preds = %4
-  %1468 = icmp eq i32 %3, 18
-  br i1 %1468, label %1469, label %switch.edge1963
-
-1469:                                             ; preds = %1467
-  %1470 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1471 = load ptr, ptr %1470, align 8, !tbaa !17
-  %1472 = getelementptr inbounds nuw i8, ptr %1471, i64 24
-  %1473 = load i32, ptr %1472, align 8, !tbaa !21
-  %1474 = getelementptr inbounds nuw i8, ptr %1471, i64 40
-  %1475 = load i32, ptr %1474, align 8, !tbaa !21
-  %1476 = icmp eq i32 %1473, %1475
-  %.1317 = select i1 %1476, i32 2452, i32 2459
-  br label %switch.edge1963
-
-1477:                                             ; preds = %4
-  %1478 = icmp eq i32 %3, 18
-  br i1 %1478, label %1479, label %switch.edge1963
-
-1479:                                             ; preds = %1477
-  %1480 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1481 = load ptr, ptr %1480, align 8, !tbaa !17
-  %1482 = getelementptr inbounds nuw i8, ptr %1481, i64 24
-  %1483 = load i32, ptr %1482, align 8, !tbaa !21
-  %1484 = getelementptr inbounds nuw i8, ptr %1481, i64 40
-  %1485 = load i32, ptr %1484, align 8, !tbaa !21
-  %1486 = icmp eq i32 %1483, %1485
-  %.1318 = select i1 %1486, i32 2452, i32 2512
-  br label %switch.edge1963
-
-1487:                                             ; preds = %4
-  %1488 = icmp eq i32 %3, 18
-  br i1 %1488, label %1489, label %switch.edge1963
-
-1489:                                             ; preds = %1487
-  %1490 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1491 = load ptr, ptr %1490, align 8, !tbaa !17
-  %1492 = getelementptr inbounds nuw i8, ptr %1491, i64 24
-  %1493 = load i32, ptr %1492, align 8, !tbaa !21
-  %1494 = getelementptr inbounds nuw i8, ptr %1491, i64 40
-  %1495 = load i32, ptr %1494, align 8, !tbaa !21
-  %1496 = icmp eq i32 %1493, %1495
-  %.1319 = select i1 %1496, i32 2452, i32 2461
-  br label %switch.edge1963
-
-1497:                                             ; preds = %4
-  %1498 = icmp eq i32 %3, 18
-  br i1 %1498, label %1499, label %switch.edge1963
-
-1499:                                             ; preds = %1497
-  %1500 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1501 = load ptr, ptr %1500, align 8, !tbaa !17
-  %1502 = getelementptr inbounds nuw i8, ptr %1501, i64 24
-  %1503 = load i32, ptr %1502, align 8, !tbaa !21
-  %1504 = getelementptr inbounds nuw i8, ptr %1501, i64 40
-  %1505 = load i32, ptr %1504, align 8, !tbaa !21
-  %1506 = icmp eq i32 %1503, %1505
-  %.1320 = select i1 %1506, i32 2452, i32 2502
-  br label %switch.edge1963
-
-1507:                                             ; preds = %4
-  %1508 = icmp eq i32 %3, 18
-  br i1 %1508, label %1509, label %switch.edge1963
-
-1509:                                             ; preds = %1507
-  %1510 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1511 = load ptr, ptr %1510, align 8, !tbaa !17
-  %1512 = getelementptr inbounds nuw i8, ptr %1511, i64 24
-  %1513 = load i32, ptr %1512, align 8, !tbaa !21
-  %1514 = getelementptr inbounds nuw i8, ptr %1511, i64 40
-  %1515 = load i32, ptr %1514, align 8, !tbaa !21
-  %1516 = icmp eq i32 %1513, %1515
-  %.1321 = select i1 %1516, i32 2452, i32 2513
-  br label %switch.edge1963
-
-1517:                                             ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 9, label %1518
-    i32 13, label %1526
-    i32 18, label %1534
-  ]
-
-1518:                                             ; preds = %1517
-  %1519 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1520 = load ptr, ptr %1519, align 8, !tbaa !17
-  %1521 = getelementptr inbounds nuw i8, ptr %1520, i64 24
-  %1522 = load i32, ptr %1521, align 8, !tbaa !21
-  %1523 = getelementptr inbounds nuw i8, ptr %1520, i64 40
-  %1524 = load i32, ptr %1523, align 8, !tbaa !21
-  %1525 = icmp eq i32 %1522, %1524
-  %.1322 = select i1 %1525, i32 2456, i32 2464
-  br label %switch.edge1963
-
-1526:                                             ; preds = %1517
-  %1527 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1528 = load ptr, ptr %1527, align 8, !tbaa !17
-  %1529 = getelementptr inbounds nuw i8, ptr %1528, i64 24
-  %1530 = load i32, ptr %1529, align 8, !tbaa !21
-  %1531 = getelementptr inbounds nuw i8, ptr %1528, i64 40
-  %1532 = load i32, ptr %1531, align 8, !tbaa !21
-  %1533 = icmp eq i32 %1530, %1532
-  %.1323 = select i1 %1533, i32 2457, i32 2465
-  br label %switch.edge1963
-
-1534:                                             ; preds = %1517
-  %1535 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1536 = load ptr, ptr %1535, align 8, !tbaa !17
-  %1537 = getelementptr inbounds nuw i8, ptr %1536, i64 24
-  %1538 = load i32, ptr %1537, align 8, !tbaa !21
-  %1539 = getelementptr inbounds nuw i8, ptr %1536, i64 40
-  %1540 = load i32, ptr %1539, align 8, !tbaa !21
-  %1541 = icmp eq i32 %1538, %1540
-  %.1324 = select i1 %1541, i32 2452, i32 2462
-  br label %switch.edge1963
-
-1542:                                             ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 9, label %1543
-    i32 13, label %1551
-    i32 18, label %1559
-  ]
-
-1543:                                             ; preds = %1542
-  %1544 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1545 = load ptr, ptr %1544, align 8, !tbaa !17
-  %1546 = getelementptr inbounds nuw i8, ptr %1545, i64 24
-  %1547 = load i32, ptr %1546, align 8, !tbaa !21
-  %1548 = getelementptr inbounds nuw i8, ptr %1545, i64 40
-  %1549 = load i32, ptr %1548, align 8, !tbaa !21
-  %1550 = icmp eq i32 %1547, %1549
-  %.1325 = select i1 %1550, i32 2456, i32 2464
-  br label %switch.edge1963
-
-1551:                                             ; preds = %1542
-  %1552 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1553 = load ptr, ptr %1552, align 8, !tbaa !17
-  %1554 = getelementptr inbounds nuw i8, ptr %1553, i64 24
-  %1555 = load i32, ptr %1554, align 8, !tbaa !21
-  %1556 = getelementptr inbounds nuw i8, ptr %1553, i64 40
-  %1557 = load i32, ptr %1556, align 8, !tbaa !21
-  %1558 = icmp eq i32 %1555, %1557
-  %.1326 = select i1 %1558, i32 2457, i32 2465
-  br label %switch.edge1963
-
-1559:                                             ; preds = %1542
-  %1560 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1561 = load ptr, ptr %1560, align 8, !tbaa !17
-  %1562 = getelementptr inbounds nuw i8, ptr %1561, i64 24
-  %1563 = load i32, ptr %1562, align 8, !tbaa !21
-  %1564 = getelementptr inbounds nuw i8, ptr %1561, i64 40
-  %1565 = load i32, ptr %1564, align 8, !tbaa !21
-  %1566 = icmp eq i32 %1563, %1565
-  %.1327 = select i1 %1566, i32 2452, i32 2503
-  br label %switch.edge1963
-
-1567:                                             ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 9, label %1568
-    i32 13, label %1576
-    i32 18, label %1584
-  ]
-
-1568:                                             ; preds = %1567
-  %1569 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1570 = load ptr, ptr %1569, align 8, !tbaa !17
-  %1571 = getelementptr inbounds nuw i8, ptr %1570, i64 24
-  %1572 = load i32, ptr %1571, align 8, !tbaa !21
-  %1573 = getelementptr inbounds nuw i8, ptr %1570, i64 40
-  %1574 = load i32, ptr %1573, align 8, !tbaa !21
-  %1575 = icmp eq i32 %1572, %1574
-  %.1328 = select i1 %1575, i32 2456, i32 2464
-  br label %switch.edge1963
-
-1576:                                             ; preds = %1567
-  %1577 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1578 = load ptr, ptr %1577, align 8, !tbaa !17
-  %1579 = getelementptr inbounds nuw i8, ptr %1578, i64 24
-  %1580 = load i32, ptr %1579, align 8, !tbaa !21
-  %1581 = getelementptr inbounds nuw i8, ptr %1578, i64 40
-  %1582 = load i32, ptr %1581, align 8, !tbaa !21
-  %1583 = icmp eq i32 %1580, %1582
-  %.1329 = select i1 %1583, i32 2457, i32 2465
-  br label %switch.edge1963
-
-1584:                                             ; preds = %1567
-  %1585 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1586 = load ptr, ptr %1585, align 8, !tbaa !17
-  %1587 = getelementptr inbounds nuw i8, ptr %1586, i64 24
-  %1588 = load i32, ptr %1587, align 8, !tbaa !21
-  %1589 = getelementptr inbounds nuw i8, ptr %1586, i64 40
-  %1590 = load i32, ptr %1589, align 8, !tbaa !21
-  %1591 = icmp eq i32 %1588, %1590
-  %.1330 = select i1 %1591, i32 2452, i32 2503
-  br label %switch.edge1963
-
-1592:                                             ; preds = %4
-  %1593 = icmp eq i32 %3, 8
-  br i1 %1593, label %1594, label %switch.edge1963
-
-1594:                                             ; preds = %1592
-  %1595 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1596 = load i32, ptr %1595, align 4, !tbaa !22
-  %1597 = and i32 %1596, 16
-  %.not2026 = icmp eq i32 %1597, 0
-  %.1331 = select i1 %.not2026, i32 2446, i32 2445
-  br label %switch.edge1963
-
-1598:                                             ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 5, label %1599
-    i32 8, label %1607
-  ]
-
-1599:                                             ; preds = %1598
-  %1600 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1601 = load ptr, ptr %1600, align 8, !tbaa !17
-  %1602 = getelementptr inbounds nuw i8, ptr %1601, i64 24
-  %1603 = load i32, ptr %1602, align 8, !tbaa !21
-  %1604 = getelementptr inbounds nuw i8, ptr %1601, i64 40
-  %1605 = load i32, ptr %1604, align 8, !tbaa !21
-  %1606 = icmp eq i32 %1603, %1605
-  %.1332 = select i1 %1606, i32 2453, i32 2458
-  br label %switch.edge1963
-
-1607:                                             ; preds = %1598
-  %1608 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1609 = load ptr, ptr %1608, align 8, !tbaa !17
-  %1610 = getelementptr inbounds nuw i8, ptr %1609, i64 24
-  %1611 = load i32, ptr %1610, align 8, !tbaa !21
-  %1612 = getelementptr inbounds nuw i8, ptr %1609, i64 40
-  %1613 = load i32, ptr %1612, align 8, !tbaa !21
-  %1614 = icmp eq i32 %1611, %1613
-  %.1333 = select i1 %1614, i32 2454, i32 2458
-  br label %switch.edge1963
-
-1615:                                             ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 5, label %1616
-    i32 8, label %1624
-  ]
-
-1616:                                             ; preds = %1615
-  %1617 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1618 = load ptr, ptr %1617, align 8, !tbaa !17
-  %1619 = getelementptr inbounds nuw i8, ptr %1618, i64 24
-  %1620 = load i32, ptr %1619, align 8, !tbaa !21
-  %1621 = getelementptr inbounds nuw i8, ptr %1618, i64 40
-  %1622 = load i32, ptr %1621, align 8, !tbaa !21
-  %1623 = icmp eq i32 %1620, %1622
-  %.1334 = select i1 %1623, i32 2453, i32 2514
-  br label %switch.edge1963
-
-1624:                                             ; preds = %1615
-  %1625 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1626 = load ptr, ptr %1625, align 8, !tbaa !17
-  %1627 = getelementptr inbounds nuw i8, ptr %1626, i64 24
-  %1628 = load i32, ptr %1627, align 8, !tbaa !21
-  %1629 = getelementptr inbounds nuw i8, ptr %1626, i64 40
-  %1630 = load i32, ptr %1629, align 8, !tbaa !21
-  %1631 = icmp eq i32 %1628, %1630
-  %.1335 = select i1 %1631, i32 2454, i32 2514
-  br label %switch.edge1963
-
-1632:                                             ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 5, label %1633
-    i32 8, label %1641
-  ]
-
-1633:                                             ; preds = %1632
-  %1634 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1635 = load ptr, ptr %1634, align 8, !tbaa !17
-  %1636 = getelementptr inbounds nuw i8, ptr %1635, i64 24
-  %1637 = load i32, ptr %1636, align 8, !tbaa !21
-  %1638 = getelementptr inbounds nuw i8, ptr %1635, i64 40
-  %1639 = load i32, ptr %1638, align 8, !tbaa !21
-  %1640 = icmp eq i32 %1637, %1639
-  %.1336 = select i1 %1640, i32 2453, i32 2461
-  br label %switch.edge1963
-
-1641:                                             ; preds = %1632
-  %1642 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1643 = load ptr, ptr %1642, align 8, !tbaa !17
-  %1644 = getelementptr inbounds nuw i8, ptr %1643, i64 24
-  %1645 = load i32, ptr %1644, align 8, !tbaa !21
-  %1646 = getelementptr inbounds nuw i8, ptr %1643, i64 40
-  %1647 = load i32, ptr %1646, align 8, !tbaa !21
-  %1648 = icmp eq i32 %1645, %1647
-  %.1337 = select i1 %1648, i32 2454, i32 2461
-  br label %switch.edge1963
-
-1649:                                             ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 5, label %1650
-    i32 8, label %1658
-  ]
-
-1650:                                             ; preds = %1649
-  %1651 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1652 = load ptr, ptr %1651, align 8, !tbaa !17
-  %1653 = getelementptr inbounds nuw i8, ptr %1652, i64 24
-  %1654 = load i32, ptr %1653, align 8, !tbaa !21
-  %1655 = getelementptr inbounds nuw i8, ptr %1652, i64 40
-  %1656 = load i32, ptr %1655, align 8, !tbaa !21
-  %1657 = icmp eq i32 %1654, %1656
-  %.1338 = select i1 %1657, i32 2453, i32 2515
-  br label %switch.edge1963
-
-1658:                                             ; preds = %1649
-  %1659 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1660 = load ptr, ptr %1659, align 8, !tbaa !17
-  %1661 = getelementptr inbounds nuw i8, ptr %1660, i64 24
-  %1662 = load i32, ptr %1661, align 8, !tbaa !21
-  %1663 = getelementptr inbounds nuw i8, ptr %1660, i64 40
-  %1664 = load i32, ptr %1663, align 8, !tbaa !21
-  %1665 = icmp eq i32 %1662, %1664
-  %.1339 = select i1 %1665, i32 2454, i32 2515
-  br label %switch.edge1963
-
-1666:                                             ; preds = %4
-  switch i32 %3, label %switch.edge1963 [
-    i32 5, label %1667
-    i32 8, label %1675
-  ]
-
-1667:                                             ; preds = %1666
-  %1668 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1669 = load ptr, ptr %1668, align 8, !tbaa !17
-  %1670 = getelementptr inbounds nuw i8, ptr %1669, i64 24
-  %1671 = load i32, ptr %1670, align 8, !tbaa !21
-  %1672 = getelementptr inbounds nuw i8, ptr %1669, i64 40
-  %1673 = load i32, ptr %1672, align 8, !tbaa !21
-  %1674 = icmp eq i32 %1671, %1673
-  %.1340 = select i1 %1674, i32 2453, i32 2515
-  br label %switch.edge1963
-
-1675:                                             ; preds = %1666
-  %1676 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1677 = load ptr, ptr %1676, align 8, !tbaa !17
-  %1678 = getelementptr inbounds nuw i8, ptr %1677, i64 24
-  %1679 = load i32, ptr %1678, align 8, !tbaa !21
-  %1680 = getelementptr inbounds nuw i8, ptr %1677, i64 40
-  %1681 = load i32, ptr %1680, align 8, !tbaa !21
-  %1682 = icmp eq i32 %1679, %1681
-  %.1341 = select i1 %1682, i32 2454, i32 2515
-  br label %switch.edge1963
-
-1683:                                             ; preds = %4
-  %1684 = icmp eq i32 %3, 8
-  br i1 %1684, label %1685, label %switch.edge1963
-
-1685:                                             ; preds = %1683
-  %1686 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1687 = load i32, ptr %1686, align 4, !tbaa !22
-  %1688 = and i32 %1687, 16
-  %.not2025 = icmp eq i32 %1688, 0
-  %.pre2036 = load i32, ptr %1, align 8, !tbaa !3
-  br i1 %.not2025, label %1690, label %1689
-
-1689:                                             ; preds = %1685
-  switch i32 %.pre2036, label %1691 [
+  switch i32 %.pre2043, label %1681 [
     i32 1341, label %switch.edge1963
     i32 2091, label %switch.edge1963
     i32 1334, label %switch.edge1963.fold.split2095
@@ -4565,8 +1615,8 @@ switch.edge1986:                                  ; preds = %1069, %1070
     i32 1343, label %switch.edge1997
   ]
 
-1690:                                             ; preds = %1685
-  switch i32 %.pre2036, label %1691 [
+12:                                               ; preds = %7
+  switch i32 %.pre2043, label %1681 [
     i32 1341, label %switch.edge1963.fold.split2098
     i32 2091, label %switch.edge1963.fold.split2098
     i32 1334, label %switch.edge1963
@@ -4582,26 +1632,20 @@ switch.edge1986:                                  ; preds = %1069, %1070
     i32 1343, label %switch.edge1997
   ]
 
-switch.edge1997:                                  ; preds = %1689, %1690
-  br label %switch.edge1963
+13:                                               ; preds = %4
+  %14 = icmp eq i32 %3, 8
+  br i1 %14, label %15, label %switch.edge1963
 
-1691:                                             ; preds = %1689, %1690
-  br label %switch.edge1963
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %17 = load i32, ptr %16, align 4, !tbaa !22
+  %18 = and i32 %17, 16
+  %.not2033 = icmp eq i32 %18, 0
+  %.pre2042 = load i32, ptr %1, align 8, !tbaa !3
+  br i1 %.not2033, label %20, label %19
 
-1692:                                             ; preds = %4
-  %1693 = icmp eq i32 %3, 8
-  br i1 %1693, label %1694, label %switch.edge1963
-
-1694:                                             ; preds = %1692
-  %1695 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1696 = load i32, ptr %1695, align 4, !tbaa !22
-  %1697 = and i32 %1696, 16
-  %.not2024 = icmp eq i32 %1697, 0
-  %.pre2035 = load i32, ptr %1, align 8, !tbaa !3
-  br i1 %.not2024, label %1699, label %1698
-
-1698:                                             ; preds = %1694
-  switch i32 %.pre2035, label %1700 [
+19:                                               ; preds = %15
+  switch i32 %.pre2042, label %1690 [
     i32 1341, label %switch.edge1963
     i32 2091, label %switch.edge1963
     i32 1334, label %switch.edge1963.fold.split2099
@@ -4617,8 +1661,8 @@ switch.edge1997:                                  ; preds = %1689, %1690
     i32 1343, label %switch.edge2008
   ]
 
-1699:                                             ; preds = %1694
-  switch i32 %.pre2035, label %1700 [
+20:                                               ; preds = %15
+  switch i32 %.pre2042, label %1690 [
     i32 1341, label %switch.edge1963.fold.split2102
     i32 2091, label %switch.edge1963.fold.split2102
     i32 1334, label %switch.edge1963
@@ -4634,26 +1678,66 @@ switch.edge1997:                                  ; preds = %1689, %1690
     i32 1343, label %switch.edge2008
   ]
 
-switch.edge2008:                                  ; preds = %1698, %1699
-  br label %switch.edge1963
+21:                                               ; preds = %4
+  %22 = icmp eq i32 %3, 8
+  br i1 %22, label %23, label %switch.edge1963
 
-1700:                                             ; preds = %1698, %1699
-  br label %switch.edge1963
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %25 = load i32, ptr %24, align 4, !tbaa !22
+  %26 = and i32 %25, 16
+  %.not2032 = icmp eq i32 %26, 0
+  %.pre2041 = load i32, ptr %1, align 8, !tbaa !3
+  br i1 %.not2032, label %28, label %27
 
-1701:                                             ; preds = %4
-  %1702 = icmp eq i32 %3, 8
-  br i1 %1702, label %1703, label %switch.edge1963
+27:                                               ; preds = %23
+  switch i32 %.pre2041, label %1681 [
+    i32 1341, label %switch.edge1963
+    i32 2091, label %switch.edge1963
+    i32 1334, label %switch.edge1963.fold.split2095
+    i32 2087, label %switch.edge1963.fold.split2095
+    i32 2090, label %switch.edge1963.fold.split2096
+    i32 1342, label %switch.edge1963.fold.split2096
+    i32 2088, label %switch.edge1963.fold.split2097
+    i32 2089, label %switch.edge1963.fold.split2097
+    i32 1335, label %switch.edge1963.fold.split2097
+    i32 1337, label %switch.edge1963.fold.split2097
+    i32 1339, label %switch.edge1963.fold.split2097
+    i32 2086, label %switch.edge1963.fold.split2097
+    i32 1343, label %switch.edge1997
+  ]
 
-1703:                                             ; preds = %1701
-  %1704 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1705 = load i32, ptr %1704, align 4, !tbaa !22
-  %1706 = and i32 %1705, 16
-  %.not2023 = icmp eq i32 %1706, 0
-  %.pre = load i32, ptr %1, align 8, !tbaa !3
-  br i1 %.not2023, label %1708, label %1707
+28:                                               ; preds = %23
+  switch i32 %.pre2041, label %1681 [
+    i32 1341, label %switch.edge1963.fold.split2098
+    i32 2091, label %switch.edge1963.fold.split2098
+    i32 1334, label %switch.edge1963
+    i32 2087, label %switch.edge1963
+    i32 2090, label %.fold.split1989
+    i32 1342, label %.fold.split1989
+    i32 1335, label %.fold.split1991
+    i32 1337, label %.fold.split1991
+    i32 1339, label %.fold.split1991
+    i32 2086, label %.fold.split1991
+    i32 2088, label %.fold.split1991
+    i32 2089, label %.fold.split1991
+    i32 1343, label %switch.edge1997
+  ]
 
-1707:                                             ; preds = %1703
-  switch i32 %.pre, label %1709 [
+29:                                               ; preds = %4
+  %30 = icmp eq i32 %3, 8
+  br i1 %30, label %31, label %switch.edge1963
+
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %33 = load i32, ptr %32, align 4, !tbaa !22
+  %34 = and i32 %33, 16
+  %.not2031 = icmp eq i32 %34, 0
+  %.pre2040 = load i32, ptr %1, align 8, !tbaa !3
+  br i1 %.not2031, label %36, label %35
+
+35:                                               ; preds = %31
+  switch i32 %.pre2040, label %1699 [
     i32 1341, label %switch.edge1963
     i32 2091, label %switch.edge1963
     i32 1334, label %switch.edge1963.fold.split2103
@@ -4669,8 +1753,8 @@ switch.edge2008:                                  ; preds = %1698, %1699
     i32 1343, label %switch.edge2019
   ]
 
-1708:                                             ; preds = %1703
-  switch i32 %.pre, label %1709 [
+36:                                               ; preds = %31
+  switch i32 %.pre2040, label %1699 [
     i32 1341, label %switch.edge1963.fold.split2106
     i32 2091, label %switch.edge1963.fold.split2106
     i32 1334, label %switch.edge1963
@@ -4686,22 +1770,2902 @@ switch.edge2008:                                  ; preds = %1698, %1699
     i32 1343, label %switch.edge2019
   ]
 
-switch.edge2019:                                  ; preds = %1707, %1708
+37:                                               ; preds = %4
+  %38 = icmp eq i32 %3, 8
+  br i1 %38, label %39, label %switch.edge1963
+
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %41 = load i32, ptr %40, align 4, !tbaa !22
+  %42 = and i32 %41, 16
+  %.not2030 = icmp eq i32 %42, 0
+  %.pre2039 = load i32, ptr %1, align 8, !tbaa !3
+  br i1 %.not2030, label %44, label %43
+
+43:                                               ; preds = %39
+  switch i32 %.pre2039, label %1699 [
+    i32 1341, label %switch.edge1963
+    i32 2091, label %switch.edge1963
+    i32 1334, label %switch.edge1963.fold.split2103
+    i32 2087, label %switch.edge1963.fold.split2103
+    i32 2090, label %switch.edge1963.fold.split2104
+    i32 1342, label %switch.edge1963.fold.split2104
+    i32 2088, label %switch.edge1963.fold.split2105
+    i32 2089, label %switch.edge1963.fold.split2105
+    i32 1335, label %switch.edge1963.fold.split2105
+    i32 1337, label %switch.edge1963.fold.split2105
+    i32 1339, label %switch.edge1963.fold.split2105
+    i32 2086, label %switch.edge1963.fold.split2105
+    i32 1343, label %switch.edge2019
+  ]
+
+44:                                               ; preds = %39
+  switch i32 %.pre2039, label %1699 [
+    i32 1341, label %switch.edge1963.fold.split2106
+    i32 2091, label %switch.edge1963.fold.split2106
+    i32 1334, label %switch.edge1963
+    i32 2087, label %switch.edge1963
+    i32 2090, label %.fold.split2011
+    i32 1342, label %.fold.split2011
+    i32 1335, label %.fold.split2013
+    i32 1337, label %.fold.split2013
+    i32 1339, label %.fold.split2013
+    i32 2086, label %.fold.split2013
+    i32 2088, label %.fold.split2013
+    i32 2089, label %.fold.split2013
+    i32 1343, label %switch.edge2019
+  ]
+
+45:                                               ; preds = %4
+  %46 = icmp eq i32 %3, 8
+  br i1 %46, label %47, label %switch.edge1963
+
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %49 = load i32, ptr %48, align 4, !tbaa !22
+  %50 = and i32 %49, 16
+  %.not2029 = icmp eq i32 %50, 0
+  %.1176 = select i1 %.not2029, i32 2446, i32 2445
   br label %switch.edge1963
 
-1709:                                             ; preds = %1707, %1708
+51:                                               ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 5, label %52
+    i32 7, label %60
+    i32 8, label %68
+    i32 9, label %76
+    i32 10, label %84
+    i32 11, label %92
+    i32 13, label %100
+    i32 15, label %108
+    i32 17, label %116
+    i32 18, label %124
+  ]
+
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %54 = load ptr, ptr %53, align 8, !tbaa !17
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %56 = load i32, ptr %55, align 8, !tbaa !21
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  %58 = load i32, ptr %57, align 8, !tbaa !21
+  %59 = icmp eq i32 %56, %58
+  %.1177 = select i1 %59, i32 2453, i32 2448
   br label %switch.edge1963
 
-1710:                                             ; preds = %4
-  %1711 = icmp eq i32 %3, 8
-  br i1 %1711, label %1712, label %switch.edge1963
+60:                                               ; preds = %51
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %62 = load ptr, ptr %61, align 8, !tbaa !17
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
+  %64 = load i32, ptr %63, align 8, !tbaa !21
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 40
+  %66 = load i32, ptr %65, align 8, !tbaa !21
+  %67 = icmp eq i32 %64, %66
+  %.1178 = select i1 %67, i32 2450, i32 2448
+  br label %switch.edge1963
 
-1712:                                             ; preds = %1710
-  %1713 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1714 = load i32, ptr %1713, align 4, !tbaa !22
-  %1715 = and i32 %1714, 16
-  %.not2022 = icmp eq i32 %1715, 0
+68:                                               ; preds = %51
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %70 = load ptr, ptr %69, align 8, !tbaa !17
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  %72 = load i32, ptr %71, align 8, !tbaa !21
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 40
+  %74 = load i32, ptr %73, align 8, !tbaa !21
+  %75 = icmp eq i32 %72, %74
+  %.1179 = select i1 %75, i32 2454, i32 2448
+  br label %switch.edge1963
+
+76:                                               ; preds = %51
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %78 = load ptr, ptr %77, align 8, !tbaa !17
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  %80 = load i32, ptr %79, align 8, !tbaa !21
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 40
+  %82 = load i32, ptr %81, align 8, !tbaa !21
+  %83 = icmp eq i32 %80, %82
+  %.1180 = select i1 %83, i32 2456, i32 2448
+  br label %switch.edge1963
+
+84:                                               ; preds = %51
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %86 = load ptr, ptr %85, align 8, !tbaa !17
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
+  %88 = load i32, ptr %87, align 8, !tbaa !21
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 40
+  %90 = load i32, ptr %89, align 8, !tbaa !21
+  %91 = icmp eq i32 %88, %90
+  %.1181 = select i1 %91, i32 2447, i32 2448
+  br label %switch.edge1963
+
+92:                                               ; preds = %51
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %94 = load ptr, ptr %93, align 8, !tbaa !17
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  %96 = load i32, ptr %95, align 8, !tbaa !21
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 40
+  %98 = load i32, ptr %97, align 8, !tbaa !21
+  %99 = icmp eq i32 %96, %98
+  %.1182 = select i1 %99, i32 2449, i32 2448
+  br label %switch.edge1963
+
+100:                                              ; preds = %51
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %102 = load ptr, ptr %101, align 8, !tbaa !17
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  %104 = load i32, ptr %103, align 8, !tbaa !21
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 40
+  %106 = load i32, ptr %105, align 8, !tbaa !21
+  %107 = icmp eq i32 %104, %106
+  %.1183 = select i1 %107, i32 2457, i32 2448
+  br label %switch.edge1963
+
+108:                                              ; preds = %51
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %110 = load ptr, ptr %109, align 8, !tbaa !17
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
+  %112 = load i32, ptr %111, align 8, !tbaa !21
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 40
+  %114 = load i32, ptr %113, align 8, !tbaa !21
+  %115 = icmp eq i32 %112, %114
+  %.1184 = select i1 %115, i32 2455, i32 2448
+  br label %switch.edge1963
+
+116:                                              ; preds = %51
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %118 = load ptr, ptr %117, align 8, !tbaa !17
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
+  %120 = load i32, ptr %119, align 8, !tbaa !21
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 40
+  %122 = load i32, ptr %121, align 8, !tbaa !21
+  %123 = icmp eq i32 %120, %122
+  %.1185 = select i1 %123, i32 2451, i32 2448
+  br label %switch.edge1963
+
+124:                                              ; preds = %51
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %126 = load ptr, ptr %125, align 8, !tbaa !17
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
+  %128 = load i32, ptr %127, align 8, !tbaa !21
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 40
+  %130 = load i32, ptr %129, align 8, !tbaa !21
+  %131 = icmp eq i32 %128, %130
+  %.1186 = select i1 %131, i32 2452, i32 2448
+  br label %switch.edge1963
+
+132:                                              ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 5, label %133
+    i32 7, label %141
+    i32 8, label %149
+    i32 9, label %157
+    i32 10, label %165
+    i32 11, label %173
+    i32 13, label %181
+    i32 15, label %189
+  ]
+
+133:                                              ; preds = %132
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %135 = load ptr, ptr %134, align 8, !tbaa !17
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 24
+  %137 = load i32, ptr %136, align 8, !tbaa !21
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 40
+  %139 = load i32, ptr %138, align 8, !tbaa !21
+  %140 = icmp eq i32 %137, %139
+  %.1187 = select i1 %140, i32 2453, i32 2458
+  br label %switch.edge1963
+
+141:                                              ; preds = %132
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %143 = load ptr, ptr %142, align 8, !tbaa !17
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
+  %145 = load i32, ptr %144, align 8, !tbaa !21
+  %146 = getelementptr inbounds nuw i8, ptr %143, i64 40
+  %147 = load i32, ptr %146, align 8, !tbaa !21
+  %148 = icmp eq i32 %145, %147
+  %.1188 = select i1 %148, i32 2450, i32 2458
+  br label %switch.edge1963
+
+149:                                              ; preds = %132
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %151 = load ptr, ptr %150, align 8, !tbaa !17
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
+  %153 = load i32, ptr %152, align 8, !tbaa !21
+  %154 = getelementptr inbounds nuw i8, ptr %151, i64 40
+  %155 = load i32, ptr %154, align 8, !tbaa !21
+  %156 = icmp eq i32 %153, %155
+  %.1189 = select i1 %156, i32 2454, i32 2458
+  br label %switch.edge1963
+
+157:                                              ; preds = %132
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %159 = load ptr, ptr %158, align 8, !tbaa !17
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 24
+  %161 = load i32, ptr %160, align 8, !tbaa !21
+  %162 = getelementptr inbounds nuw i8, ptr %159, i64 40
+  %163 = load i32, ptr %162, align 8, !tbaa !21
+  %164 = icmp eq i32 %161, %163
+  %.1190 = select i1 %164, i32 2456, i32 2458
+  br label %switch.edge1963
+
+165:                                              ; preds = %132
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %167 = load ptr, ptr %166, align 8, !tbaa !17
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 24
+  %169 = load i32, ptr %168, align 8, !tbaa !21
+  %170 = getelementptr inbounds nuw i8, ptr %167, i64 40
+  %171 = load i32, ptr %170, align 8, !tbaa !21
+  %172 = icmp eq i32 %169, %171
+  %.1191 = select i1 %172, i32 2447, i32 2458
+  br label %switch.edge1963
+
+173:                                              ; preds = %132
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %175 = load ptr, ptr %174, align 8, !tbaa !17
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 24
+  %177 = load i32, ptr %176, align 8, !tbaa !21
+  %178 = getelementptr inbounds nuw i8, ptr %175, i64 40
+  %179 = load i32, ptr %178, align 8, !tbaa !21
+  %180 = icmp eq i32 %177, %179
+  %.1192 = select i1 %180, i32 2449, i32 2458
+  br label %switch.edge1963
+
+181:                                              ; preds = %132
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %183 = load ptr, ptr %182, align 8, !tbaa !17
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 24
+  %185 = load i32, ptr %184, align 8, !tbaa !21
+  %186 = getelementptr inbounds nuw i8, ptr %183, i64 40
+  %187 = load i32, ptr %186, align 8, !tbaa !21
+  %188 = icmp eq i32 %185, %187
+  %.1193 = select i1 %188, i32 2457, i32 2458
+  br label %switch.edge1963
+
+189:                                              ; preds = %132
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %191 = load ptr, ptr %190, align 8, !tbaa !17
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 24
+  %193 = load i32, ptr %192, align 8, !tbaa !21
+  %194 = getelementptr inbounds nuw i8, ptr %191, i64 40
+  %195 = load i32, ptr %194, align 8, !tbaa !21
+  %196 = icmp eq i32 %193, %195
+  %.1194 = select i1 %196, i32 2455, i32 2458
+  br label %switch.edge1963
+
+197:                                              ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 7, label %198
+    i32 8, label %206
+    i32 9, label %214
+    i32 10, label %222
+    i32 11, label %230
+    i32 13, label %238
+    i32 15, label %246
+    i32 17, label %254
+    i32 18, label %262
+  ]
+
+198:                                              ; preds = %197
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %200 = load ptr, ptr %199, align 8, !tbaa !17
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 24
+  %202 = load i32, ptr %201, align 8, !tbaa !21
+  %203 = getelementptr inbounds nuw i8, ptr %200, i64 40
+  %204 = load i32, ptr %203, align 8, !tbaa !21
+  %205 = icmp eq i32 %202, %204
+  %.1195 = select i1 %205, i32 2450, i32 2459
+  br label %switch.edge1963
+
+206:                                              ; preds = %197
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %208 = load ptr, ptr %207, align 8, !tbaa !17
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 24
+  %210 = load i32, ptr %209, align 8, !tbaa !21
+  %211 = getelementptr inbounds nuw i8, ptr %208, i64 40
+  %212 = load i32, ptr %211, align 8, !tbaa !21
+  %213 = icmp eq i32 %210, %212
+  %.1196 = select i1 %213, i32 2460, i32 2459
+  br label %switch.edge1963
+
+214:                                              ; preds = %197
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %216 = load ptr, ptr %215, align 8, !tbaa !17
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 24
+  %218 = load i32, ptr %217, align 8, !tbaa !21
+  %219 = getelementptr inbounds nuw i8, ptr %216, i64 40
+  %220 = load i32, ptr %219, align 8, !tbaa !21
+  %221 = icmp eq i32 %218, %220
+  %.1197 = select i1 %221, i32 2456, i32 2459
+  br label %switch.edge1963
+
+222:                                              ; preds = %197
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %224 = load ptr, ptr %223, align 8, !tbaa !17
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 24
+  %226 = load i32, ptr %225, align 8, !tbaa !21
+  %227 = getelementptr inbounds nuw i8, ptr %224, i64 40
+  %228 = load i32, ptr %227, align 8, !tbaa !21
+  %229 = icmp eq i32 %226, %228
+  %.1198 = select i1 %229, i32 2447, i32 2459
+  br label %switch.edge1963
+
+230:                                              ; preds = %197
+  %231 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %232 = load ptr, ptr %231, align 8, !tbaa !17
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 24
+  %234 = load i32, ptr %233, align 8, !tbaa !21
+  %235 = getelementptr inbounds nuw i8, ptr %232, i64 40
+  %236 = load i32, ptr %235, align 8, !tbaa !21
+  %237 = icmp eq i32 %234, %236
+  %.1199 = select i1 %237, i32 2449, i32 2459
+  br label %switch.edge1963
+
+238:                                              ; preds = %197
+  %239 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %240 = load ptr, ptr %239, align 8, !tbaa !17
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 24
+  %242 = load i32, ptr %241, align 8, !tbaa !21
+  %243 = getelementptr inbounds nuw i8, ptr %240, i64 40
+  %244 = load i32, ptr %243, align 8, !tbaa !21
+  %245 = icmp eq i32 %242, %244
+  %.1200 = select i1 %245, i32 2457, i32 2459
+  br label %switch.edge1963
+
+246:                                              ; preds = %197
+  %247 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %248 = load ptr, ptr %247, align 8, !tbaa !17
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 24
+  %250 = load i32, ptr %249, align 8, !tbaa !21
+  %251 = getelementptr inbounds nuw i8, ptr %248, i64 40
+  %252 = load i32, ptr %251, align 8, !tbaa !21
+  %253 = icmp eq i32 %250, %252
+  %.1201 = select i1 %253, i32 2455, i32 2459
+  br label %switch.edge1963
+
+254:                                              ; preds = %197
+  %255 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %256 = load ptr, ptr %255, align 8, !tbaa !17
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 24
+  %258 = load i32, ptr %257, align 8, !tbaa !21
+  %259 = getelementptr inbounds nuw i8, ptr %256, i64 40
+  %260 = load i32, ptr %259, align 8, !tbaa !21
+  %261 = icmp eq i32 %258, %260
+  %.1202 = select i1 %261, i32 2451, i32 2459
+  br label %switch.edge1963
+
+262:                                              ; preds = %197
+  %263 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %264 = load ptr, ptr %263, align 8, !tbaa !17
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 24
+  %266 = load i32, ptr %265, align 8, !tbaa !21
+  %267 = getelementptr inbounds nuw i8, ptr %264, i64 40
+  %268 = load i32, ptr %267, align 8, !tbaa !21
+  %269 = icmp eq i32 %266, %268
+  %.1203 = select i1 %269, i32 2452, i32 2459
+  br label %switch.edge1963
+
+270:                                              ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 5, label %271
+    i32 7, label %279
+    i32 8, label %287
+    i32 9, label %295
+    i32 10, label %303
+    i32 11, label %311
+    i32 13, label %319
+    i32 15, label %327
+  ]
+
+271:                                              ; preds = %270
+  %272 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %273 = load ptr, ptr %272, align 8, !tbaa !17
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 24
+  %275 = load i32, ptr %274, align 8, !tbaa !21
+  %276 = getelementptr inbounds nuw i8, ptr %273, i64 40
+  %277 = load i32, ptr %276, align 8, !tbaa !21
+  %278 = icmp eq i32 %275, %277
+  %.1204 = select i1 %278, i32 2453, i32 2461
+  br label %switch.edge1963
+
+279:                                              ; preds = %270
+  %280 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %281 = load ptr, ptr %280, align 8, !tbaa !17
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 24
+  %283 = load i32, ptr %282, align 8, !tbaa !21
+  %284 = getelementptr inbounds nuw i8, ptr %281, i64 40
+  %285 = load i32, ptr %284, align 8, !tbaa !21
+  %286 = icmp eq i32 %283, %285
+  %.1205 = select i1 %286, i32 2450, i32 2461
+  br label %switch.edge1963
+
+287:                                              ; preds = %270
+  %288 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %289 = load ptr, ptr %288, align 8, !tbaa !17
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 24
+  %291 = load i32, ptr %290, align 8, !tbaa !21
+  %292 = getelementptr inbounds nuw i8, ptr %289, i64 40
+  %293 = load i32, ptr %292, align 8, !tbaa !21
+  %294 = icmp eq i32 %291, %293
+  %.1206 = select i1 %294, i32 2454, i32 2461
+  br label %switch.edge1963
+
+295:                                              ; preds = %270
+  %296 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %297 = load ptr, ptr %296, align 8, !tbaa !17
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 24
+  %299 = load i32, ptr %298, align 8, !tbaa !21
+  %300 = getelementptr inbounds nuw i8, ptr %297, i64 40
+  %301 = load i32, ptr %300, align 8, !tbaa !21
+  %302 = icmp eq i32 %299, %301
+  %.1207 = select i1 %302, i32 2456, i32 2461
+  br label %switch.edge1963
+
+303:                                              ; preds = %270
+  %304 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %305 = load ptr, ptr %304, align 8, !tbaa !17
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 24
+  %307 = load i32, ptr %306, align 8, !tbaa !21
+  %308 = getelementptr inbounds nuw i8, ptr %305, i64 40
+  %309 = load i32, ptr %308, align 8, !tbaa !21
+  %310 = icmp eq i32 %307, %309
+  %.1208 = select i1 %310, i32 2447, i32 2461
+  br label %switch.edge1963
+
+311:                                              ; preds = %270
+  %312 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %313 = load ptr, ptr %312, align 8, !tbaa !17
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 24
+  %315 = load i32, ptr %314, align 8, !tbaa !21
+  %316 = getelementptr inbounds nuw i8, ptr %313, i64 40
+  %317 = load i32, ptr %316, align 8, !tbaa !21
+  %318 = icmp eq i32 %315, %317
+  %.1209 = select i1 %318, i32 2449, i32 2461
+  br label %switch.edge1963
+
+319:                                              ; preds = %270
+  %320 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %321 = load ptr, ptr %320, align 8, !tbaa !17
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 24
+  %323 = load i32, ptr %322, align 8, !tbaa !21
+  %324 = getelementptr inbounds nuw i8, ptr %321, i64 40
+  %325 = load i32, ptr %324, align 8, !tbaa !21
+  %326 = icmp eq i32 %323, %325
+  %.1210 = select i1 %326, i32 2457, i32 2461
+  br label %switch.edge1963
+
+327:                                              ; preds = %270
+  %328 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %329 = load ptr, ptr %328, align 8, !tbaa !17
+  %330 = getelementptr inbounds nuw i8, ptr %329, i64 24
+  %331 = load i32, ptr %330, align 8, !tbaa !21
+  %332 = getelementptr inbounds nuw i8, ptr %329, i64 40
+  %333 = load i32, ptr %332, align 8, !tbaa !21
+  %334 = icmp eq i32 %331, %333
+  %.1211 = select i1 %334, i32 2455, i32 2461
+  br label %switch.edge1963
+
+335:                                              ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 5, label %336
+    i32 7, label %344
+    i32 8, label %352
+    i32 9, label %360
+    i32 10, label %368
+    i32 11, label %376
+    i32 13, label %384
+    i32 15, label %392
+  ]
+
+336:                                              ; preds = %335
+  %337 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %338 = load ptr, ptr %337, align 8, !tbaa !17
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 24
+  %340 = load i32, ptr %339, align 8, !tbaa !21
+  %341 = getelementptr inbounds nuw i8, ptr %338, i64 40
+  %342 = load i32, ptr %341, align 8, !tbaa !21
+  %343 = icmp eq i32 %340, %342
+  %.1212 = select i1 %343, i32 2453, i32 2462
+  br label %switch.edge1963
+
+344:                                              ; preds = %335
+  %345 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %346 = load ptr, ptr %345, align 8, !tbaa !17
+  %347 = getelementptr inbounds nuw i8, ptr %346, i64 24
+  %348 = load i32, ptr %347, align 8, !tbaa !21
+  %349 = getelementptr inbounds nuw i8, ptr %346, i64 40
+  %350 = load i32, ptr %349, align 8, !tbaa !21
+  %351 = icmp eq i32 %348, %350
+  %.1213 = select i1 %351, i32 2450, i32 2462
+  br label %switch.edge1963
+
+352:                                              ; preds = %335
+  %353 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %354 = load ptr, ptr %353, align 8, !tbaa !17
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 24
+  %356 = load i32, ptr %355, align 8, !tbaa !21
+  %357 = getelementptr inbounds nuw i8, ptr %354, i64 40
+  %358 = load i32, ptr %357, align 8, !tbaa !21
+  %359 = icmp eq i32 %356, %358
+  %.1214 = select i1 %359, i32 2454, i32 2462
+  br label %switch.edge1963
+
+360:                                              ; preds = %335
+  %361 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %362 = load ptr, ptr %361, align 8, !tbaa !17
+  %363 = getelementptr inbounds nuw i8, ptr %362, i64 24
+  %364 = load i32, ptr %363, align 8, !tbaa !21
+  %365 = getelementptr inbounds nuw i8, ptr %362, i64 40
+  %366 = load i32, ptr %365, align 8, !tbaa !21
+  %367 = icmp eq i32 %364, %366
+  %.1215 = select i1 %367, i32 2456, i32 2464
+  br label %switch.edge1963
+
+368:                                              ; preds = %335
+  %369 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %370 = load ptr, ptr %369, align 8, !tbaa !17
+  %371 = getelementptr inbounds nuw i8, ptr %370, i64 24
+  %372 = load i32, ptr %371, align 8, !tbaa !21
+  %373 = getelementptr inbounds nuw i8, ptr %370, i64 40
+  %374 = load i32, ptr %373, align 8, !tbaa !21
+  %375 = icmp eq i32 %372, %374
+  %.1216 = select i1 %375, i32 2447, i32 2462
+  br label %switch.edge1963
+
+376:                                              ; preds = %335
+  %377 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %378 = load ptr, ptr %377, align 8, !tbaa !17
+  %379 = getelementptr inbounds nuw i8, ptr %378, i64 24
+  %380 = load i32, ptr %379, align 8, !tbaa !21
+  %381 = getelementptr inbounds nuw i8, ptr %378, i64 40
+  %382 = load i32, ptr %381, align 8, !tbaa !21
+  %383 = icmp eq i32 %380, %382
+  %.1217 = select i1 %383, i32 2449, i32 2462
+  br label %switch.edge1963
+
+384:                                              ; preds = %335
+  %385 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %386 = load ptr, ptr %385, align 8, !tbaa !17
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 24
+  %388 = load i32, ptr %387, align 8, !tbaa !21
+  %389 = getelementptr inbounds nuw i8, ptr %386, i64 40
+  %390 = load i32, ptr %389, align 8, !tbaa !21
+  %391 = icmp eq i32 %388, %390
+  %.1218 = select i1 %391, i32 2457, i32 2465
+  br label %switch.edge1963
+
+392:                                              ; preds = %335
+  %393 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %394 = load ptr, ptr %393, align 8, !tbaa !17
+  %395 = getelementptr inbounds nuw i8, ptr %394, i64 24
+  %396 = load i32, ptr %395, align 8, !tbaa !21
+  %397 = getelementptr inbounds nuw i8, ptr %394, i64 40
+  %398 = load i32, ptr %397, align 8, !tbaa !21
+  %399 = icmp eq i32 %396, %398
+  %.1219 = select i1 %399, i32 2455, i32 2463
+  br label %switch.edge1963
+
+400:                                              ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 5, label %401
+    i32 7, label %409
+    i32 8, label %417
+    i32 9, label %425
+    i32 10, label %433
+    i32 11, label %441
+    i32 13, label %449
+    i32 15, label %457
+  ]
+
+401:                                              ; preds = %400
+  %402 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %403 = load ptr, ptr %402, align 8, !tbaa !17
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 24
+  %405 = load i32, ptr %404, align 8, !tbaa !21
+  %406 = getelementptr inbounds nuw i8, ptr %403, i64 40
+  %407 = load i32, ptr %406, align 8, !tbaa !21
+  %408 = icmp eq i32 %405, %407
+  %.1220 = select i1 %408, i32 2453, i32 2462
+  br label %switch.edge1963
+
+409:                                              ; preds = %400
+  %410 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %411 = load ptr, ptr %410, align 8, !tbaa !17
+  %412 = getelementptr inbounds nuw i8, ptr %411, i64 24
+  %413 = load i32, ptr %412, align 8, !tbaa !21
+  %414 = getelementptr inbounds nuw i8, ptr %411, i64 40
+  %415 = load i32, ptr %414, align 8, !tbaa !21
+  %416 = icmp eq i32 %413, %415
+  %.1221 = select i1 %416, i32 2450, i32 2462
+  br label %switch.edge1963
+
+417:                                              ; preds = %400
+  %418 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %419 = load ptr, ptr %418, align 8, !tbaa !17
+  %420 = getelementptr inbounds nuw i8, ptr %419, i64 24
+  %421 = load i32, ptr %420, align 8, !tbaa !21
+  %422 = getelementptr inbounds nuw i8, ptr %419, i64 40
+  %423 = load i32, ptr %422, align 8, !tbaa !21
+  %424 = icmp eq i32 %421, %423
+  %.1222 = select i1 %424, i32 2454, i32 2462
+  br label %switch.edge1963
+
+425:                                              ; preds = %400
+  %426 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %427 = load ptr, ptr %426, align 8, !tbaa !17
+  %428 = getelementptr inbounds nuw i8, ptr %427, i64 24
+  %429 = load i32, ptr %428, align 8, !tbaa !21
+  %430 = getelementptr inbounds nuw i8, ptr %427, i64 40
+  %431 = load i32, ptr %430, align 8, !tbaa !21
+  %432 = icmp eq i32 %429, %431
+  %.1223 = select i1 %432, i32 2456, i32 2464
+  br label %switch.edge1963
+
+433:                                              ; preds = %400
+  %434 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %435 = load ptr, ptr %434, align 8, !tbaa !17
+  %436 = getelementptr inbounds nuw i8, ptr %435, i64 24
+  %437 = load i32, ptr %436, align 8, !tbaa !21
+  %438 = getelementptr inbounds nuw i8, ptr %435, i64 40
+  %439 = load i32, ptr %438, align 8, !tbaa !21
+  %440 = icmp eq i32 %437, %439
+  %.1224 = select i1 %440, i32 2447, i32 2462
+  br label %switch.edge1963
+
+441:                                              ; preds = %400
+  %442 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %443 = load ptr, ptr %442, align 8, !tbaa !17
+  %444 = getelementptr inbounds nuw i8, ptr %443, i64 24
+  %445 = load i32, ptr %444, align 8, !tbaa !21
+  %446 = getelementptr inbounds nuw i8, ptr %443, i64 40
+  %447 = load i32, ptr %446, align 8, !tbaa !21
+  %448 = icmp eq i32 %445, %447
+  %.1225 = select i1 %448, i32 2449, i32 2462
+  br label %switch.edge1963
+
+449:                                              ; preds = %400
+  %450 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %451 = load ptr, ptr %450, align 8, !tbaa !17
+  %452 = getelementptr inbounds nuw i8, ptr %451, i64 24
+  %453 = load i32, ptr %452, align 8, !tbaa !21
+  %454 = getelementptr inbounds nuw i8, ptr %451, i64 40
+  %455 = load i32, ptr %454, align 8, !tbaa !21
+  %456 = icmp eq i32 %453, %455
+  %.1226 = select i1 %456, i32 2457, i32 2465
+  br label %switch.edge1963
+
+457:                                              ; preds = %400
+  %458 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %459 = load ptr, ptr %458, align 8, !tbaa !17
+  %460 = getelementptr inbounds nuw i8, ptr %459, i64 24
+  %461 = load i32, ptr %460, align 8, !tbaa !21
+  %462 = getelementptr inbounds nuw i8, ptr %459, i64 40
+  %463 = load i32, ptr %462, align 8, !tbaa !21
+  %464 = icmp eq i32 %461, %463
+  %.1227 = select i1 %464, i32 2455, i32 2463
+  br label %switch.edge1963
+
+465:                                              ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 7, label %466
+    i32 8, label %474
+    i32 9, label %482
+    i32 10, label %490
+    i32 11, label %498
+    i32 13, label %506
+    i32 15, label %514
+    i32 17, label %522
+    i32 18, label %530
+  ]
+
+466:                                              ; preds = %465
+  %467 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %468 = load ptr, ptr %467, align 8, !tbaa !17
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 24
+  %470 = load i32, ptr %469, align 8, !tbaa !21
+  %471 = getelementptr inbounds nuw i8, ptr %468, i64 40
+  %472 = load i32, ptr %471, align 8, !tbaa !21
+  %473 = icmp eq i32 %470, %472
+  %.1228 = select i1 %473, i32 2450, i32 2468
+  br label %switch.edge1963
+
+474:                                              ; preds = %465
+  %475 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %476 = load ptr, ptr %475, align 8, !tbaa !17
+  %477 = getelementptr inbounds nuw i8, ptr %476, i64 24
+  %478 = load i32, ptr %477, align 8, !tbaa !21
+  %479 = getelementptr inbounds nuw i8, ptr %476, i64 40
+  %480 = load i32, ptr %479, align 8, !tbaa !21
+  %481 = icmp eq i32 %478, %480
+  %.1229 = select i1 %481, i32 2454, i32 2462
+  br label %switch.edge1963
+
+482:                                              ; preds = %465
+  %483 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %484 = load ptr, ptr %483, align 8, !tbaa !17
+  %485 = getelementptr inbounds nuw i8, ptr %484, i64 24
+  %486 = load i32, ptr %485, align 8, !tbaa !21
+  %487 = getelementptr inbounds nuw i8, ptr %484, i64 40
+  %488 = load i32, ptr %487, align 8, !tbaa !21
+  %489 = icmp eq i32 %486, %488
+  %.1230 = select i1 %489, i32 2456, i32 2470
+  br label %switch.edge1963
+
+490:                                              ; preds = %465
+  %491 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %492 = load ptr, ptr %491, align 8, !tbaa !17
+  %493 = getelementptr inbounds nuw i8, ptr %492, i64 24
+  %494 = load i32, ptr %493, align 8, !tbaa !21
+  %495 = getelementptr inbounds nuw i8, ptr %492, i64 40
+  %496 = load i32, ptr %495, align 8, !tbaa !21
+  %497 = icmp eq i32 %494, %496
+  %.1231 = select i1 %497, i32 2447, i32 2466
+  br label %switch.edge1963
+
+498:                                              ; preds = %465
+  %499 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %500 = load ptr, ptr %499, align 8, !tbaa !17
+  %501 = getelementptr inbounds nuw i8, ptr %500, i64 24
+  %502 = load i32, ptr %501, align 8, !tbaa !21
+  %503 = getelementptr inbounds nuw i8, ptr %500, i64 40
+  %504 = load i32, ptr %503, align 8, !tbaa !21
+  %505 = icmp eq i32 %502, %504
+  %.1232 = select i1 %505, i32 2449, i32 2467
+  br label %switch.edge1963
+
+506:                                              ; preds = %465
+  %507 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %508 = load ptr, ptr %507, align 8, !tbaa !17
+  %509 = getelementptr inbounds nuw i8, ptr %508, i64 24
+  %510 = load i32, ptr %509, align 8, !tbaa !21
+  %511 = getelementptr inbounds nuw i8, ptr %508, i64 40
+  %512 = load i32, ptr %511, align 8, !tbaa !21
+  %513 = icmp eq i32 %510, %512
+  %.1233 = select i1 %513, i32 2457, i32 2471
+  br label %switch.edge1963
+
+514:                                              ; preds = %465
+  %515 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %516 = load ptr, ptr %515, align 8, !tbaa !17
+  %517 = getelementptr inbounds nuw i8, ptr %516, i64 24
+  %518 = load i32, ptr %517, align 8, !tbaa !21
+  %519 = getelementptr inbounds nuw i8, ptr %516, i64 40
+  %520 = load i32, ptr %519, align 8, !tbaa !21
+  %521 = icmp eq i32 %518, %520
+  %.1234 = select i1 %521, i32 2455, i32 2469
+  br label %switch.edge1963
+
+522:                                              ; preds = %465
+  %523 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %524 = load ptr, ptr %523, align 8, !tbaa !17
+  %525 = getelementptr inbounds nuw i8, ptr %524, i64 24
+  %526 = load i32, ptr %525, align 8, !tbaa !21
+  %527 = getelementptr inbounds nuw i8, ptr %524, i64 40
+  %528 = load i32, ptr %527, align 8, !tbaa !21
+  %529 = icmp eq i32 %526, %528
+  %.1235 = select i1 %529, i32 2451, i32 2462
+  br label %switch.edge1963
+
+530:                                              ; preds = %465
+  %531 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %532 = load ptr, ptr %531, align 8, !tbaa !17
+  %533 = getelementptr inbounds nuw i8, ptr %532, i64 24
+  %534 = load i32, ptr %533, align 8, !tbaa !21
+  %535 = getelementptr inbounds nuw i8, ptr %532, i64 40
+  %536 = load i32, ptr %535, align 8, !tbaa !21
+  %537 = icmp eq i32 %534, %536
+  %.1236 = select i1 %537, i32 2452, i32 2462
+  br label %switch.edge1963
+
+538:                                              ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 7, label %539
+    i32 9, label %547
+    i32 10, label %555
+    i32 11, label %563
+    i32 13, label %571
+    i32 15, label %579
+  ]
+
+539:                                              ; preds = %538
+  %540 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %541 = load ptr, ptr %540, align 8, !tbaa !17
+  %542 = getelementptr inbounds nuw i8, ptr %541, i64 56
+  %543 = load i64, ptr %542, align 8, !tbaa !21
+  %544 = icmp eq i64 %543, 7
+  br i1 %544, label %switch.edge1963, label %545
+
+545:                                              ; preds = %539
+  %546 = icmp eq i64 %543, 6
+  %spec.select = select i1 %546, i32 2475, i32 2473
+  br label %switch.edge1963
+
+547:                                              ; preds = %538
+  %548 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %549 = load ptr, ptr %548, align 8, !tbaa !17
+  %550 = getelementptr inbounds nuw i8, ptr %549, i64 56
+  %551 = load i64, ptr %550, align 8, !tbaa !21
+  %552 = icmp eq i64 %551, 7
+  br i1 %552, label %switch.edge1963, label %553
+
+553:                                              ; preds = %547
+  %554 = icmp eq i64 %551, 6
+  %spec.select1410 = select i1 %554, i32 2477, i32 2473
+  br label %switch.edge1963
+
+555:                                              ; preds = %538
+  %556 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %557 = load ptr, ptr %556, align 8, !tbaa !17
+  %558 = getelementptr inbounds nuw i8, ptr %557, i64 56
+  %559 = load i64, ptr %558, align 8, !tbaa !21
+  %560 = icmp eq i64 %559, 7
+  br i1 %560, label %switch.edge1963, label %561
+
+561:                                              ; preds = %555
+  %562 = icmp eq i64 %559, 6
+  %spec.select1411 = select i1 %562, i32 2472, i32 2473
+  br label %switch.edge1963
+
+563:                                              ; preds = %538
+  %564 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %565 = load ptr, ptr %564, align 8, !tbaa !17
+  %566 = getelementptr inbounds nuw i8, ptr %565, i64 56
+  %567 = load i64, ptr %566, align 8, !tbaa !21
+  %568 = icmp eq i64 %567, 7
+  br i1 %568, label %switch.edge1963, label %569
+
+569:                                              ; preds = %563
+  %570 = icmp eq i64 %567, 6
+  %spec.select1412 = select i1 %570, i32 2474, i32 2473
+  br label %switch.edge1963
+
+571:                                              ; preds = %538
+  %572 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %573 = load ptr, ptr %572, align 8, !tbaa !17
+  %574 = getelementptr inbounds nuw i8, ptr %573, i64 56
+  %575 = load i64, ptr %574, align 8, !tbaa !21
+  %576 = icmp eq i64 %575, 7
+  br i1 %576, label %switch.edge1963, label %577
+
+577:                                              ; preds = %571
+  %578 = icmp eq i64 %575, 6
+  %spec.select1413 = select i1 %578, i32 2478, i32 2473
+  br label %switch.edge1963
+
+579:                                              ; preds = %538
+  %580 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %581 = load ptr, ptr %580, align 8, !tbaa !17
+  %582 = getelementptr inbounds nuw i8, ptr %581, i64 56
+  %583 = load i64, ptr %582, align 8, !tbaa !21
+  %584 = icmp eq i64 %583, 7
+  br i1 %584, label %switch.edge1963, label %585
+
+585:                                              ; preds = %579
+  %586 = icmp eq i64 %583, 6
+  %spec.select1414 = select i1 %586, i32 2476, i32 2473
+  br label %switch.edge1963
+
+587:                                              ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 5, label %588
+    i32 7, label %594
+    i32 9, label %602
+    i32 10, label %610
+    i32 11, label %618
+    i32 13, label %626
+    i32 15, label %634
+  ]
+
+588:                                              ; preds = %587
+  %589 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %590 = load ptr, ptr %589, align 8, !tbaa !17
+  %591 = getelementptr inbounds nuw i8, ptr %590, i64 120
+  %592 = load i64, ptr %591, align 8, !tbaa !21
+  %switch.tableidx = add i64 %592, -6
+  %593 = icmp ult i64 %switch.tableidx, 10
+  br i1 %593, label %switch.lookup, label %switch.edge1963
+
+594:                                              ; preds = %587
+  %595 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %596 = load ptr, ptr %595, align 8, !tbaa !17
+  %597 = getelementptr inbounds nuw i8, ptr %596, i64 120
+  %598 = load i64, ptr %597, align 8, !tbaa !21
+  %599 = icmp eq i64 %598, 7
+  br i1 %599, label %switch.edge1963, label %600
+
+600:                                              ; preds = %594
+  %601 = icmp eq i64 %598, 6
+  %spec.select1415 = select i1 %601, i32 2482, i32 2480
+  br label %switch.edge1963
+
+602:                                              ; preds = %587
+  %603 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %604 = load ptr, ptr %603, align 8, !tbaa !17
+  %605 = getelementptr inbounds nuw i8, ptr %604, i64 120
+  %606 = load i64, ptr %605, align 8, !tbaa !21
+  %607 = icmp eq i64 %606, 7
+  br i1 %607, label %switch.edge1963, label %608
+
+608:                                              ; preds = %602
+  %609 = icmp eq i64 %606, 6
+  %spec.select1416 = select i1 %609, i32 2485, i32 2480
+  br label %switch.edge1963
+
+610:                                              ; preds = %587
+  %611 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %612 = load ptr, ptr %611, align 8, !tbaa !17
+  %613 = getelementptr inbounds nuw i8, ptr %612, i64 120
+  %614 = load i64, ptr %613, align 8, !tbaa !21
+  %615 = icmp eq i64 %614, 7
+  br i1 %615, label %switch.edge1963, label %616
+
+616:                                              ; preds = %610
+  %617 = icmp eq i64 %614, 6
+  %spec.select1417 = select i1 %617, i32 2479, i32 2480
+  br label %switch.edge1963
+
+618:                                              ; preds = %587
+  %619 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %620 = load ptr, ptr %619, align 8, !tbaa !17
+  %621 = getelementptr inbounds nuw i8, ptr %620, i64 120
+  %622 = load i64, ptr %621, align 8, !tbaa !21
+  %623 = icmp eq i64 %622, 7
+  br i1 %623, label %switch.edge1963, label %624
+
+624:                                              ; preds = %618
+  %625 = icmp eq i64 %622, 6
+  %spec.select1418 = select i1 %625, i32 2481, i32 2480
+  br label %switch.edge1963
+
+626:                                              ; preds = %587
+  %627 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %628 = load ptr, ptr %627, align 8, !tbaa !17
+  %629 = getelementptr inbounds nuw i8, ptr %628, i64 120
+  %630 = load i64, ptr %629, align 8, !tbaa !21
+  %631 = icmp eq i64 %630, 7
+  br i1 %631, label %switch.edge1963, label %632
+
+632:                                              ; preds = %626
+  %633 = icmp eq i64 %630, 6
+  %spec.select1419 = select i1 %633, i32 2486, i32 2480
+  br label %switch.edge1963
+
+634:                                              ; preds = %587
+  %635 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %636 = load ptr, ptr %635, align 8, !tbaa !17
+  %637 = getelementptr inbounds nuw i8, ptr %636, i64 120
+  %638 = load i64, ptr %637, align 8, !tbaa !21
+  %639 = icmp eq i64 %638, 7
+  br i1 %639, label %switch.edge1963, label %640
+
+640:                                              ; preds = %634
+  %641 = icmp eq i64 %638, 6
+  %spec.select1420 = select i1 %641, i32 2484, i32 2480
+  br label %switch.edge1963
+
+642:                                              ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 7, label %643
+    i32 9, label %651
+    i32 10, label %659
+    i32 11, label %667
+    i32 13, label %675
+    i32 15, label %683
+  ]
+
+643:                                              ; preds = %642
+  %644 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %645 = load ptr, ptr %644, align 8, !tbaa !17
+  %646 = getelementptr inbounds nuw i8, ptr %645, i64 24
+  %647 = load i64, ptr %646, align 8, !tbaa !21
+  %648 = icmp eq i64 %647, 7
+  br i1 %648, label %switch.edge1963, label %649
+
+649:                                              ; preds = %643
+  %650 = icmp eq i64 %647, 6
+  %spec.select1421 = select i1 %650, i32 2490, i32 2488
+  br label %switch.edge1963
+
+651:                                              ; preds = %642
+  %652 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %653 = load ptr, ptr %652, align 8, !tbaa !17
+  %654 = getelementptr inbounds nuw i8, ptr %653, i64 24
+  %655 = load i64, ptr %654, align 8, !tbaa !21
+  %656 = icmp eq i64 %655, 7
+  br i1 %656, label %switch.edge1963, label %657
+
+657:                                              ; preds = %651
+  %658 = icmp eq i64 %655, 6
+  %spec.select1422 = select i1 %658, i32 2492, i32 2488
+  br label %switch.edge1963
+
+659:                                              ; preds = %642
+  %660 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %661 = load ptr, ptr %660, align 8, !tbaa !17
+  %662 = getelementptr inbounds nuw i8, ptr %661, i64 24
+  %663 = load i64, ptr %662, align 8, !tbaa !21
+  %664 = icmp eq i64 %663, 7
+  br i1 %664, label %switch.edge1963, label %665
+
+665:                                              ; preds = %659
+  %666 = icmp eq i64 %663, 6
+  %spec.select1423 = select i1 %666, i32 2487, i32 2488
+  br label %switch.edge1963
+
+667:                                              ; preds = %642
+  %668 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %669 = load ptr, ptr %668, align 8, !tbaa !17
+  %670 = getelementptr inbounds nuw i8, ptr %669, i64 24
+  %671 = load i64, ptr %670, align 8, !tbaa !21
+  %672 = icmp eq i64 %671, 7
+  br i1 %672, label %switch.edge1963, label %673
+
+673:                                              ; preds = %667
+  %674 = icmp eq i64 %671, 6
+  %spec.select1424 = select i1 %674, i32 2489, i32 2488
+  br label %switch.edge1963
+
+675:                                              ; preds = %642
+  %676 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %677 = load ptr, ptr %676, align 8, !tbaa !17
+  %678 = getelementptr inbounds nuw i8, ptr %677, i64 24
+  %679 = load i64, ptr %678, align 8, !tbaa !21
+  %680 = icmp eq i64 %679, 7
+  br i1 %680, label %switch.edge1963, label %681
+
+681:                                              ; preds = %675
+  %682 = icmp eq i64 %679, 6
+  %spec.select1425 = select i1 %682, i32 2493, i32 2488
+  br label %switch.edge1963
+
+683:                                              ; preds = %642
+  %684 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %685 = load ptr, ptr %684, align 8, !tbaa !17
+  %686 = getelementptr inbounds nuw i8, ptr %685, i64 24
+  %687 = load i64, ptr %686, align 8, !tbaa !21
+  %688 = icmp eq i64 %687, 7
+  br i1 %688, label %switch.edge1963, label %689
+
+689:                                              ; preds = %683
+  %690 = icmp eq i64 %687, 6
+  %spec.select1426 = select i1 %690, i32 2491, i32 2488
+  br label %switch.edge1963
+
+691:                                              ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 5, label %692
+    i32 7, label %699
+    i32 9, label %707
+    i32 10, label %715
+    i32 11, label %723
+    i32 13, label %731
+    i32 15, label %739
+  ]
+
+692:                                              ; preds = %691
+  %693 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %694 = load ptr, ptr %693, align 8, !tbaa !17
+  %695 = getelementptr inbounds nuw i8, ptr %694, i64 88
+  %696 = load i64, ptr %695, align 8, !tbaa !21
+  %697 = and i64 %696, -4
+  %switch.selectcmp = icmp eq i64 %697, 12
+  %698 = select i1 %switch.selectcmp, i32 2498, i32 2495
+  br label %switch.edge1963
+
+699:                                              ; preds = %691
+  %700 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %701 = load ptr, ptr %700, align 8, !tbaa !17
+  %702 = getelementptr inbounds nuw i8, ptr %701, i64 88
+  %703 = load i64, ptr %702, align 8, !tbaa !21
+  %704 = icmp eq i64 %703, 7
+  br i1 %704, label %switch.edge1963, label %705
+
+705:                                              ; preds = %699
+  %706 = icmp eq i64 %703, 6
+  %spec.select1427 = select i1 %706, i32 2497, i32 2495
+  br label %switch.edge1963
+
+707:                                              ; preds = %691
+  %708 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %709 = load ptr, ptr %708, align 8, !tbaa !17
+  %710 = getelementptr inbounds nuw i8, ptr %709, i64 88
+  %711 = load i64, ptr %710, align 8, !tbaa !21
+  %712 = icmp eq i64 %711, 7
+  br i1 %712, label %switch.edge1963, label %713
+
+713:                                              ; preds = %707
+  %714 = icmp eq i64 %711, 6
+  %spec.select1428 = select i1 %714, i32 2500, i32 2495
+  br label %switch.edge1963
+
+715:                                              ; preds = %691
+  %716 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %717 = load ptr, ptr %716, align 8, !tbaa !17
+  %718 = getelementptr inbounds nuw i8, ptr %717, i64 88
+  %719 = load i64, ptr %718, align 8, !tbaa !21
+  %720 = icmp eq i64 %719, 7
+  br i1 %720, label %switch.edge1963, label %721
+
+721:                                              ; preds = %715
+  %722 = icmp eq i64 %719, 6
+  %spec.select1429 = select i1 %722, i32 2494, i32 2495
+  br label %switch.edge1963
+
+723:                                              ; preds = %691
+  %724 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %725 = load ptr, ptr %724, align 8, !tbaa !17
+  %726 = getelementptr inbounds nuw i8, ptr %725, i64 88
+  %727 = load i64, ptr %726, align 8, !tbaa !21
+  %728 = icmp eq i64 %727, 7
+  br i1 %728, label %switch.edge1963, label %729
+
+729:                                              ; preds = %723
+  %730 = icmp eq i64 %727, 6
+  %spec.select1430 = select i1 %730, i32 2496, i32 2495
+  br label %switch.edge1963
+
+731:                                              ; preds = %691
+  %732 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %733 = load ptr, ptr %732, align 8, !tbaa !17
+  %734 = getelementptr inbounds nuw i8, ptr %733, i64 88
+  %735 = load i64, ptr %734, align 8, !tbaa !21
+  %736 = icmp eq i64 %735, 7
+  br i1 %736, label %switch.edge1963, label %737
+
+737:                                              ; preds = %731
+  %738 = icmp eq i64 %735, 6
+  %spec.select1431 = select i1 %738, i32 2501, i32 2495
+  br label %switch.edge1963
+
+739:                                              ; preds = %691
+  %740 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %741 = load ptr, ptr %740, align 8, !tbaa !17
+  %742 = getelementptr inbounds nuw i8, ptr %741, i64 88
+  %743 = load i64, ptr %742, align 8, !tbaa !21
+  %744 = icmp eq i64 %743, 7
+  br i1 %744, label %switch.edge1963, label %745
+
+745:                                              ; preds = %739
+  %746 = icmp eq i64 %743, 6
+  %spec.select1432 = select i1 %746, i32 2499, i32 2495
+  br label %switch.edge1963
+
+747:                                              ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 7, label %748
+    i32 9, label %756
+    i32 11, label %764
+    i32 13, label %772
+    i32 15, label %780
+    i32 17, label %788
+    i32 18, label %796
+  ]
+
+748:                                              ; preds = %747
+  %749 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %750 = load ptr, ptr %749, align 8, !tbaa !17
+  %751 = getelementptr inbounds nuw i8, ptr %750, i64 24
+  %752 = load i32, ptr %751, align 8, !tbaa !21
+  %753 = getelementptr inbounds nuw i8, ptr %750, i64 40
+  %754 = load i32, ptr %753, align 8, !tbaa !21
+  %755 = icmp eq i32 %752, %754
+  %.1239 = select i1 %755, i32 2450, i32 2502
+  br label %switch.edge1963
+
+756:                                              ; preds = %747
+  %757 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %758 = load ptr, ptr %757, align 8, !tbaa !17
+  %759 = getelementptr inbounds nuw i8, ptr %758, i64 24
+  %760 = load i32, ptr %759, align 8, !tbaa !21
+  %761 = getelementptr inbounds nuw i8, ptr %758, i64 40
+  %762 = load i32, ptr %761, align 8, !tbaa !21
+  %763 = icmp eq i32 %760, %762
+  %.1240 = select i1 %763, i32 2456, i32 2502
+  br label %switch.edge1963
+
+764:                                              ; preds = %747
+  %765 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %766 = load ptr, ptr %765, align 8, !tbaa !17
+  %767 = getelementptr inbounds nuw i8, ptr %766, i64 24
+  %768 = load i32, ptr %767, align 8, !tbaa !21
+  %769 = getelementptr inbounds nuw i8, ptr %766, i64 40
+  %770 = load i32, ptr %769, align 8, !tbaa !21
+  %771 = icmp eq i32 %768, %770
+  %.1241 = select i1 %771, i32 2449, i32 2502
+  br label %switch.edge1963
+
+772:                                              ; preds = %747
+  %773 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %774 = load ptr, ptr %773, align 8, !tbaa !17
+  %775 = getelementptr inbounds nuw i8, ptr %774, i64 24
+  %776 = load i32, ptr %775, align 8, !tbaa !21
+  %777 = getelementptr inbounds nuw i8, ptr %774, i64 40
+  %778 = load i32, ptr %777, align 8, !tbaa !21
+  %779 = icmp eq i32 %776, %778
+  %.1242 = select i1 %779, i32 2457, i32 2502
+  br label %switch.edge1963
+
+780:                                              ; preds = %747
+  %781 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %782 = load ptr, ptr %781, align 8, !tbaa !17
+  %783 = getelementptr inbounds nuw i8, ptr %782, i64 24
+  %784 = load i32, ptr %783, align 8, !tbaa !21
+  %785 = getelementptr inbounds nuw i8, ptr %782, i64 40
+  %786 = load i32, ptr %785, align 8, !tbaa !21
+  %787 = icmp eq i32 %784, %786
+  %.1243 = select i1 %787, i32 2455, i32 2502
+  br label %switch.edge1963
+
+788:                                              ; preds = %747
+  %789 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %790 = load ptr, ptr %789, align 8, !tbaa !17
+  %791 = getelementptr inbounds nuw i8, ptr %790, i64 24
+  %792 = load i32, ptr %791, align 8, !tbaa !21
+  %793 = getelementptr inbounds nuw i8, ptr %790, i64 40
+  %794 = load i32, ptr %793, align 8, !tbaa !21
+  %795 = icmp eq i32 %792, %794
+  %.1244 = select i1 %795, i32 2451, i32 2502
+  br label %switch.edge1963
+
+796:                                              ; preds = %747
+  %797 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %798 = load ptr, ptr %797, align 8, !tbaa !17
+  %799 = getelementptr inbounds nuw i8, ptr %798, i64 24
+  %800 = load i32, ptr %799, align 8, !tbaa !21
+  %801 = getelementptr inbounds nuw i8, ptr %798, i64 40
+  %802 = load i32, ptr %801, align 8, !tbaa !21
+  %803 = icmp eq i32 %800, %802
+  %.1245 = select i1 %803, i32 2452, i32 2502
+  br label %switch.edge1963
+
+804:                                              ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 7, label %805
+    i32 9, label %813
+    i32 11, label %821
+    i32 13, label %829
+    i32 15, label %837
+    i32 17, label %845
+    i32 18, label %853
+  ]
+
+805:                                              ; preds = %804
+  %806 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %807 = load ptr, ptr %806, align 8, !tbaa !17
+  %808 = getelementptr inbounds nuw i8, ptr %807, i64 24
+  %809 = load i32, ptr %808, align 8, !tbaa !21
+  %810 = getelementptr inbounds nuw i8, ptr %807, i64 40
+  %811 = load i32, ptr %810, align 8, !tbaa !21
+  %812 = icmp eq i32 %809, %811
+  %.1246 = select i1 %812, i32 2450, i32 2503
+  br label %switch.edge1963
+
+813:                                              ; preds = %804
+  %814 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %815 = load ptr, ptr %814, align 8, !tbaa !17
+  %816 = getelementptr inbounds nuw i8, ptr %815, i64 24
+  %817 = load i32, ptr %816, align 8, !tbaa !21
+  %818 = getelementptr inbounds nuw i8, ptr %815, i64 40
+  %819 = load i32, ptr %818, align 8, !tbaa !21
+  %820 = icmp eq i32 %817, %819
+  %.1247 = select i1 %820, i32 2456, i32 2464
+  br label %switch.edge1963
+
+821:                                              ; preds = %804
+  %822 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %823 = load ptr, ptr %822, align 8, !tbaa !17
+  %824 = getelementptr inbounds nuw i8, ptr %823, i64 24
+  %825 = load i32, ptr %824, align 8, !tbaa !21
+  %826 = getelementptr inbounds nuw i8, ptr %823, i64 40
+  %827 = load i32, ptr %826, align 8, !tbaa !21
+  %828 = icmp eq i32 %825, %827
+  %.1248 = select i1 %828, i32 2449, i32 2503
+  br label %switch.edge1963
+
+829:                                              ; preds = %804
+  %830 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %831 = load ptr, ptr %830, align 8, !tbaa !17
+  %832 = getelementptr inbounds nuw i8, ptr %831, i64 24
+  %833 = load i32, ptr %832, align 8, !tbaa !21
+  %834 = getelementptr inbounds nuw i8, ptr %831, i64 40
+  %835 = load i32, ptr %834, align 8, !tbaa !21
+  %836 = icmp eq i32 %833, %835
+  %.1249 = select i1 %836, i32 2457, i32 2465
+  br label %switch.edge1963
+
+837:                                              ; preds = %804
+  %838 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %839 = load ptr, ptr %838, align 8, !tbaa !17
+  %840 = getelementptr inbounds nuw i8, ptr %839, i64 24
+  %841 = load i32, ptr %840, align 8, !tbaa !21
+  %842 = getelementptr inbounds nuw i8, ptr %839, i64 40
+  %843 = load i32, ptr %842, align 8, !tbaa !21
+  %844 = icmp eq i32 %841, %843
+  %.1250 = select i1 %844, i32 2455, i32 2463
+  br label %switch.edge1963
+
+845:                                              ; preds = %804
+  %846 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %847 = load ptr, ptr %846, align 8, !tbaa !17
+  %848 = getelementptr inbounds nuw i8, ptr %847, i64 24
+  %849 = load i32, ptr %848, align 8, !tbaa !21
+  %850 = getelementptr inbounds nuw i8, ptr %847, i64 40
+  %851 = load i32, ptr %850, align 8, !tbaa !21
+  %852 = icmp eq i32 %849, %851
+  %.1251 = select i1 %852, i32 2451, i32 2503
+  br label %switch.edge1963
+
+853:                                              ; preds = %804
+  %854 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %855 = load ptr, ptr %854, align 8, !tbaa !17
+  %856 = getelementptr inbounds nuw i8, ptr %855, i64 24
+  %857 = load i32, ptr %856, align 8, !tbaa !21
+  %858 = getelementptr inbounds nuw i8, ptr %855, i64 40
+  %859 = load i32, ptr %858, align 8, !tbaa !21
+  %860 = icmp eq i32 %857, %859
+  %.1252 = select i1 %860, i32 2452, i32 2503
+  br label %switch.edge1963
+
+861:                                              ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 7, label %862
+    i32 9, label %870
+    i32 11, label %878
+    i32 13, label %886
+    i32 15, label %894
+    i32 17, label %902
+    i32 18, label %910
+  ]
+
+862:                                              ; preds = %861
+  %863 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %864 = load ptr, ptr %863, align 8, !tbaa !17
+  %865 = getelementptr inbounds nuw i8, ptr %864, i64 24
+  %866 = load i32, ptr %865, align 8, !tbaa !21
+  %867 = getelementptr inbounds nuw i8, ptr %864, i64 40
+  %868 = load i32, ptr %867, align 8, !tbaa !21
+  %869 = icmp eq i32 %866, %868
+  %.1253 = select i1 %869, i32 2450, i32 2468
+  br label %switch.edge1963
+
+870:                                              ; preds = %861
+  %871 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %872 = load ptr, ptr %871, align 8, !tbaa !17
+  %873 = getelementptr inbounds nuw i8, ptr %872, i64 24
+  %874 = load i32, ptr %873, align 8, !tbaa !21
+  %875 = getelementptr inbounds nuw i8, ptr %872, i64 40
+  %876 = load i32, ptr %875, align 8, !tbaa !21
+  %877 = icmp eq i32 %874, %876
+  %.1254 = select i1 %877, i32 2456, i32 2470
+  br label %switch.edge1963
+
+878:                                              ; preds = %861
+  %879 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %880 = load ptr, ptr %879, align 8, !tbaa !17
+  %881 = getelementptr inbounds nuw i8, ptr %880, i64 24
+  %882 = load i32, ptr %881, align 8, !tbaa !21
+  %883 = getelementptr inbounds nuw i8, ptr %880, i64 40
+  %884 = load i32, ptr %883, align 8, !tbaa !21
+  %885 = icmp eq i32 %882, %884
+  %.1255 = select i1 %885, i32 2449, i32 2467
+  br label %switch.edge1963
+
+886:                                              ; preds = %861
+  %887 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %888 = load ptr, ptr %887, align 8, !tbaa !17
+  %889 = getelementptr inbounds nuw i8, ptr %888, i64 24
+  %890 = load i32, ptr %889, align 8, !tbaa !21
+  %891 = getelementptr inbounds nuw i8, ptr %888, i64 40
+  %892 = load i32, ptr %891, align 8, !tbaa !21
+  %893 = icmp eq i32 %890, %892
+  %.1256 = select i1 %893, i32 2457, i32 2471
+  br label %switch.edge1963
+
+894:                                              ; preds = %861
+  %895 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %896 = load ptr, ptr %895, align 8, !tbaa !17
+  %897 = getelementptr inbounds nuw i8, ptr %896, i64 24
+  %898 = load i32, ptr %897, align 8, !tbaa !21
+  %899 = getelementptr inbounds nuw i8, ptr %896, i64 40
+  %900 = load i32, ptr %899, align 8, !tbaa !21
+  %901 = icmp eq i32 %898, %900
+  %.1257 = select i1 %901, i32 2455, i32 2469
+  br label %switch.edge1963
+
+902:                                              ; preds = %861
+  %903 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %904 = load ptr, ptr %903, align 8, !tbaa !17
+  %905 = getelementptr inbounds nuw i8, ptr %904, i64 24
+  %906 = load i32, ptr %905, align 8, !tbaa !21
+  %907 = getelementptr inbounds nuw i8, ptr %904, i64 40
+  %908 = load i32, ptr %907, align 8, !tbaa !21
+  %909 = icmp eq i32 %906, %908
+  %.1258 = select i1 %909, i32 2451, i32 2503
+  br label %switch.edge1963
+
+910:                                              ; preds = %861
+  %911 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %912 = load ptr, ptr %911, align 8, !tbaa !17
+  %913 = getelementptr inbounds nuw i8, ptr %912, i64 24
+  %914 = load i32, ptr %913, align 8, !tbaa !21
+  %915 = getelementptr inbounds nuw i8, ptr %912, i64 40
+  %916 = load i32, ptr %915, align 8, !tbaa !21
+  %917 = icmp eq i32 %914, %916
+  %.1259 = select i1 %917, i32 2452, i32 2503
+  br label %switch.edge1963
+
+918:                                              ; preds = %4
+  %919 = icmp eq i32 %3, 11
+  br i1 %919, label %920, label %switch.edge1963
+
+920:                                              ; preds = %918
+  %921 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %922 = load ptr, ptr %921, align 8, !tbaa !17
+  %923 = getelementptr inbounds nuw i8, ptr %922, i64 40
+  %924 = load i64, ptr %923, align 8, !tbaa !21
+  %925 = icmp eq i64 %924, 0
+  br i1 %925, label %926, label %.critedge
+
+926:                                              ; preds = %920
+  %927 = getelementptr inbounds nuw i8, ptr %922, i64 24
+  %928 = load i32, ptr %927, align 8, !tbaa !21
+  switch i32 %928, label %switch.edge1963 [
+    i32 3, label %.critedge
+    i32 22, label %.critedge
+    i32 51, label %.critedge
+  ]
+
+.critedge:                                        ; preds = %926, %926, %926, %920
+  br label %switch.edge1963
+
+929:                                              ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 7, label %930
+    i32 8, label %938
+    i32 9, label %946
+    i32 10, label %954
+    i32 11, label %962
+    i32 13, label %970
+    i32 15, label %978
+  ]
+
+930:                                              ; preds = %929
+  %931 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %932 = load ptr, ptr %931, align 8, !tbaa !17
+  %933 = getelementptr inbounds nuw i8, ptr %932, i64 24
+  %934 = load i32, ptr %933, align 8, !tbaa !21
+  %935 = getelementptr inbounds nuw i8, ptr %932, i64 40
+  %936 = load i32, ptr %935, align 8, !tbaa !21
+  %937 = icmp eq i32 %934, %936
+  %.1260 = select i1 %937, i32 2450, i32 2468
+  br label %switch.edge1963
+
+938:                                              ; preds = %929
+  %939 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %940 = load ptr, ptr %939, align 8, !tbaa !17
+  %941 = getelementptr inbounds nuw i8, ptr %940, i64 24
+  %942 = load i32, ptr %941, align 8, !tbaa !21
+  %943 = getelementptr inbounds nuw i8, ptr %940, i64 40
+  %944 = load i32, ptr %943, align 8, !tbaa !21
+  %945 = icmp eq i32 %942, %944
+  %.1261 = select i1 %945, i32 2454, i32 2462
+  br label %switch.edge1963
+
+946:                                              ; preds = %929
+  %947 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %948 = load ptr, ptr %947, align 8, !tbaa !17
+  %949 = getelementptr inbounds nuw i8, ptr %948, i64 24
+  %950 = load i32, ptr %949, align 8, !tbaa !21
+  %951 = getelementptr inbounds nuw i8, ptr %948, i64 40
+  %952 = load i32, ptr %951, align 8, !tbaa !21
+  %953 = icmp eq i32 %950, %952
+  %.1262 = select i1 %953, i32 2456, i32 2470
+  br label %switch.edge1963
+
+954:                                              ; preds = %929
+  %955 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %956 = load ptr, ptr %955, align 8, !tbaa !17
+  %957 = getelementptr inbounds nuw i8, ptr %956, i64 24
+  %958 = load i32, ptr %957, align 8, !tbaa !21
+  %959 = getelementptr inbounds nuw i8, ptr %956, i64 40
+  %960 = load i32, ptr %959, align 8, !tbaa !21
+  %961 = icmp eq i32 %958, %960
+  %.1263 = select i1 %961, i32 2447, i32 2466
+  br label %switch.edge1963
+
+962:                                              ; preds = %929
+  %963 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %964 = load ptr, ptr %963, align 8, !tbaa !17
+  %965 = getelementptr inbounds nuw i8, ptr %964, i64 24
+  %966 = load i32, ptr %965, align 8, !tbaa !21
+  %967 = getelementptr inbounds nuw i8, ptr %964, i64 40
+  %968 = load i32, ptr %967, align 8, !tbaa !21
+  %969 = icmp eq i32 %966, %968
+  %.1264 = select i1 %969, i32 2449, i32 2467
+  br label %switch.edge1963
+
+970:                                              ; preds = %929
+  %971 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %972 = load ptr, ptr %971, align 8, !tbaa !17
+  %973 = getelementptr inbounds nuw i8, ptr %972, i64 24
+  %974 = load i32, ptr %973, align 8, !tbaa !21
+  %975 = getelementptr inbounds nuw i8, ptr %972, i64 40
+  %976 = load i32, ptr %975, align 8, !tbaa !21
+  %977 = icmp eq i32 %974, %976
+  %.1265 = select i1 %977, i32 2457, i32 2471
+  br label %switch.edge1963
+
+978:                                              ; preds = %929
+  %979 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %980 = load ptr, ptr %979, align 8, !tbaa !17
+  %981 = getelementptr inbounds nuw i8, ptr %980, i64 24
+  %982 = load i32, ptr %981, align 8, !tbaa !21
+  %983 = getelementptr inbounds nuw i8, ptr %980, i64 40
+  %984 = load i32, ptr %983, align 8, !tbaa !21
+  %985 = icmp eq i32 %982, %984
+  %.1266 = select i1 %985, i32 2455, i32 2469
+  br label %switch.edge1963
+
+986:                                              ; preds = %4
+  %987 = icmp eq i32 %3, 8
+  br i1 %987, label %988, label %switch.edge1963
+
+988:                                              ; preds = %986
+  %989 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %990 = load ptr, ptr %989, align 8, !tbaa !17
+  %991 = getelementptr inbounds nuw i8, ptr %990, i64 24
+  %992 = load i32, ptr %991, align 8, !tbaa !21
+  %993 = getelementptr inbounds nuw i8, ptr %990, i64 40
+  %994 = load i32, ptr %993, align 8, !tbaa !21
+  %995 = icmp eq i32 %992, %994
+  br i1 %995, label %996, label %.critedge2
+
+996:                                              ; preds = %988
+  %997 = getelementptr inbounds nuw i8, ptr %990, i64 56
+  %998 = load i64, ptr %997, align 8, !tbaa !21
+  %999 = icmp eq i64 %998, 136
+  br i1 %999, label %switch.edge1963, label %.critedge2
+
+.critedge2:                                       ; preds = %988, %996
+  br label %switch.edge1963
+
+1000:                                             ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 5, label %1001
+    i32 8, label %1012
+    i32 17, label %1023
+    i32 18, label %1034
+  ]
+
+1001:                                             ; preds = %1000
+  %1002 = tail call noundef zeroext i1 @_ZN4llvm6X86_MC18isThreeOperandsLEAERKNS_6MCInstE(ptr noundef nonnull align 8 dereferenceable(128) %1)
+  br i1 %1002, label %switch.edge1963, label %1003
+
+1003:                                             ; preds = %1001
+  %1004 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1005 = load ptr, ptr %1004, align 8, !tbaa !17
+  %1006 = getelementptr inbounds nuw i8, ptr %1005, i64 32
+  %1007 = load i8, ptr %1006, align 8, !tbaa !18
+  %1008 = icmp eq i8 %1007, 2
+  br i1 %1008, label %1009, label %1045
+
+1009:                                             ; preds = %1003
+  %1010 = getelementptr inbounds nuw i8, ptr %1005, i64 40
+  %1011 = load i64, ptr %1010, align 8, !tbaa !21
+  %.not1171 = icmp eq i64 %1011, 1
+  br i1 %.not1171, label %1045, label %switch.edge1963
+
+1012:                                             ; preds = %1000
+  %1013 = tail call noundef zeroext i1 @_ZN4llvm6X86_MC18isThreeOperandsLEAERKNS_6MCInstE(ptr noundef nonnull align 8 dereferenceable(128) %1)
+  br i1 %1013, label %switch.edge1963, label %1014
+
+1014:                                             ; preds = %1012
+  %1015 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1016 = load ptr, ptr %1015, align 8, !tbaa !17
+  %1017 = getelementptr inbounds nuw i8, ptr %1016, i64 32
+  %1018 = load i8, ptr %1017, align 8, !tbaa !18
+  %1019 = icmp eq i8 %1018, 2
+  br i1 %1019, label %1020, label %1045
+
+1020:                                             ; preds = %1014
+  %1021 = getelementptr inbounds nuw i8, ptr %1016, i64 40
+  %1022 = load i64, ptr %1021, align 8, !tbaa !21
+  %.not1170 = icmp eq i64 %1022, 1
+  br i1 %.not1170, label %1045, label %switch.edge1963
+
+1023:                                             ; preds = %1000
+  %1024 = tail call noundef zeroext i1 @_ZN4llvm6X86_MC18isThreeOperandsLEAERKNS_6MCInstE(ptr noundef nonnull align 8 dereferenceable(128) %1)
+  br i1 %1024, label %switch.edge1963, label %1025
+
+1025:                                             ; preds = %1023
+  %1026 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1027 = load ptr, ptr %1026, align 8, !tbaa !17
+  %1028 = getelementptr inbounds nuw i8, ptr %1027, i64 32
+  %1029 = load i8, ptr %1028, align 8, !tbaa !18
+  %1030 = icmp eq i8 %1029, 2
+  br i1 %1030, label %1031, label %1045
+
+1031:                                             ; preds = %1025
+  %1032 = getelementptr inbounds nuw i8, ptr %1027, i64 40
+  %1033 = load i64, ptr %1032, align 8, !tbaa !21
+  %.not1169 = icmp eq i64 %1033, 1
+  br i1 %.not1169, label %1045, label %switch.edge1963
+
+1034:                                             ; preds = %1000
+  %1035 = tail call noundef zeroext i1 @_ZN4llvm6X86_MC18isThreeOperandsLEAERKNS_6MCInstE(ptr noundef nonnull align 8 dereferenceable(128) %1)
+  br i1 %1035, label %switch.edge1963, label %1036
+
+1036:                                             ; preds = %1034
+  %1037 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1038 = load ptr, ptr %1037, align 8, !tbaa !17
+  %1039 = getelementptr inbounds nuw i8, ptr %1038, i64 32
+  %1040 = load i8, ptr %1039, align 8, !tbaa !18
+  %1041 = icmp eq i8 %1040, 2
+  br i1 %1041, label %1042, label %1045
+
+1042:                                             ; preds = %1036
+  %1043 = getelementptr inbounds nuw i8, ptr %1038, i64 40
+  %1044 = load i64, ptr %1043, align 8, !tbaa !21
+  %.not = icmp eq i64 %1044, 1
+  br i1 %.not, label %1045, label %switch.edge1963
+
+1045:                                             ; preds = %1003, %1009, %1014, %1020, %1025, %1031, %1042, %1036
+  br label %switch.edge1963
+
+1046:                                             ; preds = %4
+  %1047 = icmp eq i32 %3, 8
+  br i1 %1047, label %1048, label %switch.edge1963
+
+1048:                                             ; preds = %1046
+  %1049 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %1050 = load i32, ptr %1049, align 4, !tbaa !22
+  %1051 = and i32 %1050, 16
+  %.not2028 = icmp eq i32 %1051, 0
+  %.pre2038 = load i32, ptr %1, align 8, !tbaa !3
+  br i1 %.not2028, label %1053, label %1052
+
+1052:                                             ; preds = %1048
+  switch i32 %.pre2038, label %1681 [
+    i32 1341, label %switch.edge1963
+    i32 2091, label %switch.edge1963
+    i32 1334, label %switch.edge1963.fold.split2095
+    i32 2087, label %switch.edge1963.fold.split2095
+    i32 2090, label %switch.edge1963.fold.split2096
+    i32 1342, label %switch.edge1963.fold.split2096
+    i32 2088, label %switch.edge1963.fold.split2097
+    i32 2089, label %switch.edge1963.fold.split2097
+    i32 1335, label %switch.edge1963.fold.split2097
+    i32 1337, label %switch.edge1963.fold.split2097
+    i32 1339, label %switch.edge1963.fold.split2097
+    i32 2086, label %switch.edge1963.fold.split2097
+    i32 1343, label %switch.edge1997
+  ]
+
+1053:                                             ; preds = %1048
+  switch i32 %.pre2038, label %1681 [
+    i32 1341, label %switch.edge1963.fold.split2098
+    i32 2091, label %switch.edge1963.fold.split2098
+    i32 1334, label %switch.edge1963
+    i32 2087, label %switch.edge1963
+    i32 2090, label %.fold.split1989
+    i32 1342, label %.fold.split1989
+    i32 1335, label %.fold.split1991
+    i32 1337, label %.fold.split1991
+    i32 1339, label %.fold.split1991
+    i32 2086, label %.fold.split1991
+    i32 2088, label %.fold.split1991
+    i32 2089, label %.fold.split1991
+    i32 1343, label %switch.edge1997
+  ]
+
+1054:                                             ; preds = %4
+  %1055 = icmp eq i32 %3, 8
+  br i1 %1055, label %1056, label %switch.edge1963
+
+1056:                                             ; preds = %1054
+  %1057 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %1058 = load i32, ptr %1057, align 4, !tbaa !22
+  %1059 = and i32 %1058, 16
+  %.not2027 = icmp eq i32 %1059, 0
+  %.pre2037 = load i32, ptr %1, align 8, !tbaa !3
+  br i1 %.not2027, label %1061, label %1060
+
+1060:                                             ; preds = %1056
+  switch i32 %.pre2037, label %1699 [
+    i32 1341, label %switch.edge1963
+    i32 2091, label %switch.edge1963
+    i32 1334, label %switch.edge1963.fold.split2103
+    i32 2087, label %switch.edge1963.fold.split2103
+    i32 2090, label %switch.edge1963.fold.split2104
+    i32 1342, label %switch.edge1963.fold.split2104
+    i32 2088, label %switch.edge1963.fold.split2105
+    i32 2089, label %switch.edge1963.fold.split2105
+    i32 1335, label %switch.edge1963.fold.split2105
+    i32 1337, label %switch.edge1963.fold.split2105
+    i32 1339, label %switch.edge1963.fold.split2105
+    i32 2086, label %switch.edge1963.fold.split2105
+    i32 1343, label %switch.edge2019
+  ]
+
+1061:                                             ; preds = %1056
+  switch i32 %.pre2037, label %1699 [
+    i32 1341, label %switch.edge1963.fold.split2106
+    i32 2091, label %switch.edge1963.fold.split2106
+    i32 1334, label %switch.edge1963
+    i32 2087, label %switch.edge1963
+    i32 2090, label %.fold.split2011
+    i32 1342, label %.fold.split2011
+    i32 1335, label %.fold.split2013
+    i32 1337, label %.fold.split2013
+    i32 1339, label %.fold.split2013
+    i32 2086, label %.fold.split2013
+    i32 2088, label %.fold.split2013
+    i32 2089, label %.fold.split2013
+    i32 1343, label %switch.edge2019
+  ]
+
+1062:                                             ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 17, label %1063
+    i32 18, label %1071
+  ]
+
+1063:                                             ; preds = %1062
+  %1064 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1065 = load ptr, ptr %1064, align 8, !tbaa !17
+  %1066 = getelementptr inbounds nuw i8, ptr %1065, i64 24
+  %1067 = load i32, ptr %1066, align 8, !tbaa !21
+  %1068 = getelementptr inbounds nuw i8, ptr %1065, i64 40
+  %1069 = load i32, ptr %1068, align 8, !tbaa !21
+  %1070 = icmp eq i32 %1067, %1069
+  %.1269 = select i1 %1070, i32 2451, i32 2448
+  br label %switch.edge1963
+
+1071:                                             ; preds = %1062
+  %1072 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1073 = load ptr, ptr %1072, align 8, !tbaa !17
+  %1074 = getelementptr inbounds nuw i8, ptr %1073, i64 24
+  %1075 = load i32, ptr %1074, align 8, !tbaa !21
+  %1076 = getelementptr inbounds nuw i8, ptr %1073, i64 40
+  %1077 = load i32, ptr %1076, align 8, !tbaa !21
+  %1078 = icmp eq i32 %1075, %1077
+  %.1270 = select i1 %1078, i32 2452, i32 2448
+  br label %switch.edge1963
+
+1079:                                             ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 17, label %1080
+    i32 18, label %1088
+  ]
+
+1080:                                             ; preds = %1079
+  %1081 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1082 = load ptr, ptr %1081, align 8, !tbaa !17
+  %1083 = getelementptr inbounds nuw i8, ptr %1082, i64 8
+  %1084 = load i32, ptr %1083, align 8, !tbaa !21
+  %1085 = getelementptr inbounds nuw i8, ptr %1082, i64 24
+  %1086 = load i32, ptr %1085, align 8, !tbaa !21
+  %1087 = icmp eq i32 %1084, %1086
+  %.1271 = select i1 %1087, i32 2451, i32 2448
+  br label %switch.edge1963
+
+1088:                                             ; preds = %1079
+  %1089 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1090 = load ptr, ptr %1089, align 8, !tbaa !17
+  %1091 = getelementptr inbounds nuw i8, ptr %1090, i64 8
+  %1092 = load i32, ptr %1091, align 8, !tbaa !21
+  %1093 = getelementptr inbounds nuw i8, ptr %1090, i64 24
+  %1094 = load i32, ptr %1093, align 8, !tbaa !21
+  %1095 = icmp eq i32 %1092, %1094
+  %.1272 = select i1 %1095, i32 2452, i32 2448
+  br label %switch.edge1963
+
+1096:                                             ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 5, label %1097
+    i32 7, label %1105
+    i32 8, label %1113
+    i32 9, label %1121
+    i32 10, label %1129
+    i32 11, label %1137
+    i32 13, label %1145
+    i32 15, label %1153
+    i32 17, label %1161
+    i32 18, label %1169
+  ]
+
+1097:                                             ; preds = %1096
+  %1098 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1099 = load ptr, ptr %1098, align 8, !tbaa !17
+  %1100 = getelementptr inbounds nuw i8, ptr %1099, i64 24
+  %1101 = load i32, ptr %1100, align 8, !tbaa !21
+  %1102 = getelementptr inbounds nuw i8, ptr %1099, i64 40
+  %1103 = load i32, ptr %1102, align 8, !tbaa !21
+  %1104 = icmp eq i32 %1101, %1103
+  %.1273 = select i1 %1104, i32 2453, i32 2458
+  br label %switch.edge1963
+
+1105:                                             ; preds = %1096
+  %1106 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1107 = load ptr, ptr %1106, align 8, !tbaa !17
+  %1108 = getelementptr inbounds nuw i8, ptr %1107, i64 24
+  %1109 = load i32, ptr %1108, align 8, !tbaa !21
+  %1110 = getelementptr inbounds nuw i8, ptr %1107, i64 40
+  %1111 = load i32, ptr %1110, align 8, !tbaa !21
+  %1112 = icmp eq i32 %1109, %1111
+  %.1274 = select i1 %1112, i32 2450, i32 2458
+  br label %switch.edge1963
+
+1113:                                             ; preds = %1096
+  %1114 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1115 = load ptr, ptr %1114, align 8, !tbaa !17
+  %1116 = getelementptr inbounds nuw i8, ptr %1115, i64 24
+  %1117 = load i32, ptr %1116, align 8, !tbaa !21
+  %1118 = getelementptr inbounds nuw i8, ptr %1115, i64 40
+  %1119 = load i32, ptr %1118, align 8, !tbaa !21
+  %1120 = icmp eq i32 %1117, %1119
+  %.1275 = select i1 %1120, i32 2454, i32 2458
+  br label %switch.edge1963
+
+1121:                                             ; preds = %1096
+  %1122 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1123 = load ptr, ptr %1122, align 8, !tbaa !17
+  %1124 = getelementptr inbounds nuw i8, ptr %1123, i64 24
+  %1125 = load i32, ptr %1124, align 8, !tbaa !21
+  %1126 = getelementptr inbounds nuw i8, ptr %1123, i64 40
+  %1127 = load i32, ptr %1126, align 8, !tbaa !21
+  %1128 = icmp eq i32 %1125, %1127
+  %.1276 = select i1 %1128, i32 2456, i32 2458
+  br label %switch.edge1963
+
+1129:                                             ; preds = %1096
+  %1130 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1131 = load ptr, ptr %1130, align 8, !tbaa !17
+  %1132 = getelementptr inbounds nuw i8, ptr %1131, i64 24
+  %1133 = load i32, ptr %1132, align 8, !tbaa !21
+  %1134 = getelementptr inbounds nuw i8, ptr %1131, i64 40
+  %1135 = load i32, ptr %1134, align 8, !tbaa !21
+  %1136 = icmp eq i32 %1133, %1135
+  %.1277 = select i1 %1136, i32 2447, i32 2458
+  br label %switch.edge1963
+
+1137:                                             ; preds = %1096
+  %1138 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1139 = load ptr, ptr %1138, align 8, !tbaa !17
+  %1140 = getelementptr inbounds nuw i8, ptr %1139, i64 24
+  %1141 = load i32, ptr %1140, align 8, !tbaa !21
+  %1142 = getelementptr inbounds nuw i8, ptr %1139, i64 40
+  %1143 = load i32, ptr %1142, align 8, !tbaa !21
+  %1144 = icmp eq i32 %1141, %1143
+  %.1278 = select i1 %1144, i32 2449, i32 2458
+  br label %switch.edge1963
+
+1145:                                             ; preds = %1096
+  %1146 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1147 = load ptr, ptr %1146, align 8, !tbaa !17
+  %1148 = getelementptr inbounds nuw i8, ptr %1147, i64 24
+  %1149 = load i32, ptr %1148, align 8, !tbaa !21
+  %1150 = getelementptr inbounds nuw i8, ptr %1147, i64 40
+  %1151 = load i32, ptr %1150, align 8, !tbaa !21
+  %1152 = icmp eq i32 %1149, %1151
+  %.1279 = select i1 %1152, i32 2457, i32 2458
+  br label %switch.edge1963
+
+1153:                                             ; preds = %1096
+  %1154 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1155 = load ptr, ptr %1154, align 8, !tbaa !17
+  %1156 = getelementptr inbounds nuw i8, ptr %1155, i64 24
+  %1157 = load i32, ptr %1156, align 8, !tbaa !21
+  %1158 = getelementptr inbounds nuw i8, ptr %1155, i64 40
+  %1159 = load i32, ptr %1158, align 8, !tbaa !21
+  %1160 = icmp eq i32 %1157, %1159
+  %.1280 = select i1 %1160, i32 2455, i32 2458
+  br label %switch.edge1963
+
+1161:                                             ; preds = %1096
+  %1162 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1163 = load ptr, ptr %1162, align 8, !tbaa !17
+  %1164 = getelementptr inbounds nuw i8, ptr %1163, i64 24
+  %1165 = load i32, ptr %1164, align 8, !tbaa !21
+  %1166 = getelementptr inbounds nuw i8, ptr %1163, i64 40
+  %1167 = load i32, ptr %1166, align 8, !tbaa !21
+  %1168 = icmp eq i32 %1165, %1167
+  %.1281 = select i1 %1168, i32 2451, i32 2458
+  br label %switch.edge1963
+
+1169:                                             ; preds = %1096
+  %1170 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1171 = load ptr, ptr %1170, align 8, !tbaa !17
+  %1172 = getelementptr inbounds nuw i8, ptr %1171, i64 24
+  %1173 = load i32, ptr %1172, align 8, !tbaa !21
+  %1174 = getelementptr inbounds nuw i8, ptr %1171, i64 40
+  %1175 = load i32, ptr %1174, align 8, !tbaa !21
+  %1176 = icmp eq i32 %1173, %1175
+  %.1282 = select i1 %1176, i32 2452, i32 2458
+  br label %switch.edge1963
+
+1177:                                             ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 5, label %1178
+    i32 8, label %1186
+    i32 17, label %1194
+    i32 18, label %1202
+  ]
+
+1178:                                             ; preds = %1177
+  %1179 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1180 = load ptr, ptr %1179, align 8, !tbaa !17
+  %1181 = getelementptr inbounds nuw i8, ptr %1180, i64 24
+  %1182 = load i32, ptr %1181, align 8, !tbaa !21
+  %1183 = getelementptr inbounds nuw i8, ptr %1180, i64 40
+  %1184 = load i32, ptr %1183, align 8, !tbaa !21
+  %1185 = icmp eq i32 %1182, %1184
+  %.1283 = select i1 %1185, i32 2453, i32 2458
+  br label %switch.edge1963
+
+1186:                                             ; preds = %1177
+  %1187 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1188 = load ptr, ptr %1187, align 8, !tbaa !17
+  %1189 = getelementptr inbounds nuw i8, ptr %1188, i64 24
+  %1190 = load i32, ptr %1189, align 8, !tbaa !21
+  %1191 = getelementptr inbounds nuw i8, ptr %1188, i64 40
+  %1192 = load i32, ptr %1191, align 8, !tbaa !21
+  %1193 = icmp eq i32 %1190, %1192
+  %.1284 = select i1 %1193, i32 2454, i32 2458
+  br label %switch.edge1963
+
+1194:                                             ; preds = %1177
+  %1195 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1196 = load ptr, ptr %1195, align 8, !tbaa !17
+  %1197 = getelementptr inbounds nuw i8, ptr %1196, i64 24
+  %1198 = load i32, ptr %1197, align 8, !tbaa !21
+  %1199 = getelementptr inbounds nuw i8, ptr %1196, i64 40
+  %1200 = load i32, ptr %1199, align 8, !tbaa !21
+  %1201 = icmp eq i32 %1198, %1200
+  %.1285 = select i1 %1201, i32 2451, i32 2458
+  br label %switch.edge1963
+
+1202:                                             ; preds = %1177
+  %1203 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1204 = load ptr, ptr %1203, align 8, !tbaa !17
+  %1205 = getelementptr inbounds nuw i8, ptr %1204, i64 24
+  %1206 = load i32, ptr %1205, align 8, !tbaa !21
+  %1207 = getelementptr inbounds nuw i8, ptr %1204, i64 40
+  %1208 = load i32, ptr %1207, align 8, !tbaa !21
+  %1209 = icmp eq i32 %1206, %1208
+  %.1286 = select i1 %1209, i32 2452, i32 2458
+  br label %switch.edge1963
+
+1210:                                             ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 8, label %1211
+    i32 17, label %1219
+    i32 18, label %1227
+  ]
+
+1211:                                             ; preds = %1210
+  %1212 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1213 = load ptr, ptr %1212, align 8, !tbaa !17
+  %1214 = getelementptr inbounds nuw i8, ptr %1213, i64 24
+  %1215 = load i32, ptr %1214, align 8, !tbaa !21
+  %1216 = getelementptr inbounds nuw i8, ptr %1213, i64 40
+  %1217 = load i32, ptr %1216, align 8, !tbaa !21
+  %1218 = icmp eq i32 %1215, %1217
+  %.1287 = select i1 %1218, i32 2460, i32 2459
+  br label %switch.edge1963
+
+1219:                                             ; preds = %1210
+  %1220 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1221 = load ptr, ptr %1220, align 8, !tbaa !17
+  %1222 = getelementptr inbounds nuw i8, ptr %1221, i64 24
+  %1223 = load i32, ptr %1222, align 8, !tbaa !21
+  %1224 = getelementptr inbounds nuw i8, ptr %1221, i64 40
+  %1225 = load i32, ptr %1224, align 8, !tbaa !21
+  %1226 = icmp eq i32 %1223, %1225
+  %.1288 = select i1 %1226, i32 2451, i32 2459
+  br label %switch.edge1963
+
+1227:                                             ; preds = %1210
+  %1228 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1229 = load ptr, ptr %1228, align 8, !tbaa !17
+  %1230 = getelementptr inbounds nuw i8, ptr %1229, i64 24
+  %1231 = load i32, ptr %1230, align 8, !tbaa !21
+  %1232 = getelementptr inbounds nuw i8, ptr %1229, i64 40
+  %1233 = load i32, ptr %1232, align 8, !tbaa !21
+  %1234 = icmp eq i32 %1231, %1233
+  %.1289 = select i1 %1234, i32 2452, i32 2459
+  br label %switch.edge1963
+
+1235:                                             ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 5, label %1236
+    i32 7, label %1244
+    i32 8, label %1252
+    i32 9, label %1260
+    i32 10, label %1268
+    i32 11, label %1276
+    i32 13, label %1284
+    i32 15, label %1292
+    i32 17, label %1300
+    i32 18, label %1308
+  ]
+
+1236:                                             ; preds = %1235
+  %1237 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1238 = load ptr, ptr %1237, align 8, !tbaa !17
+  %1239 = getelementptr inbounds nuw i8, ptr %1238, i64 24
+  %1240 = load i32, ptr %1239, align 8, !tbaa !21
+  %1241 = getelementptr inbounds nuw i8, ptr %1238, i64 40
+  %1242 = load i32, ptr %1241, align 8, !tbaa !21
+  %1243 = icmp eq i32 %1240, %1242
+  %.1290 = select i1 %1243, i32 2453, i32 2461
+  br label %switch.edge1963
+
+1244:                                             ; preds = %1235
+  %1245 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1246 = load ptr, ptr %1245, align 8, !tbaa !17
+  %1247 = getelementptr inbounds nuw i8, ptr %1246, i64 24
+  %1248 = load i32, ptr %1247, align 8, !tbaa !21
+  %1249 = getelementptr inbounds nuw i8, ptr %1246, i64 40
+  %1250 = load i32, ptr %1249, align 8, !tbaa !21
+  %1251 = icmp eq i32 %1248, %1250
+  %.1291 = select i1 %1251, i32 2450, i32 2461
+  br label %switch.edge1963
+
+1252:                                             ; preds = %1235
+  %1253 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1254 = load ptr, ptr %1253, align 8, !tbaa !17
+  %1255 = getelementptr inbounds nuw i8, ptr %1254, i64 24
+  %1256 = load i32, ptr %1255, align 8, !tbaa !21
+  %1257 = getelementptr inbounds nuw i8, ptr %1254, i64 40
+  %1258 = load i32, ptr %1257, align 8, !tbaa !21
+  %1259 = icmp eq i32 %1256, %1258
+  %.1292 = select i1 %1259, i32 2454, i32 2461
+  br label %switch.edge1963
+
+1260:                                             ; preds = %1235
+  %1261 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1262 = load ptr, ptr %1261, align 8, !tbaa !17
+  %1263 = getelementptr inbounds nuw i8, ptr %1262, i64 24
+  %1264 = load i32, ptr %1263, align 8, !tbaa !21
+  %1265 = getelementptr inbounds nuw i8, ptr %1262, i64 40
+  %1266 = load i32, ptr %1265, align 8, !tbaa !21
+  %1267 = icmp eq i32 %1264, %1266
+  %.1293 = select i1 %1267, i32 2456, i32 2461
+  br label %switch.edge1963
+
+1268:                                             ; preds = %1235
+  %1269 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1270 = load ptr, ptr %1269, align 8, !tbaa !17
+  %1271 = getelementptr inbounds nuw i8, ptr %1270, i64 24
+  %1272 = load i32, ptr %1271, align 8, !tbaa !21
+  %1273 = getelementptr inbounds nuw i8, ptr %1270, i64 40
+  %1274 = load i32, ptr %1273, align 8, !tbaa !21
+  %1275 = icmp eq i32 %1272, %1274
+  %.1294 = select i1 %1275, i32 2447, i32 2461
+  br label %switch.edge1963
+
+1276:                                             ; preds = %1235
+  %1277 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1278 = load ptr, ptr %1277, align 8, !tbaa !17
+  %1279 = getelementptr inbounds nuw i8, ptr %1278, i64 24
+  %1280 = load i32, ptr %1279, align 8, !tbaa !21
+  %1281 = getelementptr inbounds nuw i8, ptr %1278, i64 40
+  %1282 = load i32, ptr %1281, align 8, !tbaa !21
+  %1283 = icmp eq i32 %1280, %1282
+  %.1295 = select i1 %1283, i32 2449, i32 2461
+  br label %switch.edge1963
+
+1284:                                             ; preds = %1235
+  %1285 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1286 = load ptr, ptr %1285, align 8, !tbaa !17
+  %1287 = getelementptr inbounds nuw i8, ptr %1286, i64 24
+  %1288 = load i32, ptr %1287, align 8, !tbaa !21
+  %1289 = getelementptr inbounds nuw i8, ptr %1286, i64 40
+  %1290 = load i32, ptr %1289, align 8, !tbaa !21
+  %1291 = icmp eq i32 %1288, %1290
+  %.1296 = select i1 %1291, i32 2457, i32 2461
+  br label %switch.edge1963
+
+1292:                                             ; preds = %1235
+  %1293 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1294 = load ptr, ptr %1293, align 8, !tbaa !17
+  %1295 = getelementptr inbounds nuw i8, ptr %1294, i64 24
+  %1296 = load i32, ptr %1295, align 8, !tbaa !21
+  %1297 = getelementptr inbounds nuw i8, ptr %1294, i64 40
+  %1298 = load i32, ptr %1297, align 8, !tbaa !21
+  %1299 = icmp eq i32 %1296, %1298
+  %.1297 = select i1 %1299, i32 2455, i32 2461
+  br label %switch.edge1963
+
+1300:                                             ; preds = %1235
+  %1301 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1302 = load ptr, ptr %1301, align 8, !tbaa !17
+  %1303 = getelementptr inbounds nuw i8, ptr %1302, i64 24
+  %1304 = load i32, ptr %1303, align 8, !tbaa !21
+  %1305 = getelementptr inbounds nuw i8, ptr %1302, i64 40
+  %1306 = load i32, ptr %1305, align 8, !tbaa !21
+  %1307 = icmp eq i32 %1304, %1306
+  %.1298 = select i1 %1307, i32 2451, i32 2461
+  br label %switch.edge1963
+
+1308:                                             ; preds = %1235
+  %1309 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1310 = load ptr, ptr %1309, align 8, !tbaa !17
+  %1311 = getelementptr inbounds nuw i8, ptr %1310, i64 24
+  %1312 = load i32, ptr %1311, align 8, !tbaa !21
+  %1313 = getelementptr inbounds nuw i8, ptr %1310, i64 40
+  %1314 = load i32, ptr %1313, align 8, !tbaa !21
+  %1315 = icmp eq i32 %1312, %1314
+  %.1299 = select i1 %1315, i32 2452, i32 2461
+  br label %switch.edge1963
+
+1316:                                             ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 5, label %1317
+    i32 8, label %1325
+    i32 17, label %1333
+    i32 18, label %1341
+  ]
+
+1317:                                             ; preds = %1316
+  %1318 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1319 = load ptr, ptr %1318, align 8, !tbaa !17
+  %1320 = getelementptr inbounds nuw i8, ptr %1319, i64 24
+  %1321 = load i32, ptr %1320, align 8, !tbaa !21
+  %1322 = getelementptr inbounds nuw i8, ptr %1319, i64 40
+  %1323 = load i32, ptr %1322, align 8, !tbaa !21
+  %1324 = icmp eq i32 %1321, %1323
+  %.1300 = select i1 %1324, i32 2453, i32 2461
+  br label %switch.edge1963
+
+1325:                                             ; preds = %1316
+  %1326 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1327 = load ptr, ptr %1326, align 8, !tbaa !17
+  %1328 = getelementptr inbounds nuw i8, ptr %1327, i64 24
+  %1329 = load i32, ptr %1328, align 8, !tbaa !21
+  %1330 = getelementptr inbounds nuw i8, ptr %1327, i64 40
+  %1331 = load i32, ptr %1330, align 8, !tbaa !21
+  %1332 = icmp eq i32 %1329, %1331
+  %.1301 = select i1 %1332, i32 2454, i32 2461
+  br label %switch.edge1963
+
+1333:                                             ; preds = %1316
+  %1334 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1335 = load ptr, ptr %1334, align 8, !tbaa !17
+  %1336 = getelementptr inbounds nuw i8, ptr %1335, i64 24
+  %1337 = load i32, ptr %1336, align 8, !tbaa !21
+  %1338 = getelementptr inbounds nuw i8, ptr %1335, i64 40
+  %1339 = load i32, ptr %1338, align 8, !tbaa !21
+  %1340 = icmp eq i32 %1337, %1339
+  %.1302 = select i1 %1340, i32 2451, i32 2461
+  br label %switch.edge1963
+
+1341:                                             ; preds = %1316
+  %1342 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1343 = load ptr, ptr %1342, align 8, !tbaa !17
+  %1344 = getelementptr inbounds nuw i8, ptr %1343, i64 24
+  %1345 = load i32, ptr %1344, align 8, !tbaa !21
+  %1346 = getelementptr inbounds nuw i8, ptr %1343, i64 40
+  %1347 = load i32, ptr %1346, align 8, !tbaa !21
+  %1348 = icmp eq i32 %1345, %1347
+  %.1303 = select i1 %1348, i32 2452, i32 2461
+  br label %switch.edge1963
+
+1349:                                             ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 17, label %1350
+    i32 18, label %1358
+  ]
+
+1350:                                             ; preds = %1349
+  %1351 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1352 = load ptr, ptr %1351, align 8, !tbaa !17
+  %1353 = getelementptr inbounds nuw i8, ptr %1352, i64 24
+  %1354 = load i32, ptr %1353, align 8, !tbaa !21
+  %1355 = getelementptr inbounds nuw i8, ptr %1352, i64 40
+  %1356 = load i32, ptr %1355, align 8, !tbaa !21
+  %1357 = icmp eq i32 %1354, %1356
+  %.1304 = select i1 %1357, i32 2451, i32 2502
+  br label %switch.edge1963
+
+1358:                                             ; preds = %1349
+  %1359 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1360 = load ptr, ptr %1359, align 8, !tbaa !17
+  %1361 = getelementptr inbounds nuw i8, ptr %1360, i64 24
+  %1362 = load i32, ptr %1361, align 8, !tbaa !21
+  %1363 = getelementptr inbounds nuw i8, ptr %1360, i64 40
+  %1364 = load i32, ptr %1363, align 8, !tbaa !21
+  %1365 = icmp eq i32 %1362, %1364
+  %.1305 = select i1 %1365, i32 2452, i32 2502
+  br label %switch.edge1963
+
+1366:                                             ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 5, label %1367
+    i32 7, label %1375
+    i32 8, label %1383
+    i32 9, label %1391
+    i32 10, label %1399
+    i32 11, label %1407
+    i32 13, label %1415
+    i32 15, label %1423
+    i32 17, label %1431
+    i32 18, label %1439
+  ]
+
+1367:                                             ; preds = %1366
+  %1368 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1369 = load ptr, ptr %1368, align 8, !tbaa !17
+  %1370 = getelementptr inbounds nuw i8, ptr %1369, i64 24
+  %1371 = load i32, ptr %1370, align 8, !tbaa !21
+  %1372 = getelementptr inbounds nuw i8, ptr %1369, i64 40
+  %1373 = load i32, ptr %1372, align 8, !tbaa !21
+  %1374 = icmp eq i32 %1371, %1373
+  %.1306 = select i1 %1374, i32 2453, i32 2462
+  br label %switch.edge1963
+
+1375:                                             ; preds = %1366
+  %1376 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1377 = load ptr, ptr %1376, align 8, !tbaa !17
+  %1378 = getelementptr inbounds nuw i8, ptr %1377, i64 24
+  %1379 = load i32, ptr %1378, align 8, !tbaa !21
+  %1380 = getelementptr inbounds nuw i8, ptr %1377, i64 40
+  %1381 = load i32, ptr %1380, align 8, !tbaa !21
+  %1382 = icmp eq i32 %1379, %1381
+  %.1307 = select i1 %1382, i32 2450, i32 2462
+  br label %switch.edge1963
+
+1383:                                             ; preds = %1366
+  %1384 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1385 = load ptr, ptr %1384, align 8, !tbaa !17
+  %1386 = getelementptr inbounds nuw i8, ptr %1385, i64 24
+  %1387 = load i32, ptr %1386, align 8, !tbaa !21
+  %1388 = getelementptr inbounds nuw i8, ptr %1385, i64 40
+  %1389 = load i32, ptr %1388, align 8, !tbaa !21
+  %1390 = icmp eq i32 %1387, %1389
+  %.1308 = select i1 %1390, i32 2454, i32 2462
+  br label %switch.edge1963
+
+1391:                                             ; preds = %1366
+  %1392 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1393 = load ptr, ptr %1392, align 8, !tbaa !17
+  %1394 = getelementptr inbounds nuw i8, ptr %1393, i64 24
+  %1395 = load i32, ptr %1394, align 8, !tbaa !21
+  %1396 = getelementptr inbounds nuw i8, ptr %1393, i64 40
+  %1397 = load i32, ptr %1396, align 8, !tbaa !21
+  %1398 = icmp eq i32 %1395, %1397
+  %.1309 = select i1 %1398, i32 2456, i32 2464
+  br label %switch.edge1963
+
+1399:                                             ; preds = %1366
+  %1400 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1401 = load ptr, ptr %1400, align 8, !tbaa !17
+  %1402 = getelementptr inbounds nuw i8, ptr %1401, i64 24
+  %1403 = load i32, ptr %1402, align 8, !tbaa !21
+  %1404 = getelementptr inbounds nuw i8, ptr %1401, i64 40
+  %1405 = load i32, ptr %1404, align 8, !tbaa !21
+  %1406 = icmp eq i32 %1403, %1405
+  %.1310 = select i1 %1406, i32 2447, i32 2462
+  br label %switch.edge1963
+
+1407:                                             ; preds = %1366
+  %1408 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1409 = load ptr, ptr %1408, align 8, !tbaa !17
+  %1410 = getelementptr inbounds nuw i8, ptr %1409, i64 24
+  %1411 = load i32, ptr %1410, align 8, !tbaa !21
+  %1412 = getelementptr inbounds nuw i8, ptr %1409, i64 40
+  %1413 = load i32, ptr %1412, align 8, !tbaa !21
+  %1414 = icmp eq i32 %1411, %1413
+  %.1311 = select i1 %1414, i32 2449, i32 2462
+  br label %switch.edge1963
+
+1415:                                             ; preds = %1366
+  %1416 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1417 = load ptr, ptr %1416, align 8, !tbaa !17
+  %1418 = getelementptr inbounds nuw i8, ptr %1417, i64 24
+  %1419 = load i32, ptr %1418, align 8, !tbaa !21
+  %1420 = getelementptr inbounds nuw i8, ptr %1417, i64 40
+  %1421 = load i32, ptr %1420, align 8, !tbaa !21
+  %1422 = icmp eq i32 %1419, %1421
+  %.1312 = select i1 %1422, i32 2457, i32 2465
+  br label %switch.edge1963
+
+1423:                                             ; preds = %1366
+  %1424 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1425 = load ptr, ptr %1424, align 8, !tbaa !17
+  %1426 = getelementptr inbounds nuw i8, ptr %1425, i64 24
+  %1427 = load i32, ptr %1426, align 8, !tbaa !21
+  %1428 = getelementptr inbounds nuw i8, ptr %1425, i64 40
+  %1429 = load i32, ptr %1428, align 8, !tbaa !21
+  %1430 = icmp eq i32 %1427, %1429
+  %.1313 = select i1 %1430, i32 2455, i32 2463
+  br label %switch.edge1963
+
+1431:                                             ; preds = %1366
+  %1432 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1433 = load ptr, ptr %1432, align 8, !tbaa !17
+  %1434 = getelementptr inbounds nuw i8, ptr %1433, i64 24
+  %1435 = load i32, ptr %1434, align 8, !tbaa !21
+  %1436 = getelementptr inbounds nuw i8, ptr %1433, i64 40
+  %1437 = load i32, ptr %1436, align 8, !tbaa !21
+  %1438 = icmp eq i32 %1435, %1437
+  %.1314 = select i1 %1438, i32 2451, i32 2462
+  br label %switch.edge1963
+
+1439:                                             ; preds = %1366
+  %1440 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1441 = load ptr, ptr %1440, align 8, !tbaa !17
+  %1442 = getelementptr inbounds nuw i8, ptr %1441, i64 24
+  %1443 = load i32, ptr %1442, align 8, !tbaa !21
+  %1444 = getelementptr inbounds nuw i8, ptr %1441, i64 40
+  %1445 = load i32, ptr %1444, align 8, !tbaa !21
+  %1446 = icmp eq i32 %1443, %1445
+  %.1315 = select i1 %1446, i32 2452, i32 2462
+  br label %switch.edge1963
+
+1447:                                             ; preds = %4
+  %1448 = icmp eq i32 %3, 18
+  br i1 %1448, label %1449, label %switch.edge1963
+
+1449:                                             ; preds = %1447
+  %1450 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1451 = load ptr, ptr %1450, align 8, !tbaa !17
+  %1452 = getelementptr inbounds nuw i8, ptr %1451, i64 24
+  %1453 = load i32, ptr %1452, align 8, !tbaa !21
+  %1454 = getelementptr inbounds nuw i8, ptr %1451, i64 40
+  %1455 = load i32, ptr %1454, align 8, !tbaa !21
+  %1456 = icmp eq i32 %1453, %1455
+  %.1316 = select i1 %1456, i32 2452, i32 2458
+  br label %switch.edge1963
+
+1457:                                             ; preds = %4
+  %1458 = icmp eq i32 %3, 18
+  br i1 %1458, label %1459, label %switch.edge1963
+
+1459:                                             ; preds = %1457
+  %1460 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1461 = load ptr, ptr %1460, align 8, !tbaa !17
+  %1462 = getelementptr inbounds nuw i8, ptr %1461, i64 24
+  %1463 = load i32, ptr %1462, align 8, !tbaa !21
+  %1464 = getelementptr inbounds nuw i8, ptr %1461, i64 40
+  %1465 = load i32, ptr %1464, align 8, !tbaa !21
+  %1466 = icmp eq i32 %1463, %1465
+  %.1317 = select i1 %1466, i32 2452, i32 2459
+  br label %switch.edge1963
+
+1467:                                             ; preds = %4
+  %1468 = icmp eq i32 %3, 18
+  br i1 %1468, label %1469, label %switch.edge1963
+
+1469:                                             ; preds = %1467
+  %1470 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1471 = load ptr, ptr %1470, align 8, !tbaa !17
+  %1472 = getelementptr inbounds nuw i8, ptr %1471, i64 24
+  %1473 = load i32, ptr %1472, align 8, !tbaa !21
+  %1474 = getelementptr inbounds nuw i8, ptr %1471, i64 40
+  %1475 = load i32, ptr %1474, align 8, !tbaa !21
+  %1476 = icmp eq i32 %1473, %1475
+  %.1318 = select i1 %1476, i32 2452, i32 2512
+  br label %switch.edge1963
+
+1477:                                             ; preds = %4
+  %1478 = icmp eq i32 %3, 18
+  br i1 %1478, label %1479, label %switch.edge1963
+
+1479:                                             ; preds = %1477
+  %1480 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1481 = load ptr, ptr %1480, align 8, !tbaa !17
+  %1482 = getelementptr inbounds nuw i8, ptr %1481, i64 24
+  %1483 = load i32, ptr %1482, align 8, !tbaa !21
+  %1484 = getelementptr inbounds nuw i8, ptr %1481, i64 40
+  %1485 = load i32, ptr %1484, align 8, !tbaa !21
+  %1486 = icmp eq i32 %1483, %1485
+  %.1319 = select i1 %1486, i32 2452, i32 2461
+  br label %switch.edge1963
+
+1487:                                             ; preds = %4
+  %1488 = icmp eq i32 %3, 18
+  br i1 %1488, label %1489, label %switch.edge1963
+
+1489:                                             ; preds = %1487
+  %1490 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1491 = load ptr, ptr %1490, align 8, !tbaa !17
+  %1492 = getelementptr inbounds nuw i8, ptr %1491, i64 24
+  %1493 = load i32, ptr %1492, align 8, !tbaa !21
+  %1494 = getelementptr inbounds nuw i8, ptr %1491, i64 40
+  %1495 = load i32, ptr %1494, align 8, !tbaa !21
+  %1496 = icmp eq i32 %1493, %1495
+  %.1320 = select i1 %1496, i32 2452, i32 2502
+  br label %switch.edge1963
+
+1497:                                             ; preds = %4
+  %1498 = icmp eq i32 %3, 18
+  br i1 %1498, label %1499, label %switch.edge1963
+
+1499:                                             ; preds = %1497
+  %1500 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1501 = load ptr, ptr %1500, align 8, !tbaa !17
+  %1502 = getelementptr inbounds nuw i8, ptr %1501, i64 24
+  %1503 = load i32, ptr %1502, align 8, !tbaa !21
+  %1504 = getelementptr inbounds nuw i8, ptr %1501, i64 40
+  %1505 = load i32, ptr %1504, align 8, !tbaa !21
+  %1506 = icmp eq i32 %1503, %1505
+  %.1321 = select i1 %1506, i32 2452, i32 2513
+  br label %switch.edge1963
+
+1507:                                             ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 9, label %1508
+    i32 13, label %1516
+    i32 18, label %1524
+  ]
+
+1508:                                             ; preds = %1507
+  %1509 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1510 = load ptr, ptr %1509, align 8, !tbaa !17
+  %1511 = getelementptr inbounds nuw i8, ptr %1510, i64 24
+  %1512 = load i32, ptr %1511, align 8, !tbaa !21
+  %1513 = getelementptr inbounds nuw i8, ptr %1510, i64 40
+  %1514 = load i32, ptr %1513, align 8, !tbaa !21
+  %1515 = icmp eq i32 %1512, %1514
+  %.1322 = select i1 %1515, i32 2456, i32 2464
+  br label %switch.edge1963
+
+1516:                                             ; preds = %1507
+  %1517 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1518 = load ptr, ptr %1517, align 8, !tbaa !17
+  %1519 = getelementptr inbounds nuw i8, ptr %1518, i64 24
+  %1520 = load i32, ptr %1519, align 8, !tbaa !21
+  %1521 = getelementptr inbounds nuw i8, ptr %1518, i64 40
+  %1522 = load i32, ptr %1521, align 8, !tbaa !21
+  %1523 = icmp eq i32 %1520, %1522
+  %.1323 = select i1 %1523, i32 2457, i32 2465
+  br label %switch.edge1963
+
+1524:                                             ; preds = %1507
+  %1525 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1526 = load ptr, ptr %1525, align 8, !tbaa !17
+  %1527 = getelementptr inbounds nuw i8, ptr %1526, i64 24
+  %1528 = load i32, ptr %1527, align 8, !tbaa !21
+  %1529 = getelementptr inbounds nuw i8, ptr %1526, i64 40
+  %1530 = load i32, ptr %1529, align 8, !tbaa !21
+  %1531 = icmp eq i32 %1528, %1530
+  %.1324 = select i1 %1531, i32 2452, i32 2462
+  br label %switch.edge1963
+
+1532:                                             ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 9, label %1533
+    i32 13, label %1541
+    i32 18, label %1549
+  ]
+
+1533:                                             ; preds = %1532
+  %1534 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1535 = load ptr, ptr %1534, align 8, !tbaa !17
+  %1536 = getelementptr inbounds nuw i8, ptr %1535, i64 24
+  %1537 = load i32, ptr %1536, align 8, !tbaa !21
+  %1538 = getelementptr inbounds nuw i8, ptr %1535, i64 40
+  %1539 = load i32, ptr %1538, align 8, !tbaa !21
+  %1540 = icmp eq i32 %1537, %1539
+  %.1325 = select i1 %1540, i32 2456, i32 2464
+  br label %switch.edge1963
+
+1541:                                             ; preds = %1532
+  %1542 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1543 = load ptr, ptr %1542, align 8, !tbaa !17
+  %1544 = getelementptr inbounds nuw i8, ptr %1543, i64 24
+  %1545 = load i32, ptr %1544, align 8, !tbaa !21
+  %1546 = getelementptr inbounds nuw i8, ptr %1543, i64 40
+  %1547 = load i32, ptr %1546, align 8, !tbaa !21
+  %1548 = icmp eq i32 %1545, %1547
+  %.1326 = select i1 %1548, i32 2457, i32 2465
+  br label %switch.edge1963
+
+1549:                                             ; preds = %1532
+  %1550 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1551 = load ptr, ptr %1550, align 8, !tbaa !17
+  %1552 = getelementptr inbounds nuw i8, ptr %1551, i64 24
+  %1553 = load i32, ptr %1552, align 8, !tbaa !21
+  %1554 = getelementptr inbounds nuw i8, ptr %1551, i64 40
+  %1555 = load i32, ptr %1554, align 8, !tbaa !21
+  %1556 = icmp eq i32 %1553, %1555
+  %.1327 = select i1 %1556, i32 2452, i32 2503
+  br label %switch.edge1963
+
+1557:                                             ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 9, label %1558
+    i32 13, label %1566
+    i32 18, label %1574
+  ]
+
+1558:                                             ; preds = %1557
+  %1559 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1560 = load ptr, ptr %1559, align 8, !tbaa !17
+  %1561 = getelementptr inbounds nuw i8, ptr %1560, i64 24
+  %1562 = load i32, ptr %1561, align 8, !tbaa !21
+  %1563 = getelementptr inbounds nuw i8, ptr %1560, i64 40
+  %1564 = load i32, ptr %1563, align 8, !tbaa !21
+  %1565 = icmp eq i32 %1562, %1564
+  %.1328 = select i1 %1565, i32 2456, i32 2464
+  br label %switch.edge1963
+
+1566:                                             ; preds = %1557
+  %1567 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1568 = load ptr, ptr %1567, align 8, !tbaa !17
+  %1569 = getelementptr inbounds nuw i8, ptr %1568, i64 24
+  %1570 = load i32, ptr %1569, align 8, !tbaa !21
+  %1571 = getelementptr inbounds nuw i8, ptr %1568, i64 40
+  %1572 = load i32, ptr %1571, align 8, !tbaa !21
+  %1573 = icmp eq i32 %1570, %1572
+  %.1329 = select i1 %1573, i32 2457, i32 2465
+  br label %switch.edge1963
+
+1574:                                             ; preds = %1557
+  %1575 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1576 = load ptr, ptr %1575, align 8, !tbaa !17
+  %1577 = getelementptr inbounds nuw i8, ptr %1576, i64 24
+  %1578 = load i32, ptr %1577, align 8, !tbaa !21
+  %1579 = getelementptr inbounds nuw i8, ptr %1576, i64 40
+  %1580 = load i32, ptr %1579, align 8, !tbaa !21
+  %1581 = icmp eq i32 %1578, %1580
+  %.1330 = select i1 %1581, i32 2452, i32 2503
+  br label %switch.edge1963
+
+1582:                                             ; preds = %4
+  %1583 = icmp eq i32 %3, 8
+  br i1 %1583, label %1584, label %switch.edge1963
+
+1584:                                             ; preds = %1582
+  %1585 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %1586 = load i32, ptr %1585, align 4, !tbaa !22
+  %1587 = and i32 %1586, 16
+  %.not2026 = icmp eq i32 %1587, 0
+  %.1331 = select i1 %.not2026, i32 2446, i32 2445
+  br label %switch.edge1963
+
+1588:                                             ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 5, label %1589
+    i32 8, label %1597
+  ]
+
+1589:                                             ; preds = %1588
+  %1590 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1591 = load ptr, ptr %1590, align 8, !tbaa !17
+  %1592 = getelementptr inbounds nuw i8, ptr %1591, i64 24
+  %1593 = load i32, ptr %1592, align 8, !tbaa !21
+  %1594 = getelementptr inbounds nuw i8, ptr %1591, i64 40
+  %1595 = load i32, ptr %1594, align 8, !tbaa !21
+  %1596 = icmp eq i32 %1593, %1595
+  %.1332 = select i1 %1596, i32 2453, i32 2458
+  br label %switch.edge1963
+
+1597:                                             ; preds = %1588
+  %1598 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1599 = load ptr, ptr %1598, align 8, !tbaa !17
+  %1600 = getelementptr inbounds nuw i8, ptr %1599, i64 24
+  %1601 = load i32, ptr %1600, align 8, !tbaa !21
+  %1602 = getelementptr inbounds nuw i8, ptr %1599, i64 40
+  %1603 = load i32, ptr %1602, align 8, !tbaa !21
+  %1604 = icmp eq i32 %1601, %1603
+  %.1333 = select i1 %1604, i32 2454, i32 2458
+  br label %switch.edge1963
+
+1605:                                             ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 5, label %1606
+    i32 8, label %1614
+  ]
+
+1606:                                             ; preds = %1605
+  %1607 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1608 = load ptr, ptr %1607, align 8, !tbaa !17
+  %1609 = getelementptr inbounds nuw i8, ptr %1608, i64 24
+  %1610 = load i32, ptr %1609, align 8, !tbaa !21
+  %1611 = getelementptr inbounds nuw i8, ptr %1608, i64 40
+  %1612 = load i32, ptr %1611, align 8, !tbaa !21
+  %1613 = icmp eq i32 %1610, %1612
+  %.1334 = select i1 %1613, i32 2453, i32 2514
+  br label %switch.edge1963
+
+1614:                                             ; preds = %1605
+  %1615 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1616 = load ptr, ptr %1615, align 8, !tbaa !17
+  %1617 = getelementptr inbounds nuw i8, ptr %1616, i64 24
+  %1618 = load i32, ptr %1617, align 8, !tbaa !21
+  %1619 = getelementptr inbounds nuw i8, ptr %1616, i64 40
+  %1620 = load i32, ptr %1619, align 8, !tbaa !21
+  %1621 = icmp eq i32 %1618, %1620
+  %.1335 = select i1 %1621, i32 2454, i32 2514
+  br label %switch.edge1963
+
+1622:                                             ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 5, label %1623
+    i32 8, label %1631
+  ]
+
+1623:                                             ; preds = %1622
+  %1624 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1625 = load ptr, ptr %1624, align 8, !tbaa !17
+  %1626 = getelementptr inbounds nuw i8, ptr %1625, i64 24
+  %1627 = load i32, ptr %1626, align 8, !tbaa !21
+  %1628 = getelementptr inbounds nuw i8, ptr %1625, i64 40
+  %1629 = load i32, ptr %1628, align 8, !tbaa !21
+  %1630 = icmp eq i32 %1627, %1629
+  %.1336 = select i1 %1630, i32 2453, i32 2461
+  br label %switch.edge1963
+
+1631:                                             ; preds = %1622
+  %1632 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1633 = load ptr, ptr %1632, align 8, !tbaa !17
+  %1634 = getelementptr inbounds nuw i8, ptr %1633, i64 24
+  %1635 = load i32, ptr %1634, align 8, !tbaa !21
+  %1636 = getelementptr inbounds nuw i8, ptr %1633, i64 40
+  %1637 = load i32, ptr %1636, align 8, !tbaa !21
+  %1638 = icmp eq i32 %1635, %1637
+  %.1337 = select i1 %1638, i32 2454, i32 2461
+  br label %switch.edge1963
+
+1639:                                             ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 5, label %1640
+    i32 8, label %1648
+  ]
+
+1640:                                             ; preds = %1639
+  %1641 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1642 = load ptr, ptr %1641, align 8, !tbaa !17
+  %1643 = getelementptr inbounds nuw i8, ptr %1642, i64 24
+  %1644 = load i32, ptr %1643, align 8, !tbaa !21
+  %1645 = getelementptr inbounds nuw i8, ptr %1642, i64 40
+  %1646 = load i32, ptr %1645, align 8, !tbaa !21
+  %1647 = icmp eq i32 %1644, %1646
+  %.1338 = select i1 %1647, i32 2453, i32 2515
+  br label %switch.edge1963
+
+1648:                                             ; preds = %1639
+  %1649 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1650 = load ptr, ptr %1649, align 8, !tbaa !17
+  %1651 = getelementptr inbounds nuw i8, ptr %1650, i64 24
+  %1652 = load i32, ptr %1651, align 8, !tbaa !21
+  %1653 = getelementptr inbounds nuw i8, ptr %1650, i64 40
+  %1654 = load i32, ptr %1653, align 8, !tbaa !21
+  %1655 = icmp eq i32 %1652, %1654
+  %.1339 = select i1 %1655, i32 2454, i32 2515
+  br label %switch.edge1963
+
+1656:                                             ; preds = %4
+  switch i32 %3, label %switch.edge1963 [
+    i32 5, label %1657
+    i32 8, label %1665
+  ]
+
+1657:                                             ; preds = %1656
+  %1658 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1659 = load ptr, ptr %1658, align 8, !tbaa !17
+  %1660 = getelementptr inbounds nuw i8, ptr %1659, i64 24
+  %1661 = load i32, ptr %1660, align 8, !tbaa !21
+  %1662 = getelementptr inbounds nuw i8, ptr %1659, i64 40
+  %1663 = load i32, ptr %1662, align 8, !tbaa !21
+  %1664 = icmp eq i32 %1661, %1663
+  %.1340 = select i1 %1664, i32 2453, i32 2515
+  br label %switch.edge1963
+
+1665:                                             ; preds = %1656
+  %1666 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1667 = load ptr, ptr %1666, align 8, !tbaa !17
+  %1668 = getelementptr inbounds nuw i8, ptr %1667, i64 24
+  %1669 = load i32, ptr %1668, align 8, !tbaa !21
+  %1670 = getelementptr inbounds nuw i8, ptr %1667, i64 40
+  %1671 = load i32, ptr %1670, align 8, !tbaa !21
+  %1672 = icmp eq i32 %1669, %1671
+  %.1341 = select i1 %1672, i32 2454, i32 2515
+  br label %switch.edge1963
+
+1673:                                             ; preds = %4
+  %1674 = icmp eq i32 %3, 8
+  br i1 %1674, label %1675, label %switch.edge1963
+
+1675:                                             ; preds = %1673
+  %1676 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %1677 = load i32, ptr %1676, align 4, !tbaa !22
+  %1678 = and i32 %1677, 16
+  %.not2025 = icmp eq i32 %1678, 0
+  %.pre2036 = load i32, ptr %1, align 8, !tbaa !3
+  br i1 %.not2025, label %1680, label %1679
+
+1679:                                             ; preds = %1675
+  switch i32 %.pre2036, label %1681 [
+    i32 1341, label %switch.edge1963
+    i32 2091, label %switch.edge1963
+    i32 1334, label %switch.edge1963.fold.split2095
+    i32 2087, label %switch.edge1963.fold.split2095
+    i32 2090, label %switch.edge1963.fold.split2096
+    i32 1342, label %switch.edge1963.fold.split2096
+    i32 2088, label %switch.edge1963.fold.split2097
+    i32 2089, label %switch.edge1963.fold.split2097
+    i32 1335, label %switch.edge1963.fold.split2097
+    i32 1337, label %switch.edge1963.fold.split2097
+    i32 1339, label %switch.edge1963.fold.split2097
+    i32 2086, label %switch.edge1963.fold.split2097
+    i32 1343, label %switch.edge1997
+  ]
+
+1680:                                             ; preds = %1675
+  switch i32 %.pre2036, label %1681 [
+    i32 1341, label %switch.edge1963.fold.split2098
+    i32 2091, label %switch.edge1963.fold.split2098
+    i32 1334, label %switch.edge1963
+    i32 2087, label %switch.edge1963
+    i32 2090, label %.fold.split1989
+    i32 1342, label %.fold.split1989
+    i32 1335, label %.fold.split1991
+    i32 1337, label %.fold.split1991
+    i32 1339, label %.fold.split1991
+    i32 2086, label %.fold.split1991
+    i32 2088, label %.fold.split1991
+    i32 2089, label %.fold.split1991
+    i32 1343, label %switch.edge1997
+  ]
+
+switch.edge1997:                                  ; preds = %12, %11, %28, %27, %1053, %1052, %1679, %1680
+  br label %switch.edge1963
+
+1681:                                             ; preds = %12, %11, %28, %27, %1053, %1052, %1679, %1680
+  br label %switch.edge1963
+
+1682:                                             ; preds = %4
+  %1683 = icmp eq i32 %3, 8
+  br i1 %1683, label %1684, label %switch.edge1963
+
+1684:                                             ; preds = %1682
+  %1685 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %1686 = load i32, ptr %1685, align 4, !tbaa !22
+  %1687 = and i32 %1686, 16
+  %.not2024 = icmp eq i32 %1687, 0
+  %.pre2035 = load i32, ptr %1, align 8, !tbaa !3
+  br i1 %.not2024, label %1689, label %1688
+
+1688:                                             ; preds = %1684
+  switch i32 %.pre2035, label %1690 [
+    i32 1341, label %switch.edge1963
+    i32 2091, label %switch.edge1963
+    i32 1334, label %switch.edge1963.fold.split2099
+    i32 2087, label %switch.edge1963.fold.split2099
+    i32 2090, label %switch.edge1963.fold.split2100
+    i32 1342, label %switch.edge1963.fold.split2100
+    i32 2088, label %switch.edge1963.fold.split2101
+    i32 2089, label %switch.edge1963.fold.split2101
+    i32 1335, label %switch.edge1963.fold.split2101
+    i32 1337, label %switch.edge1963.fold.split2101
+    i32 1339, label %switch.edge1963.fold.split2101
+    i32 2086, label %switch.edge1963.fold.split2101
+    i32 1343, label %switch.edge2008
+  ]
+
+1689:                                             ; preds = %1684
+  switch i32 %.pre2035, label %1690 [
+    i32 1341, label %switch.edge1963.fold.split2102
+    i32 2091, label %switch.edge1963.fold.split2102
+    i32 1334, label %switch.edge1963
+    i32 2087, label %switch.edge1963
+    i32 2090, label %.fold.split2000
+    i32 1342, label %.fold.split2000
+    i32 1335, label %.fold.split2002
+    i32 1337, label %.fold.split2002
+    i32 1339, label %.fold.split2002
+    i32 2086, label %.fold.split2002
+    i32 2088, label %.fold.split2002
+    i32 2089, label %.fold.split2002
+    i32 1343, label %switch.edge2008
+  ]
+
+switch.edge2008:                                  ; preds = %20, %19, %1688, %1689
+  br label %switch.edge1963
+
+1690:                                             ; preds = %20, %19, %1688, %1689
+  br label %switch.edge1963
+
+1691:                                             ; preds = %4
+  %1692 = icmp eq i32 %3, 8
+  br i1 %1692, label %1693, label %switch.edge1963
+
+1693:                                             ; preds = %1691
+  %1694 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %1695 = load i32, ptr %1694, align 4, !tbaa !22
+  %1696 = and i32 %1695, 16
+  %.not2023 = icmp eq i32 %1696, 0
+  %.pre = load i32, ptr %1, align 8, !tbaa !3
+  br i1 %.not2023, label %1698, label %1697
+
+1697:                                             ; preds = %1693
+  switch i32 %.pre, label %1699 [
+    i32 1341, label %switch.edge1963
+    i32 2091, label %switch.edge1963
+    i32 1334, label %switch.edge1963.fold.split2103
+    i32 2087, label %switch.edge1963.fold.split2103
+    i32 2090, label %switch.edge1963.fold.split2104
+    i32 1342, label %switch.edge1963.fold.split2104
+    i32 2088, label %switch.edge1963.fold.split2105
+    i32 2089, label %switch.edge1963.fold.split2105
+    i32 1335, label %switch.edge1963.fold.split2105
+    i32 1337, label %switch.edge1963.fold.split2105
+    i32 1339, label %switch.edge1963.fold.split2105
+    i32 2086, label %switch.edge1963.fold.split2105
+    i32 1343, label %switch.edge2019
+  ]
+
+1698:                                             ; preds = %1693
+  switch i32 %.pre, label %1699 [
+    i32 1341, label %switch.edge1963.fold.split2106
+    i32 2091, label %switch.edge1963.fold.split2106
+    i32 1334, label %switch.edge1963
+    i32 2087, label %switch.edge1963
+    i32 2090, label %.fold.split2011
+    i32 1342, label %.fold.split2011
+    i32 1335, label %.fold.split2013
+    i32 1337, label %.fold.split2013
+    i32 1339, label %.fold.split2013
+    i32 2086, label %.fold.split2013
+    i32 2088, label %.fold.split2013
+    i32 2089, label %.fold.split2013
+    i32 1343, label %switch.edge2019
+  ]
+
+switch.edge2019:                                  ; preds = %36, %35, %44, %43, %1061, %1060, %1697, %1698
+  br label %switch.edge1963
+
+1699:                                             ; preds = %36, %35, %44, %43, %1061, %1060, %1697, %1698
+  br label %switch.edge1963
+
+1700:                                             ; preds = %4
+  %1701 = icmp eq i32 %3, 8
+  br i1 %1701, label %1702, label %switch.edge1963
+
+1702:                                             ; preds = %1700
+  %1703 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %1704 = load i32, ptr %1703, align 4, !tbaa !22
+  %1705 = and i32 %1704, 16
+  %.not2022 = icmp eq i32 %1705, 0
   %.1345 = select i1 %.not2022, i32 2517, i32 2516
+  br label %switch.edge1963
+
+1706:                                             ; preds = %4
+  %1707 = icmp eq i32 %3, 8
+  br i1 %1707, label %1708, label %switch.edge1963
+
+1708:                                             ; preds = %1706
+  %1709 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1710 = load ptr, ptr %1709, align 8, !tbaa !17
+  %1711 = getelementptr inbounds nuw i8, ptr %1710, i64 24
+  %1712 = load i32, ptr %1711, align 8, !tbaa !21
+  %1713 = getelementptr inbounds nuw i8, ptr %1710, i64 40
+  %1714 = load i32, ptr %1713, align 8, !tbaa !21
+  %1715 = icmp eq i32 %1712, %1714
+  %.1346 = select i1 %1715, i32 2454, i32 2515
   br label %switch.edge1963
 
 1716:                                             ; preds = %4
@@ -4716,354 +4680,354 @@ switch.edge2019:                                  ; preds = %1707, %1708
   %1723 = getelementptr inbounds nuw i8, ptr %1720, i64 40
   %1724 = load i32, ptr %1723, align 8, !tbaa !21
   %1725 = icmp eq i32 %1722, %1724
-  %.1346 = select i1 %1725, i32 2454, i32 2515
+  %.1347 = select i1 %1725, i32 2454, i32 2462
   br label %switch.edge1963
 
 1726:                                             ; preds = %4
-  %1727 = icmp eq i32 %3, 8
-  br i1 %1727, label %1728, label %switch.edge1963
-
-1728:                                             ; preds = %1726
-  %1729 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1730 = load ptr, ptr %1729, align 8, !tbaa !17
-  %1731 = getelementptr inbounds nuw i8, ptr %1730, i64 24
-  %1732 = load i32, ptr %1731, align 8, !tbaa !21
-  %1733 = getelementptr inbounds nuw i8, ptr %1730, i64 40
-  %1734 = load i32, ptr %1733, align 8, !tbaa !21
-  %1735 = icmp eq i32 %1732, %1734
-  %.1347 = select i1 %1735, i32 2454, i32 2462
-  br label %switch.edge1963
-
-1736:                                             ; preds = %4
   switch i32 %3, label %switch.edge1963 [
-    i32 5, label %1737
-    i32 8, label %1745
+    i32 5, label %1727
+    i32 8, label %1735
   ]
 
-1737:                                             ; preds = %1736
-  %1738 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1739 = load ptr, ptr %1738, align 8, !tbaa !17
-  %1740 = getelementptr inbounds nuw i8, ptr %1739, i64 24
+1727:                                             ; preds = %1726
+  %1728 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1729 = load ptr, ptr %1728, align 8, !tbaa !17
+  %1730 = getelementptr inbounds nuw i8, ptr %1729, i64 24
+  %1731 = load i32, ptr %1730, align 8, !tbaa !21
+  %1732 = getelementptr inbounds nuw i8, ptr %1729, i64 40
+  %1733 = load i32, ptr %1732, align 8, !tbaa !21
+  %1734 = icmp eq i32 %1731, %1733
+  %.1348 = select i1 %1734, i32 2453, i32 2515
+  br label %switch.edge1963
+
+1735:                                             ; preds = %1726
+  %1736 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1737 = load ptr, ptr %1736, align 8, !tbaa !17
+  %1738 = getelementptr inbounds nuw i8, ptr %1737, i64 24
+  %1739 = load i32, ptr %1738, align 8, !tbaa !21
+  %1740 = getelementptr inbounds nuw i8, ptr %1737, i64 40
   %1741 = load i32, ptr %1740, align 8, !tbaa !21
-  %1742 = getelementptr inbounds nuw i8, ptr %1739, i64 40
-  %1743 = load i32, ptr %1742, align 8, !tbaa !21
-  %1744 = icmp eq i32 %1741, %1743
-  %.1348 = select i1 %1744, i32 2453, i32 2515
+  %1742 = icmp eq i32 %1739, %1741
+  %.1349 = select i1 %1742, i32 2454, i32 2515
   br label %switch.edge1963
 
-1745:                                             ; preds = %1736
-  %1746 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1747 = load ptr, ptr %1746, align 8, !tbaa !17
-  %1748 = getelementptr inbounds nuw i8, ptr %1747, i64 24
-  %1749 = load i32, ptr %1748, align 8, !tbaa !21
-  %1750 = getelementptr inbounds nuw i8, ptr %1747, i64 40
-  %1751 = load i32, ptr %1750, align 8, !tbaa !21
-  %1752 = icmp eq i32 %1749, %1751
-  %.1349 = select i1 %1752, i32 2454, i32 2515
-  br label %switch.edge1963
-
-1753:                                             ; preds = %4
+1743:                                             ; preds = %4
   switch i32 %3, label %switch.edge1963 [
-    i32 5, label %1754
-    i32 7, label %1762
-    i32 8, label %1770
-    i32 9, label %1778
-    i32 10, label %1786
-    i32 11, label %1794
-    i32 13, label %1802
-    i32 15, label %1810
+    i32 5, label %1744
+    i32 7, label %1752
+    i32 8, label %1760
+    i32 9, label %1768
+    i32 10, label %1776
+    i32 11, label %1784
+    i32 13, label %1792
+    i32 15, label %1800
   ]
 
-1754:                                             ; preds = %1753
-  %1755 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1756 = load ptr, ptr %1755, align 8, !tbaa !17
-  %1757 = getelementptr inbounds nuw i8, ptr %1756, i64 24
+1744:                                             ; preds = %1743
+  %1745 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1746 = load ptr, ptr %1745, align 8, !tbaa !17
+  %1747 = getelementptr inbounds nuw i8, ptr %1746, i64 24
+  %1748 = load i32, ptr %1747, align 8, !tbaa !21
+  %1749 = getelementptr inbounds nuw i8, ptr %1746, i64 40
+  %1750 = load i32, ptr %1749, align 8, !tbaa !21
+  %1751 = icmp eq i32 %1748, %1750
+  %.1350 = select i1 %1751, i32 2453, i32 2462
+  br label %switch.edge1963
+
+1752:                                             ; preds = %1743
+  %1753 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1754 = load ptr, ptr %1753, align 8, !tbaa !17
+  %1755 = getelementptr inbounds nuw i8, ptr %1754, i64 24
+  %1756 = load i32, ptr %1755, align 8, !tbaa !21
+  %1757 = getelementptr inbounds nuw i8, ptr %1754, i64 40
   %1758 = load i32, ptr %1757, align 8, !tbaa !21
-  %1759 = getelementptr inbounds nuw i8, ptr %1756, i64 40
-  %1760 = load i32, ptr %1759, align 8, !tbaa !21
-  %1761 = icmp eq i32 %1758, %1760
-  %.1350 = select i1 %1761, i32 2453, i32 2462
+  %1759 = icmp eq i32 %1756, %1758
+  %.1351 = select i1 %1759, i32 2450, i32 2462
   br label %switch.edge1963
 
-1762:                                             ; preds = %1753
-  %1763 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1764 = load ptr, ptr %1763, align 8, !tbaa !17
-  %1765 = getelementptr inbounds nuw i8, ptr %1764, i64 24
+1760:                                             ; preds = %1743
+  %1761 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1762 = load ptr, ptr %1761, align 8, !tbaa !17
+  %1763 = getelementptr inbounds nuw i8, ptr %1762, i64 24
+  %1764 = load i32, ptr %1763, align 8, !tbaa !21
+  %1765 = getelementptr inbounds nuw i8, ptr %1762, i64 40
   %1766 = load i32, ptr %1765, align 8, !tbaa !21
-  %1767 = getelementptr inbounds nuw i8, ptr %1764, i64 40
-  %1768 = load i32, ptr %1767, align 8, !tbaa !21
-  %1769 = icmp eq i32 %1766, %1768
-  %.1351 = select i1 %1769, i32 2450, i32 2462
+  %1767 = icmp eq i32 %1764, %1766
+  %.1352 = select i1 %1767, i32 2454, i32 2462
   br label %switch.edge1963
 
-1770:                                             ; preds = %1753
-  %1771 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1772 = load ptr, ptr %1771, align 8, !tbaa !17
-  %1773 = getelementptr inbounds nuw i8, ptr %1772, i64 24
+1768:                                             ; preds = %1743
+  %1769 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1770 = load ptr, ptr %1769, align 8, !tbaa !17
+  %1771 = getelementptr inbounds nuw i8, ptr %1770, i64 24
+  %1772 = load i32, ptr %1771, align 8, !tbaa !21
+  %1773 = getelementptr inbounds nuw i8, ptr %1770, i64 40
   %1774 = load i32, ptr %1773, align 8, !tbaa !21
-  %1775 = getelementptr inbounds nuw i8, ptr %1772, i64 40
-  %1776 = load i32, ptr %1775, align 8, !tbaa !21
-  %1777 = icmp eq i32 %1774, %1776
-  %.1352 = select i1 %1777, i32 2454, i32 2462
+  %1775 = icmp eq i32 %1772, %1774
+  %.1353 = select i1 %1775, i32 2456, i32 2462
   br label %switch.edge1963
 
-1778:                                             ; preds = %1753
-  %1779 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1780 = load ptr, ptr %1779, align 8, !tbaa !17
-  %1781 = getelementptr inbounds nuw i8, ptr %1780, i64 24
+1776:                                             ; preds = %1743
+  %1777 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1778 = load ptr, ptr %1777, align 8, !tbaa !17
+  %1779 = getelementptr inbounds nuw i8, ptr %1778, i64 24
+  %1780 = load i32, ptr %1779, align 8, !tbaa !21
+  %1781 = getelementptr inbounds nuw i8, ptr %1778, i64 40
   %1782 = load i32, ptr %1781, align 8, !tbaa !21
-  %1783 = getelementptr inbounds nuw i8, ptr %1780, i64 40
-  %1784 = load i32, ptr %1783, align 8, !tbaa !21
-  %1785 = icmp eq i32 %1782, %1784
-  %.1353 = select i1 %1785, i32 2456, i32 2462
+  %1783 = icmp eq i32 %1780, %1782
+  %.1354 = select i1 %1783, i32 2447, i32 2462
   br label %switch.edge1963
 
-1786:                                             ; preds = %1753
-  %1787 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1788 = load ptr, ptr %1787, align 8, !tbaa !17
-  %1789 = getelementptr inbounds nuw i8, ptr %1788, i64 24
+1784:                                             ; preds = %1743
+  %1785 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1786 = load ptr, ptr %1785, align 8, !tbaa !17
+  %1787 = getelementptr inbounds nuw i8, ptr %1786, i64 24
+  %1788 = load i32, ptr %1787, align 8, !tbaa !21
+  %1789 = getelementptr inbounds nuw i8, ptr %1786, i64 40
   %1790 = load i32, ptr %1789, align 8, !tbaa !21
-  %1791 = getelementptr inbounds nuw i8, ptr %1788, i64 40
-  %1792 = load i32, ptr %1791, align 8, !tbaa !21
-  %1793 = icmp eq i32 %1790, %1792
-  %.1354 = select i1 %1793, i32 2447, i32 2462
+  %1791 = icmp eq i32 %1788, %1790
+  %.1355 = select i1 %1791, i32 2449, i32 2462
   br label %switch.edge1963
 
-1794:                                             ; preds = %1753
-  %1795 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1796 = load ptr, ptr %1795, align 8, !tbaa !17
-  %1797 = getelementptr inbounds nuw i8, ptr %1796, i64 24
+1792:                                             ; preds = %1743
+  %1793 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1794 = load ptr, ptr %1793, align 8, !tbaa !17
+  %1795 = getelementptr inbounds nuw i8, ptr %1794, i64 24
+  %1796 = load i32, ptr %1795, align 8, !tbaa !21
+  %1797 = getelementptr inbounds nuw i8, ptr %1794, i64 40
   %1798 = load i32, ptr %1797, align 8, !tbaa !21
-  %1799 = getelementptr inbounds nuw i8, ptr %1796, i64 40
-  %1800 = load i32, ptr %1799, align 8, !tbaa !21
-  %1801 = icmp eq i32 %1798, %1800
-  %.1355 = select i1 %1801, i32 2449, i32 2462
+  %1799 = icmp eq i32 %1796, %1798
+  %.1356 = select i1 %1799, i32 2457, i32 2462
   br label %switch.edge1963
 
-1802:                                             ; preds = %1753
-  %1803 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1804 = load ptr, ptr %1803, align 8, !tbaa !17
-  %1805 = getelementptr inbounds nuw i8, ptr %1804, i64 24
+1800:                                             ; preds = %1743
+  %1801 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1802 = load ptr, ptr %1801, align 8, !tbaa !17
+  %1803 = getelementptr inbounds nuw i8, ptr %1802, i64 24
+  %1804 = load i32, ptr %1803, align 8, !tbaa !21
+  %1805 = getelementptr inbounds nuw i8, ptr %1802, i64 40
   %1806 = load i32, ptr %1805, align 8, !tbaa !21
-  %1807 = getelementptr inbounds nuw i8, ptr %1804, i64 40
-  %1808 = load i32, ptr %1807, align 8, !tbaa !21
-  %1809 = icmp eq i32 %1806, %1808
-  %.1356 = select i1 %1809, i32 2457, i32 2462
+  %1807 = icmp eq i32 %1804, %1806
+  %.1357 = select i1 %1807, i32 2455, i32 2462
   br label %switch.edge1963
 
-1810:                                             ; preds = %1753
-  %1811 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1812 = load ptr, ptr %1811, align 8, !tbaa !17
-  %1813 = getelementptr inbounds nuw i8, ptr %1812, i64 24
-  %1814 = load i32, ptr %1813, align 8, !tbaa !21
-  %1815 = getelementptr inbounds nuw i8, ptr %1812, i64 40
-  %1816 = load i32, ptr %1815, align 8, !tbaa !21
-  %1817 = icmp eq i32 %1814, %1816
-  %.1357 = select i1 %1817, i32 2455, i32 2462
-  br label %switch.edge1963
-
-1818:                                             ; preds = %4
+1808:                                             ; preds = %4
   switch i32 %3, label %switch.edge1963 [
-    i32 5, label %1819
-    i32 7, label %1827
-    i32 8, label %1835
-    i32 9, label %1843
-    i32 10, label %1851
-    i32 11, label %1859
-    i32 13, label %1867
-    i32 15, label %1875
-    i32 17, label %1883
-    i32 18, label %1891
+    i32 5, label %1809
+    i32 7, label %1817
+    i32 8, label %1825
+    i32 9, label %1833
+    i32 10, label %1841
+    i32 11, label %1849
+    i32 13, label %1857
+    i32 15, label %1865
+    i32 17, label %1873
+    i32 18, label %1881
   ]
 
-1819:                                             ; preds = %1818
-  %1820 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1821 = load ptr, ptr %1820, align 8, !tbaa !17
-  %1822 = getelementptr inbounds nuw i8, ptr %1821, i64 24
+1809:                                             ; preds = %1808
+  %1810 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1811 = load ptr, ptr %1810, align 8, !tbaa !17
+  %1812 = getelementptr inbounds nuw i8, ptr %1811, i64 24
+  %1813 = load i32, ptr %1812, align 8, !tbaa !21
+  %1814 = getelementptr inbounds nuw i8, ptr %1811, i64 40
+  %1815 = load i32, ptr %1814, align 8, !tbaa !21
+  %1816 = icmp eq i32 %1813, %1815
+  %.1358 = select i1 %1816, i32 2453, i32 2462
+  br label %switch.edge1963
+
+1817:                                             ; preds = %1808
+  %1818 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1819 = load ptr, ptr %1818, align 8, !tbaa !17
+  %1820 = getelementptr inbounds nuw i8, ptr %1819, i64 24
+  %1821 = load i32, ptr %1820, align 8, !tbaa !21
+  %1822 = getelementptr inbounds nuw i8, ptr %1819, i64 40
   %1823 = load i32, ptr %1822, align 8, !tbaa !21
-  %1824 = getelementptr inbounds nuw i8, ptr %1821, i64 40
-  %1825 = load i32, ptr %1824, align 8, !tbaa !21
-  %1826 = icmp eq i32 %1823, %1825
-  %.1358 = select i1 %1826, i32 2453, i32 2462
+  %1824 = icmp eq i32 %1821, %1823
+  %.1359 = select i1 %1824, i32 2450, i32 2462
   br label %switch.edge1963
 
-1827:                                             ; preds = %1818
-  %1828 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1829 = load ptr, ptr %1828, align 8, !tbaa !17
-  %1830 = getelementptr inbounds nuw i8, ptr %1829, i64 24
+1825:                                             ; preds = %1808
+  %1826 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1827 = load ptr, ptr %1826, align 8, !tbaa !17
+  %1828 = getelementptr inbounds nuw i8, ptr %1827, i64 24
+  %1829 = load i32, ptr %1828, align 8, !tbaa !21
+  %1830 = getelementptr inbounds nuw i8, ptr %1827, i64 40
   %1831 = load i32, ptr %1830, align 8, !tbaa !21
-  %1832 = getelementptr inbounds nuw i8, ptr %1829, i64 40
-  %1833 = load i32, ptr %1832, align 8, !tbaa !21
-  %1834 = icmp eq i32 %1831, %1833
-  %.1359 = select i1 %1834, i32 2450, i32 2462
+  %1832 = icmp eq i32 %1829, %1831
+  %.1360 = select i1 %1832, i32 2454, i32 2462
   br label %switch.edge1963
 
-1835:                                             ; preds = %1818
-  %1836 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1837 = load ptr, ptr %1836, align 8, !tbaa !17
-  %1838 = getelementptr inbounds nuw i8, ptr %1837, i64 24
+1833:                                             ; preds = %1808
+  %1834 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1835 = load ptr, ptr %1834, align 8, !tbaa !17
+  %1836 = getelementptr inbounds nuw i8, ptr %1835, i64 24
+  %1837 = load i32, ptr %1836, align 8, !tbaa !21
+  %1838 = getelementptr inbounds nuw i8, ptr %1835, i64 40
   %1839 = load i32, ptr %1838, align 8, !tbaa !21
-  %1840 = getelementptr inbounds nuw i8, ptr %1837, i64 40
-  %1841 = load i32, ptr %1840, align 8, !tbaa !21
-  %1842 = icmp eq i32 %1839, %1841
-  %.1360 = select i1 %1842, i32 2454, i32 2462
+  %1840 = icmp eq i32 %1837, %1839
+  %.1361 = select i1 %1840, i32 2456, i32 2462
   br label %switch.edge1963
 
-1843:                                             ; preds = %1818
-  %1844 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1845 = load ptr, ptr %1844, align 8, !tbaa !17
-  %1846 = getelementptr inbounds nuw i8, ptr %1845, i64 24
+1841:                                             ; preds = %1808
+  %1842 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1843 = load ptr, ptr %1842, align 8, !tbaa !17
+  %1844 = getelementptr inbounds nuw i8, ptr %1843, i64 24
+  %1845 = load i32, ptr %1844, align 8, !tbaa !21
+  %1846 = getelementptr inbounds nuw i8, ptr %1843, i64 40
   %1847 = load i32, ptr %1846, align 8, !tbaa !21
-  %1848 = getelementptr inbounds nuw i8, ptr %1845, i64 40
-  %1849 = load i32, ptr %1848, align 8, !tbaa !21
-  %1850 = icmp eq i32 %1847, %1849
-  %.1361 = select i1 %1850, i32 2456, i32 2462
+  %1848 = icmp eq i32 %1845, %1847
+  %.1362 = select i1 %1848, i32 2447, i32 2462
   br label %switch.edge1963
 
-1851:                                             ; preds = %1818
-  %1852 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1853 = load ptr, ptr %1852, align 8, !tbaa !17
-  %1854 = getelementptr inbounds nuw i8, ptr %1853, i64 24
+1849:                                             ; preds = %1808
+  %1850 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1851 = load ptr, ptr %1850, align 8, !tbaa !17
+  %1852 = getelementptr inbounds nuw i8, ptr %1851, i64 24
+  %1853 = load i32, ptr %1852, align 8, !tbaa !21
+  %1854 = getelementptr inbounds nuw i8, ptr %1851, i64 40
   %1855 = load i32, ptr %1854, align 8, !tbaa !21
-  %1856 = getelementptr inbounds nuw i8, ptr %1853, i64 40
-  %1857 = load i32, ptr %1856, align 8, !tbaa !21
-  %1858 = icmp eq i32 %1855, %1857
-  %.1362 = select i1 %1858, i32 2447, i32 2462
+  %1856 = icmp eq i32 %1853, %1855
+  %.1363 = select i1 %1856, i32 2449, i32 2462
   br label %switch.edge1963
 
-1859:                                             ; preds = %1818
-  %1860 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1861 = load ptr, ptr %1860, align 8, !tbaa !17
-  %1862 = getelementptr inbounds nuw i8, ptr %1861, i64 24
+1857:                                             ; preds = %1808
+  %1858 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1859 = load ptr, ptr %1858, align 8, !tbaa !17
+  %1860 = getelementptr inbounds nuw i8, ptr %1859, i64 24
+  %1861 = load i32, ptr %1860, align 8, !tbaa !21
+  %1862 = getelementptr inbounds nuw i8, ptr %1859, i64 40
   %1863 = load i32, ptr %1862, align 8, !tbaa !21
-  %1864 = getelementptr inbounds nuw i8, ptr %1861, i64 40
-  %1865 = load i32, ptr %1864, align 8, !tbaa !21
-  %1866 = icmp eq i32 %1863, %1865
-  %.1363 = select i1 %1866, i32 2449, i32 2462
+  %1864 = icmp eq i32 %1861, %1863
+  %.1364 = select i1 %1864, i32 2457, i32 2462
   br label %switch.edge1963
 
-1867:                                             ; preds = %1818
-  %1868 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1869 = load ptr, ptr %1868, align 8, !tbaa !17
-  %1870 = getelementptr inbounds nuw i8, ptr %1869, i64 24
+1865:                                             ; preds = %1808
+  %1866 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1867 = load ptr, ptr %1866, align 8, !tbaa !17
+  %1868 = getelementptr inbounds nuw i8, ptr %1867, i64 24
+  %1869 = load i32, ptr %1868, align 8, !tbaa !21
+  %1870 = getelementptr inbounds nuw i8, ptr %1867, i64 40
   %1871 = load i32, ptr %1870, align 8, !tbaa !21
-  %1872 = getelementptr inbounds nuw i8, ptr %1869, i64 40
-  %1873 = load i32, ptr %1872, align 8, !tbaa !21
-  %1874 = icmp eq i32 %1871, %1873
-  %.1364 = select i1 %1874, i32 2457, i32 2462
+  %1872 = icmp eq i32 %1869, %1871
+  %.1365 = select i1 %1872, i32 2455, i32 2462
   br label %switch.edge1963
 
-1875:                                             ; preds = %1818
-  %1876 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1877 = load ptr, ptr %1876, align 8, !tbaa !17
-  %1878 = getelementptr inbounds nuw i8, ptr %1877, i64 24
+1873:                                             ; preds = %1808
+  %1874 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1875 = load ptr, ptr %1874, align 8, !tbaa !17
+  %1876 = getelementptr inbounds nuw i8, ptr %1875, i64 24
+  %1877 = load i32, ptr %1876, align 8, !tbaa !21
+  %1878 = getelementptr inbounds nuw i8, ptr %1875, i64 40
   %1879 = load i32, ptr %1878, align 8, !tbaa !21
-  %1880 = getelementptr inbounds nuw i8, ptr %1877, i64 40
-  %1881 = load i32, ptr %1880, align 8, !tbaa !21
-  %1882 = icmp eq i32 %1879, %1881
-  %.1365 = select i1 %1882, i32 2455, i32 2462
+  %1880 = icmp eq i32 %1877, %1879
+  %.1366 = select i1 %1880, i32 2451, i32 2462
   br label %switch.edge1963
 
-1883:                                             ; preds = %1818
-  %1884 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1885 = load ptr, ptr %1884, align 8, !tbaa !17
-  %1886 = getelementptr inbounds nuw i8, ptr %1885, i64 24
+1881:                                             ; preds = %1808
+  %1882 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1883 = load ptr, ptr %1882, align 8, !tbaa !17
+  %1884 = getelementptr inbounds nuw i8, ptr %1883, i64 24
+  %1885 = load i32, ptr %1884, align 8, !tbaa !21
+  %1886 = getelementptr inbounds nuw i8, ptr %1883, i64 40
   %1887 = load i32, ptr %1886, align 8, !tbaa !21
-  %1888 = getelementptr inbounds nuw i8, ptr %1885, i64 40
-  %1889 = load i32, ptr %1888, align 8, !tbaa !21
-  %1890 = icmp eq i32 %1887, %1889
-  %.1366 = select i1 %1890, i32 2451, i32 2462
+  %1888 = icmp eq i32 %1885, %1887
+  %.1367 = select i1 %1888, i32 2452, i32 2462
   br label %switch.edge1963
 
-1891:                                             ; preds = %1818
-  %1892 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1893 = load ptr, ptr %1892, align 8, !tbaa !17
-  %1894 = getelementptr inbounds nuw i8, ptr %1893, i64 24
-  %1895 = load i32, ptr %1894, align 8, !tbaa !21
-  %1896 = getelementptr inbounds nuw i8, ptr %1893, i64 40
-  %1897 = load i32, ptr %1896, align 8, !tbaa !21
-  %1898 = icmp eq i32 %1895, %1897
-  %.1367 = select i1 %1898, i32 2452, i32 2462
-  br label %switch.edge1963
-
-1899:                                             ; preds = %4
+1889:                                             ; preds = %4
   switch i32 %3, label %switch.edge1963 [
-    i32 7, label %1900
-    i32 9, label %1908
-    i32 11, label %1916
-    i32 13, label %1924
-    i32 15, label %1932
-    i32 17, label %1940
-    i32 18, label %1948
+    i32 7, label %1890
+    i32 9, label %1898
+    i32 11, label %1906
+    i32 13, label %1914
+    i32 15, label %1922
+    i32 17, label %1930
+    i32 18, label %1938
   ]
 
-1900:                                             ; preds = %1899
-  %1901 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1902 = load ptr, ptr %1901, align 8, !tbaa !17
-  %1903 = getelementptr inbounds nuw i8, ptr %1902, i64 24
+1890:                                             ; preds = %1889
+  %1891 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1892 = load ptr, ptr %1891, align 8, !tbaa !17
+  %1893 = getelementptr inbounds nuw i8, ptr %1892, i64 24
+  %1894 = load i32, ptr %1893, align 8, !tbaa !21
+  %1895 = getelementptr inbounds nuw i8, ptr %1892, i64 40
+  %1896 = load i32, ptr %1895, align 8, !tbaa !21
+  %1897 = icmp eq i32 %1894, %1896
+  %.1368 = select i1 %1897, i32 2450, i32 2503
+  br label %switch.edge1963
+
+1898:                                             ; preds = %1889
+  %1899 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1900 = load ptr, ptr %1899, align 8, !tbaa !17
+  %1901 = getelementptr inbounds nuw i8, ptr %1900, i64 24
+  %1902 = load i32, ptr %1901, align 8, !tbaa !21
+  %1903 = getelementptr inbounds nuw i8, ptr %1900, i64 40
   %1904 = load i32, ptr %1903, align 8, !tbaa !21
-  %1905 = getelementptr inbounds nuw i8, ptr %1902, i64 40
-  %1906 = load i32, ptr %1905, align 8, !tbaa !21
-  %1907 = icmp eq i32 %1904, %1906
-  %.1368 = select i1 %1907, i32 2450, i32 2503
+  %1905 = icmp eq i32 %1902, %1904
+  %.1369 = select i1 %1905, i32 2456, i32 2503
   br label %switch.edge1963
 
-1908:                                             ; preds = %1899
-  %1909 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1910 = load ptr, ptr %1909, align 8, !tbaa !17
-  %1911 = getelementptr inbounds nuw i8, ptr %1910, i64 24
+1906:                                             ; preds = %1889
+  %1907 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1908 = load ptr, ptr %1907, align 8, !tbaa !17
+  %1909 = getelementptr inbounds nuw i8, ptr %1908, i64 24
+  %1910 = load i32, ptr %1909, align 8, !tbaa !21
+  %1911 = getelementptr inbounds nuw i8, ptr %1908, i64 40
   %1912 = load i32, ptr %1911, align 8, !tbaa !21
-  %1913 = getelementptr inbounds nuw i8, ptr %1910, i64 40
-  %1914 = load i32, ptr %1913, align 8, !tbaa !21
-  %1915 = icmp eq i32 %1912, %1914
-  %.1369 = select i1 %1915, i32 2456, i32 2503
+  %1913 = icmp eq i32 %1910, %1912
+  %.1370 = select i1 %1913, i32 2449, i32 2503
   br label %switch.edge1963
 
-1916:                                             ; preds = %1899
-  %1917 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1918 = load ptr, ptr %1917, align 8, !tbaa !17
-  %1919 = getelementptr inbounds nuw i8, ptr %1918, i64 24
+1914:                                             ; preds = %1889
+  %1915 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1916 = load ptr, ptr %1915, align 8, !tbaa !17
+  %1917 = getelementptr inbounds nuw i8, ptr %1916, i64 24
+  %1918 = load i32, ptr %1917, align 8, !tbaa !21
+  %1919 = getelementptr inbounds nuw i8, ptr %1916, i64 40
   %1920 = load i32, ptr %1919, align 8, !tbaa !21
-  %1921 = getelementptr inbounds nuw i8, ptr %1918, i64 40
-  %1922 = load i32, ptr %1921, align 8, !tbaa !21
-  %1923 = icmp eq i32 %1920, %1922
-  %.1370 = select i1 %1923, i32 2449, i32 2503
+  %1921 = icmp eq i32 %1918, %1920
+  %.1371 = select i1 %1921, i32 2457, i32 2503
   br label %switch.edge1963
 
-1924:                                             ; preds = %1899
-  %1925 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1926 = load ptr, ptr %1925, align 8, !tbaa !17
-  %1927 = getelementptr inbounds nuw i8, ptr %1926, i64 24
+1922:                                             ; preds = %1889
+  %1923 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1924 = load ptr, ptr %1923, align 8, !tbaa !17
+  %1925 = getelementptr inbounds nuw i8, ptr %1924, i64 24
+  %1926 = load i32, ptr %1925, align 8, !tbaa !21
+  %1927 = getelementptr inbounds nuw i8, ptr %1924, i64 40
   %1928 = load i32, ptr %1927, align 8, !tbaa !21
-  %1929 = getelementptr inbounds nuw i8, ptr %1926, i64 40
-  %1930 = load i32, ptr %1929, align 8, !tbaa !21
-  %1931 = icmp eq i32 %1928, %1930
-  %.1371 = select i1 %1931, i32 2457, i32 2503
+  %1929 = icmp eq i32 %1926, %1928
+  %.1372 = select i1 %1929, i32 2455, i32 2503
   br label %switch.edge1963
 
-1932:                                             ; preds = %1899
-  %1933 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1934 = load ptr, ptr %1933, align 8, !tbaa !17
-  %1935 = getelementptr inbounds nuw i8, ptr %1934, i64 24
+1930:                                             ; preds = %1889
+  %1931 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1932 = load ptr, ptr %1931, align 8, !tbaa !17
+  %1933 = getelementptr inbounds nuw i8, ptr %1932, i64 24
+  %1934 = load i32, ptr %1933, align 8, !tbaa !21
+  %1935 = getelementptr inbounds nuw i8, ptr %1932, i64 40
   %1936 = load i32, ptr %1935, align 8, !tbaa !21
-  %1937 = getelementptr inbounds nuw i8, ptr %1934, i64 40
-  %1938 = load i32, ptr %1937, align 8, !tbaa !21
-  %1939 = icmp eq i32 %1936, %1938
-  %.1372 = select i1 %1939, i32 2455, i32 2503
+  %1937 = icmp eq i32 %1934, %1936
+  %.1373 = select i1 %1937, i32 2451, i32 2503
   br label %switch.edge1963
 
-1940:                                             ; preds = %1899
-  %1941 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1942 = load ptr, ptr %1941, align 8, !tbaa !17
-  %1943 = getelementptr inbounds nuw i8, ptr %1942, i64 24
+1938:                                             ; preds = %1889
+  %1939 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1940 = load ptr, ptr %1939, align 8, !tbaa !17
+  %1941 = getelementptr inbounds nuw i8, ptr %1940, i64 24
+  %1942 = load i32, ptr %1941, align 8, !tbaa !21
+  %1943 = getelementptr inbounds nuw i8, ptr %1940, i64 40
   %1944 = load i32, ptr %1943, align 8, !tbaa !21
-  %1945 = getelementptr inbounds nuw i8, ptr %1942, i64 40
-  %1946 = load i32, ptr %1945, align 8, !tbaa !21
-  %1947 = icmp eq i32 %1944, %1946
-  %.1373 = select i1 %1947, i32 2451, i32 2503
+  %1945 = icmp eq i32 %1942, %1944
+  %.1374 = select i1 %1945, i32 2452, i32 2503
   br label %switch.edge1963
 
-1948:                                             ; preds = %1899
+1946:                                             ; preds = %4
+  %1947 = icmp eq i32 %3, 18
+  br i1 %1947, label %1948, label %switch.edge1963
+
+1948:                                             ; preds = %1946
   %1949 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1950 = load ptr, ptr %1949, align 8, !tbaa !17
   %1951 = getelementptr inbounds nuw i8, ptr %1950, i64 24
@@ -5071,7 +5035,7 @@ switch.edge2019:                                  ; preds = %1707, %1708
   %1953 = getelementptr inbounds nuw i8, ptr %1950, i64 40
   %1954 = load i32, ptr %1953, align 8, !tbaa !21
   %1955 = icmp eq i32 %1952, %1954
-  %.1374 = select i1 %1955, i32 2452, i32 2503
+  %.1375 = select i1 %1955, i32 2452, i32 2462
   br label %switch.edge1963
 
 1956:                                             ; preds = %4
@@ -5086,7 +5050,7 @@ switch.edge2019:                                  ; preds = %1707, %1708
   %1963 = getelementptr inbounds nuw i8, ptr %1960, i64 40
   %1964 = load i32, ptr %1963, align 8, !tbaa !21
   %1965 = icmp eq i32 %1962, %1964
-  %.1375 = select i1 %1965, i32 2452, i32 2462
+  %.1376 = select i1 %1965, i32 2452, i32 2503
   br label %switch.edge1963
 
 1966:                                             ; preds = %4
@@ -5101,627 +5065,486 @@ switch.edge2019:                                  ; preds = %1707, %1708
   %1973 = getelementptr inbounds nuw i8, ptr %1970, i64 40
   %1974 = load i32, ptr %1973, align 8, !tbaa !21
   %1975 = icmp eq i32 %1972, %1974
-  %.1376 = select i1 %1975, i32 2452, i32 2503
+  %.1377 = select i1 %1975, i32 2452, i32 2503
   br label %switch.edge1963
 
 1976:                                             ; preds = %4
-  %1977 = icmp eq i32 %3, 18
-  br i1 %1977, label %1978, label %switch.edge1963
-
-1978:                                             ; preds = %1976
-  %1979 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1980 = load ptr, ptr %1979, align 8, !tbaa !17
-  %1981 = getelementptr inbounds nuw i8, ptr %1980, i64 24
-  %1982 = load i32, ptr %1981, align 8, !tbaa !21
-  %1983 = getelementptr inbounds nuw i8, ptr %1980, i64 40
-  %1984 = load i32, ptr %1983, align 8, !tbaa !21
-  %1985 = icmp eq i32 %1982, %1984
-  %.1377 = select i1 %1985, i32 2452, i32 2503
-  br label %switch.edge1963
-
-1986:                                             ; preds = %4
   switch i32 %3, label %switch.edge1963 [
-    i32 9, label %1987
-    i32 13, label %1995
-    i32 18, label %2003
+    i32 9, label %1977
+    i32 13, label %1985
+    i32 18, label %1993
   ]
 
-1987:                                             ; preds = %1986
-  %1988 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1989 = load ptr, ptr %1988, align 8, !tbaa !17
-  %1990 = getelementptr inbounds nuw i8, ptr %1989, i64 24
+1977:                                             ; preds = %1976
+  %1978 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1979 = load ptr, ptr %1978, align 8, !tbaa !17
+  %1980 = getelementptr inbounds nuw i8, ptr %1979, i64 24
+  %1981 = load i32, ptr %1980, align 8, !tbaa !21
+  %1982 = getelementptr inbounds nuw i8, ptr %1979, i64 40
+  %1983 = load i32, ptr %1982, align 8, !tbaa !21
+  %1984 = icmp eq i32 %1981, %1983
+  %.1378 = select i1 %1984, i32 2456, i32 2458
+  br label %switch.edge1963
+
+1985:                                             ; preds = %1976
+  %1986 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1987 = load ptr, ptr %1986, align 8, !tbaa !17
+  %1988 = getelementptr inbounds nuw i8, ptr %1987, i64 24
+  %1989 = load i32, ptr %1988, align 8, !tbaa !21
+  %1990 = getelementptr inbounds nuw i8, ptr %1987, i64 40
   %1991 = load i32, ptr %1990, align 8, !tbaa !21
-  %1992 = getelementptr inbounds nuw i8, ptr %1989, i64 40
-  %1993 = load i32, ptr %1992, align 8, !tbaa !21
-  %1994 = icmp eq i32 %1991, %1993
-  %.1378 = select i1 %1994, i32 2456, i32 2458
+  %1992 = icmp eq i32 %1989, %1991
+  %.1379 = select i1 %1992, i32 2457, i32 2458
   br label %switch.edge1963
 
-1995:                                             ; preds = %1986
-  %1996 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1997 = load ptr, ptr %1996, align 8, !tbaa !17
-  %1998 = getelementptr inbounds nuw i8, ptr %1997, i64 24
+1993:                                             ; preds = %1976
+  %1994 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1995 = load ptr, ptr %1994, align 8, !tbaa !17
+  %1996 = getelementptr inbounds nuw i8, ptr %1995, i64 24
+  %1997 = load i32, ptr %1996, align 8, !tbaa !21
+  %1998 = getelementptr inbounds nuw i8, ptr %1995, i64 40
   %1999 = load i32, ptr %1998, align 8, !tbaa !21
-  %2000 = getelementptr inbounds nuw i8, ptr %1997, i64 40
-  %2001 = load i32, ptr %2000, align 8, !tbaa !21
-  %2002 = icmp eq i32 %1999, %2001
-  %.1379 = select i1 %2002, i32 2457, i32 2458
+  %2000 = icmp eq i32 %1997, %1999
+  %.1380 = select i1 %2000, i32 2452, i32 2458
   br label %switch.edge1963
 
-2003:                                             ; preds = %1986
-  %2004 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2005 = load ptr, ptr %2004, align 8, !tbaa !17
-  %2006 = getelementptr inbounds nuw i8, ptr %2005, i64 24
-  %2007 = load i32, ptr %2006, align 8, !tbaa !21
-  %2008 = getelementptr inbounds nuw i8, ptr %2005, i64 40
-  %2009 = load i32, ptr %2008, align 8, !tbaa !21
-  %2010 = icmp eq i32 %2007, %2009
-  %.1380 = select i1 %2010, i32 2452, i32 2458
-  br label %switch.edge1963
-
-2011:                                             ; preds = %4
+2001:                                             ; preds = %4
   switch i32 %3, label %switch.edge1963 [
-    i32 9, label %2012
-    i32 13, label %2020
-    i32 18, label %2028
+    i32 9, label %2002
+    i32 13, label %2010
+    i32 18, label %2018
   ]
 
-2012:                                             ; preds = %2011
-  %2013 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2014 = load ptr, ptr %2013, align 8, !tbaa !17
-  %2015 = getelementptr inbounds nuw i8, ptr %2014, i64 24
+2002:                                             ; preds = %2001
+  %2003 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2004 = load ptr, ptr %2003, align 8, !tbaa !17
+  %2005 = getelementptr inbounds nuw i8, ptr %2004, i64 24
+  %2006 = load i32, ptr %2005, align 8, !tbaa !21
+  %2007 = getelementptr inbounds nuw i8, ptr %2004, i64 40
+  %2008 = load i32, ptr %2007, align 8, !tbaa !21
+  %2009 = icmp eq i32 %2006, %2008
+  %.1381 = select i1 %2009, i32 2456, i32 2459
+  br label %switch.edge1963
+
+2010:                                             ; preds = %2001
+  %2011 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2012 = load ptr, ptr %2011, align 8, !tbaa !17
+  %2013 = getelementptr inbounds nuw i8, ptr %2012, i64 24
+  %2014 = load i32, ptr %2013, align 8, !tbaa !21
+  %2015 = getelementptr inbounds nuw i8, ptr %2012, i64 40
   %2016 = load i32, ptr %2015, align 8, !tbaa !21
-  %2017 = getelementptr inbounds nuw i8, ptr %2014, i64 40
-  %2018 = load i32, ptr %2017, align 8, !tbaa !21
-  %2019 = icmp eq i32 %2016, %2018
-  %.1381 = select i1 %2019, i32 2456, i32 2459
+  %2017 = icmp eq i32 %2014, %2016
+  %.1382 = select i1 %2017, i32 2457, i32 2459
   br label %switch.edge1963
 
-2020:                                             ; preds = %2011
-  %2021 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2022 = load ptr, ptr %2021, align 8, !tbaa !17
-  %2023 = getelementptr inbounds nuw i8, ptr %2022, i64 24
+2018:                                             ; preds = %2001
+  %2019 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2020 = load ptr, ptr %2019, align 8, !tbaa !17
+  %2021 = getelementptr inbounds nuw i8, ptr %2020, i64 24
+  %2022 = load i32, ptr %2021, align 8, !tbaa !21
+  %2023 = getelementptr inbounds nuw i8, ptr %2020, i64 40
   %2024 = load i32, ptr %2023, align 8, !tbaa !21
-  %2025 = getelementptr inbounds nuw i8, ptr %2022, i64 40
-  %2026 = load i32, ptr %2025, align 8, !tbaa !21
-  %2027 = icmp eq i32 %2024, %2026
-  %.1382 = select i1 %2027, i32 2457, i32 2459
+  %2025 = icmp eq i32 %2022, %2024
+  %.1383 = select i1 %2025, i32 2452, i32 2459
   br label %switch.edge1963
 
-2028:                                             ; preds = %2011
-  %2029 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2030 = load ptr, ptr %2029, align 8, !tbaa !17
-  %2031 = getelementptr inbounds nuw i8, ptr %2030, i64 24
-  %2032 = load i32, ptr %2031, align 8, !tbaa !21
-  %2033 = getelementptr inbounds nuw i8, ptr %2030, i64 40
-  %2034 = load i32, ptr %2033, align 8, !tbaa !21
-  %2035 = icmp eq i32 %2032, %2034
-  %.1383 = select i1 %2035, i32 2452, i32 2459
-  br label %switch.edge1963
-
-2036:                                             ; preds = %4
+2026:                                             ; preds = %4
   switch i32 %3, label %switch.edge1963 [
-    i32 9, label %2037
-    i32 13, label %2045
-    i32 18, label %2053
+    i32 9, label %2027
+    i32 13, label %2035
+    i32 18, label %2043
   ]
 
-2037:                                             ; preds = %2036
-  %2038 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2039 = load ptr, ptr %2038, align 8, !tbaa !17
-  %2040 = getelementptr inbounds nuw i8, ptr %2039, i64 24
+2027:                                             ; preds = %2026
+  %2028 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2029 = load ptr, ptr %2028, align 8, !tbaa !17
+  %2030 = getelementptr inbounds nuw i8, ptr %2029, i64 24
+  %2031 = load i32, ptr %2030, align 8, !tbaa !21
+  %2032 = getelementptr inbounds nuw i8, ptr %2029, i64 40
+  %2033 = load i32, ptr %2032, align 8, !tbaa !21
+  %2034 = icmp eq i32 %2031, %2033
+  %.1384 = select i1 %2034, i32 2456, i32 2512
+  br label %switch.edge1963
+
+2035:                                             ; preds = %2026
+  %2036 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2037 = load ptr, ptr %2036, align 8, !tbaa !17
+  %2038 = getelementptr inbounds nuw i8, ptr %2037, i64 24
+  %2039 = load i32, ptr %2038, align 8, !tbaa !21
+  %2040 = getelementptr inbounds nuw i8, ptr %2037, i64 40
   %2041 = load i32, ptr %2040, align 8, !tbaa !21
-  %2042 = getelementptr inbounds nuw i8, ptr %2039, i64 40
-  %2043 = load i32, ptr %2042, align 8, !tbaa !21
-  %2044 = icmp eq i32 %2041, %2043
-  %.1384 = select i1 %2044, i32 2456, i32 2512
+  %2042 = icmp eq i32 %2039, %2041
+  %.1385 = select i1 %2042, i32 2457, i32 2512
   br label %switch.edge1963
 
-2045:                                             ; preds = %2036
-  %2046 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2047 = load ptr, ptr %2046, align 8, !tbaa !17
-  %2048 = getelementptr inbounds nuw i8, ptr %2047, i64 24
+2043:                                             ; preds = %2026
+  %2044 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2045 = load ptr, ptr %2044, align 8, !tbaa !17
+  %2046 = getelementptr inbounds nuw i8, ptr %2045, i64 24
+  %2047 = load i32, ptr %2046, align 8, !tbaa !21
+  %2048 = getelementptr inbounds nuw i8, ptr %2045, i64 40
   %2049 = load i32, ptr %2048, align 8, !tbaa !21
-  %2050 = getelementptr inbounds nuw i8, ptr %2047, i64 40
-  %2051 = load i32, ptr %2050, align 8, !tbaa !21
-  %2052 = icmp eq i32 %2049, %2051
-  %.1385 = select i1 %2052, i32 2457, i32 2512
+  %2050 = icmp eq i32 %2047, %2049
+  %.1386 = select i1 %2050, i32 2452, i32 2512
   br label %switch.edge1963
 
-2053:                                             ; preds = %2036
-  %2054 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2055 = load ptr, ptr %2054, align 8, !tbaa !17
-  %2056 = getelementptr inbounds nuw i8, ptr %2055, i64 24
-  %2057 = load i32, ptr %2056, align 8, !tbaa !21
-  %2058 = getelementptr inbounds nuw i8, ptr %2055, i64 40
-  %2059 = load i32, ptr %2058, align 8, !tbaa !21
-  %2060 = icmp eq i32 %2057, %2059
-  %.1386 = select i1 %2060, i32 2452, i32 2512
-  br label %switch.edge1963
-
-2061:                                             ; preds = %4
+2051:                                             ; preds = %4
   switch i32 %3, label %switch.edge1963 [
-    i32 9, label %2062
-    i32 13, label %2070
-    i32 18, label %2078
+    i32 9, label %2052
+    i32 13, label %2060
+    i32 18, label %2068
   ]
 
-2062:                                             ; preds = %2061
-  %2063 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2064 = load ptr, ptr %2063, align 8, !tbaa !17
-  %2065 = getelementptr inbounds nuw i8, ptr %2064, i64 24
+2052:                                             ; preds = %2051
+  %2053 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2054 = load ptr, ptr %2053, align 8, !tbaa !17
+  %2055 = getelementptr inbounds nuw i8, ptr %2054, i64 24
+  %2056 = load i32, ptr %2055, align 8, !tbaa !21
+  %2057 = getelementptr inbounds nuw i8, ptr %2054, i64 40
+  %2058 = load i32, ptr %2057, align 8, !tbaa !21
+  %2059 = icmp eq i32 %2056, %2058
+  %.1387 = select i1 %2059, i32 2456, i32 2461
+  br label %switch.edge1963
+
+2060:                                             ; preds = %2051
+  %2061 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2062 = load ptr, ptr %2061, align 8, !tbaa !17
+  %2063 = getelementptr inbounds nuw i8, ptr %2062, i64 24
+  %2064 = load i32, ptr %2063, align 8, !tbaa !21
+  %2065 = getelementptr inbounds nuw i8, ptr %2062, i64 40
   %2066 = load i32, ptr %2065, align 8, !tbaa !21
-  %2067 = getelementptr inbounds nuw i8, ptr %2064, i64 40
-  %2068 = load i32, ptr %2067, align 8, !tbaa !21
-  %2069 = icmp eq i32 %2066, %2068
-  %.1387 = select i1 %2069, i32 2456, i32 2461
+  %2067 = icmp eq i32 %2064, %2066
+  %.1388 = select i1 %2067, i32 2457, i32 2461
   br label %switch.edge1963
 
-2070:                                             ; preds = %2061
-  %2071 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2072 = load ptr, ptr %2071, align 8, !tbaa !17
-  %2073 = getelementptr inbounds nuw i8, ptr %2072, i64 24
+2068:                                             ; preds = %2051
+  %2069 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2070 = load ptr, ptr %2069, align 8, !tbaa !17
+  %2071 = getelementptr inbounds nuw i8, ptr %2070, i64 24
+  %2072 = load i32, ptr %2071, align 8, !tbaa !21
+  %2073 = getelementptr inbounds nuw i8, ptr %2070, i64 40
   %2074 = load i32, ptr %2073, align 8, !tbaa !21
-  %2075 = getelementptr inbounds nuw i8, ptr %2072, i64 40
-  %2076 = load i32, ptr %2075, align 8, !tbaa !21
-  %2077 = icmp eq i32 %2074, %2076
-  %.1388 = select i1 %2077, i32 2457, i32 2461
+  %2075 = icmp eq i32 %2072, %2074
+  %.1389 = select i1 %2075, i32 2452, i32 2461
   br label %switch.edge1963
 
-2078:                                             ; preds = %2061
-  %2079 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2080 = load ptr, ptr %2079, align 8, !tbaa !17
-  %2081 = getelementptr inbounds nuw i8, ptr %2080, i64 24
-  %2082 = load i32, ptr %2081, align 8, !tbaa !21
-  %2083 = getelementptr inbounds nuw i8, ptr %2080, i64 40
-  %2084 = load i32, ptr %2083, align 8, !tbaa !21
-  %2085 = icmp eq i32 %2082, %2084
-  %.1389 = select i1 %2085, i32 2452, i32 2461
-  br label %switch.edge1963
-
-2086:                                             ; preds = %4
+2076:                                             ; preds = %4
   switch i32 %3, label %switch.edge1963 [
-    i32 9, label %2087
-    i32 13, label %2095
-    i32 18, label %2103
+    i32 9, label %2077
+    i32 13, label %2085
+    i32 18, label %2093
   ]
 
-2087:                                             ; preds = %2086
-  %2088 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2089 = load ptr, ptr %2088, align 8, !tbaa !17
-  %2090 = getelementptr inbounds nuw i8, ptr %2089, i64 24
+2077:                                             ; preds = %2076
+  %2078 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2079 = load ptr, ptr %2078, align 8, !tbaa !17
+  %2080 = getelementptr inbounds nuw i8, ptr %2079, i64 24
+  %2081 = load i32, ptr %2080, align 8, !tbaa !21
+  %2082 = getelementptr inbounds nuw i8, ptr %2079, i64 40
+  %2083 = load i32, ptr %2082, align 8, !tbaa !21
+  %2084 = icmp eq i32 %2081, %2083
+  %.1390 = select i1 %2084, i32 2456, i32 2502
+  br label %switch.edge1963
+
+2085:                                             ; preds = %2076
+  %2086 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2087 = load ptr, ptr %2086, align 8, !tbaa !17
+  %2088 = getelementptr inbounds nuw i8, ptr %2087, i64 24
+  %2089 = load i32, ptr %2088, align 8, !tbaa !21
+  %2090 = getelementptr inbounds nuw i8, ptr %2087, i64 40
   %2091 = load i32, ptr %2090, align 8, !tbaa !21
-  %2092 = getelementptr inbounds nuw i8, ptr %2089, i64 40
-  %2093 = load i32, ptr %2092, align 8, !tbaa !21
-  %2094 = icmp eq i32 %2091, %2093
-  %.1390 = select i1 %2094, i32 2456, i32 2502
+  %2092 = icmp eq i32 %2089, %2091
+  %.1391 = select i1 %2092, i32 2457, i32 2502
   br label %switch.edge1963
 
-2095:                                             ; preds = %2086
-  %2096 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2097 = load ptr, ptr %2096, align 8, !tbaa !17
-  %2098 = getelementptr inbounds nuw i8, ptr %2097, i64 24
+2093:                                             ; preds = %2076
+  %2094 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2095 = load ptr, ptr %2094, align 8, !tbaa !17
+  %2096 = getelementptr inbounds nuw i8, ptr %2095, i64 24
+  %2097 = load i32, ptr %2096, align 8, !tbaa !21
+  %2098 = getelementptr inbounds nuw i8, ptr %2095, i64 40
   %2099 = load i32, ptr %2098, align 8, !tbaa !21
-  %2100 = getelementptr inbounds nuw i8, ptr %2097, i64 40
-  %2101 = load i32, ptr %2100, align 8, !tbaa !21
-  %2102 = icmp eq i32 %2099, %2101
-  %.1391 = select i1 %2102, i32 2457, i32 2502
+  %2100 = icmp eq i32 %2097, %2099
+  %.1392 = select i1 %2100, i32 2452, i32 2502
   br label %switch.edge1963
 
-2103:                                             ; preds = %2086
-  %2104 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2105 = load ptr, ptr %2104, align 8, !tbaa !17
-  %2106 = getelementptr inbounds nuw i8, ptr %2105, i64 24
-  %2107 = load i32, ptr %2106, align 8, !tbaa !21
-  %2108 = getelementptr inbounds nuw i8, ptr %2105, i64 40
-  %2109 = load i32, ptr %2108, align 8, !tbaa !21
-  %2110 = icmp eq i32 %2107, %2109
-  %.1392 = select i1 %2110, i32 2452, i32 2502
-  br label %switch.edge1963
-
-2111:                                             ; preds = %4
+2101:                                             ; preds = %4
   switch i32 %3, label %switch.edge1963 [
-    i32 9, label %2112
-    i32 13, label %2120
-    i32 18, label %2128
+    i32 9, label %2102
+    i32 13, label %2110
+    i32 18, label %2118
   ]
 
-2112:                                             ; preds = %2111
-  %2113 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2114 = load ptr, ptr %2113, align 8, !tbaa !17
-  %2115 = getelementptr inbounds nuw i8, ptr %2114, i64 24
+2102:                                             ; preds = %2101
+  %2103 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2104 = load ptr, ptr %2103, align 8, !tbaa !17
+  %2105 = getelementptr inbounds nuw i8, ptr %2104, i64 24
+  %2106 = load i32, ptr %2105, align 8, !tbaa !21
+  %2107 = getelementptr inbounds nuw i8, ptr %2104, i64 40
+  %2108 = load i32, ptr %2107, align 8, !tbaa !21
+  %2109 = icmp eq i32 %2106, %2108
+  %.1393 = select i1 %2109, i32 2456, i32 2513
+  br label %switch.edge1963
+
+2110:                                             ; preds = %2101
+  %2111 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2112 = load ptr, ptr %2111, align 8, !tbaa !17
+  %2113 = getelementptr inbounds nuw i8, ptr %2112, i64 24
+  %2114 = load i32, ptr %2113, align 8, !tbaa !21
+  %2115 = getelementptr inbounds nuw i8, ptr %2112, i64 40
   %2116 = load i32, ptr %2115, align 8, !tbaa !21
-  %2117 = getelementptr inbounds nuw i8, ptr %2114, i64 40
-  %2118 = load i32, ptr %2117, align 8, !tbaa !21
-  %2119 = icmp eq i32 %2116, %2118
-  %.1393 = select i1 %2119, i32 2456, i32 2513
+  %2117 = icmp eq i32 %2114, %2116
+  %.1394 = select i1 %2117, i32 2457, i32 2513
   br label %switch.edge1963
 
-2120:                                             ; preds = %2111
-  %2121 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2122 = load ptr, ptr %2121, align 8, !tbaa !17
-  %2123 = getelementptr inbounds nuw i8, ptr %2122, i64 24
+2118:                                             ; preds = %2101
+  %2119 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2120 = load ptr, ptr %2119, align 8, !tbaa !17
+  %2121 = getelementptr inbounds nuw i8, ptr %2120, i64 24
+  %2122 = load i32, ptr %2121, align 8, !tbaa !21
+  %2123 = getelementptr inbounds nuw i8, ptr %2120, i64 40
   %2124 = load i32, ptr %2123, align 8, !tbaa !21
-  %2125 = getelementptr inbounds nuw i8, ptr %2122, i64 40
-  %2126 = load i32, ptr %2125, align 8, !tbaa !21
-  %2127 = icmp eq i32 %2124, %2126
-  %.1394 = select i1 %2127, i32 2457, i32 2513
+  %2125 = icmp eq i32 %2122, %2124
+  %.1395 = select i1 %2125, i32 2452, i32 2513
   br label %switch.edge1963
 
-2128:                                             ; preds = %2111
-  %2129 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2130 = load ptr, ptr %2129, align 8, !tbaa !17
-  %2131 = getelementptr inbounds nuw i8, ptr %2130, i64 24
-  %2132 = load i32, ptr %2131, align 8, !tbaa !21
-  %2133 = getelementptr inbounds nuw i8, ptr %2130, i64 40
-  %2134 = load i32, ptr %2133, align 8, !tbaa !21
-  %2135 = icmp eq i32 %2132, %2134
-  %.1395 = select i1 %2135, i32 2452, i32 2513
-  br label %switch.edge1963
+2126:                                             ; preds = %4
+  %2127 = icmp eq i32 %3, 8
+  br i1 %2127, label %2128, label %switch.edge1963
 
-2136:                                             ; preds = %4
-  %2137 = icmp eq i32 %3, 8
-  br i1 %2137, label %2138, label %switch.edge1963
-
-2138:                                             ; preds = %2136
-  %2139 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %2140 = load i32, ptr %2139, align 4, !tbaa !22
-  %2141 = and i32 %2140, 16
-  %.not2021 = icmp eq i32 %2141, 0
+2128:                                             ; preds = %2126
+  %2129 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %2130 = load i32, ptr %2129, align 4, !tbaa !22
+  %2131 = and i32 %2130, 16
+  %.not2021 = icmp eq i32 %2131, 0
   %.1396 = select i1 %.not2021, i32 2517, i32 2516
   br label %switch.edge1963
 
-2142:                                             ; preds = %4
+2132:                                             ; preds = %4
   switch i32 %3, label %switch.edge1963 [
-    i32 5, label %2143
-    i32 7, label %2151
-    i32 8, label %2159
-    i32 9, label %2167
-    i32 10, label %2175
-    i32 11, label %2183
-    i32 13, label %2191
-    i32 15, label %2199
-    i32 17, label %2207
-    i32 18, label %2215
+    i32 5, label %2133
+    i32 7, label %2141
+    i32 8, label %2149
+    i32 9, label %2157
+    i32 10, label %2165
+    i32 11, label %2173
+    i32 13, label %2181
+    i32 15, label %2189
+    i32 17, label %2197
+    i32 18, label %2205
   ]
 
-2143:                                             ; preds = %2142
-  %2144 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2145 = load ptr, ptr %2144, align 8, !tbaa !17
-  %2146 = getelementptr inbounds nuw i8, ptr %2145, i64 24
+2133:                                             ; preds = %2132
+  %2134 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2135 = load ptr, ptr %2134, align 8, !tbaa !17
+  %2136 = getelementptr inbounds nuw i8, ptr %2135, i64 24
+  %2137 = load i32, ptr %2136, align 8, !tbaa !21
+  %2138 = getelementptr inbounds nuw i8, ptr %2135, i64 40
+  %2139 = load i32, ptr %2138, align 8, !tbaa !21
+  %2140 = icmp eq i32 %2137, %2139
+  %.1397 = select i1 %2140, i32 2453, i32 2448
+  br label %switch.edge1963
+
+2141:                                             ; preds = %2132
+  %2142 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2143 = load ptr, ptr %2142, align 8, !tbaa !17
+  %2144 = getelementptr inbounds nuw i8, ptr %2143, i64 24
+  %2145 = load i32, ptr %2144, align 8, !tbaa !21
+  %2146 = getelementptr inbounds nuw i8, ptr %2143, i64 40
   %2147 = load i32, ptr %2146, align 8, !tbaa !21
-  %2148 = getelementptr inbounds nuw i8, ptr %2145, i64 40
-  %2149 = load i32, ptr %2148, align 8, !tbaa !21
-  %2150 = icmp eq i32 %2147, %2149
-  %.1397 = select i1 %2150, i32 2453, i32 2448
+  %2148 = icmp eq i32 %2145, %2147
+  %.1398 = select i1 %2148, i32 2450, i32 2448
   br label %switch.edge1963
 
-2151:                                             ; preds = %2142
-  %2152 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2153 = load ptr, ptr %2152, align 8, !tbaa !17
-  %2154 = getelementptr inbounds nuw i8, ptr %2153, i64 24
+2149:                                             ; preds = %2132
+  %2150 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2151 = load ptr, ptr %2150, align 8, !tbaa !17
+  %2152 = getelementptr inbounds nuw i8, ptr %2151, i64 24
+  %2153 = load i32, ptr %2152, align 8, !tbaa !21
+  %2154 = getelementptr inbounds nuw i8, ptr %2151, i64 40
   %2155 = load i32, ptr %2154, align 8, !tbaa !21
-  %2156 = getelementptr inbounds nuw i8, ptr %2153, i64 40
-  %2157 = load i32, ptr %2156, align 8, !tbaa !21
-  %2158 = icmp eq i32 %2155, %2157
-  %.1398 = select i1 %2158, i32 2450, i32 2448
+  %2156 = icmp eq i32 %2153, %2155
+  %.1399 = select i1 %2156, i32 2454, i32 2448
   br label %switch.edge1963
 
-2159:                                             ; preds = %2142
-  %2160 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2161 = load ptr, ptr %2160, align 8, !tbaa !17
-  %2162 = getelementptr inbounds nuw i8, ptr %2161, i64 24
+2157:                                             ; preds = %2132
+  %2158 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2159 = load ptr, ptr %2158, align 8, !tbaa !17
+  %2160 = getelementptr inbounds nuw i8, ptr %2159, i64 24
+  %2161 = load i32, ptr %2160, align 8, !tbaa !21
+  %2162 = getelementptr inbounds nuw i8, ptr %2159, i64 40
   %2163 = load i32, ptr %2162, align 8, !tbaa !21
-  %2164 = getelementptr inbounds nuw i8, ptr %2161, i64 40
-  %2165 = load i32, ptr %2164, align 8, !tbaa !21
-  %2166 = icmp eq i32 %2163, %2165
-  %.1399 = select i1 %2166, i32 2454, i32 2448
+  %2164 = icmp eq i32 %2161, %2163
+  %.1400 = select i1 %2164, i32 2456, i32 2448
   br label %switch.edge1963
 
-2167:                                             ; preds = %2142
-  %2168 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2169 = load ptr, ptr %2168, align 8, !tbaa !17
-  %2170 = getelementptr inbounds nuw i8, ptr %2169, i64 24
+2165:                                             ; preds = %2132
+  %2166 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2167 = load ptr, ptr %2166, align 8, !tbaa !17
+  %2168 = getelementptr inbounds nuw i8, ptr %2167, i64 24
+  %2169 = load i32, ptr %2168, align 8, !tbaa !21
+  %2170 = getelementptr inbounds nuw i8, ptr %2167, i64 40
   %2171 = load i32, ptr %2170, align 8, !tbaa !21
-  %2172 = getelementptr inbounds nuw i8, ptr %2169, i64 40
-  %2173 = load i32, ptr %2172, align 8, !tbaa !21
-  %2174 = icmp eq i32 %2171, %2173
-  %.1400 = select i1 %2174, i32 2456, i32 2448
+  %2172 = icmp eq i32 %2169, %2171
+  %.1401 = select i1 %2172, i32 2447, i32 2448
   br label %switch.edge1963
 
-2175:                                             ; preds = %2142
-  %2176 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2177 = load ptr, ptr %2176, align 8, !tbaa !17
-  %2178 = getelementptr inbounds nuw i8, ptr %2177, i64 24
+2173:                                             ; preds = %2132
+  %2174 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2175 = load ptr, ptr %2174, align 8, !tbaa !17
+  %2176 = getelementptr inbounds nuw i8, ptr %2175, i64 24
+  %2177 = load i32, ptr %2176, align 8, !tbaa !21
+  %2178 = getelementptr inbounds nuw i8, ptr %2175, i64 40
   %2179 = load i32, ptr %2178, align 8, !tbaa !21
-  %2180 = getelementptr inbounds nuw i8, ptr %2177, i64 40
-  %2181 = load i32, ptr %2180, align 8, !tbaa !21
-  %2182 = icmp eq i32 %2179, %2181
-  %.1401 = select i1 %2182, i32 2447, i32 2448
+  %2180 = icmp eq i32 %2177, %2179
+  %.1402 = select i1 %2180, i32 2449, i32 2448
   br label %switch.edge1963
 
-2183:                                             ; preds = %2142
-  %2184 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2185 = load ptr, ptr %2184, align 8, !tbaa !17
-  %2186 = getelementptr inbounds nuw i8, ptr %2185, i64 24
+2181:                                             ; preds = %2132
+  %2182 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2183 = load ptr, ptr %2182, align 8, !tbaa !17
+  %2184 = getelementptr inbounds nuw i8, ptr %2183, i64 24
+  %2185 = load i32, ptr %2184, align 8, !tbaa !21
+  %2186 = getelementptr inbounds nuw i8, ptr %2183, i64 40
   %2187 = load i32, ptr %2186, align 8, !tbaa !21
-  %2188 = getelementptr inbounds nuw i8, ptr %2185, i64 40
-  %2189 = load i32, ptr %2188, align 8, !tbaa !21
-  %2190 = icmp eq i32 %2187, %2189
-  %.1402 = select i1 %2190, i32 2449, i32 2448
+  %2188 = icmp eq i32 %2185, %2187
+  %.1403 = select i1 %2188, i32 2457, i32 2448
   br label %switch.edge1963
 
-2191:                                             ; preds = %2142
-  %2192 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2193 = load ptr, ptr %2192, align 8, !tbaa !17
-  %2194 = getelementptr inbounds nuw i8, ptr %2193, i64 24
+2189:                                             ; preds = %2132
+  %2190 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2191 = load ptr, ptr %2190, align 8, !tbaa !17
+  %2192 = getelementptr inbounds nuw i8, ptr %2191, i64 24
+  %2193 = load i32, ptr %2192, align 8, !tbaa !21
+  %2194 = getelementptr inbounds nuw i8, ptr %2191, i64 40
   %2195 = load i32, ptr %2194, align 8, !tbaa !21
-  %2196 = getelementptr inbounds nuw i8, ptr %2193, i64 40
-  %2197 = load i32, ptr %2196, align 8, !tbaa !21
-  %2198 = icmp eq i32 %2195, %2197
-  %.1403 = select i1 %2198, i32 2457, i32 2448
+  %2196 = icmp eq i32 %2193, %2195
+  %.1404 = select i1 %2196, i32 2455, i32 2448
   br label %switch.edge1963
 
-2199:                                             ; preds = %2142
-  %2200 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2201 = load ptr, ptr %2200, align 8, !tbaa !17
-  %2202 = getelementptr inbounds nuw i8, ptr %2201, i64 24
+2197:                                             ; preds = %2132
+  %2198 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2199 = load ptr, ptr %2198, align 8, !tbaa !17
+  %2200 = getelementptr inbounds nuw i8, ptr %2199, i64 24
+  %2201 = load i32, ptr %2200, align 8, !tbaa !21
+  %2202 = getelementptr inbounds nuw i8, ptr %2199, i64 40
   %2203 = load i32, ptr %2202, align 8, !tbaa !21
-  %2204 = getelementptr inbounds nuw i8, ptr %2201, i64 40
-  %2205 = load i32, ptr %2204, align 8, !tbaa !21
-  %2206 = icmp eq i32 %2203, %2205
-  %.1404 = select i1 %2206, i32 2455, i32 2448
+  %2204 = icmp eq i32 %2201, %2203
+  %.1405 = select i1 %2204, i32 2451, i32 2448
   br label %switch.edge1963
 
-2207:                                             ; preds = %2142
-  %2208 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2209 = load ptr, ptr %2208, align 8, !tbaa !17
-  %2210 = getelementptr inbounds nuw i8, ptr %2209, i64 24
+2205:                                             ; preds = %2132
+  %2206 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2207 = load ptr, ptr %2206, align 8, !tbaa !17
+  %2208 = getelementptr inbounds nuw i8, ptr %2207, i64 24
+  %2209 = load i32, ptr %2208, align 8, !tbaa !21
+  %2210 = getelementptr inbounds nuw i8, ptr %2207, i64 40
   %2211 = load i32, ptr %2210, align 8, !tbaa !21
-  %2212 = getelementptr inbounds nuw i8, ptr %2209, i64 40
-  %2213 = load i32, ptr %2212, align 8, !tbaa !21
-  %2214 = icmp eq i32 %2211, %2213
-  %.1405 = select i1 %2214, i32 2451, i32 2448
+  %2212 = icmp eq i32 %2209, %2211
+  %.1406 = select i1 %2212, i32 2452, i32 2448
   br label %switch.edge1963
 
-2215:                                             ; preds = %2142
-  %2216 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2217 = load ptr, ptr %2216, align 8, !tbaa !17
-  %2218 = getelementptr inbounds nuw i8, ptr %2217, i64 24
-  %2219 = load i32, ptr %2218, align 8, !tbaa !21
-  %2220 = getelementptr inbounds nuw i8, ptr %2217, i64 40
-  %2221 = load i32, ptr %2220, align 8, !tbaa !21
-  %2222 = icmp eq i32 %2219, %2221
-  %.1406 = select i1 %2222, i32 2452, i32 2448
-  br label %switch.edge1963
-
-2223:                                             ; preds = %4
+2213:                                             ; preds = %4
   switch i32 %3, label %switch.edge1963 [
-    i32 17, label %2224
-    i32 18, label %2232
+    i32 17, label %2214
+    i32 18, label %2222
   ]
 
-2224:                                             ; preds = %2223
-  %2225 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2226 = load ptr, ptr %2225, align 8, !tbaa !17
-  %2227 = getelementptr inbounds nuw i8, ptr %2226, i64 24
+2214:                                             ; preds = %2213
+  %2215 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2216 = load ptr, ptr %2215, align 8, !tbaa !17
+  %2217 = getelementptr inbounds nuw i8, ptr %2216, i64 24
+  %2218 = load i32, ptr %2217, align 8, !tbaa !21
+  %2219 = getelementptr inbounds nuw i8, ptr %2216, i64 40
+  %2220 = load i32, ptr %2219, align 8, !tbaa !21
+  %2221 = icmp eq i32 %2218, %2220
+  %.1407 = select i1 %2221, i32 2451, i32 2448
+  br label %switch.edge1963
+
+2222:                                             ; preds = %2213
+  %2223 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %2224 = load ptr, ptr %2223, align 8, !tbaa !17
+  %2225 = getelementptr inbounds nuw i8, ptr %2224, i64 24
+  %2226 = load i32, ptr %2225, align 8, !tbaa !21
+  %2227 = getelementptr inbounds nuw i8, ptr %2224, i64 40
   %2228 = load i32, ptr %2227, align 8, !tbaa !21
-  %2229 = getelementptr inbounds nuw i8, ptr %2226, i64 40
-  %2230 = load i32, ptr %2229, align 8, !tbaa !21
-  %2231 = icmp eq i32 %2228, %2230
-  %.1407 = select i1 %2231, i32 2451, i32 2448
+  %2229 = icmp eq i32 %2226, %2228
+  %.1408 = select i1 %2229, i32 2452, i32 2448
   br label %switch.edge1963
 
-2232:                                             ; preds = %2223
-  %2233 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %2234 = load ptr, ptr %2233, align 8, !tbaa !17
-  %2235 = getelementptr inbounds nuw i8, ptr %2234, i64 24
-  %2236 = load i32, ptr %2235, align 8, !tbaa !21
-  %2237 = getelementptr inbounds nuw i8, ptr %2234, i64 40
-  %2238 = load i32, ptr %2237, align 8, !tbaa !21
-  %2239 = icmp eq i32 %2236, %2238
-  %.1408 = select i1 %2239, i32 2452, i32 2448
-  br label %switch.edge1963
+2230:                                             ; preds = %4
+  %2231 = icmp eq i32 %3, 8
+  br i1 %2231, label %2232, label %switch.edge1963
 
-2240:                                             ; preds = %4
-  %2241 = icmp eq i32 %3, 8
-  br i1 %2241, label %2242, label %switch.edge1963
-
-2242:                                             ; preds = %2240
-  %2243 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %2244 = load i32, ptr %2243, align 4, !tbaa !22
-  %2245 = and i32 %2244, 16
-  %.not2020 = icmp eq i32 %2245, 0
+2232:                                             ; preds = %2230
+  %2233 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %2234 = load i32, ptr %2233, align 4, !tbaa !22
+  %2235 = and i32 %2234, 16
+  %.not2020 = icmp eq i32 %2235, 0
   %.1409 = select i1 %.not2020, i32 2446, i32 2445
   br label %switch.edge1963
 
-.fold.split1911:                                  ; preds = %12, %12
+.fold.split1989:                                  ; preds = %12, %12, %28, %28, %1053, %1053, %1680, %1680
   br label %switch.edge1963
 
-.fold.split1913:                                  ; preds = %12, %12, %12, %12, %12, %12
+.fold.split1991:                                  ; preds = %12, %12, %12, %12, %12, %12, %28, %28, %28, %28, %28, %28, %1053, %1053, %1053, %1053, %1053, %1053, %1680, %1680, %1680, %1680, %1680, %1680
   br label %switch.edge1963
 
-.fold.split1921:                                  ; preds = %21, %21
+.fold.split2000:                                  ; preds = %20, %20, %1689, %1689
   br label %switch.edge1963
 
-.fold.split1923:                                  ; preds = %21, %21, %21, %21, %21, %21
+.fold.split2002:                                  ; preds = %20, %20, %20, %20, %20, %20, %1689, %1689, %1689, %1689, %1689, %1689
   br label %switch.edge1963
 
-.fold.split1932:                                  ; preds = %30, %30
+.fold.split2011:                                  ; preds = %36, %36, %44, %44, %1061, %1061, %1698, %1698
   br label %switch.edge1963
 
-.fold.split1934:                                  ; preds = %30, %30, %30, %30, %30, %30
+.fold.split2013:                                  ; preds = %36, %36, %36, %36, %36, %36, %44, %44, %44, %44, %44, %44, %1061, %1061, %1061, %1061, %1061, %1061, %1698, %1698, %1698, %1698, %1698, %1698
   br label %switch.edge1963
 
-.fold.split1943:                                  ; preds = %39, %39
+switch.edge1963.fold.split2095:                   ; preds = %11, %11, %27, %27, %1052, %1052, %1679, %1679
   br label %switch.edge1963
 
-.fold.split1945:                                  ; preds = %39, %39, %39, %39, %39, %39
+switch.edge1963.fold.split2096:                   ; preds = %11, %11, %27, %27, %1052, %1052, %1679, %1679
   br label %switch.edge1963
 
-.fold.split1954:                                  ; preds = %48, %48
+switch.edge1963.fold.split2097:                   ; preds = %11, %11, %11, %11, %11, %11, %27, %27, %27, %27, %27, %27, %1052, %1052, %1052, %1052, %1052, %1052, %1679, %1679, %1679, %1679, %1679, %1679
   br label %switch.edge1963
 
-.fold.split1956:                                  ; preds = %48, %48, %48, %48, %48, %48
+switch.edge1963.fold.split2098:                   ; preds = %12, %12, %28, %28, %1053, %1053, %1680, %1680
   br label %switch.edge1963
 
-.fold.split1967:                                  ; preds = %1061, %1061
+switch.edge1963.fold.split2099:                   ; preds = %19, %19, %1688, %1688
   br label %switch.edge1963
 
-.fold.split1969:                                  ; preds = %1061, %1061, %1061, %1061, %1061, %1061
+switch.edge1963.fold.split2100:                   ; preds = %19, %19, %1688, %1688
   br label %switch.edge1963
 
-.fold.split1978:                                  ; preds = %1070, %1070
+switch.edge1963.fold.split2101:                   ; preds = %19, %19, %19, %19, %19, %19, %1688, %1688, %1688, %1688, %1688, %1688
   br label %switch.edge1963
 
-.fold.split1980:                                  ; preds = %1070, %1070, %1070, %1070, %1070, %1070
+switch.edge1963.fold.split2102:                   ; preds = %20, %20, %1689, %1689
   br label %switch.edge1963
 
-.fold.split1989:                                  ; preds = %1690, %1690
+switch.edge1963.fold.split2103:                   ; preds = %35, %35, %43, %43, %1060, %1060, %1697, %1697
   br label %switch.edge1963
 
-.fold.split1991:                                  ; preds = %1690, %1690, %1690, %1690, %1690, %1690
+switch.edge1963.fold.split2104:                   ; preds = %35, %35, %43, %43, %1060, %1060, %1697, %1697
   br label %switch.edge1963
 
-.fold.split2000:                                  ; preds = %1699, %1699
+switch.edge1963.fold.split2105:                   ; preds = %35, %35, %35, %35, %35, %35, %43, %43, %43, %43, %43, %43, %1060, %1060, %1060, %1060, %1060, %1060, %1697, %1697, %1697, %1697, %1697, %1697
   br label %switch.edge1963
 
-.fold.split2002:                                  ; preds = %1699, %1699, %1699, %1699, %1699, %1699
+switch.edge1963.fold.split2106:                   ; preds = %36, %36, %44, %44, %1061, %1061, %1698, %1698
   br label %switch.edge1963
 
-.fold.split2011:                                  ; preds = %1708, %1708
-  br label %switch.edge1963
-
-.fold.split2013:                                  ; preds = %1708, %1708, %1708, %1708, %1708, %1708
-  br label %switch.edge1963
-
-switch.edge1963.fold.split:                       ; preds = %11, %11
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2068:                   ; preds = %11, %11
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2069:                   ; preds = %11, %11, %11, %11, %11, %11
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2070:                   ; preds = %12, %12
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2071:                   ; preds = %20, %20
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2072:                   ; preds = %20, %20
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2073:                   ; preds = %20, %20, %20, %20, %20, %20
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2074:                   ; preds = %21, %21
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2075:                   ; preds = %29, %29
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2076:                   ; preds = %29, %29
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2077:                   ; preds = %29, %29, %29, %29, %29, %29
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2078:                   ; preds = %30, %30
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2079:                   ; preds = %38, %38
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2080:                   ; preds = %38, %38
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2081:                   ; preds = %38, %38, %38, %38, %38, %38
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2082:                   ; preds = %39, %39
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2083:                   ; preds = %47, %47
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2084:                   ; preds = %47, %47
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2085:                   ; preds = %47, %47, %47, %47, %47, %47
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2086:                   ; preds = %48, %48
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2087:                   ; preds = %1060, %1060
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2088:                   ; preds = %1060, %1060
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2089:                   ; preds = %1060, %1060, %1060, %1060, %1060, %1060
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2090:                   ; preds = %1061, %1061
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2091:                   ; preds = %1069, %1069
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2092:                   ; preds = %1069, %1069
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2093:                   ; preds = %1069, %1069, %1069, %1069, %1069, %1069
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2094:                   ; preds = %1070, %1070
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2095:                   ; preds = %1689, %1689
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2096:                   ; preds = %1689, %1689
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2097:                   ; preds = %1689, %1689, %1689, %1689, %1689, %1689
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2098:                   ; preds = %1690, %1690
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2099:                   ; preds = %1698, %1698
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2100:                   ; preds = %1698, %1698
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2101:                   ; preds = %1698, %1698, %1698, %1698, %1698, %1698
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2102:                   ; preds = %1699, %1699
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2103:                   ; preds = %1707, %1707
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2104:                   ; preds = %1707, %1707
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2105:                   ; preds = %1707, %1707, %1707, %1707, %1707, %1707
-  br label %switch.edge1963
-
-switch.edge1963.fold.split2106:                   ; preds = %1708, %1708
-  br label %switch.edge1963
-
-switch.lookup:                                    ; preds = %593
+switch.lookup:                                    ; preds = %588
   %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm6X86_MC28resolveVariantSchedClassImplEjPKNS_6MCInstEPKNS_11MCInstrInfoEj, i64 %switch.tableidx
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %switch.edge1963
 
-switch.edge1963:                                  ; preds = %593, %switch.lookup, %1708, %1708, %1699, %1699, %1690, %1690, %1070, %1070, %1061, %1061, %48, %48, %39, %39, %30, %30, %21, %21, %12, %12, %1707, %1707, %switch.edge1963.fold.split2106, %switch.edge1963.fold.split2105, %switch.edge1963.fold.split2104, %switch.edge1963.fold.split2103, %1698, %1698, %switch.edge1963.fold.split2102, %switch.edge1963.fold.split2101, %switch.edge1963.fold.split2100, %switch.edge1963.fold.split2099, %1689, %1689, %switch.edge1963.fold.split2098, %switch.edge1963.fold.split2097, %switch.edge1963.fold.split2096, %switch.edge1963.fold.split2095, %1069, %1069, %switch.edge1963.fold.split2094, %switch.edge1963.fold.split2093, %switch.edge1963.fold.split2092, %switch.edge1963.fold.split2091, %1060, %1060, %switch.edge1963.fold.split2090, %switch.edge1963.fold.split2089, %switch.edge1963.fold.split2088, %switch.edge1963.fold.split2087, %47, %47, %switch.edge1963.fold.split2086, %switch.edge1963.fold.split2085, %switch.edge1963.fold.split2084, %switch.edge1963.fold.split2083, %38, %38, %switch.edge1963.fold.split2082, %switch.edge1963.fold.split2081, %switch.edge1963.fold.split2080, %switch.edge1963.fold.split2079, %29, %29, %switch.edge1963.fold.split2078, %switch.edge1963.fold.split2077, %switch.edge1963.fold.split2076, %switch.edge1963.fold.split2075, %20, %20, %switch.edge1963.fold.split2074, %switch.edge1963.fold.split2073, %switch.edge1963.fold.split2072, %switch.edge1963.fold.split2071, %11, %11, %switch.edge1963.fold.split2070, %switch.edge1963.fold.split2069, %switch.edge1963.fold.split2068, %switch.edge1963.fold.split, %697, %switch.edge2019, %.fold.split2013, %.fold.split2011, %switch.edge2008, %.fold.split2002, %.fold.split2000, %switch.edge1997, %.fold.split1991, %.fold.split1989, %switch.edge1986, %.fold.split1980, %.fold.split1978, %switch.edge1975, %.fold.split1969, %.fold.split1967, %931, %switch.edge1962, %.fold.split1956, %.fold.split1954, %switch.edge1951, %.fold.split1945, %.fold.split1943, %switch.edge1940, %.fold.split1934, %.fold.split1932, %switch.edge1929, %.fold.split1923, %.fold.split1921, %switch.edge, %.fold.split1913, %.fold.split1911, %750, %742, %734, %726, %718, %710, %694, %686, %678, %670, %662, %654, %645, %637, %629, %621, %613, %605, %590, %582, %574, %566, %558, %550, %4, %5, %14, %23, %32, %41, %50, %923, %991, %1054, %1063, %1457, %1467, %1477, %1487, %1497, %1507, %1592, %1683, %1692, %1701, %1710, %1716, %1726, %1956, %1966, %1976, %2136, %2240, %56, %137, %202, %275, %340, %405, %470, %543, %592, %647, %696, %752, %809, %866, %934, %1005, %1072, %1089, %1106, %1187, %1220, %1245, %1326, %1359, %1376, %1517, %1542, %1567, %1598, %1615, %1632, %1649, %1666, %1736, %1753, %1818, %1899, %1986, %2011, %2036, %2061, %2086, %2111, %2142, %2223, %2242, %2232, %2224, %2215, %2207, %2199, %2191, %2183, %2175, %2167, %2159, %2151, %2143, %2138, %2128, %2120, %2112, %2103, %2095, %2087, %2078, %2070, %2062, %2053, %2045, %2037, %2028, %2020, %2012, %2003, %1995, %1987, %1978, %1968, %1958, %1948, %1940, %1932, %1924, %1916, %1908, %1900, %1891, %1883, %1875, %1867, %1859, %1851, %1843, %1835, %1827, %1819, %1810, %1802, %1794, %1786, %1778, %1770, %1762, %1754, %1745, %1737, %1728, %1718, %1712, %1709, %1700, %1691, %1675, %1667, %1658, %1650, %1641, %1633, %1624, %1616, %1607, %1599, %1594, %1584, %1576, %1568, %1559, %1551, %1543, %1534, %1526, %1518, %1509, %1499, %1489, %1479, %1469, %1459, %1449, %1441, %1433, %1425, %1417, %1409, %1401, %1393, %1385, %1377, %1368, %1360, %1351, %1343, %1335, %1327, %1318, %1310, %1302, %1294, %1286, %1278, %1270, %1262, %1254, %1246, %1237, %1229, %1221, %1212, %1204, %1196, %1188, %1179, %1171, %1163, %1155, %1147, %1139, %1131, %1123, %1115, %1107, %1098, %1090, %1081, %1073, %1071, %1062, %1042, %1050, %1030, %1038, %1018, %1026, %1006, %1014, %1001, %983, %975, %967, %959, %951, %943, %935, %915, %907, %899, %891, %883, %875, %867, %858, %850, %842, %834, %826, %818, %810, %801, %793, %785, %777, %769, %761, %753, %744, %736, %728, %720, %712, %704, %688, %680, %672, %664, %656, %648, %639, %631, %623, %615, %607, %599, %584, %576, %568, %560, %552, %544, %535, %527, %519, %511, %503, %495, %487, %479, %471, %462, %454, %446, %438, %430, %422, %414, %406, %397, %389, %381, %373, %365, %357, %349, %341, %332, %324, %316, %308, %300, %292, %284, %276, %267, %259, %251, %243, %235, %227, %219, %211, %203, %194, %186, %178, %170, %162, %154, %146, %138, %129, %121, %113, %105, %97, %89, %81, %73, %65, %57, %52, %49, %40, %31, %22, %13, %1053, %1041, %1029, %1017, %.critedge2, %.critedge
-  %.0 = phi i32 [ %.1394, %2120 ], [ 2417, %switch.edge1963.fold.split2096 ], [ 2415, %11 ], [ %.1392, %2103 ], [ 2425, %1698 ], [ 0, %1736 ], [ %.1387, %2062 ], [ 0, %1818 ], [ %.1352, %1770 ], [ 2424, %13 ], [ 0, %1956 ], [ 0, %1966 ], [ 2425, %20 ], [ 2427, %switch.edge1963.fold.split2100 ], [ %.1386, %2053 ], [ %.1397, %2143 ], [ %.1347, %1728 ], [ 2423, %switch.edge ], [ 0, %2061 ], [ 2434, %22 ], [ 0, %2240 ], [ 0, %56 ], [ 2415, %29 ], [ %.1381, %2012 ], [ 2421, %.fold.split1989 ], [ %.1406, %2215 ], [ %.1376, %1968 ], [ 2433, %switch.edge1929 ], [ 0, %2086 ], [ 2424, %31 ], [ 0, %275 ], [ 0, %340 ], [ 2435, %38 ], [ 0, %1615 ], [ %.1375, %1958 ], [ %.1396, %2138 ], [ 2432, %.fold.split2002 ], [ 2423, %switch.edge1940 ], [ 2415, %1689 ], [ 2444, %40 ], [ 0, %543 ], [ 0, %592 ], [ 2435, %47 ], [ %.1370, %1916 ], [ %.1404, %2199 ], [ %.1349, %1745 ], [ %.1365, %1875 ], [ 2443, %switch.edge1951 ], [ 2418, %switch.edge1963.fold.split2069 ], [ 2444, %49 ], [ 0, %752 ], [ %.1176, %52 ], [ 0, %809 ], [ %.1177, %57 ], [ 2443, %switch.edge1962 ], [ %.1178, %65 ], [ 2442, %.fold.split1956 ], [ %.1179, %73 ], [ 0, %1976 ], [ %.1180, %81 ], [ 0, %2136 ], [ %.1181, %89 ], [ 2421, %.fold.split1911 ], [ %.1182, %97 ], [ 2439, %switch.edge1963.fold.split2106 ], [ %.1183, %105 ], [ 0, %866 ], [ %.1184, %113 ], [ 0, %934 ], [ %.1185, %121 ], [ 2441, %.fold.split1954 ], [ %.1186, %129 ], [ 2440, %39 ], [ %.1187, %138 ], [ 2438, %switch.edge1963.fold.split2085 ], [ %.1188, %146 ], [ 2437, %switch.edge1963.fold.split2084 ], [ %.1189, %154 ], [ %.1369, %1908 ], [ %.1190, %162 ], [ 2435, %1707 ], [ %.1191, %170 ], [ 2437, %switch.edge1963.fold.split2104 ], [ %.1192, %178 ], [ %.1366, %1883 ], [ %.1193, %186 ], [ %.1393, %2112 ], [ %.1194, %194 ], [ %.1367, %1891 ], [ %.1195, %203 ], [ 2428, %switch.edge1963.fold.split2101 ], [ %.1196, %211 ], [ %.1368, %1900 ], [ %.1197, %219 ], [ 2436, %switch.edge1963.fold.split2083 ], [ %.1198, %227 ], [ 2439, %switch.edge1963.fold.split2082 ], [ %.1199, %235 ], [ 2435, %47 ], [ %.1200, %243 ], [ 2419, %switch.edge1963.fold.split2070 ], [ %.1201, %251 ], [ 2442, %.fold.split1945 ], [ %.1202, %259 ], [ 2425, %20 ], [ %.1203, %267 ], [ 2417, %switch.edge1963.fold.split2068 ], [ %.1204, %276 ], [ 2422, %.fold.split1913 ], [ %.1205, %284 ], [ 2443, %switch.edge2019 ], [ %.1206, %292 ], [ 0, %647 ], [ %.1207, %300 ], [ 0, %696 ], [ %.1208, %308 ], [ 2441, %.fold.split1943 ], [ %.1209, %316 ], [ 2420, %30 ], [ %.1210, %324 ], [ 2438, %switch.edge1963.fold.split2081 ], [ %.1211, %332 ], [ 2437, %switch.edge1963.fold.split2080 ], [ %.1212, %341 ], [ %.1402, %2183 ], [ %.1213, %349 ], [ %.1374, %1948 ], [ %.1214, %357 ], [ %.1371, %1924 ], [ %.1215, %365 ], [ 0, %1542 ], [ %.1216, %373 ], [ %.1372, %1932 ], [ %.1217, %381 ], [ %.1403, %2191 ], [ %.1218, %389 ], [ %.1373, %1940 ], [ %.1219, %397 ], [ %.1400, %2167 ], [ %.1220, %406 ], [ 2436, %switch.edge1963.fold.split2079 ], [ %.1221, %414 ], [ 2419, %switch.edge1963.fold.split2078 ], [ %.1222, %422 ], [ 2435, %38 ], [ %.1223, %430 ], [ 0, %2111 ], [ %.1224, %438 ], [ 2422, %.fold.split1934 ], [ %.1225, %446 ], [ 0, %2142 ], [ %.1226, %454 ], [ 0, %2223 ], [ %.1227, %462 ], [ %.1350, %1754 ], [ %.1228, %471 ], [ %.1353, %1778 ], [ %.1229, %479 ], [ 0, %405 ], [ %.1230, %487 ], [ 0, %470 ], [ %.1231, %495 ], [ 2421, %.fold.split1932 ], [ %.1232, %503 ], [ 2430, %21 ], [ %.1233, %511 ], [ 2418, %switch.edge1963.fold.split2077 ], [ %.1234, %519 ], [ 2417, %switch.edge1963.fold.split2076 ], [ %.1235, %527 ], [ %.1380, %2003 ], [ %.1236, %535 ], [ 2433, %switch.edge2008 ], [ 0, %1632 ], [ 0, %4 ], [ 2475, %544 ], [ 0, %1726 ], [ 2477, %552 ], [ 0, %5 ], [ 2472, %560 ], [ 0, %14 ], [ 2474, %568 ], [ 0, %23 ], [ 2478, %576 ], [ 0, %32 ], [ 2476, %584 ], [ %switch.load, %switch.lookup ], [ 2440, %1708 ], [ 2440, %1708 ], [ 2430, %1699 ], [ 2420, %1061 ], [ 2420, %1690 ], [ 0, %41 ], [ %spec.select1414, %590 ], [ 2482, %599 ], [ 0, %50 ], [ 2485, %607 ], [ 0, %923 ], [ 2479, %615 ], [ 0, %991 ], [ 2481, %623 ], [ 0, %1054 ], [ 2486, %631 ], [ 0, %1063 ], [ 2484, %639 ], [ 0, %1457 ], [ 2490, %648 ], [ 0, %1467 ], [ 2492, %656 ], [ 0, %1477 ], [ 2487, %664 ], [ 0, %1487 ], [ 2489, %672 ], [ 0, %1497 ], [ 2493, %680 ], [ 0, %1507 ], [ 2491, %688 ], [ 2440, %1070 ], [ %.1398, %2151 ], [ %.1405, %2207 ], [ 2440, %1070 ], [ 0, %1592 ], [ %spec.select1426, %694 ], [ 2497, %704 ], [ 0, %1683 ], [ 2500, %712 ], [ 0, %1692 ], [ 2494, %720 ], [ 0, %1701 ], [ 2496, %728 ], [ 0, %1710 ], [ 2501, %736 ], [ 0, %1716 ], [ %.1239, %753 ], [ 2499, %744 ], [ %.1240, %761 ], [ %spec.select1432, %750 ], [ %.1241, %769 ], [ %spec.select1431, %742 ], [ %.1242, %777 ], [ %spec.select1430, %734 ], [ %.1243, %785 ], [ %spec.select1429, %726 ], [ %.1244, %793 ], [ %spec.select1428, %718 ], [ %.1245, %801 ], [ %spec.select1427, %710 ], [ %.1246, %810 ], [ %spec.select1425, %686 ], [ %.1247, %818 ], [ %spec.select1424, %678 ], [ %.1248, %826 ], [ %spec.select1423, %670 ], [ %.1249, %834 ], [ %spec.select1422, %662 ], [ %.1250, %842 ], [ %spec.select1421, %654 ], [ %.1251, %850 ], [ %spec.select1420, %645 ], [ %.1252, %858 ], [ %spec.select1419, %637 ], [ %.1253, %867 ], [ %spec.select1418, %629 ], [ %.1254, %875 ], [ %spec.select1417, %621 ], [ %.1255, %883 ], [ %spec.select1416, %613 ], [ %.1256, %891 ], [ %spec.select1415, %605 ], [ %.1257, %899 ], [ %spec.select1413, %582 ], [ %.1258, %907 ], [ %spec.select1412, %574 ], [ %.1259, %915 ], [ %spec.select1411, %566 ], [ %spec.select1410, %558 ], [ 2505, %.critedge ], [ %.1260, %935 ], [ 2504, %931 ], [ %.1261, %943 ], [ %spec.select, %550 ], [ %.1262, %951 ], [ %.1377, %1978 ], [ %.1263, %959 ], [ 2431, %.fold.split2000 ], [ %.1264, %967 ], [ %.1378, %1987 ], [ %.1265, %975 ], [ 2420, %1690 ], [ %.1266, %983 ], [ %.1379, %1995 ], [ 2416, %switch.edge1963.fold.split2075 ], [ 2506, %.critedge2 ], [ 2460, %1001 ], [ 2508, %1017 ], [ 2510, %1006 ], [ 2508, %1029 ], [ 2511, %1018 ], [ 2508, %1041 ], [ 2507, %1030 ], [ 2508, %1053 ], [ 2509, %1042 ], [ 2415, %1060 ], [ 2436, %switch.edge1963.fold.split2103 ], [ %.1364, %1867 ], [ %.1395, %2128 ], [ 2429, %switch.edge1963.fold.split2102 ], [ %703, %697 ], [ %.1391, %2095 ], [ 2424, %1062 ], [ 0, %1005 ], [ 0, %1072 ], [ 2435, %1069 ], [ %.1359, %1827 ], [ 2423, %switch.edge1997 ], [ %.1407, %2224 ], [ %.1354, %1786 ], [ 2423, %switch.edge1975 ], [ %.1348, %1737 ], [ 2444, %1071 ], [ 0, %1187 ], [ %.1269, %1073 ], [ 0, %1220 ], [ %.1270, %1081 ], [ %.1401, %2175 ], [ %.1271, %1090 ], [ 2442, %.fold.split1980 ], [ %.1272, %1098 ], [ 2416, %switch.edge1963.fold.split ], [ %.1273, %1107 ], [ %.1399, %2159 ], [ %.1274, %1115 ], [ 2415, %11 ], [ %.1275, %1123 ], [ %.1409, %2242 ], [ %.1276, %1131 ], [ 0, %1245 ], [ %.1277, %1139 ], [ 0, %1326 ], [ %.1278, %1147 ], [ 2441, %.fold.split1978 ], [ %.1279, %1155 ], [ 2420, %1061 ], [ %.1280, %1163 ], [ 2438, %switch.edge1963.fold.split2093 ], [ %.1281, %1171 ], [ 2437, %switch.edge1963.fold.split2092 ], [ %.1282, %1179 ], [ %.1358, %1819 ], [ %.1283, %1188 ], [ 0, %1517 ], [ %.1284, %1196 ], [ 2441, %.fold.split2011 ], [ %.1285, %1204 ], [ %.1355, %1794 ], [ %.1286, %1212 ], [ 2430, %1699 ], [ %.1287, %1221 ], [ %.1356, %1802 ], [ %.1288, %1229 ], [ 2438, %switch.edge1963.fold.split2105 ], [ %.1289, %1237 ], [ %.1357, %1810 ], [ %.1290, %1246 ], [ 2436, %switch.edge1963.fold.split2091 ], [ %.1291, %1254 ], [ 2419, %switch.edge1963.fold.split2090 ], [ %.1292, %1262 ], [ 2435, %1069 ], [ %.1293, %1270 ], [ %.1388, %2070 ], [ %.1294, %1278 ], [ 2422, %.fold.split1969 ], [ %.1295, %1286 ], [ 2444, %1709 ], [ %.1296, %1294 ], [ %.1389, %2078 ], [ %.1297, %1302 ], [ 2442, %.fold.split2013 ], [ %.1298, %1310 ], [ %.1390, %2087 ], [ %.1299, %1318 ], [ 0, %1089 ], [ %.1300, %1327 ], [ 0, %1106 ], [ %.1301, %1335 ], [ 2421, %.fold.split1967 ], [ %.1302, %1343 ], [ 2440, %48 ], [ %.1303, %1351 ], [ 2418, %switch.edge1963.fold.split2089 ], [ %.1304, %1360 ], [ 2417, %switch.edge1963.fold.split2088 ], [ %.1305, %1368 ], [ 2434, %1700 ], [ %.1306, %1377 ], [ %.1363, %1859 ], [ %.1307, %1385 ], [ %.1360, %1835 ], [ %.1308, %1393 ], [ 0, %1567 ], [ %.1309, %1401 ], [ %.1361, %1843 ], [ %.1310, %1409 ], [ 0, %1598 ], [ %.1311, %1417 ], [ %.1362, %1851 ], [ %.1312, %1425 ], [ 2435, %1707 ], [ %.1313, %1433 ], [ 2416, %switch.edge1963.fold.split2087 ], [ %.1314, %1441 ], [ 2439, %switch.edge1963.fold.split2086 ], [ %.1315, %1449 ], [ 2415, %1060 ], [ %.1316, %1459 ], [ 2509, %1050 ], [ %.1317, %1469 ], [ 2507, %1038 ], [ %.1318, %1479 ], [ 2511, %1026 ], [ %.1319, %1489 ], [ 2510, %1014 ], [ %.1320, %1499 ], [ 2429, %switch.edge1963.fold.split2074 ], [ %.1321, %1509 ], [ 2415, %29 ], [ %.1322, %1518 ], [ 0, %1753 ], [ %.1323, %1526 ], [ 2432, %.fold.split1923 ], [ %.1324, %1534 ], [ 0, %1899 ], [ %.1325, %1543 ], [ 0, %1986 ], [ %.1326, %1551 ], [ 0, %2011 ], [ %.1327, %1559 ], [ 0, %2036 ], [ %.1328, %1568 ], [ 0, %137 ], [ %.1329, %1576 ], [ 0, %202 ], [ %.1330, %1584 ], [ 2431, %.fold.split1921 ], [ %.1331, %1594 ], [ 2420, %12 ], [ %.1332, %1599 ], [ 2428, %switch.edge1963.fold.split2073 ], [ %.1333, %1607 ], [ 2427, %switch.edge1963.fold.split2072 ], [ %.1334, %1616 ], [ 0, %1649 ], [ %.1335, %1624 ], [ %.1385, %2045 ], [ %.1336, %1633 ], [ %.1382, %2020 ], [ %.1337, %1641 ], [ %.1345, %1712 ], [ %.1338, %1650 ], [ %.1383, %2028 ], [ %.1339, %1658 ], [ 0, %1666 ], [ %.1340, %1667 ], [ %.1384, %2037 ], [ %.1341, %1675 ], [ %.1346, %1718 ], [ 2426, %switch.edge1963.fold.split2071 ], [ 2415, %1689 ], [ 2439, %switch.edge1963.fold.split2094 ], [ 2416, %switch.edge1963.fold.split2095 ], [ %.1351, %1762 ], [ 2418, %switch.edge1963.fold.split2097 ], [ 2443, %switch.edge1986 ], [ %.1408, %2232 ], [ 2424, %1691 ], [ 0, %1359 ], [ 0, %1376 ], [ 2425, %1698 ], [ 2419, %switch.edge1963.fold.split2098 ], [ 2426, %switch.edge1963.fold.split2099 ], [ 2422, %.fold.split1991 ], [ 2420, %12 ], [ 2430, %21 ], [ 2420, %30 ], [ 2440, %39 ], [ 2440, %48 ], [ 2480, %593 ]
+switch.edge1963:                                  ; preds = %588, %switch.lookup, %1698, %1698, %1689, %1689, %1680, %1680, %1061, %1061, %1053, %1053, %44, %44, %36, %36, %28, %28, %20, %20, %12, %12, %1697, %1697, %switch.edge1963.fold.split2106, %switch.edge1963.fold.split2105, %switch.edge1963.fold.split2104, %switch.edge1963.fold.split2103, %1688, %1688, %switch.edge1963.fold.split2102, %switch.edge1963.fold.split2101, %switch.edge1963.fold.split2100, %switch.edge1963.fold.split2099, %1679, %1679, %switch.edge1963.fold.split2098, %switch.edge1963.fold.split2097, %switch.edge1963.fold.split2096, %switch.edge1963.fold.split2095, %1060, %1060, %1052, %1052, %43, %43, %35, %35, %27, %27, %19, %19, %11, %11, %692, %switch.edge2019, %.fold.split2013, %.fold.split2011, %switch.edge2008, %.fold.split2002, %.fold.split2000, %switch.edge1997, %.fold.split1991, %.fold.split1989, %926, %745, %737, %729, %721, %713, %705, %689, %681, %673, %665, %657, %649, %640, %632, %624, %616, %608, %600, %585, %577, %569, %561, %553, %545, %4, %5, %13, %21, %29, %37, %45, %918, %986, %1046, %1054, %1447, %1457, %1467, %1477, %1487, %1497, %1582, %1673, %1682, %1691, %1700, %1706, %1716, %1946, %1956, %1966, %2126, %2230, %51, %132, %197, %270, %335, %400, %465, %538, %587, %642, %691, %747, %804, %861, %929, %1000, %1062, %1079, %1096, %1177, %1210, %1235, %1316, %1349, %1366, %1507, %1532, %1557, %1588, %1605, %1622, %1639, %1656, %1726, %1743, %1808, %1889, %1976, %2001, %2026, %2051, %2076, %2101, %2132, %2213, %2232, %2222, %2214, %2205, %2197, %2189, %2181, %2173, %2165, %2157, %2149, %2141, %2133, %2128, %2118, %2110, %2102, %2093, %2085, %2077, %2068, %2060, %2052, %2043, %2035, %2027, %2018, %2010, %2002, %1993, %1985, %1977, %1968, %1958, %1948, %1938, %1930, %1922, %1914, %1906, %1898, %1890, %1881, %1873, %1865, %1857, %1849, %1841, %1833, %1825, %1817, %1809, %1800, %1792, %1784, %1776, %1768, %1760, %1752, %1744, %1735, %1727, %1718, %1708, %1702, %1699, %1690, %1681, %1665, %1657, %1648, %1640, %1631, %1623, %1614, %1606, %1597, %1589, %1584, %1574, %1566, %1558, %1549, %1541, %1533, %1524, %1516, %1508, %1499, %1489, %1479, %1469, %1459, %1449, %1439, %1431, %1423, %1415, %1407, %1399, %1391, %1383, %1375, %1367, %1358, %1350, %1341, %1333, %1325, %1317, %1308, %1300, %1292, %1284, %1276, %1268, %1260, %1252, %1244, %1236, %1227, %1219, %1211, %1202, %1194, %1186, %1178, %1169, %1161, %1153, %1145, %1137, %1129, %1121, %1113, %1105, %1097, %1088, %1080, %1071, %1063, %1034, %1042, %1023, %1031, %1012, %1020, %1001, %1009, %996, %978, %970, %962, %954, %946, %938, %930, %910, %902, %894, %886, %878, %870, %862, %853, %845, %837, %829, %821, %813, %805, %796, %788, %780, %772, %764, %756, %748, %739, %731, %723, %715, %707, %699, %683, %675, %667, %659, %651, %643, %634, %626, %618, %610, %602, %594, %579, %571, %563, %555, %547, %539, %530, %522, %514, %506, %498, %490, %482, %474, %466, %457, %449, %441, %433, %425, %417, %409, %401, %392, %384, %376, %368, %360, %352, %344, %336, %327, %319, %311, %303, %295, %287, %279, %271, %262, %254, %246, %238, %230, %222, %214, %206, %198, %189, %181, %173, %165, %157, %149, %141, %133, %124, %116, %108, %100, %92, %84, %76, %68, %60, %52, %47, %1045, %.critedge2, %.critedge
+  %.0 = phi i32 [ %.1394, %2110 ], [ 2417, %switch.edge1963.fold.split2096 ], [ 2415, %11 ], [ %.1392, %2093 ], [ 2425, %1688 ], [ 0, %1726 ], [ %.1387, %2052 ], [ 0, %1808 ], [ %.1352, %1760 ], [ 2440, %1698 ], [ 0, %1946 ], [ 0, %1956 ], [ 2425, %19 ], [ 2427, %switch.edge1963.fold.split2100 ], [ %.1386, %2043 ], [ %.1397, %2133 ], [ %.1347, %1718 ], [ 2440, %1698 ], [ 0, %2051 ], [ 2420, %1680 ], [ 0, %2230 ], [ 0, %51 ], [ 2415, %27 ], [ %.1381, %2002 ], [ 2421, %.fold.split1989 ], [ %.1406, %2205 ], [ %.1376, %1958 ], [ 2430, %1689 ], [ 0, %2076 ], [ 2420, %1053 ], [ 0, %270 ], [ 0, %335 ], [ 2435, %35 ], [ 0, %1605 ], [ %.1375, %1948 ], [ %.1396, %2128 ], [ 2432, %.fold.split2002 ], [ 2440, %1061 ], [ 2415, %1679 ], [ 2440, %36 ], [ 0, %538 ], [ 0, %587 ], [ 2435, %43 ], [ %.1370, %1906 ], [ %.1404, %2189 ], [ %.1349, %1735 ], [ %.1365, %1865 ], [ 2440, %44 ], [ %.1338, %1640 ], [ 2430, %20 ], [ 0, %747 ], [ %.1176, %47 ], [ 0, %804 ], [ %.1177, %52 ], [ 2420, %28 ], [ %.1178, %60 ], [ %.1346, %1708 ], [ %.1179, %68 ], [ 0, %1966 ], [ %.1180, %76 ], [ 0, %2126 ], [ %.1181, %84 ], [ 2424, %1681 ], [ %.1182, %92 ], [ 2439, %switch.edge1963.fold.split2106 ], [ %.1183, %100 ], [ 0, %861 ], [ %.1184, %108 ], [ 0, %929 ], [ %.1185, %116 ], [ %.1337, %1631 ], [ %.1186, %124 ], [ 2440, %36 ], [ %.1187, %133 ], [ %.1330, %1574 ], [ %.1188, %141 ], [ 0, %1366 ], [ %.1189, %149 ], [ %.1369, %1898 ], [ %.1190, %157 ], [ 2435, %1697 ], [ %.1191, %165 ], [ 2437, %switch.edge1963.fold.split2104 ], [ %.1192, %173 ], [ %.1366, %1873 ], [ %.1193, %181 ], [ %.1393, %2102 ], [ %.1194, %189 ], [ %.1367, %1881 ], [ %.1195, %198 ], [ 2428, %switch.edge1963.fold.split2101 ], [ %.1196, %206 ], [ %.1368, %1890 ], [ %.1197, %214 ], [ %.1331, %1584 ], [ %.1198, %222 ], [ 2420, %12 ], [ %.1199, %230 ], [ 2435, %43 ], [ %.1200, %238 ], [ %.1345, %1702 ], [ %.1201, %246 ], [ 2415, %1679 ], [ %.1202, %254 ], [ 2425, %19 ], [ %.1203, %262 ], [ %.1383, %2018 ], [ %.1204, %271 ], [ %.1408, %2222 ], [ %.1205, %279 ], [ 2443, %switch.edge2019 ], [ %.1206, %287 ], [ 0, %642 ], [ %.1207, %295 ], [ 0, %691 ], [ %.1208, %303 ], [ 0, %1976 ], [ %.1209, %311 ], [ 2420, %28 ], [ %.1210, %319 ], [ %.1332, %1589 ], [ %.1211, %327 ], [ %.1336, %1623 ], [ %.1212, %336 ], [ %.1402, %2173 ], [ %.1213, %344 ], [ %.1374, %1938 ], [ %.1214, %352 ], [ %.1371, %1914 ], [ %.1215, %360 ], [ 0, %1532 ], [ %.1216, %368 ], [ %.1372, %1922 ], [ %.1217, %376 ], [ %.1403, %2181 ], [ %.1218, %384 ], [ %.1373, %1930 ], [ %.1219, %392 ], [ %.1400, %2157 ], [ %.1220, %401 ], [ %.1333, %1597 ], [ %.1221, %409 ], [ %.1382, %2010 ], [ %.1222, %417 ], [ 2435, %35 ], [ %.1223, %425 ], [ 0, %2101 ], [ %.1224, %433 ], [ 2416, %switch.edge1963.fold.split2095 ], [ %.1225, %441 ], [ 0, %2132 ], [ %.1226, %449 ], [ 0, %2213 ], [ %.1227, %457 ], [ %.1350, %1744 ], [ %.1228, %466 ], [ %.1353, %1768 ], [ %.1229, %474 ], [ 0, %400 ], [ %.1230, %482 ], [ 0, %465 ], [ %.1231, %490 ], [ %.1351, %1752 ], [ %.1232, %498 ], [ 2430, %20 ], [ %.1233, %506 ], [ %.1334, %1606 ], [ %.1234, %514 ], [ 0, %1639 ], [ %.1235, %522 ], [ %.1380, %1993 ], [ %.1236, %530 ], [ 2433, %switch.edge2008 ], [ 0, %1622 ], [ 0, %4 ], [ 2475, %539 ], [ 0, %1716 ], [ 2477, %547 ], [ 0, %5 ], [ 2472, %555 ], [ 0, %13 ], [ 2474, %563 ], [ 0, %21 ], [ 2478, %571 ], [ 0, %29 ], [ 2476, %579 ], [ %switch.load, %switch.lookup ], [ %.1325, %1533 ], [ 0, %1889 ], [ %.1324, %1524 ], [ 0, %1743 ], [ 2418, %switch.edge1963.fold.split2097 ], [ 0, %37 ], [ %spec.select1414, %585 ], [ 2482, %594 ], [ 0, %45 ], [ 2485, %602 ], [ 0, %918 ], [ 2479, %610 ], [ 0, %986 ], [ 2481, %618 ], [ 0, %1046 ], [ 2486, %626 ], [ 0, %1054 ], [ 2484, %634 ], [ 0, %1447 ], [ 2490, %643 ], [ 0, %1457 ], [ 2492, %651 ], [ 0, %1467 ], [ 2487, %659 ], [ 0, %1477 ], [ 2489, %667 ], [ 0, %1487 ], [ 2493, %675 ], [ 0, %1497 ], [ 2491, %683 ], [ 2440, %1061 ], [ %.1398, %2141 ], [ %.1405, %2197 ], [ %.1323, %1516 ], [ 0, %1582 ], [ %spec.select1426, %689 ], [ 2497, %699 ], [ 0, %1673 ], [ 2500, %707 ], [ 0, %1682 ], [ 2494, %715 ], [ 0, %1691 ], [ 2496, %723 ], [ 0, %1700 ], [ 2501, %731 ], [ 0, %1706 ], [ %.1239, %748 ], [ 2499, %739 ], [ %.1240, %756 ], [ %spec.select1432, %745 ], [ %.1241, %764 ], [ %spec.select1431, %737 ], [ %.1242, %772 ], [ %spec.select1430, %729 ], [ %.1243, %780 ], [ %spec.select1429, %721 ], [ %.1244, %788 ], [ %spec.select1428, %713 ], [ %.1245, %796 ], [ %spec.select1427, %705 ], [ %.1246, %805 ], [ %spec.select1425, %681 ], [ %.1247, %813 ], [ %spec.select1424, %673 ], [ %.1248, %821 ], [ %spec.select1423, %665 ], [ %.1249, %829 ], [ %spec.select1422, %657 ], [ %.1250, %837 ], [ %spec.select1421, %649 ], [ %.1251, %845 ], [ %spec.select1420, %640 ], [ %.1252, %853 ], [ %spec.select1419, %632 ], [ %.1253, %862 ], [ %spec.select1418, %624 ], [ %.1254, %870 ], [ %spec.select1417, %616 ], [ %.1255, %878 ], [ %spec.select1416, %608 ], [ %.1256, %886 ], [ %spec.select1415, %600 ], [ %.1257, %894 ], [ %spec.select1413, %577 ], [ %.1258, %902 ], [ %spec.select1412, %569 ], [ %.1259, %910 ], [ %spec.select1411, %561 ], [ %spec.select1410, %553 ], [ 2505, %.critedge ], [ %.1260, %930 ], [ 2504, %926 ], [ %.1261, %938 ], [ %spec.select, %545 ], [ %.1262, %946 ], [ %.1377, %1968 ], [ %.1263, %954 ], [ 2431, %.fold.split2000 ], [ %.1264, %962 ], [ %.1378, %1977 ], [ %.1265, %970 ], [ 2420, %1680 ], [ %.1266, %978 ], [ %.1379, %1985 ], [ %.1335, %1614 ], [ 2506, %.critedge2 ], [ 2460, %996 ], [ 2420, %12 ], [ 2510, %1001 ], [ 2422, %.fold.split1991 ], [ 2511, %1012 ], [ 2426, %switch.edge1963.fold.split2099 ], [ 2507, %1023 ], [ 2508, %1045 ], [ 2509, %1034 ], [ 2415, %1052 ], [ 2436, %switch.edge1963.fold.split2103 ], [ %.1364, %1857 ], [ %.1395, %2118 ], [ 2429, %switch.edge1963.fold.split2102 ], [ %698, %692 ], [ %.1391, %2085 ], [ 2425, %1688 ], [ 0, %1000 ], [ 0, %1062 ], [ 2435, %1060 ], [ %.1359, %1817 ], [ 2423, %switch.edge1997 ], [ %.1407, %2214 ], [ %.1354, %1776 ], [ 2419, %switch.edge1963.fold.split2098 ], [ %.1348, %1727 ], [ 0, %1349 ], [ 0, %1177 ], [ %.1269, %1063 ], [ 0, %1210 ], [ %.1270, %1071 ], [ %.1401, %2165 ], [ %.1271, %1080 ], [ 0, %1656 ], [ %.1272, %1088 ], [ %.1339, %1648 ], [ %.1273, %1097 ], [ %.1399, %2149 ], [ %.1274, %1105 ], [ 2415, %11 ], [ %.1275, %1113 ], [ %.1409, %2232 ], [ %.1276, %1121 ], [ 0, %1235 ], [ %.1277, %1129 ], [ 0, %1316 ], [ %.1278, %1137 ], [ %.1340, %1657 ], [ %.1279, %1145 ], [ 2420, %1053 ], [ %.1280, %1153 ], [ %.1326, %1541 ], [ %.1281, %1161 ], [ 0, %2001 ], [ %.1282, %1169 ], [ %.1358, %1809 ], [ %.1283, %1178 ], [ 0, %1507 ], [ %.1284, %1186 ], [ 2441, %.fold.split2011 ], [ %.1285, %1194 ], [ %.1355, %1784 ], [ %.1286, %1202 ], [ 2430, %1689 ], [ %.1287, %1211 ], [ %.1356, %1792 ], [ %.1288, %1219 ], [ 2438, %switch.edge1963.fold.split2105 ], [ %.1289, %1227 ], [ %.1357, %1800 ], [ %.1290, %1236 ], [ %.1327, %1549 ], [ %.1291, %1244 ], [ 0, %2026 ], [ %.1292, %1252 ], [ 2435, %1060 ], [ %.1293, %1260 ], [ %.1388, %2060 ], [ %.1294, %1268 ], [ %.1384, %2027 ], [ %.1295, %1276 ], [ 2444, %1699 ], [ %.1296, %1284 ], [ %.1389, %2068 ], [ %.1297, %1292 ], [ 2442, %.fold.split2013 ], [ %.1298, %1300 ], [ %.1390, %2077 ], [ %.1299, %1308 ], [ 0, %1079 ], [ %.1300, %1317 ], [ 0, %1096 ], [ %.1301, %1325 ], [ %.1341, %1665 ], [ %.1302, %1333 ], [ 2440, %44 ], [ %.1303, %1341 ], [ %.1328, %1558 ], [ %.1304, %1350 ], [ 0, %132 ], [ %.1305, %1358 ], [ 2434, %1690 ], [ %.1306, %1367 ], [ %.1363, %1849 ], [ %.1307, %1375 ], [ %.1360, %1825 ], [ %.1308, %1383 ], [ 0, %1557 ], [ %.1309, %1391 ], [ %.1361, %1833 ], [ %.1310, %1399 ], [ 0, %1588 ], [ %.1311, %1407 ], [ %.1362, %1841 ], [ %.1312, %1415 ], [ 2435, %1697 ], [ %.1313, %1423 ], [ %.1329, %1566 ], [ %.1314, %1431 ], [ 0, %197 ], [ %.1315, %1439 ], [ 2415, %1052 ], [ %.1316, %1449 ], [ 2509, %1042 ], [ %.1317, %1459 ], [ 2507, %1031 ], [ %.1318, %1469 ], [ 2511, %1020 ], [ %.1319, %1479 ], [ 2510, %1009 ], [ %.1320, %1489 ], [ %.1385, %2035 ], [ %.1321, %1499 ], [ 2415, %27 ], [ %.1322, %1508 ], [ 2480, %588 ]
   ret i32 %.0
 }
 
@@ -8279,7 +8102,7 @@ define dso_local { i64, i8 } @_ZNK4llvm6X86_MC18X86MCInstrAnalysis28evaluateMemo
 
 23:                                               ; preds = %17
   %24 = icmp ugt i16 %21, 1
-  br i1 %24, label %25, label %.thread.i
+  br i1 %24, label %25, label %.thread36.i
 
 25:                                               ; preds = %23
   %26 = load i16, ptr %12, align 8, !tbaa !102
@@ -8297,17 +8120,14 @@ define dso_local { i64, i8 } @_ZNK4llvm6X86_MC18X86MCInstrAnalysis28evaluateMemo
 
 _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i: ; preds = %25
   %36 = icmp eq i16 %21, 8
-  br i1 %36, label %37, label %.thread.i
+  br i1 %36, label %37, label %.thread36.i
 
 37:                                               ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %39 = load i16, ptr %38, align 2, !tbaa !135
   %40 = and i16 %39, 241
   %or.cond42.i = icmp eq i16 %40, 1
-  br i1 %or.cond42.i, label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, label %.thread.i
-
-.thread.i:                                        ; preds = %37, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i, %23
-  br label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
+  br i1 %or.cond42.i, label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, label %.thread36.i
 
 41:                                               ; preds = %17
   %42 = icmp ugt i16 %21, 3
@@ -8345,11 +8165,11 @@ _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit2
   %or.cond52.i = icmp eq i16 %61, 17
   br i1 %or.cond52.i, label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, label %.thread36.i
 
-.thread36.i:                                      ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i, %43, %41
+.thread36.i:                                      ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i, %43, %41, %37, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i, %23
   br label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
 
-_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit: ; preds = %17, %25, %37, %.thread.i, %54, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %.thread36.i
-  %.0.i = phi i32 [ 0, %.thread36.i ], [ 0, %17 ], [ 1, %25 ], [ 0, %.thread.i ], [ 1, %37 ], [ 2, %54 ], [ 2, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i ]
+_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit: ; preds = %17, %25, %37, %54, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %.thread36.i
+  %.0.i = phi i32 [ 0, %.thread36.i ], [ 0, %17 ], [ 1, %25 ], [ 2, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i ], [ 1, %37 ], [ 2, %54 ]
   %62 = add i32 %.0.i, %15
   %63 = add nsw i32 %62, 4
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -8619,7 +8439,7 @@ define dso_local { i64, i8 } @_ZNK4llvm6X86_MC18X86MCInstrAnalysis32getMemoryOpe
 
 20:                                               ; preds = %14
   %21 = icmp ugt i16 %18, 1
-  br i1 %21, label %22, label %.thread.i
+  br i1 %21, label %22, label %.thread36.i
 
 22:                                               ; preds = %20
   %23 = load i16, ptr %9, align 8, !tbaa !102
@@ -8637,17 +8457,14 @@ define dso_local { i64, i8 } @_ZNK4llvm6X86_MC18X86MCInstrAnalysis32getMemoryOpe
 
 _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i: ; preds = %22
   %33 = icmp eq i16 %18, 8
-  br i1 %33, label %34, label %.thread.i
+  br i1 %33, label %34, label %.thread36.i
 
 34:                                               ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %36 = load i16, ptr %35, align 2, !tbaa !135
   %37 = and i16 %36, 241
   %or.cond42.i = icmp eq i16 %37, 1
-  br i1 %or.cond42.i, label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, label %.thread.i
-
-.thread.i:                                        ; preds = %34, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i, %20
-  br label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
+  br i1 %or.cond42.i, label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, label %.thread36.i
 
 38:                                               ; preds = %14
   %39 = icmp ugt i16 %18, 3
@@ -8685,11 +8502,11 @@ _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit2
   %or.cond52.i = icmp eq i16 %58, 17
   br i1 %or.cond52.i, label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit, label %.thread36.i
 
-.thread36.i:                                      ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i, %40, %38
+.thread36.i:                                      ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit19.thread.i, %40, %38, %34, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread.i, %20
   br label %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit
 
-_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit: ; preds = %14, %22, %34, %.thread.i, %51, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %.thread36.i
-  %.0.i = phi i32 [ 0, %.thread36.i ], [ 0, %14 ], [ 1, %22 ], [ 0, %.thread.i ], [ 1, %34 ], [ 2, %51 ], [ 2, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i ]
+_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit: ; preds = %14, %22, %34, %51, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i, %.thread36.i
+  %.0.i = phi i32 [ 0, %.thread36.i ], [ 0, %14 ], [ 1, %22 ], [ 2, %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit28.thread.i ], [ 1, %34 ], [ 2, %51 ]
   %59 = add i32 %.0.i, %12
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !17

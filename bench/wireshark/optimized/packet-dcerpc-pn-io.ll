@@ -16962,9 +16962,9 @@ define internal fastcc void @dissect_PE_ServiceResponse_block(ptr noundef %0, i3
 79:                                               ; preds = %70
   %switch.tableidx = add i8 %67, -1
   %80 = icmp ult i8 %switch.tableidx, 4
-  br i1 %80, label %switch.lookup, label %.thread565
+  br i1 %80, label %switch.lookup, label %81
 
-81:                                               ; preds = %70
+81:                                               ; preds = %79, %70
   br label %.thread565
 
 82:                                               ; preds = %54
@@ -16996,8 +16996,8 @@ switch.lookup:                                    ; preds = %79
   %switch.masked = trunc i64 %switch.downshift to i16
   br label %.thread565
 
-.thread565:                                       ; preds = %79, %switch.lookup, %71, %76, %81, %74, %70
-  %.1513 = phi i16 [ %73, %71 ], [ %75, %74 ], [ %78, %76 ], [ %66, %81 ], [ 4606, %70 ], [ %switch.masked, %switch.lookup ], [ %66, %79 ]
+.thread565:                                       ; preds = %switch.lookup, %71, %76, %81, %74, %70
+  %.1513 = phi i16 [ %73, %71 ], [ %75, %74 ], [ %78, %76 ], [ %66, %81 ], [ %switch.masked, %switch.lookup ], [ 4606, %70 ]
   %100 = zext i16 %.1513 to i32
   %101 = call ptr @val_to_str_const(i32 noundef %100, ptr noundef nonnull @pn_io_pe_services_modifier, ptr noundef nonnull @.str.1400)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.1659, ptr noundef %101)

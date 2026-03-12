@@ -1118,7 +1118,7 @@ define internal noundef i32 @luaB_costatus(ptr noundef %0) #0 {
 
 6:                                                ; preds = %.split
   %7 = tail call i32 @lua_status(ptr noundef nonnull %4) #8
-  switch i32 %7, label %15 [
+  switch i32 %7, label %26 [
     i32 1, label %costatus.exit
     i32 0, label %8
   ]
@@ -1140,46 +1140,43 @@ define internal noundef i32 @luaB_costatus(ptr noundef %0) #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %costatus.exit
 
-15:                                               ; preds = %6
-  br label %costatus.exit
-
 .split7:                                          ; preds = %1
-  %16 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.72) #8
-  %17 = icmp eq ptr %0, null
-  br i1 %17, label %costatus.exit, label %18
+  %15 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.72) #8
+  %16 = icmp eq ptr %0, null
+  br i1 %16, label %costatus.exit, label %17
 
-18:                                               ; preds = %.split7
-  %19 = tail call i32 @lua_status(ptr noundef null) #8
-  switch i32 %19, label %27 [
+17:                                               ; preds = %.split7
+  %18 = tail call i32 @lua_status(ptr noundef null) #8
+  switch i32 %18, label %26 [
     i32 1, label %costatus.exit
-    i32 0, label %20
+    i32 0, label %19
   ]
 
-20:                                               ; preds = %18
+19:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %21 = call i32 @lua_getstack(ptr noundef null, i32 noundef 0, ptr noundef nonnull %2) #8
-  %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %26, label %23
+  %20 = call i32 @lua_getstack(ptr noundef null, i32 noundef 0, ptr noundef nonnull %2) #8
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %25, label %22
 
-23:                                               ; preds = %20
-  %24 = call i32 @lua_gettop(ptr noundef null) #8
-  %25 = icmp eq i32 %24, 0
-  %..i8 = select i1 %25, i64 3, i64 1
-  br label %26
+22:                                               ; preds = %19
+  %23 = call i32 @lua_gettop(ptr noundef null) #8
+  %24 = icmp eq i32 %23, 0
+  %..i8 = select i1 %24, i64 3, i64 1
+  br label %25
 
-26:                                               ; preds = %23, %20
-  %.1.i9 = phi i64 [ 2, %20 ], [ %..i8, %23 ]
+25:                                               ; preds = %22, %19
+  %.1.i9 = phi i64 [ 2, %19 ], [ %..i8, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %costatus.exit
 
-27:                                               ; preds = %18
+26:                                               ; preds = %6, %17
   br label %costatus.exit
 
-costatus.exit:                                    ; preds = %27, %26, %18, %.split7, %15, %14, %6, %.split
-  %phi.call = phi i64 [ 1, %6 ], [ %.1.i, %14 ], [ 3, %15 ], [ 0, %.split ], [ %.1.i9, %26 ], [ 3, %27 ], [ 0, %.split7 ], [ 1, %18 ]
-  %28 = getelementptr inbounds nuw [8 x i8], ptr @statnames, i64 %phi.call
-  %29 = load ptr, ptr %28, align 8, !tbaa !16
-  call void @lua_pushstring(ptr noundef %0, ptr noundef %29) #8
+costatus.exit:                                    ; preds = %26, %25, %17, %.split7, %14, %6, %.split
+  %phi.call = phi i64 [ 1, %6 ], [ %.1.i, %14 ], [ 1, %17 ], [ 0, %.split ], [ %.1.i9, %25 ], [ 3, %26 ], [ 0, %.split7 ]
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @statnames, i64 %phi.call
+  %28 = load ptr, ptr %27, align 8, !tbaa !16
+  call void @lua_pushstring(ptr noundef %0, ptr noundef %28) #8
   ret i32 1
 }
 

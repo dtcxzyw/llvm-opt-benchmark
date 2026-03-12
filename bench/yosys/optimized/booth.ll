@@ -6312,8 +6312,8 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i217.i: ; preds = %256, %.noexc
   br i1 %.not.i.i.i218.i, label %265, label %.invoke260.i
 
 .invoke260.i:                                     ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i237.i, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i232.i, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i227.i, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i222.i, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i217.i
-  %263 = phi i64 [ 0, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i232.i ], [ %indvars.iv.i, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i217.i ], [ %267, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i222.i ], [ 0, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i227.i ], [ 0, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i237.i ]
-  %264 = phi i64 [ 0, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i232.i ], [ %262, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i217.i ], [ %.pre-phi83.i, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i222.i ], [ 0, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i227.i ], [ 0, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i237.i ]
+  %263 = phi i64 [ %267, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i222.i ], [ %indvars.iv.i, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i217.i ], [ 0, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i227.i ], [ 0, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i232.i ], [ 0, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i237.i ]
+  %264 = phi i64 [ %.pre-phi83.i, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i222.i ], [ %262, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i217.i ], [ 0, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i227.i ], [ 0, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i232.i ], [ 0, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i237.i ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.21, i64 noundef %263, i64 noundef %264) #28
           to label %.cont261.i unwind label %.loopexit.split-lp.i
 

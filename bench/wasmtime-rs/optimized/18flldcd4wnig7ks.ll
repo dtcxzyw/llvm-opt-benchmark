@@ -10501,7 +10501,7 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform17address_transform16
   br i1 %203, label %.invoke, label %205
 
 .invoke:                                          ; preds = %.noexc34, %.noexc32, %.noexc
-  %204 = phi ptr [ @anon.f8aa87755bb4cbf303018e2f61381d7e.42, %.noexc32 ], [ @anon.f8aa87755bb4cbf303018e2f61381d7e.43, %.noexc ], [ @anon.f8aa87755bb4cbf303018e2f61381d7e.42, %.noexc34 ]
+  %204 = phi ptr [ @anon.f8aa87755bb4cbf303018e2f61381d7e.43, %.noexc ], [ @anon.f8aa87755bb4cbf303018e2f61381d7e.42, %.noexc32 ], [ @anon.f8aa87755bb4cbf303018e2f61381d7e.42, %.noexc34 ]
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) %204) #39
           to label %.cont unwind label %.loopexit.split-lp126
 

@@ -3332,7 +3332,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes11PixelOpcodeC2ERKNS_8R
   %.not.i.i.i.i.i.i34 = icmp samesign ugt i64 %51, %11
   br i1 %.not.i.i.i.i.i.i34, label %.invoke, label %52
 
-.invoke:                                          ; preds = %12, %4, %44, %41
+.invoke:                                          ; preds = %4, %12, %44, %41
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #12
           to label %.cont unwind label %39
 

@@ -1505,7 +1505,7 @@ ce_compare_data.exit:                             ; preds = %16
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %8, ptr noundef nonnull readonly dereferenceable(32) %18, i64 32)
   %.not.i.i.not = icmp eq i32 %bcmp.i.i, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.not.i.i.not, label %50, label %ce_compare_data.exit.thread
+  br i1 %.not.i.i.not, label %49, label %ce_compare_data.exit.thread
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -1564,7 +1564,7 @@ ce_compare_link.exit:                             ; preds = %30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %37, label %50, label %ce_compare_data.exit.thread
+  br i1 %37, label %49, label %ce_compare_data.exit.thread
 
 38:                                               ; preds = %3
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 52
@@ -1593,10 +1593,7 @@ ce_compare_gitlink.exit:                          ; preds = %43
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not.i.i14.not, label %49, label %ce_compare_data.exit.thread
 
-49:                                               ; preds = %ce_compare_gitlink.exit.thread, %ce_compare_gitlink.exit
-  br label %ce_compare_data.exit.thread
-
-50:                                               ; preds = %ce_compare_link.exit, %ce_compare_data.exit
+49:                                               ; preds = %ce_compare_data.exit, %ce_compare_link.exit, %ce_compare_gitlink.exit.thread, %ce_compare_gitlink.exit
   br label %ce_compare_data.exit.thread
 
 ce_compare_data.exit.thread.critedge:             ; preds = %30
@@ -1607,8 +1604,8 @@ ce_compare_data.exit.thread.critedge:             ; preds = %30
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ce_compare_data.exit.thread
 
-ce_compare_data.exit.thread:                      ; preds = %ce_compare_data.exit.thread.critedge, %12, %49, %ce_compare_gitlink.exit, %ce_compare_link.exit.thread23, %ce_compare_link.exit.thread, %ce_compare_data.exit.thread18, %3, %38, %ce_compare_link.exit, %ce_compare_data.exit, %50
-  %.0 = phi i32 [ 32, %ce_compare_link.exit ], [ 32, %ce_compare_link.exit.thread23 ], [ 0, %50 ], [ 32, %ce_compare_data.exit ], [ 64, %38 ], [ 64, %3 ], [ 32, %ce_compare_gitlink.exit ], [ 32, %ce_compare_data.exit.thread18 ], [ 32, %ce_compare_link.exit.thread ], [ 0, %49 ], [ 32, %12 ], [ 32, %ce_compare_data.exit.thread.critedge ]
+ce_compare_data.exit.thread:                      ; preds = %ce_compare_data.exit.thread.critedge, %12, %49, %ce_compare_gitlink.exit, %ce_compare_link.exit.thread23, %ce_compare_link.exit.thread, %ce_compare_data.exit.thread18, %3, %38, %ce_compare_link.exit, %ce_compare_data.exit
+  %.0 = phi i32 [ 32, %ce_compare_link.exit ], [ 32, %ce_compare_link.exit.thread23 ], [ 32, %ce_compare_data.exit.thread.critedge ], [ 32, %ce_compare_data.exit ], [ 64, %38 ], [ 64, %3 ], [ 32, %ce_compare_gitlink.exit ], [ 32, %ce_compare_data.exit.thread18 ], [ 32, %ce_compare_link.exit.thread ], [ 0, %49 ], [ 32, %12 ]
   ret i32 %.0
 }
 

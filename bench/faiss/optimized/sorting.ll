@@ -2927,7 +2927,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_128bucket_sort_inplace_parallelIiEEv
   br i1 %20, label %.invoke, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
 
 .invoke:                                          ; preds = %217, %194, %450, %427, %83, %12
-  %21 = phi ptr [ @.str.31, %450 ], [ @.str.3, %12 ], [ @.str.31, %83 ], [ @.str.31, %427 ], [ @.str.31, %194 ], [ @.str.31, %217 ]
+  %21 = phi ptr [ @.str.3, %12 ], [ @.str.31, %83 ], [ @.str.31, %450 ], [ @.str.31, %427 ], [ @.str.31, %194 ], [ @.str.31, %217 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %21) #29
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -5302,7 +5302,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_128bucket_sort_inplace_parallelIlEEv
   br i1 %19, label %.invoke, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
 
 .invoke:                                          ; preds = %213, %190, %440, %417, %79, %12
-  %20 = phi ptr [ @.str.31, %440 ], [ @.str.3, %12 ], [ @.str.31, %79 ], [ @.str.31, %417 ], [ @.str.31, %190 ], [ @.str.31, %213 ]
+  %20 = phi ptr [ @.str.3, %12 ], [ @.str.31, %79 ], [ @.str.31, %440 ], [ @.str.31, %417 ], [ @.str.31, %190 ], [ @.str.31, %213 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %20) #29
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

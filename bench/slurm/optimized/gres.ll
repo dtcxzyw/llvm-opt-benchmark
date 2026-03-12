@@ -13156,27 +13156,27 @@ define internal fastcc range(i32 0, 2120) i32 @_merge_generic_data(ptr noundef %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %7, i8 0, i64 7, i1 false)
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph, label %_generic_state.exit
+  br i1 %11, label %.lr.ph, label %_generic_state.exit.thread19
 
 .lr.ph:                                           ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %13
 
-13:                                               ; preds = %.lr.ph, %51
-  %14 = phi i32 [ %10, %.lr.ph ], [ %52, %51 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
+13:                                               ; preds = %.lr.ph, %_generic_state.exit
+  %14 = phi i32 [ %10, %.lr.ph ], [ %51, %_generic_state.exit ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_generic_state.exit ]
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i8, ptr %17, align 4, !range !13, !noundef !14
   %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %20, label %51
+  br i1 %19, label %20, label %_generic_state.exit
 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %51, label %23
+  br i1 %.not, label %_generic_state.exit, label %23
 
 23:                                               ; preds = %20
   %24 = load i8, ptr %5, align 2, !range !13, !noundef !14
@@ -13187,64 +13187,64 @@ define internal fastcc range(i32 0, 2120) i32 @_merge_generic_data(ptr noundef %
   br i1 %25, label %28, label %38
 
 28:                                               ; preds = %23
-  br i1 %.not18.i, label %29, label %_generic_state.exit
+  br i1 %.not18.i, label %29, label %_generic_state.exit.thread19
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %31 = load i64, ptr %30, align 8
   %.not19.i = icmp eq i64 %31, 0
-  br i1 %.not19.i, label %32, label %_generic_state.exit
+  br i1 %.not19.i, label %32, label %_generic_state.exit.thread19
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %34 = load i64, ptr %33, align 8
   %.not20.i = icmp eq i64 %34, 0
-  br i1 %.not20.i, label %35, label %_generic_state.exit
+  br i1 %.not20.i, label %35, label %_generic_state.exit.thread19
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %37 = load i64, ptr %36, align 8
   %.not21.i = icmp eq i64 %37, 0
-  br i1 %.not21.i, label %48, label %_generic_state.exit
+  br i1 %.not21.i, label %48, label %_generic_state.exit.thread19
 
 38:                                               ; preds = %23
-  br i1 %.not18.i, label %39, label %_generic_state.exit
+  br i1 %.not18.i, label %39, label %_generic_state.exit.thread19
 
 39:                                               ; preds = %38
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %41 = load i64, ptr %40, align 8
   %.not15.i = icmp eq i64 %41, 0
-  br i1 %.not15.i, label %42, label %_generic_state.exit
+  br i1 %.not15.i, label %42, label %_generic_state.exit.thread19
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %44 = load i64, ptr %43, align 8
   %.not16.i = icmp eq i64 %44, 0
-  br i1 %.not16.i, label %45, label %_generic_state.exit
+  br i1 %.not16.i, label %45, label %_generic_state.exit.thread19
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %47 = load i64, ptr %46, align 8
   %.not17.i = icmp eq i64 %47, 0
-  br i1 %.not17.i, label %48, label %_generic_state.exit
+  br i1 %.not17.i, label %48, label %_generic_state.exit.thread19
 
-48:                                               ; preds = %45, %35
+48:                                               ; preds = %35, %45
   store ptr %22, ptr %3, align 8
   %49 = load i32, ptr %16, align 8
   store i32 %49, ptr %8, align 4
   %50 = call i32 @list_delete_all(ptr noundef %0, ptr noundef nonnull @_foreach_merge_generic_data, ptr noundef nonnull %3) #28
   %.pre = load i32, ptr %9, align 4
-  br label %51
+  br label %_generic_state.exit
 
-51:                                               ; preds = %48, %13, %20
-  %52 = phi i32 [ %.pre, %48 ], [ %14, %13 ], [ %14, %20 ]
+_generic_state.exit:                              ; preds = %48, %20, %13
+  %51 = phi i32 [ %.pre, %48 ], [ %14, %20 ], [ %14, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = sext i32 %52 to i64
-  %54 = icmp slt i64 %indvars.iv.next, %53
-  br i1 %54, label %13, label %_generic_state.exit, !llvm.loop !106
+  %52 = sext i32 %51 to i64
+  %53 = icmp slt i64 %indvars.iv.next, %52
+  br i1 %53, label %13, label %_generic_state.exit.thread19, !llvm.loop !106
 
-_generic_state.exit:                              ; preds = %51, %35, %32, %29, %28, %45, %42, %39, %38, %2
-  %.1 = phi i32 [ 0, %2 ], [ 2119, %35 ], [ 2119, %45 ], [ 2119, %32 ], [ 2119, %29 ], [ 2119, %28 ], [ 2119, %42 ], [ 2119, %39 ], [ 2119, %38 ], [ 0, %51 ]
+_generic_state.exit.thread19:                     ; preds = %_generic_state.exit, %28, %29, %32, %35, %38, %39, %42, %45, %2
+  %.1 = phi i32 [ 0, %2 ], [ 2119, %28 ], [ 2119, %29 ], [ 2119, %32 ], [ 2119, %35 ], [ 2119, %38 ], [ 2119, %39 ], [ 2119, %42 ], [ 2119, %45 ], [ 0, %_generic_state.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }
@@ -19468,7 +19468,7 @@ define dso_local i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, p
 
 .thread:                                          ; preds = %49, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br label %286
+  br label %285
 
 ._crit_edge:                                      ; preds = %51, %36
   %.1103.lcssa = phi i16 [ 0, %36 ], [ %42, %51 ]
@@ -19909,11 +19909,11 @@ _get_step_gres_list_cnt.exit:                     ; preds = %gres_build_id.exit.
 
 221:                                              ; preds = %218
   %.not151 = icmp eq ptr %.2, null
-  br i1 %.not151, label %286, label %222
+  br i1 %.not151, label %285, label %222
 
 222:                                              ; preds = %221
   call void @list_destroy(ptr noundef nonnull %.2) #28
-  br label %286
+  br label %285
 
 223:                                              ; preds = %218
   %224 = icmp eq i32 %.pr.pr, 0
@@ -19948,21 +19948,21 @@ _get_step_gres_list_cnt.exit:                     ; preds = %gres_build_id.exit.
   %242 = icmp sgt i32 %241, 0
   br i1 %242, label %.lr.ph.i158, label %thread-pre-split
 
-.lr.ph.i158:                                      ; preds = %234, %280
-  %243 = phi i32 [ %281, %280 ], [ %241, %234 ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %280 ], [ 0, %234 ]
+.lr.ph.i158:                                      ; preds = %234, %_generic_state.exit.i
+  %243 = phi i32 [ %280, %_generic_state.exit.i ], [ %241, %234 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_generic_state.exit.i ], [ 0, %234 ]
   %244 = load ptr, ptr %226, align 8
   %245 = getelementptr inbounds nuw [16 x i8], ptr %244, i64 %indvars.iv.i
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 4
   %247 = load i8, ptr %246, align 4, !range !13, !noundef !14
   %248 = trunc nuw i8 %247 to i1
-  br i1 %248, label %249, label %280
+  br i1 %248, label %249, label %_generic_state.exit.i
 
 249:                                              ; preds = %.lr.ph.i158
   %250 = getelementptr inbounds nuw i8, ptr %245, i64 8
   %251 = load ptr, ptr %250, align 8
   %.not.i159 = icmp eq ptr %251, null
-  br i1 %.not.i159, label %280, label %252
+  br i1 %.not.i159, label %_generic_state.exit.i, label %252
 
 252:                                              ; preds = %249
   %253 = load i8, ptr %236, align 2, !range !13, !noundef !14
@@ -20020,22 +20020,22 @@ _get_step_gres_list_cnt.exit:                     ; preds = %gres_build_id.exit.
   store i32 %278, ptr %239, align 4
   %279 = call i32 @list_delete_all(ptr noundef %.2, ptr noundef nonnull @_foreach_merge_generic_data, ptr noundef nonnull %15) #28
   %.pre.i160 = load i32, ptr %240, align 4
-  br label %280
+  br label %_generic_state.exit.i
 
-280:                                              ; preds = %277, %249, %.lr.ph.i158
-  %281 = phi i32 [ %.pre.i160, %277 ], [ %243, %.lr.ph.i158 ], [ %243, %249 ]
+_generic_state.exit.i:                            ; preds = %277, %249, %.lr.ph.i158
+  %280 = phi i32 [ %.pre.i160, %277 ], [ %243, %249 ], [ %243, %.lr.ph.i158 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %282 = sext i32 %281 to i64
-  %283 = icmp slt i64 %indvars.iv.next.i, %282
-  br i1 %283, label %.lr.ph.i158, label %thread-pre-split, !llvm.loop !106
+  %281 = sext i32 %280 to i64
+  %282 = icmp slt i64 %indvars.iv.next.i, %281
+  br i1 %282, label %.lr.ph.i158, label %thread-pre-split, !llvm.loop !106
 
-thread-pre-split.thread228:                       ; preds = %264, %274, %261, %258, %257, %271, %268, %267
+thread-pre-split.thread228:                       ; preds = %257, %258, %261, %264, %267, %268, %271, %274
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @slurm_xfree(ptr noundef nonnull %226) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %.thread164
 
-thread-pre-split:                                 ; preds = %280, %234
+thread-pre-split:                                 ; preds = %_generic_state.exit.i, %234
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %thread-pre-split.thread
 
@@ -20043,33 +20043,33 @@ thread-pre-split.thread:                          ; preds = %225, %thread-pre-sp
   call void @slurm_xfree(ptr noundef nonnull %226) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   store ptr %.2, ptr %8, align 8
-  br label %286
+  br label %285
 
 .thread164:                                       ; preds = %thread-pre-split.thread228, %223
-  %284 = phi i32 [ %.pr.pr, %223 ], [ 2119, %thread-pre-split.thread228 ]
+  %283 = phi i32 [ %.pr.pr, %223 ], [ 2119, %thread-pre-split.thread228 ]
   %.not150 = icmp eq ptr %.2, null
-  br i1 %.not150, label %286, label %285
+  br i1 %.not150, label %285, label %284
 
-285:                                              ; preds = %.thread164
+284:                                              ; preds = %.thread164
   call void @list_destroy(ptr noundef nonnull %.2) #28
-  br label %286
+  br label %285
 
-286:                                              ; preds = %.thread, %.thread164, %285, %221, %222, %thread-pre-split.thread
-  %287 = phi i32 [ 2072, %.thread ], [ %284, %.thread164 ], [ %284, %285 ], [ %.pr.pr, %221 ], [ %.pr.pr, %222 ], [ 0, %thread-pre-split.thread ]
-  %288 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gres_context_lock) #28
-  %.not152 = icmp eq i32 %288, 0
-  br i1 %.not152, label %291, label %289
+285:                                              ; preds = %.thread, %.thread164, %284, %221, %222, %thread-pre-split.thread
+  %286 = phi i32 [ 2072, %.thread ], [ %283, %.thread164 ], [ %283, %284 ], [ %.pr.pr, %221 ], [ %.pr.pr, %222 ], [ 0, %thread-pre-split.thread ]
+  %287 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gres_context_lock) #28
+  %.not152 = icmp eq i32 %287, 0
+  br i1 %.not152, label %290, label %288
 
-289:                                              ; preds = %286
-  %290 = tail call ptr @__errno_location() #29
-  store i32 %288, ptr %290, align 4
+288:                                              ; preds = %285
+  %289 = tail call ptr @__errno_location() #29
+  store i32 %287, ptr %289, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.gres_step_state_validate) #30
   unreachable
 
-291:                                              ; preds = %286
+290:                                              ; preds = %285
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  ret i32 %287
+  ret i32 %286
 }
 
 ; Function Attrs: nounwind uwtable

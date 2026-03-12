@@ -46421,10 +46421,7 @@ define ptr @_ZN6duckdb28SingleFileStorageCommitState15GetRowGroupDataERNS_9DataT
   %41 = load i64, ptr %40, align 8, !tbaa !1548
   %42 = urem i64 %41, %18
   %.not19.i.i.i.i = icmp eq i64 %42, %19
-  br i1 %.not19.i.i.i.i, label %32, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !1845
-
-..loopexit_crit_edge21.i.i.i.i:                   ; preds = %39
-  br label %.loopexit, !llvm.loop !1845
+  br i1 %.not19.i.i.i.i, label %32, label %..loopexit_crit_edge21.i.i.i.i11, !llvm.loop !1845
 
 _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb9DataTableEES_ImNS1_33OptimisticallyWrittenRowGroupDataESt4hashImESt8equal_toImESaISt4pairIKmS4_EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaIS9_IKS3_SD_EEE4findERSI_.exit: ; preds = %32, %10, %23
   %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %10 ], [ %24, %23 ], [ %38, %32 ]
@@ -46484,7 +46481,7 @@ _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb9DataTableEES_ImNS1_33Optimis
   %.not19.i.i.i.i10 = icmp eq i64 %71, %56
   br i1 %.not19.i.i.i.i10, label %65, label %..loopexit_crit_edge21.i.i.i.i11, !llvm.loop !1826
 
-..loopexit_crit_edge21.i.i.i.i11:                 ; preds = %68
+..loopexit_crit_edge21.i.i.i.i11:                 ; preds = %39, %68
   br label %.loopexit, !llvm.loop !1826
 
 _ZNSt13unordered_mapImN6duckdb33OptimisticallyWrittenRowGroupDataESt4hashImESt8equal_toImESaISt4pairIKmS1_EEE4findERS7_.exit: ; preds = %65, %48, %60
@@ -46496,8 +46493,8 @@ _ZNSt13unordered_mapImN6duckdb33OptimisticallyWrittenRowGroupDataESt4hashImESt8e
   %75 = load ptr, ptr %74, align 8, !tbaa !1827
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %9, %.lr.ph.i.i.i.i7, %47, %_ZNSt13unordered_mapImN6duckdb33OptimisticallyWrittenRowGroupDataESt4hashImESt8equal_toImESaISt4pairIKmS1_EEE4findERS7_.exit, %..loopexit_crit_edge21.i.i.i.i11, %52, %14, %..loopexit_crit_edge21.i.i.i.i
-  %.sroa.025.0 = phi ptr [ null, %9 ], [ null, %..loopexit_crit_edge21.i.i.i.i ], [ null, %.lr.ph.i.i.i.i7 ], [ null, %14 ], [ %75, %_ZNSt13unordered_mapImN6duckdb33OptimisticallyWrittenRowGroupDataESt4hashImESt8equal_toImESaISt4pairIKmS1_EEE4findERS7_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i11 ], [ null, %47 ], [ null, %52 ], [ null, %.lr.ph.i.i.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %9, %.lr.ph.i.i.i.i7, %47, %_ZNSt13unordered_mapImN6duckdb33OptimisticallyWrittenRowGroupDataESt4hashImESt8equal_toImESaISt4pairIKmS1_EEE4findERS7_.exit, %..loopexit_crit_edge21.i.i.i.i11, %52, %14
+  %.sroa.025.0 = phi ptr [ null, %52 ], [ null, %9 ], [ null, %.lr.ph.i.i.i.i7 ], [ null, %14 ], [ %75, %_ZNSt13unordered_mapImN6duckdb33OptimisticallyWrittenRowGroupDataESt4hashImESt8equal_toImESaISt4pairIKmS1_EEE4findERS7_.exit ], [ null, %..loopexit_crit_edge21.i.i.i.i11 ], [ null, %47 ], [ null, %.lr.ph.i.i.i.i ]
   ret ptr %.sroa.025.0
 }
 

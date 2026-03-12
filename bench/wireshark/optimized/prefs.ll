@@ -10767,8 +10767,6 @@ define zeroext i1 @prefs_pref_is_default(ptr noundef %0) local_unnamed_addr #1 {
     i32 4, label %38
     i32 8, label %45
     i32 9, label %64
-    i32 5, label %69
-    i32 6, label %69
   ]
 
 10:                                               ; preds = %.split
@@ -10851,8 +10849,8 @@ define zeroext i1 @prefs_pref_is_default(ptr noundef %0) local_unnamed_addr #1 {
 68:                                               ; preds = %6, %45, %52, %58, %38, %31, %24, %17, %10, %.split
   br label %69
 
-69:                                               ; preds = %.split, %.split, %58, %38, %31, %24, %17, %10, %2, %1, %68, %64
-  %.0 = phi i1 [ false, %1 ], [ false, %68 ], [ false, %2 ], [ true, %10 ], [ true, %17 ], [ true, %24 ], [ true, %31 ], [ true, %38 ], [ %67, %64 ], [ true, %58 ], [ false, %.split ], [ false, %.split ]
+69:                                               ; preds = %58, %38, %31, %24, %17, %10, %2, %1, %68, %64
+  %.0 = phi i1 [ false, %1 ], [ false, %68 ], [ false, %2 ], [ true, %10 ], [ true, %17 ], [ true, %24 ], [ true, %31 ], [ true, %38 ], [ %67, %64 ], [ true, %58 ]
   ret i1 %.0
 }
 

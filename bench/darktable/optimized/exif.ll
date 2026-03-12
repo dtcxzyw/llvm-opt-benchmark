@@ -7281,8 +7281,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   %switch.load3333 = load i32, ptr %switch.gep3332, align 4
   br label %.noexc.i1728.sink.split
 
-.noexc.i1728.sink.split:                          ; preds = %.noexc.i1728.sink.split.sink.split, %1484, %1454
-  %.0.i1722.sink = phi i32 [ 0, %1454 ], [ 0, %1484 ], [ %switch.load3333, %.noexc.i1728.sink.split.sink.split ]
+.noexc.i1728.sink.split:                          ; preds = %.noexc.i1728.sink.split.sink.split, %1454, %1484
+  %.0.i1722.sink = phi i32 [ 0, %1484 ], [ 0, %1454 ], [ %switch.load3333, %.noexc.i1728.sink.split.sink.split ]
   %1496 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.0.i1722.sink, ptr %1496, align 4, !tbaa !157
   br label %.noexc.i1728

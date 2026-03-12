@@ -23568,7 +23568,7 @@ switch.lookup271:                                 ; preds = %switch.hole_check27
   br label %.thread212
 
 .thread212:                                       ; preds = %switch.lookup271, %switch.lookup265, %switch.lookup, %131, %143, %139, %135, %129
-  %.0.ph = phi i32 [ %130, %129 ], [ %switch.load276, %switch.lookup271 ], [ 16777231, %131 ], [ %144, %143 ], [ %140, %139 ], [ %switch.load, %switch.lookup ], [ %switch.load267, %switch.lookup265 ], [ %136, %135 ]
+  %.0.ph = phi i32 [ %switch.load, %switch.lookup ], [ %switch.load276, %switch.lookup271 ], [ %144, %143 ], [ %130, %129 ], [ %136, %135 ], [ %switch.load267, %switch.lookup265 ], [ 16777231, %131 ], [ %140, %139 ]
   %165 = or i32 %.0.ph, %.4
   br label %172
 

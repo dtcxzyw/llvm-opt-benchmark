@@ -36811,7 +36811,7 @@ _ZNK4toml2v34impl7impl_ex6parser16current_positionEj.exit39: ; preds = %72, %51
   br i1 %106, label %.invoke, label %_ZNKSt6vectorISt4pairImmESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
 .invoke:                                          ; preds = %154, %130, %_ZNSt6vectorISt4pairImmESaIS1_EE9push_backEOS1_.exit.i, %101
-  %107 = phi ptr [ @.str.63, %130 ], [ @.str.63, %101 ], [ @.str.65, %_ZNSt6vectorISt4pairImmESaIS1_EE9push_backEOS1_.exit.i ], [ @.str.63, %154 ]
+  %107 = phi ptr [ @.str.65, %_ZNSt6vectorISt4pairImmESaIS1_EE9push_backEOS1_.exit.i ], [ @.str.63, %101 ], [ @.str.63, %130 ], [ @.str.63, %154 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %107) #57
           to label %.cont unwind label %.loopexit.split-lp
 

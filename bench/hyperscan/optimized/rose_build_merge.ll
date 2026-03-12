@@ -34102,10 +34102,10 @@ _ZNKSt13unordered_mapIPN3ue211CastleProtoESt6vectorINS0_12graph_detail17vertex_d
   %.not19.i.i.i.i.i.i = icmp eq i64 %228, %209
   br i1 %.not19.i.i.i.i.i.i, label %221, label %..loopexit_crit_edge21.i.i.i.i.i.i, !llvm.loop !1016
 
-..loopexit_crit_edge21.i.i.i.i.i.i:               ; preds = %224
+..loopexit_crit_edge21.i.i.i.i.i.i:               ; preds = %236, %224, %.lr.ph.i.i.i.i.i14.i, %.preheader.i, %..loopexit_crit_edge21.i.i.i.i.i18.i
   br label %.loopexit.i.i.i.invoke, !llvm.loop !1016
 
-.loopexit.i.i.i.invoke:                           ; preds = %236, %206, %.lr.ph.i.i.i.i.i.i52, %.preheader31.i, %.lr.ph.i.i.i.i.i14.i, %.preheader.i, %..loopexit_crit_edge21.i.i.i.i.i18.i, %..loopexit_crit_edge21.i.i.i.i.i.i
+.loopexit.i.i.i.invoke:                           ; preds = %206, %.lr.ph.i.i.i.i.i.i52, %.preheader31.i, %..loopexit_crit_edge21.i.i.i.i.i.i
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.14) #25
           to label %.loopexit.i.i.i.cont unwind label %.loopexit.split-lp
 
@@ -34129,7 +34129,7 @@ _ZNKSt13unordered_mapIPN3ue211CastleProtoESt6vectorINS0_12graph_detail17vertex_d
   %.sroa.06.0.in.i.i.i21.i = phi ptr [ %.sroa.06.0.i.i.i22.i, %232 ], [ %22, %_ZNKSt13unordered_mapIPN3ue211CastleProtoESt6vectorINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaISB_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_SD_EEE2atERSJ_.exit.i ]
   %.sroa.06.0.i.i.i22.i = load ptr, ptr %.sroa.06.0.in.i.i.i21.i, align 8
   %.not.i.i.i23.i = icmp eq ptr %.sroa.06.0.i.i.i22.i, null
-  br i1 %.not.i.i.i23.i, label %.loopexit.i.i.i.invoke, label %232
+  br i1 %.not.i.i.i23.i, label %..loopexit_crit_edge21.i.i.i.i.i.i, label %232
 
 232:                                              ; preds = %.preheader.i
   %233 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i22.i, i64 8
@@ -34146,7 +34146,7 @@ _ZNKSt13unordered_mapIPN3ue211CastleProtoESt6vectorINS0_12graph_detail17vertex_d
   %242 = getelementptr inbounds nuw [8 x i8], ptr %237, i64 %241
   %243 = load ptr, ptr %242, align 8
   %.not.i.i.i.i.i13.i = icmp eq ptr %243, null
-  br i1 %.not.i.i.i.i.i13.i, label %.loopexit.i.i.i.invoke, label %244
+  br i1 %.not.i.i.i.i.i13.i, label %..loopexit_crit_edge21.i.i.i.i.i.i, label %244
 
 244:                                              ; preds = %236
   %245 = load ptr, ptr %243, align 8
@@ -34163,7 +34163,7 @@ _ZNKSt13unordered_mapIPN3ue211CastleProtoESt6vectorINS0_12graph_detail17vertex_d
   %.020.i.i.i.i.i15.i = phi ptr [ %251, %249 ], [ %245, %244 ]
   %251 = load ptr, ptr %.020.i.i.i.i.i15.i, align 8
   %.not18.i.i.i.i.i16.i = icmp eq ptr %251, null
-  br i1 %.not18.i.i.i.i.i16.i, label %.loopexit.i.i.i.invoke, label %252
+  br i1 %.not18.i.i.i.i.i16.i, label %..loopexit_crit_edge21.i.i.i.i.i.i, label %252
 
 252:                                              ; preds = %.lr.ph.i.i.i.i.i14.i
   %253 = getelementptr inbounds nuw i8, ptr %251, i64 8
@@ -34174,7 +34174,7 @@ _ZNKSt13unordered_mapIPN3ue211CastleProtoESt6vectorINS0_12graph_detail17vertex_d
   br i1 %.not19.i.i.i.i.i17.i, label %249, label %..loopexit_crit_edge21.i.i.i.i.i18.i, !llvm.loop !1016
 
 ..loopexit_crit_edge21.i.i.i.i.i18.i:             ; preds = %252
-  br label %.loopexit.i.i.i.invoke, !llvm.loop !1016
+  br label %..loopexit_crit_edge21.i.i.i.i.i.i, !llvm.loop !1016
 
 _ZNKSt13unordered_mapIPN3ue211CastleProtoESt6vectorINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaISB_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_SD_EEE2atERSJ_.exit24.i: ; preds = %249, %232, %244
   %257 = phi ptr [ %231, %232 ], [ %239, %244 ], [ %239, %249 ]

@@ -1509,13 +1509,13 @@ define hidden noundef zeroext i1 @"_ZN3mbe8expander7matcher98_$LT$impl$u20$mbe..
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %12, ptr %13, align 8
   %14 = load i64, ptr %1, align 8, !range !299, !noundef !4
-  switch i64 %14, label %default.unreachable50 [
+  switch i64 %14, label %default.unreachable48 [
     i64 0, label %15
     i64 1, label %28
     i64 2, label %37
   ]
 
-default.unreachable50:                            ; preds = %2
+default.unreachable48:                            ; preds = %2
   unreachable
 
 default.unreachable:                              ; preds = %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit"
@@ -1569,13 +1569,13 @@ default.unreachable:                              ; preds = %"_ZN3mbe7tt_iter15T
   call void @"_ZN3mbe7tt_iter15TtIter$LT$S$GT$18expect_glued_punct17h8b9f8e39b02ccc88E"(ptr noalias noundef nonnull sret({ i64, [12 x i64] }) align 8 captures(none) dereferenceable(104) %8, ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
   %38 = load i64, ptr %8, align 8, !range !312, !noundef !4
   %trunc = trunc nuw i64 %38 to i1
-  br i1 %trunc, label %.thread41, label %51
+  br i1 %trunc, label %.thread39, label %51
 
-.thread41:                                        ; preds = %37
+.thread39:                                        ; preds = %37
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
-"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit": ; preds = %23, %26
+"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit": ; preds = %26, %23
   %.pr = load i32, ptr %10, align 8
   switch i32 %.pr, label %default.unreachable [
     i32 0, label %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit.thread35"
@@ -1708,7 +1708,7 @@ default.unreachable:                              ; preds = %"_ZN3mbe7tt_iter15T
 
 ._crit_edge:                                      ; preds = %95
   %.pre = load ptr, ptr %9, align 8
-  %.pre43 = load ptr, ptr %13, align 8
+  %.pre41 = load ptr, ptr %13, align 8
   br label %99
 
 96:                                               ; preds = %49
@@ -1720,13 +1720,13 @@ default.unreachable:                              ; preds = %"_ZN3mbe7tt_iter15T
 98:                                               ; preds = %49
   resume { ptr, i32 } %50
 
-.thread:                                          ; preds = %28, %30, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.i25", %15, %17, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.i", %26, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit", %.thread41, %42, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit.thread35", %95, %99, %45
-  %.139 = phi i1 [ false, %.thread41 ], [ true, %99 ], [ false, %45 ], [ false, %95 ], [ false, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit.thread35" ], [ false, %42 ], [ false, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit" ], [ false, %26 ], [ false, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.i" ], [ false, %17 ], [ false, %15 ], [ false, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.i25" ], [ false, %30 ], [ false, %28 ]
+.thread:                                          ; preds = %28, %30, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.i25", %17, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.i", %15, %26, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit", %.thread39, %42, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit.thread35", %95, %99, %45
+  %.137 = phi i1 [ false, %.thread39 ], [ true, %99 ], [ false, %45 ], [ false, %95 ], [ false, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit.thread35" ], [ false, %42 ], [ false, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit" ], [ false, %26 ], [ false, %15 ], [ false, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.i" ], [ false, %17 ], [ false, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.i25" ], [ false, %30 ], [ false, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  ret i1 %.139
+  ret i1 %.137
 
 99:                                               ; preds = %._crit_edge, %42, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit.thread35", %45
-  %100 = phi ptr [ %.pre43, %._crit_edge ], [ %12, %42 ], [ %12, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit.thread35" ], [ %12, %45 ]
+  %100 = phi ptr [ %.pre41, %._crit_edge ], [ %12, %42 ], [ %12, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit.thread35" ], [ %12, %45 ]
   %101 = phi ptr [ %.pre, %._crit_edge ], [ %18, %42 ], [ %18, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit.thread35" ], [ %31, %45 ]
   store ptr %101, ptr %0, align 8
   store ptr %100, ptr %11, align 8

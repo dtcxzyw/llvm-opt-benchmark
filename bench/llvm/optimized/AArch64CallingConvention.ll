@@ -1605,7 +1605,7 @@ _ZNK4llvm3MVT13is32BitVectorEv.exit:              ; preds = %27
 33:                                               ; preds = %27
   switch i16 %23, label %34 [
     i16 13, label %.critedge
-    i16 15, label %.critedge.fold.split
+    i16 15, label %.critedge.fold.split109
   ]
 
 34:                                               ; preds = %33
@@ -1619,15 +1619,12 @@ _ZNK4llvm3MVT13is32BitVectorEv.exit:              ; preds = %27
   %spec.select74 = select i1 %switch, ptr @_ZL8PRegList, ptr @_ZL8ZRegList
   br label %.critedge
 
-.critedge.fold.split:                             ; preds = %33
+.critedge.fold.split109:                          ; preds = %33, %_ZNK4llvm3MVT13is32BitVectorEv.exit
   br label %.critedge
 
-.critedge.fold.split109:                          ; preds = %_ZNK4llvm3MVT13is32BitVectorEv.exit
-  br label %.critedge
-
-.critedge:                                        ; preds = %_ZNK4llvm3MVT13is32BitVectorEv.exit, %.critedge.fold.split109, %36, %33, %.critedge.fold.split, %26, %21, %32
-  %.sroa.13.0 = phi i64 [ 8, %21 ], [ 8, %32 ], [ 8, %26 ], [ 8, %33 ], [ 8, %.critedge.fold.split ], [ %spec.select73, %36 ], [ 8, %_ZNK4llvm3MVT13is32BitVectorEv.exit ], [ 8, %.critedge.fold.split109 ]
-  %.sroa.048.0 = phi ptr [ @_ZL8XRegList, %21 ], [ @_ZL8SRegList, %32 ], [ @_ZL8HRegList, %26 ], [ @_ZL8DRegList, %33 ], [ @_ZL8QRegList, %.critedge.fold.split ], [ %spec.select74, %36 ], [ @_ZL8DRegList, %_ZNK4llvm3MVT13is32BitVectorEv.exit ], [ @_ZL8QRegList, %.critedge.fold.split109 ]
+.critedge:                                        ; preds = %_ZNK4llvm3MVT13is32BitVectorEv.exit, %.critedge.fold.split109, %36, %33, %26, %21, %32
+  %.sroa.13.0 = phi i64 [ 8, %21 ], [ 8, %32 ], [ 8, %26 ], [ 8, %33 ], [ 8, %.critedge.fold.split109 ], [ %spec.select73, %36 ], [ 8, %_ZNK4llvm3MVT13is32BitVectorEv.exit ]
+  %.sroa.048.0 = phi ptr [ @_ZL8XRegList, %21 ], [ @_ZL8SRegList, %32 ], [ @_ZL8HRegList, %26 ], [ @_ZL8DRegList, %33 ], [ @_ZL8QRegList, %.critedge.fold.split109 ], [ %spec.select74, %36 ], [ @_ZL8DRegList, %_ZNK4llvm3MVT13is32BitVectorEv.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 144
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.034.0.copyload = load i16, ptr %0, align 2, !tbaa !26
@@ -5113,7 +5110,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit255: ; preds = %_ZNK4llvm7CCS
     i16 92, label %.critedge10
   ]
 
-.critedge10:                                      ; preds = %.thread735, %.thread592, %.thread735, %.thread592, %.thread592, %.thread735, %.thread592, %.thread735, %.thread592, %.thread735, %.thread592, %.thread735, %.thread592, %.thread592, %.thread735
+.critedge10:                                      ; preds = %.thread735, %.thread735, %.thread592, %.thread592, %.thread735, %.thread592, %.thread735, %.thread592, %.thread735, %.thread592, %.thread592, %.thread735, %.thread592, %.thread592, %.thread735
   %437 = tail call i32 @_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE(ptr noundef nonnull align 8 dereferenceable(420) %6, ptr nonnull @_ZZN4llvm20CC_AArch64_DarwinPCSEjNS_3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateEE9RegList13, i64 8)
   %.not178.not = icmp eq i32 %437, 0
   br i1 %.not178.not, label %.thread776, label %438

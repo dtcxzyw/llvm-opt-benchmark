@@ -1749,7 +1749,7 @@ define range(i32 -2, 2) i32 @Sbd_ManCollectConstants(ptr noundef %0, ptr noundef
 sat_solver_random_polarity.exit.us:               ; preds = %.critedge.i.us, %.lr.ph44.split.us
   %37 = call i32 @sat_solver_solve(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %12, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #12
   switch i32 %37, label %.preheader.us [
-    i32 0, label %.thread.loopexit
+    i32 0, label %.thread.loopexit90
     i32 -1, label %.thread
   ]
 
@@ -1817,7 +1817,7 @@ sat_solver_random_polarity.exit.us:               ; preds = %.critedge.i.us, %.l
 sat_solver_random_polarity.exit:                  ; preds = %.critedge.i, %.lr.ph44.split
   %65 = call i32 @sat_solver_solve(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %12, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #12
   switch i32 %65, label %.preheader [
-    i32 0, label %.thread.loopexit94
+    i32 0, label %.thread.loopexit95
     i32 -1, label %.thread
   ]
 
@@ -1854,14 +1854,14 @@ sat_solver_random_polarity.exit:                  ; preds = %.critedge.i, %.lr.p
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %71, !llvm.loop !69
 
-.thread.loopexit:                                 ; preds = %sat_solver_random_polarity.exit.us
+.thread.loopexit90:                               ; preds = %sat_solver_random_polarity.exit.us
   br label %.thread
 
-.thread.loopexit94:                               ; preds = %sat_solver_random_polarity.exit
+.thread.loopexit95:                               ; preds = %sat_solver_random_polarity.exit
   br label %.thread
 
-.thread:                                          ; preds = %sat_solver_random_polarity.exit, %sat_solver_random_polarity.exit.us, %.thread.loopexit94, %.thread.loopexit
-  %.1.ph = phi i32 [ -2, %.thread.loopexit94 ], [ -2, %.thread.loopexit ], [ %17, %sat_solver_random_polarity.exit.us ], [ %45, %sat_solver_random_polarity.exit ]
+.thread:                                          ; preds = %sat_solver_random_polarity.exit, %sat_solver_random_polarity.exit.us, %.thread.loopexit95, %.thread.loopexit90
+  %.1.ph = phi i32 [ -2, %.thread.loopexit95 ], [ %17, %sat_solver_random_polarity.exit.us ], [ -2, %.thread.loopexit90 ], [ %45, %sat_solver_random_polarity.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 

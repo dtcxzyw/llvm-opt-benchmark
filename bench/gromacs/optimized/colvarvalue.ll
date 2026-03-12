@@ -2021,9 +2021,9 @@ define void @_ZN11colvarvalue17apply_constraintsEv(ptr noundef nonnull align 8 d
   %3 = alloca %"class.colvarmodule::vector1d", align 8
   %4 = load i32, ptr %0, align 8, !tbaa !4
   switch i32 %4, label %.loopexit [
+    i32 3, label %5
     i32 7, label %35
     i32 5, label %18
-    i32 3, label %5
   ]
 
 5:                                                ; preds = %1
@@ -2784,8 +2784,8 @@ _ZN12colvarmodule8vector1dIdE6resizeEm.exit:      ; preds = %56, %54, %52, %50, 
 define void @_ZN11colvarvalue13is_derivativeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(168) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 8, !tbaa !4
   switch i32 %2, label %_ZN11colvarvalue4typeERKNS_4TypeE.exit [
-    i32 5, label %_ZN12colvarmodule8vector1dIdE5clearEv.exit.i7
     i32 3, label %_ZN12colvarmodule8vector1dIdE5clearEv.exit.i
+    i32 5, label %_ZN12colvarmodule8vector1dIdE5clearEv.exit.i7
   ]
 
 _ZN12colvarmodule8vector1dIdE5clearEv.exit.i:     ; preds = %1

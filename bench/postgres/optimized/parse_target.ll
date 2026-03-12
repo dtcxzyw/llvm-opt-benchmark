@@ -1929,25 +1929,25 @@ define internal fastcc range(i32 0, 3) i32 @FigureColnameInternal(ptr noundef re
     i32 73, label %55
     i32 74, label %tailrecurse.backedge
     i32 10, label %.critedge135.sink.split.loopexit
-    i32 13, label %.critedge135.sink.split.loopexit282
+    i32 13, label %.critedge135.sink.split.loopexit283
     i32 22, label %74
-    i32 32, label %90
-    i32 80, label %.critedge135.sink.split
-    i32 36, label %95
-    i32 38, label %96
-    i32 39, label %97
-    i32 40, label %101
-    i32 41, label %105
-    i32 95, label %109
-    i32 127, label %110
-    i32 128, label %111
-    i32 129, label %112
-    i32 130, label %113
-    i32 131, label %114
-    i32 132, label %114
-    i32 134, label %115
-    i32 135, label %116
-    i32 122, label %117
+    i32 32, label %89
+    i32 80, label %.loopexit
+    i32 36, label %.critedge135.sink.split
+    i32 38, label %94
+    i32 39, label %95
+    i32 40, label %99
+    i32 41, label %103
+    i32 95, label %.loopexit253
+    i32 127, label %107
+    i32 128, label %108
+    i32 129, label %109
+    i32 130, label %110
+    i32 131, label %111
+    i32 132, label %111
+    i32 134, label %112
+    i32 135, label %113
+    i32 122, label %114
   ]
 
 5:                                                ; preds = %.lr.ph174
@@ -2094,66 +2094,72 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %22, %.lr.p
   %76 = load i32, ptr %75, align 4
   switch i32 %76, label %.critedge135 [
     i32 0, label %.critedge135.sink.split
-    i32 6, label %77
-    i32 4, label %78
+    i32 6, label %.loopexit
+    i32 4, label %77
   ]
+
+.loopexit:                                        ; preds = %.lr.ph174, %74
+  br label %.critedge135.sink.split
 
 77:                                               ; preds = %74
-  br label %.critedge135.sink.split
+  %78 = getelementptr inbounds nuw i8, ptr %.tr173, i64 32
+  %79 = load ptr, ptr %78, align 8
+  %80 = load i32, ptr %79, align 4
+  %81 = icmp eq i32 %80, 67
+  br i1 %81, label %82, label %.critedge135
 
-78:                                               ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %.tr173, i64 32
-  %80 = load ptr, ptr %79, align 8
-  %81 = load i32, ptr %80, align 4
-  %82 = icmp eq i32 %81, 67
-  br i1 %82, label %83, label %.critedge135
-
-83:                                               ; preds = %78
-  %84 = getelementptr inbounds nuw i8, ptr %80, i64 112
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr i8, ptr %85, i64 16
-  %.val139 = load ptr, ptr %86, align 8
-  %87 = load ptr, ptr %.val139, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  %89 = load ptr, ptr %88, align 8
-  %.not = icmp eq ptr %89, null
+82:                                               ; preds = %77
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 112
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr i8, ptr %84, i64 16
+  %.val139 = load ptr, ptr %85, align 8
+  %86 = load ptr, ptr %.val139, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
+  %88 = load ptr, ptr %87, align 8
+  %.not = icmp eq ptr %88, null
   br i1 %.not, label %.critedge135, label %.critedge135.sink.split
 
-90:                                               ; preds = %.lr.ph174
-  %91 = getelementptr inbounds nuw i8, ptr %.tr173, i64 32
-  %92 = load ptr, ptr %91, align 8
-  %93 = tail call fastcc i32 @FigureColnameInternal(ptr noundef %92, ptr noundef %1)
-  %94 = icmp samesign ult i32 %93, 2
-  br i1 %94, label %.critedge135.sink.split, label %.critedge135
+89:                                               ; preds = %.lr.ph174
+  %90 = getelementptr inbounds nuw i8, ptr %.tr173, i64 32
+  %91 = load ptr, ptr %90, align 8
+  %92 = tail call fastcc i32 @FigureColnameInternal(ptr noundef %91, ptr noundef %1)
+  %93 = icmp samesign ult i32 %92, 2
+  br i1 %93, label %.critedge135.sink.split, label %.critedge135
+
+94:                                               ; preds = %.lr.ph174
+  br label %.critedge135.sink.split
 
 95:                                               ; preds = %.lr.ph174
-  br label %.critedge135.sink.split
-
-96:                                               ; preds = %.lr.ph174
-  br label %.critedge135.sink.split
-
-97:                                               ; preds = %.lr.ph174
-  %98 = getelementptr inbounds nuw i8, ptr %.tr173, i64 16
-  %99 = load i32, ptr %98, align 8
-  switch i32 %99, label %.critedge135 [
+  %96 = getelementptr inbounds nuw i8, ptr %.tr173, i64 16
+  %97 = load i32, ptr %96, align 8
+  switch i32 %97, label %.critedge135 [
     i32 0, label %.critedge135.sink.split
-    i32 1, label %100
+    i32 1, label %98
   ]
 
-100:                                              ; preds = %97
+98:                                               ; preds = %95
   br label %.critedge135.sink.split
 
-101:                                              ; preds = %.lr.ph174
-  %102 = getelementptr inbounds nuw i8, ptr %.tr173, i64 4
-  %103 = load i32, ptr %102, align 4
-  %104 = icmp ult i32 %103, 15
-  br i1 %104, label %switch.lookup, label %.critedge135
+99:                                               ; preds = %.lr.ph174
+  %100 = getelementptr inbounds nuw i8, ptr %.tr173, i64 4
+  %101 = load i32, ptr %100, align 4
+  %102 = icmp ult i32 %101, 15
+  br i1 %102, label %switch.lookup, label %.critedge135
 
-105:                                              ; preds = %.lr.ph174
-  %106 = getelementptr inbounds nuw i8, ptr %.tr173, i64 4
-  %107 = load i32, ptr %106, align 4
-  %108 = icmp ult i32 %107, 7
-  br i1 %108, label %switch.lookup276, label %.critedge135
+103:                                              ; preds = %.lr.ph174
+  %104 = getelementptr inbounds nuw i8, ptr %.tr173, i64 4
+  %105 = load i32, ptr %104, align 4
+  %106 = icmp ult i32 %105, 7
+  br i1 %106, label %switch.lookup277, label %.critedge135
+
+.loopexit253:                                     ; preds = %.lr.ph174
+  br label %.critedge135.sink.split
+
+107:                                              ; preds = %.lr.ph174
+  br label %.critedge135.sink.split
+
+108:                                              ; preds = %.lr.ph174
+  br label %.critedge135.sink.split
 
 109:                                              ; preds = %.lr.ph174
   br label %.critedge135.sink.split
@@ -2161,7 +2167,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %22, %.lr.p
 110:                                              ; preds = %.lr.ph174
   br label %.critedge135.sink.split
 
-111:                                              ; preds = %.lr.ph174
+111:                                              ; preds = %.lr.ph174, %.lr.ph174
   br label %.critedge135.sink.split
 
 112:                                              ; preds = %.lr.ph174
@@ -2170,60 +2176,51 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %22, %.lr.p
 113:                                              ; preds = %.lr.ph174
   br label %.critedge135.sink.split
 
-114:                                              ; preds = %.lr.ph174, %.lr.ph174
-  br label %.critedge135.sink.split
+114:                                              ; preds = %.lr.ph174
+  %115 = getelementptr inbounds nuw i8, ptr %.tr173, i64 4
+  %116 = load i32, ptr %115, align 4
+  %117 = icmp ult i32 %116, 3
+  br i1 %117, label %switch.lookup280, label %118
 
-115:                                              ; preds = %.lr.ph174
-  br label %.critedge135.sink.split
-
-116:                                              ; preds = %.lr.ph174
-  br label %.critedge135.sink.split
-
-117:                                              ; preds = %.lr.ph174
-  %118 = getelementptr inbounds nuw i8, ptr %.tr173, i64 4
-  %119 = load i32, ptr %118, align 4
-  %120 = icmp ult i32 %119, 3
-  br i1 %120, label %switch.lookup279, label %121
-
-121:                                              ; preds = %117
-  %122 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  %123 = load i32, ptr %118, align 4
-  %124 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.59, i32 noundef %123) #7
+118:                                              ; preds = %114
+  %119 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %120 = load i32, ptr %115, align 4
+  %121 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.59, i32 noundef %120) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2034, ptr noundef nonnull @__func__.FigureColnameInternal) #7
   unreachable
 
 .critedge135.sink.split.loopexit:                 ; preds = %.lr.ph174
   br label %.critedge135.sink.split
 
-switch.lookup:                                    ; preds = %101
-  %125 = zext nneg i32 %103 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.FigureColnameInternal, i64 %125
+switch.lookup:                                    ; preds = %99
+  %122 = zext nneg i32 %101 to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.FigureColnameInternal, i64 %122
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.critedge135.sink.split
 
-switch.lookup276:                                 ; preds = %105
-  %126 = zext nneg i32 %107 to i64
-  %switch.gep277 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.FigureColnameInternal.7, i64 %126
-  %switch.load278 = load ptr, ptr %switch.gep277, align 8
+switch.lookup277:                                 ; preds = %103
+  %123 = zext nneg i32 %105 to i64
+  %switch.gep278 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.FigureColnameInternal.7, i64 %123
+  %switch.load279 = load ptr, ptr %switch.gep278, align 8
   br label %.critedge135.sink.split
 
-switch.lookup279:                                 ; preds = %117
-  %127 = zext nneg i32 %119 to i64
-  %switch.gep280 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.FigureColnameInternal.8, i64 %127
-  %switch.load281 = load ptr, ptr %switch.gep280, align 8
+switch.lookup280:                                 ; preds = %114
+  %124 = zext nneg i32 %116 to i64
+  %switch.gep281 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.FigureColnameInternal.8, i64 %124
+  %switch.load282 = load ptr, ptr %switch.gep281, align 8
   br label %.critedge135.sink.split
 
-.critedge135.sink.split.loopexit282:              ; preds = %.lr.ph174
+.critedge135.sink.split.loopexit283:              ; preds = %.lr.ph174
   br label %.critedge135.sink.split
 
-.critedge135.sink.split:                          ; preds = %.critedge131, %.lr.ph174, %.critedge135.sink.split.loopexit282, %switch.lookup279, %switch.lookup276, %switch.lookup, %.critedge135.sink.split.loopexit, %97, %90, %83, %74, %51, %.critedge, %40, %63, %77, %95, %96, %100, %109, %110, %111, %112, %113, %114, %115, %116
-  %.sink = phi ptr [ @.str.24, %74 ], [ %50, %40 ], [ %.1109, %.critedge ], [ %switch.load281, %switch.lookup279 ], [ @.str.25, %77 ], [ %switch.load278, %switch.lookup276 ], [ @.str.55, %116 ], [ @.str.54, %115 ], [ @.str.53, %114 ], [ @.str.52, %113 ], [ @.str.51, %112 ], [ @.str.50, %111 ], [ @.str.49, %110 ], [ @.str.48, %109 ], [ @.str.21, %51 ], [ %73, %63 ], [ @.str.22, %.critedge135.sink.split.loopexit ], [ @.str.29, %97 ], [ @.str.30, %100 ], [ @.str.26, %90 ], [ %switch.load, %switch.lookup ], [ @.str.28, %96 ], [ @.str.27, %95 ], [ @.str.25, %.lr.ph174 ], [ %89, %83 ], [ %.1113, %.critedge131 ], [ @.str.23, %.critedge135.sink.split.loopexit282 ]
-  %.0.ph = phi i32 [ 2, %74 ], [ 2, %40 ], [ 2, %.critedge ], [ 2, %switch.lookup279 ], [ 2, %77 ], [ 2, %switch.lookup276 ], [ 2, %116 ], [ 2, %115 ], [ 2, %114 ], [ 2, %113 ], [ 2, %112 ], [ 2, %111 ], [ 2, %110 ], [ 2, %109 ], [ 2, %51 ], [ 1, %63 ], [ 2, %.critedge135.sink.split.loopexit ], [ 2, %97 ], [ 2, %100 ], [ 1, %90 ], [ 2, %switch.lookup ], [ 2, %96 ], [ 2, %95 ], [ 2, %.lr.ph174 ], [ 2, %83 ], [ 2, %.critedge131 ], [ 2, %.critedge135.sink.split.loopexit282 ]
+.critedge135.sink.split:                          ; preds = %.critedge131, %.lr.ph174, %.critedge135.sink.split.loopexit283, %switch.lookup280, %switch.lookup277, %switch.lookup, %.critedge135.sink.split.loopexit, %95, %89, %82, %74, %51, %.critedge, %40, %63, %.loopexit, %94, %98, %.loopexit253, %107, %108, %109, %110, %111, %112, %113
+  %.sink = phi ptr [ @.str.24, %74 ], [ %50, %40 ], [ %.1109, %.critedge ], [ %switch.load282, %switch.lookup280 ], [ %88, %82 ], [ %switch.load279, %switch.lookup277 ], [ @.str.55, %113 ], [ @.str.54, %112 ], [ @.str.53, %111 ], [ @.str.52, %110 ], [ @.str.51, %109 ], [ @.str.50, %108 ], [ @.str.49, %107 ], [ @.str.21, %51 ], [ @.str.48, %.loopexit253 ], [ @.str.25, %.loopexit ], [ %73, %63 ], [ @.str.27, %.lr.ph174 ], [ @.str.22, %.critedge135.sink.split.loopexit ], [ @.str.29, %95 ], [ %switch.load, %switch.lookup ], [ @.str.30, %98 ], [ @.str.26, %89 ], [ @.str.28, %94 ], [ %.1113, %.critedge131 ], [ @.str.23, %.critedge135.sink.split.loopexit283 ]
+  %.0.ph = phi i32 [ 2, %74 ], [ 2, %40 ], [ 2, %.critedge ], [ 2, %switch.lookup280 ], [ 2, %82 ], [ 2, %switch.lookup277 ], [ 2, %113 ], [ 2, %112 ], [ 2, %111 ], [ 2, %110 ], [ 2, %109 ], [ 2, %108 ], [ 2, %107 ], [ 2, %51 ], [ 2, %.loopexit253 ], [ 2, %.loopexit ], [ 1, %63 ], [ 2, %.lr.ph174 ], [ 2, %.critedge135.sink.split.loopexit ], [ 2, %95 ], [ 2, %switch.lookup ], [ 2, %98 ], [ 1, %89 ], [ 2, %94 ], [ 2, %.critedge131 ], [ 2, %.critedge135.sink.split.loopexit283 ]
   store ptr %.sink, ptr %1, align 8
   br label %.critedge135
 
-.critedge135:                                     ; preds = %tailrecurse.backedge, %.lr.ph174, %105, %101, %.critedge135.sink.split, %.lr.ph177, %5, %2, %78, %83, %51, %60, %55, %74, %90, %97, %.critedge
-  %.0 = phi i32 [ 0, %97 ], [ 0, %2 ], [ 0, %5 ], [ 0, %101 ], [ 0, %.lr.ph177 ], [ 2, %90 ], [ %.0.ph, %.critedge135.sink.split ], [ 0, %.critedge ], [ 0, %105 ], [ 0, %51 ], [ %58, %60 ], [ 2, %55 ], [ 0, %83 ], [ 0, %74 ], [ 0, %78 ], [ 0, %.lr.ph174 ], [ 0, %tailrecurse.backedge ]
+.critedge135:                                     ; preds = %tailrecurse.backedge, %.lr.ph174, %103, %99, %.critedge135.sink.split, %.lr.ph177, %5, %2, %77, %82, %51, %60, %55, %74, %89, %95, %.critedge
+  %.0 = phi i32 [ 0, %95 ], [ 0, %2 ], [ 0, %5 ], [ 0, %99 ], [ 0, %.lr.ph177 ], [ 2, %89 ], [ %.0.ph, %.critedge135.sink.split ], [ 0, %.critedge ], [ 0, %103 ], [ 0, %51 ], [ %58, %60 ], [ 2, %55 ], [ 0, %82 ], [ 0, %74 ], [ 0, %77 ], [ 0, %.lr.ph174 ], [ 0, %tailrecurse.backedge ]
   ret i32 %.0
 }
 

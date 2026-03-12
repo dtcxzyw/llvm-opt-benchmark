@@ -333,14 +333,14 @@ define internal fastcc i32 @dvo_port_to_port(ptr noundef readonly captures(none)
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local noundef range(i32 0, 2000001) i32 @intel_bios_dp_max_link_rate(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 align 16 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %26, label %3
+  br i1 %2, label %23, label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 6816
   %6 = load i16, ptr %5, align 8
   %7 = icmp ult i16 %6, 216
-  br i1 %7, label %26, label %8
+  br i1 %7, label %23, label %8
 
 8:                                                ; preds = %3
   %9 = icmp ugt i16 %6, 229
@@ -348,63 +348,54 @@ define dso_local noundef range(i32 0, 2000001) i32 @intel_bios_dp_max_link_rate(
   %11 = load i16, ptr %10, align 1
   %12 = lshr i16 %11, 8
   %13 = and i16 %12, 7
-  br i1 %9, label %14, label %22
+  br i1 %9, label %14, label %19
 
 14:                                               ; preds = %8
   switch i16 %13, label %default.unreachable3 [
-    i16 1, label %21
+    i16 1, label %22
     i16 7, label %15
     i16 6, label %16
     i16 5, label %17
     i16 4, label %18
-    i16 3, label %19
-    i16 2, label %20
-    i16 0, label %26
+    i16 3, label %20
+    i16 2, label %21
+    i16 0, label %23
   ]
 
 15:                                               ; preds = %14
-  br label %26
+  br label %23
 
 16:                                               ; preds = %14
-  br label %26
+  br label %23
 
 17:                                               ; preds = %14
-  br label %26
+  br label %23
 
 18:                                               ; preds = %14
-  br label %26
+  br label %23
 
-19:                                               ; preds = %14
-  br label %26
-
-20:                                               ; preds = %14
-  br label %26
-
-21:                                               ; preds = %14
-  br label %26
-
-22:                                               ; preds = %8
-  switch i16 %13, label %26 [
-    i16 3, label %25
-    i16 1, label %23
-    i16 2, label %24
+19:                                               ; preds = %8
+  switch i16 %13, label %23 [
+    i16 3, label %22
+    i16 1, label %20
+    i16 2, label %21
   ]
 
-23:                                               ; preds = %22
-  br label %26
+20:                                               ; preds = %14, %19
+  br label %23
 
-24:                                               ; preds = %22
-  br label %26
+21:                                               ; preds = %14, %19
+  br label %23
 
-25:                                               ; preds = %22
-  br label %26
+22:                                               ; preds = %14, %19
+  br label %23
 
 default.unreachable3:                             ; preds = %14
   unreachable
 
-26:                                               ; preds = %14, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %3, %1
-  %27 = phi i32 [ 0, %3 ], [ 0, %1 ], [ 270000, %20 ], [ 540000, %19 ], [ 810000, %18 ], [ 1000000, %17 ], [ 1350000, %16 ], [ 2000000, %15 ], [ 162000, %21 ], [ 0, %14 ], [ 270000, %24 ], [ 540000, %23 ], [ 162000, %25 ], [ 810000, %22 ]
-  ret i32 %27
+23:                                               ; preds = %14, %22, %21, %20, %19, %18, %17, %16, %15, %3, %1
+  %24 = phi i32 [ 0, %3 ], [ 0, %1 ], [ 162000, %22 ], [ 810000, %19 ], [ 810000, %18 ], [ 1000000, %17 ], [ 1350000, %16 ], [ 2000000, %15 ], [ 540000, %20 ], [ 0, %14 ], [ 270000, %21 ]
+  ret i32 %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)
@@ -678,7 +669,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
 18:                                               ; preds = %15, %13
   %19 = phi ptr [ %17, %15 ], [ null, %13 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %19, i32 noundef 2, ptr noundef nonnull @.str.9) #17
-  br label %1511
+  br label %1508
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 6832
@@ -2835,7 +2826,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   br i1 %1286, label %.loopexit152.loopexit, label %.preheader151, !llvm.loop !37
 
 .preheader:                                       ; preds = %.loopexit152, %.thread131
-  %1287 = phi ptr [ %1509, %.thread131 ], [ %1203, %.loopexit152 ]
+  %1287 = phi ptr [ %1506, %.thread131 ], [ %1203, %.loopexit152 ]
   %1288 = getelementptr i8, ptr %1287, i64 -56
   %1289 = load ptr, ptr %1288, align 8
   %1290 = getelementptr i8, ptr %1287, i64 -32
@@ -3179,7 +3170,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
 1475:                                             ; preds = %1469
   switch i16 %1474, label %default.unreachable316 [
     i16 1, label %1481
-    i16 7, label %1486
+    i16 7, label %1483
     i16 6, label %1476
     i16 5, label %1477
     i16 4, label %1478
@@ -3189,97 +3180,88 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   ]
 
 1476:                                             ; preds = %1475
-  br label %1486
+  br label %1483
 
 1477:                                             ; preds = %1475
-  br label %1486
+  br label %1483
 
 1478:                                             ; preds = %1475
-  br label %1486
+  br label %1483
 
-1479:                                             ; preds = %1475
-  br label %1486
+1479:                                             ; preds = %1482, %1475
+  br label %1483
 
-1480:                                             ; preds = %1475
-  br label %1486
+1480:                                             ; preds = %1482, %1475
+  br label %1483
 
-1481:                                             ; preds = %1475
-  br label %1486
+1481:                                             ; preds = %1482, %1475
+  br label %1483
 
 1482:                                             ; preds = %1469
-  switch i16 %1474, label %1486 [
-    i16 3, label %1485
-    i16 1, label %1483
-    i16 2, label %1484
+  switch i16 %1474, label %1483 [
+    i16 3, label %1481
+    i16 1, label %1479
+    i16 2, label %1480
   ]
-
-1483:                                             ; preds = %1482
-  br label %1486
-
-1484:                                             ; preds = %1482
-  br label %1486
-
-1485:                                             ; preds = %1482
-  br label %1486
 
 default.unreachable316:                           ; preds = %1475
   unreachable
 
-1486:                                             ; preds = %1475, %1476, %1477, %1478, %1479, %1480, %1481, %1482, %1483, %1484, %1485
-  %1487 = phi i32 [ 540000, %1483 ], [ 162000, %1485 ], [ 270000, %1480 ], [ 540000, %1479 ], [ 810000, %1478 ], [ 1000000, %1477 ], [ 1350000, %1476 ], [ 270000, %1484 ], [ 162000, %1481 ], [ 810000, %1482 ], [ 2000000, %1475 ]
-  br i1 %1320, label %1491, label %1488
+1483:                                             ; preds = %1475, %1476, %1477, %1478, %1479, %1480, %1481, %1482
+  %1484 = phi i32 [ 2000000, %1475 ], [ 162000, %1481 ], [ 270000, %1480 ], [ 540000, %1479 ], [ 810000, %1478 ], [ 1000000, %1477 ], [ 1350000, %1476 ], [ 810000, %1482 ]
+  br i1 %1320, label %1488, label %1485
 
-1488:                                             ; preds = %1486
-  %1489 = getelementptr inbounds nuw i8, ptr %1289, i64 8
-  %1490 = load ptr, ptr %1489, align 8
-  br label %1491
+1485:                                             ; preds = %1483
+  %1486 = getelementptr inbounds nuw i8, ptr %1289, i64 8
+  %1487 = load ptr, ptr %1486, align 8
+  br label %1488
 
-1491:                                             ; preds = %1488, %1486
-  %1492 = phi ptr [ %1490, %1488 ], [ null, %1486 ]
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1492, i32 noundef 2, ptr noundef nonnull @.str.54, i32 noundef %1326, i32 noundef %1487) #17
+1488:                                             ; preds = %1485, %1483
+  %1489 = phi ptr [ %1487, %1485 ], [ null, %1483 ]
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1489, i32 noundef 2, ptr noundef nonnull @.str.54, i32 noundef %1326, i32 noundef %1484) #17
   br label %.critedge3
 
-.critedge3:                                       ; preds = %1460, %.thread146, %1475, %1491
-  %1493 = getelementptr i8, ptr %1287, i64 -25
-  %1494 = load i16, ptr %1493, align 1
-  %1495 = and i16 %1494, 32
-  %1496 = icmp eq i16 %1495, 0
-  br i1 %1496, label %.thread131, label %1497, !prof !38
+.critedge3:                                       ; preds = %1460, %.thread146, %1475, %1488
+  %1490 = getelementptr i8, ptr %1287, i64 -25
+  %1491 = load i16, ptr %1490, align 1
+  %1492 = and i16 %1491, 32
+  %1493 = icmp eq i16 %1492, 0
+  br i1 %1493, label %.thread131, label %1494, !prof !38
 
-1497:                                             ; preds = %.critedge3
+1494:                                             ; preds = %.critedge3
   call void asm sideeffect "613: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 613b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 613) #17, !srcloc !39
-  %1498 = getelementptr inbounds nuw i8, ptr %1289, i64 8
-  %1499 = load ptr, ptr %1498, align 8
-  %1500 = call ptr @dev_driver_string(ptr noundef %1499) #17
-  %1501 = load ptr, ptr %1498, align 8
-  %1502 = getelementptr inbounds nuw i8, ptr %1501, i64 80
-  %1503 = load ptr, ptr %1502, align 8
-  %1504 = icmp eq ptr %1503, null
-  br i1 %1504, label %1505, label %1507
+  %1495 = getelementptr inbounds nuw i8, ptr %1289, i64 8
+  %1496 = load ptr, ptr %1495, align 8
+  %1497 = call ptr @dev_driver_string(ptr noundef %1496) #17
+  %1498 = load ptr, ptr %1495, align 8
+  %1499 = getelementptr inbounds nuw i8, ptr %1498, i64 80
+  %1500 = load ptr, ptr %1499, align 8
+  %1501 = icmp eq ptr %1500, null
+  br i1 %1501, label %1502, label %1504
 
-1505:                                             ; preds = %1497
-  %1506 = load ptr, ptr %1501, align 8
-  br label %1507
+1502:                                             ; preds = %1494
+  %1503 = load ptr, ptr %1498, align 8
+  br label %1504
 
-1507:                                             ; preds = %1505, %1497
-  %1508 = phi ptr [ %1506, %1505 ], [ %1503, %1497 ]
-  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.55, ptr noundef %1500, ptr noundef %1508, i32 noundef %1326) #17
+1504:                                             ; preds = %1502, %1494
+  %1505 = phi ptr [ %1503, %1502 ], [ %1500, %1494 ]
+  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.55, ptr noundef %1497, ptr noundef %1505, i32 noundef %1326) #17
   call void asm sideeffect "614: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 614b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 614) #17, !srcloc !40
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 2657, i32 2313, i64 12) #17, !srcloc !41
   call void asm sideeffect "615: nop\0A\09.pushsection .discard.instr_end\0A\09.long 615b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 615) #17, !srcloc !42
   call void asm sideeffect "616: nop\0A\09.pushsection .discard.instr_end\0A\09.long 616b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 616) #17, !srcloc !43
   br label %.thread131
 
-.thread131:                                       ; preds = %1298, %1294, %1507, %.critedge3
-  %1509 = load ptr, ptr %1287, align 8
-  %1510 = icmp eq ptr %1509, %6
-  br i1 %1510, label %.loopexit, label %.preheader, !llvm.loop !44
+.thread131:                                       ; preds = %1298, %1294, %1504, %.critedge3
+  %1506 = load ptr, ptr %1287, align 8
+  %1507 = icmp eq ptr %1506, %6
+  br i1 %1507, label %.loopexit, label %.preheader, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.thread131, %.loopexit152, %1195
   call void @kfree(ptr noundef %1098) #17
-  br label %1511
+  br label %1508
 
-1511:                                             ; preds = %.loopexit, %18
+1508:                                             ; preds = %.loopexit, %18
   ret void
 }
 

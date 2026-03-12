@@ -1358,11 +1358,11 @@ define noundef range(i8 26, -116) i8 @"_ZN73_$LT$file_store..Error$u20$as$u20$me
   switch i64 %4, label %default.unreachable1 [
     i64 0, label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
     i64 1, label %5
-    i64 2, label %18
+    i64 2, label %15
     i64 3, label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
   ]
 
-default.unreachable1:                             ; preds = %18, %5, %1
+default.unreachable1:                             ; preds = %15, %5, %1
   unreachable
 
 5:                                                ; preds = %1
@@ -1384,9 +1384,9 @@ default.unreachable1:                             ; preds = %18, %5, %1
   %11 = load i32, ptr %10, align 4, !noalias !229, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !229
   switch i32 %11, label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit" [
-    i32 5, label %15
-    i32 24, label %16
-    i32 28, label %17
+    i32 5, label %25
+    i32 24, label %26
+    i32 28, label %27
   ]
 
 12:                                               ; preds = %5
@@ -1401,63 +1401,54 @@ default.unreachable1:                             ; preds = %18, %5, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !229
   br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
 
-15:                                               ; preds = %9
-  br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
-
-16:                                               ; preds = %9
-  br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
-
-17:                                               ; preds = %9
-  br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
-
-18:                                               ; preds = %1
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+15:                                               ; preds = %1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !235)
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !238
-  %20 = load ptr, ptr %19, align 8, !alias.scope !238, !nonnull !4, !noundef !4
-  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h0dc4796b9826885cE.llvm.10894476612218408692(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %20), !noalias !238
-  %21 = load i8, ptr %2, align 8, !range !113, !noalias !238, !noundef !4
-  switch i8 %21, label %default.unreachable1 [
-    i8 0, label %22
-    i8 1, label %25
-    i8 2, label %26
-    i8 3, label %27
+  %17 = load ptr, ptr %16, align 8, !alias.scope !238, !nonnull !4, !noundef !4
+  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h0dc4796b9826885cE.llvm.10894476612218408692(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %17), !noalias !238
+  %18 = load i8, ptr %2, align 8, !range !113, !noalias !238, !noundef !4
+  switch i8 %18, label %default.unreachable1 [
+    i8 0, label %19
+    i8 1, label %22
+    i8 2, label %23
+    i8 3, label %24
   ]
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %24 = load i32, ptr %23, align 4, !noalias !238, !noundef !4
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %21 = load i32, ptr %20, align 4, !noalias !238, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !238
-  switch i32 %24, label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit" [
-    i32 5, label %28
-    i32 24, label %29
-    i32 28, label %30
+  switch i32 %21, label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit" [
+    i32 5, label %25
+    i32 24, label %26
+    i32 28, label %27
   ]
 
-25:                                               ; preds = %18
+22:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !238
   br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
 
-26:                                               ; preds = %18
+23:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !238
   br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
 
-27:                                               ; preds = %18
+24:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !238
   br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
 
-28:                                               ; preds = %22
+25:                                               ; preds = %9, %19
   br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
 
-29:                                               ; preds = %22
+26:                                               ; preds = %9, %19
   br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
 
-30:                                               ; preds = %22
+27:                                               ; preds = %9, %19
   br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
 
-"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit": ; preds = %30, %29, %28, %27, %26, %25, %22, %17, %16, %15, %14, %13, %12, %9, %1, %1
-  %.sroa.0.0 = phi i8 [ 26, %1 ], [ 26, %9 ], [ 26, %1 ], [ -121, %17 ], [ 118, %15 ], [ -117, %16 ], [ 26, %14 ], [ 26, %13 ], [ 26, %12 ], [ -121, %30 ], [ 118, %28 ], [ -117, %29 ], [ 26, %27 ], [ 26, %26 ], [ 26, %25 ], [ 26, %22 ]
+"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit": ; preds = %27, %26, %25, %24, %23, %22, %19, %14, %13, %12, %9, %1, %1
+  %.sroa.0.0 = phi i8 [ 26, %1 ], [ 26, %9 ], [ 26, %1 ], [ 26, %23 ], [ 26, %19 ], [ 26, %22 ], [ 26, %14 ], [ 26, %13 ], [ 26, %12 ], [ -121, %27 ], [ 118, %25 ], [ -117, %26 ], [ 26, %24 ]
   ret i8 %.sroa.0.0
 }
 

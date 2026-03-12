@@ -15274,7 +15274,7 @@ default.unreachable173:                           ; preds = %191, %90, %3
   store i64 2, ptr %21, align 8
   br label %72
 
-72:                                               ; preds = %.sink.split, %286, %185
+72:                                               ; preds = %.sink.split, %185, %286
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 66
   %74 = load i8, ptr %73, align 2, !range !1281, !noundef !5
   %75 = trunc nuw i8 %74 to i1

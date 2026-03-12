@@ -1489,7 +1489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit26.us: ; pr
   %38 = icmp ult i64 %37, 6
   br i1 %38, label %.split.us.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i13
 
-.split.us.invoke:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit22, %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit, %.lr.ph.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit22.us, %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit.us, %.lr.ph.split.us
+.split.us.invoke:                                 ; preds = %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit22, %.lr.ph.split, %_ZNK3gmx12_GLOBAL__N_115FileTypeHandler9extensionEi.exit.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit22.us, %.lr.ph.split.us
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.21) #27
           to label %.split.us.cont unwind label %.loopexit.split-lp
 

@@ -2781,7 +2781,7 @@ switch.lookup825:                                 ; preds = %switch.hole_check82
   br label %if.end13
 
 if.end13:                                         ; preds = %switch.lookup825, %switch.lookup, %sw.epilog.i35, %sw.epilog.i, %if.then5, %_ZNK10StringView10startsWithEc.exit.i, %entry
-  %Quals.0 = phi i8 [ 0, %entry ], [ 0, %if.then5 ], [ %switch.load, %switch.lookup ], [ 0, %_ZNK10StringView10startsWithEc.exit.i ], [ 0, %sw.epilog.i ], [ %switch.load830, %switch.lookup825 ], [ 0, %sw.epilog.i35 ]
+  %Quals.0 = phi i8 [ 0, %entry ], [ 0, %if.then5 ], [ %switch.load, %switch.lookup ], [ 0, %_ZNK10StringView10startsWithEc.exit.i ], [ 0, %sw.epilog.i ], [ 0, %sw.epilog.i35 ], [ %switch.load830, %switch.lookup825 ]
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %MangledName, align 8
   %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %MangledName, i64 8
   %10 = load i8, ptr %agg.tmp.sroa.0.0.copyload, align 1

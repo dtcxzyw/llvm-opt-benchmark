@@ -96550,7 +96550,7 @@ define noundef zeroext i1 @_ZN11polars_plan5plans5aexpr10properties11can_pre_agg
   br label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hac1b8622b3ca18e5E.exit.i"
 
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hac1b8622b3ca18e5E.exit.i": ; preds = %.noexc19, %.noexc18, %77, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$bool$C$polars_error..PolarsError$GT$$GT$17h606de37bfc9350b8E.exit.i.i.i", %.noexc12, %44, %44, %44, %44, %44, %.noexc8, %32, %32, %32
-  %.sroa.0.0.i.i.i = phi i8 [ %79, %77 ], [ %39, %.noexc8 ], [ %102, %.noexc19 ], [ %59, %.noexc12 ], [ %.sroa.0.16.i.i.i, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$bool$C$polars_error..PolarsError$GT$$GT$17h606de37bfc9350b8E.exit.i.i.i" ], [ %89, %.noexc18 ], [ 1, %32 ], [ 1, %32 ], [ 1, %32 ], [ 1, %44 ], [ 1, %44 ], [ 1, %44 ], [ 1, %44 ], [ 1, %44 ]
+  %.sroa.0.0.i.i.i = phi i8 [ %79, %77 ], [ %39, %.noexc8 ], [ %102, %.noexc19 ], [ %59, %.noexc12 ], [ %.sroa.0.16.i.i.i, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$bool$C$polars_error..PolarsError$GT$$GT$17h606de37bfc9350b8E.exit.i.i.i" ], [ %89, %.noexc18 ], [ 1, %44 ], [ 1, %44 ], [ 1, %44 ], [ 1, %44 ], [ 1, %44 ], [ 1, %32 ], [ 1, %32 ], [ 1, %32 ]
   %103 = trunc nuw i8 %.sroa.0.0.i.i.i to i1
   br i1 %103, label %29, label %106
 
@@ -99861,8 +99861,8 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hacf9389ee4557603E.exit.i.i:
           cleanup
   br label %.body493
 
-.invoke1222:                                      ; preds = %867, %793, %795, %.critedge372, %640, %587
-  %595 = phi ptr [ @anon.64a31f22dc4ebad644efc5e6de9a8de2.1073, %793 ], [ @anon.64a31f22dc4ebad644efc5e6de9a8de2.172, %587 ], [ @anon.64a31f22dc4ebad644efc5e6de9a8de2.172, %640 ], [ @anon.64a31f22dc4ebad644efc5e6de9a8de2.1071, %.critedge372 ], [ @anon.64a31f22dc4ebad644efc5e6de9a8de2.172, %795 ], [ @anon.64a31f22dc4ebad644efc5e6de9a8de2.172, %867 ]
+.invoke1222:                                      ; preds = %867, %795, %640, %793, %.critedge372, %587
+  %595 = phi ptr [ @anon.64a31f22dc4ebad644efc5e6de9a8de2.1073, %793 ], [ @anon.64a31f22dc4ebad644efc5e6de9a8de2.172, %587 ], [ @anon.64a31f22dc4ebad644efc5e6de9a8de2.1071, %.critedge372 ], [ @anon.64a31f22dc4ebad644efc5e6de9a8de2.172, %640 ], [ @anon.64a31f22dc4ebad644efc5e6de9a8de2.172, %795 ], [ @anon.64a31f22dc4ebad644efc5e6de9a8de2.172, %867 ]
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) %595) #43
           to label %.cont1223 unwind label %.loopexit.split-lp789
 

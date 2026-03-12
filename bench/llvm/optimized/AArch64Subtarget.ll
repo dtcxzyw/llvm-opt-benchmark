@@ -4116,7 +4116,7 @@ declare void @_ZN4llvm19TargetSubtargetInfoC2ERKNS_6TripleENS_9StringRefES4_S4_N
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtargetInfo17resolveSchedClassEjPKNS_12MachineInstrEPKNS_16TargetSchedModelE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #0 align 2 {
-  switch i32 %1, label %4671 [
+  switch i32 %1, label %4653 [
     i32 16, label %5
     i32 17, label %59
     i32 23, label %68
@@ -4143,114 +4143,114 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
     i32 608, label %601
     i32 609, label %608
     i32 668, label %615
-    i32 669, label %649
-    i32 674, label %683
-    i32 675, label %717
-    i32 677, label %751
-    i32 678, label %774
-    i32 681, label %813
-    i32 682, label %847
-    i32 687, label %881
-    i32 688, label %915
-    i32 690, label %965
-    i32 691, label %988
-    i32 692, label %1027
-    i32 693, label %1050
-    i32 697, label %1089
-    i32 698, label %1123
-    i32 725, label %1157
-    i32 726, label %1191
-    i32 731, label %1225
-    i32 732, label %1248
-    i32 735, label %1271
-    i32 736, label %1305
-    i32 739, label %1339
-    i32 740, label %1375
-    i32 749, label %1427
-    i32 750, label %1494
-    i32 751, label %1500
-    i32 753, label %1508
-    i32 826, label %1514
-    i32 880, label %1521
-    i32 885, label %1529
-    i32 887, label %1590
-    i32 889, label %1651
-    i32 892, label %1700
-    i32 894, label %1749
-    i32 895, label %1798
-    i32 897, label %1825
-    i32 901, label %1930
-    i32 902, label %2026
-    i32 903, label %2082
-    i32 909, label %2138
-    i32 910, label %2197
-    i32 921, label %2204
-    i32 922, label %2213
-    i32 934, label %2220
-    i32 955, label %2254
-    i32 969, label %2315
-    i32 973, label %2354
-    i32 976, label %2385
-    i32 982, label %2424
-    i32 983, label %2466
-    i32 984, label %2508
-    i32 1014, label %2550
-    i32 1034, label %2573
-    i32 1035, label %2634
-    i32 1036, label %2640
-    i32 1037, label %2701
-    i32 1039, label %2750
-    i32 1040, label %2799
-    i32 1041, label %2848
-    i32 1042, label %2953
-    i32 1059, label %2980
-    i32 1075, label %2992
-    i32 1076, label %3088
-    i32 1077, label %3137
-    i32 1078, label %3186
-    i32 1079, label %3235
-    i32 1080, label %3284
-    i32 1081, label %3380
-    i32 1082, label %3399
-    i32 1083, label %3422
-    i32 1084, label %3445
-    i32 1085, label %3460
-    i32 1095, label %3483
-    i32 1145, label %3517
-    i32 1167, label %3571
-    i32 1168, label %3667
-    i32 1169, label %3763
-    i32 1170, label %3859
-    i32 1171, label %3955
-    i32 1172, label %4011
-    i32 1173, label %4067
-    i32 1205, label %4086
-    i32 1232, label %4095
-    i32 1233, label %4118
-    i32 1234, label %4141
-    i32 1235, label %4180
-    i32 1258, label %4219
-    i32 1259, label %4242
-    i32 1260, label %4265
-    i32 1261, label %4299
-    i32 1262, label %4333
-    i32 1263, label %4356
-    i32 1277, label %4379
-    i32 1335, label %4388
-    i32 1336, label %4397
-    i32 1337, label %4406
-    i32 1338, label %4415
-    i32 1431, label %4424
-    i32 1432, label %4471
-    i32 1433, label %4518
-    i32 1434, label %4565
-    i32 1582, label %4612
+    i32 669, label %648
+    i32 674, label %681
+    i32 675, label %714
+    i32 677, label %747
+    i32 678, label %770
+    i32 681, label %809
+    i32 682, label %842
+    i32 687, label %875
+    i32 688, label %908
+    i32 690, label %957
+    i32 691, label %980
+    i32 692, label %1019
+    i32 693, label %1042
+    i32 697, label %1081
+    i32 698, label %1114
+    i32 725, label %1148
+    i32 726, label %1181
+    i32 731, label %1214
+    i32 732, label %1237
+    i32 735, label %1260
+    i32 736, label %1293
+    i32 739, label %1326
+    i32 740, label %1361
+    i32 749, label %1412
+    i32 750, label %1479
+    i32 751, label %1485
+    i32 753, label %1493
+    i32 826, label %1499
+    i32 880, label %1506
+    i32 885, label %1514
+    i32 887, label %1575
+    i32 889, label %1636
+    i32 892, label %1685
+    i32 894, label %1734
+    i32 895, label %1783
+    i32 897, label %1810
+    i32 901, label %1915
+    i32 902, label %2011
+    i32 903, label %2067
+    i32 909, label %2123
+    i32 910, label %2182
+    i32 921, label %2189
+    i32 922, label %2198
+    i32 934, label %2205
+    i32 955, label %2238
+    i32 969, label %2299
+    i32 973, label %2338
+    i32 976, label %2369
+    i32 982, label %2408
+    i32 983, label %2450
+    i32 984, label %2492
+    i32 1014, label %2534
+    i32 1034, label %2557
+    i32 1035, label %2618
+    i32 1036, label %2624
+    i32 1037, label %2685
+    i32 1039, label %2734
+    i32 1040, label %2783
+    i32 1041, label %2832
+    i32 1042, label %2937
+    i32 1059, label %2964
+    i32 1075, label %2976
+    i32 1076, label %3072
+    i32 1077, label %3121
+    i32 1078, label %3170
+    i32 1079, label %3219
+    i32 1080, label %3268
+    i32 1081, label %3364
+    i32 1082, label %3383
+    i32 1083, label %3406
+    i32 1084, label %3429
+    i32 1085, label %3444
+    i32 1095, label %3467
+    i32 1145, label %3500
+    i32 1167, label %3554
+    i32 1168, label %3650
+    i32 1169, label %3746
+    i32 1170, label %3842
+    i32 1171, label %3938
+    i32 1172, label %3994
+    i32 1173, label %4050
+    i32 1205, label %4069
+    i32 1232, label %4078
+    i32 1233, label %4101
+    i32 1234, label %4124
+    i32 1235, label %4163
+    i32 1258, label %4202
+    i32 1259, label %4225
+    i32 1260, label %4248
+    i32 1261, label %4281
+    i32 1262, label %4315
+    i32 1263, label %4338
+    i32 1277, label %4361
+    i32 1335, label %4370
+    i32 1336, label %4379
+    i32 1337, label %4388
+    i32 1338, label %4397
+    i32 1431, label %4406
+    i32 1432, label %4453
+    i32 1433, label %4500
+    i32 1434, label %4547
+    i32 1582, label %4594
   ]
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %7 = load i32, ptr %6, align 4, !tbaa !382
-  switch i32 %7, label %4671 [
+  switch i32 %7, label %4653 [
     i32 5, label %8
     i32 7, label %10
     i32 9, label %12
@@ -4349,7 +4349,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
 59:                                               ; preds = %4
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %61 = load i32, ptr %60, align 4, !tbaa !382
-  switch i32 %61, label %4671 [
+  switch i32 %61, label %4653 [
     i32 5, label %62
     i32 7, label %64
     i32 20, label %66
@@ -4373,7 +4373,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
 68:                                               ; preds = %4
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %70 = load i32, ptr %69, align 4, !tbaa !382
-  switch i32 %70, label %4671 [
+  switch i32 %70, label %4653 [
     i32 11, label %71
     i32 12, label %83
     i32 13, label %95
@@ -4387,7 +4387,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %73 = load i16, ptr %72, align 4, !tbaa !407
   %74 = add i16 %73, -2499
   %switch3989 = icmp ult i16 %74, 2
-  br i1 %switch3989, label %75, label %.critedge
+  br i1 %switch3989, label %75, label %.critedge30
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -4397,10 +4397,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 68
   %81 = load i32, ptr %80, align 4, !tbaa !406
   %82 = icmp eq i32 %79, %81
-  br i1 %82, label %.critedge42, label %.critedge
-
-.critedge:                                        ; preds = %71, %75
-  br label %.critedge42
+  br i1 %82, label %.critedge42, label %.critedge30
 
 83:                                               ; preds = %68
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 68
@@ -4427,7 +4424,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %97 = load i16, ptr %96, align 4, !tbaa !407
   %98 = add i16 %97, -2499
   %switch3993 = icmp ult i16 %98, 2
-  br i1 %switch3993, label %99, label %.critedge4
+  br i1 %switch3993, label %99, label %.critedge34
 
 99:                                               ; preds = %95
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -4437,17 +4434,14 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 68
   %105 = load i32, ptr %104, align 4, !tbaa !406
   %106 = icmp eq i32 %103, %105
-  br i1 %106, label %.critedge42, label %.critedge4
-
-.critedge4:                                       ; preds = %95, %99
-  br label %.critedge42
+  br i1 %106, label %.critedge42, label %.critedge34
 
 107:                                              ; preds = %68
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %109 = load i16, ptr %108, align 4, !tbaa !407
   %110 = add i16 %109, -2499
   %switch3995 = icmp ult i16 %110, 2
-  br i1 %switch3995, label %111, label %.critedge6
+  br i1 %switch3995, label %111, label %.critedge36
 
 111:                                              ; preds = %107
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -4457,10 +4451,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 68
   %117 = load i32, ptr %116, align 4, !tbaa !406
   %118 = icmp eq i32 %115, %117
-  br i1 %118, label %.critedge42, label %.critedge6
-
-.critedge6:                                       ; preds = %107, %111
-  br label %.critedge42
+  br i1 %118, label %.critedge42, label %.critedge36
 
 119:                                              ; preds = %68
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 68
@@ -4487,7 +4478,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %133 = load i16, ptr %132, align 4, !tbaa !407
   %134 = add i16 %133, -2499
   %switch3999 = icmp ult i16 %134, 2
-  br i1 %switch3999, label %135, label %.critedge10
+  br i1 %switch3999, label %135, label %.critedge40
 
 135:                                              ; preds = %131
   %136 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -4497,15 +4488,12 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 68
   %141 = load i32, ptr %140, align 4, !tbaa !406
   %142 = icmp eq i32 %139, %141
-  br i1 %142, label %.critedge42, label %.critedge10
-
-.critedge10:                                      ; preds = %131, %135
-  br label %.critedge42
+  br i1 %142, label %.critedge42, label %.critedge40
 
 143:                                              ; preds = %4
   %144 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %145 = load i32, ptr %144, align 4, !tbaa !382
-  switch i32 %145, label %4671 [
+  switch i32 %145, label %4653 [
     i32 1, label %146
     i32 4, label %148
     i32 13, label %150
@@ -4591,7 +4579,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
 180:                                              ; preds = %4
   %181 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %182 = load i32, ptr %181, align 4, !tbaa !382
-  switch i32 %182, label %4671 [
+  switch i32 %182, label %4653 [
     i32 1, label %183
     i32 4, label %185
     i32 13, label %187
@@ -4675,7 +4663,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
 217:                                              ; preds = %4
   %218 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %219 = load i32, ptr %218, align 4, !tbaa !382
-  switch i32 %219, label %4671 [
+  switch i32 %219, label %4653 [
     i32 4, label %220
     i32 13, label %224
     i32 14, label %226
@@ -4709,7 +4697,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
 230:                                              ; preds = %4
   %231 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %232 = load i32, ptr %231, align 4, !tbaa !382
-  switch i32 %232, label %4671 [
+  switch i32 %232, label %4653 [
     i32 2, label %233
     i32 3, label %244
     i32 5, label %255
@@ -4900,7 +4888,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
 326:                                              ; preds = %4
   %327 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %328 = load i32, ptr %327, align 4, !tbaa !382
-  switch i32 %328, label %4671 [
+  switch i32 %328, label %4653 [
     i32 5, label %329
     i32 7, label %331
     i32 20, label %333
@@ -4925,7 +4913,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %336 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %337 = load i32, ptr %336, align 4, !tbaa !382
   %338 = icmp eq i32 %337, 12
-  br i1 %338, label %339, label %4671
+  br i1 %338, label %339, label %4653
 
 339:                                              ; preds = %335
   %340 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isNeoversePdSameAsPgERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
@@ -4936,7 +4924,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %342 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %343 = load i32, ptr %342, align 4, !tbaa !382
   %344 = icmp eq i32 %343, 12
-  br i1 %344, label %345, label %4671
+  br i1 %344, label %345, label %4653
 
 345:                                              ; preds = %341
   %346 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isNeoversePdSameAsPgERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
@@ -4947,7 +4935,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %348 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %349 = load i32, ptr %348, align 4, !tbaa !382
   %350 = icmp eq i32 %349, 12
-  br i1 %350, label %351, label %4671
+  br i1 %350, label %351, label %4653
 
 351:                                              ; preds = %347
   %352 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isNeoversePdSameAsPgERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
@@ -4958,7 +4946,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %354 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %355 = load i32, ptr %354, align 4, !tbaa !382
   %356 = icmp eq i32 %355, 12
-  br i1 %356, label %357, label %4671
+  br i1 %356, label %357, label %4653
 
 357:                                              ; preds = %353
   %358 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isNeoversePdSameAsPgERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
@@ -4969,7 +4957,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %360 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %361 = load i32, ptr %360, align 4, !tbaa !382
   %362 = icmp eq i32 %361, 12
-  br i1 %362, label %363, label %4671
+  br i1 %362, label %363, label %4653
 
 363:                                              ; preds = %359
   %364 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isNeoversePdSameAsPgERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
@@ -4980,7 +4968,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %366 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %367 = load i32, ptr %366, align 4, !tbaa !382
   %368 = icmp eq i32 %367, 12
-  br i1 %368, label %369, label %4671
+  br i1 %368, label %369, label %4653
 
 369:                                              ; preds = %365
   %370 = getelementptr inbounds nuw i8, ptr %2, i64 68
@@ -5015,7 +5003,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %383 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %384 = load i32, ptr %383, align 4, !tbaa !382
   %385 = icmp eq i32 %384, 12
-  br i1 %385, label %386, label %4671
+  br i1 %385, label %386, label %4653
 
 386:                                              ; preds = %382
   %387 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isNeoversePdSameAsPgERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
@@ -5026,7 +5014,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %389 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %390 = load i32, ptr %389, align 4, !tbaa !382
   %391 = icmp eq i32 %390, 12
-  br i1 %391, label %392, label %4671
+  br i1 %391, label %392, label %4653
 
 392:                                              ; preds = %388
   %393 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isNeoversePdSameAsPgERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
@@ -5037,7 +5025,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %395 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %396 = load i32, ptr %395, align 4, !tbaa !382
   %397 = icmp eq i32 %396, 12
-  br i1 %397, label %398, label %4671
+  br i1 %397, label %398, label %4653
 
 398:                                              ; preds = %394
   %399 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isNeoversePdSameAsPgERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
@@ -5048,7 +5036,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %401 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %402 = load i32, ptr %401, align 4, !tbaa !382
   %403 = icmp eq i32 %402, 12
-  br i1 %403, label %404, label %4671
+  br i1 %403, label %404, label %4653
 
 404:                                              ; preds = %400
   %405 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isNeoversePdSameAsPgERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
@@ -5059,7 +5047,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %407 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %408 = load i32, ptr %407, align 4, !tbaa !382
   %409 = icmp eq i32 %408, 12
-  br i1 %409, label %410, label %4671
+  br i1 %409, label %410, label %4653
 
 410:                                              ; preds = %406
   %411 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isNeoversePdSameAsPgERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
@@ -5070,7 +5058,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %413 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %414 = load i32, ptr %413, align 4, !tbaa !382
   %415 = icmp eq i32 %414, 12
-  br i1 %415, label %416, label %4671
+  br i1 %415, label %416, label %4653
 
 416:                                              ; preds = %412
   %417 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isNeoversePdSameAsPgERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
@@ -5080,7 +5068,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
 418:                                              ; preds = %4
   %419 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %420 = load i32, ptr %419, align 4, !tbaa !382
-  switch i32 %420, label %4671 [
+  switch i32 %420, label %4653 [
     i32 13, label %421
     i32 14, label %431
     i32 15, label %441
@@ -5140,7 +5128,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
 451:                                              ; preds = %4
   %452 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %453 = load i32, ptr %452, align 4, !tbaa !382
-  switch i32 %453, label %4671 [
+  switch i32 %453, label %4653 [
     i32 11, label %454
     i32 12, label %466
     i32 13, label %478
@@ -5154,7 +5142,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %456 = load i16, ptr %455, align 4, !tbaa !407
   %457 = add i16 %456, -2499
   %switch4015 = icmp ult i16 %457, 2
-  br i1 %switch4015, label %458, label %.critedge18
+  br i1 %switch4015, label %458, label %.critedge30
 
 458:                                              ; preds = %454
   %459 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -5164,17 +5152,14 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %463 = getelementptr inbounds nuw i8, ptr %460, i64 68
   %464 = load i32, ptr %463, align 4, !tbaa !406
   %465 = icmp eq i32 %462, %464
-  br i1 %465, label %.critedge42, label %.critedge18
-
-.critedge18:                                      ; preds = %454, %458
-  br label %.critedge42
+  br i1 %465, label %.critedge42, label %.critedge30
 
 466:                                              ; preds = %451
   %467 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %468 = load i16, ptr %467, align 4, !tbaa !407
   %469 = add i16 %468, -2499
   %switch4017 = icmp ult i16 %469, 2
-  br i1 %switch4017, label %470, label %.critedge20
+  br i1 %switch4017, label %470, label %.critedge32
 
 470:                                              ; preds = %466
   %471 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -5184,17 +5169,14 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %475 = getelementptr inbounds nuw i8, ptr %472, i64 68
   %476 = load i32, ptr %475, align 4, !tbaa !406
   %477 = icmp eq i32 %474, %476
-  br i1 %477, label %.critedge42, label %.critedge20
-
-.critedge20:                                      ; preds = %466, %470
-  br label %.critedge42
+  br i1 %477, label %.critedge42, label %.critedge32
 
 478:                                              ; preds = %451
   %479 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %480 = load i16, ptr %479, align 4, !tbaa !407
   %481 = add i16 %480, -2499
   %switch4019 = icmp ult i16 %481, 2
-  br i1 %switch4019, label %482, label %.critedge22
+  br i1 %switch4019, label %482, label %.critedge34
 
 482:                                              ; preds = %478
   %483 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -5204,17 +5186,14 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %487 = getelementptr inbounds nuw i8, ptr %484, i64 68
   %488 = load i32, ptr %487, align 4, !tbaa !406
   %489 = icmp eq i32 %486, %488
-  br i1 %489, label %.critedge42, label %.critedge22
-
-.critedge22:                                      ; preds = %478, %482
-  br label %.critedge42
+  br i1 %489, label %.critedge42, label %.critedge34
 
 490:                                              ; preds = %451
   %491 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %492 = load i16, ptr %491, align 4, !tbaa !407
   %493 = add i16 %492, -2499
   %switch4021 = icmp ult i16 %493, 2
-  br i1 %switch4021, label %494, label %.critedge24
+  br i1 %switch4021, label %494, label %.critedge36
 
 494:                                              ; preds = %490
   %495 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -5224,10 +5203,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %499 = getelementptr inbounds nuw i8, ptr %496, i64 68
   %500 = load i32, ptr %499, align 4, !tbaa !406
   %501 = icmp eq i32 %498, %500
-  br i1 %501, label %.critedge42, label %.critedge24
-
-.critedge24:                                      ; preds = %490, %494
-  br label %.critedge42
+  br i1 %501, label %.critedge42, label %.critedge36
 
 502:                                              ; preds = %451
   %503 = getelementptr inbounds nuw i8, ptr %2, i64 68
@@ -5254,7 +5230,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %516 = load i16, ptr %515, align 4, !tbaa !407
   %517 = add i16 %516, -2499
   %switch4025 = icmp ult i16 %517, 2
-  br i1 %switch4025, label %518, label %.critedge28
+  br i1 %switch4025, label %518, label %.critedge40
 
 518:                                              ; preds = %514
   %519 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -5264,15 +5240,12 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %523 = getelementptr inbounds nuw i8, ptr %520, i64 68
   %524 = load i32, ptr %523, align 4, !tbaa !406
   %525 = icmp eq i32 %522, %524
-  br i1 %525, label %.critedge42, label %.critedge28
-
-.critedge28:                                      ; preds = %514, %518
-  br label %.critedge42
+  br i1 %525, label %.critedge42, label %.critedge40
 
 526:                                              ; preds = %4
   %527 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %528 = load i32, ptr %527, align 4, !tbaa !382
-  switch i32 %528, label %4671 [
+  switch i32 %528, label %4653 [
     i32 11, label %529
     i32 12, label %541
     i32 13, label %553
@@ -5298,7 +5271,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %540 = icmp eq i32 %537, %539
   br i1 %540, label %.critedge42, label %.critedge30
 
-.critedge30:                                      ; preds = %529, %533
+.critedge30:                                      ; preds = %75, %71, %458, %454, %529, %533
   br label %.critedge42
 
 541:                                              ; preds = %526
@@ -5318,7 +5291,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %552 = icmp eq i32 %549, %551
   br i1 %552, label %.critedge42, label %.critedge32
 
-.critedge32:                                      ; preds = %541, %545
+.critedge32:                                      ; preds = %470, %466, %541, %545
   br label %.critedge42
 
 553:                                              ; preds = %526
@@ -5338,7 +5311,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %564 = icmp eq i32 %561, %563
   br i1 %564, label %.critedge42, label %.critedge34
 
-.critedge34:                                      ; preds = %553, %557
+.critedge34:                                      ; preds = %99, %95, %482, %478, %553, %557
   br label %.critedge42
 
 565:                                              ; preds = %526
@@ -5358,7 +5331,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %576 = icmp eq i32 %573, %575
   br i1 %576, label %.critedge42, label %.critedge36
 
-.critedge36:                                      ; preds = %565, %569
+.critedge36:                                      ; preds = %111, %107, %494, %490, %565, %569
   br label %.critedge42
 
 577:                                              ; preds = %526
@@ -5398,13 +5371,13 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %600 = icmp eq i32 %597, %599
   br i1 %600, label %.critedge42, label %.critedge40
 
-.critedge40:                                      ; preds = %589, %593
+.critedge40:                                      ; preds = %135, %131, %518, %514, %589, %593
   br label %.critedge42
 
 601:                                              ; preds = %4
   %602 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %603 = load i32, ptr %602, align 4, !tbaa !382
-  switch i32 %603, label %4671 [
+  switch i32 %603, label %4653 [
     i32 14, label %604
     i32 15, label %606
   ]
@@ -5422,7 +5395,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
 608:                                              ; preds = %4
   %609 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %610 = load i32, ptr %609, align 4, !tbaa !382
-  switch i32 %610, label %4671 [
+  switch i32 %610, label %4653 [
     i32 14, label %611
     i32 15, label %613
   ]
@@ -5440,16 +5413,16 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
 615:                                              ; preds = %4
   %616 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %617 = load i32, ptr %616, align 4, !tbaa !382
-  switch i32 %617, label %4671 [
+  switch i32 %617, label %4653 [
     i32 1, label %618
     i32 4, label %620
     i32 12, label %622
-    i32 13, label %633
-    i32 14, label %635
-    i32 15, label %639
-    i32 16, label %643
-    i32 21, label %645
-    i32 22, label %647
+    i32 13, label %632
+    i32 14, label %634
+    i32 15, label %638
+    i32 16, label %642
+    i32 21, label %644
+    i32 22, label %646
   ]
 
 618:                                              ; preds = %615
@@ -5467,7 +5440,7 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
 
 624:                                              ; preds = %622
   %625 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %625, label %626, label %632
+  br i1 %625, label %626, label %1131
 
 626:                                              ; preds = %624, %622
   %627 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -5475,244 +5448,240 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %629 = getelementptr inbounds nuw i8, ptr %628, i64 144
   %630 = load i64, ptr %629, align 8, !tbaa !406
   %631 = icmp eq i64 %630, 1
-  br i1 %631, label %.critedge42, label %632
+  br i1 %631, label %.critedge42, label %1131
 
-632:                                              ; preds = %626, %624
+632:                                              ; preds = %615
+  %633 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-633:                                              ; preds = %615
-  %634 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+634:                                              ; preds = %615
+  %635 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %635, label %.critedge42, label %636
+
+636:                                              ; preds = %634
+  %637 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-635:                                              ; preds = %615
-  %636 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %636, label %.critedge42, label %637
+638:                                              ; preds = %615
+  %639 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %639, label %.critedge42, label %640
 
-637:                                              ; preds = %635
-  %638 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+640:                                              ; preds = %638
+  %641 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-639:                                              ; preds = %615
-  %640 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %640, label %.critedge42, label %641
-
-641:                                              ; preds = %639
-  %642 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+642:                                              ; preds = %615
+  %643 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3227 = select i1 %643, i32 1712, i32 1713
   br label %.critedge42
 
-643:                                              ; preds = %615
-  %644 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3227 = select i1 %644, i32 1712, i32 1713
+644:                                              ; preds = %615
+  %645 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-645:                                              ; preds = %615
-  %646 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+646:                                              ; preds = %615
+  %647 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-647:                                              ; preds = %615
-  %648 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-649:                                              ; preds = %4
-  %650 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %651 = load i32, ptr %650, align 4, !tbaa !382
-  switch i32 %651, label %4671 [
-    i32 1, label %652
-    i32 4, label %654
-    i32 12, label %656
-    i32 13, label %667
-    i32 14, label %669
-    i32 15, label %673
-    i32 16, label %677
-    i32 21, label %679
-    i32 22, label %681
+648:                                              ; preds = %4
+  %649 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %650 = load i32, ptr %649, align 4, !tbaa !382
+  switch i32 %650, label %4653 [
+    i32 1, label %651
+    i32 4, label %653
+    i32 12, label %655
+    i32 13, label %665
+    i32 14, label %667
+    i32 15, label %671
+    i32 16, label %675
+    i32 21, label %677
+    i32 22, label %679
   ]
 
-652:                                              ; preds = %649
-  %653 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+651:                                              ; preds = %648
+  %652 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-654:                                              ; preds = %649
-  %655 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3228 = select i1 %655, i32 1632, i32 1633
+653:                                              ; preds = %648
+  %654 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3228 = select i1 %654, i32 1632, i32 1633
   br label %.critedge42
 
-656:                                              ; preds = %649
-  %657 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %657, label %660, label %658
+655:                                              ; preds = %648
+  %656 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %656, label %659, label %657
 
-658:                                              ; preds = %656
-  %659 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %659, label %660, label %666
+657:                                              ; preds = %655
+  %658 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %658, label %659, label %1131
 
-660:                                              ; preds = %658, %656
-  %661 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %662 = load ptr, ptr %661, align 8, !tbaa !388
-  %663 = getelementptr inbounds nuw i8, ptr %662, i64 144
-  %664 = load i64, ptr %663, align 8, !tbaa !406
-  %665 = icmp eq i64 %664, 1
-  br i1 %665, label %.critedge42, label %666
+659:                                              ; preds = %657, %655
+  %660 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %661 = load ptr, ptr %660, align 8, !tbaa !388
+  %662 = getelementptr inbounds nuw i8, ptr %661, i64 144
+  %663 = load i64, ptr %662, align 8, !tbaa !406
+  %664 = icmp eq i64 %663, 1
+  br i1 %664, label %.critedge42, label %1131
 
-666:                                              ; preds = %660, %658
+665:                                              ; preds = %648
+  %666 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-667:                                              ; preds = %649
-  %668 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+667:                                              ; preds = %648
+  %668 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %668, label %.critedge42, label %669
+
+669:                                              ; preds = %667
+  %670 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-669:                                              ; preds = %649
-  %670 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %670, label %.critedge42, label %671
+671:                                              ; preds = %648
+  %672 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %672, label %.critedge42, label %673
 
-671:                                              ; preds = %669
-  %672 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+673:                                              ; preds = %671
+  %674 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-673:                                              ; preds = %649
-  %674 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %674, label %.critedge42, label %675
-
-675:                                              ; preds = %673
-  %676 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+675:                                              ; preds = %648
+  %676 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3229 = select i1 %676, i32 1712, i32 1713
   br label %.critedge42
 
-677:                                              ; preds = %649
-  %678 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3229 = select i1 %678, i32 1712, i32 1713
+677:                                              ; preds = %648
+  %678 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-679:                                              ; preds = %649
+679:                                              ; preds = %648
   %680 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-681:                                              ; preds = %649
-  %682 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-683:                                              ; preds = %4
-  %684 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %685 = load i32, ptr %684, align 4, !tbaa !382
-  switch i32 %685, label %4671 [
-    i32 1, label %686
-    i32 4, label %688
-    i32 12, label %690
-    i32 13, label %701
-    i32 14, label %703
-    i32 15, label %707
-    i32 16, label %711
-    i32 21, label %713
-    i32 22, label %715
+681:                                              ; preds = %4
+  %682 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %683 = load i32, ptr %682, align 4, !tbaa !382
+  switch i32 %683, label %4653 [
+    i32 1, label %684
+    i32 4, label %686
+    i32 12, label %688
+    i32 13, label %698
+    i32 14, label %700
+    i32 15, label %704
+    i32 16, label %708
+    i32 21, label %710
+    i32 22, label %712
   ]
 
-686:                                              ; preds = %683
+684:                                              ; preds = %681
+  %685 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+686:                                              ; preds = %681
   %687 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3230 = select i1 %687, i32 1632, i32 1633
   br label %.critedge42
 
-688:                                              ; preds = %683
-  %689 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3230 = select i1 %689, i32 1632, i32 1633
+688:                                              ; preds = %681
+  %689 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %689, label %692, label %690
+
+690:                                              ; preds = %688
+  %691 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %691, label %692, label %1131
+
+692:                                              ; preds = %690, %688
+  %693 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %694 = load ptr, ptr %693, align 8, !tbaa !388
+  %695 = getelementptr inbounds nuw i8, ptr %694, i64 144
+  %696 = load i64, ptr %695, align 8, !tbaa !406
+  %697 = icmp eq i64 %696, 1
+  br i1 %697, label %.critedge42, label %1131
+
+698:                                              ; preds = %681
+  %699 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-690:                                              ; preds = %683
-  %691 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %691, label %694, label %692
+700:                                              ; preds = %681
+  %701 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %701, label %.critedge42, label %702
 
-692:                                              ; preds = %690
-  %693 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %693, label %694, label %700
-
-694:                                              ; preds = %692, %690
-  %695 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %696 = load ptr, ptr %695, align 8, !tbaa !388
-  %697 = getelementptr inbounds nuw i8, ptr %696, i64 144
-  %698 = load i64, ptr %697, align 8, !tbaa !406
-  %699 = icmp eq i64 %698, 1
-  br i1 %699, label %.critedge42, label %700
-
-700:                                              ; preds = %694, %692
+702:                                              ; preds = %700
+  %703 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-701:                                              ; preds = %683
-  %702 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+704:                                              ; preds = %681
+  %705 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %705, label %.critedge42, label %706
+
+706:                                              ; preds = %704
+  %707 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-703:                                              ; preds = %683
-  %704 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %704, label %.critedge42, label %705
-
-705:                                              ; preds = %703
-  %706 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+708:                                              ; preds = %681
+  %709 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3231 = select i1 %709, i32 1712, i32 1713
   br label %.critedge42
 
-707:                                              ; preds = %683
-  %708 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %708, label %.critedge42, label %709
-
-709:                                              ; preds = %707
-  %710 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+710:                                              ; preds = %681
+  %711 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-711:                                              ; preds = %683
-  %712 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3231 = select i1 %712, i32 1712, i32 1713
+712:                                              ; preds = %681
+  %713 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-713:                                              ; preds = %683
-  %714 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-715:                                              ; preds = %683
-  %716 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-717:                                              ; preds = %4
-  %718 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %719 = load i32, ptr %718, align 4, !tbaa !382
-  switch i32 %719, label %4671 [
-    i32 1, label %720
-    i32 4, label %722
-    i32 12, label %724
-    i32 13, label %735
-    i32 14, label %737
-    i32 15, label %741
-    i32 16, label %745
-    i32 21, label %747
-    i32 22, label %749
+714:                                              ; preds = %4
+  %715 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %716 = load i32, ptr %715, align 4, !tbaa !382
+  switch i32 %716, label %4653 [
+    i32 1, label %717
+    i32 4, label %719
+    i32 12, label %721
+    i32 13, label %731
+    i32 14, label %733
+    i32 15, label %737
+    i32 16, label %741
+    i32 21, label %743
+    i32 22, label %745
   ]
 
-720:                                              ; preds = %717
-  %721 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+717:                                              ; preds = %714
+  %718 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-722:                                              ; preds = %717
-  %723 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3232 = select i1 %723, i32 1632, i32 1633
+719:                                              ; preds = %714
+  %720 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3232 = select i1 %720, i32 1632, i32 1633
   br label %.critedge42
 
-724:                                              ; preds = %717
-  %725 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %725, label %728, label %726
+721:                                              ; preds = %714
+  %722 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %722, label %725, label %723
 
-726:                                              ; preds = %724
-  %727 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %727, label %728, label %734
+723:                                              ; preds = %721
+  %724 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %724, label %725, label %1131
 
-728:                                              ; preds = %726, %724
-  %729 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %730 = load ptr, ptr %729, align 8, !tbaa !388
-  %731 = getelementptr inbounds nuw i8, ptr %730, i64 144
-  %732 = load i64, ptr %731, align 8, !tbaa !406
-  %733 = icmp eq i64 %732, 1
-  br i1 %733, label %.critedge42, label %734
+725:                                              ; preds = %723, %721
+  %726 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %727 = load ptr, ptr %726, align 8, !tbaa !388
+  %728 = getelementptr inbounds nuw i8, ptr %727, i64 144
+  %729 = load i64, ptr %728, align 8, !tbaa !406
+  %730 = icmp eq i64 %729, 1
+  br i1 %730, label %.critedge42, label %1131
 
-734:                                              ; preds = %728, %726
+731:                                              ; preds = %714
+  %732 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-735:                                              ; preds = %717
+733:                                              ; preds = %714
+  %734 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %734, label %.critedge42, label %735
+
+735:                                              ; preds = %733
   %736 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-737:                                              ; preds = %717
+737:                                              ; preds = %714
   %738 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %738, label %.critedge42, label %739
 
@@ -5720,55 +5689,55 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %740 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-741:                                              ; preds = %717
-  %742 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %742, label %.critedge42, label %743
-
-743:                                              ; preds = %741
-  %744 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+741:                                              ; preds = %714
+  %742 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3233 = select i1 %742, i32 1712, i32 1713
   br label %.critedge42
 
-745:                                              ; preds = %717
-  %746 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3233 = select i1 %746, i32 1712, i32 1713
+743:                                              ; preds = %714
+  %744 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-747:                                              ; preds = %717
-  %748 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+745:                                              ; preds = %714
+  %746 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-749:                                              ; preds = %717
-  %750 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-751:                                              ; preds = %4
-  %752 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %753 = load i32, ptr %752, align 4, !tbaa !382
-  switch i32 %753, label %4671 [
-    i32 1, label %754
-    i32 4, label %756
-    i32 13, label %758
-    i32 14, label %760
-    i32 15, label %764
-    i32 16, label %768
-    i32 21, label %770
-    i32 22, label %772
+747:                                              ; preds = %4
+  %748 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %749 = load i32, ptr %748, align 4, !tbaa !382
+  switch i32 %749, label %4653 [
+    i32 1, label %750
+    i32 4, label %752
+    i32 13, label %754
+    i32 14, label %756
+    i32 15, label %760
+    i32 16, label %764
+    i32 21, label %766
+    i32 22, label %768
   ]
 
-754:                                              ; preds = %751
-  %755 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+750:                                              ; preds = %747
+  %751 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-756:                                              ; preds = %751
+752:                                              ; preds = %747
+  %753 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3234 = select i1 %753, i32 1632, i32 1633
+  br label %.critedge42
+
+754:                                              ; preds = %747
+  %755 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+756:                                              ; preds = %747
   %757 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3234 = select i1 %757, i32 1632, i32 1633
-  br label %.critedge42
+  br i1 %757, label %.critedge42, label %758
 
-758:                                              ; preds = %751
+758:                                              ; preds = %756
   %759 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-760:                                              ; preds = %751
+760:                                              ; preds = %747
   %761 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %761, label %.critedge42, label %762
 
@@ -5776,60 +5745,60 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %763 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-764:                                              ; preds = %751
-  %765 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %765, label %.critedge42, label %766
-
-766:                                              ; preds = %764
-  %767 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+764:                                              ; preds = %747
+  %765 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3235 = select i1 %765, i32 1712, i32 1713
   br label %.critedge42
 
-768:                                              ; preds = %751
-  %769 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3235 = select i1 %769, i32 1712, i32 1713
+766:                                              ; preds = %747
+  %767 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-770:                                              ; preds = %751
-  %771 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+768:                                              ; preds = %747
+  %769 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-772:                                              ; preds = %751
-  %773 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-774:                                              ; preds = %4
-  %775 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %776 = load i32, ptr %775, align 4, !tbaa !382
-  switch i32 %776, label %4671 [
-    i32 1, label %777
-    i32 4, label %779
-    i32 13, label %781
-    i32 14, label %783
-    i32 15, label %795
-    i32 16, label %807
-    i32 21, label %809
-    i32 22, label %811
+770:                                              ; preds = %4
+  %771 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %772 = load i32, ptr %771, align 4, !tbaa !382
+  switch i32 %772, label %4653 [
+    i32 1, label %773
+    i32 4, label %775
+    i32 13, label %777
+    i32 14, label %779
+    i32 15, label %791
+    i32 16, label %803
+    i32 21, label %805
+    i32 22, label %807
   ]
 
-777:                                              ; preds = %774
-  %778 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+773:                                              ; preds = %770
+  %774 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-779:                                              ; preds = %774
-  %780 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3236 = select i1 %780, i32 1632, i32 1633
+775:                                              ; preds = %770
+  %776 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3236 = select i1 %776, i32 1632, i32 1633
   br label %.critedge42
 
-781:                                              ; preds = %774
-  %782 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3237 = select i1 %782, i32 1723, i32 1724
+777:                                              ; preds = %770
+  %778 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3237 = select i1 %778, i32 1723, i32 1724
   br label %.critedge42
 
-783:                                              ; preds = %774
+779:                                              ; preds = %770
+  %780 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %780, label %781, label %785
+
+781:                                              ; preds = %779
+  %782 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %782, label %.critedge42, label %783
+
+783:                                              ; preds = %781
   %784 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %784, label %785, label %789
+  br i1 %784, label %.critedge42, label %785
 
-785:                                              ; preds = %783
+785:                                              ; preds = %783, %779
   %786 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %786, label %.critedge42, label %787
 
@@ -5837,24 +5806,24 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %788 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %788, label %.critedge42, label %789
 
-789:                                              ; preds = %787, %783
-  %790 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %790, label %.critedge42, label %791
-
-791:                                              ; preds = %789
-  %792 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %792, label %.critedge42, label %793
-
-793:                                              ; preds = %791
-  %794 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3238 = select i1 %794, i32 1635, i32 1636
+789:                                              ; preds = %787
+  %790 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3238 = select i1 %790, i32 1635, i32 1636
   br label %.critedge42
 
-795:                                              ; preds = %774
-  %796 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %796, label %797, label %801
+791:                                              ; preds = %770
+  %792 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %792, label %793, label %797
 
-797:                                              ; preds = %795
+793:                                              ; preds = %791
+  %794 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %794, label %.critedge42, label %795
+
+795:                                              ; preds = %793
+  %796 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %796, label %.critedge42, label %797
+
+797:                                              ; preds = %795, %791
   %798 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %798, label %.critedge42, label %799
 
@@ -5862,322 +5831,319 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %800 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %800, label %.critedge42, label %801
 
-801:                                              ; preds = %799, %795
-  %802 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %802, label %.critedge42, label %803
-
-803:                                              ; preds = %801
-  %804 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %804, label %.critedge42, label %805
-
-805:                                              ; preds = %803
-  %806 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3239 = select i1 %806, i32 1637, i32 1638
+801:                                              ; preds = %799
+  %802 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3239 = select i1 %802, i32 1637, i32 1638
   br label %.critedge42
 
-807:                                              ; preds = %774
-  %808 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3240 = select i1 %808, i32 1712, i32 1713
+803:                                              ; preds = %770
+  %804 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3240 = select i1 %804, i32 1712, i32 1713
   br label %.critedge42
 
-809:                                              ; preds = %774
-  %810 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+805:                                              ; preds = %770
+  %806 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-811:                                              ; preds = %774
-  %812 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+807:                                              ; preds = %770
+  %808 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-813:                                              ; preds = %4
-  %814 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %815 = load i32, ptr %814, align 4, !tbaa !382
-  switch i32 %815, label %4671 [
-    i32 1, label %816
-    i32 4, label %818
-    i32 12, label %820
-    i32 13, label %831
-    i32 14, label %833
-    i32 15, label %837
-    i32 16, label %841
-    i32 21, label %843
-    i32 22, label %845
+809:                                              ; preds = %4
+  %810 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %811 = load i32, ptr %810, align 4, !tbaa !382
+  switch i32 %811, label %4653 [
+    i32 1, label %812
+    i32 4, label %814
+    i32 12, label %816
+    i32 13, label %826
+    i32 14, label %828
+    i32 15, label %832
+    i32 16, label %836
+    i32 21, label %838
+    i32 22, label %840
   ]
 
-816:                                              ; preds = %813
-  %817 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+812:                                              ; preds = %809
+  %813 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-818:                                              ; preds = %813
-  %819 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3241 = select i1 %819, i32 1632, i32 1633
+814:                                              ; preds = %809
+  %815 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3241 = select i1 %815, i32 1632, i32 1633
   br label %.critedge42
 
-820:                                              ; preds = %813
-  %821 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %821, label %824, label %822
+816:                                              ; preds = %809
+  %817 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %817, label %820, label %818
 
-822:                                              ; preds = %820
-  %823 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %823, label %824, label %830
+818:                                              ; preds = %816
+  %819 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %819, label %820, label %1131
 
-824:                                              ; preds = %822, %820
-  %825 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %826 = load ptr, ptr %825, align 8, !tbaa !388
-  %827 = getelementptr inbounds nuw i8, ptr %826, i64 144
-  %828 = load i64, ptr %827, align 8, !tbaa !406
-  %829 = icmp eq i64 %828, 1
+820:                                              ; preds = %818, %816
+  %821 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %822 = load ptr, ptr %821, align 8, !tbaa !388
+  %823 = getelementptr inbounds nuw i8, ptr %822, i64 144
+  %824 = load i64, ptr %823, align 8, !tbaa !406
+  %825 = icmp eq i64 %824, 1
+  br i1 %825, label %.critedge42, label %1131
+
+826:                                              ; preds = %809
+  %827 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+828:                                              ; preds = %809
+  %829 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %829, label %.critedge42, label %830
 
-830:                                              ; preds = %824, %822
+830:                                              ; preds = %828
+  %831 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-831:                                              ; preds = %813
-  %832 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+832:                                              ; preds = %809
+  %833 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %833, label %.critedge42, label %834
+
+834:                                              ; preds = %832
+  %835 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-833:                                              ; preds = %813
-  %834 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %834, label %.critedge42, label %835
-
-835:                                              ; preds = %833
-  %836 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+836:                                              ; preds = %809
+  %837 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3242 = select i1 %837, i32 1712, i32 1713
   br label %.critedge42
 
-837:                                              ; preds = %813
-  %838 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %838, label %.critedge42, label %839
-
-839:                                              ; preds = %837
-  %840 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+838:                                              ; preds = %809
+  %839 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-841:                                              ; preds = %813
-  %842 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3242 = select i1 %842, i32 1712, i32 1713
+840:                                              ; preds = %809
+  %841 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-843:                                              ; preds = %813
-  %844 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
+842:                                              ; preds = %4
+  %843 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %844 = load i32, ptr %843, align 4, !tbaa !382
+  switch i32 %844, label %4653 [
+    i32 1, label %845
+    i32 4, label %847
+    i32 12, label %849
+    i32 13, label %859
+    i32 14, label %861
+    i32 15, label %865
+    i32 16, label %869
+    i32 21, label %871
+    i32 22, label %873
+  ]
 
-845:                                              ; preds = %813
+845:                                              ; preds = %842
   %846 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-847:                                              ; preds = %4
-  %848 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %849 = load i32, ptr %848, align 4, !tbaa !382
-  switch i32 %849, label %4671 [
-    i32 1, label %850
-    i32 4, label %852
-    i32 12, label %854
-    i32 13, label %865
-    i32 14, label %867
-    i32 15, label %871
-    i32 16, label %875
-    i32 21, label %877
-    i32 22, label %879
-  ]
-
-850:                                              ; preds = %847
-  %851 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+847:                                              ; preds = %842
+  %848 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3243 = select i1 %848, i32 1632, i32 1633
   br label %.critedge42
 
-852:                                              ; preds = %847
-  %853 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3243 = select i1 %853, i32 1632, i32 1633
+849:                                              ; preds = %842
+  %850 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %850, label %853, label %851
+
+851:                                              ; preds = %849
+  %852 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %852, label %853, label %1131
+
+853:                                              ; preds = %851, %849
+  %854 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %855 = load ptr, ptr %854, align 8, !tbaa !388
+  %856 = getelementptr inbounds nuw i8, ptr %855, i64 144
+  %857 = load i64, ptr %856, align 8, !tbaa !406
+  %858 = icmp eq i64 %857, 1
+  br i1 %858, label %.critedge42, label %1131
+
+859:                                              ; preds = %842
+  %860 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-854:                                              ; preds = %847
-  %855 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %855, label %858, label %856
+861:                                              ; preds = %842
+  %862 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %862, label %.critedge42, label %863
 
-856:                                              ; preds = %854
-  %857 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %857, label %858, label %864
-
-858:                                              ; preds = %856, %854
-  %859 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %860 = load ptr, ptr %859, align 8, !tbaa !388
-  %861 = getelementptr inbounds nuw i8, ptr %860, i64 144
-  %862 = load i64, ptr %861, align 8, !tbaa !406
-  %863 = icmp eq i64 %862, 1
-  br i1 %863, label %.critedge42, label %864
-
-864:                                              ; preds = %858, %856
+863:                                              ; preds = %861
+  %864 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-865:                                              ; preds = %847
-  %866 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+865:                                              ; preds = %842
+  %866 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %866, label %.critedge42, label %867
+
+867:                                              ; preds = %865
+  %868 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-867:                                              ; preds = %847
-  %868 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %868, label %.critedge42, label %869
-
-869:                                              ; preds = %867
-  %870 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+869:                                              ; preds = %842
+  %870 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3244 = select i1 %870, i32 1712, i32 1713
   br label %.critedge42
 
-871:                                              ; preds = %847
+871:                                              ; preds = %842
   %872 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %872, label %.critedge42, label %873
-
-873:                                              ; preds = %871
-  %874 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-875:                                              ; preds = %847
-  %876 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3244 = select i1 %876, i32 1712, i32 1713
+873:                                              ; preds = %842
+  %874 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-877:                                              ; preds = %847
-  %878 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-879:                                              ; preds = %847
-  %880 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-881:                                              ; preds = %4
-  %882 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %883 = load i32, ptr %882, align 4, !tbaa !382
-  switch i32 %883, label %4671 [
-    i32 1, label %884
-    i32 4, label %886
-    i32 12, label %888
-    i32 13, label %899
-    i32 14, label %901
-    i32 15, label %905
-    i32 16, label %909
-    i32 21, label %911
-    i32 22, label %913
+875:                                              ; preds = %4
+  %876 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %877 = load i32, ptr %876, align 4, !tbaa !382
+  switch i32 %877, label %4653 [
+    i32 1, label %878
+    i32 4, label %880
+    i32 12, label %882
+    i32 13, label %892
+    i32 14, label %894
+    i32 15, label %898
+    i32 16, label %902
+    i32 21, label %904
+    i32 22, label %906
   ]
 
-884:                                              ; preds = %881
-  %885 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+878:                                              ; preds = %875
+  %879 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-886:                                              ; preds = %881
-  %887 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3245 = select i1 %887, i32 1632, i32 1633
+880:                                              ; preds = %875
+  %881 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3245 = select i1 %881, i32 1632, i32 1633
   br label %.critedge42
 
-888:                                              ; preds = %881
-  %889 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %889, label %892, label %890
+882:                                              ; preds = %875
+  %883 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %883, label %886, label %884
 
-890:                                              ; preds = %888
-  %891 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %891, label %892, label %898
+884:                                              ; preds = %882
+  %885 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %885, label %886, label %1131
 
-892:                                              ; preds = %890, %888
-  %893 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %894 = load ptr, ptr %893, align 8, !tbaa !388
-  %895 = getelementptr inbounds nuw i8, ptr %894, i64 144
-  %896 = load i64, ptr %895, align 8, !tbaa !406
-  %897 = icmp eq i64 %896, 1
-  br i1 %897, label %.critedge42, label %898
+886:                                              ; preds = %884, %882
+  %887 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %888 = load ptr, ptr %887, align 8, !tbaa !388
+  %889 = getelementptr inbounds nuw i8, ptr %888, i64 144
+  %890 = load i64, ptr %889, align 8, !tbaa !406
+  %891 = icmp eq i64 %890, 1
+  br i1 %891, label %.critedge42, label %1131
 
-898:                                              ; preds = %892, %890
+892:                                              ; preds = %875
+  %893 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3246 = select i1 %893, i32 1714, i32 1723
   br label %.critedge42
 
-899:                                              ; preds = %881
-  %900 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3246 = select i1 %900, i32 1714, i32 1723
+894:                                              ; preds = %875
+  %895 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %895, label %.critedge42, label %896
+
+896:                                              ; preds = %894
+  %897 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-901:                                              ; preds = %881
-  %902 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %902, label %.critedge42, label %903
+898:                                              ; preds = %875
+  %899 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %899, label %.critedge42, label %900
 
-903:                                              ; preds = %901
-  %904 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+900:                                              ; preds = %898
+  %901 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-905:                                              ; preds = %881
-  %906 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %906, label %.critedge42, label %907
-
-907:                                              ; preds = %905
-  %908 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+902:                                              ; preds = %875
+  %903 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3247 = select i1 %903, i32 1712, i32 1713
   br label %.critedge42
 
-909:                                              ; preds = %881
-  %910 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3247 = select i1 %910, i32 1712, i32 1713
+904:                                              ; preds = %875
+  %905 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-911:                                              ; preds = %881
+906:                                              ; preds = %875
+  %907 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+908:                                              ; preds = %4
+  %909 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %910 = load i32, ptr %909, align 4, !tbaa !382
+  switch i32 %910, label %4653 [
+    i32 1, label %911
+    i32 4, label %913
+    i32 12, label %915
+    i32 13, label %925
+    i32 14, label %927
+    i32 15, label %939
+    i32 16, label %951
+    i32 21, label %953
+    i32 22, label %955
+  ]
+
+911:                                              ; preds = %908
   %912 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-913:                                              ; preds = %881
+913:                                              ; preds = %908
   %914 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3248 = select i1 %914, i32 1632, i32 1633
   br label %.critedge42
 
-915:                                              ; preds = %4
-  %916 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %917 = load i32, ptr %916, align 4, !tbaa !382
-  switch i32 %917, label %4671 [
-    i32 1, label %918
-    i32 4, label %920
-    i32 12, label %922
-    i32 13, label %933
-    i32 14, label %935
-    i32 15, label %947
-    i32 16, label %959
-    i32 21, label %961
-    i32 22, label %963
-  ]
+915:                                              ; preds = %908
+  %916 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %916, label %919, label %917
 
-918:                                              ; preds = %915
-  %919 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+917:                                              ; preds = %915
+  %918 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %918, label %919, label %1131
+
+919:                                              ; preds = %917, %915
+  %920 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %921 = load ptr, ptr %920, align 8, !tbaa !388
+  %922 = getelementptr inbounds nuw i8, ptr %921, i64 144
+  %923 = load i64, ptr %922, align 8, !tbaa !406
+  %924 = icmp eq i64 %923, 1
+  br i1 %924, label %.critedge42, label %1131
+
+925:                                              ; preds = %908
+  %926 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3249 = select i1 %926, i32 1714, i32 1723
   br label %.critedge42
 
-920:                                              ; preds = %915
-  %921 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3248 = select i1 %921, i32 1632, i32 1633
-  br label %.critedge42
+927:                                              ; preds = %908
+  %928 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %928, label %929, label %933
 
-922:                                              ; preds = %915
-  %923 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %923, label %926, label %924
+929:                                              ; preds = %927
+  %930 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %930, label %.critedge42, label %931
 
-924:                                              ; preds = %922
-  %925 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %925, label %926, label %932
+931:                                              ; preds = %929
+  %932 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %932, label %.critedge42, label %933
 
-926:                                              ; preds = %924, %922
-  %927 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %928 = load ptr, ptr %927, align 8, !tbaa !388
-  %929 = getelementptr inbounds nuw i8, ptr %928, i64 144
-  %930 = load i64, ptr %929, align 8, !tbaa !406
-  %931 = icmp eq i64 %930, 1
-  br i1 %931, label %.critedge42, label %932
+933:                                              ; preds = %931, %927
+  %934 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %934, label %.critedge42, label %935
 
-932:                                              ; preds = %926, %924
-  br label %.critedge42
-
-933:                                              ; preds = %915
-  %934 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3249 = select i1 %934, i32 1714, i32 1723
-  br label %.critedge42
-
-935:                                              ; preds = %915
+935:                                              ; preds = %933
   %936 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %936, label %937, label %941
+  br i1 %936, label %.critedge42, label %937
 
 937:                                              ; preds = %935
-  %938 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %938, label %.critedge42, label %939
+  %938 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3250 = select i1 %938, i32 1715, i32 1635
+  br label %.critedge42
 
-939:                                              ; preds = %937
+939:                                              ; preds = %908
   %940 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %940, label %.critedge42, label %941
+  br i1 %940, label %941, label %945
 
-941:                                              ; preds = %939, %935
+941:                                              ; preds = %939
   %942 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %942, label %.critedge42, label %943
 
@@ -6185,146 +6151,146 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %944 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %944, label %.critedge42, label %945
 
-945:                                              ; preds = %943
-  %946 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3250 = select i1 %946, i32 1715, i32 1635
-  br label %.critedge42
+945:                                              ; preds = %943, %939
+  %946 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %946, label %.critedge42, label %947
 
-947:                                              ; preds = %915
+947:                                              ; preds = %945
   %948 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %948, label %949, label %953
+  br i1 %948, label %.critedge42, label %949
 
 949:                                              ; preds = %947
-  %950 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %950, label %.critedge42, label %951
+  %950 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3251 = select i1 %950, i32 1716, i32 1725
+  br label %.critedge42
 
-951:                                              ; preds = %949
-  %952 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %952, label %.critedge42, label %953
+951:                                              ; preds = %908
+  %952 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3252 = select i1 %952, i32 1712, i32 1713
+  br label %.critedge42
 
-953:                                              ; preds = %951, %947
+953:                                              ; preds = %908
   %954 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %954, label %.critedge42, label %955
-
-955:                                              ; preds = %953
-  %956 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %956, label %.critedge42, label %957
-
-957:                                              ; preds = %955
-  %958 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3251 = select i1 %958, i32 1716, i32 1725
   br label %.critedge42
 
-959:                                              ; preds = %915
-  %960 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3252 = select i1 %960, i32 1712, i32 1713
+955:                                              ; preds = %908
+  %956 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-961:                                              ; preds = %915
-  %962 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-963:                                              ; preds = %915
-  %964 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-965:                                              ; preds = %4
-  %966 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %967 = load i32, ptr %966, align 4, !tbaa !382
-  switch i32 %967, label %4671 [
-    i32 1, label %968
-    i32 4, label %970
-    i32 13, label %972
-    i32 14, label %974
-    i32 15, label %978
-    i32 16, label %982
-    i32 21, label %984
-    i32 22, label %986
+957:                                              ; preds = %4
+  %958 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %959 = load i32, ptr %958, align 4, !tbaa !382
+  switch i32 %959, label %4653 [
+    i32 1, label %960
+    i32 4, label %962
+    i32 13, label %964
+    i32 14, label %966
+    i32 15, label %970
+    i32 16, label %974
+    i32 21, label %976
+    i32 22, label %978
   ]
 
-968:                                              ; preds = %965
-  %969 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+960:                                              ; preds = %957
+  %961 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-970:                                              ; preds = %965
+962:                                              ; preds = %957
+  %963 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3253 = select i1 %963, i32 1632, i32 1633
+  br label %.critedge42
+
+964:                                              ; preds = %957
+  %965 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+966:                                              ; preds = %957
+  %967 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %967, label %.critedge42, label %968
+
+968:                                              ; preds = %966
+  %969 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+970:                                              ; preds = %957
   %971 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3253 = select i1 %971, i32 1632, i32 1633
-  br label %.critedge42
+  br i1 %971, label %.critedge42, label %972
 
-972:                                              ; preds = %965
+972:                                              ; preds = %970
   %973 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-974:                                              ; preds = %965
-  %975 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %975, label %.critedge42, label %976
-
-976:                                              ; preds = %974
-  %977 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+974:                                              ; preds = %957
+  %975 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3254 = select i1 %975, i32 1726, i32 1727
   br label %.critedge42
 
-978:                                              ; preds = %965
+976:                                              ; preds = %957
+  %977 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+978:                                              ; preds = %957
   %979 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %979, label %.critedge42, label %980
-
-980:                                              ; preds = %978
-  %981 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-982:                                              ; preds = %965
-  %983 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3254 = select i1 %983, i32 1726, i32 1727
-  br label %.critedge42
-
-984:                                              ; preds = %965
-  %985 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-986:                                              ; preds = %965
-  %987 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-988:                                              ; preds = %4
-  %989 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %990 = load i32, ptr %989, align 4, !tbaa !382
-  switch i32 %990, label %4671 [
-    i32 1, label %991
-    i32 4, label %993
-    i32 13, label %995
-    i32 14, label %997
-    i32 15, label %1009
-    i32 16, label %1021
-    i32 21, label %1023
-    i32 22, label %1025
+980:                                              ; preds = %4
+  %981 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %982 = load i32, ptr %981, align 4, !tbaa !382
+  switch i32 %982, label %4653 [
+    i32 1, label %983
+    i32 4, label %985
+    i32 13, label %987
+    i32 14, label %989
+    i32 15, label %1001
+    i32 16, label %1013
+    i32 21, label %1015
+    i32 22, label %1017
   ]
 
-991:                                              ; preds = %988
+983:                                              ; preds = %980
+  %984 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+985:                                              ; preds = %980
+  %986 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3255 = select i1 %986, i32 1632, i32 1633
+  br label %.critedge42
+
+987:                                              ; preds = %980
+  %988 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3256 = select i1 %988, i32 1723, i32 1724
+  br label %.critedge42
+
+989:                                              ; preds = %980
+  %990 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %990, label %991, label %995
+
+991:                                              ; preds = %989
   %992 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
+  br i1 %992, label %.critedge42, label %993
 
-993:                                              ; preds = %988
-  %994 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3255 = select i1 %994, i32 1632, i32 1633
-  br label %.critedge42
+993:                                              ; preds = %991
+  %994 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %994, label %.critedge42, label %995
 
-995:                                              ; preds = %988
-  %996 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3256 = select i1 %996, i32 1723, i32 1724
-  br label %.critedge42
+995:                                              ; preds = %993, %989
+  %996 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %996, label %.critedge42, label %997
 
-997:                                              ; preds = %988
+997:                                              ; preds = %995
   %998 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %998, label %999, label %1003
+  br i1 %998, label %.critedge42, label %999
 
 999:                                              ; preds = %997
-  %1000 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1000, label %.critedge42, label %1001
+  %1000 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3257 = select i1 %1000, i32 1635, i32 1636
+  br label %.critedge42
 
-1001:                                             ; preds = %999
+1001:                                             ; preds = %980
   %1002 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1002, label %.critedge42, label %1003
+  br i1 %1002, label %1003, label %1007
 
-1003:                                             ; preds = %1001, %997
+1003:                                             ; preds = %1001
   %1004 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %1004, label %.critedge42, label %1005
 
@@ -6332,146 +6298,146 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %1006 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %1006, label %.critedge42, label %1007
 
-1007:                                             ; preds = %1005
-  %1008 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3257 = select i1 %1008, i32 1635, i32 1636
-  br label %.critedge42
+1007:                                             ; preds = %1005, %1001
+  %1008 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1008, label %.critedge42, label %1009
 
-1009:                                             ; preds = %988
+1009:                                             ; preds = %1007
   %1010 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1010, label %1011, label %1015
+  br i1 %1010, label %.critedge42, label %1011
 
 1011:                                             ; preds = %1009
-  %1012 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1012, label %.critedge42, label %1013
+  %1012 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3258 = select i1 %1012, i32 1637, i32 1638
+  br label %.critedge42
 
-1013:                                             ; preds = %1011
-  %1014 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1014, label %.critedge42, label %1015
+1013:                                             ; preds = %980
+  %1014 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3259 = select i1 %1014, i32 1726, i32 1727
+  br label %.critedge42
 
-1015:                                             ; preds = %1013, %1009
+1015:                                             ; preds = %980
   %1016 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1016, label %.critedge42, label %1017
-
-1017:                                             ; preds = %1015
-  %1018 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1018, label %.critedge42, label %1019
-
-1019:                                             ; preds = %1017
-  %1020 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3258 = select i1 %1020, i32 1637, i32 1638
   br label %.critedge42
 
-1021:                                             ; preds = %988
-  %1022 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3259 = select i1 %1022, i32 1726, i32 1727
+1017:                                             ; preds = %980
+  %1018 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1023:                                             ; preds = %988
-  %1024 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1025:                                             ; preds = %988
-  %1026 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1027:                                             ; preds = %4
-  %1028 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1029 = load i32, ptr %1028, align 4, !tbaa !382
-  switch i32 %1029, label %4671 [
-    i32 1, label %1030
-    i32 4, label %1032
-    i32 13, label %1034
-    i32 14, label %1036
-    i32 15, label %1040
-    i32 16, label %1044
-    i32 21, label %1046
-    i32 22, label %1048
+1019:                                             ; preds = %4
+  %1020 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1021 = load i32, ptr %1020, align 4, !tbaa !382
+  switch i32 %1021, label %4653 [
+    i32 1, label %1022
+    i32 4, label %1024
+    i32 13, label %1026
+    i32 14, label %1028
+    i32 15, label %1032
+    i32 16, label %1036
+    i32 21, label %1038
+    i32 22, label %1040
   ]
 
-1030:                                             ; preds = %1027
-  %1031 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1022:                                             ; preds = %1019
+  %1023 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1032:                                             ; preds = %1027
+1024:                                             ; preds = %1019
+  %1025 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3260 = select i1 %1025, i32 1632, i32 1633
+  br label %.critedge42
+
+1026:                                             ; preds = %1019
+  %1027 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1028:                                             ; preds = %1019
+  %1029 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1029, label %.critedge42, label %1030
+
+1030:                                             ; preds = %1028
+  %1031 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1032:                                             ; preds = %1019
   %1033 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3260 = select i1 %1033, i32 1632, i32 1633
-  br label %.critedge42
+  br i1 %1033, label %.critedge42, label %1034
 
-1034:                                             ; preds = %1027
+1034:                                             ; preds = %1032
   %1035 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1036:                                             ; preds = %1027
-  %1037 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1037, label %.critedge42, label %1038
-
-1038:                                             ; preds = %1036
-  %1039 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1036:                                             ; preds = %1019
+  %1037 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3261 = select i1 %1037, i32 1726, i32 1727
   br label %.critedge42
 
-1040:                                             ; preds = %1027
+1038:                                             ; preds = %1019
+  %1039 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1040:                                             ; preds = %1019
   %1041 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1041, label %.critedge42, label %1042
-
-1042:                                             ; preds = %1040
-  %1043 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1044:                                             ; preds = %1027
-  %1045 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3261 = select i1 %1045, i32 1726, i32 1727
-  br label %.critedge42
-
-1046:                                             ; preds = %1027
-  %1047 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1048:                                             ; preds = %1027
-  %1049 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1050:                                             ; preds = %4
-  %1051 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1052 = load i32, ptr %1051, align 4, !tbaa !382
-  switch i32 %1052, label %4671 [
-    i32 1, label %1053
-    i32 4, label %1055
-    i32 13, label %1057
-    i32 14, label %1059
-    i32 15, label %1071
-    i32 16, label %1083
-    i32 21, label %1085
-    i32 22, label %1087
+1042:                                             ; preds = %4
+  %1043 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1044 = load i32, ptr %1043, align 4, !tbaa !382
+  switch i32 %1044, label %4653 [
+    i32 1, label %1045
+    i32 4, label %1047
+    i32 13, label %1049
+    i32 14, label %1051
+    i32 15, label %1063
+    i32 16, label %1075
+    i32 21, label %1077
+    i32 22, label %1079
   ]
 
-1053:                                             ; preds = %1050
+1045:                                             ; preds = %1042
+  %1046 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1047:                                             ; preds = %1042
+  %1048 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3262 = select i1 %1048, i32 1632, i32 1633
+  br label %.critedge42
+
+1049:                                             ; preds = %1042
+  %1050 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3263 = select i1 %1050, i32 1723, i32 1724
+  br label %.critedge42
+
+1051:                                             ; preds = %1042
+  %1052 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1052, label %1053, label %1057
+
+1053:                                             ; preds = %1051
   %1054 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
+  br i1 %1054, label %.critedge42, label %1055
 
-1055:                                             ; preds = %1050
-  %1056 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3262 = select i1 %1056, i32 1632, i32 1633
-  br label %.critedge42
+1055:                                             ; preds = %1053
+  %1056 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1056, label %.critedge42, label %1057
 
-1057:                                             ; preds = %1050
-  %1058 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3263 = select i1 %1058, i32 1723, i32 1724
-  br label %.critedge42
+1057:                                             ; preds = %1055, %1051
+  %1058 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1058, label %.critedge42, label %1059
 
-1059:                                             ; preds = %1050
+1059:                                             ; preds = %1057
   %1060 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1060, label %1061, label %1065
+  br i1 %1060, label %.critedge42, label %1061
 
 1061:                                             ; preds = %1059
-  %1062 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1062, label %.critedge42, label %1063
+  %1062 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3264 = select i1 %1062, i32 1635, i32 1636
+  br label %.critedge42
 
-1063:                                             ; preds = %1061
+1063:                                             ; preds = %1042
   %1064 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1064, label %.critedge42, label %1065
+  br i1 %1064, label %1065, label %1069
 
-1065:                                             ; preds = %1063, %1059
+1065:                                             ; preds = %1063
   %1066 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %1066, label %.critedge42, label %1067
 
@@ -6479,2689 +6445,2669 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %1068 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %1068, label %.critedge42, label %1069
 
-1069:                                             ; preds = %1067
-  %1070 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3264 = select i1 %1070, i32 1635, i32 1636
-  br label %.critedge42
+1069:                                             ; preds = %1067, %1063
+  %1070 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1070, label %.critedge42, label %1071
 
-1071:                                             ; preds = %1050
+1071:                                             ; preds = %1069
   %1072 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1072, label %1073, label %1077
+  br i1 %1072, label %.critedge42, label %1073
 
 1073:                                             ; preds = %1071
-  %1074 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1074, label %.critedge42, label %1075
+  %1074 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3265 = select i1 %1074, i32 1637, i32 1638
+  br label %.critedge42
 
-1075:                                             ; preds = %1073
-  %1076 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1076, label %.critedge42, label %1077
+1075:                                             ; preds = %1042
+  %1076 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3266 = select i1 %1076, i32 1726, i32 1727
+  br label %.critedge42
 
-1077:                                             ; preds = %1075, %1071
+1077:                                             ; preds = %1042
   %1078 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1078, label %.critedge42, label %1079
-
-1079:                                             ; preds = %1077
-  %1080 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1080, label %.critedge42, label %1081
-
-1081:                                             ; preds = %1079
-  %1082 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3265 = select i1 %1082, i32 1637, i32 1638
   br label %.critedge42
 
-1083:                                             ; preds = %1050
-  %1084 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3266 = select i1 %1084, i32 1726, i32 1727
+1079:                                             ; preds = %1042
+  %1080 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1085:                                             ; preds = %1050
-  %1086 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1087:                                             ; preds = %1050
-  %1088 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1089:                                             ; preds = %4
-  %1090 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1091 = load i32, ptr %1090, align 4, !tbaa !382
-  switch i32 %1091, label %4671 [
-    i32 1, label %1092
-    i32 4, label %1094
-    i32 12, label %1096
-    i32 13, label %1107
-    i32 14, label %1109
-    i32 15, label %1113
-    i32 16, label %1117
-    i32 21, label %1119
-    i32 22, label %1121
+1081:                                             ; preds = %4
+  %1082 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1083 = load i32, ptr %1082, align 4, !tbaa !382
+  switch i32 %1083, label %4653 [
+    i32 1, label %1084
+    i32 4, label %1086
+    i32 12, label %1088
+    i32 13, label %1098
+    i32 14, label %1100
+    i32 15, label %1104
+    i32 16, label %1108
+    i32 21, label %1110
+    i32 22, label %1112
   ]
 
-1092:                                             ; preds = %1089
-  %1093 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1084:                                             ; preds = %1081
+  %1085 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1094:                                             ; preds = %1089
-  %1095 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3267 = select i1 %1095, i32 1632, i32 1633
+1086:                                             ; preds = %1081
+  %1087 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3267 = select i1 %1087, i32 1632, i32 1633
   br label %.critedge42
 
-1096:                                             ; preds = %1089
-  %1097 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1097, label %1100, label %1098
+1088:                                             ; preds = %1081
+  %1089 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1089, label %1092, label %1090
 
-1098:                                             ; preds = %1096
-  %1099 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1099, label %1100, label %1106
+1090:                                             ; preds = %1088
+  %1091 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1091, label %1092, label %1131
 
-1100:                                             ; preds = %1098, %1096
-  %1101 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1102 = load ptr, ptr %1101, align 8, !tbaa !388
-  %1103 = getelementptr inbounds nuw i8, ptr %1102, i64 144
-  %1104 = load i64, ptr %1103, align 8, !tbaa !406
-  %1105 = icmp eq i64 %1104, 1
+1092:                                             ; preds = %1090, %1088
+  %1093 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1094 = load ptr, ptr %1093, align 8, !tbaa !388
+  %1095 = getelementptr inbounds nuw i8, ptr %1094, i64 144
+  %1096 = load i64, ptr %1095, align 8, !tbaa !406
+  %1097 = icmp eq i64 %1096, 1
+  br i1 %1097, label %.critedge42, label %1131
+
+1098:                                             ; preds = %1081
+  %1099 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1100:                                             ; preds = %1081
+  %1101 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1101, label %.critedge42, label %1102
+
+1102:                                             ; preds = %1100
+  %1103 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1104:                                             ; preds = %1081
+  %1105 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %1105, label %.critedge42, label %1106
 
-1106:                                             ; preds = %1100, %1098
+1106:                                             ; preds = %1104
+  %1107 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1107:                                             ; preds = %1089
-  %1108 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1108:                                             ; preds = %1081
+  %1109 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3268 = select i1 %1109, i32 1712, i32 1713
   br label %.critedge42
 
-1109:                                             ; preds = %1089
-  %1110 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1110, label %.critedge42, label %1111
-
-1111:                                             ; preds = %1109
-  %1112 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1110:                                             ; preds = %1081
+  %1111 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1113:                                             ; preds = %1089
-  %1114 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1114, label %.critedge42, label %1115
-
-1115:                                             ; preds = %1113
-  %1116 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1112:                                             ; preds = %1081
+  %1113 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1117:                                             ; preds = %1089
-  %1118 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3268 = select i1 %1118, i32 1712, i32 1713
-  br label %.critedge42
-
-1119:                                             ; preds = %1089
-  %1120 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1121:                                             ; preds = %1089
-  %1122 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1123:                                             ; preds = %4
-  %1124 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1125 = load i32, ptr %1124, align 4, !tbaa !382
-  switch i32 %1125, label %4671 [
-    i32 1, label %1126
-    i32 4, label %1128
-    i32 12, label %1130
-    i32 13, label %1141
-    i32 14, label %1143
-    i32 15, label %1147
-    i32 16, label %1151
-    i32 21, label %1153
-    i32 22, label %1155
+1114:                                             ; preds = %4
+  %1115 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1116 = load i32, ptr %1115, align 4, !tbaa !382
+  switch i32 %1116, label %4653 [
+    i32 1, label %1117
+    i32 4, label %1119
+    i32 12, label %1121
+    i32 13, label %1132
+    i32 14, label %1134
+    i32 15, label %1138
+    i32 16, label %1142
+    i32 21, label %1144
+    i32 22, label %1146
   ]
 
-1126:                                             ; preds = %1123
-  %1127 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1117:                                             ; preds = %1114
+  %1118 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1128:                                             ; preds = %1123
-  %1129 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3269 = select i1 %1129, i32 1632, i32 1633
+1119:                                             ; preds = %1114
+  %1120 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3269 = select i1 %1120, i32 1632, i32 1633
   br label %.critedge42
 
-1130:                                             ; preds = %1123
-  %1131 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1131, label %1134, label %1132
+1121:                                             ; preds = %1114
+  %1122 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1122, label %1125, label %1123
 
-1132:                                             ; preds = %1130
-  %1133 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1133, label %1134, label %1140
+1123:                                             ; preds = %1121
+  %1124 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1124, label %1125, label %1131
 
-1134:                                             ; preds = %1132, %1130
-  %1135 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1136 = load ptr, ptr %1135, align 8, !tbaa !388
-  %1137 = getelementptr inbounds nuw i8, ptr %1136, i64 144
-  %1138 = load i64, ptr %1137, align 8, !tbaa !406
-  %1139 = icmp eq i64 %1138, 1
+1125:                                             ; preds = %1123, %1121
+  %1126 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1127 = load ptr, ptr %1126, align 8, !tbaa !388
+  %1128 = getelementptr inbounds nuw i8, ptr %1127, i64 144
+  %1129 = load i64, ptr %1128, align 8, !tbaa !406
+  %1130 = icmp eq i64 %1129, 1
+  br i1 %1130, label %.critedge42, label %1131
+
+1131:                                             ; preds = %624, %626, %657, %659, %690, %692, %723, %725, %818, %820, %851, %853, %884, %886, %917, %919, %1090, %1092, %1125, %1123
+  br label %.critedge42
+
+1132:                                             ; preds = %1114
+  %1133 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1134:                                             ; preds = %1114
+  %1135 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1135, label %.critedge42, label %1136
+
+1136:                                             ; preds = %1134
+  %1137 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1138:                                             ; preds = %1114
+  %1139 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %1139, label %.critedge42, label %1140
 
-1140:                                             ; preds = %1134, %1132
+1140:                                             ; preds = %1138
+  %1141 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1141:                                             ; preds = %1123
-  %1142 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1142:                                             ; preds = %1114
+  %1143 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3270 = select i1 %1143, i32 1712, i32 1713
   br label %.critedge42
 
-1143:                                             ; preds = %1123
-  %1144 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1144, label %.critedge42, label %1145
-
-1145:                                             ; preds = %1143
-  %1146 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1144:                                             ; preds = %1114
+  %1145 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1147:                                             ; preds = %1123
-  %1148 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1148, label %.critedge42, label %1149
-
-1149:                                             ; preds = %1147
-  %1150 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1146:                                             ; preds = %1114
+  %1147 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1151:                                             ; preds = %1123
-  %1152 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3270 = select i1 %1152, i32 1712, i32 1713
+1148:                                             ; preds = %4
+  %1149 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1150 = load i32, ptr %1149, align 4, !tbaa !382
+  switch i32 %1150, label %4653 [
+    i32 1, label %1151
+    i32 4, label %1153
+    i32 12, label %1155
+    i32 13, label %1165
+    i32 14, label %1167
+    i32 15, label %1171
+    i32 16, label %1175
+    i32 21, label %1177
+    i32 22, label %1179
+  ]
+
+1151:                                             ; preds = %1148
+  %1152 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1153:                                             ; preds = %1123
+1153:                                             ; preds = %1148
   %1154 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3271 = select i1 %1154, i32 1644, i32 1645
   br label %.critedge42
 
-1155:                                             ; preds = %1123
-  %1156 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1155:                                             ; preds = %1148
+  %1156 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1156, label %1159, label %1157
+
+1157:                                             ; preds = %1155
+  %1158 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1158, label %1159, label %4298
+
+1159:                                             ; preds = %1157, %1155
+  %1160 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1161 = load ptr, ptr %1160, align 8, !tbaa !388
+  %1162 = getelementptr inbounds nuw i8, ptr %1161, i64 144
+  %1163 = load i64, ptr %1162, align 8, !tbaa !406
+  %1164 = icmp eq i64 %1163, 1
+  br i1 %1164, label %.critedge42, label %4298
+
+1165:                                             ; preds = %1148
+  %1166 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1157:                                             ; preds = %4
-  %1158 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1159 = load i32, ptr %1158, align 4, !tbaa !382
-  switch i32 %1159, label %4671 [
-    i32 1, label %1160
-    i32 4, label %1162
-    i32 12, label %1164
-    i32 13, label %1175
-    i32 14, label %1177
-    i32 15, label %1181
-    i32 16, label %1185
-    i32 21, label %1187
-    i32 22, label %1189
-  ]
+1167:                                             ; preds = %1148
+  %1168 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1168, label %.critedge42, label %1169
 
-1160:                                             ; preds = %1157
-  %1161 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1169:                                             ; preds = %1167
+  %1170 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1162:                                             ; preds = %1157
-  %1163 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3271 = select i1 %1163, i32 1644, i32 1645
+1171:                                             ; preds = %1148
+  %1172 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1172, label %.critedge42, label %1173
+
+1173:                                             ; preds = %1171
+  %1174 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1164:                                             ; preds = %1157
-  %1165 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1165, label %1168, label %1166
-
-1166:                                             ; preds = %1164
-  %1167 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1167, label %1168, label %1174
-
-1168:                                             ; preds = %1166, %1164
-  %1169 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1170 = load ptr, ptr %1169, align 8, !tbaa !388
-  %1171 = getelementptr inbounds nuw i8, ptr %1170, i64 144
-  %1172 = load i64, ptr %1171, align 8, !tbaa !406
-  %1173 = icmp eq i64 %1172, 1
-  br i1 %1173, label %.critedge42, label %1174
-
-1174:                                             ; preds = %1168, %1166
+1175:                                             ; preds = %1148
+  %1176 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3272 = select i1 %1176, i32 1728, i32 1729
   br label %.critedge42
 
-1175:                                             ; preds = %1157
-  %1176 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1177:                                             ; preds = %1157
+1177:                                             ; preds = %1148
   %1178 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1178, label %.critedge42, label %1179
-
-1179:                                             ; preds = %1177
-  %1180 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1181:                                             ; preds = %1157
-  %1182 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1182, label %.critedge42, label %1183
-
-1183:                                             ; preds = %1181
-  %1184 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1179:                                             ; preds = %1148
+  %1180 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1185:                                             ; preds = %1157
-  %1186 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3272 = select i1 %1186, i32 1728, i32 1729
-  br label %.critedge42
-
-1187:                                             ; preds = %1157
-  %1188 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1189:                                             ; preds = %1157
-  %1190 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1191:                                             ; preds = %4
-  %1192 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1193 = load i32, ptr %1192, align 4, !tbaa !382
-  switch i32 %1193, label %4671 [
-    i32 1, label %1194
-    i32 4, label %1196
-    i32 12, label %1198
-    i32 13, label %1209
-    i32 14, label %1211
-    i32 15, label %1215
-    i32 16, label %1219
-    i32 21, label %1221
-    i32 22, label %1223
+1181:                                             ; preds = %4
+  %1182 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1183 = load i32, ptr %1182, align 4, !tbaa !382
+  switch i32 %1183, label %4653 [
+    i32 1, label %1184
+    i32 4, label %1186
+    i32 12, label %1188
+    i32 13, label %1198
+    i32 14, label %1200
+    i32 15, label %1204
+    i32 16, label %1208
+    i32 21, label %1210
+    i32 22, label %1212
   ]
 
-1194:                                             ; preds = %1191
-  %1195 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1184:                                             ; preds = %1181
+  %1185 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1196:                                             ; preds = %1191
-  %1197 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3273 = select i1 %1197, i32 1644, i32 1645
+1186:                                             ; preds = %1181
+  %1187 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3273 = select i1 %1187, i32 1644, i32 1645
   br label %.critedge42
 
-1198:                                             ; preds = %1191
-  %1199 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1199, label %1202, label %1200
+1188:                                             ; preds = %1181
+  %1189 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1189, label %1192, label %1190
 
-1200:                                             ; preds = %1198
-  %1201 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1201, label %1202, label %1208
+1190:                                             ; preds = %1188
+  %1191 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1191, label %1192, label %4298
 
-1202:                                             ; preds = %1200, %1198
-  %1203 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1204 = load ptr, ptr %1203, align 8, !tbaa !388
-  %1205 = getelementptr inbounds nuw i8, ptr %1204, i64 144
-  %1206 = load i64, ptr %1205, align 8, !tbaa !406
-  %1207 = icmp eq i64 %1206, 1
-  br i1 %1207, label %.critedge42, label %1208
+1192:                                             ; preds = %1190, %1188
+  %1193 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1194 = load ptr, ptr %1193, align 8, !tbaa !388
+  %1195 = getelementptr inbounds nuw i8, ptr %1194, i64 144
+  %1196 = load i64, ptr %1195, align 8, !tbaa !406
+  %1197 = icmp eq i64 %1196, 1
+  br i1 %1197, label %.critedge42, label %4298
 
-1208:                                             ; preds = %1202, %1200
+1198:                                             ; preds = %1181
+  %1199 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1209:                                             ; preds = %1191
-  %1210 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1200:                                             ; preds = %1181
+  %1201 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1201, label %.critedge42, label %1202
+
+1202:                                             ; preds = %1200
+  %1203 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1211:                                             ; preds = %1191
-  %1212 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1212, label %.critedge42, label %1213
+1204:                                             ; preds = %1181
+  %1205 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1205, label %.critedge42, label %1206
 
-1213:                                             ; preds = %1211
-  %1214 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1206:                                             ; preds = %1204
+  %1207 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1215:                                             ; preds = %1191
-  %1216 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1216, label %.critedge42, label %1217
-
-1217:                                             ; preds = %1215
-  %1218 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1208:                                             ; preds = %1181
+  %1209 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3274 = select i1 %1209, i32 1728, i32 1729
   br label %.critedge42
 
-1219:                                             ; preds = %1191
-  %1220 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3274 = select i1 %1220, i32 1728, i32 1729
+1210:                                             ; preds = %1181
+  %1211 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1221:                                             ; preds = %1191
-  %1222 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1212:                                             ; preds = %1181
+  %1213 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1223:                                             ; preds = %1191
+1214:                                             ; preds = %4
+  %1215 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1216 = load i32, ptr %1215, align 4, !tbaa !382
+  switch i32 %1216, label %4653 [
+    i32 1, label %1217
+    i32 4, label %1219
+    i32 13, label %1221
+    i32 14, label %1223
+    i32 15, label %1227
+    i32 16, label %1231
+    i32 21, label %1233
+    i32 22, label %1235
+  ]
+
+1217:                                             ; preds = %1214
+  %1218 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1219:                                             ; preds = %1214
+  %1220 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3275 = select i1 %1220, i32 1644, i32 1645
+  br label %.critedge42
+
+1221:                                             ; preds = %1214
+  %1222 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1223:                                             ; preds = %1214
   %1224 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1224, label %.critedge42, label %1225
+
+1225:                                             ; preds = %1223
+  %1226 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1225:                                             ; preds = %4
-  %1226 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1227 = load i32, ptr %1226, align 4, !tbaa !382
-  switch i32 %1227, label %4671 [
-    i32 1, label %1228
-    i32 4, label %1230
-    i32 13, label %1232
-    i32 14, label %1234
-    i32 15, label %1238
-    i32 16, label %1242
-    i32 21, label %1244
-    i32 22, label %1246
+1227:                                             ; preds = %1214
+  %1228 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1228, label %.critedge42, label %1229
+
+1229:                                             ; preds = %1227
+  %1230 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1231:                                             ; preds = %1214
+  %1232 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3276 = select i1 %1232, i32 1738, i32 1739
+  br label %.critedge42
+
+1233:                                             ; preds = %1214
+  %1234 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1235:                                             ; preds = %1214
+  %1236 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1237:                                             ; preds = %4
+  %1238 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1239 = load i32, ptr %1238, align 4, !tbaa !382
+  switch i32 %1239, label %4653 [
+    i32 1, label %1240
+    i32 4, label %1242
+    i32 13, label %1244
+    i32 14, label %1246
+    i32 15, label %1250
+    i32 16, label %1254
+    i32 21, label %1256
+    i32 22, label %1258
   ]
 
-1228:                                             ; preds = %1225
-  %1229 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1240:                                             ; preds = %1237
+  %1241 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1230:                                             ; preds = %1225
-  %1231 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3275 = select i1 %1231, i32 1644, i32 1645
+1242:                                             ; preds = %1237
+  %1243 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3277 = select i1 %1243, i32 1644, i32 1645
   br label %.critedge42
 
-1232:                                             ; preds = %1225
-  %1233 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1244:                                             ; preds = %1237
+  %1245 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1234:                                             ; preds = %1225
-  %1235 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1235, label %.critedge42, label %1236
-
-1236:                                             ; preds = %1234
-  %1237 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1238:                                             ; preds = %1225
-  %1239 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1239, label %.critedge42, label %1240
-
-1240:                                             ; preds = %1238
-  %1241 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1242:                                             ; preds = %1225
-  %1243 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3276 = select i1 %1243, i32 1738, i32 1739
-  br label %.critedge42
-
-1244:                                             ; preds = %1225
-  %1245 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1246:                                             ; preds = %1225
+1246:                                             ; preds = %1237
   %1247 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1247, label %.critedge42, label %1248
+
+1248:                                             ; preds = %1246
+  %1249 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1248:                                             ; preds = %4
-  %1249 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1250 = load i32, ptr %1249, align 4, !tbaa !382
-  switch i32 %1250, label %4671 [
-    i32 1, label %1251
-    i32 4, label %1253
-    i32 13, label %1255
-    i32 14, label %1257
-    i32 15, label %1261
-    i32 16, label %1265
-    i32 21, label %1267
-    i32 22, label %1269
+1250:                                             ; preds = %1237
+  %1251 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1251, label %.critedge42, label %1252
+
+1252:                                             ; preds = %1250
+  %1253 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1254:                                             ; preds = %1237
+  %1255 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3278 = select i1 %1255, i32 1738, i32 1739
+  br label %.critedge42
+
+1256:                                             ; preds = %1237
+  %1257 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1258:                                             ; preds = %1237
+  %1259 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1260:                                             ; preds = %4
+  %1261 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1262 = load i32, ptr %1261, align 4, !tbaa !382
+  switch i32 %1262, label %4653 [
+    i32 1, label %1263
+    i32 4, label %1265
+    i32 12, label %1267
+    i32 13, label %1277
+    i32 14, label %1279
+    i32 15, label %1283
+    i32 16, label %1287
+    i32 21, label %1289
+    i32 22, label %1291
   ]
 
-1251:                                             ; preds = %1248
-  %1252 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1263:                                             ; preds = %1260
+  %1264 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1253:                                             ; preds = %1248
-  %1254 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3277 = select i1 %1254, i32 1644, i32 1645
+1265:                                             ; preds = %1260
+  %1266 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3279 = select i1 %1266, i32 1644, i32 1645
   br label %.critedge42
 
-1255:                                             ; preds = %1248
-  %1256 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1267:                                             ; preds = %1260
+  %1268 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1268, label %1271, label %1269
+
+1269:                                             ; preds = %1267
+  %1270 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1270, label %1271, label %4298
+
+1271:                                             ; preds = %1269, %1267
+  %1272 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1273 = load ptr, ptr %1272, align 8, !tbaa !388
+  %1274 = getelementptr inbounds nuw i8, ptr %1273, i64 144
+  %1275 = load i64, ptr %1274, align 8, !tbaa !406
+  %1276 = icmp eq i64 %1275, 1
+  br i1 %1276, label %.critedge42, label %4298
+
+1277:                                             ; preds = %1260
+  %1278 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1257:                                             ; preds = %1248
-  %1258 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1258, label %.critedge42, label %1259
+1279:                                             ; preds = %1260
+  %1280 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1280, label %.critedge42, label %1281
 
-1259:                                             ; preds = %1257
-  %1260 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1281:                                             ; preds = %1279
+  %1282 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1261:                                             ; preds = %1248
-  %1262 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1262, label %.critedge42, label %1263
+1283:                                             ; preds = %1260
+  %1284 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1284, label %.critedge42, label %1285
 
-1263:                                             ; preds = %1261
-  %1264 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1285:                                             ; preds = %1283
+  %1286 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1265:                                             ; preds = %1248
-  %1266 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3278 = select i1 %1266, i32 1738, i32 1739
+1287:                                             ; preds = %1260
+  %1288 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3280 = select i1 %1288, i32 1728, i32 1729
   br label %.critedge42
 
-1267:                                             ; preds = %1248
-  %1268 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1289:                                             ; preds = %1260
+  %1290 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1269:                                             ; preds = %1248
-  %1270 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1271:                                             ; preds = %4
-  %1272 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1273 = load i32, ptr %1272, align 4, !tbaa !382
-  switch i32 %1273, label %4671 [
-    i32 1, label %1274
-    i32 4, label %1276
-    i32 12, label %1278
-    i32 13, label %1289
-    i32 14, label %1291
-    i32 15, label %1295
-    i32 16, label %1299
-    i32 21, label %1301
-    i32 22, label %1303
-  ]
-
-1274:                                             ; preds = %1271
-  %1275 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1276:                                             ; preds = %1271
-  %1277 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3279 = select i1 %1277, i32 1644, i32 1645
-  br label %.critedge42
-
-1278:                                             ; preds = %1271
-  %1279 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1279, label %1282, label %1280
-
-1280:                                             ; preds = %1278
-  %1281 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1281, label %1282, label %1288
-
-1282:                                             ; preds = %1280, %1278
-  %1283 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1284 = load ptr, ptr %1283, align 8, !tbaa !388
-  %1285 = getelementptr inbounds nuw i8, ptr %1284, i64 144
-  %1286 = load i64, ptr %1285, align 8, !tbaa !406
-  %1287 = icmp eq i64 %1286, 1
-  br i1 %1287, label %.critedge42, label %1288
-
-1288:                                             ; preds = %1282, %1280
-  br label %.critedge42
-
-1289:                                             ; preds = %1271
-  %1290 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1291:                                             ; preds = %1271
+1291:                                             ; preds = %1260
   %1292 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1292, label %.critedge42, label %1293
-
-1293:                                             ; preds = %1291
-  %1294 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1295:                                             ; preds = %1271
-  %1296 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1296, label %.critedge42, label %1297
-
-1297:                                             ; preds = %1295
-  %1298 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1299:                                             ; preds = %1271
-  %1300 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3280 = select i1 %1300, i32 1728, i32 1729
-  br label %.critedge42
-
-1301:                                             ; preds = %1271
-  %1302 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1303:                                             ; preds = %1271
-  %1304 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1305:                                             ; preds = %4
-  %1306 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1307 = load i32, ptr %1306, align 4, !tbaa !382
-  switch i32 %1307, label %4671 [
-    i32 1, label %1308
-    i32 4, label %1310
-    i32 12, label %1312
-    i32 13, label %1323
-    i32 14, label %1325
-    i32 15, label %1329
-    i32 16, label %1333
-    i32 21, label %1335
-    i32 22, label %1337
+1293:                                             ; preds = %4
+  %1294 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1295 = load i32, ptr %1294, align 4, !tbaa !382
+  switch i32 %1295, label %4653 [
+    i32 1, label %1296
+    i32 4, label %1298
+    i32 12, label %1300
+    i32 13, label %1310
+    i32 14, label %1312
+    i32 15, label %1316
+    i32 16, label %1320
+    i32 21, label %1322
+    i32 22, label %1324
   ]
 
-1308:                                             ; preds = %1305
-  %1309 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1296:                                             ; preds = %1293
+  %1297 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1310:                                             ; preds = %1305
-  %1311 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3281 = select i1 %1311, i32 1644, i32 1645
+1298:                                             ; preds = %1293
+  %1299 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3281 = select i1 %1299, i32 1644, i32 1645
   br label %.critedge42
 
-1312:                                             ; preds = %1305
-  %1313 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1313, label %1316, label %1314
+1300:                                             ; preds = %1293
+  %1301 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1301, label %1304, label %1302
+
+1302:                                             ; preds = %1300
+  %1303 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1303, label %1304, label %4298
+
+1304:                                             ; preds = %1302, %1300
+  %1305 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1306 = load ptr, ptr %1305, align 8, !tbaa !388
+  %1307 = getelementptr inbounds nuw i8, ptr %1306, i64 144
+  %1308 = load i64, ptr %1307, align 8, !tbaa !406
+  %1309 = icmp eq i64 %1308, 1
+  br i1 %1309, label %.critedge42, label %4298
+
+1310:                                             ; preds = %1293
+  %1311 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1312:                                             ; preds = %1293
+  %1313 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1313, label %.critedge42, label %1314
 
 1314:                                             ; preds = %1312
-  %1315 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1315, label %1316, label %1322
-
-1316:                                             ; preds = %1314, %1312
-  %1317 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1318 = load ptr, ptr %1317, align 8, !tbaa !388
-  %1319 = getelementptr inbounds nuw i8, ptr %1318, i64 144
-  %1320 = load i64, ptr %1319, align 8, !tbaa !406
-  %1321 = icmp eq i64 %1320, 1
-  br i1 %1321, label %.critedge42, label %1322
-
-1322:                                             ; preds = %1316, %1314
+  %1315 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1323:                                             ; preds = %1305
-  %1324 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1316:                                             ; preds = %1293
+  %1317 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1317, label %.critedge42, label %1318
+
+1318:                                             ; preds = %1316
+  %1319 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1325:                                             ; preds = %1305
-  %1326 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1326, label %.critedge42, label %1327
-
-1327:                                             ; preds = %1325
-  %1328 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1320:                                             ; preds = %1293
+  %1321 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3282 = select i1 %1321, i32 1728, i32 1729
   br label %.critedge42
 
-1329:                                             ; preds = %1305
+1322:                                             ; preds = %1293
+  %1323 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1324:                                             ; preds = %1293
+  %1325 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1326:                                             ; preds = %4
+  %1327 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1328 = load i32, ptr %1327, align 4, !tbaa !382
+  switch i32 %1328, label %4653 [
+    i32 1, label %1329
+    i32 4, label %1331
+    i32 10, label %1333
+    i32 12, label %1335
+    i32 13, label %1345
+    i32 14, label %1347
+    i32 15, label %1351
+    i32 16, label %1355
+    i32 21, label %1357
+    i32 22, label %1359
+  ]
+
+1329:                                             ; preds = %1326
   %1330 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1330, label %.critedge42, label %1331
-
-1331:                                             ; preds = %1329
-  %1332 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1333:                                             ; preds = %1305
-  %1334 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3282 = select i1 %1334, i32 1728, i32 1729
+1331:                                             ; preds = %1326
+  %1332 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3283 = select i1 %1332, i32 1644, i32 1645
   br label %.critedge42
 
-1335:                                             ; preds = %1305
-  %1336 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1333:                                             ; preds = %1326
+  %1334 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3284 = select i1 %1334, i32 1747, i32 1748
   br label %.critedge42
 
-1337:                                             ; preds = %1305
-  %1338 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1335:                                             ; preds = %1326
+  %1336 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1336, label %1339, label %1337
+
+1337:                                             ; preds = %1335
+  %1338 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1338, label %1339, label %4298
+
+1339:                                             ; preds = %1337, %1335
+  %1340 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1341 = load ptr, ptr %1340, align 8, !tbaa !388
+  %1342 = getelementptr inbounds nuw i8, ptr %1341, i64 144
+  %1343 = load i64, ptr %1342, align 8, !tbaa !406
+  %1344 = icmp eq i64 %1343, 1
+  br i1 %1344, label %.critedge42, label %4298
+
+1345:                                             ; preds = %1326
+  %1346 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1339:                                             ; preds = %4
-  %1340 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1341 = load i32, ptr %1340, align 4, !tbaa !382
-  switch i32 %1341, label %4671 [
-    i32 1, label %1342
-    i32 4, label %1344
-    i32 10, label %1346
-    i32 12, label %1348
-    i32 13, label %1359
-    i32 14, label %1361
-    i32 15, label %1365
-    i32 16, label %1369
-    i32 21, label %1371
-    i32 22, label %1373
+1347:                                             ; preds = %1326
+  %1348 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1348, label %.critedge42, label %1349
+
+1349:                                             ; preds = %1347
+  %1350 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1351:                                             ; preds = %1326
+  %1352 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1352, label %.critedge42, label %1353
+
+1353:                                             ; preds = %1351
+  %1354 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1355:                                             ; preds = %1326
+  %1356 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3285 = select i1 %1356, i32 1744, i32 1745
+  br label %.critedge42
+
+1357:                                             ; preds = %1326
+  %1358 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1359:                                             ; preds = %1326
+  %1360 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+1361:                                             ; preds = %4
+  %1362 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1363 = load i32, ptr %1362, align 4, !tbaa !382
+  switch i32 %1363, label %4653 [
+    i32 1, label %1364
+    i32 4, label %1366
+    i32 10, label %1368
+    i32 12, label %1370
+    i32 13, label %1380
+    i32 14, label %1382
+    i32 15, label %1394
+    i32 16, label %1406
+    i32 21, label %1408
+    i32 22, label %1410
   ]
 
-1342:                                             ; preds = %1339
-  %1343 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1364:                                             ; preds = %1361
+  %1365 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1344:                                             ; preds = %1339
-  %1345 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3283 = select i1 %1345, i32 1644, i32 1645
+1366:                                             ; preds = %1361
+  %1367 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3286 = select i1 %1367, i32 1644, i32 1645
   br label %.critedge42
 
-1346:                                             ; preds = %1339
-  %1347 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3284 = select i1 %1347, i32 1747, i32 1748
+1368:                                             ; preds = %1361
+  %1369 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3287 = select i1 %1369, i32 1747, i32 1748
   br label %.critedge42
 
-1348:                                             ; preds = %1339
-  %1349 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1349, label %1352, label %1350
+1370:                                             ; preds = %1361
+  %1371 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1371, label %1374, label %1372
 
-1350:                                             ; preds = %1348
-  %1351 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1351, label %1352, label %1358
+1372:                                             ; preds = %1370
+  %1373 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1373, label %1374, label %4298
 
-1352:                                             ; preds = %1350, %1348
-  %1353 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1354 = load ptr, ptr %1353, align 8, !tbaa !388
-  %1355 = getelementptr inbounds nuw i8, ptr %1354, i64 144
-  %1356 = load i64, ptr %1355, align 8, !tbaa !406
-  %1357 = icmp eq i64 %1356, 1
-  br i1 %1357, label %.critedge42, label %1358
+1374:                                             ; preds = %1372, %1370
+  %1375 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1376 = load ptr, ptr %1375, align 8, !tbaa !388
+  %1377 = getelementptr inbounds nuw i8, ptr %1376, i64 144
+  %1378 = load i64, ptr %1377, align 8, !tbaa !406
+  %1379 = icmp eq i64 %1378, 1
+  br i1 %1379, label %.critedge42, label %4298
 
-1358:                                             ; preds = %1352, %1350
+1380:                                             ; preds = %1361
+  %1381 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3288 = select i1 %1381, i32 1730, i32 1732
   br label %.critedge42
 
-1359:                                             ; preds = %1339
-  %1360 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
+1382:                                             ; preds = %1361
+  %1383 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1383, label %1384, label %1388
 
-1361:                                             ; preds = %1339
-  %1362 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1362, label %.critedge42, label %1363
-
-1363:                                             ; preds = %1361
-  %1364 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1365:                                             ; preds = %1339
-  %1366 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1366, label %.critedge42, label %1367
-
-1367:                                             ; preds = %1365
-  %1368 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1369:                                             ; preds = %1339
-  %1370 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3285 = select i1 %1370, i32 1744, i32 1745
-  br label %.critedge42
-
-1371:                                             ; preds = %1339
-  %1372 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1373:                                             ; preds = %1339
-  %1374 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1375:                                             ; preds = %4
-  %1376 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1377 = load i32, ptr %1376, align 4, !tbaa !382
-  switch i32 %1377, label %4671 [
-    i32 1, label %1378
-    i32 4, label %1380
-    i32 10, label %1382
-    i32 12, label %1384
-    i32 13, label %1395
-    i32 14, label %1397
-    i32 15, label %1409
-    i32 16, label %1421
-    i32 21, label %1423
-    i32 22, label %1425
-  ]
-
-1378:                                             ; preds = %1375
-  %1379 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1380:                                             ; preds = %1375
-  %1381 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3286 = select i1 %1381, i32 1644, i32 1645
-  br label %.critedge42
-
-1382:                                             ; preds = %1375
-  %1383 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3287 = select i1 %1383, i32 1747, i32 1748
-  br label %.critedge42
-
-1384:                                             ; preds = %1375
-  %1385 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1385, label %1388, label %1386
+1384:                                             ; preds = %1382
+  %1385 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1385, label %.critedge42, label %1386
 
 1386:                                             ; preds = %1384
-  %1387 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1387, label %1388, label %1394
+  %1387 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1387, label %.critedge42, label %1388
 
-1388:                                             ; preds = %1386, %1384
-  %1389 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1390 = load ptr, ptr %1389, align 8, !tbaa !388
-  %1391 = getelementptr inbounds nuw i8, ptr %1390, i64 144
-  %1392 = load i64, ptr %1391, align 8, !tbaa !406
-  %1393 = icmp eq i64 %1392, 1
-  br i1 %1393, label %.critedge42, label %1394
+1388:                                             ; preds = %1386, %1382
+  %1389 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1389, label %.critedge42, label %1390
 
-1394:                                             ; preds = %1388, %1386
+1390:                                             ; preds = %1388
+  %1391 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1391, label %.critedge42, label %1392
+
+1392:                                             ; preds = %1390
+  %1393 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3289 = select i1 %1393, i32 1731, i32 1732
   br label %.critedge42
 
-1395:                                             ; preds = %1375
-  %1396 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3288 = select i1 %1396, i32 1730, i32 1732
+1394:                                             ; preds = %1361
+  %1395 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1395, label %1396, label %1400
+
+1396:                                             ; preds = %1394
+  %1397 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1397, label %.critedge42, label %1398
+
+1398:                                             ; preds = %1396
+  %1399 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1399, label %.critedge42, label %1400
+
+1400:                                             ; preds = %1398, %1394
+  %1401 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1401, label %.critedge42, label %1402
+
+1402:                                             ; preds = %1400
+  %1403 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1403, label %.critedge42, label %1404
+
+1404:                                             ; preds = %1402
+  %1405 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3290 = select i1 %1405, i32 1746, i32 1732
   br label %.critedge42
 
-1397:                                             ; preds = %1375
-  %1398 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1398, label %1399, label %1403
-
-1399:                                             ; preds = %1397
-  %1400 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1400, label %.critedge42, label %1401
-
-1401:                                             ; preds = %1399
-  %1402 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1402, label %.critedge42, label %1403
-
-1403:                                             ; preds = %1401, %1397
-  %1404 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1404, label %.critedge42, label %1405
-
-1405:                                             ; preds = %1403
-  %1406 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1406, label %.critedge42, label %1407
-
-1407:                                             ; preds = %1405
-  %1408 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3289 = select i1 %1408, i32 1731, i32 1732
+1406:                                             ; preds = %1361
+  %1407 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3291 = select i1 %1407, i32 1744, i32 1745
   br label %.critedge42
 
-1409:                                             ; preds = %1375
-  %1410 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1410, label %1411, label %1415
-
-1411:                                             ; preds = %1409
-  %1412 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1412, label %.critedge42, label %1413
-
-1413:                                             ; preds = %1411
-  %1414 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1414, label %.critedge42, label %1415
-
-1415:                                             ; preds = %1413, %1409
-  %1416 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1416, label %.critedge42, label %1417
-
-1417:                                             ; preds = %1415
-  %1418 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1418, label %.critedge42, label %1419
-
-1419:                                             ; preds = %1417
-  %1420 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3290 = select i1 %1420, i32 1746, i32 1732
+1408:                                             ; preds = %1361
+  %1409 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1421:                                             ; preds = %1375
-  %1422 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3291 = select i1 %1422, i32 1744, i32 1745
+1410:                                             ; preds = %1361
+  %1411 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-1423:                                             ; preds = %1375
-  %1424 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1425:                                             ; preds = %1375
-  %1426 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-1427:                                             ; preds = %4
-  %1428 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1429 = load i32, ptr %1428, align 4, !tbaa !382
-  switch i32 %1429, label %4671 [
-    i32 4, label %1430
-    i32 12, label %1432
-    i32 16, label %1482
+1412:                                             ; preds = %4
+  %1413 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1414 = load i32, ptr %1413, align 4, !tbaa !382
+  switch i32 %1414, label %4653 [
+    i32 4, label %1415
+    i32 12, label %1417
+    i32 16, label %1467
   ]
 
-1430:                                             ; preds = %1427
-  %1431 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isGPRZeroERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3292 = select i1 %1431, i32 1650, i32 1749
+1415:                                             ; preds = %1412
+  %1416 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isGPRZeroERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3292 = select i1 %1416, i32 1650, i32 1749
   br label %.critedge42
 
-1432:                                             ; preds = %1427
-  %1433 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %1434 = load i16, ptr %1433, align 4, !tbaa !407
-  switch i16 %1434, label %.critedge44 [
-    i16 5243, label %1435
-    i16 5244, label %1435
-    i16 5335, label %1450
-    i16 5337, label %1450
-    i16 3556, label %1464
-    i16 3560, label %1464
-    i16 3557, label %1464
-    i16 3559, label %1464
-    i16 5217, label %1476
-    i16 5219, label %1476
+1417:                                             ; preds = %1412
+  %1418 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %1419 = load i16, ptr %1418, align 4, !tbaa !407
+  switch i16 %1419, label %.critedge100 [
+    i16 5243, label %1420
+    i16 5244, label %1420
+    i16 5335, label %1435
+    i16 5337, label %1435
+    i16 3556, label %1449
+    i16 3560, label %1449
+    i16 3557, label %1449
+    i16 3559, label %1449
+    i16 5217, label %1461
+    i16 5219, label %1461
   ]
 
-1435:                                             ; preds = %1432, %1432
+1420:                                             ; preds = %1417, %1417
+  %1421 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1422 = load ptr, ptr %1421, align 8, !tbaa !388
+  %1423 = getelementptr inbounds nuw i8, ptr %1422, i64 32
+  %1424 = load i32, ptr %1423, align 8
+  %1425 = and i32 %1424, 255
+  %1426 = icmp eq i32 %1425, 1
+  br i1 %1426, label %1427, label %.critedge100
+
+1427:                                             ; preds = %1420
+  %1428 = getelementptr inbounds nuw i8, ptr %1422, i64 48
+  %1429 = load i64, ptr %1428, align 8, !tbaa !406
+  %1430 = icmp eq i64 %1429, 0
+  br i1 %1430, label %1431, label %.critedge100
+
+1431:                                             ; preds = %1427
+  %1432 = getelementptr inbounds nuw i8, ptr %1422, i64 80
+  %1433 = load i64, ptr %1432, align 8, !tbaa !406
+  %1434 = icmp eq i64 %1433, 0
+  br i1 %1434, label %.critedge42, label %.critedge100
+
+1435:                                             ; preds = %1417, %1417
   %1436 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1437 = load ptr, ptr %1436, align 8, !tbaa !388
   %1438 = getelementptr inbounds nuw i8, ptr %1437, i64 32
   %1439 = load i32, ptr %1438, align 8
   %1440 = and i32 %1439, 255
-  %1441 = icmp eq i32 %1440, 1
-  br i1 %1441, label %1442, label %.critedge44
+  %1441 = icmp eq i32 %1440, 0
+  br i1 %1441, label %1442, label %.critedge100
 
 1442:                                             ; preds = %1435
-  %1443 = getelementptr inbounds nuw i8, ptr %1437, i64 48
-  %1444 = load i64, ptr %1443, align 8, !tbaa !406
-  %1445 = icmp eq i64 %1444, 0
-  br i1 %1445, label %1446, label %.critedge44
-
-1446:                                             ; preds = %1442
-  %1447 = getelementptr inbounds nuw i8, ptr %1437, i64 80
-  %1448 = load i64, ptr %1447, align 8, !tbaa !406
-  %1449 = icmp eq i64 %1448, 0
-  br i1 %1449, label %.critedge42, label %.critedge44
-
-1450:                                             ; preds = %1432, %1432
-  %1451 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1452 = load ptr, ptr %1451, align 8, !tbaa !388
-  %1453 = getelementptr inbounds nuw i8, ptr %1452, i64 32
-  %1454 = load i32, ptr %1453, align 8
-  %1455 = and i32 %1454, 255
-  %1456 = icmp eq i32 %1455, 0
-  br i1 %1456, label %1457, label %.critedge44
-
-1457:                                             ; preds = %1450
-  %1458 = getelementptr inbounds nuw i8, ptr %1452, i64 36
-  %1459 = load i32, ptr %1458, align 4, !tbaa !406
-  switch i32 %1459, label %.critedge44 [
-    i32 12, label %1460
-    i32 14, label %1460
+  %1443 = getelementptr inbounds nuw i8, ptr %1437, i64 36
+  %1444 = load i32, ptr %1443, align 4, !tbaa !406
+  switch i32 %1444, label %.critedge100 [
+    i32 12, label %1445
+    i32 14, label %1445
   ]
 
-1460:                                             ; preds = %1457, %1457
-  %1461 = getelementptr inbounds nuw i8, ptr %1452, i64 112
-  %1462 = load i64, ptr %1461, align 8, !tbaa !406
-  %1463 = icmp eq i64 %1462, 0
-  br i1 %1463, label %.critedge42, label %.critedge44
+1445:                                             ; preds = %1442, %1442
+  %1446 = getelementptr inbounds nuw i8, ptr %1437, i64 112
+  %1447 = load i64, ptr %1446, align 8, !tbaa !406
+  %1448 = icmp eq i64 %1447, 0
+  br i1 %1448, label %.critedge42, label %.critedge100
 
-1464:                                             ; preds = %1432, %1432, %1432, %1432
-  %1465 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1466 = load ptr, ptr %1465, align 8, !tbaa !388
-  %1467 = getelementptr inbounds nuw i8, ptr %1466, i64 32
-  %1468 = load i32, ptr %1467, align 8
-  %1469 = and i32 %1468, 255
-  %1470 = icmp eq i32 %1469, 0
-  br i1 %1470, label %1471, label %.critedge44
+1449:                                             ; preds = %1417, %1417, %1417, %1417
+  %1450 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1451 = load ptr, ptr %1450, align 8, !tbaa !388
+  %1452 = getelementptr inbounds nuw i8, ptr %1451, i64 32
+  %1453 = load i32, ptr %1452, align 8
+  %1454 = and i32 %1453, 255
+  %1455 = icmp eq i32 %1454, 0
+  br i1 %1455, label %1456, label %.critedge100
 
-1471:                                             ; preds = %1464
-  %1472 = getelementptr inbounds nuw i8, ptr %1466, i64 36
-  %1473 = load i32, ptr %1472, align 4, !tbaa !406
-  %1474 = and i32 %1473, -3
-  %switch.selectcmp = icmp eq i32 %1474, 12
-  %1475 = select i1 %switch.selectcmp, i32 1752, i32 1705
+1456:                                             ; preds = %1449
+  %1457 = getelementptr inbounds nuw i8, ptr %1451, i64 36
+  %1458 = load i32, ptr %1457, align 4, !tbaa !406
+  %1459 = and i32 %1458, -3
+  %switch.selectcmp = icmp eq i32 %1459, 12
+  %1460 = select i1 %switch.selectcmp, i32 1752, i32 1705
   br label %.critedge42
 
-1476:                                             ; preds = %1432, %1432
-  %1477 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1478 = load ptr, ptr %1477, align 8, !tbaa !388
-  %1479 = getelementptr inbounds nuw i8, ptr %1478, i64 48
-  %1480 = load i64, ptr %1479, align 8, !tbaa !406
-  %1481 = icmp eq i64 %1480, 0
-  br i1 %1481, label %.critedge42, label %.critedge44
+1461:                                             ; preds = %1417, %1417
+  %1462 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1463 = load ptr, ptr %1462, align 8, !tbaa !388
+  %1464 = getelementptr inbounds nuw i8, ptr %1463, i64 48
+  %1465 = load i64, ptr %1464, align 8, !tbaa !406
+  %1466 = icmp eq i64 %1465, 0
+  br i1 %1466, label %.critedge42, label %.critedge100
 
-.critedge44:                                      ; preds = %1432, %1457, %1464, %1446, %1442, %1435, %1450, %1460, %1476
+1467:                                             ; preds = %1412
+  %1468 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1469 = load ptr, ptr %1468, align 8, !tbaa !388
+  %1470 = getelementptr inbounds nuw i8, ptr %1469, i64 32
+  %1471 = load i32, ptr %1470, align 8
+  %1472 = and i32 %1471, 255
+  %1473 = icmp eq i32 %1472, 1
+  br i1 %1473, label %1474, label %1478
+
+1474:                                             ; preds = %1467
+  %1475 = getelementptr inbounds nuw i8, ptr %1469, i64 48
+  %1476 = load i64, ptr %1475, align 8, !tbaa !406
+  %1477 = icmp eq i64 %1476, 0
+  br i1 %1477, label %.critedge42, label %1478
+
+1478:                                             ; preds = %1474, %1467
   br label %.critedge42
 
-1482:                                             ; preds = %1427
-  %1483 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1484 = load ptr, ptr %1483, align 8, !tbaa !388
-  %1485 = getelementptr inbounds nuw i8, ptr %1484, i64 32
-  %1486 = load i32, ptr %1485, align 8
-  %1487 = and i32 %1486, 255
-  %1488 = icmp eq i32 %1487, 1
-  br i1 %1488, label %1489, label %1493
+1479:                                             ; preds = %4
+  %1480 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1481 = load i32, ptr %1480, align 4, !tbaa !382
+  %1482 = icmp eq i32 %1481, 4
+  br i1 %1482, label %1483, label %4653
 
-1489:                                             ; preds = %1482
-  %1490 = getelementptr inbounds nuw i8, ptr %1484, i64 48
-  %1491 = load i64, ptr %1490, align 8, !tbaa !406
-  %1492 = icmp eq i64 %1491, 0
-  br i1 %1492, label %.critedge42, label %1493
-
-1493:                                             ; preds = %1489, %1482
+1483:                                             ; preds = %1479
+  %1484 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isGPRZeroERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3293 = select i1 %1484, i32 1650, i32 1749
   br label %.critedge42
 
-1494:                                             ; preds = %4
-  %1495 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1496 = load i32, ptr %1495, align 4, !tbaa !382
-  %1497 = icmp eq i32 %1496, 4
-  br i1 %1497, label %1498, label %4671
+1485:                                             ; preds = %4
+  %1486 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1487 = load i32, ptr %1486, align 4, !tbaa !382
+  %1488 = icmp eq i32 %1487, 4
+  br i1 %1488, label %1489, label %4653
 
-1498:                                             ; preds = %1494
-  %1499 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isGPRZeroERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3293 = select i1 %1499, i32 1650, i32 1749
+1489:                                             ; preds = %1485
+  %1490 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isGPRCopyERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1490, label %.critedge42, label %1491
+
+1491:                                             ; preds = %1489
+  %1492 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isFPRCopyERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3294 = select i1 %1492, i32 1650, i32 1651
   br label %.critedge42
 
-1500:                                             ; preds = %4
-  %1501 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1502 = load i32, ptr %1501, align 4, !tbaa !382
-  %1503 = icmp eq i32 %1502, 4
-  br i1 %1503, label %1504, label %4671
+1493:                                             ; preds = %4
+  %1494 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1495 = load i32, ptr %1494, align 4, !tbaa !382
+  %1496 = icmp eq i32 %1495, 4
+  br i1 %1496, label %1497, label %4653
 
-1504:                                             ; preds = %1500
-  %1505 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isGPRCopyERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1505, label %.critedge42, label %1506
-
-1506:                                             ; preds = %1504
-  %1507 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isFPRCopyERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3294 = select i1 %1507, i32 1650, i32 1651
+1497:                                             ; preds = %1493
+  %1498 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isFPRCopyERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3295 = select i1 %1498, i32 1650, i32 1753
   br label %.critedge42
 
-1508:                                             ; preds = %4
-  %1509 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1510 = load i32, ptr %1509, align 4, !tbaa !382
-  %1511 = icmp eq i32 %1510, 4
-  br i1 %1511, label %1512, label %4671
+1499:                                             ; preds = %4
+  %1500 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1501 = load i32, ptr %1500, align 4, !tbaa !382
+  switch i32 %1501, label %4653 [
+    i32 14, label %1502
+    i32 15, label %1504
+  ]
 
-1512:                                             ; preds = %1508
+1502:                                             ; preds = %1499
+  %1503 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3296 = select i1 %1503, i32 1708, i32 1709
+  br label %.critedge42
+
+1504:                                             ; preds = %1499
+  %1505 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3297 = select i1 %1505, i32 1710, i32 1711
+  br label %.critedge42
+
+1506:                                             ; preds = %4
+  %1507 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1508 = load i32, ptr %1507, align 4, !tbaa !382
+  %1509 = icmp eq i32 %1508, 4
+  br i1 %1509, label %1510, label %4653
+
+1510:                                             ; preds = %1506
+  %1511 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isGPRCopyERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1511, label %.critedge42, label %1512
+
+1512:                                             ; preds = %1510
   %1513 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isFPRCopyERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3295 = select i1 %1513, i32 1650, i32 1753
+  %.3298 = select i1 %1513, i32 1650, i32 1651
   br label %.critedge42
 
 1514:                                             ; preds = %4
   %1515 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %1516 = load i32, ptr %1515, align 4, !tbaa !382
-  switch i32 %1516, label %4671 [
-    i32 14, label %1517
-    i32 15, label %1519
+  switch i32 %1516, label %4653 [
+    i32 2, label %1517
+    i32 3, label %1528
+    i32 5, label %1539
+    i32 6, label %1541
+    i32 7, label %1543
+    i32 8, label %1545
+    i32 9, label %1547
+    i32 12, label %1553
+    i32 13, label %1559
+    i32 14, label %1563
+    i32 15, label %1567
+    i32 20, label %1571
+    i32 23, label %1573
   ]
 
 1517:                                             ; preds = %1514
-  %1518 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3296 = select i1 %1518, i32 1708, i32 1709
-  br label %.critedge42
+  %1518 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1518, label %.critedge42, label %1519
 
-1519:                                             ; preds = %1514
-  %1520 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3297 = select i1 %1520, i32 1710, i32 1711
-  br label %.critedge42
-
-1521:                                             ; preds = %4
-  %1522 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1523 = load i32, ptr %1522, align 4, !tbaa !382
-  %1524 = icmp eq i32 %1523, 4
-  br i1 %1524, label %1525, label %4671
-
-1525:                                             ; preds = %1521
-  %1526 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isGPRCopyERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1526, label %.critedge42, label %1527
-
-1527:                                             ; preds = %1525
-  %1528 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isFPRCopyERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3298 = select i1 %1528, i32 1650, i32 1651
-  br label %.critedge42
-
-1529:                                             ; preds = %4
-  %1530 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1531 = load i32, ptr %1530, align 4, !tbaa !382
-  switch i32 %1531, label %4671 [
-    i32 2, label %1532
-    i32 3, label %1543
-    i32 5, label %1554
-    i32 6, label %1556
-    i32 7, label %1558
-    i32 8, label %1560
-    i32 9, label %1562
-    i32 12, label %1568
-    i32 13, label %1574
-    i32 14, label %1578
-    i32 15, label %1582
-    i32 20, label %1586
-    i32 23, label %1588
-  ]
-
-1532:                                             ; preds = %1529
-  %1533 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1533, label %.critedge42, label %1534
-
-1534:                                             ; preds = %1532
-  %1535 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1536 = load ptr, ptr %1535, align 8, !tbaa !388
-  %1537 = getelementptr inbounds nuw i8, ptr %1536, i64 112
-  %1538 = load i64, ptr %1537, align 8, !tbaa !406
-  %1539 = trunc i64 %1538 to i32
-  %1540 = and i32 %1539, 448
-  %1541 = icmp eq i32 %1540, 0
-  %1542 = and i32 %1539, 63
-  %switch4038 = icmp samesign ult i32 %1542, 5
-  %or.cond4039 = and i1 %1541, %switch4038
+1519:                                             ; preds = %1517
+  %1520 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1521 = load ptr, ptr %1520, align 8, !tbaa !388
+  %1522 = getelementptr inbounds nuw i8, ptr %1521, i64 112
+  %1523 = load i64, ptr %1522, align 8, !tbaa !406
+  %1524 = trunc i64 %1523 to i32
+  %1525 = and i32 %1524, 448
+  %1526 = icmp eq i32 %1525, 0
+  %1527 = and i32 %1524, 63
+  %switch4038 = icmp samesign ult i32 %1527, 5
+  %or.cond4039 = and i1 %1526, %switch4038
   %spec.select4290 = select i1 %or.cond4039, i32 1670, i32 1671
   br label %.critedge42
 
-1543:                                             ; preds = %1529
-  %1544 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1544, label %.critedge42, label %1545
+1528:                                             ; preds = %1514
+  %1529 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1529, label %.critedge42, label %1530
 
-1545:                                             ; preds = %1543
-  %1546 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1547 = load ptr, ptr %1546, align 8, !tbaa !388
-  %1548 = getelementptr inbounds nuw i8, ptr %1547, i64 112
-  %1549 = load i64, ptr %1548, align 8, !tbaa !406
-  %1550 = trunc i64 %1549 to i32
-  %1551 = and i32 %1550, 448
-  %1552 = icmp eq i32 %1551, 0
-  %1553 = and i32 %1550, 63
-  %switch4040 = icmp samesign ult i32 %1553, 5
-  %or.cond4041 = and i1 %1552, %switch4040
+1530:                                             ; preds = %1528
+  %1531 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1532 = load ptr, ptr %1531, align 8, !tbaa !388
+  %1533 = getelementptr inbounds nuw i8, ptr %1532, i64 112
+  %1534 = load i64, ptr %1533, align 8, !tbaa !406
+  %1535 = trunc i64 %1534 to i32
+  %1536 = and i32 %1535, 448
+  %1537 = icmp eq i32 %1536, 0
+  %1538 = and i32 %1535, 63
+  %switch4040 = icmp samesign ult i32 %1538, 5
+  %or.cond4041 = and i1 %1537, %switch4040
   %spec.select4291 = select i1 %or.cond4041, i32 1673, i32 1674
   br label %.critedge42
 
-1554:                                             ; preds = %1529
-  %1555 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3299 = select i1 %1555, i32 1597, i32 1598
+1539:                                             ; preds = %1514
+  %1540 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3299 = select i1 %1540, i32 1597, i32 1598
   br label %.critedge42
 
-1556:                                             ; preds = %1529
-  %1557 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3300 = select i1 %1557, i32 1658, i32 1651
+1541:                                             ; preds = %1514
+  %1542 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3300 = select i1 %1542, i32 1658, i32 1651
   br label %.critedge42
 
-1558:                                             ; preds = %1529
-  %1559 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3301 = select i1 %1559, i32 1599, i32 1600
+1543:                                             ; preds = %1514
+  %1544 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3301 = select i1 %1544, i32 1599, i32 1600
   br label %.critedge42
 
-1560:                                             ; preds = %1529
-  %1561 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3302 = select i1 %1561, i32 1658, i32 1651
+1545:                                             ; preds = %1514
+  %1546 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3302 = select i1 %1546, i32 1658, i32 1651
   br label %.critedge42
 
-1562:                                             ; preds = %1529
-  %1563 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1564 = load ptr, ptr %1563, align 8, !tbaa !388
-  %1565 = getelementptr inbounds nuw i8, ptr %1564, i64 112
-  %1566 = load i64, ptr %1565, align 8, !tbaa !406
-  %1567 = and i64 %1566, 511
-  %or.cond = icmp eq i64 %1567, 0
+1547:                                             ; preds = %1514
+  %1548 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1549 = load ptr, ptr %1548, align 8, !tbaa !388
+  %1550 = getelementptr inbounds nuw i8, ptr %1549, i64 112
+  %1551 = load i64, ptr %1550, align 8, !tbaa !406
+  %1552 = and i64 %1551, 511
+  %or.cond = icmp eq i64 %1552, 0
   %spec.select4042 = select i1 %or.cond, i32 1754, i32 1755
   br label %.critedge42
 
-1568:                                             ; preds = %1529
-  %1569 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1570 = load ptr, ptr %1569, align 8, !tbaa !388
-  %1571 = getelementptr inbounds nuw i8, ptr %1570, i64 112
-  %1572 = load i64, ptr %1571, align 8, !tbaa !406
-  %1573 = and i64 %1572, 511
-  %or.cond3967 = icmp eq i64 %1573, 0
+1553:                                             ; preds = %1514
+  %1554 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1555 = load ptr, ptr %1554, align 8, !tbaa !388
+  %1556 = getelementptr inbounds nuw i8, ptr %1555, i64 112
+  %1557 = load i64, ptr %1556, align 8, !tbaa !406
+  %1558 = and i64 %1557, 511
+  %or.cond3967 = icmp eq i64 %1558, 0
   %spec.select4043 = select i1 %or.cond3967, i32 1677, i32 1678
   br label %.critedge42
 
-1574:                                             ; preds = %1529
-  %1575 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1575, label %.critedge42, label %1576
+1559:                                             ; preds = %1514
+  %1560 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1560, label %.critedge42, label %1561
 
-1576:                                             ; preds = %1574
-  %1577 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3303 = select i1 %1577, i32 1661, i32 1662
+1561:                                             ; preds = %1559
+  %1562 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3303 = select i1 %1562, i32 1661, i32 1662
   br label %.critedge42
 
-1578:                                             ; preds = %1529
-  %1579 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1563:                                             ; preds = %1514
+  %1564 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1564, label %.critedge42, label %1565
+
+1565:                                             ; preds = %1563
+  %1566 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3304 = select i1 %1566, i32 1663, i32 1664
+  br label %.critedge42
+
+1567:                                             ; preds = %1514
+  %1568 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1568, label %.critedge42, label %1569
+
+1569:                                             ; preds = %1567
+  %1570 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3305 = select i1 %1570, i32 1665, i32 1666
+  br label %.critedge42
+
+1571:                                             ; preds = %1514
+  %1572 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3306 = select i1 %1572, i32 1611, i32 1612
+  br label %.critedge42
+
+1573:                                             ; preds = %1514
+  %1574 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3307 = select i1 %1574, i32 1667, i32 1668
+  br label %.critedge42
+
+1575:                                             ; preds = %4
+  %1576 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1577 = load i32, ptr %1576, align 4, !tbaa !382
+  switch i32 %1577, label %4653 [
+    i32 2, label %1578
+    i32 3, label %1589
+    i32 5, label %1600
+    i32 6, label %1602
+    i32 7, label %1604
+    i32 8, label %1606
+    i32 9, label %1608
+    i32 12, label %1614
+    i32 13, label %1620
+    i32 14, label %1624
+    i32 15, label %1628
+    i32 20, label %1632
+    i32 23, label %1634
+  ]
+
+1578:                                             ; preds = %1575
+  %1579 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %1579, label %.critedge42, label %1580
 
 1580:                                             ; preds = %1578
-  %1581 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3304 = select i1 %1581, i32 1663, i32 1664
-  br label %.critedge42
-
-1582:                                             ; preds = %1529
-  %1583 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1583, label %.critedge42, label %1584
-
-1584:                                             ; preds = %1582
-  %1585 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3305 = select i1 %1585, i32 1665, i32 1666
-  br label %.critedge42
-
-1586:                                             ; preds = %1529
-  %1587 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3306 = select i1 %1587, i32 1611, i32 1612
-  br label %.critedge42
-
-1588:                                             ; preds = %1529
-  %1589 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3307 = select i1 %1589, i32 1667, i32 1668
-  br label %.critedge42
-
-1590:                                             ; preds = %4
-  %1591 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1592 = load i32, ptr %1591, align 4, !tbaa !382
-  switch i32 %1592, label %4671 [
-    i32 2, label %1593
-    i32 3, label %1604
-    i32 5, label %1615
-    i32 6, label %1617
-    i32 7, label %1619
-    i32 8, label %1621
-    i32 9, label %1623
-    i32 12, label %1629
-    i32 13, label %1635
-    i32 14, label %1639
-    i32 15, label %1643
-    i32 20, label %1647
-    i32 23, label %1649
-  ]
-
-1593:                                             ; preds = %1590
-  %1594 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1594, label %.critedge42, label %1595
-
-1595:                                             ; preds = %1593
-  %1596 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1597 = load ptr, ptr %1596, align 8, !tbaa !388
-  %1598 = getelementptr inbounds nuw i8, ptr %1597, i64 112
-  %1599 = load i64, ptr %1598, align 8, !tbaa !406
-  %1600 = trunc i64 %1599 to i32
-  %1601 = and i32 %1600, 448
-  %1602 = icmp eq i32 %1601, 0
-  %1603 = and i32 %1600, 63
-  %switch4044 = icmp samesign ult i32 %1603, 5
-  %or.cond4045 = and i1 %1602, %switch4044
+  %1581 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1582 = load ptr, ptr %1581, align 8, !tbaa !388
+  %1583 = getelementptr inbounds nuw i8, ptr %1582, i64 112
+  %1584 = load i64, ptr %1583, align 8, !tbaa !406
+  %1585 = trunc i64 %1584 to i32
+  %1586 = and i32 %1585, 448
+  %1587 = icmp eq i32 %1586, 0
+  %1588 = and i32 %1585, 63
+  %switch4044 = icmp samesign ult i32 %1588, 5
+  %or.cond4045 = and i1 %1587, %switch4044
   %spec.select4292 = select i1 %or.cond4045, i32 1670, i32 1671
   br label %.critedge42
 
-1604:                                             ; preds = %1590
-  %1605 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1605, label %.critedge42, label %1606
+1589:                                             ; preds = %1575
+  %1590 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1590, label %.critedge42, label %1591
 
-1606:                                             ; preds = %1604
-  %1607 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1608 = load ptr, ptr %1607, align 8, !tbaa !388
-  %1609 = getelementptr inbounds nuw i8, ptr %1608, i64 112
-  %1610 = load i64, ptr %1609, align 8, !tbaa !406
-  %1611 = trunc i64 %1610 to i32
-  %1612 = and i32 %1611, 448
-  %1613 = icmp eq i32 %1612, 0
-  %1614 = and i32 %1611, 63
-  %switch4046 = icmp samesign ult i32 %1614, 5
-  %or.cond4047 = and i1 %1613, %switch4046
+1591:                                             ; preds = %1589
+  %1592 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1593 = load ptr, ptr %1592, align 8, !tbaa !388
+  %1594 = getelementptr inbounds nuw i8, ptr %1593, i64 112
+  %1595 = load i64, ptr %1594, align 8, !tbaa !406
+  %1596 = trunc i64 %1595 to i32
+  %1597 = and i32 %1596, 448
+  %1598 = icmp eq i32 %1597, 0
+  %1599 = and i32 %1596, 63
+  %switch4046 = icmp samesign ult i32 %1599, 5
+  %or.cond4047 = and i1 %1598, %switch4046
   %spec.select4293 = select i1 %or.cond4047, i32 1673, i32 1674
   br label %.critedge42
 
-1615:                                             ; preds = %1590
-  %1616 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3308 = select i1 %1616, i32 1597, i32 1598
+1600:                                             ; preds = %1575
+  %1601 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3308 = select i1 %1601, i32 1597, i32 1598
   br label %.critedge42
 
-1617:                                             ; preds = %1590
-  %1618 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3309 = select i1 %1618, i32 1658, i32 1651
+1602:                                             ; preds = %1575
+  %1603 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3309 = select i1 %1603, i32 1658, i32 1651
   br label %.critedge42
 
-1619:                                             ; preds = %1590
-  %1620 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3310 = select i1 %1620, i32 1599, i32 1600
+1604:                                             ; preds = %1575
+  %1605 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3310 = select i1 %1605, i32 1599, i32 1600
   br label %.critedge42
 
-1621:                                             ; preds = %1590
-  %1622 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3311 = select i1 %1622, i32 1658, i32 1651
+1606:                                             ; preds = %1575
+  %1607 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3311 = select i1 %1607, i32 1658, i32 1651
   br label %.critedge42
 
-1623:                                             ; preds = %1590
-  %1624 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1625 = load ptr, ptr %1624, align 8, !tbaa !388
-  %1626 = getelementptr inbounds nuw i8, ptr %1625, i64 112
-  %1627 = load i64, ptr %1626, align 8, !tbaa !406
-  %1628 = and i64 %1627, 511
-  %or.cond3969 = icmp eq i64 %1628, 0
+1608:                                             ; preds = %1575
+  %1609 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1610 = load ptr, ptr %1609, align 8, !tbaa !388
+  %1611 = getelementptr inbounds nuw i8, ptr %1610, i64 112
+  %1612 = load i64, ptr %1611, align 8, !tbaa !406
+  %1613 = and i64 %1612, 511
+  %or.cond3969 = icmp eq i64 %1613, 0
   %spec.select4048 = select i1 %or.cond3969, i32 1754, i32 1755
   br label %.critedge42
 
-1629:                                             ; preds = %1590
-  %1630 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1631 = load ptr, ptr %1630, align 8, !tbaa !388
-  %1632 = getelementptr inbounds nuw i8, ptr %1631, i64 112
-  %1633 = load i64, ptr %1632, align 8, !tbaa !406
-  %1634 = and i64 %1633, 511
-  %or.cond3971 = icmp eq i64 %1634, 0
+1614:                                             ; preds = %1575
+  %1615 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1616 = load ptr, ptr %1615, align 8, !tbaa !388
+  %1617 = getelementptr inbounds nuw i8, ptr %1616, i64 112
+  %1618 = load i64, ptr %1617, align 8, !tbaa !406
+  %1619 = and i64 %1618, 511
+  %or.cond3971 = icmp eq i64 %1619, 0
   %spec.select4049 = select i1 %or.cond3971, i32 1677, i32 1678
   br label %.critedge42
 
-1635:                                             ; preds = %1590
-  %1636 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1636, label %.critedge42, label %1637
+1620:                                             ; preds = %1575
+  %1621 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1621, label %.critedge42, label %1622
 
-1637:                                             ; preds = %1635
-  %1638 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3312 = select i1 %1638, i32 1661, i32 1662
+1622:                                             ; preds = %1620
+  %1623 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3312 = select i1 %1623, i32 1661, i32 1662
   br label %.critedge42
 
-1639:                                             ; preds = %1590
-  %1640 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1624:                                             ; preds = %1575
+  %1625 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1625, label %.critedge42, label %1626
+
+1626:                                             ; preds = %1624
+  %1627 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3313 = select i1 %1627, i32 1663, i32 1664
+  br label %.critedge42
+
+1628:                                             ; preds = %1575
+  %1629 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1629, label %.critedge42, label %1630
+
+1630:                                             ; preds = %1628
+  %1631 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3314 = select i1 %1631, i32 1665, i32 1666
+  br label %.critedge42
+
+1632:                                             ; preds = %1575
+  %1633 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3315 = select i1 %1633, i32 1611, i32 1612
+  br label %.critedge42
+
+1634:                                             ; preds = %1575
+  %1635 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3316 = select i1 %1635, i32 1667, i32 1668
+  br label %.critedge42
+
+1636:                                             ; preds = %4
+  %1637 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1638 = load i32, ptr %1637, align 4, !tbaa !382
+  switch i32 %1638, label %4653 [
+    i32 2, label %1639
+    i32 3, label %1650
+    i32 5, label %1661
+    i32 6, label %1663
+    i32 7, label %1665
+    i32 8, label %1667
+    i32 13, label %1669
+    i32 14, label %1673
+    i32 15, label %1677
+    i32 20, label %1681
+    i32 23, label %1683
+  ]
+
+1639:                                             ; preds = %1636
+  %1640 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %1640, label %.critedge42, label %1641
 
 1641:                                             ; preds = %1639
-  %1642 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3313 = select i1 %1642, i32 1663, i32 1664
-  br label %.critedge42
-
-1643:                                             ; preds = %1590
-  %1644 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1644, label %.critedge42, label %1645
-
-1645:                                             ; preds = %1643
-  %1646 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3314 = select i1 %1646, i32 1665, i32 1666
-  br label %.critedge42
-
-1647:                                             ; preds = %1590
-  %1648 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3315 = select i1 %1648, i32 1611, i32 1612
-  br label %.critedge42
-
-1649:                                             ; preds = %1590
-  %1650 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3316 = select i1 %1650, i32 1667, i32 1668
-  br label %.critedge42
-
-1651:                                             ; preds = %4
-  %1652 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1653 = load i32, ptr %1652, align 4, !tbaa !382
-  switch i32 %1653, label %4671 [
-    i32 2, label %1654
-    i32 3, label %1665
-    i32 5, label %1676
-    i32 6, label %1678
-    i32 7, label %1680
-    i32 8, label %1682
-    i32 13, label %1684
-    i32 14, label %1688
-    i32 15, label %1692
-    i32 20, label %1696
-    i32 23, label %1698
-  ]
-
-1654:                                             ; preds = %1651
-  %1655 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1655, label %.critedge42, label %1656
-
-1656:                                             ; preds = %1654
-  %1657 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1658 = load ptr, ptr %1657, align 8, !tbaa !388
-  %1659 = getelementptr inbounds nuw i8, ptr %1658, i64 112
-  %1660 = load i64, ptr %1659, align 8, !tbaa !406
-  %1661 = trunc i64 %1660 to i32
-  %1662 = and i32 %1661, 448
-  %1663 = icmp eq i32 %1662, 0
-  %1664 = and i32 %1661, 63
-  %switch4050 = icmp samesign ult i32 %1664, 5
-  %or.cond4051 = and i1 %1663, %switch4050
+  %1642 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1643 = load ptr, ptr %1642, align 8, !tbaa !388
+  %1644 = getelementptr inbounds nuw i8, ptr %1643, i64 112
+  %1645 = load i64, ptr %1644, align 8, !tbaa !406
+  %1646 = trunc i64 %1645 to i32
+  %1647 = and i32 %1646, 448
+  %1648 = icmp eq i32 %1647, 0
+  %1649 = and i32 %1646, 63
+  %switch4050 = icmp samesign ult i32 %1649, 5
+  %or.cond4051 = and i1 %1648, %switch4050
   %spec.select4294 = select i1 %or.cond4051, i32 1757, i32 1758
   br label %.critedge42
 
-1665:                                             ; preds = %1651
-  %1666 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1666, label %.critedge42, label %1667
+1650:                                             ; preds = %1636
+  %1651 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1651, label %.critedge42, label %1652
 
-1667:                                             ; preds = %1665
-  %1668 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1669 = load ptr, ptr %1668, align 8, !tbaa !388
-  %1670 = getelementptr inbounds nuw i8, ptr %1669, i64 112
-  %1671 = load i64, ptr %1670, align 8, !tbaa !406
-  %1672 = trunc i64 %1671 to i32
-  %1673 = and i32 %1672, 448
-  %1674 = icmp eq i32 %1673, 0
-  %1675 = and i32 %1672, 63
-  %switch4052 = icmp samesign ult i32 %1675, 5
-  %or.cond4053 = and i1 %1674, %switch4052
+1652:                                             ; preds = %1650
+  %1653 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1654 = load ptr, ptr %1653, align 8, !tbaa !388
+  %1655 = getelementptr inbounds nuw i8, ptr %1654, i64 112
+  %1656 = load i64, ptr %1655, align 8, !tbaa !406
+  %1657 = trunc i64 %1656 to i32
+  %1658 = and i32 %1657, 448
+  %1659 = icmp eq i32 %1658, 0
+  %1660 = and i32 %1657, 63
+  %switch4052 = icmp samesign ult i32 %1660, 5
+  %or.cond4053 = and i1 %1659, %switch4052
   %spec.select4295 = select i1 %or.cond4053, i32 1673, i32 1674
   br label %.critedge42
 
-1676:                                             ; preds = %1651
-  %1677 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3317 = select i1 %1677, i32 1597, i32 1598
+1661:                                             ; preds = %1636
+  %1662 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3317 = select i1 %1662, i32 1597, i32 1598
   br label %.critedge42
 
-1678:                                             ; preds = %1651
-  %1679 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3318 = select i1 %1679, i32 1658, i32 1651
+1663:                                             ; preds = %1636
+  %1664 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3318 = select i1 %1664, i32 1658, i32 1651
   br label %.critedge42
 
-1680:                                             ; preds = %1651
-  %1681 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3319 = select i1 %1681, i32 1599, i32 1600
+1665:                                             ; preds = %1636
+  %1666 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3319 = select i1 %1666, i32 1599, i32 1600
   br label %.critedge42
 
-1682:                                             ; preds = %1651
-  %1683 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3320 = select i1 %1683, i32 1658, i32 1651
+1667:                                             ; preds = %1636
+  %1668 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3320 = select i1 %1668, i32 1658, i32 1651
   br label %.critedge42
 
-1684:                                             ; preds = %1651
-  %1685 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1685, label %.critedge42, label %1686
+1669:                                             ; preds = %1636
+  %1670 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1670, label %.critedge42, label %1671
 
-1686:                                             ; preds = %1684
-  %1687 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3321 = select i1 %1687, i32 1661, i32 1662
+1671:                                             ; preds = %1669
+  %1672 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3321 = select i1 %1672, i32 1661, i32 1662
   br label %.critedge42
 
-1688:                                             ; preds = %1651
-  %1689 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1673:                                             ; preds = %1636
+  %1674 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1674, label %.critedge42, label %1675
+
+1675:                                             ; preds = %1673
+  %1676 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3322 = select i1 %1676, i32 1663, i32 1664
+  br label %.critedge42
+
+1677:                                             ; preds = %1636
+  %1678 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1678, label %.critedge42, label %1679
+
+1679:                                             ; preds = %1677
+  %1680 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3323 = select i1 %1680, i32 1665, i32 1666
+  br label %.critedge42
+
+1681:                                             ; preds = %1636
+  %1682 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3324 = select i1 %1682, i32 1611, i32 1612
+  br label %.critedge42
+
+1683:                                             ; preds = %1636
+  %1684 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3325 = select i1 %1684, i32 1658, i32 1651
+  br label %.critedge42
+
+1685:                                             ; preds = %4
+  %1686 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1687 = load i32, ptr %1686, align 4, !tbaa !382
+  switch i32 %1687, label %4653 [
+    i32 2, label %1688
+    i32 3, label %1699
+    i32 5, label %1710
+    i32 6, label %1712
+    i32 7, label %1714
+    i32 8, label %1716
+    i32 13, label %1718
+    i32 14, label %1722
+    i32 15, label %1726
+    i32 20, label %1730
+    i32 23, label %1732
+  ]
+
+1688:                                             ; preds = %1685
+  %1689 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %1689, label %.critedge42, label %1690
 
 1690:                                             ; preds = %1688
-  %1691 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3322 = select i1 %1691, i32 1663, i32 1664
-  br label %.critedge42
-
-1692:                                             ; preds = %1651
-  %1693 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1693, label %.critedge42, label %1694
-
-1694:                                             ; preds = %1692
-  %1695 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3323 = select i1 %1695, i32 1665, i32 1666
-  br label %.critedge42
-
-1696:                                             ; preds = %1651
-  %1697 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3324 = select i1 %1697, i32 1611, i32 1612
-  br label %.critedge42
-
-1698:                                             ; preds = %1651
-  %1699 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3325 = select i1 %1699, i32 1658, i32 1651
-  br label %.critedge42
-
-1700:                                             ; preds = %4
-  %1701 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1702 = load i32, ptr %1701, align 4, !tbaa !382
-  switch i32 %1702, label %4671 [
-    i32 2, label %1703
-    i32 3, label %1714
-    i32 5, label %1725
-    i32 6, label %1727
-    i32 7, label %1729
-    i32 8, label %1731
-    i32 13, label %1733
-    i32 14, label %1737
-    i32 15, label %1741
-    i32 20, label %1745
-    i32 23, label %1747
-  ]
-
-1703:                                             ; preds = %1700
-  %1704 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1704, label %.critedge42, label %1705
-
-1705:                                             ; preds = %1703
-  %1706 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1707 = load ptr, ptr %1706, align 8, !tbaa !388
-  %1708 = getelementptr inbounds nuw i8, ptr %1707, i64 112
-  %1709 = load i64, ptr %1708, align 8, !tbaa !406
-  %1710 = trunc i64 %1709 to i32
-  %1711 = and i32 %1710, 448
-  %1712 = icmp eq i32 %1711, 0
-  %1713 = and i32 %1710, 63
-  %switch4054 = icmp samesign ult i32 %1713, 5
-  %or.cond4055 = and i1 %1712, %switch4054
+  %1691 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1692 = load ptr, ptr %1691, align 8, !tbaa !388
+  %1693 = getelementptr inbounds nuw i8, ptr %1692, i64 112
+  %1694 = load i64, ptr %1693, align 8, !tbaa !406
+  %1695 = trunc i64 %1694 to i32
+  %1696 = and i32 %1695, 448
+  %1697 = icmp eq i32 %1696, 0
+  %1698 = and i32 %1695, 63
+  %switch4054 = icmp samesign ult i32 %1698, 5
+  %or.cond4055 = and i1 %1697, %switch4054
   %spec.select4296 = select i1 %or.cond4055, i32 1757, i32 1758
   br label %.critedge42
 
-1714:                                             ; preds = %1700
-  %1715 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1715, label %.critedge42, label %1716
+1699:                                             ; preds = %1685
+  %1700 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1700, label %.critedge42, label %1701
 
-1716:                                             ; preds = %1714
-  %1717 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1718 = load ptr, ptr %1717, align 8, !tbaa !388
-  %1719 = getelementptr inbounds nuw i8, ptr %1718, i64 112
-  %1720 = load i64, ptr %1719, align 8, !tbaa !406
-  %1721 = trunc i64 %1720 to i32
-  %1722 = and i32 %1721, 448
-  %1723 = icmp eq i32 %1722, 0
-  %1724 = and i32 %1721, 63
-  %switch4056 = icmp samesign ult i32 %1724, 5
-  %or.cond4057 = and i1 %1723, %switch4056
+1701:                                             ; preds = %1699
+  %1702 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1703 = load ptr, ptr %1702, align 8, !tbaa !388
+  %1704 = getelementptr inbounds nuw i8, ptr %1703, i64 112
+  %1705 = load i64, ptr %1704, align 8, !tbaa !406
+  %1706 = trunc i64 %1705 to i32
+  %1707 = and i32 %1706, 448
+  %1708 = icmp eq i32 %1707, 0
+  %1709 = and i32 %1706, 63
+  %switch4056 = icmp samesign ult i32 %1709, 5
+  %or.cond4057 = and i1 %1708, %switch4056
   %spec.select4297 = select i1 %or.cond4057, i32 1673, i32 1674
   br label %.critedge42
 
-1725:                                             ; preds = %1700
-  %1726 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3326 = select i1 %1726, i32 1597, i32 1598
+1710:                                             ; preds = %1685
+  %1711 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3326 = select i1 %1711, i32 1597, i32 1598
   br label %.critedge42
 
-1727:                                             ; preds = %1700
-  %1728 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3327 = select i1 %1728, i32 1658, i32 1651
+1712:                                             ; preds = %1685
+  %1713 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3327 = select i1 %1713, i32 1658, i32 1651
   br label %.critedge42
 
-1729:                                             ; preds = %1700
-  %1730 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3328 = select i1 %1730, i32 1599, i32 1600
+1714:                                             ; preds = %1685
+  %1715 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3328 = select i1 %1715, i32 1599, i32 1600
   br label %.critedge42
 
-1731:                                             ; preds = %1700
-  %1732 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3329 = select i1 %1732, i32 1658, i32 1651
+1716:                                             ; preds = %1685
+  %1717 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3329 = select i1 %1717, i32 1658, i32 1651
   br label %.critedge42
 
-1733:                                             ; preds = %1700
-  %1734 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1734, label %.critedge42, label %1735
+1718:                                             ; preds = %1685
+  %1719 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1719, label %.critedge42, label %1720
 
-1735:                                             ; preds = %1733
-  %1736 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3330 = select i1 %1736, i32 1661, i32 1662
+1720:                                             ; preds = %1718
+  %1721 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3330 = select i1 %1721, i32 1661, i32 1662
   br label %.critedge42
 
-1737:                                             ; preds = %1700
-  %1738 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1722:                                             ; preds = %1685
+  %1723 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1723, label %.critedge42, label %1724
+
+1724:                                             ; preds = %1722
+  %1725 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3331 = select i1 %1725, i32 1663, i32 1664
+  br label %.critedge42
+
+1726:                                             ; preds = %1685
+  %1727 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1727, label %.critedge42, label %1728
+
+1728:                                             ; preds = %1726
+  %1729 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3332 = select i1 %1729, i32 1665, i32 1666
+  br label %.critedge42
+
+1730:                                             ; preds = %1685
+  %1731 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3333 = select i1 %1731, i32 1611, i32 1612
+  br label %.critedge42
+
+1732:                                             ; preds = %1685
+  %1733 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3334 = select i1 %1733, i32 1658, i32 1651
+  br label %.critedge42
+
+1734:                                             ; preds = %4
+  %1735 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1736 = load i32, ptr %1735, align 4, !tbaa !382
+  switch i32 %1736, label %4653 [
+    i32 2, label %1737
+    i32 3, label %1748
+    i32 5, label %1759
+    i32 6, label %1761
+    i32 7, label %1763
+    i32 8, label %1765
+    i32 13, label %1767
+    i32 14, label %1771
+    i32 15, label %1775
+    i32 20, label %1779
+    i32 23, label %1781
+  ]
+
+1737:                                             ; preds = %1734
+  %1738 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %1738, label %.critedge42, label %1739
 
 1739:                                             ; preds = %1737
-  %1740 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3331 = select i1 %1740, i32 1663, i32 1664
-  br label %.critedge42
-
-1741:                                             ; preds = %1700
-  %1742 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1742, label %.critedge42, label %1743
-
-1743:                                             ; preds = %1741
-  %1744 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3332 = select i1 %1744, i32 1665, i32 1666
-  br label %.critedge42
-
-1745:                                             ; preds = %1700
-  %1746 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3333 = select i1 %1746, i32 1611, i32 1612
-  br label %.critedge42
-
-1747:                                             ; preds = %1700
-  %1748 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3334 = select i1 %1748, i32 1658, i32 1651
-  br label %.critedge42
-
-1749:                                             ; preds = %4
-  %1750 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1751 = load i32, ptr %1750, align 4, !tbaa !382
-  switch i32 %1751, label %4671 [
-    i32 2, label %1752
-    i32 3, label %1763
-    i32 5, label %1774
-    i32 6, label %1776
-    i32 7, label %1778
-    i32 8, label %1780
-    i32 13, label %1782
-    i32 14, label %1786
-    i32 15, label %1790
-    i32 20, label %1794
-    i32 23, label %1796
-  ]
-
-1752:                                             ; preds = %1749
-  %1753 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1753, label %.critedge42, label %1754
-
-1754:                                             ; preds = %1752
-  %1755 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1756 = load ptr, ptr %1755, align 8, !tbaa !388
-  %1757 = getelementptr inbounds nuw i8, ptr %1756, i64 112
-  %1758 = load i64, ptr %1757, align 8, !tbaa !406
-  %1759 = trunc i64 %1758 to i32
-  %1760 = and i32 %1759, 448
-  %1761 = icmp eq i32 %1760, 0
-  %1762 = and i32 %1759, 63
-  %switch4058 = icmp samesign ult i32 %1762, 5
-  %or.cond4059 = and i1 %1761, %switch4058
+  %1740 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1741 = load ptr, ptr %1740, align 8, !tbaa !388
+  %1742 = getelementptr inbounds nuw i8, ptr %1741, i64 112
+  %1743 = load i64, ptr %1742, align 8, !tbaa !406
+  %1744 = trunc i64 %1743 to i32
+  %1745 = and i32 %1744, 448
+  %1746 = icmp eq i32 %1745, 0
+  %1747 = and i32 %1744, 63
+  %switch4058 = icmp samesign ult i32 %1747, 5
+  %or.cond4059 = and i1 %1746, %switch4058
   %spec.select4298 = select i1 %or.cond4059, i32 1757, i32 1758
   br label %.critedge42
 
-1763:                                             ; preds = %1749
-  %1764 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1764, label %.critedge42, label %1765
+1748:                                             ; preds = %1734
+  %1749 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1749, label %.critedge42, label %1750
 
-1765:                                             ; preds = %1763
-  %1766 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1767 = load ptr, ptr %1766, align 8, !tbaa !388
-  %1768 = getelementptr inbounds nuw i8, ptr %1767, i64 112
-  %1769 = load i64, ptr %1768, align 8, !tbaa !406
-  %1770 = trunc i64 %1769 to i32
-  %1771 = and i32 %1770, 448
-  %1772 = icmp eq i32 %1771, 0
-  %1773 = and i32 %1770, 63
-  %switch4060 = icmp samesign ult i32 %1773, 5
-  %or.cond4061 = and i1 %1772, %switch4060
+1750:                                             ; preds = %1748
+  %1751 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1752 = load ptr, ptr %1751, align 8, !tbaa !388
+  %1753 = getelementptr inbounds nuw i8, ptr %1752, i64 112
+  %1754 = load i64, ptr %1753, align 8, !tbaa !406
+  %1755 = trunc i64 %1754 to i32
+  %1756 = and i32 %1755, 448
+  %1757 = icmp eq i32 %1756, 0
+  %1758 = and i32 %1755, 63
+  %switch4060 = icmp samesign ult i32 %1758, 5
+  %or.cond4061 = and i1 %1757, %switch4060
   %spec.select4299 = select i1 %or.cond4061, i32 1673, i32 1674
   br label %.critedge42
 
-1774:                                             ; preds = %1749
-  %1775 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3335 = select i1 %1775, i32 1597, i32 1598
+1759:                                             ; preds = %1734
+  %1760 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3335 = select i1 %1760, i32 1597, i32 1598
   br label %.critedge42
 
-1776:                                             ; preds = %1749
-  %1777 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3336 = select i1 %1777, i32 1658, i32 1651
+1761:                                             ; preds = %1734
+  %1762 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3336 = select i1 %1762, i32 1658, i32 1651
   br label %.critedge42
 
-1778:                                             ; preds = %1749
-  %1779 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3337 = select i1 %1779, i32 1599, i32 1600
+1763:                                             ; preds = %1734
+  %1764 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3337 = select i1 %1764, i32 1599, i32 1600
   br label %.critedge42
 
-1780:                                             ; preds = %1749
-  %1781 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3338 = select i1 %1781, i32 1658, i32 1651
+1765:                                             ; preds = %1734
+  %1766 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3338 = select i1 %1766, i32 1658, i32 1651
   br label %.critedge42
 
-1782:                                             ; preds = %1749
-  %1783 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1783, label %.critedge42, label %1784
+1767:                                             ; preds = %1734
+  %1768 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1768, label %.critedge42, label %1769
 
-1784:                                             ; preds = %1782
-  %1785 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3339 = select i1 %1785, i32 1661, i32 1662
+1769:                                             ; preds = %1767
+  %1770 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3339 = select i1 %1770, i32 1661, i32 1662
   br label %.critedge42
 
-1786:                                             ; preds = %1749
-  %1787 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1771:                                             ; preds = %1734
+  %1772 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1772, label %.critedge42, label %1773
+
+1773:                                             ; preds = %1771
+  %1774 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3340 = select i1 %1774, i32 1663, i32 1664
+  br label %.critedge42
+
+1775:                                             ; preds = %1734
+  %1776 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1776, label %.critedge42, label %1777
+
+1777:                                             ; preds = %1775
+  %1778 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3341 = select i1 %1778, i32 1665, i32 1666
+  br label %.critedge42
+
+1779:                                             ; preds = %1734
+  %1780 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3342 = select i1 %1780, i32 1611, i32 1612
+  br label %.critedge42
+
+1781:                                             ; preds = %1734
+  %1782 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3343 = select i1 %1782, i32 1658, i32 1651
+  br label %.critedge42
+
+1783:                                             ; preds = %4
+  %1784 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1785 = load i32, ptr %1784, align 4, !tbaa !382
+  switch i32 %1785, label %4653 [
+    i32 13, label %1786
+    i32 14, label %1790
+    i32 15, label %1796
+    i32 16, label %1802
+  ]
+
+1786:                                             ; preds = %1783
+  %1787 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isZeroIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %1787, label %.critedge42, label %1788
 
 1788:                                             ; preds = %1786
-  %1789 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3340 = select i1 %1789, i32 1663, i32 1664
+  %1789 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3344 = select i1 %1789, i32 1661, i32 1662
   br label %.critedge42
 
-1790:                                             ; preds = %1749
-  %1791 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1790:                                             ; preds = %1783
+  %1791 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %1791, label %.critedge42, label %1792
 
 1792:                                             ; preds = %1790
-  %1793 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3341 = select i1 %1793, i32 1665, i32 1666
+  %1793 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1793, label %.critedge42, label %1794
+
+1794:                                             ; preds = %1792
+  %1795 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3345 = select i1 %1795, i32 1663, i32 1664
   br label %.critedge42
 
-1794:                                             ; preds = %1749
-  %1795 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3342 = select i1 %1795, i32 1611, i32 1612
+1796:                                             ; preds = %1783
+  %1797 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1797, label %.critedge42, label %1798
+
+1798:                                             ; preds = %1796
+  %1799 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1799, label %.critedge42, label %1800
+
+1800:                                             ; preds = %1798
+  %1801 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3346 = select i1 %1801, i32 1665, i32 1666
   br label %.critedge42
 
-1796:                                             ; preds = %1749
-  %1797 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3343 = select i1 %1797, i32 1658, i32 1651
+1802:                                             ; preds = %1783
+  %1803 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1804 = load ptr, ptr %1803, align 8, !tbaa !388
+  %1805 = getelementptr inbounds nuw i8, ptr %1804, i64 36
+  %1806 = load i32, ptr %1805, align 4, !tbaa !406
+  %1807 = icmp eq i32 %1806, 12
+  br i1 %1807, label %.critedge42, label %1808
+
+1808:                                             ; preds = %1802
+  %1809 = icmp eq i32 %1806, 14
+  %spec.select = select i1 %1809, i32 1759, i32 1659
   br label %.critedge42
 
-1798:                                             ; preds = %4
-  %1799 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1800 = load i32, ptr %1799, align 4, !tbaa !382
-  switch i32 %1800, label %4671 [
-    i32 13, label %1801
-    i32 14, label %1805
-    i32 15, label %1811
-    i32 16, label %1817
+1810:                                             ; preds = %4
+  %1811 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1812 = load i32, ptr %1811, align 4, !tbaa !382
+  switch i32 %1812, label %4653 [
+    i32 2, label %1813
+    i32 3, label %1824
+    i32 5, label %1835
+    i32 6, label %1837
+    i32 7, label %1839
+    i32 8, label %1841
+    i32 12, label %1843
+    i32 13, label %1893
+    i32 14, label %1899
+    i32 15, label %1905
+    i32 20, label %1911
+    i32 23, label %1913
   ]
 
-1801:                                             ; preds = %1798
-  %1802 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isZeroIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1802, label %.critedge42, label %1803
-
-1803:                                             ; preds = %1801
-  %1804 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3344 = select i1 %1804, i32 1661, i32 1662
-  br label %.critedge42
-
-1805:                                             ; preds = %1798
-  %1806 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1806, label %.critedge42, label %1807
-
-1807:                                             ; preds = %1805
-  %1808 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1808, label %.critedge42, label %1809
-
-1809:                                             ; preds = %1807
-  %1810 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3345 = select i1 %1810, i32 1663, i32 1664
-  br label %.critedge42
-
-1811:                                             ; preds = %1798
-  %1812 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1812, label %.critedge42, label %1813
-
-1813:                                             ; preds = %1811
-  %1814 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+1813:                                             ; preds = %1810
+  %1814 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %1814, label %.critedge42, label %1815
 
 1815:                                             ; preds = %1813
-  %1816 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3346 = select i1 %1816, i32 1665, i32 1666
-  br label %.critedge42
-
-1817:                                             ; preds = %1798
-  %1818 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1819 = load ptr, ptr %1818, align 8, !tbaa !388
-  %1820 = getelementptr inbounds nuw i8, ptr %1819, i64 36
-  %1821 = load i32, ptr %1820, align 4, !tbaa !406
-  %1822 = icmp eq i32 %1821, 12
-  br i1 %1822, label %.critedge42, label %1823
-
-1823:                                             ; preds = %1817
-  %1824 = icmp eq i32 %1821, 14
-  %spec.select = select i1 %1824, i32 1759, i32 1659
-  br label %.critedge42
-
-1825:                                             ; preds = %4
-  %1826 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1827 = load i32, ptr %1826, align 4, !tbaa !382
-  switch i32 %1827, label %4671 [
-    i32 2, label %1828
-    i32 3, label %1839
-    i32 5, label %1850
-    i32 6, label %1852
-    i32 7, label %1854
-    i32 8, label %1856
-    i32 12, label %1858
-    i32 13, label %1908
-    i32 14, label %1914
-    i32 15, label %1920
-    i32 20, label %1926
-    i32 23, label %1928
-  ]
-
-1828:                                             ; preds = %1825
-  %1829 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1829, label %.critedge42, label %1830
-
-1830:                                             ; preds = %1828
-  %1831 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1832 = load ptr, ptr %1831, align 8, !tbaa !388
-  %1833 = getelementptr inbounds nuw i8, ptr %1832, i64 112
-  %1834 = load i64, ptr %1833, align 8, !tbaa !406
-  %1835 = trunc i64 %1834 to i32
-  %1836 = and i32 %1835, 448
-  %1837 = icmp eq i32 %1836, 0
-  %1838 = and i32 %1835, 63
-  %switch4062 = icmp samesign ult i32 %1838, 5
-  %or.cond4063 = and i1 %1837, %switch4062
+  %1816 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1817 = load ptr, ptr %1816, align 8, !tbaa !388
+  %1818 = getelementptr inbounds nuw i8, ptr %1817, i64 112
+  %1819 = load i64, ptr %1818, align 8, !tbaa !406
+  %1820 = trunc i64 %1819 to i32
+  %1821 = and i32 %1820, 448
+  %1822 = icmp eq i32 %1821, 0
+  %1823 = and i32 %1820, 63
+  %switch4062 = icmp samesign ult i32 %1823, 5
+  %or.cond4063 = and i1 %1822, %switch4062
   %spec.select4300 = select i1 %or.cond4063, i32 1757, i32 1758
   br label %.critedge42
 
-1839:                                             ; preds = %1825
-  %1840 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1840, label %.critedge42, label %1841
+1824:                                             ; preds = %1810
+  %1825 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1825, label %.critedge42, label %1826
 
-1841:                                             ; preds = %1839
-  %1842 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1843 = load ptr, ptr %1842, align 8, !tbaa !388
-  %1844 = getelementptr inbounds nuw i8, ptr %1843, i64 112
-  %1845 = load i64, ptr %1844, align 8, !tbaa !406
-  %1846 = trunc i64 %1845 to i32
-  %1847 = and i32 %1846, 448
-  %1848 = icmp eq i32 %1847, 0
-  %1849 = and i32 %1846, 63
-  %switch4064 = icmp samesign ult i32 %1849, 5
-  %or.cond4065 = and i1 %1848, %switch4064
+1826:                                             ; preds = %1824
+  %1827 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1828 = load ptr, ptr %1827, align 8, !tbaa !388
+  %1829 = getelementptr inbounds nuw i8, ptr %1828, i64 112
+  %1830 = load i64, ptr %1829, align 8, !tbaa !406
+  %1831 = trunc i64 %1830 to i32
+  %1832 = and i32 %1831, 448
+  %1833 = icmp eq i32 %1832, 0
+  %1834 = and i32 %1831, 63
+  %switch4064 = icmp samesign ult i32 %1834, 5
+  %or.cond4065 = and i1 %1833, %switch4064
   %spec.select4301 = select i1 %or.cond4065, i32 1673, i32 1674
   br label %.critedge42
 
-1850:                                             ; preds = %1825
-  %1851 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3347 = select i1 %1851, i32 1597, i32 1598
+1835:                                             ; preds = %1810
+  %1836 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3347 = select i1 %1836, i32 1597, i32 1598
   br label %.critedge42
 
-1852:                                             ; preds = %1825
-  %1853 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3348 = select i1 %1853, i32 1658, i32 1651
+1837:                                             ; preds = %1810
+  %1838 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3348 = select i1 %1838, i32 1658, i32 1651
   br label %.critedge42
 
-1854:                                             ; preds = %1825
-  %1855 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3349 = select i1 %1855, i32 1599, i32 1600
+1839:                                             ; preds = %1810
+  %1840 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3349 = select i1 %1840, i32 1599, i32 1600
   br label %.critedge42
 
-1856:                                             ; preds = %1825
-  %1857 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3350 = select i1 %1857, i32 1658, i32 1651
+1841:                                             ; preds = %1810
+  %1842 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3350 = select i1 %1842, i32 1658, i32 1651
   br label %.critedge42
 
-1858:                                             ; preds = %1825
-  %1859 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %1860 = load i16, ptr %1859, align 4, !tbaa !407
-  switch i16 %1860, label %.critedge50 [
-    i16 5243, label %1861
-    i16 5244, label %1861
-    i16 5335, label %1876
-    i16 5337, label %1876
-    i16 3556, label %1890
-    i16 3560, label %1890
-    i16 3557, label %1890
-    i16 3559, label %1890
-    i16 5217, label %1902
-    i16 5219, label %1902
+1843:                                             ; preds = %1810
+  %1844 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %1845 = load i16, ptr %1844, align 4, !tbaa !407
+  switch i16 %1845, label %.critedge100 [
+    i16 5243, label %1846
+    i16 5244, label %1846
+    i16 5335, label %1861
+    i16 5337, label %1861
+    i16 3556, label %1875
+    i16 3560, label %1875
+    i16 3557, label %1875
+    i16 3559, label %1875
+    i16 5217, label %1887
+    i16 5219, label %1887
   ]
 
-1861:                                             ; preds = %1858, %1858
+1846:                                             ; preds = %1843, %1843
+  %1847 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1848 = load ptr, ptr %1847, align 8, !tbaa !388
+  %1849 = getelementptr inbounds nuw i8, ptr %1848, i64 32
+  %1850 = load i32, ptr %1849, align 8
+  %1851 = and i32 %1850, 255
+  %1852 = icmp eq i32 %1851, 1
+  br i1 %1852, label %1853, label %.critedge100
+
+1853:                                             ; preds = %1846
+  %1854 = getelementptr inbounds nuw i8, ptr %1848, i64 48
+  %1855 = load i64, ptr %1854, align 8, !tbaa !406
+  %1856 = icmp eq i64 %1855, 0
+  br i1 %1856, label %1857, label %.critedge100
+
+1857:                                             ; preds = %1853
+  %1858 = getelementptr inbounds nuw i8, ptr %1848, i64 80
+  %1859 = load i64, ptr %1858, align 8, !tbaa !406
+  %1860 = icmp eq i64 %1859, 0
+  br i1 %1860, label %.critedge42, label %.critedge100
+
+1861:                                             ; preds = %1843, %1843
   %1862 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1863 = load ptr, ptr %1862, align 8, !tbaa !388
   %1864 = getelementptr inbounds nuw i8, ptr %1863, i64 32
   %1865 = load i32, ptr %1864, align 8
   %1866 = and i32 %1865, 255
-  %1867 = icmp eq i32 %1866, 1
-  br i1 %1867, label %1868, label %.critedge50
+  %1867 = icmp eq i32 %1866, 0
+  br i1 %1867, label %1868, label %.critedge100
 
 1868:                                             ; preds = %1861
-  %1869 = getelementptr inbounds nuw i8, ptr %1863, i64 48
-  %1870 = load i64, ptr %1869, align 8, !tbaa !406
-  %1871 = icmp eq i64 %1870, 0
-  br i1 %1871, label %1872, label %.critedge50
-
-1872:                                             ; preds = %1868
-  %1873 = getelementptr inbounds nuw i8, ptr %1863, i64 80
-  %1874 = load i64, ptr %1873, align 8, !tbaa !406
-  %1875 = icmp eq i64 %1874, 0
-  br i1 %1875, label %.critedge42, label %.critedge50
-
-1876:                                             ; preds = %1858, %1858
-  %1877 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1878 = load ptr, ptr %1877, align 8, !tbaa !388
-  %1879 = getelementptr inbounds nuw i8, ptr %1878, i64 32
-  %1880 = load i32, ptr %1879, align 8
-  %1881 = and i32 %1880, 255
-  %1882 = icmp eq i32 %1881, 0
-  br i1 %1882, label %1883, label %.critedge50
-
-1883:                                             ; preds = %1876
-  %1884 = getelementptr inbounds nuw i8, ptr %1878, i64 36
-  %1885 = load i32, ptr %1884, align 4, !tbaa !406
-  switch i32 %1885, label %.critedge50 [
-    i32 12, label %1886
-    i32 14, label %1886
+  %1869 = getelementptr inbounds nuw i8, ptr %1863, i64 36
+  %1870 = load i32, ptr %1869, align 4, !tbaa !406
+  switch i32 %1870, label %.critedge100 [
+    i32 12, label %1871
+    i32 14, label %1871
   ]
 
-1886:                                             ; preds = %1883, %1883
-  %1887 = getelementptr inbounds nuw i8, ptr %1878, i64 112
-  %1888 = load i64, ptr %1887, align 8, !tbaa !406
-  %1889 = icmp eq i64 %1888, 0
-  br i1 %1889, label %.critedge42, label %.critedge50
+1871:                                             ; preds = %1868, %1868
+  %1872 = getelementptr inbounds nuw i8, ptr %1863, i64 112
+  %1873 = load i64, ptr %1872, align 8, !tbaa !406
+  %1874 = icmp eq i64 %1873, 0
+  br i1 %1874, label %.critedge42, label %.critedge100
 
-1890:                                             ; preds = %1858, %1858, %1858, %1858
-  %1891 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1892 = load ptr, ptr %1891, align 8, !tbaa !388
-  %1893 = getelementptr inbounds nuw i8, ptr %1892, i64 32
-  %1894 = load i32, ptr %1893, align 8
-  %1895 = and i32 %1894, 255
-  %1896 = icmp eq i32 %1895, 0
-  br i1 %1896, label %1897, label %.critedge50
+1875:                                             ; preds = %1843, %1843, %1843, %1843
+  %1876 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1877 = load ptr, ptr %1876, align 8, !tbaa !388
+  %1878 = getelementptr inbounds nuw i8, ptr %1877, i64 32
+  %1879 = load i32, ptr %1878, align 8
+  %1880 = and i32 %1879, 255
+  %1881 = icmp eq i32 %1880, 0
+  br i1 %1881, label %1882, label %.critedge100
 
-1897:                                             ; preds = %1890
-  %1898 = getelementptr inbounds nuw i8, ptr %1892, i64 36
-  %1899 = load i32, ptr %1898, align 4, !tbaa !406
-  %1900 = and i32 %1899, -3
-  %switch.selectcmp4067 = icmp eq i32 %1900, 12
-  %1901 = select i1 %switch.selectcmp4067, i32 1752, i32 1705
+1882:                                             ; preds = %1875
+  %1883 = getelementptr inbounds nuw i8, ptr %1877, i64 36
+  %1884 = load i32, ptr %1883, align 4, !tbaa !406
+  %1885 = and i32 %1884, -3
+  %switch.selectcmp4067 = icmp eq i32 %1885, 12
+  %1886 = select i1 %switch.selectcmp4067, i32 1752, i32 1705
   br label %.critedge42
 
-1902:                                             ; preds = %1858, %1858
-  %1903 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1904 = load ptr, ptr %1903, align 8, !tbaa !388
-  %1905 = getelementptr inbounds nuw i8, ptr %1904, i64 48
-  %1906 = load i64, ptr %1905, align 8, !tbaa !406
-  %1907 = icmp eq i64 %1906, 0
-  br i1 %1907, label %.critedge42, label %.critedge50
+1887:                                             ; preds = %1843, %1843
+  %1888 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1889 = load ptr, ptr %1888, align 8, !tbaa !388
+  %1890 = getelementptr inbounds nuw i8, ptr %1889, i64 48
+  %1891 = load i64, ptr %1890, align 8, !tbaa !406
+  %1892 = icmp eq i64 %1891, 0
+  br i1 %1892, label %.critedge42, label %.critedge100
 
-.critedge50:                                      ; preds = %1858, %1883, %1890, %1872, %1868, %1861, %1876, %1886, %1902
+1893:                                             ; preds = %1810
+  %1894 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1894, label %.critedge42, label %1895
+
+1895:                                             ; preds = %1893
+  %1896 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1896, label %.critedge42, label %1897
+
+1897:                                             ; preds = %1895
+  %1898 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3351 = select i1 %1898, i32 1661, i32 1662
   br label %.critedge42
 
-1908:                                             ; preds = %1825
-  %1909 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1909, label %.critedge42, label %1910
+1899:                                             ; preds = %1810
+  %1900 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1900, label %.critedge42, label %1901
 
-1910:                                             ; preds = %1908
-  %1911 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1911, label %.critedge42, label %1912
+1901:                                             ; preds = %1899
+  %1902 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1902, label %.critedge42, label %1903
 
-1912:                                             ; preds = %1910
-  %1913 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3351 = select i1 %1913, i32 1661, i32 1662
+1903:                                             ; preds = %1901
+  %1904 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3352 = select i1 %1904, i32 1663, i32 1664
   br label %.critedge42
 
-1914:                                             ; preds = %1825
-  %1915 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1915, label %.critedge42, label %1916
+1905:                                             ; preds = %1810
+  %1906 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1906, label %.critedge42, label %1907
 
-1916:                                             ; preds = %1914
-  %1917 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1917, label %.critedge42, label %1918
+1907:                                             ; preds = %1905
+  %1908 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1908, label %.critedge42, label %1909
 
-1918:                                             ; preds = %1916
-  %1919 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3352 = select i1 %1919, i32 1663, i32 1664
+1909:                                             ; preds = %1907
+  %1910 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3353 = select i1 %1910, i32 1665, i32 1666
   br label %.critedge42
 
-1920:                                             ; preds = %1825
-  %1921 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1921, label %.critedge42, label %1922
-
-1922:                                             ; preds = %1920
-  %1923 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1923, label %.critedge42, label %1924
-
-1924:                                             ; preds = %1922
-  %1925 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3353 = select i1 %1925, i32 1665, i32 1666
+1911:                                             ; preds = %1810
+  %1912 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3354 = select i1 %1912, i32 1611, i32 1612
   br label %.critedge42
 
-1926:                                             ; preds = %1825
-  %1927 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3354 = select i1 %1927, i32 1611, i32 1612
+1913:                                             ; preds = %1810
+  %1914 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3355 = select i1 %1914, i32 1658, i32 1651
   br label %.critedge42
 
-1928:                                             ; preds = %1825
-  %1929 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3355 = select i1 %1929, i32 1658, i32 1651
-  br label %.critedge42
-
-1930:                                             ; preds = %4
-  %1931 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %1932 = load i32, ptr %1931, align 4, !tbaa !382
-  switch i32 %1932, label %4671 [
-    i32 2, label %1933
-    i32 3, label %1944
-    i32 5, label %1955
-    i32 6, label %1957
-    i32 7, label %1959
-    i32 8, label %1961
-    i32 9, label %1963
-    i32 10, label %1972
-    i32 11, label %1981
-    i32 12, label %1990
-    i32 13, label %1999
-    i32 14, label %2003
-    i32 15, label %2007
-    i32 16, label %2011
-    i32 18, label %2013
-    i32 20, label %2022
-    i32 23, label %2024
+1915:                                             ; preds = %4
+  %1916 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %1917 = load i32, ptr %1916, align 4, !tbaa !382
+  switch i32 %1917, label %4653 [
+    i32 2, label %1918
+    i32 3, label %1929
+    i32 5, label %1940
+    i32 6, label %1942
+    i32 7, label %1944
+    i32 8, label %1946
+    i32 9, label %1948
+    i32 10, label %1957
+    i32 11, label %1966
+    i32 12, label %1975
+    i32 13, label %1984
+    i32 14, label %1988
+    i32 15, label %1992
+    i32 16, label %1996
+    i32 18, label %1998
+    i32 20, label %2007
+    i32 23, label %2009
   ]
 
-1933:                                             ; preds = %1930
-  %1934 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1934, label %.critedge42, label %1935
+1918:                                             ; preds = %1915
+  %1919 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1919, label %.critedge42, label %1920
 
-1935:                                             ; preds = %1933
-  %1936 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1937 = load ptr, ptr %1936, align 8, !tbaa !388
-  %1938 = getelementptr inbounds nuw i8, ptr %1937, i64 112
-  %1939 = load i64, ptr %1938, align 8, !tbaa !406
-  %1940 = trunc i64 %1939 to i32
-  %1941 = and i32 %1940, 448
-  %1942 = icmp eq i32 %1941, 0
-  %1943 = and i32 %1940, 63
-  %switch4068 = icmp samesign ult i32 %1943, 5
-  %or.cond4069 = and i1 %1942, %switch4068
+1920:                                             ; preds = %1918
+  %1921 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1922 = load ptr, ptr %1921, align 8, !tbaa !388
+  %1923 = getelementptr inbounds nuw i8, ptr %1922, i64 112
+  %1924 = load i64, ptr %1923, align 8, !tbaa !406
+  %1925 = trunc i64 %1924 to i32
+  %1926 = and i32 %1925, 448
+  %1927 = icmp eq i32 %1926, 0
+  %1928 = and i32 %1925, 63
+  %switch4068 = icmp samesign ult i32 %1928, 5
+  %or.cond4069 = and i1 %1927, %switch4068
   %spec.select4302 = select i1 %or.cond4069, i32 1670, i32 1671
   br label %.critedge42
 
-1944:                                             ; preds = %1930
-  %1945 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %1945, label %.critedge42, label %1946
+1929:                                             ; preds = %1915
+  %1930 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1930, label %.critedge42, label %1931
 
-1946:                                             ; preds = %1944
-  %1947 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1948 = load ptr, ptr %1947, align 8, !tbaa !388
-  %1949 = getelementptr inbounds nuw i8, ptr %1948, i64 112
-  %1950 = load i64, ptr %1949, align 8, !tbaa !406
-  %1951 = trunc i64 %1950 to i32
-  %1952 = and i32 %1951, 448
-  %1953 = icmp eq i32 %1952, 0
-  %1954 = and i32 %1951, 63
-  %switch4070 = icmp samesign ult i32 %1954, 5
-  %or.cond4071 = and i1 %1953, %switch4070
+1931:                                             ; preds = %1929
+  %1932 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1933 = load ptr, ptr %1932, align 8, !tbaa !388
+  %1934 = getelementptr inbounds nuw i8, ptr %1933, i64 112
+  %1935 = load i64, ptr %1934, align 8, !tbaa !406
+  %1936 = trunc i64 %1935 to i32
+  %1937 = and i32 %1936, 448
+  %1938 = icmp eq i32 %1937, 0
+  %1939 = and i32 %1936, 63
+  %switch4070 = icmp samesign ult i32 %1939, 5
+  %or.cond4071 = and i1 %1938, %switch4070
   %spec.select4303 = select i1 %or.cond4071, i32 1673, i32 1674
   br label %.critedge42
 
-1955:                                             ; preds = %1930
-  %1956 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3356 = select i1 %1956, i32 1597, i32 1598
+1940:                                             ; preds = %1915
+  %1941 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3356 = select i1 %1941, i32 1597, i32 1598
   br label %.critedge42
 
-1957:                                             ; preds = %1930
-  %1958 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3357 = select i1 %1958, i32 1658, i32 1651
+1942:                                             ; preds = %1915
+  %1943 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3357 = select i1 %1943, i32 1658, i32 1651
   br label %.critedge42
 
-1959:                                             ; preds = %1930
-  %1960 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3358 = select i1 %1960, i32 1599, i32 1600
+1944:                                             ; preds = %1915
+  %1945 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3358 = select i1 %1945, i32 1599, i32 1600
   br label %.critedge42
 
-1961:                                             ; preds = %1930
-  %1962 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3359 = select i1 %1962, i32 1658, i32 1651
+1946:                                             ; preds = %1915
+  %1947 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3359 = select i1 %1947, i32 1658, i32 1651
   br label %.critedge42
 
-1963:                                             ; preds = %1930
-  %1964 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1965 = load ptr, ptr %1964, align 8, !tbaa !388
-  %1966 = getelementptr inbounds nuw i8, ptr %1965, i64 112
-  %1967 = load i64, ptr %1966, align 8, !tbaa !406
-  %1968 = trunc i64 %1967 to i32
-  %1969 = and i32 %1968, 448
-  %1970 = icmp eq i32 %1969, 0
-  %1971 = and i32 %1968, 63
-  %switch4072 = icmp samesign ult i32 %1971, 5
-  %or.cond4073 = and i1 %1970, %switch4072
+1948:                                             ; preds = %1915
+  %1949 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1950 = load ptr, ptr %1949, align 8, !tbaa !388
+  %1951 = getelementptr inbounds nuw i8, ptr %1950, i64 112
+  %1952 = load i64, ptr %1951, align 8, !tbaa !406
+  %1953 = trunc i64 %1952 to i32
+  %1954 = and i32 %1953, 448
+  %1955 = icmp eq i32 %1954, 0
+  %1956 = and i32 %1953, 63
+  %switch4072 = icmp samesign ult i32 %1956, 5
+  %or.cond4073 = and i1 %1955, %switch4072
   %spec.select4304 = select i1 %or.cond4073, i32 1601, i32 1602
   br label %.critedge42
 
-1972:                                             ; preds = %1930
-  %1973 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1974 = load ptr, ptr %1973, align 8, !tbaa !388
-  %1975 = getelementptr inbounds nuw i8, ptr %1974, i64 112
-  %1976 = load i64, ptr %1975, align 8, !tbaa !406
-  %1977 = trunc i64 %1976 to i32
-  %1978 = and i32 %1977, 448
-  %1979 = icmp eq i32 %1978, 0
-  %1980 = and i32 %1977, 63
-  %switch4074 = icmp samesign ult i32 %1980, 5
-  %or.cond4075 = and i1 %1979, %switch4074
+1957:                                             ; preds = %1915
+  %1958 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1959 = load ptr, ptr %1958, align 8, !tbaa !388
+  %1960 = getelementptr inbounds nuw i8, ptr %1959, i64 112
+  %1961 = load i64, ptr %1960, align 8, !tbaa !406
+  %1962 = trunc i64 %1961 to i32
+  %1963 = and i32 %1962, 448
+  %1964 = icmp eq i32 %1963, 0
+  %1965 = and i32 %1962, 63
+  %switch4074 = icmp samesign ult i32 %1965, 5
+  %or.cond4075 = and i1 %1964, %switch4074
   %spec.select4305 = select i1 %or.cond4075, i32 1603, i32 1604
   br label %.critedge42
 
-1981:                                             ; preds = %1930
-  %1982 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1983 = load ptr, ptr %1982, align 8, !tbaa !388
-  %1984 = getelementptr inbounds nuw i8, ptr %1983, i64 112
-  %1985 = load i64, ptr %1984, align 8, !tbaa !406
-  %1986 = trunc i64 %1985 to i32
-  %1987 = and i32 %1986, 448
-  %1988 = icmp eq i32 %1987, 0
-  %1989 = and i32 %1986, 63
-  %switch4076 = icmp samesign ult i32 %1989, 5
-  %or.cond4077 = and i1 %1988, %switch4076
+1966:                                             ; preds = %1915
+  %1967 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1968 = load ptr, ptr %1967, align 8, !tbaa !388
+  %1969 = getelementptr inbounds nuw i8, ptr %1968, i64 112
+  %1970 = load i64, ptr %1969, align 8, !tbaa !406
+  %1971 = trunc i64 %1970 to i32
+  %1972 = and i32 %1971, 448
+  %1973 = icmp eq i32 %1972, 0
+  %1974 = and i32 %1971, 63
+  %switch4076 = icmp samesign ult i32 %1974, 5
+  %or.cond4077 = and i1 %1973, %switch4076
   %spec.select4306 = select i1 %or.cond4077, i32 1675, i32 1676
   br label %.critedge42
 
-1990:                                             ; preds = %1930
-  %1991 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1992 = load ptr, ptr %1991, align 8, !tbaa !388
-  %1993 = getelementptr inbounds nuw i8, ptr %1992, i64 112
-  %1994 = load i64, ptr %1993, align 8, !tbaa !406
-  %1995 = trunc i64 %1994 to i32
-  %1996 = and i32 %1995, 448
-  %1997 = icmp eq i32 %1996, 0
-  %1998 = and i32 %1995, 63
-  %switch4078 = icmp samesign ult i32 %1998, 5
-  %or.cond4079 = and i1 %1997, %switch4078
+1975:                                             ; preds = %1915
+  %1976 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1977 = load ptr, ptr %1976, align 8, !tbaa !388
+  %1978 = getelementptr inbounds nuw i8, ptr %1977, i64 112
+  %1979 = load i64, ptr %1978, align 8, !tbaa !406
+  %1980 = trunc i64 %1979 to i32
+  %1981 = and i32 %1980, 448
+  %1982 = icmp eq i32 %1981, 0
+  %1983 = and i32 %1980, 63
+  %switch4078 = icmp samesign ult i32 %1983, 5
+  %or.cond4079 = and i1 %1982, %switch4078
   %spec.select4307 = select i1 %or.cond4079, i32 1677, i32 1678
   br label %.critedge42
 
-1999:                                             ; preds = %1930
-  %2000 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2000, label %.critedge42, label %2001
+1984:                                             ; preds = %1915
+  %1985 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1985, label %.critedge42, label %1986
 
-2001:                                             ; preds = %1999
-  %2002 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3360 = select i1 %2002, i32 1661, i32 1662
+1986:                                             ; preds = %1984
+  %1987 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3360 = select i1 %1987, i32 1661, i32 1662
   br label %.critedge42
 
-2003:                                             ; preds = %1930
-  %2004 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2004, label %.critedge42, label %2005
+1988:                                             ; preds = %1915
+  %1989 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1989, label %.critedge42, label %1990
 
-2005:                                             ; preds = %2003
-  %2006 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3361 = select i1 %2006, i32 1663, i32 1664
+1990:                                             ; preds = %1988
+  %1991 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3361 = select i1 %1991, i32 1663, i32 1664
   br label %.critedge42
 
-2007:                                             ; preds = %1930
-  %2008 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2008, label %.critedge42, label %2009
+1992:                                             ; preds = %1915
+  %1993 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %1993, label %.critedge42, label %1994
 
-2009:                                             ; preds = %2007
-  %2010 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3362 = select i1 %2010, i32 1665, i32 1666
+1994:                                             ; preds = %1992
+  %1995 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3362 = select i1 %1995, i32 1665, i32 1666
   br label %.critedge42
 
-2011:                                             ; preds = %1930
-  %2012 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3363 = select i1 %2012, i32 1659, i32 1660
+1996:                                             ; preds = %1915
+  %1997 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3363 = select i1 %1997, i32 1659, i32 1660
   br label %.critedge42
 
-2013:                                             ; preds = %1930
-  %2014 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2015 = load ptr, ptr %2014, align 8, !tbaa !388
-  %2016 = getelementptr inbounds nuw i8, ptr %2015, i64 112
-  %2017 = load i64, ptr %2016, align 8, !tbaa !406
-  %2018 = trunc i64 %2017 to i32
-  %2019 = and i32 %2018, 448
-  %2020 = icmp eq i32 %2019, 0
-  %2021 = and i32 %2018, 63
-  %switch4080 = icmp samesign ult i32 %2021, 5
-  %or.cond4081 = and i1 %2020, %switch4080
+1998:                                             ; preds = %1915
+  %1999 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2000 = load ptr, ptr %1999, align 8, !tbaa !388
+  %2001 = getelementptr inbounds nuw i8, ptr %2000, i64 112
+  %2002 = load i64, ptr %2001, align 8, !tbaa !406
+  %2003 = trunc i64 %2002 to i32
+  %2004 = and i32 %2003, 448
+  %2005 = icmp eq i32 %2004, 0
+  %2006 = and i32 %2003, 63
+  %switch4080 = icmp samesign ult i32 %2006, 5
+  %or.cond4081 = and i1 %2005, %switch4080
   %spec.select4308 = select i1 %or.cond4081, i32 1609, i32 1610
   br label %.critedge42
 
-2022:                                             ; preds = %1930
-  %2023 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3364 = select i1 %2023, i32 1611, i32 1612
+2007:                                             ; preds = %1915
+  %2008 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3364 = select i1 %2008, i32 1611, i32 1612
   br label %.critedge42
 
-2024:                                             ; preds = %1930
-  %2025 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3365 = select i1 %2025, i32 1667, i32 1668
+2009:                                             ; preds = %1915
+  %2010 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3365 = select i1 %2010, i32 1667, i32 1668
   br label %.critedge42
 
-2026:                                             ; preds = %4
-  %2027 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2028 = load i32, ptr %2027, align 4, !tbaa !382
-  switch i32 %2028, label %4671 [
-    i32 2, label %2029
-    i32 3, label %2040
-    i32 5, label %2051
-    i32 7, label %2053
-    i32 11, label %2055
-    i32 13, label %2064
-    i32 14, label %2068
-    i32 15, label %2072
-    i32 16, label %2076
-    i32 20, label %2078
-    i32 23, label %2080
+2011:                                             ; preds = %4
+  %2012 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2013 = load i32, ptr %2012, align 4, !tbaa !382
+  switch i32 %2013, label %4653 [
+    i32 2, label %2014
+    i32 3, label %2025
+    i32 5, label %2036
+    i32 7, label %2038
+    i32 11, label %2040
+    i32 13, label %2049
+    i32 14, label %2053
+    i32 15, label %2057
+    i32 16, label %2061
+    i32 20, label %2063
+    i32 23, label %2065
   ]
 
-2029:                                             ; preds = %2026
-  %2030 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2030, label %.critedge42, label %2031
+2014:                                             ; preds = %2011
+  %2015 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2015, label %.critedge42, label %2016
 
-2031:                                             ; preds = %2029
-  %2032 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2033 = load ptr, ptr %2032, align 8, !tbaa !388
-  %2034 = getelementptr inbounds nuw i8, ptr %2033, i64 112
-  %2035 = load i64, ptr %2034, align 8, !tbaa !406
-  %2036 = trunc i64 %2035 to i32
-  %2037 = and i32 %2036, 448
-  %2038 = icmp eq i32 %2037, 0
-  %2039 = and i32 %2036, 63
-  %switch4082 = icmp samesign ult i32 %2039, 5
-  %or.cond4083 = and i1 %2038, %switch4082
+2016:                                             ; preds = %2014
+  %2017 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2018 = load ptr, ptr %2017, align 8, !tbaa !388
+  %2019 = getelementptr inbounds nuw i8, ptr %2018, i64 112
+  %2020 = load i64, ptr %2019, align 8, !tbaa !406
+  %2021 = trunc i64 %2020 to i32
+  %2022 = and i32 %2021, 448
+  %2023 = icmp eq i32 %2022, 0
+  %2024 = and i32 %2021, 63
+  %switch4082 = icmp samesign ult i32 %2024, 5
+  %or.cond4083 = and i1 %2023, %switch4082
   %spec.select4309 = select i1 %or.cond4083, i32 1670, i32 1671
   br label %.critedge42
 
-2040:                                             ; preds = %2026
-  %2041 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2041, label %.critedge42, label %2042
+2025:                                             ; preds = %2011
+  %2026 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2026, label %.critedge42, label %2027
 
-2042:                                             ; preds = %2040
-  %2043 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2044 = load ptr, ptr %2043, align 8, !tbaa !388
-  %2045 = getelementptr inbounds nuw i8, ptr %2044, i64 112
-  %2046 = load i64, ptr %2045, align 8, !tbaa !406
-  %2047 = trunc i64 %2046 to i32
-  %2048 = and i32 %2047, 448
-  %2049 = icmp eq i32 %2048, 0
-  %2050 = and i32 %2047, 63
-  %switch4084 = icmp samesign ult i32 %2050, 5
-  %or.cond4085 = and i1 %2049, %switch4084
+2027:                                             ; preds = %2025
+  %2028 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2029 = load ptr, ptr %2028, align 8, !tbaa !388
+  %2030 = getelementptr inbounds nuw i8, ptr %2029, i64 112
+  %2031 = load i64, ptr %2030, align 8, !tbaa !406
+  %2032 = trunc i64 %2031 to i32
+  %2033 = and i32 %2032, 448
+  %2034 = icmp eq i32 %2033, 0
+  %2035 = and i32 %2032, 63
+  %switch4084 = icmp samesign ult i32 %2035, 5
+  %or.cond4085 = and i1 %2034, %switch4084
   %spec.select4310 = select i1 %or.cond4085, i32 1673, i32 1674
   br label %.critedge42
 
-2051:                                             ; preds = %2026
-  %2052 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3366 = select i1 %2052, i32 1613, i32 1614
+2036:                                             ; preds = %2011
+  %2037 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3366 = select i1 %2037, i32 1613, i32 1614
   br label %.critedge42
 
-2053:                                             ; preds = %2026
-  %2054 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3367 = select i1 %2054, i32 1615, i32 1616
+2038:                                             ; preds = %2011
+  %2039 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3367 = select i1 %2039, i32 1615, i32 1616
   br label %.critedge42
 
-2055:                                             ; preds = %2026
-  %2056 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2057 = load ptr, ptr %2056, align 8, !tbaa !388
-  %2058 = getelementptr inbounds nuw i8, ptr %2057, i64 112
-  %2059 = load i64, ptr %2058, align 8, !tbaa !406
-  %2060 = trunc i64 %2059 to i32
-  %2061 = and i32 %2060, 448
-  %2062 = icmp eq i32 %2061, 0
-  %2063 = and i32 %2060, 63
-  %switch4086 = icmp samesign ult i32 %2063, 5
-  %or.cond4087 = and i1 %2062, %switch4086
+2040:                                             ; preds = %2011
+  %2041 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2042 = load ptr, ptr %2041, align 8, !tbaa !388
+  %2043 = getelementptr inbounds nuw i8, ptr %2042, i64 112
+  %2044 = load i64, ptr %2043, align 8, !tbaa !406
+  %2045 = trunc i64 %2044 to i32
+  %2046 = and i32 %2045, 448
+  %2047 = icmp eq i32 %2046, 0
+  %2048 = and i32 %2045, 63
+  %switch4086 = icmp samesign ult i32 %2048, 5
+  %or.cond4087 = and i1 %2047, %switch4086
   %spec.select4311 = select i1 %or.cond4087, i32 1675, i32 1676
   br label %.critedge42
 
-2064:                                             ; preds = %2026
-  %2065 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2065, label %.critedge42, label %2066
+2049:                                             ; preds = %2011
+  %2050 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2050, label %.critedge42, label %2051
 
-2066:                                             ; preds = %2064
-  %2067 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3368 = select i1 %2067, i32 1661, i32 1662
+2051:                                             ; preds = %2049
+  %2052 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3368 = select i1 %2052, i32 1661, i32 1662
   br label %.critedge42
 
-2068:                                             ; preds = %2026
-  %2069 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2069, label %.critedge42, label %2070
+2053:                                             ; preds = %2011
+  %2054 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2054, label %.critedge42, label %2055
 
-2070:                                             ; preds = %2068
-  %2071 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3369 = select i1 %2071, i32 1663, i32 1664
+2055:                                             ; preds = %2053
+  %2056 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3369 = select i1 %2056, i32 1663, i32 1664
   br label %.critedge42
 
-2072:                                             ; preds = %2026
-  %2073 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2073, label %.critedge42, label %2074
+2057:                                             ; preds = %2011
+  %2058 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2058, label %.critedge42, label %2059
 
-2074:                                             ; preds = %2072
-  %2075 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3370 = select i1 %2075, i32 1665, i32 1666
+2059:                                             ; preds = %2057
+  %2060 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3370 = select i1 %2060, i32 1665, i32 1666
   br label %.critedge42
 
-2076:                                             ; preds = %2026
-  %2077 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3371 = select i1 %2077, i32 1659, i32 1660
+2061:                                             ; preds = %2011
+  %2062 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3371 = select i1 %2062, i32 1659, i32 1660
   br label %.critedge42
 
-2078:                                             ; preds = %2026
-  %2079 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3372 = select i1 %2079, i32 1617, i32 1618
+2063:                                             ; preds = %2011
+  %2064 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3372 = select i1 %2064, i32 1617, i32 1618
   br label %.critedge42
 
-2080:                                             ; preds = %2026
-  %2081 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3373 = select i1 %2081, i32 1667, i32 1668
+2065:                                             ; preds = %2011
+  %2066 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3373 = select i1 %2066, i32 1667, i32 1668
   br label %.critedge42
 
-2082:                                             ; preds = %4
-  %2083 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2084 = load i32, ptr %2083, align 4, !tbaa !382
-  switch i32 %2084, label %4671 [
-    i32 2, label %2085
-    i32 3, label %2096
-    i32 5, label %2107
-    i32 7, label %2109
-    i32 11, label %2111
-    i32 13, label %2120
-    i32 14, label %2124
-    i32 15, label %2128
-    i32 16, label %2132
-    i32 20, label %2134
-    i32 23, label %2136
+2067:                                             ; preds = %4
+  %2068 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2069 = load i32, ptr %2068, align 4, !tbaa !382
+  switch i32 %2069, label %4653 [
+    i32 2, label %2070
+    i32 3, label %2081
+    i32 5, label %2092
+    i32 7, label %2094
+    i32 11, label %2096
+    i32 13, label %2105
+    i32 14, label %2109
+    i32 15, label %2113
+    i32 16, label %2117
+    i32 20, label %2119
+    i32 23, label %2121
   ]
 
-2085:                                             ; preds = %2082
-  %2086 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2086, label %.critedge42, label %2087
+2070:                                             ; preds = %2067
+  %2071 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2071, label %.critedge42, label %2072
 
-2087:                                             ; preds = %2085
-  %2088 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2089 = load ptr, ptr %2088, align 8, !tbaa !388
-  %2090 = getelementptr inbounds nuw i8, ptr %2089, i64 112
-  %2091 = load i64, ptr %2090, align 8, !tbaa !406
-  %2092 = trunc i64 %2091 to i32
-  %2093 = and i32 %2092, 448
-  %2094 = icmp eq i32 %2093, 0
-  %2095 = and i32 %2092, 63
-  %switch4088 = icmp samesign ult i32 %2095, 5
-  %or.cond4089 = and i1 %2094, %switch4088
+2072:                                             ; preds = %2070
+  %2073 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2074 = load ptr, ptr %2073, align 8, !tbaa !388
+  %2075 = getelementptr inbounds nuw i8, ptr %2074, i64 112
+  %2076 = load i64, ptr %2075, align 8, !tbaa !406
+  %2077 = trunc i64 %2076 to i32
+  %2078 = and i32 %2077, 448
+  %2079 = icmp eq i32 %2078, 0
+  %2080 = and i32 %2077, 63
+  %switch4088 = icmp samesign ult i32 %2080, 5
+  %or.cond4089 = and i1 %2079, %switch4088
   %spec.select4312 = select i1 %or.cond4089, i32 1670, i32 1671
   br label %.critedge42
 
-2096:                                             ; preds = %2082
-  %2097 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2097, label %.critedge42, label %2098
+2081:                                             ; preds = %2067
+  %2082 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2082, label %.critedge42, label %2083
 
-2098:                                             ; preds = %2096
-  %2099 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2100 = load ptr, ptr %2099, align 8, !tbaa !388
-  %2101 = getelementptr inbounds nuw i8, ptr %2100, i64 112
-  %2102 = load i64, ptr %2101, align 8, !tbaa !406
-  %2103 = trunc i64 %2102 to i32
-  %2104 = and i32 %2103, 448
-  %2105 = icmp eq i32 %2104, 0
-  %2106 = and i32 %2103, 63
-  %switch4090 = icmp samesign ult i32 %2106, 5
-  %or.cond4091 = and i1 %2105, %switch4090
+2083:                                             ; preds = %2081
+  %2084 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2085 = load ptr, ptr %2084, align 8, !tbaa !388
+  %2086 = getelementptr inbounds nuw i8, ptr %2085, i64 112
+  %2087 = load i64, ptr %2086, align 8, !tbaa !406
+  %2088 = trunc i64 %2087 to i32
+  %2089 = and i32 %2088, 448
+  %2090 = icmp eq i32 %2089, 0
+  %2091 = and i32 %2088, 63
+  %switch4090 = icmp samesign ult i32 %2091, 5
+  %or.cond4091 = and i1 %2090, %switch4090
   %spec.select4313 = select i1 %or.cond4091, i32 1673, i32 1674
   br label %.critedge42
 
-2107:                                             ; preds = %2082
-  %2108 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3374 = select i1 %2108, i32 1613, i32 1614
+2092:                                             ; preds = %2067
+  %2093 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3374 = select i1 %2093, i32 1613, i32 1614
   br label %.critedge42
 
-2109:                                             ; preds = %2082
-  %2110 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3375 = select i1 %2110, i32 1615, i32 1616
+2094:                                             ; preds = %2067
+  %2095 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3375 = select i1 %2095, i32 1615, i32 1616
   br label %.critedge42
 
-2111:                                             ; preds = %2082
-  %2112 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2113 = load ptr, ptr %2112, align 8, !tbaa !388
-  %2114 = getelementptr inbounds nuw i8, ptr %2113, i64 112
-  %2115 = load i64, ptr %2114, align 8, !tbaa !406
-  %2116 = trunc i64 %2115 to i32
-  %2117 = and i32 %2116, 448
-  %2118 = icmp eq i32 %2117, 0
-  %2119 = and i32 %2116, 63
-  %switch4092 = icmp samesign ult i32 %2119, 5
-  %or.cond4093 = and i1 %2118, %switch4092
+2096:                                             ; preds = %2067
+  %2097 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2098 = load ptr, ptr %2097, align 8, !tbaa !388
+  %2099 = getelementptr inbounds nuw i8, ptr %2098, i64 112
+  %2100 = load i64, ptr %2099, align 8, !tbaa !406
+  %2101 = trunc i64 %2100 to i32
+  %2102 = and i32 %2101, 448
+  %2103 = icmp eq i32 %2102, 0
+  %2104 = and i32 %2101, 63
+  %switch4092 = icmp samesign ult i32 %2104, 5
+  %or.cond4093 = and i1 %2103, %switch4092
   %spec.select4314 = select i1 %or.cond4093, i32 1675, i32 1676
   br label %.critedge42
 
-2120:                                             ; preds = %2082
-  %2121 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2121, label %.critedge42, label %2122
+2105:                                             ; preds = %2067
+  %2106 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2106, label %.critedge42, label %2107
 
-2122:                                             ; preds = %2120
-  %2123 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3376 = select i1 %2123, i32 1661, i32 1662
+2107:                                             ; preds = %2105
+  %2108 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3376 = select i1 %2108, i32 1661, i32 1662
   br label %.critedge42
 
-2124:                                             ; preds = %2082
-  %2125 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2125, label %.critedge42, label %2126
+2109:                                             ; preds = %2067
+  %2110 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2110, label %.critedge42, label %2111
 
-2126:                                             ; preds = %2124
-  %2127 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3377 = select i1 %2127, i32 1663, i32 1664
+2111:                                             ; preds = %2109
+  %2112 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3377 = select i1 %2112, i32 1663, i32 1664
   br label %.critedge42
 
-2128:                                             ; preds = %2082
-  %2129 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2129, label %.critedge42, label %2130
+2113:                                             ; preds = %2067
+  %2114 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2114, label %.critedge42, label %2115
 
-2130:                                             ; preds = %2128
-  %2131 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3378 = select i1 %2131, i32 1665, i32 1666
+2115:                                             ; preds = %2113
+  %2116 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3378 = select i1 %2116, i32 1665, i32 1666
   br label %.critedge42
 
-2132:                                             ; preds = %2082
-  %2133 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3379 = select i1 %2133, i32 1659, i32 1660
+2117:                                             ; preds = %2067
+  %2118 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3379 = select i1 %2118, i32 1659, i32 1660
   br label %.critedge42
 
-2134:                                             ; preds = %2082
-  %2135 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3380 = select i1 %2135, i32 1617, i32 1618
+2119:                                             ; preds = %2067
+  %2120 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3380 = select i1 %2120, i32 1617, i32 1618
   br label %.critedge42
 
-2136:                                             ; preds = %2082
-  %2137 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3381 = select i1 %2137, i32 1667, i32 1668
+2121:                                             ; preds = %2067
+  %2122 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3381 = select i1 %2122, i32 1667, i32 1668
   br label %.critedge42
 
-2138:                                             ; preds = %4
-  %2139 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2140 = load i32, ptr %2139, align 4, !tbaa !382
-  switch i32 %2140, label %4671 [
-    i32 12, label %2141
-    i32 13, label %2191
-    i32 14, label %2193
-    i32 15, label %2195
+2123:                                             ; preds = %4
+  %2124 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2125 = load i32, ptr %2124, align 4, !tbaa !382
+  switch i32 %2125, label %4653 [
+    i32 12, label %2126
+    i32 13, label %2176
+    i32 14, label %2178
+    i32 15, label %2180
   ]
 
-2141:                                             ; preds = %2138
-  %2142 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %2143 = load i16, ptr %2142, align 4, !tbaa !407
-  switch i16 %2143, label %.critedge54 [
-    i16 5243, label %2144
-    i16 5244, label %2144
-    i16 5335, label %2159
-    i16 5337, label %2159
-    i16 3556, label %2173
-    i16 3560, label %2173
-    i16 3557, label %2173
-    i16 3559, label %2173
-    i16 5217, label %2185
-    i16 5219, label %2185
+2126:                                             ; preds = %2123
+  %2127 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %2128 = load i16, ptr %2127, align 4, !tbaa !407
+  switch i16 %2128, label %.critedge112 [
+    i16 5243, label %2129
+    i16 5244, label %2129
+    i16 5335, label %2144
+    i16 5337, label %2144
+    i16 3556, label %2158
+    i16 3560, label %2158
+    i16 3557, label %2158
+    i16 3559, label %2158
+    i16 5217, label %2170
+    i16 5219, label %2170
   ]
 
-2144:                                             ; preds = %2141, %2141
+2129:                                             ; preds = %2126, %2126
+  %2130 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2131 = load ptr, ptr %2130, align 8, !tbaa !388
+  %2132 = getelementptr inbounds nuw i8, ptr %2131, i64 32
+  %2133 = load i32, ptr %2132, align 8
+  %2134 = and i32 %2133, 255
+  %2135 = icmp eq i32 %2134, 1
+  br i1 %2135, label %2136, label %.critedge112
+
+2136:                                             ; preds = %2129
+  %2137 = getelementptr inbounds nuw i8, ptr %2131, i64 48
+  %2138 = load i64, ptr %2137, align 8, !tbaa !406
+  %2139 = icmp eq i64 %2138, 0
+  br i1 %2139, label %2140, label %.critedge112
+
+2140:                                             ; preds = %2136
+  %2141 = getelementptr inbounds nuw i8, ptr %2131, i64 80
+  %2142 = load i64, ptr %2141, align 8, !tbaa !406
+  %2143 = icmp eq i64 %2142, 0
+  br i1 %2143, label %.critedge42, label %.critedge112
+
+2144:                                             ; preds = %2126, %2126
   %2145 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2146 = load ptr, ptr %2145, align 8, !tbaa !388
   %2147 = getelementptr inbounds nuw i8, ptr %2146, i64 32
   %2148 = load i32, ptr %2147, align 8
   %2149 = and i32 %2148, 255
-  %2150 = icmp eq i32 %2149, 1
-  br i1 %2150, label %2151, label %.critedge54
+  %2150 = icmp eq i32 %2149, 0
+  br i1 %2150, label %2151, label %.critedge112
 
 2151:                                             ; preds = %2144
-  %2152 = getelementptr inbounds nuw i8, ptr %2146, i64 48
-  %2153 = load i64, ptr %2152, align 8, !tbaa !406
-  %2154 = icmp eq i64 %2153, 0
-  br i1 %2154, label %2155, label %.critedge54
-
-2155:                                             ; preds = %2151
-  %2156 = getelementptr inbounds nuw i8, ptr %2146, i64 80
-  %2157 = load i64, ptr %2156, align 8, !tbaa !406
-  %2158 = icmp eq i64 %2157, 0
-  br i1 %2158, label %.critedge42, label %.critedge54
-
-2159:                                             ; preds = %2141, %2141
-  %2160 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2161 = load ptr, ptr %2160, align 8, !tbaa !388
-  %2162 = getelementptr inbounds nuw i8, ptr %2161, i64 32
-  %2163 = load i32, ptr %2162, align 8
-  %2164 = and i32 %2163, 255
-  %2165 = icmp eq i32 %2164, 0
-  br i1 %2165, label %2166, label %.critedge54
-
-2166:                                             ; preds = %2159
-  %2167 = getelementptr inbounds nuw i8, ptr %2161, i64 36
-  %2168 = load i32, ptr %2167, align 4, !tbaa !406
-  switch i32 %2168, label %.critedge54 [
-    i32 12, label %2169
-    i32 14, label %2169
+  %2152 = getelementptr inbounds nuw i8, ptr %2146, i64 36
+  %2153 = load i32, ptr %2152, align 4, !tbaa !406
+  switch i32 %2153, label %.critedge112 [
+    i32 12, label %2154
+    i32 14, label %2154
   ]
 
-2169:                                             ; preds = %2166, %2166
-  %2170 = getelementptr inbounds nuw i8, ptr %2161, i64 112
-  %2171 = load i64, ptr %2170, align 8, !tbaa !406
-  %2172 = icmp eq i64 %2171, 0
-  br i1 %2172, label %.critedge42, label %.critedge54
+2154:                                             ; preds = %2151, %2151
+  %2155 = getelementptr inbounds nuw i8, ptr %2146, i64 112
+  %2156 = load i64, ptr %2155, align 8, !tbaa !406
+  %2157 = icmp eq i64 %2156, 0
+  br i1 %2157, label %.critedge42, label %.critedge112
 
-2173:                                             ; preds = %2141, %2141, %2141, %2141
-  %2174 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2175 = load ptr, ptr %2174, align 8, !tbaa !388
-  %2176 = getelementptr inbounds nuw i8, ptr %2175, i64 32
-  %2177 = load i32, ptr %2176, align 8
-  %2178 = and i32 %2177, 255
-  %2179 = icmp eq i32 %2178, 0
-  br i1 %2179, label %2180, label %.critedge54
+2158:                                             ; preds = %2126, %2126, %2126, %2126
+  %2159 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2160 = load ptr, ptr %2159, align 8, !tbaa !388
+  %2161 = getelementptr inbounds nuw i8, ptr %2160, i64 32
+  %2162 = load i32, ptr %2161, align 8
+  %2163 = and i32 %2162, 255
+  %2164 = icmp eq i32 %2163, 0
+  br i1 %2164, label %2165, label %.critedge112
 
-2180:                                             ; preds = %2173
-  %2181 = getelementptr inbounds nuw i8, ptr %2175, i64 36
-  %2182 = load i32, ptr %2181, align 4, !tbaa !406
-  %2183 = and i32 %2182, -3
-  %switch.selectcmp4095 = icmp eq i32 %2183, 12
-  %2184 = select i1 %switch.selectcmp4095, i32 1752, i32 1761
+2165:                                             ; preds = %2158
+  %2166 = getelementptr inbounds nuw i8, ptr %2160, i64 36
+  %2167 = load i32, ptr %2166, align 4, !tbaa !406
+  %2168 = and i32 %2167, -3
+  %switch.selectcmp4095 = icmp eq i32 %2168, 12
+  %2169 = select i1 %switch.selectcmp4095, i32 1752, i32 1761
   br label %.critedge42
 
-2185:                                             ; preds = %2141, %2141
-  %2186 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2187 = load ptr, ptr %2186, align 8, !tbaa !388
-  %2188 = getelementptr inbounds nuw i8, ptr %2187, i64 48
-  %2189 = load i64, ptr %2188, align 8, !tbaa !406
-  %2190 = icmp eq i64 %2189, 0
-  br i1 %2190, label %.critedge42, label %.critedge54
+2170:                                             ; preds = %2126, %2126
+  %2171 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2172 = load ptr, ptr %2171, align 8, !tbaa !388
+  %2173 = getelementptr inbounds nuw i8, ptr %2172, i64 48
+  %2174 = load i64, ptr %2173, align 8, !tbaa !406
+  %2175 = icmp eq i64 %2174, 0
+  br i1 %2175, label %.critedge42, label %.critedge112
 
-.critedge54:                                      ; preds = %2141, %2166, %2173, %2155, %2151, %2144, %2159, %2169, %2185
+2176:                                             ; preds = %2123
+  %2177 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3382 = select i1 %2177, i32 1653, i32 1652
   br label %.critedge42
 
-2191:                                             ; preds = %2138
-  %2192 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3382 = select i1 %2192, i32 1653, i32 1652
+2178:                                             ; preds = %2123
+  %2179 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3383 = select i1 %2179, i32 1655, i32 1654
   br label %.critedge42
 
-2193:                                             ; preds = %2138
-  %2194 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3383 = select i1 %2194, i32 1655, i32 1654
+2180:                                             ; preds = %2123
+  %2181 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3384 = select i1 %2181, i32 1657, i32 1760
   br label %.critedge42
 
-2195:                                             ; preds = %2138
-  %2196 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3384 = select i1 %2196, i32 1657, i32 1760
-  br label %.critedge42
-
-2197:                                             ; preds = %4
-  %2198 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2199 = load i32, ptr %2198, align 4, !tbaa !382
-  switch i32 %2199, label %4671 [
-    i32 14, label %2200
-    i32 15, label %2202
+2182:                                             ; preds = %4
+  %2183 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2184 = load i32, ptr %2183, align 4, !tbaa !382
+  switch i32 %2184, label %4653 [
+    i32 14, label %2185
+    i32 15, label %2187
   ]
 
-2200:                                             ; preds = %2197
-  %2201 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3385 = select i1 %2201, i32 1655, i32 1654
+2185:                                             ; preds = %2182
+  %2186 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3385 = select i1 %2186, i32 1655, i32 1654
   br label %.critedge42
 
-2202:                                             ; preds = %2197
-  %2203 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3386 = select i1 %2203, i32 1657, i32 1760
+2187:                                             ; preds = %2182
+  %2188 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3386 = select i1 %2188, i32 1657, i32 1760
   br label %.critedge42
 
-2204:                                             ; preds = %4
-  %2205 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2206 = load i32, ptr %2205, align 4, !tbaa !382
-  switch i32 %2206, label %4671 [
-    i32 13, label %2207
-    i32 14, label %2209
-    i32 15, label %2211
+2189:                                             ; preds = %4
+  %2190 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2191 = load i32, ptr %2190, align 4, !tbaa !382
+  switch i32 %2191, label %4653 [
+    i32 13, label %2192
+    i32 14, label %2194
+    i32 15, label %2196
   ]
 
-2207:                                             ; preds = %2204
-  %2208 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3387 = select i1 %2208, i32 1653, i32 1652
+2192:                                             ; preds = %2189
+  %2193 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3387 = select i1 %2193, i32 1653, i32 1652
   br label %.critedge42
 
-2209:                                             ; preds = %2204
-  %2210 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3388 = select i1 %2210, i32 1655, i32 1654
+2194:                                             ; preds = %2189
+  %2195 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3388 = select i1 %2195, i32 1655, i32 1654
   br label %.critedge42
 
-2211:                                             ; preds = %2204
-  %2212 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3389 = select i1 %2212, i32 1657, i32 1760
+2196:                                             ; preds = %2189
+  %2197 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3389 = select i1 %2197, i32 1657, i32 1760
   br label %.critedge42
 
-2213:                                             ; preds = %4
-  %2214 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2215 = load i32, ptr %2214, align 4, !tbaa !382
-  switch i32 %2215, label %4671 [
-    i32 14, label %2216
-    i32 15, label %2218
+2198:                                             ; preds = %4
+  %2199 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2200 = load i32, ptr %2199, align 4, !tbaa !382
+  switch i32 %2200, label %4653 [
+    i32 14, label %2201
+    i32 15, label %2203
   ]
 
-2216:                                             ; preds = %2213
-  %2217 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3390 = select i1 %2217, i32 1655, i32 1654
+2201:                                             ; preds = %2198
+  %2202 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3390 = select i1 %2202, i32 1655, i32 1654
   br label %.critedge42
 
-2218:                                             ; preds = %2213
-  %2219 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3391 = select i1 %2219, i32 1657, i32 1760
+2203:                                             ; preds = %2198
+  %2204 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3391 = select i1 %2204, i32 1657, i32 1760
   br label %.critedge42
 
-2220:                                             ; preds = %4
-  %2221 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2222 = load i32, ptr %2221, align 4, !tbaa !382
-  switch i32 %2222, label %4671 [
-    i32 1, label %2223
-    i32 4, label %2225
-    i32 12, label %2227
-    i32 13, label %2238
-    i32 14, label %2240
-    i32 15, label %2244
-    i32 16, label %2248
-    i32 21, label %2250
-    i32 22, label %2252
+2205:                                             ; preds = %4
+  %2206 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2207 = load i32, ptr %2206, align 4, !tbaa !382
+  switch i32 %2207, label %4653 [
+    i32 1, label %2208
+    i32 4, label %2210
+    i32 12, label %2212
+    i32 13, label %2222
+    i32 14, label %2224
+    i32 15, label %2228
+    i32 16, label %2232
+    i32 21, label %2234
+    i32 22, label %2236
   ]
 
-2223:                                             ; preds = %2220
-  %2224 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+2208:                                             ; preds = %2205
+  %2209 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-2225:                                             ; preds = %2220
-  %2226 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3392 = select i1 %2226, i32 1644, i32 1645
+2210:                                             ; preds = %2205
+  %2211 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3392 = select i1 %2211, i32 1644, i32 1645
   br label %.critedge42
 
-2227:                                             ; preds = %2220
-  %2228 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2228, label %2231, label %2229
+2212:                                             ; preds = %2205
+  %2213 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2213, label %2216, label %2214
 
-2229:                                             ; preds = %2227
-  %2230 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2230, label %2231, label %2237
+2214:                                             ; preds = %2212
+  %2215 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2215, label %2216, label %4298
 
-2231:                                             ; preds = %2229, %2227
-  %2232 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2233 = load ptr, ptr %2232, align 8, !tbaa !388
-  %2234 = getelementptr inbounds nuw i8, ptr %2233, i64 144
-  %2235 = load i64, ptr %2234, align 8, !tbaa !406
-  %2236 = icmp eq i64 %2235, 1
-  br i1 %2236, label %.critedge42, label %2237
+2216:                                             ; preds = %2214, %2212
+  %2217 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2218 = load ptr, ptr %2217, align 8, !tbaa !388
+  %2219 = getelementptr inbounds nuw i8, ptr %2218, i64 144
+  %2220 = load i64, ptr %2219, align 8, !tbaa !406
+  %2221 = icmp eq i64 %2220, 1
+  br i1 %2221, label %.critedge42, label %4298
 
-2237:                                             ; preds = %2231, %2229
+2222:                                             ; preds = %2205
+  %2223 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-2238:                                             ; preds = %2220
-  %2239 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+2224:                                             ; preds = %2205
+  %2225 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2225, label %.critedge42, label %2226
+
+2226:                                             ; preds = %2224
+  %2227 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-2240:                                             ; preds = %2220
-  %2241 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2241, label %.critedge42, label %2242
+2228:                                             ; preds = %2205
+  %2229 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2229, label %.critedge42, label %2230
 
-2242:                                             ; preds = %2240
-  %2243 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+2230:                                             ; preds = %2228
+  %2231 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-2244:                                             ; preds = %2220
-  %2245 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2245, label %.critedge42, label %2246
-
-2246:                                             ; preds = %2244
-  %2247 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+2232:                                             ; preds = %2205
+  %2233 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3393 = select i1 %2233, i32 1728, i32 1729
   br label %.critedge42
 
-2248:                                             ; preds = %2220
-  %2249 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3393 = select i1 %2249, i32 1728, i32 1729
+2234:                                             ; preds = %2205
+  %2235 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-2250:                                             ; preds = %2220
-  %2251 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+2236:                                             ; preds = %2205
+  %2237 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-2252:                                             ; preds = %2220
-  %2253 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-2254:                                             ; preds = %4
-  %2255 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2256 = load i32, ptr %2255, align 4, !tbaa !382
-  switch i32 %2256, label %4671 [
-    i32 12, label %2257
-    i32 16, label %2307
+2238:                                             ; preds = %4
+  %2239 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2240 = load i32, ptr %2239, align 4, !tbaa !382
+  switch i32 %2240, label %4653 [
+    i32 12, label %2241
+    i32 16, label %2291
   ]
 
-2257:                                             ; preds = %2254
-  %2258 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %2259 = load i16, ptr %2258, align 4, !tbaa !407
-  switch i16 %2259, label %.critedge58 [
-    i16 5243, label %2260
-    i16 5244, label %2260
-    i16 5335, label %2275
-    i16 5337, label %2275
-    i16 3556, label %2289
-    i16 3560, label %2289
-    i16 3557, label %2289
-    i16 3559, label %2289
-    i16 5217, label %2301
-    i16 5219, label %2301
+2241:                                             ; preds = %2238
+  %2242 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %2243 = load i16, ptr %2242, align 4, !tbaa !407
+  switch i16 %2243, label %.critedge108 [
+    i16 5243, label %2244
+    i16 5244, label %2244
+    i16 5335, label %2259
+    i16 5337, label %2259
+    i16 3556, label %2273
+    i16 3560, label %2273
+    i16 3557, label %2273
+    i16 3559, label %2273
+    i16 5217, label %2285
+    i16 5219, label %2285
   ]
 
-2260:                                             ; preds = %2257, %2257
-  %2261 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2262 = load ptr, ptr %2261, align 8, !tbaa !388
-  %2263 = getelementptr inbounds nuw i8, ptr %2262, i64 32
-  %2264 = load i32, ptr %2263, align 8
-  %2265 = and i32 %2264, 255
-  %2266 = icmp eq i32 %2265, 1
-  br i1 %2266, label %2267, label %.critedge58
+2244:                                             ; preds = %2241, %2241
+  %2245 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2246 = load ptr, ptr %2245, align 8, !tbaa !388
+  %2247 = getelementptr inbounds nuw i8, ptr %2246, i64 32
+  %2248 = load i32, ptr %2247, align 8
+  %2249 = and i32 %2248, 255
+  %2250 = icmp eq i32 %2249, 1
+  br i1 %2250, label %2251, label %.critedge108
 
-2267:                                             ; preds = %2260
-  %2268 = getelementptr inbounds nuw i8, ptr %2262, i64 48
-  %2269 = load i64, ptr %2268, align 8, !tbaa !406
-  %2270 = icmp eq i64 %2269, 0
-  br i1 %2270, label %2271, label %.critedge58
+2251:                                             ; preds = %2244
+  %2252 = getelementptr inbounds nuw i8, ptr %2246, i64 48
+  %2253 = load i64, ptr %2252, align 8, !tbaa !406
+  %2254 = icmp eq i64 %2253, 0
+  br i1 %2254, label %2255, label %.critedge108
 
-2271:                                             ; preds = %2267
-  %2272 = getelementptr inbounds nuw i8, ptr %2262, i64 80
-  %2273 = load i64, ptr %2272, align 8, !tbaa !406
-  %2274 = icmp eq i64 %2273, 0
-  br i1 %2274, label %.critedge42, label %.critedge58
+2255:                                             ; preds = %2251
+  %2256 = getelementptr inbounds nuw i8, ptr %2246, i64 80
+  %2257 = load i64, ptr %2256, align 8, !tbaa !406
+  %2258 = icmp eq i64 %2257, 0
+  br i1 %2258, label %.critedge42, label %.critedge108
 
-2275:                                             ; preds = %2257, %2257
-  %2276 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2277 = load ptr, ptr %2276, align 8, !tbaa !388
-  %2278 = getelementptr inbounds nuw i8, ptr %2277, i64 32
-  %2279 = load i32, ptr %2278, align 8
-  %2280 = and i32 %2279, 255
-  %2281 = icmp eq i32 %2280, 0
-  br i1 %2281, label %2282, label %.critedge58
+2259:                                             ; preds = %2241, %2241
+  %2260 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2261 = load ptr, ptr %2260, align 8, !tbaa !388
+  %2262 = getelementptr inbounds nuw i8, ptr %2261, i64 32
+  %2263 = load i32, ptr %2262, align 8
+  %2264 = and i32 %2263, 255
+  %2265 = icmp eq i32 %2264, 0
+  br i1 %2265, label %2266, label %.critedge108
 
-2282:                                             ; preds = %2275
-  %2283 = getelementptr inbounds nuw i8, ptr %2277, i64 36
-  %2284 = load i32, ptr %2283, align 4, !tbaa !406
-  switch i32 %2284, label %.critedge58 [
-    i32 12, label %2285
-    i32 14, label %2285
+2266:                                             ; preds = %2259
+  %2267 = getelementptr inbounds nuw i8, ptr %2261, i64 36
+  %2268 = load i32, ptr %2267, align 4, !tbaa !406
+  switch i32 %2268, label %.critedge108 [
+    i32 12, label %2269
+    i32 14, label %2269
   ]
 
-2285:                                             ; preds = %2282, %2282
-  %2286 = getelementptr inbounds nuw i8, ptr %2277, i64 112
-  %2287 = load i64, ptr %2286, align 8, !tbaa !406
-  %2288 = icmp eq i64 %2287, 0
-  br i1 %2288, label %.critedge42, label %.critedge58
+2269:                                             ; preds = %2266, %2266
+  %2270 = getelementptr inbounds nuw i8, ptr %2261, i64 112
+  %2271 = load i64, ptr %2270, align 8, !tbaa !406
+  %2272 = icmp eq i64 %2271, 0
+  br i1 %2272, label %.critedge42, label %.critedge108
 
-2289:                                             ; preds = %2257, %2257, %2257, %2257
-  %2290 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2291 = load ptr, ptr %2290, align 8, !tbaa !388
-  %2292 = getelementptr inbounds nuw i8, ptr %2291, i64 32
-  %2293 = load i32, ptr %2292, align 8
-  %2294 = and i32 %2293, 255
-  %2295 = icmp eq i32 %2294, 0
-  br i1 %2295, label %2296, label %.critedge58
+2273:                                             ; preds = %2241, %2241, %2241, %2241
+  %2274 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2275 = load ptr, ptr %2274, align 8, !tbaa !388
+  %2276 = getelementptr inbounds nuw i8, ptr %2275, i64 32
+  %2277 = load i32, ptr %2276, align 8
+  %2278 = and i32 %2277, 255
+  %2279 = icmp eq i32 %2278, 0
+  br i1 %2279, label %2280, label %.critedge108
 
-2296:                                             ; preds = %2289
-  %2297 = getelementptr inbounds nuw i8, ptr %2291, i64 36
-  %2298 = load i32, ptr %2297, align 4, !tbaa !406
-  %2299 = and i32 %2298, -3
-  %switch.selectcmp4097 = icmp eq i32 %2299, 12
-  %2300 = select i1 %switch.selectcmp4097, i32 1752, i32 1683
+2280:                                             ; preds = %2273
+  %2281 = getelementptr inbounds nuw i8, ptr %2275, i64 36
+  %2282 = load i32, ptr %2281, align 4, !tbaa !406
+  %2283 = and i32 %2282, -3
+  %switch.selectcmp4097 = icmp eq i32 %2283, 12
+  %2284 = select i1 %switch.selectcmp4097, i32 1752, i32 1683
   br label %.critedge42
 
-2301:                                             ; preds = %2257, %2257
-  %2302 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2303 = load ptr, ptr %2302, align 8, !tbaa !388
-  %2304 = getelementptr inbounds nuw i8, ptr %2303, i64 48
-  %2305 = load i64, ptr %2304, align 8, !tbaa !406
-  %2306 = icmp eq i64 %2305, 0
-  br i1 %2306, label %.critedge42, label %.critedge58
+2285:                                             ; preds = %2241, %2241
+  %2286 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2287 = load ptr, ptr %2286, align 8, !tbaa !388
+  %2288 = getelementptr inbounds nuw i8, ptr %2287, i64 48
+  %2289 = load i64, ptr %2288, align 8, !tbaa !406
+  %2290 = icmp eq i64 %2289, 0
+  br i1 %2290, label %.critedge42, label %.critedge108
 
-.critedge58:                                      ; preds = %2257, %2282, %2289, %2271, %2267, %2260, %2275, %2285, %2301
+2291:                                             ; preds = %2238
+  %2292 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2293 = load ptr, ptr %2292, align 8, !tbaa !388
+  %2294 = getelementptr inbounds nuw i8, ptr %2293, i64 36
+  %2295 = load i32, ptr %2294, align 4, !tbaa !406
+  %2296 = icmp eq i32 %2295, 12
+  br i1 %2296, label %.critedge42, label %2297
+
+2297:                                             ; preds = %2291
+  %2298 = icmp eq i32 %2295, 14
+  %spec.select3682 = select i1 %2298, i32 1750, i32 1762
   br label %.critedge42
 
-2307:                                             ; preds = %2254
-  %2308 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2309 = load ptr, ptr %2308, align 8, !tbaa !388
-  %2310 = getelementptr inbounds nuw i8, ptr %2309, i64 36
-  %2311 = load i32, ptr %2310, align 4, !tbaa !406
-  %2312 = icmp eq i32 %2311, 12
-  br i1 %2312, label %.critedge42, label %2313
-
-2313:                                             ; preds = %2307
-  %2314 = icmp eq i32 %2311, 14
-  %spec.select3682 = select i1 %2314, i32 1750, i32 1762
-  br label %.critedge42
-
-2315:                                             ; preds = %4
-  %2316 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2317 = load i32, ptr %2316, align 4, !tbaa !382
-  switch i32 %2317, label %4671 [
-    i32 1, label %2318
-    i32 4, label %2320
-    i32 13, label %2322
-    i32 14, label %2324
-    i32 15, label %2336
-    i32 16, label %2348
-    i32 21, label %2350
-    i32 22, label %2352
+2299:                                             ; preds = %4
+  %2300 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2301 = load i32, ptr %2300, align 4, !tbaa !382
+  switch i32 %2301, label %4653 [
+    i32 1, label %2302
+    i32 4, label %2304
+    i32 13, label %2306
+    i32 14, label %2308
+    i32 15, label %2320
+    i32 16, label %2332
+    i32 21, label %2334
+    i32 22, label %2336
   ]
 
-2318:                                             ; preds = %2315
-  %2319 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+2302:                                             ; preds = %2299
+  %2303 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-2320:                                             ; preds = %2315
-  %2321 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3394 = select i1 %2321, i32 1632, i32 1633
+2304:                                             ; preds = %2299
+  %2305 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3394 = select i1 %2305, i32 1632, i32 1633
   br label %.critedge42
 
-2322:                                             ; preds = %2315
-  %2323 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3395 = select i1 %2323, i32 1723, i32 1724
+2306:                                             ; preds = %2299
+  %2307 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3395 = select i1 %2307, i32 1723, i32 1724
   br label %.critedge42
 
-2324:                                             ; preds = %2315
+2308:                                             ; preds = %2299
+  %2309 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2309, label %2310, label %2314
+
+2310:                                             ; preds = %2308
+  %2311 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2311, label %.critedge42, label %2312
+
+2312:                                             ; preds = %2310
+  %2313 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2313, label %.critedge42, label %2314
+
+2314:                                             ; preds = %2312, %2308
+  %2315 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2315, label %.critedge42, label %2316
+
+2316:                                             ; preds = %2314
+  %2317 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2317, label %.critedge42, label %2318
+
+2318:                                             ; preds = %2316
+  %2319 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3396 = select i1 %2319, i32 1635, i32 1636
+  br label %.critedge42
+
+2320:                                             ; preds = %2299
+  %2321 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2321, label %2322, label %2326
+
+2322:                                             ; preds = %2320
+  %2323 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2323, label %.critedge42, label %2324
+
+2324:                                             ; preds = %2322
   %2325 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2325, label %2326, label %2330
+  br i1 %2325, label %.critedge42, label %2326
 
-2326:                                             ; preds = %2324
+2326:                                             ; preds = %2324, %2320
   %2327 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %2327, label %.critedge42, label %2328
 
@@ -9169,79 +9115,79 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2329 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %2329, label %.critedge42, label %2330
 
-2330:                                             ; preds = %2328, %2324
-  %2331 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2331, label %.critedge42, label %2332
-
-2332:                                             ; preds = %2330
-  %2333 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2333, label %.critedge42, label %2334
-
-2334:                                             ; preds = %2332
-  %2335 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3396 = select i1 %2335, i32 1635, i32 1636
+2330:                                             ; preds = %2328
+  %2331 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3397 = select i1 %2331, i32 1637, i32 1638
   br label %.critedge42
 
-2336:                                             ; preds = %2315
-  %2337 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2337, label %2338, label %2342
-
-2338:                                             ; preds = %2336
-  %2339 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2339, label %.critedge42, label %2340
-
-2340:                                             ; preds = %2338
-  %2341 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2341, label %.critedge42, label %2342
-
-2342:                                             ; preds = %2340, %2336
-  %2343 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2343, label %.critedge42, label %2344
-
-2344:                                             ; preds = %2342
-  %2345 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2345, label %.critedge42, label %2346
-
-2346:                                             ; preds = %2344
-  %2347 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3397 = select i1 %2347, i32 1637, i32 1638
+2332:                                             ; preds = %2299
+  %2333 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3398 = select i1 %2333, i32 1712, i32 1713
   br label %.critedge42
 
-2348:                                             ; preds = %2315
-  %2349 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3398 = select i1 %2349, i32 1712, i32 1713
+2334:                                             ; preds = %2299
+  %2335 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3399 = select i1 %2335, i32 1639, i32 1640
   br label %.critedge42
 
-2350:                                             ; preds = %2315
-  %2351 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3399 = select i1 %2351, i32 1639, i32 1640
+2336:                                             ; preds = %2299
+  %2337 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3400 = select i1 %2337, i32 1641, i32 1642
   br label %.critedge42
 
-2352:                                             ; preds = %2315
-  %2353 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3400 = select i1 %2353, i32 1641, i32 1642
-  br label %.critedge42
-
-2354:                                             ; preds = %4
-  %2355 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2356 = load i32, ptr %2355, align 4, !tbaa !382
-  switch i32 %2356, label %4671 [
-    i32 13, label %2357
-    i32 14, label %2359
-    i32 15, label %2371
-    i32 16, label %2383
+2338:                                             ; preds = %4
+  %2339 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2340 = load i32, ptr %2339, align 4, !tbaa !382
+  switch i32 %2340, label %4653 [
+    i32 13, label %2341
+    i32 14, label %2343
+    i32 15, label %2355
+    i32 16, label %2367
   ]
 
-2357:                                             ; preds = %2354
-  %2358 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3401 = select i1 %2358, i32 1723, i32 1724
+2341:                                             ; preds = %2338
+  %2342 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3401 = select i1 %2342, i32 1723, i32 1724
   br label %.critedge42
 
-2359:                                             ; preds = %2354
-  %2360 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2360, label %2361, label %2365
+2343:                                             ; preds = %2338
+  %2344 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2344, label %2345, label %2349
 
-2361:                                             ; preds = %2359
+2345:                                             ; preds = %2343
+  %2346 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2346, label %.critedge42, label %2347
+
+2347:                                             ; preds = %2345
+  %2348 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2348, label %.critedge42, label %2349
+
+2349:                                             ; preds = %2347, %2343
+  %2350 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2350, label %.critedge42, label %2351
+
+2351:                                             ; preds = %2349
+  %2352 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2352, label %.critedge42, label %2353
+
+2353:                                             ; preds = %2351
+  %2354 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3402 = select i1 %2354, i32 1635, i32 1636
+  br label %.critedge42
+
+2355:                                             ; preds = %2338
+  %2356 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2356, label %2357, label %2361
+
+2357:                                             ; preds = %2355
+  %2358 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2358, label %.critedge42, label %2359
+
+2359:                                             ; preds = %2357
+  %2360 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2360, label %.critedge42, label %2361
+
+2361:                                             ; preds = %2359, %2355
   %2362 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %2362, label %.critedge42, label %2363
 
@@ -9249,82 +9195,82 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2364 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %2364, label %.critedge42, label %2365
 
-2365:                                             ; preds = %2363, %2359
-  %2366 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2366, label %.critedge42, label %2367
-
-2367:                                             ; preds = %2365
-  %2368 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2368, label %.critedge42, label %2369
-
-2369:                                             ; preds = %2367
-  %2370 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3402 = select i1 %2370, i32 1635, i32 1636
+2365:                                             ; preds = %2363
+  %2366 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3403 = select i1 %2366, i32 1637, i32 1638
   br label %.critedge42
 
-2371:                                             ; preds = %2354
-  %2372 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2372, label %2373, label %2377
-
-2373:                                             ; preds = %2371
-  %2374 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2374, label %.critedge42, label %2375
-
-2375:                                             ; preds = %2373
-  %2376 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2376, label %.critedge42, label %2377
-
-2377:                                             ; preds = %2375, %2371
-  %2378 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2378, label %.critedge42, label %2379
-
-2379:                                             ; preds = %2377
-  %2380 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2380, label %.critedge42, label %2381
-
-2381:                                             ; preds = %2379
-  %2382 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3403 = select i1 %2382, i32 1637, i32 1638
+2367:                                             ; preds = %2338
+  %2368 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3404 = select i1 %2368, i32 1763, i32 1764
   br label %.critedge42
 
-2383:                                             ; preds = %2354
-  %2384 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3404 = select i1 %2384, i32 1763, i32 1764
-  br label %.critedge42
-
-2385:                                             ; preds = %4
-  %2386 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2387 = load i32, ptr %2386, align 4, !tbaa !382
-  switch i32 %2387, label %4671 [
-    i32 1, label %2388
-    i32 4, label %2390
-    i32 13, label %2392
-    i32 14, label %2394
-    i32 15, label %2406
-    i32 16, label %2418
-    i32 21, label %2420
-    i32 22, label %2422
+2369:                                             ; preds = %4
+  %2370 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2371 = load i32, ptr %2370, align 4, !tbaa !382
+  switch i32 %2371, label %4653 [
+    i32 1, label %2372
+    i32 4, label %2374
+    i32 13, label %2376
+    i32 14, label %2378
+    i32 15, label %2390
+    i32 16, label %2402
+    i32 21, label %2404
+    i32 22, label %2406
   ]
 
-2388:                                             ; preds = %2385
-  %2389 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+2372:                                             ; preds = %2369
+  %2373 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-2390:                                             ; preds = %2385
-  %2391 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3405 = select i1 %2391, i32 1632, i32 1633
+2374:                                             ; preds = %2369
+  %2375 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3405 = select i1 %2375, i32 1632, i32 1633
   br label %.critedge42
 
-2392:                                             ; preds = %2385
-  %2393 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3406 = select i1 %2393, i32 1723, i32 1724
+2376:                                             ; preds = %2369
+  %2377 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3406 = select i1 %2377, i32 1723, i32 1724
   br label %.critedge42
 
-2394:                                             ; preds = %2385
+2378:                                             ; preds = %2369
+  %2379 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2379, label %2380, label %2384
+
+2380:                                             ; preds = %2378
+  %2381 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2381, label %.critedge42, label %2382
+
+2382:                                             ; preds = %2380
+  %2383 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2383, label %.critedge42, label %2384
+
+2384:                                             ; preds = %2382, %2378
+  %2385 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2385, label %.critedge42, label %2386
+
+2386:                                             ; preds = %2384
+  %2387 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2387, label %.critedge42, label %2388
+
+2388:                                             ; preds = %2386
+  %2389 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3407 = select i1 %2389, i32 1635, i32 1636
+  br label %.critedge42
+
+2390:                                             ; preds = %2369
+  %2391 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2391, label %2392, label %2396
+
+2392:                                             ; preds = %2390
+  %2393 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2393, label %.critedge42, label %2394
+
+2394:                                             ; preds = %2392
   %2395 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2395, label %2396, label %2400
+  br i1 %2395, label %.critedge42, label %2396
 
-2396:                                             ; preds = %2394
+2396:                                             ; preds = %2394, %2390
   %2397 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %2397, label %.critedge42, label %2398
 
@@ -9332,2519 +9278,2517 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %2399 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %2399, label %.critedge42, label %2400
 
-2400:                                             ; preds = %2398, %2394
-  %2401 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2401, label %.critedge42, label %2402
-
-2402:                                             ; preds = %2400
-  %2403 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2403, label %.critedge42, label %2404
-
-2404:                                             ; preds = %2402
-  %2405 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3407 = select i1 %2405, i32 1635, i32 1636
+2400:                                             ; preds = %2398
+  %2401 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3408 = select i1 %2401, i32 1637, i32 1638
   br label %.critedge42
 
-2406:                                             ; preds = %2385
-  %2407 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2407, label %2408, label %2412
-
-2408:                                             ; preds = %2406
-  %2409 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2409, label %.critedge42, label %2410
-
-2410:                                             ; preds = %2408
-  %2411 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2411, label %.critedge42, label %2412
-
-2412:                                             ; preds = %2410, %2406
-  %2413 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2413, label %.critedge42, label %2414
-
-2414:                                             ; preds = %2412
-  %2415 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2415, label %.critedge42, label %2416
-
-2416:                                             ; preds = %2414
-  %2417 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3408 = select i1 %2417, i32 1637, i32 1638
+2402:                                             ; preds = %2369
+  %2403 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3409 = select i1 %2403, i32 1726, i32 1727
   br label %.critedge42
 
-2418:                                             ; preds = %2385
-  %2419 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3409 = select i1 %2419, i32 1726, i32 1727
+2404:                                             ; preds = %2369
+  %2405 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3410 = select i1 %2405, i32 1639, i32 1640
   br label %.critedge42
 
-2420:                                             ; preds = %2385
-  %2421 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3410 = select i1 %2421, i32 1639, i32 1640
+2406:                                             ; preds = %2369
+  %2407 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3411 = select i1 %2407, i32 1641, i32 1642
   br label %.critedge42
 
-2422:                                             ; preds = %2385
-  %2423 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3411 = select i1 %2423, i32 1641, i32 1642
-  br label %.critedge42
-
-2424:                                             ; preds = %4
-  %2425 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2426 = load i32, ptr %2425, align 4, !tbaa !382
-  switch i32 %2426, label %4671 [
-    i32 10, label %2427
-    i32 11, label %2439
-    i32 12, label %2454
+2408:                                             ; preds = %4
+  %2409 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2410 = load i32, ptr %2409, align 4, !tbaa !382
+  switch i32 %2410, label %4653 [
+    i32 10, label %2411
+    i32 11, label %2423
+    i32 12, label %2438
   ]
 
-2427:                                             ; preds = %2424
-  %2428 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2429 = load ptr, ptr %2428, align 8, !tbaa !388
-  %2430 = getelementptr inbounds nuw i8, ptr %2429, i64 96
-  %2431 = load i32, ptr %2430, align 8
-  %2432 = and i32 %2431, 255
-  %2433 = icmp eq i32 %2432, 0
-  br i1 %2433, label %2434, label %.critedge42
+2411:                                             ; preds = %2408
+  %2412 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2413 = load ptr, ptr %2412, align 8, !tbaa !388
+  %2414 = getelementptr inbounds nuw i8, ptr %2413, i64 96
+  %2415 = load i32, ptr %2414, align 8
+  %2416 = and i32 %2415, 255
+  %2417 = icmp eq i32 %2416, 0
+  br i1 %2417, label %2418, label %.critedge42
 
-2434:                                             ; preds = %2427
-  %2435 = getelementptr inbounds nuw i8, ptr %2429, i64 100
-  %2436 = load i32, ptr %2435, align 4, !tbaa !406
-  %2437 = and i32 %2436, -3
-  %switch.selectcmp4099 = icmp eq i32 %2437, 12
-  %2438 = select i1 %switch.selectcmp4099, i32 1765, i32 1766
+2418:                                             ; preds = %2411
+  %2419 = getelementptr inbounds nuw i8, ptr %2413, i64 100
+  %2420 = load i32, ptr %2419, align 4, !tbaa !406
+  %2421 = and i32 %2420, -3
+  %switch.selectcmp4099 = icmp eq i32 %2421, 12
+  %2422 = select i1 %switch.selectcmp4099, i32 1765, i32 1766
   br label %.critedge42
 
-2439:                                             ; preds = %2424
-  %2440 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %2441 = load i16, ptr %2440, align 4, !tbaa !407
-  switch i16 %2441, label %.critedge42 [
-    i16 5105, label %2442
-    i16 5106, label %2442
-    i16 5257, label %2442
-    i16 5258, label %2442
-    i16 5965, label %2442
-    i16 7870, label %2442
-    i16 6211, label %2442
-    i16 8113, label %2442
+2423:                                             ; preds = %2408
+  %2424 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %2425 = load i16, ptr %2424, align 4, !tbaa !407
+  switch i16 %2425, label %.critedge42 [
+    i16 5105, label %2426
+    i16 5106, label %2426
+    i16 5257, label %2426
+    i16 5258, label %2426
+    i16 5965, label %2426
+    i16 7870, label %2426
+    i16 6211, label %2426
+    i16 8113, label %2426
   ]
 
-2442:                                             ; preds = %2439, %2439, %2439, %2439, %2439, %2439, %2439, %2439
-  %2443 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2444 = load ptr, ptr %2443, align 8, !tbaa !388
-  %2445 = getelementptr inbounds nuw i8, ptr %2444, i64 96
-  %2446 = load i32, ptr %2445, align 8
-  %2447 = and i32 %2446, 255
-  %2448 = icmp eq i32 %2447, 0
-  br i1 %2448, label %2449, label %.critedge42
+2426:                                             ; preds = %2423, %2423, %2423, %2423, %2423, %2423, %2423, %2423
+  %2427 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2428 = load ptr, ptr %2427, align 8, !tbaa !388
+  %2429 = getelementptr inbounds nuw i8, ptr %2428, i64 96
+  %2430 = load i32, ptr %2429, align 8
+  %2431 = and i32 %2430, 255
+  %2432 = icmp eq i32 %2431, 0
+  br i1 %2432, label %2433, label %.critedge42
 
-2449:                                             ; preds = %2442
-  %2450 = getelementptr inbounds nuw i8, ptr %2444, i64 100
-  %2451 = load i32, ptr %2450, align 4, !tbaa !406
-  %2452 = and i32 %2451, -3
-  %switch.selectcmp4101 = icmp eq i32 %2452, 12
-  %2453 = select i1 %switch.selectcmp4101, i32 1767, i32 1768
+2433:                                             ; preds = %2426
+  %2434 = getelementptr inbounds nuw i8, ptr %2428, i64 100
+  %2435 = load i32, ptr %2434, align 4, !tbaa !406
+  %2436 = and i32 %2435, -3
+  %switch.selectcmp4101 = icmp eq i32 %2436, 12
+  %2437 = select i1 %switch.selectcmp4101, i32 1767, i32 1768
   br label %.critedge42
 
-2454:                                             ; preds = %2424
-  %2455 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2456 = load ptr, ptr %2455, align 8, !tbaa !388
-  %2457 = getelementptr inbounds nuw i8, ptr %2456, i64 96
-  %2458 = load i32, ptr %2457, align 8
-  %2459 = and i32 %2458, 255
-  %2460 = icmp eq i32 %2459, 0
-  br i1 %2460, label %2461, label %.critedge42
+2438:                                             ; preds = %2408
+  %2439 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2440 = load ptr, ptr %2439, align 8, !tbaa !388
+  %2441 = getelementptr inbounds nuw i8, ptr %2440, i64 96
+  %2442 = load i32, ptr %2441, align 8
+  %2443 = and i32 %2442, 255
+  %2444 = icmp eq i32 %2443, 0
+  br i1 %2444, label %2445, label %.critedge42
 
-2461:                                             ; preds = %2454
-  %2462 = getelementptr inbounds nuw i8, ptr %2456, i64 100
-  %2463 = load i32, ptr %2462, align 4, !tbaa !406
-  %2464 = and i32 %2463, -3
-  %switch.selectcmp4103 = icmp eq i32 %2464, 12
-  %2465 = select i1 %switch.selectcmp4103, i32 1769, i32 1770
+2445:                                             ; preds = %2438
+  %2446 = getelementptr inbounds nuw i8, ptr %2440, i64 100
+  %2447 = load i32, ptr %2446, align 4, !tbaa !406
+  %2448 = and i32 %2447, -3
+  %switch.selectcmp4103 = icmp eq i32 %2448, 12
+  %2449 = select i1 %switch.selectcmp4103, i32 1769, i32 1770
   br label %.critedge42
 
-2466:                                             ; preds = %4
-  %2467 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2468 = load i32, ptr %2467, align 4, !tbaa !382
-  switch i32 %2468, label %4671 [
-    i32 10, label %2469
-    i32 11, label %2481
-    i32 12, label %2496
+2450:                                             ; preds = %4
+  %2451 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2452 = load i32, ptr %2451, align 4, !tbaa !382
+  switch i32 %2452, label %4653 [
+    i32 10, label %2453
+    i32 11, label %2465
+    i32 12, label %2480
   ]
 
-2469:                                             ; preds = %2466
-  %2470 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2471 = load ptr, ptr %2470, align 8, !tbaa !388
-  %2472 = getelementptr inbounds nuw i8, ptr %2471, i64 96
-  %2473 = load i32, ptr %2472, align 8
-  %2474 = and i32 %2473, 255
-  %2475 = icmp eq i32 %2474, 0
-  br i1 %2475, label %2476, label %.critedge42
+2453:                                             ; preds = %2450
+  %2454 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2455 = load ptr, ptr %2454, align 8, !tbaa !388
+  %2456 = getelementptr inbounds nuw i8, ptr %2455, i64 96
+  %2457 = load i32, ptr %2456, align 8
+  %2458 = and i32 %2457, 255
+  %2459 = icmp eq i32 %2458, 0
+  br i1 %2459, label %2460, label %.critedge42
 
-2476:                                             ; preds = %2469
-  %2477 = getelementptr inbounds nuw i8, ptr %2471, i64 100
-  %2478 = load i32, ptr %2477, align 4, !tbaa !406
-  %2479 = and i32 %2478, -3
-  %switch.selectcmp4105 = icmp eq i32 %2479, 12
-  %2480 = select i1 %switch.selectcmp4105, i32 1765, i32 1766
+2460:                                             ; preds = %2453
+  %2461 = getelementptr inbounds nuw i8, ptr %2455, i64 100
+  %2462 = load i32, ptr %2461, align 4, !tbaa !406
+  %2463 = and i32 %2462, -3
+  %switch.selectcmp4105 = icmp eq i32 %2463, 12
+  %2464 = select i1 %switch.selectcmp4105, i32 1765, i32 1766
   br label %.critedge42
 
-2481:                                             ; preds = %2466
-  %2482 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %2483 = load i16, ptr %2482, align 4, !tbaa !407
-  switch i16 %2483, label %.critedge42 [
-    i16 5105, label %2484
-    i16 5106, label %2484
-    i16 5257, label %2484
-    i16 5258, label %2484
-    i16 5965, label %2484
-    i16 7870, label %2484
-    i16 6211, label %2484
-    i16 8113, label %2484
+2465:                                             ; preds = %2450
+  %2466 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %2467 = load i16, ptr %2466, align 4, !tbaa !407
+  switch i16 %2467, label %.critedge42 [
+    i16 5105, label %2468
+    i16 5106, label %2468
+    i16 5257, label %2468
+    i16 5258, label %2468
+    i16 5965, label %2468
+    i16 7870, label %2468
+    i16 6211, label %2468
+    i16 8113, label %2468
   ]
 
-2484:                                             ; preds = %2481, %2481, %2481, %2481, %2481, %2481, %2481, %2481
-  %2485 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2486 = load ptr, ptr %2485, align 8, !tbaa !388
-  %2487 = getelementptr inbounds nuw i8, ptr %2486, i64 96
-  %2488 = load i32, ptr %2487, align 8
-  %2489 = and i32 %2488, 255
-  %2490 = icmp eq i32 %2489, 0
-  br i1 %2490, label %2491, label %.critedge42
+2468:                                             ; preds = %2465, %2465, %2465, %2465, %2465, %2465, %2465, %2465
+  %2469 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2470 = load ptr, ptr %2469, align 8, !tbaa !388
+  %2471 = getelementptr inbounds nuw i8, ptr %2470, i64 96
+  %2472 = load i32, ptr %2471, align 8
+  %2473 = and i32 %2472, 255
+  %2474 = icmp eq i32 %2473, 0
+  br i1 %2474, label %2475, label %.critedge42
 
-2491:                                             ; preds = %2484
-  %2492 = getelementptr inbounds nuw i8, ptr %2486, i64 100
-  %2493 = load i32, ptr %2492, align 4, !tbaa !406
-  %2494 = and i32 %2493, -3
-  %switch.selectcmp4107 = icmp eq i32 %2494, 12
-  %2495 = select i1 %switch.selectcmp4107, i32 1767, i32 1768
+2475:                                             ; preds = %2468
+  %2476 = getelementptr inbounds nuw i8, ptr %2470, i64 100
+  %2477 = load i32, ptr %2476, align 4, !tbaa !406
+  %2478 = and i32 %2477, -3
+  %switch.selectcmp4107 = icmp eq i32 %2478, 12
+  %2479 = select i1 %switch.selectcmp4107, i32 1767, i32 1768
   br label %.critedge42
 
-2496:                                             ; preds = %2466
-  %2497 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2498 = load ptr, ptr %2497, align 8, !tbaa !388
-  %2499 = getelementptr inbounds nuw i8, ptr %2498, i64 96
-  %2500 = load i32, ptr %2499, align 8
-  %2501 = and i32 %2500, 255
-  %2502 = icmp eq i32 %2501, 0
-  br i1 %2502, label %2503, label %.critedge42
+2480:                                             ; preds = %2450
+  %2481 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2482 = load ptr, ptr %2481, align 8, !tbaa !388
+  %2483 = getelementptr inbounds nuw i8, ptr %2482, i64 96
+  %2484 = load i32, ptr %2483, align 8
+  %2485 = and i32 %2484, 255
+  %2486 = icmp eq i32 %2485, 0
+  br i1 %2486, label %2487, label %.critedge42
 
-2503:                                             ; preds = %2496
-  %2504 = getelementptr inbounds nuw i8, ptr %2498, i64 100
-  %2505 = load i32, ptr %2504, align 4, !tbaa !406
-  %2506 = and i32 %2505, -3
-  %switch.selectcmp4109 = icmp eq i32 %2506, 12
-  %2507 = select i1 %switch.selectcmp4109, i32 1769, i32 1770
+2487:                                             ; preds = %2480
+  %2488 = getelementptr inbounds nuw i8, ptr %2482, i64 100
+  %2489 = load i32, ptr %2488, align 4, !tbaa !406
+  %2490 = and i32 %2489, -3
+  %switch.selectcmp4109 = icmp eq i32 %2490, 12
+  %2491 = select i1 %switch.selectcmp4109, i32 1769, i32 1770
   br label %.critedge42
 
-2508:                                             ; preds = %4
-  %2509 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2510 = load i32, ptr %2509, align 4, !tbaa !382
-  switch i32 %2510, label %4671 [
-    i32 10, label %2511
-    i32 11, label %2523
-    i32 12, label %2538
+2492:                                             ; preds = %4
+  %2493 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2494 = load i32, ptr %2493, align 4, !tbaa !382
+  switch i32 %2494, label %4653 [
+    i32 10, label %2495
+    i32 11, label %2507
+    i32 12, label %2522
   ]
 
-2511:                                             ; preds = %2508
-  %2512 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2513 = load ptr, ptr %2512, align 8, !tbaa !388
-  %2514 = getelementptr inbounds nuw i8, ptr %2513, i64 96
-  %2515 = load i32, ptr %2514, align 8
-  %2516 = and i32 %2515, 255
-  %2517 = icmp eq i32 %2516, 0
-  br i1 %2517, label %2518, label %.critedge42
+2495:                                             ; preds = %2492
+  %2496 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2497 = load ptr, ptr %2496, align 8, !tbaa !388
+  %2498 = getelementptr inbounds nuw i8, ptr %2497, i64 96
+  %2499 = load i32, ptr %2498, align 8
+  %2500 = and i32 %2499, 255
+  %2501 = icmp eq i32 %2500, 0
+  br i1 %2501, label %2502, label %.critedge42
 
-2518:                                             ; preds = %2511
-  %2519 = getelementptr inbounds nuw i8, ptr %2513, i64 100
-  %2520 = load i32, ptr %2519, align 4, !tbaa !406
-  %2521 = and i32 %2520, -3
-  %switch.selectcmp4111 = icmp eq i32 %2521, 12
-  %2522 = select i1 %switch.selectcmp4111, i32 1765, i32 1766
+2502:                                             ; preds = %2495
+  %2503 = getelementptr inbounds nuw i8, ptr %2497, i64 100
+  %2504 = load i32, ptr %2503, align 4, !tbaa !406
+  %2505 = and i32 %2504, -3
+  %switch.selectcmp4111 = icmp eq i32 %2505, 12
+  %2506 = select i1 %switch.selectcmp4111, i32 1765, i32 1766
   br label %.critedge42
 
-2523:                                             ; preds = %2508
-  %2524 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %2525 = load i16, ptr %2524, align 4, !tbaa !407
-  switch i16 %2525, label %.critedge42 [
-    i16 5105, label %2526
-    i16 5106, label %2526
-    i16 5257, label %2526
-    i16 5258, label %2526
-    i16 5965, label %2526
-    i16 7870, label %2526
-    i16 6211, label %2526
-    i16 8113, label %2526
+2507:                                             ; preds = %2492
+  %2508 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %2509 = load i16, ptr %2508, align 4, !tbaa !407
+  switch i16 %2509, label %.critedge42 [
+    i16 5105, label %2510
+    i16 5106, label %2510
+    i16 5257, label %2510
+    i16 5258, label %2510
+    i16 5965, label %2510
+    i16 7870, label %2510
+    i16 6211, label %2510
+    i16 8113, label %2510
   ]
 
-2526:                                             ; preds = %2523, %2523, %2523, %2523, %2523, %2523, %2523, %2523
-  %2527 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2528 = load ptr, ptr %2527, align 8, !tbaa !388
-  %2529 = getelementptr inbounds nuw i8, ptr %2528, i64 96
-  %2530 = load i32, ptr %2529, align 8
-  %2531 = and i32 %2530, 255
-  %2532 = icmp eq i32 %2531, 0
-  br i1 %2532, label %2533, label %.critedge42
+2510:                                             ; preds = %2507, %2507, %2507, %2507, %2507, %2507, %2507, %2507
+  %2511 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2512 = load ptr, ptr %2511, align 8, !tbaa !388
+  %2513 = getelementptr inbounds nuw i8, ptr %2512, i64 96
+  %2514 = load i32, ptr %2513, align 8
+  %2515 = and i32 %2514, 255
+  %2516 = icmp eq i32 %2515, 0
+  br i1 %2516, label %2517, label %.critedge42
 
-2533:                                             ; preds = %2526
-  %2534 = getelementptr inbounds nuw i8, ptr %2528, i64 100
-  %2535 = load i32, ptr %2534, align 4, !tbaa !406
-  %2536 = and i32 %2535, -3
-  %switch.selectcmp4113 = icmp eq i32 %2536, 12
-  %2537 = select i1 %switch.selectcmp4113, i32 1767, i32 1768
+2517:                                             ; preds = %2510
+  %2518 = getelementptr inbounds nuw i8, ptr %2512, i64 100
+  %2519 = load i32, ptr %2518, align 4, !tbaa !406
+  %2520 = and i32 %2519, -3
+  %switch.selectcmp4113 = icmp eq i32 %2520, 12
+  %2521 = select i1 %switch.selectcmp4113, i32 1767, i32 1768
   br label %.critedge42
 
-2538:                                             ; preds = %2508
-  %2539 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2540 = load ptr, ptr %2539, align 8, !tbaa !388
-  %2541 = getelementptr inbounds nuw i8, ptr %2540, i64 96
-  %2542 = load i32, ptr %2541, align 8
-  %2543 = and i32 %2542, 255
-  %2544 = icmp eq i32 %2543, 0
-  br i1 %2544, label %2545, label %.critedge42
+2522:                                             ; preds = %2492
+  %2523 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2524 = load ptr, ptr %2523, align 8, !tbaa !388
+  %2525 = getelementptr inbounds nuw i8, ptr %2524, i64 96
+  %2526 = load i32, ptr %2525, align 8
+  %2527 = and i32 %2526, 255
+  %2528 = icmp eq i32 %2527, 0
+  br i1 %2528, label %2529, label %.critedge42
 
-2545:                                             ; preds = %2538
-  %2546 = getelementptr inbounds nuw i8, ptr %2540, i64 100
-  %2547 = load i32, ptr %2546, align 4, !tbaa !406
-  %2548 = and i32 %2547, -3
-  %switch.selectcmp4115 = icmp eq i32 %2548, 12
-  %2549 = select i1 %switch.selectcmp4115, i32 1769, i32 1770
+2529:                                             ; preds = %2522
+  %2530 = getelementptr inbounds nuw i8, ptr %2524, i64 100
+  %2531 = load i32, ptr %2530, align 4, !tbaa !406
+  %2532 = and i32 %2531, -3
+  %switch.selectcmp4115 = icmp eq i32 %2532, 12
+  %2533 = select i1 %switch.selectcmp4115, i32 1769, i32 1770
   br label %.critedge42
 
-2550:                                             ; preds = %4
-  %2551 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2552 = load i32, ptr %2551, align 4, !tbaa !382
-  switch i32 %2552, label %4671 [
-    i32 1, label %2553
-    i32 4, label %2555
-    i32 13, label %2557
-    i32 14, label %2559
-    i32 15, label %2563
-    i32 16, label %2567
-    i32 21, label %2569
-    i32 22, label %2571
+2534:                                             ; preds = %4
+  %2535 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2536 = load i32, ptr %2535, align 4, !tbaa !382
+  switch i32 %2536, label %4653 [
+    i32 1, label %2537
+    i32 4, label %2539
+    i32 13, label %2541
+    i32 14, label %2543
+    i32 15, label %2547
+    i32 16, label %2551
+    i32 21, label %2553
+    i32 22, label %2555
   ]
 
-2553:                                             ; preds = %2550
+2537:                                             ; preds = %2534
+  %2538 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+2539:                                             ; preds = %2534
+  %2540 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3412 = select i1 %2540, i32 1644, i32 1645
+  br label %.critedge42
+
+2541:                                             ; preds = %2534
+  %2542 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+2543:                                             ; preds = %2534
+  %2544 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2544, label %.critedge42, label %2545
+
+2545:                                             ; preds = %2543
+  %2546 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+2547:                                             ; preds = %2534
+  %2548 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2548, label %.critedge42, label %2549
+
+2549:                                             ; preds = %2547
+  %2550 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+2551:                                             ; preds = %2534
+  %2552 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3413 = select i1 %2552, i32 1738, i32 1739
+  br label %.critedge42
+
+2553:                                             ; preds = %2534
   %2554 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-2555:                                             ; preds = %2550
+2555:                                             ; preds = %2534
   %2556 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3412 = select i1 %2556, i32 1644, i32 1645
   br label %.critedge42
 
-2557:                                             ; preds = %2550
-  %2558 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-2559:                                             ; preds = %2550
-  %2560 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2560, label %.critedge42, label %2561
-
-2561:                                             ; preds = %2559
-  %2562 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-2563:                                             ; preds = %2550
-  %2564 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2564, label %.critedge42, label %2565
-
-2565:                                             ; preds = %2563
-  %2566 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-2567:                                             ; preds = %2550
-  %2568 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3413 = select i1 %2568, i32 1738, i32 1739
-  br label %.critedge42
-
-2569:                                             ; preds = %2550
-  %2570 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-2571:                                             ; preds = %2550
-  %2572 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-2573:                                             ; preds = %4
-  %2574 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2575 = load i32, ptr %2574, align 4, !tbaa !382
-  switch i32 %2575, label %4671 [
-    i32 2, label %2576
-    i32 3, label %2587
-    i32 5, label %2598
-    i32 6, label %2600
-    i32 7, label %2602
-    i32 8, label %2604
-    i32 9, label %2606
-    i32 12, label %2612
-    i32 13, label %2618
-    i32 14, label %2622
-    i32 15, label %2626
-    i32 20, label %2630
-    i32 23, label %2632
+2557:                                             ; preds = %4
+  %2558 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2559 = load i32, ptr %2558, align 4, !tbaa !382
+  switch i32 %2559, label %4653 [
+    i32 2, label %2560
+    i32 3, label %2571
+    i32 5, label %2582
+    i32 6, label %2584
+    i32 7, label %2586
+    i32 8, label %2588
+    i32 9, label %2590
+    i32 12, label %2596
+    i32 13, label %2602
+    i32 14, label %2606
+    i32 15, label %2610
+    i32 20, label %2614
+    i32 23, label %2616
   ]
 
-2576:                                             ; preds = %2573
-  %2577 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2577, label %.critedge42, label %2578
+2560:                                             ; preds = %2557
+  %2561 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2561, label %.critedge42, label %2562
 
-2578:                                             ; preds = %2576
-  %2579 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2580 = load ptr, ptr %2579, align 8, !tbaa !388
-  %2581 = getelementptr inbounds nuw i8, ptr %2580, i64 112
-  %2582 = load i64, ptr %2581, align 8, !tbaa !406
-  %2583 = trunc i64 %2582 to i32
-  %2584 = and i32 %2583, 448
-  %2585 = icmp eq i32 %2584, 0
-  %2586 = and i32 %2583, 63
-  %switch4116 = icmp samesign ult i32 %2586, 5
-  %or.cond4117 = and i1 %2585, %switch4116
+2562:                                             ; preds = %2560
+  %2563 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2564 = load ptr, ptr %2563, align 8, !tbaa !388
+  %2565 = getelementptr inbounds nuw i8, ptr %2564, i64 112
+  %2566 = load i64, ptr %2565, align 8, !tbaa !406
+  %2567 = trunc i64 %2566 to i32
+  %2568 = and i32 %2567, 448
+  %2569 = icmp eq i32 %2568, 0
+  %2570 = and i32 %2567, 63
+  %switch4116 = icmp samesign ult i32 %2570, 5
+  %or.cond4117 = and i1 %2569, %switch4116
   %spec.select4315 = select i1 %or.cond4117, i32 1670, i32 1671
   br label %.critedge42
 
-2587:                                             ; preds = %2573
-  %2588 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2588, label %.critedge42, label %2589
+2571:                                             ; preds = %2557
+  %2572 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2572, label %.critedge42, label %2573
 
-2589:                                             ; preds = %2587
-  %2590 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2591 = load ptr, ptr %2590, align 8, !tbaa !388
-  %2592 = getelementptr inbounds nuw i8, ptr %2591, i64 112
-  %2593 = load i64, ptr %2592, align 8, !tbaa !406
-  %2594 = trunc i64 %2593 to i32
-  %2595 = and i32 %2594, 448
-  %2596 = icmp eq i32 %2595, 0
-  %2597 = and i32 %2594, 63
-  %switch4118 = icmp samesign ult i32 %2597, 5
-  %or.cond4119 = and i1 %2596, %switch4118
+2573:                                             ; preds = %2571
+  %2574 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2575 = load ptr, ptr %2574, align 8, !tbaa !388
+  %2576 = getelementptr inbounds nuw i8, ptr %2575, i64 112
+  %2577 = load i64, ptr %2576, align 8, !tbaa !406
+  %2578 = trunc i64 %2577 to i32
+  %2579 = and i32 %2578, 448
+  %2580 = icmp eq i32 %2579, 0
+  %2581 = and i32 %2578, 63
+  %switch4118 = icmp samesign ult i32 %2581, 5
+  %or.cond4119 = and i1 %2580, %switch4118
   %spec.select4316 = select i1 %or.cond4119, i32 1673, i32 1674
   br label %.critedge42
 
-2598:                                             ; preds = %2573
-  %2599 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3414 = select i1 %2599, i32 1597, i32 1598
+2582:                                             ; preds = %2557
+  %2583 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3414 = select i1 %2583, i32 1597, i32 1598
   br label %.critedge42
 
-2600:                                             ; preds = %2573
-  %2601 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3415 = select i1 %2601, i32 1658, i32 1651
+2584:                                             ; preds = %2557
+  %2585 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3415 = select i1 %2585, i32 1658, i32 1651
   br label %.critedge42
 
-2602:                                             ; preds = %2573
-  %2603 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3416 = select i1 %2603, i32 1599, i32 1600
+2586:                                             ; preds = %2557
+  %2587 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3416 = select i1 %2587, i32 1599, i32 1600
   br label %.critedge42
 
-2604:                                             ; preds = %2573
-  %2605 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3417 = select i1 %2605, i32 1658, i32 1651
+2588:                                             ; preds = %2557
+  %2589 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3417 = select i1 %2589, i32 1658, i32 1651
   br label %.critedge42
 
-2606:                                             ; preds = %2573
-  %2607 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2608 = load ptr, ptr %2607, align 8, !tbaa !388
-  %2609 = getelementptr inbounds nuw i8, ptr %2608, i64 112
-  %2610 = load i64, ptr %2609, align 8, !tbaa !406
-  %2611 = and i64 %2610, 511
-  %or.cond3973 = icmp eq i64 %2611, 0
+2590:                                             ; preds = %2557
+  %2591 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2592 = load ptr, ptr %2591, align 8, !tbaa !388
+  %2593 = getelementptr inbounds nuw i8, ptr %2592, i64 112
+  %2594 = load i64, ptr %2593, align 8, !tbaa !406
+  %2595 = and i64 %2594, 511
+  %or.cond3973 = icmp eq i64 %2595, 0
   %spec.select4120 = select i1 %or.cond3973, i32 1754, i32 1755
   br label %.critedge42
 
-2612:                                             ; preds = %2573
-  %2613 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2614 = load ptr, ptr %2613, align 8, !tbaa !388
-  %2615 = getelementptr inbounds nuw i8, ptr %2614, i64 112
-  %2616 = load i64, ptr %2615, align 8, !tbaa !406
-  %2617 = and i64 %2616, 511
-  %or.cond3975 = icmp eq i64 %2617, 0
+2596:                                             ; preds = %2557
+  %2597 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2598 = load ptr, ptr %2597, align 8, !tbaa !388
+  %2599 = getelementptr inbounds nuw i8, ptr %2598, i64 112
+  %2600 = load i64, ptr %2599, align 8, !tbaa !406
+  %2601 = and i64 %2600, 511
+  %or.cond3975 = icmp eq i64 %2601, 0
   %spec.select4121 = select i1 %or.cond3975, i32 1677, i32 1678
   br label %.critedge42
 
-2618:                                             ; preds = %2573
-  %2619 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2619, label %.critedge42, label %2620
+2602:                                             ; preds = %2557
+  %2603 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2603, label %.critedge42, label %2604
 
-2620:                                             ; preds = %2618
-  %2621 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3418 = select i1 %2621, i32 1661, i32 1662
+2604:                                             ; preds = %2602
+  %2605 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3418 = select i1 %2605, i32 1661, i32 1662
   br label %.critedge42
 
-2622:                                             ; preds = %2573
-  %2623 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2623, label %.critedge42, label %2624
+2606:                                             ; preds = %2557
+  %2607 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2607, label %.critedge42, label %2608
 
-2624:                                             ; preds = %2622
-  %2625 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3419 = select i1 %2625, i32 1663, i32 1664
+2608:                                             ; preds = %2606
+  %2609 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3419 = select i1 %2609, i32 1663, i32 1664
   br label %.critedge42
 
-2626:                                             ; preds = %2573
-  %2627 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2627, label %.critedge42, label %2628
+2610:                                             ; preds = %2557
+  %2611 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2611, label %.critedge42, label %2612
 
-2628:                                             ; preds = %2626
-  %2629 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3420 = select i1 %2629, i32 1703, i32 1771
+2612:                                             ; preds = %2610
+  %2613 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3420 = select i1 %2613, i32 1703, i32 1771
   br label %.critedge42
 
-2630:                                             ; preds = %2573
-  %2631 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3421 = select i1 %2631, i32 1611, i32 1612
+2614:                                             ; preds = %2557
+  %2615 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3421 = select i1 %2615, i32 1611, i32 1612
   br label %.critedge42
 
-2632:                                             ; preds = %2573
-  %2633 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3422 = select i1 %2633, i32 1667, i32 1668
+2616:                                             ; preds = %2557
+  %2617 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3422 = select i1 %2617, i32 1667, i32 1668
   br label %.critedge42
 
-2634:                                             ; preds = %4
-  %2635 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2636 = load i32, ptr %2635, align 4, !tbaa !382
-  %2637 = icmp eq i32 %2636, 4
-  br i1 %2637, label %2638, label %4671
+2618:                                             ; preds = %4
+  %2619 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2620 = load i32, ptr %2619, align 4, !tbaa !382
+  %2621 = icmp eq i32 %2620, 4
+  br i1 %2621, label %2622, label %4653
 
-2638:                                             ; preds = %2634
-  %2639 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isGPRZeroERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3423 = select i1 %2639, i32 1650, i32 1749
+2622:                                             ; preds = %2618
+  %2623 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isGPRZeroERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3423 = select i1 %2623, i32 1650, i32 1749
   br label %.critedge42
 
-2640:                                             ; preds = %4
-  %2641 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2642 = load i32, ptr %2641, align 4, !tbaa !382
-  switch i32 %2642, label %4671 [
-    i32 2, label %2643
-    i32 3, label %2654
-    i32 5, label %2665
-    i32 6, label %2667
-    i32 7, label %2669
-    i32 8, label %2671
-    i32 9, label %2673
-    i32 12, label %2679
-    i32 13, label %2685
-    i32 14, label %2689
-    i32 15, label %2693
-    i32 20, label %2697
-    i32 23, label %2699
+2624:                                             ; preds = %4
+  %2625 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2626 = load i32, ptr %2625, align 4, !tbaa !382
+  switch i32 %2626, label %4653 [
+    i32 2, label %2627
+    i32 3, label %2638
+    i32 5, label %2649
+    i32 6, label %2651
+    i32 7, label %2653
+    i32 8, label %2655
+    i32 9, label %2657
+    i32 12, label %2663
+    i32 13, label %2669
+    i32 14, label %2673
+    i32 15, label %2677
+    i32 20, label %2681
+    i32 23, label %2683
   ]
 
-2643:                                             ; preds = %2640
-  %2644 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2644, label %.critedge42, label %2645
+2627:                                             ; preds = %2624
+  %2628 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2628, label %.critedge42, label %2629
 
-2645:                                             ; preds = %2643
-  %2646 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2647 = load ptr, ptr %2646, align 8, !tbaa !388
-  %2648 = getelementptr inbounds nuw i8, ptr %2647, i64 112
-  %2649 = load i64, ptr %2648, align 8, !tbaa !406
-  %2650 = trunc i64 %2649 to i32
-  %2651 = and i32 %2650, 448
-  %2652 = icmp eq i32 %2651, 0
-  %2653 = and i32 %2650, 63
-  %switch4122 = icmp samesign ult i32 %2653, 5
-  %or.cond4123 = and i1 %2652, %switch4122
+2629:                                             ; preds = %2627
+  %2630 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2631 = load ptr, ptr %2630, align 8, !tbaa !388
+  %2632 = getelementptr inbounds nuw i8, ptr %2631, i64 112
+  %2633 = load i64, ptr %2632, align 8, !tbaa !406
+  %2634 = trunc i64 %2633 to i32
+  %2635 = and i32 %2634, 448
+  %2636 = icmp eq i32 %2635, 0
+  %2637 = and i32 %2634, 63
+  %switch4122 = icmp samesign ult i32 %2637, 5
+  %or.cond4123 = and i1 %2636, %switch4122
   %spec.select4317 = select i1 %or.cond4123, i32 1670, i32 1671
   br label %.critedge42
 
-2654:                                             ; preds = %2640
-  %2655 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2655, label %.critedge42, label %2656
+2638:                                             ; preds = %2624
+  %2639 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2639, label %.critedge42, label %2640
 
-2656:                                             ; preds = %2654
-  %2657 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2658 = load ptr, ptr %2657, align 8, !tbaa !388
-  %2659 = getelementptr inbounds nuw i8, ptr %2658, i64 112
-  %2660 = load i64, ptr %2659, align 8, !tbaa !406
-  %2661 = trunc i64 %2660 to i32
-  %2662 = and i32 %2661, 448
-  %2663 = icmp eq i32 %2662, 0
-  %2664 = and i32 %2661, 63
-  %switch4124 = icmp samesign ult i32 %2664, 5
-  %or.cond4125 = and i1 %2663, %switch4124
+2640:                                             ; preds = %2638
+  %2641 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2642 = load ptr, ptr %2641, align 8, !tbaa !388
+  %2643 = getelementptr inbounds nuw i8, ptr %2642, i64 112
+  %2644 = load i64, ptr %2643, align 8, !tbaa !406
+  %2645 = trunc i64 %2644 to i32
+  %2646 = and i32 %2645, 448
+  %2647 = icmp eq i32 %2646, 0
+  %2648 = and i32 %2645, 63
+  %switch4124 = icmp samesign ult i32 %2648, 5
+  %or.cond4125 = and i1 %2647, %switch4124
   %spec.select4318 = select i1 %or.cond4125, i32 1673, i32 1674
   br label %.critedge42
 
-2665:                                             ; preds = %2640
-  %2666 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3424 = select i1 %2666, i32 1597, i32 1598
+2649:                                             ; preds = %2624
+  %2650 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3424 = select i1 %2650, i32 1597, i32 1598
   br label %.critedge42
 
-2667:                                             ; preds = %2640
-  %2668 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3425 = select i1 %2668, i32 1658, i32 1651
+2651:                                             ; preds = %2624
+  %2652 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3425 = select i1 %2652, i32 1658, i32 1651
   br label %.critedge42
 
-2669:                                             ; preds = %2640
-  %2670 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3426 = select i1 %2670, i32 1599, i32 1600
+2653:                                             ; preds = %2624
+  %2654 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3426 = select i1 %2654, i32 1599, i32 1600
   br label %.critedge42
 
-2671:                                             ; preds = %2640
-  %2672 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3427 = select i1 %2672, i32 1658, i32 1651
+2655:                                             ; preds = %2624
+  %2656 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3427 = select i1 %2656, i32 1658, i32 1651
   br label %.critedge42
 
-2673:                                             ; preds = %2640
-  %2674 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2675 = load ptr, ptr %2674, align 8, !tbaa !388
-  %2676 = getelementptr inbounds nuw i8, ptr %2675, i64 112
-  %2677 = load i64, ptr %2676, align 8, !tbaa !406
-  %2678 = and i64 %2677, 511
-  %or.cond3977 = icmp eq i64 %2678, 0
+2657:                                             ; preds = %2624
+  %2658 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2659 = load ptr, ptr %2658, align 8, !tbaa !388
+  %2660 = getelementptr inbounds nuw i8, ptr %2659, i64 112
+  %2661 = load i64, ptr %2660, align 8, !tbaa !406
+  %2662 = and i64 %2661, 511
+  %or.cond3977 = icmp eq i64 %2662, 0
   %spec.select4126 = select i1 %or.cond3977, i32 1754, i32 1755
   br label %.critedge42
 
-2679:                                             ; preds = %2640
-  %2680 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2681 = load ptr, ptr %2680, align 8, !tbaa !388
-  %2682 = getelementptr inbounds nuw i8, ptr %2681, i64 112
-  %2683 = load i64, ptr %2682, align 8, !tbaa !406
-  %2684 = and i64 %2683, 511
-  %or.cond3979 = icmp eq i64 %2684, 0
+2663:                                             ; preds = %2624
+  %2664 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2665 = load ptr, ptr %2664, align 8, !tbaa !388
+  %2666 = getelementptr inbounds nuw i8, ptr %2665, i64 112
+  %2667 = load i64, ptr %2666, align 8, !tbaa !406
+  %2668 = and i64 %2667, 511
+  %or.cond3979 = icmp eq i64 %2668, 0
   %spec.select4127 = select i1 %or.cond3979, i32 1677, i32 1678
   br label %.critedge42
 
-2685:                                             ; preds = %2640
-  %2686 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2686, label %.critedge42, label %2687
+2669:                                             ; preds = %2624
+  %2670 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2670, label %.critedge42, label %2671
 
-2687:                                             ; preds = %2685
-  %2688 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3428 = select i1 %2688, i32 1661, i32 1662
+2671:                                             ; preds = %2669
+  %2672 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3428 = select i1 %2672, i32 1661, i32 1662
   br label %.critedge42
 
-2689:                                             ; preds = %2640
-  %2690 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2690, label %.critedge42, label %2691
+2673:                                             ; preds = %2624
+  %2674 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2674, label %.critedge42, label %2675
 
-2691:                                             ; preds = %2689
-  %2692 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3429 = select i1 %2692, i32 1663, i32 1664
+2675:                                             ; preds = %2673
+  %2676 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3429 = select i1 %2676, i32 1663, i32 1664
   br label %.critedge42
 
-2693:                                             ; preds = %2640
-  %2694 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2694, label %.critedge42, label %2695
+2677:                                             ; preds = %2624
+  %2678 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2678, label %.critedge42, label %2679
 
-2695:                                             ; preds = %2693
-  %2696 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3430 = select i1 %2696, i32 1703, i32 1771
+2679:                                             ; preds = %2677
+  %2680 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3430 = select i1 %2680, i32 1703, i32 1771
   br label %.critedge42
 
-2697:                                             ; preds = %2640
-  %2698 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3431 = select i1 %2698, i32 1611, i32 1612
+2681:                                             ; preds = %2624
+  %2682 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3431 = select i1 %2682, i32 1611, i32 1612
   br label %.critedge42
 
-2699:                                             ; preds = %2640
-  %2700 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3432 = select i1 %2700, i32 1667, i32 1668
+2683:                                             ; preds = %2624
+  %2684 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3432 = select i1 %2684, i32 1667, i32 1668
   br label %.critedge42
 
-2701:                                             ; preds = %4
-  %2702 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2703 = load i32, ptr %2702, align 4, !tbaa !382
-  switch i32 %2703, label %4671 [
-    i32 2, label %2704
-    i32 3, label %2715
-    i32 5, label %2726
-    i32 6, label %2728
-    i32 7, label %2730
-    i32 8, label %2732
-    i32 13, label %2734
-    i32 14, label %2738
-    i32 15, label %2742
-    i32 20, label %2746
-    i32 23, label %2748
+2685:                                             ; preds = %4
+  %2686 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2687 = load i32, ptr %2686, align 4, !tbaa !382
+  switch i32 %2687, label %4653 [
+    i32 2, label %2688
+    i32 3, label %2699
+    i32 5, label %2710
+    i32 6, label %2712
+    i32 7, label %2714
+    i32 8, label %2716
+    i32 13, label %2718
+    i32 14, label %2722
+    i32 15, label %2726
+    i32 20, label %2730
+    i32 23, label %2732
   ]
 
-2704:                                             ; preds = %2701
-  %2705 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2705, label %.critedge42, label %2706
+2688:                                             ; preds = %2685
+  %2689 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2689, label %.critedge42, label %2690
 
-2706:                                             ; preds = %2704
-  %2707 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2708 = load ptr, ptr %2707, align 8, !tbaa !388
-  %2709 = getelementptr inbounds nuw i8, ptr %2708, i64 112
-  %2710 = load i64, ptr %2709, align 8, !tbaa !406
-  %2711 = trunc i64 %2710 to i32
-  %2712 = and i32 %2711, 448
-  %2713 = icmp eq i32 %2712, 0
-  %2714 = and i32 %2711, 63
-  %switch4128 = icmp samesign ult i32 %2714, 5
-  %or.cond4129 = and i1 %2713, %switch4128
+2690:                                             ; preds = %2688
+  %2691 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2692 = load ptr, ptr %2691, align 8, !tbaa !388
+  %2693 = getelementptr inbounds nuw i8, ptr %2692, i64 112
+  %2694 = load i64, ptr %2693, align 8, !tbaa !406
+  %2695 = trunc i64 %2694 to i32
+  %2696 = and i32 %2695, 448
+  %2697 = icmp eq i32 %2696, 0
+  %2698 = and i32 %2695, 63
+  %switch4128 = icmp samesign ult i32 %2698, 5
+  %or.cond4129 = and i1 %2697, %switch4128
   %spec.select4319 = select i1 %or.cond4129, i32 1757, i32 1758
   br label %.critedge42
 
-2715:                                             ; preds = %2701
-  %2716 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2716, label %.critedge42, label %2717
+2699:                                             ; preds = %2685
+  %2700 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2700, label %.critedge42, label %2701
 
-2717:                                             ; preds = %2715
-  %2718 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2719 = load ptr, ptr %2718, align 8, !tbaa !388
-  %2720 = getelementptr inbounds nuw i8, ptr %2719, i64 112
-  %2721 = load i64, ptr %2720, align 8, !tbaa !406
-  %2722 = trunc i64 %2721 to i32
-  %2723 = and i32 %2722, 448
-  %2724 = icmp eq i32 %2723, 0
-  %2725 = and i32 %2722, 63
-  %switch4130 = icmp samesign ult i32 %2725, 5
-  %or.cond4131 = and i1 %2724, %switch4130
+2701:                                             ; preds = %2699
+  %2702 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2703 = load ptr, ptr %2702, align 8, !tbaa !388
+  %2704 = getelementptr inbounds nuw i8, ptr %2703, i64 112
+  %2705 = load i64, ptr %2704, align 8, !tbaa !406
+  %2706 = trunc i64 %2705 to i32
+  %2707 = and i32 %2706, 448
+  %2708 = icmp eq i32 %2707, 0
+  %2709 = and i32 %2706, 63
+  %switch4130 = icmp samesign ult i32 %2709, 5
+  %or.cond4131 = and i1 %2708, %switch4130
   %spec.select4320 = select i1 %or.cond4131, i32 1673, i32 1674
   br label %.critedge42
 
-2726:                                             ; preds = %2701
-  %2727 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3433 = select i1 %2727, i32 1597, i32 1598
+2710:                                             ; preds = %2685
+  %2711 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3433 = select i1 %2711, i32 1597, i32 1598
   br label %.critedge42
 
-2728:                                             ; preds = %2701
-  %2729 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3434 = select i1 %2729, i32 1658, i32 1651
+2712:                                             ; preds = %2685
+  %2713 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3434 = select i1 %2713, i32 1658, i32 1651
   br label %.critedge42
 
-2730:                                             ; preds = %2701
+2714:                                             ; preds = %2685
+  %2715 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3435 = select i1 %2715, i32 1599, i32 1600
+  br label %.critedge42
+
+2716:                                             ; preds = %2685
+  %2717 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3436 = select i1 %2717, i32 1658, i32 1651
+  br label %.critedge42
+
+2718:                                             ; preds = %2685
+  %2719 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2719, label %.critedge42, label %2720
+
+2720:                                             ; preds = %2718
+  %2721 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3437 = select i1 %2721, i32 1661, i32 1662
+  br label %.critedge42
+
+2722:                                             ; preds = %2685
+  %2723 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2723, label %.critedge42, label %2724
+
+2724:                                             ; preds = %2722
+  %2725 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3438 = select i1 %2725, i32 1663, i32 1664
+  br label %.critedge42
+
+2726:                                             ; preds = %2685
+  %2727 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2727, label %.critedge42, label %2728
+
+2728:                                             ; preds = %2726
+  %2729 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3439 = select i1 %2729, i32 1703, i32 1771
+  br label %.critedge42
+
+2730:                                             ; preds = %2685
   %2731 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3435 = select i1 %2731, i32 1599, i32 1600
+  %.3440 = select i1 %2731, i32 1611, i32 1612
   br label %.critedge42
 
-2732:                                             ; preds = %2701
+2732:                                             ; preds = %2685
   %2733 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3436 = select i1 %2733, i32 1658, i32 1651
+  %.3441 = select i1 %2733, i32 1658, i32 1651
   br label %.critedge42
 
-2734:                                             ; preds = %2701
-  %2735 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2735, label %.critedge42, label %2736
-
-2736:                                             ; preds = %2734
-  %2737 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3437 = select i1 %2737, i32 1661, i32 1662
-  br label %.critedge42
-
-2738:                                             ; preds = %2701
-  %2739 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2739, label %.critedge42, label %2740
-
-2740:                                             ; preds = %2738
-  %2741 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3438 = select i1 %2741, i32 1663, i32 1664
-  br label %.critedge42
-
-2742:                                             ; preds = %2701
-  %2743 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2743, label %.critedge42, label %2744
-
-2744:                                             ; preds = %2742
-  %2745 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3439 = select i1 %2745, i32 1703, i32 1771
-  br label %.critedge42
-
-2746:                                             ; preds = %2701
-  %2747 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3440 = select i1 %2747, i32 1611, i32 1612
-  br label %.critedge42
-
-2748:                                             ; preds = %2701
-  %2749 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3441 = select i1 %2749, i32 1658, i32 1651
-  br label %.critedge42
-
-2750:                                             ; preds = %4
-  %2751 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2752 = load i32, ptr %2751, align 4, !tbaa !382
-  switch i32 %2752, label %4671 [
-    i32 2, label %2753
-    i32 3, label %2764
-    i32 5, label %2775
-    i32 6, label %2777
-    i32 7, label %2779
-    i32 8, label %2781
-    i32 13, label %2783
-    i32 14, label %2787
-    i32 15, label %2791
-    i32 20, label %2795
-    i32 23, label %2797
+2734:                                             ; preds = %4
+  %2735 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2736 = load i32, ptr %2735, align 4, !tbaa !382
+  switch i32 %2736, label %4653 [
+    i32 2, label %2737
+    i32 3, label %2748
+    i32 5, label %2759
+    i32 6, label %2761
+    i32 7, label %2763
+    i32 8, label %2765
+    i32 13, label %2767
+    i32 14, label %2771
+    i32 15, label %2775
+    i32 20, label %2779
+    i32 23, label %2781
   ]
 
-2753:                                             ; preds = %2750
-  %2754 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2754, label %.critedge42, label %2755
+2737:                                             ; preds = %2734
+  %2738 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2738, label %.critedge42, label %2739
 
-2755:                                             ; preds = %2753
-  %2756 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2757 = load ptr, ptr %2756, align 8, !tbaa !388
-  %2758 = getelementptr inbounds nuw i8, ptr %2757, i64 112
-  %2759 = load i64, ptr %2758, align 8, !tbaa !406
-  %2760 = trunc i64 %2759 to i32
-  %2761 = and i32 %2760, 448
-  %2762 = icmp eq i32 %2761, 0
-  %2763 = and i32 %2760, 63
-  %switch4132 = icmp samesign ult i32 %2763, 5
-  %or.cond4133 = and i1 %2762, %switch4132
+2739:                                             ; preds = %2737
+  %2740 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2741 = load ptr, ptr %2740, align 8, !tbaa !388
+  %2742 = getelementptr inbounds nuw i8, ptr %2741, i64 112
+  %2743 = load i64, ptr %2742, align 8, !tbaa !406
+  %2744 = trunc i64 %2743 to i32
+  %2745 = and i32 %2744, 448
+  %2746 = icmp eq i32 %2745, 0
+  %2747 = and i32 %2744, 63
+  %switch4132 = icmp samesign ult i32 %2747, 5
+  %or.cond4133 = and i1 %2746, %switch4132
   %spec.select4321 = select i1 %or.cond4133, i32 1757, i32 1758
   br label %.critedge42
 
-2764:                                             ; preds = %2750
-  %2765 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2765, label %.critedge42, label %2766
+2748:                                             ; preds = %2734
+  %2749 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2749, label %.critedge42, label %2750
 
-2766:                                             ; preds = %2764
-  %2767 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2768 = load ptr, ptr %2767, align 8, !tbaa !388
-  %2769 = getelementptr inbounds nuw i8, ptr %2768, i64 112
-  %2770 = load i64, ptr %2769, align 8, !tbaa !406
-  %2771 = trunc i64 %2770 to i32
-  %2772 = and i32 %2771, 448
-  %2773 = icmp eq i32 %2772, 0
-  %2774 = and i32 %2771, 63
-  %switch4134 = icmp samesign ult i32 %2774, 5
-  %or.cond4135 = and i1 %2773, %switch4134
+2750:                                             ; preds = %2748
+  %2751 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2752 = load ptr, ptr %2751, align 8, !tbaa !388
+  %2753 = getelementptr inbounds nuw i8, ptr %2752, i64 112
+  %2754 = load i64, ptr %2753, align 8, !tbaa !406
+  %2755 = trunc i64 %2754 to i32
+  %2756 = and i32 %2755, 448
+  %2757 = icmp eq i32 %2756, 0
+  %2758 = and i32 %2755, 63
+  %switch4134 = icmp samesign ult i32 %2758, 5
+  %or.cond4135 = and i1 %2757, %switch4134
   %spec.select4322 = select i1 %or.cond4135, i32 1673, i32 1674
   br label %.critedge42
 
-2775:                                             ; preds = %2750
-  %2776 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3442 = select i1 %2776, i32 1597, i32 1598
+2759:                                             ; preds = %2734
+  %2760 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3442 = select i1 %2760, i32 1597, i32 1598
   br label %.critedge42
 
-2777:                                             ; preds = %2750
-  %2778 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3443 = select i1 %2778, i32 1658, i32 1651
+2761:                                             ; preds = %2734
+  %2762 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3443 = select i1 %2762, i32 1658, i32 1651
   br label %.critedge42
 
-2779:                                             ; preds = %2750
+2763:                                             ; preds = %2734
+  %2764 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3444 = select i1 %2764, i32 1599, i32 1600
+  br label %.critedge42
+
+2765:                                             ; preds = %2734
+  %2766 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3445 = select i1 %2766, i32 1658, i32 1651
+  br label %.critedge42
+
+2767:                                             ; preds = %2734
+  %2768 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2768, label %.critedge42, label %2769
+
+2769:                                             ; preds = %2767
+  %2770 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3446 = select i1 %2770, i32 1661, i32 1662
+  br label %.critedge42
+
+2771:                                             ; preds = %2734
+  %2772 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2772, label %.critedge42, label %2773
+
+2773:                                             ; preds = %2771
+  %2774 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3447 = select i1 %2774, i32 1663, i32 1664
+  br label %.critedge42
+
+2775:                                             ; preds = %2734
+  %2776 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2776, label %.critedge42, label %2777
+
+2777:                                             ; preds = %2775
+  %2778 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3448 = select i1 %2778, i32 1703, i32 1771
+  br label %.critedge42
+
+2779:                                             ; preds = %2734
   %2780 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3444 = select i1 %2780, i32 1599, i32 1600
+  %.3449 = select i1 %2780, i32 1611, i32 1612
   br label %.critedge42
 
-2781:                                             ; preds = %2750
+2781:                                             ; preds = %2734
   %2782 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3445 = select i1 %2782, i32 1658, i32 1651
+  %.3450 = select i1 %2782, i32 1658, i32 1651
   br label %.critedge42
 
-2783:                                             ; preds = %2750
-  %2784 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2784, label %.critedge42, label %2785
-
-2785:                                             ; preds = %2783
-  %2786 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3446 = select i1 %2786, i32 1661, i32 1662
-  br label %.critedge42
-
-2787:                                             ; preds = %2750
-  %2788 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2788, label %.critedge42, label %2789
-
-2789:                                             ; preds = %2787
-  %2790 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3447 = select i1 %2790, i32 1663, i32 1664
-  br label %.critedge42
-
-2791:                                             ; preds = %2750
-  %2792 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2792, label %.critedge42, label %2793
-
-2793:                                             ; preds = %2791
-  %2794 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3448 = select i1 %2794, i32 1703, i32 1771
-  br label %.critedge42
-
-2795:                                             ; preds = %2750
-  %2796 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3449 = select i1 %2796, i32 1611, i32 1612
-  br label %.critedge42
-
-2797:                                             ; preds = %2750
-  %2798 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3450 = select i1 %2798, i32 1658, i32 1651
-  br label %.critedge42
-
-2799:                                             ; preds = %4
-  %2800 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2801 = load i32, ptr %2800, align 4, !tbaa !382
-  switch i32 %2801, label %4671 [
-    i32 2, label %2802
-    i32 3, label %2813
-    i32 5, label %2824
-    i32 6, label %2826
-    i32 7, label %2828
-    i32 8, label %2830
-    i32 13, label %2832
-    i32 14, label %2836
-    i32 15, label %2840
-    i32 20, label %2844
-    i32 23, label %2846
+2783:                                             ; preds = %4
+  %2784 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2785 = load i32, ptr %2784, align 4, !tbaa !382
+  switch i32 %2785, label %4653 [
+    i32 2, label %2786
+    i32 3, label %2797
+    i32 5, label %2808
+    i32 6, label %2810
+    i32 7, label %2812
+    i32 8, label %2814
+    i32 13, label %2816
+    i32 14, label %2820
+    i32 15, label %2824
+    i32 20, label %2828
+    i32 23, label %2830
   ]
 
-2802:                                             ; preds = %2799
-  %2803 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2803, label %.critedge42, label %2804
+2786:                                             ; preds = %2783
+  %2787 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2787, label %.critedge42, label %2788
 
-2804:                                             ; preds = %2802
-  %2805 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2806 = load ptr, ptr %2805, align 8, !tbaa !388
-  %2807 = getelementptr inbounds nuw i8, ptr %2806, i64 112
-  %2808 = load i64, ptr %2807, align 8, !tbaa !406
-  %2809 = trunc i64 %2808 to i32
-  %2810 = and i32 %2809, 448
-  %2811 = icmp eq i32 %2810, 0
-  %2812 = and i32 %2809, 63
-  %switch4136 = icmp samesign ult i32 %2812, 5
-  %or.cond4137 = and i1 %2811, %switch4136
+2788:                                             ; preds = %2786
+  %2789 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2790 = load ptr, ptr %2789, align 8, !tbaa !388
+  %2791 = getelementptr inbounds nuw i8, ptr %2790, i64 112
+  %2792 = load i64, ptr %2791, align 8, !tbaa !406
+  %2793 = trunc i64 %2792 to i32
+  %2794 = and i32 %2793, 448
+  %2795 = icmp eq i32 %2794, 0
+  %2796 = and i32 %2793, 63
+  %switch4136 = icmp samesign ult i32 %2796, 5
+  %or.cond4137 = and i1 %2795, %switch4136
   %spec.select4323 = select i1 %or.cond4137, i32 1757, i32 1758
   br label %.critedge42
 
-2813:                                             ; preds = %2799
-  %2814 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2814, label %.critedge42, label %2815
+2797:                                             ; preds = %2783
+  %2798 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2798, label %.critedge42, label %2799
 
-2815:                                             ; preds = %2813
-  %2816 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2817 = load ptr, ptr %2816, align 8, !tbaa !388
-  %2818 = getelementptr inbounds nuw i8, ptr %2817, i64 112
-  %2819 = load i64, ptr %2818, align 8, !tbaa !406
-  %2820 = trunc i64 %2819 to i32
-  %2821 = and i32 %2820, 448
-  %2822 = icmp eq i32 %2821, 0
-  %2823 = and i32 %2820, 63
-  %switch4138 = icmp samesign ult i32 %2823, 5
-  %or.cond4139 = and i1 %2822, %switch4138
+2799:                                             ; preds = %2797
+  %2800 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2801 = load ptr, ptr %2800, align 8, !tbaa !388
+  %2802 = getelementptr inbounds nuw i8, ptr %2801, i64 112
+  %2803 = load i64, ptr %2802, align 8, !tbaa !406
+  %2804 = trunc i64 %2803 to i32
+  %2805 = and i32 %2804, 448
+  %2806 = icmp eq i32 %2805, 0
+  %2807 = and i32 %2804, 63
+  %switch4138 = icmp samesign ult i32 %2807, 5
+  %or.cond4139 = and i1 %2806, %switch4138
   %spec.select4324 = select i1 %or.cond4139, i32 1673, i32 1674
   br label %.critedge42
 
-2824:                                             ; preds = %2799
-  %2825 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3451 = select i1 %2825, i32 1597, i32 1598
+2808:                                             ; preds = %2783
+  %2809 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3451 = select i1 %2809, i32 1597, i32 1598
   br label %.critedge42
 
-2826:                                             ; preds = %2799
-  %2827 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3452 = select i1 %2827, i32 1658, i32 1651
+2810:                                             ; preds = %2783
+  %2811 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3452 = select i1 %2811, i32 1658, i32 1651
   br label %.critedge42
 
-2828:                                             ; preds = %2799
+2812:                                             ; preds = %2783
+  %2813 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3453 = select i1 %2813, i32 1599, i32 1600
+  br label %.critedge42
+
+2814:                                             ; preds = %2783
+  %2815 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3454 = select i1 %2815, i32 1658, i32 1651
+  br label %.critedge42
+
+2816:                                             ; preds = %2783
+  %2817 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2817, label %.critedge42, label %2818
+
+2818:                                             ; preds = %2816
+  %2819 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3455 = select i1 %2819, i32 1661, i32 1662
+  br label %.critedge42
+
+2820:                                             ; preds = %2783
+  %2821 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2821, label %.critedge42, label %2822
+
+2822:                                             ; preds = %2820
+  %2823 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3456 = select i1 %2823, i32 1663, i32 1664
+  br label %.critedge42
+
+2824:                                             ; preds = %2783
+  %2825 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2825, label %.critedge42, label %2826
+
+2826:                                             ; preds = %2824
+  %2827 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3457 = select i1 %2827, i32 1703, i32 1771
+  br label %.critedge42
+
+2828:                                             ; preds = %2783
   %2829 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3453 = select i1 %2829, i32 1599, i32 1600
+  %.3458 = select i1 %2829, i32 1611, i32 1612
   br label %.critedge42
 
-2830:                                             ; preds = %2799
+2830:                                             ; preds = %2783
   %2831 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3454 = select i1 %2831, i32 1658, i32 1651
+  %.3459 = select i1 %2831, i32 1658, i32 1651
   br label %.critedge42
 
-2832:                                             ; preds = %2799
-  %2833 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2833, label %.critedge42, label %2834
-
-2834:                                             ; preds = %2832
-  %2835 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3455 = select i1 %2835, i32 1661, i32 1662
-  br label %.critedge42
-
-2836:                                             ; preds = %2799
-  %2837 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2837, label %.critedge42, label %2838
-
-2838:                                             ; preds = %2836
-  %2839 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3456 = select i1 %2839, i32 1663, i32 1664
-  br label %.critedge42
-
-2840:                                             ; preds = %2799
-  %2841 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2841, label %.critedge42, label %2842
-
-2842:                                             ; preds = %2840
-  %2843 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3457 = select i1 %2843, i32 1703, i32 1771
-  br label %.critedge42
-
-2844:                                             ; preds = %2799
-  %2845 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3458 = select i1 %2845, i32 1611, i32 1612
-  br label %.critedge42
-
-2846:                                             ; preds = %2799
-  %2847 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3459 = select i1 %2847, i32 1658, i32 1651
-  br label %.critedge42
-
-2848:                                             ; preds = %4
-  %2849 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2850 = load i32, ptr %2849, align 4, !tbaa !382
-  switch i32 %2850, label %4671 [
-    i32 2, label %2851
-    i32 3, label %2862
-    i32 5, label %2873
-    i32 6, label %2875
-    i32 7, label %2877
-    i32 8, label %2879
-    i32 12, label %2881
-    i32 13, label %2931
-    i32 14, label %2937
-    i32 15, label %2943
-    i32 20, label %2949
-    i32 23, label %2951
+2832:                                             ; preds = %4
+  %2833 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2834 = load i32, ptr %2833, align 4, !tbaa !382
+  switch i32 %2834, label %4653 [
+    i32 2, label %2835
+    i32 3, label %2846
+    i32 5, label %2857
+    i32 6, label %2859
+    i32 7, label %2861
+    i32 8, label %2863
+    i32 12, label %2865
+    i32 13, label %2915
+    i32 14, label %2921
+    i32 15, label %2927
+    i32 20, label %2933
+    i32 23, label %2935
   ]
 
-2851:                                             ; preds = %2848
-  %2852 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2852, label %.critedge42, label %2853
+2835:                                             ; preds = %2832
+  %2836 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2836, label %.critedge42, label %2837
 
-2853:                                             ; preds = %2851
-  %2854 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2855 = load ptr, ptr %2854, align 8, !tbaa !388
-  %2856 = getelementptr inbounds nuw i8, ptr %2855, i64 112
-  %2857 = load i64, ptr %2856, align 8, !tbaa !406
-  %2858 = trunc i64 %2857 to i32
-  %2859 = and i32 %2858, 448
-  %2860 = icmp eq i32 %2859, 0
-  %2861 = and i32 %2858, 63
-  %switch4140 = icmp samesign ult i32 %2861, 5
-  %or.cond4141 = and i1 %2860, %switch4140
+2837:                                             ; preds = %2835
+  %2838 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2839 = load ptr, ptr %2838, align 8, !tbaa !388
+  %2840 = getelementptr inbounds nuw i8, ptr %2839, i64 112
+  %2841 = load i64, ptr %2840, align 8, !tbaa !406
+  %2842 = trunc i64 %2841 to i32
+  %2843 = and i32 %2842, 448
+  %2844 = icmp eq i32 %2843, 0
+  %2845 = and i32 %2842, 63
+  %switch4140 = icmp samesign ult i32 %2845, 5
+  %or.cond4141 = and i1 %2844, %switch4140
   %spec.select4325 = select i1 %or.cond4141, i32 1757, i32 1758
   br label %.critedge42
 
-2862:                                             ; preds = %2848
-  %2863 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2863, label %.critedge42, label %2864
+2846:                                             ; preds = %2832
+  %2847 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2847, label %.critedge42, label %2848
 
-2864:                                             ; preds = %2862
-  %2865 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2866 = load ptr, ptr %2865, align 8, !tbaa !388
-  %2867 = getelementptr inbounds nuw i8, ptr %2866, i64 112
-  %2868 = load i64, ptr %2867, align 8, !tbaa !406
-  %2869 = trunc i64 %2868 to i32
-  %2870 = and i32 %2869, 448
-  %2871 = icmp eq i32 %2870, 0
-  %2872 = and i32 %2869, 63
-  %switch4142 = icmp samesign ult i32 %2872, 5
-  %or.cond4143 = and i1 %2871, %switch4142
+2848:                                             ; preds = %2846
+  %2849 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2850 = load ptr, ptr %2849, align 8, !tbaa !388
+  %2851 = getelementptr inbounds nuw i8, ptr %2850, i64 112
+  %2852 = load i64, ptr %2851, align 8, !tbaa !406
+  %2853 = trunc i64 %2852 to i32
+  %2854 = and i32 %2853, 448
+  %2855 = icmp eq i32 %2854, 0
+  %2856 = and i32 %2853, 63
+  %switch4142 = icmp samesign ult i32 %2856, 5
+  %or.cond4143 = and i1 %2855, %switch4142
   %spec.select4326 = select i1 %or.cond4143, i32 1673, i32 1674
   br label %.critedge42
 
-2873:                                             ; preds = %2848
-  %2874 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3460 = select i1 %2874, i32 1597, i32 1598
+2857:                                             ; preds = %2832
+  %2858 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3460 = select i1 %2858, i32 1597, i32 1598
   br label %.critedge42
 
-2875:                                             ; preds = %2848
-  %2876 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3461 = select i1 %2876, i32 1658, i32 1651
+2859:                                             ; preds = %2832
+  %2860 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3461 = select i1 %2860, i32 1658, i32 1651
   br label %.critedge42
 
-2877:                                             ; preds = %2848
-  %2878 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3462 = select i1 %2878, i32 1599, i32 1600
+2861:                                             ; preds = %2832
+  %2862 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3462 = select i1 %2862, i32 1599, i32 1600
   br label %.critedge42
 
-2879:                                             ; preds = %2848
-  %2880 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3463 = select i1 %2880, i32 1658, i32 1651
+2863:                                             ; preds = %2832
+  %2864 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3463 = select i1 %2864, i32 1658, i32 1651
   br label %.critedge42
 
-2881:                                             ; preds = %2848
-  %2882 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %2883 = load i16, ptr %2882, align 4, !tbaa !407
-  switch i16 %2883, label %.critedge100 [
-    i16 5243, label %2884
-    i16 5244, label %2884
-    i16 5335, label %2899
-    i16 5337, label %2899
-    i16 3556, label %2913
-    i16 3560, label %2913
-    i16 3557, label %2913
-    i16 3559, label %2913
-    i16 5217, label %2925
-    i16 5219, label %2925
+2865:                                             ; preds = %2832
+  %2866 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %2867 = load i16, ptr %2866, align 4, !tbaa !407
+  switch i16 %2867, label %.critedge100 [
+    i16 5243, label %2868
+    i16 5244, label %2868
+    i16 5335, label %2883
+    i16 5337, label %2883
+    i16 3556, label %2897
+    i16 3560, label %2897
+    i16 3557, label %2897
+    i16 3559, label %2897
+    i16 5217, label %2909
+    i16 5219, label %2909
   ]
 
-2884:                                             ; preds = %2881, %2881
-  %2885 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2886 = load ptr, ptr %2885, align 8, !tbaa !388
-  %2887 = getelementptr inbounds nuw i8, ptr %2886, i64 32
-  %2888 = load i32, ptr %2887, align 8
-  %2889 = and i32 %2888, 255
-  %2890 = icmp eq i32 %2889, 1
-  br i1 %2890, label %2891, label %.critedge100
+2868:                                             ; preds = %2865, %2865
+  %2869 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2870 = load ptr, ptr %2869, align 8, !tbaa !388
+  %2871 = getelementptr inbounds nuw i8, ptr %2870, i64 32
+  %2872 = load i32, ptr %2871, align 8
+  %2873 = and i32 %2872, 255
+  %2874 = icmp eq i32 %2873, 1
+  br i1 %2874, label %2875, label %.critedge100
 
-2891:                                             ; preds = %2884
-  %2892 = getelementptr inbounds nuw i8, ptr %2886, i64 48
-  %2893 = load i64, ptr %2892, align 8, !tbaa !406
-  %2894 = icmp eq i64 %2893, 0
-  br i1 %2894, label %2895, label %.critedge100
+2875:                                             ; preds = %2868
+  %2876 = getelementptr inbounds nuw i8, ptr %2870, i64 48
+  %2877 = load i64, ptr %2876, align 8, !tbaa !406
+  %2878 = icmp eq i64 %2877, 0
+  br i1 %2878, label %2879, label %.critedge100
 
-2895:                                             ; preds = %2891
-  %2896 = getelementptr inbounds nuw i8, ptr %2886, i64 80
-  %2897 = load i64, ptr %2896, align 8, !tbaa !406
-  %2898 = icmp eq i64 %2897, 0
-  br i1 %2898, label %.critedge42, label %.critedge100
+2879:                                             ; preds = %2875
+  %2880 = getelementptr inbounds nuw i8, ptr %2870, i64 80
+  %2881 = load i64, ptr %2880, align 8, !tbaa !406
+  %2882 = icmp eq i64 %2881, 0
+  br i1 %2882, label %.critedge42, label %.critedge100
 
-2899:                                             ; preds = %2881, %2881
-  %2900 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2901 = load ptr, ptr %2900, align 8, !tbaa !388
-  %2902 = getelementptr inbounds nuw i8, ptr %2901, i64 32
-  %2903 = load i32, ptr %2902, align 8
-  %2904 = and i32 %2903, 255
-  %2905 = icmp eq i32 %2904, 0
-  br i1 %2905, label %2906, label %.critedge100
+2883:                                             ; preds = %2865, %2865
+  %2884 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2885 = load ptr, ptr %2884, align 8, !tbaa !388
+  %2886 = getelementptr inbounds nuw i8, ptr %2885, i64 32
+  %2887 = load i32, ptr %2886, align 8
+  %2888 = and i32 %2887, 255
+  %2889 = icmp eq i32 %2888, 0
+  br i1 %2889, label %2890, label %.critedge100
 
-2906:                                             ; preds = %2899
-  %2907 = getelementptr inbounds nuw i8, ptr %2901, i64 36
-  %2908 = load i32, ptr %2907, align 4, !tbaa !406
-  switch i32 %2908, label %.critedge100 [
-    i32 12, label %2909
-    i32 14, label %2909
+2890:                                             ; preds = %2883
+  %2891 = getelementptr inbounds nuw i8, ptr %2885, i64 36
+  %2892 = load i32, ptr %2891, align 4, !tbaa !406
+  switch i32 %2892, label %.critedge100 [
+    i32 12, label %2893
+    i32 14, label %2893
   ]
 
-2909:                                             ; preds = %2906, %2906
-  %2910 = getelementptr inbounds nuw i8, ptr %2901, i64 112
-  %2911 = load i64, ptr %2910, align 8, !tbaa !406
-  %2912 = icmp eq i64 %2911, 0
-  br i1 %2912, label %.critedge42, label %.critedge100
+2893:                                             ; preds = %2890, %2890
+  %2894 = getelementptr inbounds nuw i8, ptr %2885, i64 112
+  %2895 = load i64, ptr %2894, align 8, !tbaa !406
+  %2896 = icmp eq i64 %2895, 0
+  br i1 %2896, label %.critedge42, label %.critedge100
 
-2913:                                             ; preds = %2881, %2881, %2881, %2881
-  %2914 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2915 = load ptr, ptr %2914, align 8, !tbaa !388
-  %2916 = getelementptr inbounds nuw i8, ptr %2915, i64 32
-  %2917 = load i32, ptr %2916, align 8
-  %2918 = and i32 %2917, 255
-  %2919 = icmp eq i32 %2918, 0
-  br i1 %2919, label %2920, label %.critedge100
+2897:                                             ; preds = %2865, %2865, %2865, %2865
+  %2898 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2899 = load ptr, ptr %2898, align 8, !tbaa !388
+  %2900 = getelementptr inbounds nuw i8, ptr %2899, i64 32
+  %2901 = load i32, ptr %2900, align 8
+  %2902 = and i32 %2901, 255
+  %2903 = icmp eq i32 %2902, 0
+  br i1 %2903, label %2904, label %.critedge100
 
-2920:                                             ; preds = %2913
-  %2921 = getelementptr inbounds nuw i8, ptr %2915, i64 36
-  %2922 = load i32, ptr %2921, align 4, !tbaa !406
-  %2923 = and i32 %2922, -3
-  %switch.selectcmp4145 = icmp eq i32 %2923, 12
-  %2924 = select i1 %switch.selectcmp4145, i32 1752, i32 1705
+2904:                                             ; preds = %2897
+  %2905 = getelementptr inbounds nuw i8, ptr %2899, i64 36
+  %2906 = load i32, ptr %2905, align 4, !tbaa !406
+  %2907 = and i32 %2906, -3
+  %switch.selectcmp4145 = icmp eq i32 %2907, 12
+  %2908 = select i1 %switch.selectcmp4145, i32 1752, i32 1705
   br label %.critedge42
 
-2925:                                             ; preds = %2881, %2881
-  %2926 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2927 = load ptr, ptr %2926, align 8, !tbaa !388
-  %2928 = getelementptr inbounds nuw i8, ptr %2927, i64 48
-  %2929 = load i64, ptr %2928, align 8, !tbaa !406
-  %2930 = icmp eq i64 %2929, 0
-  br i1 %2930, label %.critedge42, label %.critedge100
+2909:                                             ; preds = %2865, %2865
+  %2910 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2911 = load ptr, ptr %2910, align 8, !tbaa !388
+  %2912 = getelementptr inbounds nuw i8, ptr %2911, i64 48
+  %2913 = load i64, ptr %2912, align 8, !tbaa !406
+  %2914 = icmp eq i64 %2913, 0
+  br i1 %2914, label %.critedge42, label %.critedge100
 
-.critedge100:                                     ; preds = %2881, %2906, %2913, %2895, %2891, %2884, %2899, %2909, %2925
+.critedge100:                                     ; preds = %1461, %1445, %1435, %1420, %1427, %1431, %1449, %1442, %1417, %1887, %1871, %1861, %1846, %1853, %1857, %1875, %1868, %1843, %2865, %2890, %2897, %2879, %2875, %2868, %2883, %2893, %2909
   br label %.critedge42
 
-2931:                                             ; preds = %2848
-  %2932 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2932, label %.critedge42, label %2933
+2915:                                             ; preds = %2832
+  %2916 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2916, label %.critedge42, label %2917
 
-2933:                                             ; preds = %2931
-  %2934 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2934, label %.critedge42, label %2935
+2917:                                             ; preds = %2915
+  %2918 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2918, label %.critedge42, label %2919
 
-2935:                                             ; preds = %2933
-  %2936 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3464 = select i1 %2936, i32 1661, i32 1662
+2919:                                             ; preds = %2917
+  %2920 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3464 = select i1 %2920, i32 1661, i32 1662
   br label %.critedge42
 
-2937:                                             ; preds = %2848
-  %2938 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2938, label %.critedge42, label %2939
+2921:                                             ; preds = %2832
+  %2922 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2922, label %.critedge42, label %2923
 
-2939:                                             ; preds = %2937
-  %2940 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2940, label %.critedge42, label %2941
+2923:                                             ; preds = %2921
+  %2924 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2924, label %.critedge42, label %2925
 
-2941:                                             ; preds = %2939
-  %2942 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3465 = select i1 %2942, i32 1663, i32 1664
+2925:                                             ; preds = %2923
+  %2926 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3465 = select i1 %2926, i32 1663, i32 1664
   br label %.critedge42
 
-2943:                                             ; preds = %2848
-  %2944 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2944, label %.critedge42, label %2945
+2927:                                             ; preds = %2832
+  %2928 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2928, label %.critedge42, label %2929
 
-2945:                                             ; preds = %2943
-  %2946 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2946, label %.critedge42, label %2947
+2929:                                             ; preds = %2927
+  %2930 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2930, label %.critedge42, label %2931
 
-2947:                                             ; preds = %2945
-  %2948 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3466 = select i1 %2948, i32 1703, i32 1771
+2931:                                             ; preds = %2929
+  %2932 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3466 = select i1 %2932, i32 1703, i32 1771
   br label %.critedge42
 
-2949:                                             ; preds = %2848
-  %2950 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3467 = select i1 %2950, i32 1611, i32 1612
+2933:                                             ; preds = %2832
+  %2934 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3467 = select i1 %2934, i32 1611, i32 1612
   br label %.critedge42
 
-2951:                                             ; preds = %2848
-  %2952 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3468 = select i1 %2952, i32 1658, i32 1651
+2935:                                             ; preds = %2832
+  %2936 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3468 = select i1 %2936, i32 1658, i32 1651
   br label %.critedge42
 
-2953:                                             ; preds = %4
-  %2954 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2955 = load i32, ptr %2954, align 4, !tbaa !382
-  switch i32 %2955, label %4671 [
-    i32 13, label %2956
-    i32 14, label %2960
-    i32 15, label %2966
-    i32 16, label %2972
+2937:                                             ; preds = %4
+  %2938 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2939 = load i32, ptr %2938, align 4, !tbaa !382
+  switch i32 %2939, label %4653 [
+    i32 13, label %2940
+    i32 14, label %2944
+    i32 15, label %2950
+    i32 16, label %2956
   ]
 
-2956:                                             ; preds = %2953
-  %2957 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isZeroIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2957, label %.critedge42, label %2958
+2940:                                             ; preds = %2937
+  %2941 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isZeroIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2941, label %.critedge42, label %2942
 
-2958:                                             ; preds = %2956
-  %2959 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3469 = select i1 %2959, i32 1661, i32 1662
+2942:                                             ; preds = %2940
+  %2943 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3469 = select i1 %2943, i32 1661, i32 1662
   br label %.critedge42
 
-2960:                                             ; preds = %2953
-  %2961 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+2944:                                             ; preds = %2937
+  %2945 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2945, label %.critedge42, label %2946
+
+2946:                                             ; preds = %2944
+  %2947 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2947, label %.critedge42, label %2948
+
+2948:                                             ; preds = %2946
+  %2949 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3470 = select i1 %2949, i32 1663, i32 1664
+  br label %.critedge42
+
+2950:                                             ; preds = %2937
+  %2951 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2951, label %.critedge42, label %2952
+
+2952:                                             ; preds = %2950
+  %2953 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2953, label %.critedge42, label %2954
+
+2954:                                             ; preds = %2952
+  %2955 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3471 = select i1 %2955, i32 1703, i32 1771
+  br label %.critedge42
+
+2956:                                             ; preds = %2937
+  %2957 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2958 = load ptr, ptr %2957, align 8, !tbaa !388
+  %2959 = getelementptr inbounds nuw i8, ptr %2958, i64 36
+  %2960 = load i32, ptr %2959, align 4, !tbaa !406
+  %2961 = icmp eq i32 %2960, 12
   br i1 %2961, label %.critedge42, label %2962
 
-2962:                                             ; preds = %2960
-  %2963 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2963, label %.critedge42, label %2964
-
-2964:                                             ; preds = %2962
-  %2965 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3470 = select i1 %2965, i32 1663, i32 1664
+2962:                                             ; preds = %2956
+  %2963 = icmp eq i32 %2960, 14
+  %spec.select3683 = select i1 %2963, i32 1759, i32 1659
   br label %.critedge42
 
-2966:                                             ; preds = %2953
-  %2967 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2967, label %.critedge42, label %2968
+2964:                                             ; preds = %4
+  %2965 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2966 = load i32, ptr %2965, align 4, !tbaa !382
+  %2967 = icmp eq i32 %2966, 16
+  br i1 %2967, label %2968, label %4653
 
-2968:                                             ; preds = %2966
-  %2969 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2969, label %.critedge42, label %2970
+2968:                                             ; preds = %2964
+  %2969 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2970 = load ptr, ptr %2969, align 8, !tbaa !388
+  %2971 = getelementptr inbounds nuw i8, ptr %2970, i64 36
+  %2972 = load i32, ptr %2971, align 4, !tbaa !406
+  %2973 = icmp eq i32 %2972, 12
+  br i1 %2973, label %.critedge42, label %2974
 
-2970:                                             ; preds = %2968
-  %2971 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3471 = select i1 %2971, i32 1703, i32 1771
+2974:                                             ; preds = %2968
+  %2975 = icmp eq i32 %2972, 14
+  %spec.select3684 = select i1 %2975, i32 1750, i32 1762
   br label %.critedge42
 
-2972:                                             ; preds = %2953
-  %2973 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2974 = load ptr, ptr %2973, align 8, !tbaa !388
-  %2975 = getelementptr inbounds nuw i8, ptr %2974, i64 36
-  %2976 = load i32, ptr %2975, align 4, !tbaa !406
-  %2977 = icmp eq i32 %2976, 12
-  br i1 %2977, label %.critedge42, label %2978
-
-2978:                                             ; preds = %2972
-  %2979 = icmp eq i32 %2976, 14
-  %spec.select3683 = select i1 %2979, i32 1759, i32 1659
-  br label %.critedge42
-
-2980:                                             ; preds = %4
-  %2981 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2982 = load i32, ptr %2981, align 4, !tbaa !382
-  %2983 = icmp eq i32 %2982, 16
-  br i1 %2983, label %2984, label %4671
-
-2984:                                             ; preds = %2980
-  %2985 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2986 = load ptr, ptr %2985, align 8, !tbaa !388
-  %2987 = getelementptr inbounds nuw i8, ptr %2986, i64 36
-  %2988 = load i32, ptr %2987, align 4, !tbaa !406
-  %2989 = icmp eq i32 %2988, 12
-  br i1 %2989, label %.critedge42, label %2990
-
-2990:                                             ; preds = %2984
-  %2991 = icmp eq i32 %2988, 14
-  %spec.select3684 = select i1 %2991, i32 1750, i32 1762
-  br label %.critedge42
-
-2992:                                             ; preds = %4
-  %2993 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %2994 = load i32, ptr %2993, align 4, !tbaa !382
-  switch i32 %2994, label %4671 [
-    i32 2, label %2995
-    i32 3, label %3006
-    i32 5, label %3017
-    i32 6, label %3019
-    i32 7, label %3021
-    i32 8, label %3023
-    i32 9, label %3025
-    i32 10, label %3034
-    i32 11, label %3043
-    i32 12, label %3052
-    i32 13, label %3061
-    i32 14, label %3065
-    i32 15, label %3069
-    i32 16, label %3073
-    i32 18, label %3075
-    i32 20, label %3084
-    i32 23, label %3086
+2976:                                             ; preds = %4
+  %2977 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %2978 = load i32, ptr %2977, align 4, !tbaa !382
+  switch i32 %2978, label %4653 [
+    i32 2, label %2979
+    i32 3, label %2990
+    i32 5, label %3001
+    i32 6, label %3003
+    i32 7, label %3005
+    i32 8, label %3007
+    i32 9, label %3009
+    i32 10, label %3018
+    i32 11, label %3027
+    i32 12, label %3036
+    i32 13, label %3045
+    i32 14, label %3049
+    i32 15, label %3053
+    i32 16, label %3057
+    i32 18, label %3059
+    i32 20, label %3068
+    i32 23, label %3070
   ]
 
-2995:                                             ; preds = %2992
-  %2996 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %2996, label %.critedge42, label %2997
+2979:                                             ; preds = %2976
+  %2980 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2980, label %.critedge42, label %2981
 
-2997:                                             ; preds = %2995
-  %2998 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2999 = load ptr, ptr %2998, align 8, !tbaa !388
-  %3000 = getelementptr inbounds nuw i8, ptr %2999, i64 112
-  %3001 = load i64, ptr %3000, align 8, !tbaa !406
-  %3002 = trunc i64 %3001 to i32
-  %3003 = and i32 %3002, 448
-  %3004 = icmp eq i32 %3003, 0
-  %3005 = and i32 %3002, 63
-  %switch4146 = icmp samesign ult i32 %3005, 5
-  %or.cond4147 = and i1 %3004, %switch4146
+2981:                                             ; preds = %2979
+  %2982 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2983 = load ptr, ptr %2982, align 8, !tbaa !388
+  %2984 = getelementptr inbounds nuw i8, ptr %2983, i64 112
+  %2985 = load i64, ptr %2984, align 8, !tbaa !406
+  %2986 = trunc i64 %2985 to i32
+  %2987 = and i32 %2986, 448
+  %2988 = icmp eq i32 %2987, 0
+  %2989 = and i32 %2986, 63
+  %switch4146 = icmp samesign ult i32 %2989, 5
+  %or.cond4147 = and i1 %2988, %switch4146
   %spec.select4327 = select i1 %or.cond4147, i32 1757, i32 1758
   br label %.critedge42
 
-3006:                                             ; preds = %2992
-  %3007 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3007, label %.critedge42, label %3008
+2990:                                             ; preds = %2976
+  %2991 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %2991, label %.critedge42, label %2992
 
-3008:                                             ; preds = %3006
-  %3009 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3010 = load ptr, ptr %3009, align 8, !tbaa !388
-  %3011 = getelementptr inbounds nuw i8, ptr %3010, i64 112
-  %3012 = load i64, ptr %3011, align 8, !tbaa !406
-  %3013 = trunc i64 %3012 to i32
-  %3014 = and i32 %3013, 448
-  %3015 = icmp eq i32 %3014, 0
-  %3016 = and i32 %3013, 63
-  %switch4148 = icmp samesign ult i32 %3016, 5
-  %or.cond4149 = and i1 %3015, %switch4148
+2992:                                             ; preds = %2990
+  %2993 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %2994 = load ptr, ptr %2993, align 8, !tbaa !388
+  %2995 = getelementptr inbounds nuw i8, ptr %2994, i64 112
+  %2996 = load i64, ptr %2995, align 8, !tbaa !406
+  %2997 = trunc i64 %2996 to i32
+  %2998 = and i32 %2997, 448
+  %2999 = icmp eq i32 %2998, 0
+  %3000 = and i32 %2997, 63
+  %switch4148 = icmp samesign ult i32 %3000, 5
+  %or.cond4149 = and i1 %2999, %switch4148
   %spec.select4328 = select i1 %or.cond4149, i32 1673, i32 1674
   br label %.critedge42
 
-3017:                                             ; preds = %2992
-  %3018 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3472 = select i1 %3018, i32 1597, i32 1598
+3001:                                             ; preds = %2976
+  %3002 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3472 = select i1 %3002, i32 1597, i32 1598
   br label %.critedge42
 
-3019:                                             ; preds = %2992
-  %3020 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3473 = select i1 %3020, i32 1658, i32 1651
+3003:                                             ; preds = %2976
+  %3004 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3473 = select i1 %3004, i32 1658, i32 1651
   br label %.critedge42
 
-3021:                                             ; preds = %2992
-  %3022 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3474 = select i1 %3022, i32 1599, i32 1600
+3005:                                             ; preds = %2976
+  %3006 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3474 = select i1 %3006, i32 1599, i32 1600
   br label %.critedge42
 
-3023:                                             ; preds = %2992
-  %3024 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3475 = select i1 %3024, i32 1658, i32 1651
+3007:                                             ; preds = %2976
+  %3008 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3475 = select i1 %3008, i32 1658, i32 1651
   br label %.critedge42
 
-3025:                                             ; preds = %2992
-  %3026 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3027 = load ptr, ptr %3026, align 8, !tbaa !388
-  %3028 = getelementptr inbounds nuw i8, ptr %3027, i64 112
-  %3029 = load i64, ptr %3028, align 8, !tbaa !406
-  %3030 = trunc i64 %3029 to i32
-  %3031 = and i32 %3030, 448
-  %3032 = icmp eq i32 %3031, 0
-  %3033 = and i32 %3030, 63
-  %switch4150 = icmp samesign ult i32 %3033, 5
-  %or.cond4151 = and i1 %3032, %switch4150
+3009:                                             ; preds = %2976
+  %3010 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3011 = load ptr, ptr %3010, align 8, !tbaa !388
+  %3012 = getelementptr inbounds nuw i8, ptr %3011, i64 112
+  %3013 = load i64, ptr %3012, align 8, !tbaa !406
+  %3014 = trunc i64 %3013 to i32
+  %3015 = and i32 %3014, 448
+  %3016 = icmp eq i32 %3015, 0
+  %3017 = and i32 %3014, 63
+  %switch4150 = icmp samesign ult i32 %3017, 5
+  %or.cond4151 = and i1 %3016, %switch4150
   %spec.select4329 = select i1 %or.cond4151, i32 1601, i32 1602
   br label %.critedge42
 
-3034:                                             ; preds = %2992
-  %3035 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3036 = load ptr, ptr %3035, align 8, !tbaa !388
-  %3037 = getelementptr inbounds nuw i8, ptr %3036, i64 112
-  %3038 = load i64, ptr %3037, align 8, !tbaa !406
-  %3039 = trunc i64 %3038 to i32
-  %3040 = and i32 %3039, 448
-  %3041 = icmp eq i32 %3040, 0
-  %3042 = and i32 %3039, 63
-  %switch4152 = icmp samesign ult i32 %3042, 5
-  %or.cond4153 = and i1 %3041, %switch4152
+3018:                                             ; preds = %2976
+  %3019 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3020 = load ptr, ptr %3019, align 8, !tbaa !388
+  %3021 = getelementptr inbounds nuw i8, ptr %3020, i64 112
+  %3022 = load i64, ptr %3021, align 8, !tbaa !406
+  %3023 = trunc i64 %3022 to i32
+  %3024 = and i32 %3023, 448
+  %3025 = icmp eq i32 %3024, 0
+  %3026 = and i32 %3023, 63
+  %switch4152 = icmp samesign ult i32 %3026, 5
+  %or.cond4153 = and i1 %3025, %switch4152
   %spec.select4330 = select i1 %or.cond4153, i32 1603, i32 1604
   br label %.critedge42
 
-3043:                                             ; preds = %2992
-  %3044 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3045 = load ptr, ptr %3044, align 8, !tbaa !388
-  %3046 = getelementptr inbounds nuw i8, ptr %3045, i64 112
-  %3047 = load i64, ptr %3046, align 8, !tbaa !406
-  %3048 = trunc i64 %3047 to i32
-  %3049 = and i32 %3048, 448
-  %3050 = icmp eq i32 %3049, 0
-  %3051 = and i32 %3048, 63
-  %switch4154 = icmp samesign ult i32 %3051, 5
-  %or.cond4155 = and i1 %3050, %switch4154
+3027:                                             ; preds = %2976
+  %3028 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3029 = load ptr, ptr %3028, align 8, !tbaa !388
+  %3030 = getelementptr inbounds nuw i8, ptr %3029, i64 112
+  %3031 = load i64, ptr %3030, align 8, !tbaa !406
+  %3032 = trunc i64 %3031 to i32
+  %3033 = and i32 %3032, 448
+  %3034 = icmp eq i32 %3033, 0
+  %3035 = and i32 %3032, 63
+  %switch4154 = icmp samesign ult i32 %3035, 5
+  %or.cond4155 = and i1 %3034, %switch4154
   %spec.select4331 = select i1 %or.cond4155, i32 1605, i32 1606
   br label %.critedge42
 
-3052:                                             ; preds = %2992
-  %3053 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3054 = load ptr, ptr %3053, align 8, !tbaa !388
-  %3055 = getelementptr inbounds nuw i8, ptr %3054, i64 112
-  %3056 = load i64, ptr %3055, align 8, !tbaa !406
-  %3057 = trunc i64 %3056 to i32
-  %3058 = and i32 %3057, 448
-  %3059 = icmp eq i32 %3058, 0
-  %3060 = and i32 %3057, 63
-  %switch4156 = icmp samesign ult i32 %3060, 5
-  %or.cond4157 = and i1 %3059, %switch4156
+3036:                                             ; preds = %2976
+  %3037 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3038 = load ptr, ptr %3037, align 8, !tbaa !388
+  %3039 = getelementptr inbounds nuw i8, ptr %3038, i64 112
+  %3040 = load i64, ptr %3039, align 8, !tbaa !406
+  %3041 = trunc i64 %3040 to i32
+  %3042 = and i32 %3041, 448
+  %3043 = icmp eq i32 %3042, 0
+  %3044 = and i32 %3041, 63
+  %switch4156 = icmp samesign ult i32 %3044, 5
+  %or.cond4157 = and i1 %3043, %switch4156
   %spec.select4332 = select i1 %or.cond4157, i32 1607, i32 1608
   br label %.critedge42
 
-3061:                                             ; preds = %2992
-  %3062 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3062, label %.critedge42, label %3063
+3045:                                             ; preds = %2976
+  %3046 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3046, label %.critedge42, label %3047
 
-3063:                                             ; preds = %3061
-  %3064 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3476 = select i1 %3064, i32 1661, i32 1662
+3047:                                             ; preds = %3045
+  %3048 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3476 = select i1 %3048, i32 1661, i32 1662
   br label %.critedge42
 
-3065:                                             ; preds = %2992
-  %3066 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3066, label %.critedge42, label %3067
+3049:                                             ; preds = %2976
+  %3050 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3050, label %.critedge42, label %3051
 
-3067:                                             ; preds = %3065
-  %3068 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3477 = select i1 %3068, i32 1663, i32 1664
+3051:                                             ; preds = %3049
+  %3052 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3477 = select i1 %3052, i32 1663, i32 1664
   br label %.critedge42
 
-3069:                                             ; preds = %2992
-  %3070 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3070, label %.critedge42, label %3071
+3053:                                             ; preds = %2976
+  %3054 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3054, label %.critedge42, label %3055
 
-3071:                                             ; preds = %3069
-  %3072 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3478 = select i1 %3072, i32 1665, i32 1666
+3055:                                             ; preds = %3053
+  %3056 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3478 = select i1 %3056, i32 1665, i32 1666
   br label %.critedge42
 
-3073:                                             ; preds = %2992
-  %3074 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3479 = select i1 %3074, i32 1659, i32 1660
+3057:                                             ; preds = %2976
+  %3058 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3479 = select i1 %3058, i32 1659, i32 1660
   br label %.critedge42
 
-3075:                                             ; preds = %2992
-  %3076 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3077 = load ptr, ptr %3076, align 8, !tbaa !388
-  %3078 = getelementptr inbounds nuw i8, ptr %3077, i64 112
-  %3079 = load i64, ptr %3078, align 8, !tbaa !406
-  %3080 = trunc i64 %3079 to i32
-  %3081 = and i32 %3080, 448
-  %3082 = icmp eq i32 %3081, 0
-  %3083 = and i32 %3080, 63
-  %switch4158 = icmp samesign ult i32 %3083, 5
-  %or.cond4159 = and i1 %3082, %switch4158
+3059:                                             ; preds = %2976
+  %3060 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3061 = load ptr, ptr %3060, align 8, !tbaa !388
+  %3062 = getelementptr inbounds nuw i8, ptr %3061, i64 112
+  %3063 = load i64, ptr %3062, align 8, !tbaa !406
+  %3064 = trunc i64 %3063 to i32
+  %3065 = and i32 %3064, 448
+  %3066 = icmp eq i32 %3065, 0
+  %3067 = and i32 %3064, 63
+  %switch4158 = icmp samesign ult i32 %3067, 5
+  %or.cond4159 = and i1 %3066, %switch4158
   %spec.select4333 = select i1 %or.cond4159, i32 1609, i32 1610
   br label %.critedge42
 
-3084:                                             ; preds = %2992
-  %3085 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3480 = select i1 %3085, i32 1611, i32 1612
+3068:                                             ; preds = %2976
+  %3069 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3480 = select i1 %3069, i32 1611, i32 1612
   br label %.critedge42
 
-3086:                                             ; preds = %2992
-  %3087 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3481 = select i1 %3087, i32 1658, i32 1651
+3070:                                             ; preds = %2976
+  %3071 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3481 = select i1 %3071, i32 1658, i32 1651
   br label %.critedge42
 
-3088:                                             ; preds = %4
-  %3089 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %3090 = load i32, ptr %3089, align 4, !tbaa !382
-  switch i32 %3090, label %4671 [
-    i32 2, label %3091
-    i32 3, label %3102
-    i32 5, label %3113
-    i32 6, label %3115
-    i32 7, label %3117
-    i32 8, label %3119
-    i32 13, label %3121
-    i32 14, label %3125
-    i32 15, label %3129
-    i32 20, label %3133
-    i32 23, label %3135
+3072:                                             ; preds = %4
+  %3073 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %3074 = load i32, ptr %3073, align 4, !tbaa !382
+  switch i32 %3074, label %4653 [
+    i32 2, label %3075
+    i32 3, label %3086
+    i32 5, label %3097
+    i32 6, label %3099
+    i32 7, label %3101
+    i32 8, label %3103
+    i32 13, label %3105
+    i32 14, label %3109
+    i32 15, label %3113
+    i32 20, label %3117
+    i32 23, label %3119
   ]
 
-3091:                                             ; preds = %3088
-  %3092 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3092, label %.critedge42, label %3093
+3075:                                             ; preds = %3072
+  %3076 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3076, label %.critedge42, label %3077
 
-3093:                                             ; preds = %3091
-  %3094 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3095 = load ptr, ptr %3094, align 8, !tbaa !388
-  %3096 = getelementptr inbounds nuw i8, ptr %3095, i64 112
-  %3097 = load i64, ptr %3096, align 8, !tbaa !406
-  %3098 = trunc i64 %3097 to i32
-  %3099 = and i32 %3098, 448
-  %3100 = icmp eq i32 %3099, 0
-  %3101 = and i32 %3098, 63
-  %switch4160 = icmp samesign ult i32 %3101, 5
-  %or.cond4161 = and i1 %3100, %switch4160
+3077:                                             ; preds = %3075
+  %3078 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3079 = load ptr, ptr %3078, align 8, !tbaa !388
+  %3080 = getelementptr inbounds nuw i8, ptr %3079, i64 112
+  %3081 = load i64, ptr %3080, align 8, !tbaa !406
+  %3082 = trunc i64 %3081 to i32
+  %3083 = and i32 %3082, 448
+  %3084 = icmp eq i32 %3083, 0
+  %3085 = and i32 %3082, 63
+  %switch4160 = icmp samesign ult i32 %3085, 5
+  %or.cond4161 = and i1 %3084, %switch4160
   %spec.select4334 = select i1 %or.cond4161, i32 1757, i32 1758
   br label %.critedge42
 
-3102:                                             ; preds = %3088
-  %3103 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3103, label %.critedge42, label %3104
+3086:                                             ; preds = %3072
+  %3087 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3087, label %.critedge42, label %3088
 
-3104:                                             ; preds = %3102
-  %3105 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3106 = load ptr, ptr %3105, align 8, !tbaa !388
-  %3107 = getelementptr inbounds nuw i8, ptr %3106, i64 112
-  %3108 = load i64, ptr %3107, align 8, !tbaa !406
-  %3109 = trunc i64 %3108 to i32
-  %3110 = and i32 %3109, 448
-  %3111 = icmp eq i32 %3110, 0
-  %3112 = and i32 %3109, 63
-  %switch4162 = icmp samesign ult i32 %3112, 5
-  %or.cond4163 = and i1 %3111, %switch4162
+3088:                                             ; preds = %3086
+  %3089 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3090 = load ptr, ptr %3089, align 8, !tbaa !388
+  %3091 = getelementptr inbounds nuw i8, ptr %3090, i64 112
+  %3092 = load i64, ptr %3091, align 8, !tbaa !406
+  %3093 = trunc i64 %3092 to i32
+  %3094 = and i32 %3093, 448
+  %3095 = icmp eq i32 %3094, 0
+  %3096 = and i32 %3093, 63
+  %switch4162 = icmp samesign ult i32 %3096, 5
+  %or.cond4163 = and i1 %3095, %switch4162
   %spec.select4335 = select i1 %or.cond4163, i32 1673, i32 1674
   br label %.critedge42
 
-3113:                                             ; preds = %3088
-  %3114 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3482 = select i1 %3114, i32 1597, i32 1598
+3097:                                             ; preds = %3072
+  %3098 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3482 = select i1 %3098, i32 1597, i32 1598
   br label %.critedge42
 
-3115:                                             ; preds = %3088
-  %3116 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3483 = select i1 %3116, i32 1658, i32 1651
+3099:                                             ; preds = %3072
+  %3100 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3483 = select i1 %3100, i32 1658, i32 1651
   br label %.critedge42
 
-3117:                                             ; preds = %3088
+3101:                                             ; preds = %3072
+  %3102 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3484 = select i1 %3102, i32 1599, i32 1600
+  br label %.critedge42
+
+3103:                                             ; preds = %3072
+  %3104 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3485 = select i1 %3104, i32 1658, i32 1651
+  br label %.critedge42
+
+3105:                                             ; preds = %3072
+  %3106 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3106, label %.critedge42, label %3107
+
+3107:                                             ; preds = %3105
+  %3108 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3486 = select i1 %3108, i32 1661, i32 1662
+  br label %.critedge42
+
+3109:                                             ; preds = %3072
+  %3110 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3110, label %.critedge42, label %3111
+
+3111:                                             ; preds = %3109
+  %3112 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3487 = select i1 %3112, i32 1663, i32 1664
+  br label %.critedge42
+
+3113:                                             ; preds = %3072
+  %3114 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3114, label %.critedge42, label %3115
+
+3115:                                             ; preds = %3113
+  %3116 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3488 = select i1 %3116, i32 1703, i32 1771
+  br label %.critedge42
+
+3117:                                             ; preds = %3072
   %3118 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3484 = select i1 %3118, i32 1599, i32 1600
+  %.3489 = select i1 %3118, i32 1611, i32 1612
   br label %.critedge42
 
-3119:                                             ; preds = %3088
+3119:                                             ; preds = %3072
   %3120 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3485 = select i1 %3120, i32 1658, i32 1651
+  %.3490 = select i1 %3120, i32 1658, i32 1651
   br label %.critedge42
 
-3121:                                             ; preds = %3088
-  %3122 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3122, label %.critedge42, label %3123
-
-3123:                                             ; preds = %3121
-  %3124 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3486 = select i1 %3124, i32 1661, i32 1662
-  br label %.critedge42
-
-3125:                                             ; preds = %3088
-  %3126 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3126, label %.critedge42, label %3127
-
-3127:                                             ; preds = %3125
-  %3128 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3487 = select i1 %3128, i32 1663, i32 1664
-  br label %.critedge42
-
-3129:                                             ; preds = %3088
-  %3130 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3130, label %.critedge42, label %3131
-
-3131:                                             ; preds = %3129
-  %3132 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3488 = select i1 %3132, i32 1703, i32 1771
-  br label %.critedge42
-
-3133:                                             ; preds = %3088
-  %3134 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3489 = select i1 %3134, i32 1611, i32 1612
-  br label %.critedge42
-
-3135:                                             ; preds = %3088
-  %3136 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3490 = select i1 %3136, i32 1658, i32 1651
-  br label %.critedge42
-
-3137:                                             ; preds = %4
-  %3138 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %3139 = load i32, ptr %3138, align 4, !tbaa !382
-  switch i32 %3139, label %4671 [
-    i32 2, label %3140
-    i32 3, label %3151
-    i32 5, label %3162
-    i32 6, label %3164
-    i32 7, label %3166
-    i32 8, label %3168
-    i32 13, label %3170
-    i32 14, label %3174
-    i32 15, label %3178
-    i32 20, label %3182
-    i32 23, label %3184
+3121:                                             ; preds = %4
+  %3122 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %3123 = load i32, ptr %3122, align 4, !tbaa !382
+  switch i32 %3123, label %4653 [
+    i32 2, label %3124
+    i32 3, label %3135
+    i32 5, label %3146
+    i32 6, label %3148
+    i32 7, label %3150
+    i32 8, label %3152
+    i32 13, label %3154
+    i32 14, label %3158
+    i32 15, label %3162
+    i32 20, label %3166
+    i32 23, label %3168
   ]
 
-3140:                                             ; preds = %3137
-  %3141 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3141, label %.critedge42, label %3142
+3124:                                             ; preds = %3121
+  %3125 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3125, label %.critedge42, label %3126
 
-3142:                                             ; preds = %3140
-  %3143 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3144 = load ptr, ptr %3143, align 8, !tbaa !388
-  %3145 = getelementptr inbounds nuw i8, ptr %3144, i64 112
-  %3146 = load i64, ptr %3145, align 8, !tbaa !406
-  %3147 = trunc i64 %3146 to i32
-  %3148 = and i32 %3147, 448
-  %3149 = icmp eq i32 %3148, 0
-  %3150 = and i32 %3147, 63
-  %switch4164 = icmp samesign ult i32 %3150, 5
-  %or.cond4165 = and i1 %3149, %switch4164
+3126:                                             ; preds = %3124
+  %3127 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3128 = load ptr, ptr %3127, align 8, !tbaa !388
+  %3129 = getelementptr inbounds nuw i8, ptr %3128, i64 112
+  %3130 = load i64, ptr %3129, align 8, !tbaa !406
+  %3131 = trunc i64 %3130 to i32
+  %3132 = and i32 %3131, 448
+  %3133 = icmp eq i32 %3132, 0
+  %3134 = and i32 %3131, 63
+  %switch4164 = icmp samesign ult i32 %3134, 5
+  %or.cond4165 = and i1 %3133, %switch4164
   %spec.select4336 = select i1 %or.cond4165, i32 1757, i32 1758
   br label %.critedge42
 
-3151:                                             ; preds = %3137
-  %3152 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3152, label %.critedge42, label %3153
+3135:                                             ; preds = %3121
+  %3136 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3136, label %.critedge42, label %3137
 
-3153:                                             ; preds = %3151
-  %3154 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3155 = load ptr, ptr %3154, align 8, !tbaa !388
-  %3156 = getelementptr inbounds nuw i8, ptr %3155, i64 112
-  %3157 = load i64, ptr %3156, align 8, !tbaa !406
-  %3158 = trunc i64 %3157 to i32
-  %3159 = and i32 %3158, 448
-  %3160 = icmp eq i32 %3159, 0
-  %3161 = and i32 %3158, 63
-  %switch4166 = icmp samesign ult i32 %3161, 5
-  %or.cond4167 = and i1 %3160, %switch4166
+3137:                                             ; preds = %3135
+  %3138 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3139 = load ptr, ptr %3138, align 8, !tbaa !388
+  %3140 = getelementptr inbounds nuw i8, ptr %3139, i64 112
+  %3141 = load i64, ptr %3140, align 8, !tbaa !406
+  %3142 = trunc i64 %3141 to i32
+  %3143 = and i32 %3142, 448
+  %3144 = icmp eq i32 %3143, 0
+  %3145 = and i32 %3142, 63
+  %switch4166 = icmp samesign ult i32 %3145, 5
+  %or.cond4167 = and i1 %3144, %switch4166
   %spec.select4337 = select i1 %or.cond4167, i32 1673, i32 1674
   br label %.critedge42
 
-3162:                                             ; preds = %3137
-  %3163 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3491 = select i1 %3163, i32 1597, i32 1598
+3146:                                             ; preds = %3121
+  %3147 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3491 = select i1 %3147, i32 1597, i32 1598
   br label %.critedge42
 
-3164:                                             ; preds = %3137
-  %3165 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3492 = select i1 %3165, i32 1658, i32 1651
+3148:                                             ; preds = %3121
+  %3149 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3492 = select i1 %3149, i32 1658, i32 1651
   br label %.critedge42
 
-3166:                                             ; preds = %3137
+3150:                                             ; preds = %3121
+  %3151 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3493 = select i1 %3151, i32 1599, i32 1600
+  br label %.critedge42
+
+3152:                                             ; preds = %3121
+  %3153 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3494 = select i1 %3153, i32 1658, i32 1651
+  br label %.critedge42
+
+3154:                                             ; preds = %3121
+  %3155 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3155, label %.critedge42, label %3156
+
+3156:                                             ; preds = %3154
+  %3157 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3495 = select i1 %3157, i32 1661, i32 1662
+  br label %.critedge42
+
+3158:                                             ; preds = %3121
+  %3159 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3159, label %.critedge42, label %3160
+
+3160:                                             ; preds = %3158
+  %3161 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3496 = select i1 %3161, i32 1663, i32 1664
+  br label %.critedge42
+
+3162:                                             ; preds = %3121
+  %3163 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3163, label %.critedge42, label %3164
+
+3164:                                             ; preds = %3162
+  %3165 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3497 = select i1 %3165, i32 1665, i32 1666
+  br label %.critedge42
+
+3166:                                             ; preds = %3121
   %3167 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3493 = select i1 %3167, i32 1599, i32 1600
+  %.3498 = select i1 %3167, i32 1611, i32 1612
   br label %.critedge42
 
-3168:                                             ; preds = %3137
+3168:                                             ; preds = %3121
   %3169 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3494 = select i1 %3169, i32 1658, i32 1651
+  %.3499 = select i1 %3169, i32 1658, i32 1651
   br label %.critedge42
 
-3170:                                             ; preds = %3137
-  %3171 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3171, label %.critedge42, label %3172
-
-3172:                                             ; preds = %3170
-  %3173 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3495 = select i1 %3173, i32 1661, i32 1662
-  br label %.critedge42
-
-3174:                                             ; preds = %3137
-  %3175 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3175, label %.critedge42, label %3176
-
-3176:                                             ; preds = %3174
-  %3177 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3496 = select i1 %3177, i32 1663, i32 1664
-  br label %.critedge42
-
-3178:                                             ; preds = %3137
-  %3179 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3179, label %.critedge42, label %3180
-
-3180:                                             ; preds = %3178
-  %3181 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3497 = select i1 %3181, i32 1665, i32 1666
-  br label %.critedge42
-
-3182:                                             ; preds = %3137
-  %3183 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3498 = select i1 %3183, i32 1611, i32 1612
-  br label %.critedge42
-
-3184:                                             ; preds = %3137
-  %3185 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3499 = select i1 %3185, i32 1658, i32 1651
-  br label %.critedge42
-
-3186:                                             ; preds = %4
-  %3187 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %3188 = load i32, ptr %3187, align 4, !tbaa !382
-  switch i32 %3188, label %4671 [
-    i32 2, label %3189
-    i32 3, label %3200
-    i32 5, label %3211
-    i32 6, label %3213
-    i32 7, label %3215
-    i32 8, label %3217
-    i32 13, label %3219
-    i32 14, label %3223
-    i32 15, label %3227
-    i32 20, label %3231
-    i32 23, label %3233
+3170:                                             ; preds = %4
+  %3171 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %3172 = load i32, ptr %3171, align 4, !tbaa !382
+  switch i32 %3172, label %4653 [
+    i32 2, label %3173
+    i32 3, label %3184
+    i32 5, label %3195
+    i32 6, label %3197
+    i32 7, label %3199
+    i32 8, label %3201
+    i32 13, label %3203
+    i32 14, label %3207
+    i32 15, label %3211
+    i32 20, label %3215
+    i32 23, label %3217
   ]
 
-3189:                                             ; preds = %3186
-  %3190 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3190, label %.critedge42, label %3191
+3173:                                             ; preds = %3170
+  %3174 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3174, label %.critedge42, label %3175
 
-3191:                                             ; preds = %3189
-  %3192 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3193 = load ptr, ptr %3192, align 8, !tbaa !388
-  %3194 = getelementptr inbounds nuw i8, ptr %3193, i64 112
-  %3195 = load i64, ptr %3194, align 8, !tbaa !406
-  %3196 = trunc i64 %3195 to i32
-  %3197 = and i32 %3196, 448
-  %3198 = icmp eq i32 %3197, 0
-  %3199 = and i32 %3196, 63
-  %switch4168 = icmp samesign ult i32 %3199, 5
-  %or.cond4169 = and i1 %3198, %switch4168
+3175:                                             ; preds = %3173
+  %3176 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3177 = load ptr, ptr %3176, align 8, !tbaa !388
+  %3178 = getelementptr inbounds nuw i8, ptr %3177, i64 112
+  %3179 = load i64, ptr %3178, align 8, !tbaa !406
+  %3180 = trunc i64 %3179 to i32
+  %3181 = and i32 %3180, 448
+  %3182 = icmp eq i32 %3181, 0
+  %3183 = and i32 %3180, 63
+  %switch4168 = icmp samesign ult i32 %3183, 5
+  %or.cond4169 = and i1 %3182, %switch4168
   %spec.select4338 = select i1 %or.cond4169, i32 1757, i32 1758
   br label %.critedge42
 
-3200:                                             ; preds = %3186
-  %3201 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3201, label %.critedge42, label %3202
+3184:                                             ; preds = %3170
+  %3185 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3185, label %.critedge42, label %3186
 
-3202:                                             ; preds = %3200
-  %3203 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3204 = load ptr, ptr %3203, align 8, !tbaa !388
-  %3205 = getelementptr inbounds nuw i8, ptr %3204, i64 112
-  %3206 = load i64, ptr %3205, align 8, !tbaa !406
-  %3207 = trunc i64 %3206 to i32
-  %3208 = and i32 %3207, 448
-  %3209 = icmp eq i32 %3208, 0
-  %3210 = and i32 %3207, 63
-  %switch4170 = icmp samesign ult i32 %3210, 5
-  %or.cond4171 = and i1 %3209, %switch4170
+3186:                                             ; preds = %3184
+  %3187 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3188 = load ptr, ptr %3187, align 8, !tbaa !388
+  %3189 = getelementptr inbounds nuw i8, ptr %3188, i64 112
+  %3190 = load i64, ptr %3189, align 8, !tbaa !406
+  %3191 = trunc i64 %3190 to i32
+  %3192 = and i32 %3191, 448
+  %3193 = icmp eq i32 %3192, 0
+  %3194 = and i32 %3191, 63
+  %switch4170 = icmp samesign ult i32 %3194, 5
+  %or.cond4171 = and i1 %3193, %switch4170
   %spec.select4339 = select i1 %or.cond4171, i32 1673, i32 1674
   br label %.critedge42
 
-3211:                                             ; preds = %3186
-  %3212 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3500 = select i1 %3212, i32 1597, i32 1598
+3195:                                             ; preds = %3170
+  %3196 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3500 = select i1 %3196, i32 1597, i32 1598
   br label %.critedge42
 
-3213:                                             ; preds = %3186
-  %3214 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3501 = select i1 %3214, i32 1658, i32 1651
+3197:                                             ; preds = %3170
+  %3198 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3501 = select i1 %3198, i32 1658, i32 1651
   br label %.critedge42
 
-3215:                                             ; preds = %3186
+3199:                                             ; preds = %3170
+  %3200 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3502 = select i1 %3200, i32 1599, i32 1600
+  br label %.critedge42
+
+3201:                                             ; preds = %3170
+  %3202 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3503 = select i1 %3202, i32 1658, i32 1651
+  br label %.critedge42
+
+3203:                                             ; preds = %3170
+  %3204 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3204, label %.critedge42, label %3205
+
+3205:                                             ; preds = %3203
+  %3206 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3504 = select i1 %3206, i32 1661, i32 1662
+  br label %.critedge42
+
+3207:                                             ; preds = %3170
+  %3208 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3208, label %.critedge42, label %3209
+
+3209:                                             ; preds = %3207
+  %3210 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3505 = select i1 %3210, i32 1663, i32 1664
+  br label %.critedge42
+
+3211:                                             ; preds = %3170
+  %3212 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3212, label %.critedge42, label %3213
+
+3213:                                             ; preds = %3211
+  %3214 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3506 = select i1 %3214, i32 1703, i32 1771
+  br label %.critedge42
+
+3215:                                             ; preds = %3170
   %3216 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3502 = select i1 %3216, i32 1599, i32 1600
+  %.3507 = select i1 %3216, i32 1611, i32 1612
   br label %.critedge42
 
-3217:                                             ; preds = %3186
+3217:                                             ; preds = %3170
   %3218 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3503 = select i1 %3218, i32 1658, i32 1651
+  %.3508 = select i1 %3218, i32 1658, i32 1651
   br label %.critedge42
 
-3219:                                             ; preds = %3186
-  %3220 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3220, label %.critedge42, label %3221
-
-3221:                                             ; preds = %3219
-  %3222 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3504 = select i1 %3222, i32 1661, i32 1662
-  br label %.critedge42
-
-3223:                                             ; preds = %3186
-  %3224 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3224, label %.critedge42, label %3225
-
-3225:                                             ; preds = %3223
-  %3226 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3505 = select i1 %3226, i32 1663, i32 1664
-  br label %.critedge42
-
-3227:                                             ; preds = %3186
-  %3228 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3228, label %.critedge42, label %3229
-
-3229:                                             ; preds = %3227
-  %3230 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3506 = select i1 %3230, i32 1703, i32 1771
-  br label %.critedge42
-
-3231:                                             ; preds = %3186
-  %3232 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3507 = select i1 %3232, i32 1611, i32 1612
-  br label %.critedge42
-
-3233:                                             ; preds = %3186
-  %3234 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3508 = select i1 %3234, i32 1658, i32 1651
-  br label %.critedge42
-
-3235:                                             ; preds = %4
-  %3236 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %3237 = load i32, ptr %3236, align 4, !tbaa !382
-  switch i32 %3237, label %4671 [
-    i32 2, label %3238
-    i32 3, label %3249
-    i32 5, label %3260
-    i32 6, label %3262
-    i32 7, label %3264
-    i32 8, label %3266
-    i32 13, label %3268
-    i32 14, label %3272
-    i32 15, label %3276
-    i32 20, label %3280
-    i32 23, label %3282
+3219:                                             ; preds = %4
+  %3220 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %3221 = load i32, ptr %3220, align 4, !tbaa !382
+  switch i32 %3221, label %4653 [
+    i32 2, label %3222
+    i32 3, label %3233
+    i32 5, label %3244
+    i32 6, label %3246
+    i32 7, label %3248
+    i32 8, label %3250
+    i32 13, label %3252
+    i32 14, label %3256
+    i32 15, label %3260
+    i32 20, label %3264
+    i32 23, label %3266
   ]
 
-3238:                                             ; preds = %3235
-  %3239 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3239, label %.critedge42, label %3240
+3222:                                             ; preds = %3219
+  %3223 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3223, label %.critedge42, label %3224
 
-3240:                                             ; preds = %3238
-  %3241 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3242 = load ptr, ptr %3241, align 8, !tbaa !388
-  %3243 = getelementptr inbounds nuw i8, ptr %3242, i64 112
-  %3244 = load i64, ptr %3243, align 8, !tbaa !406
-  %3245 = trunc i64 %3244 to i32
-  %3246 = and i32 %3245, 448
-  %3247 = icmp eq i32 %3246, 0
-  %3248 = and i32 %3245, 63
-  %switch4172 = icmp samesign ult i32 %3248, 5
-  %or.cond4173 = and i1 %3247, %switch4172
+3224:                                             ; preds = %3222
+  %3225 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3226 = load ptr, ptr %3225, align 8, !tbaa !388
+  %3227 = getelementptr inbounds nuw i8, ptr %3226, i64 112
+  %3228 = load i64, ptr %3227, align 8, !tbaa !406
+  %3229 = trunc i64 %3228 to i32
+  %3230 = and i32 %3229, 448
+  %3231 = icmp eq i32 %3230, 0
+  %3232 = and i32 %3229, 63
+  %switch4172 = icmp samesign ult i32 %3232, 5
+  %or.cond4173 = and i1 %3231, %switch4172
   %spec.select4340 = select i1 %or.cond4173, i32 1757, i32 1758
   br label %.critedge42
 
-3249:                                             ; preds = %3235
-  %3250 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3250, label %.critedge42, label %3251
+3233:                                             ; preds = %3219
+  %3234 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3234, label %.critedge42, label %3235
 
-3251:                                             ; preds = %3249
-  %3252 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3253 = load ptr, ptr %3252, align 8, !tbaa !388
-  %3254 = getelementptr inbounds nuw i8, ptr %3253, i64 112
-  %3255 = load i64, ptr %3254, align 8, !tbaa !406
-  %3256 = trunc i64 %3255 to i32
-  %3257 = and i32 %3256, 448
-  %3258 = icmp eq i32 %3257, 0
-  %3259 = and i32 %3256, 63
-  %switch4174 = icmp samesign ult i32 %3259, 5
-  %or.cond4175 = and i1 %3258, %switch4174
+3235:                                             ; preds = %3233
+  %3236 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3237 = load ptr, ptr %3236, align 8, !tbaa !388
+  %3238 = getelementptr inbounds nuw i8, ptr %3237, i64 112
+  %3239 = load i64, ptr %3238, align 8, !tbaa !406
+  %3240 = trunc i64 %3239 to i32
+  %3241 = and i32 %3240, 448
+  %3242 = icmp eq i32 %3241, 0
+  %3243 = and i32 %3240, 63
+  %switch4174 = icmp samesign ult i32 %3243, 5
+  %or.cond4175 = and i1 %3242, %switch4174
   %spec.select4341 = select i1 %or.cond4175, i32 1673, i32 1674
   br label %.critedge42
 
-3260:                                             ; preds = %3235
-  %3261 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3509 = select i1 %3261, i32 1597, i32 1598
+3244:                                             ; preds = %3219
+  %3245 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3509 = select i1 %3245, i32 1597, i32 1598
   br label %.critedge42
 
-3262:                                             ; preds = %3235
-  %3263 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3510 = select i1 %3263, i32 1658, i32 1651
+3246:                                             ; preds = %3219
+  %3247 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3510 = select i1 %3247, i32 1658, i32 1651
   br label %.critedge42
 
-3264:                                             ; preds = %3235
+3248:                                             ; preds = %3219
+  %3249 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3511 = select i1 %3249, i32 1599, i32 1600
+  br label %.critedge42
+
+3250:                                             ; preds = %3219
+  %3251 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3512 = select i1 %3251, i32 1658, i32 1651
+  br label %.critedge42
+
+3252:                                             ; preds = %3219
+  %3253 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3253, label %.critedge42, label %3254
+
+3254:                                             ; preds = %3252
+  %3255 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3513 = select i1 %3255, i32 1661, i32 1662
+  br label %.critedge42
+
+3256:                                             ; preds = %3219
+  %3257 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3257, label %.critedge42, label %3258
+
+3258:                                             ; preds = %3256
+  %3259 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3514 = select i1 %3259, i32 1663, i32 1664
+  br label %.critedge42
+
+3260:                                             ; preds = %3219
+  %3261 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3261, label %.critedge42, label %3262
+
+3262:                                             ; preds = %3260
+  %3263 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3515 = select i1 %3263, i32 1665, i32 1666
+  br label %.critedge42
+
+3264:                                             ; preds = %3219
   %3265 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3511 = select i1 %3265, i32 1599, i32 1600
+  %.3516 = select i1 %3265, i32 1611, i32 1612
   br label %.critedge42
 
-3266:                                             ; preds = %3235
+3266:                                             ; preds = %3219
   %3267 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3512 = select i1 %3267, i32 1658, i32 1651
+  %.3517 = select i1 %3267, i32 1658, i32 1651
   br label %.critedge42
 
-3268:                                             ; preds = %3235
-  %3269 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3269, label %.critedge42, label %3270
-
-3270:                                             ; preds = %3268
-  %3271 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3513 = select i1 %3271, i32 1661, i32 1662
-  br label %.critedge42
-
-3272:                                             ; preds = %3235
-  %3273 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3273, label %.critedge42, label %3274
-
-3274:                                             ; preds = %3272
-  %3275 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3514 = select i1 %3275, i32 1663, i32 1664
-  br label %.critedge42
-
-3276:                                             ; preds = %3235
-  %3277 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3277, label %.critedge42, label %3278
-
-3278:                                             ; preds = %3276
-  %3279 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3515 = select i1 %3279, i32 1665, i32 1666
-  br label %.critedge42
-
-3280:                                             ; preds = %3235
-  %3281 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3516 = select i1 %3281, i32 1611, i32 1612
-  br label %.critedge42
-
-3282:                                             ; preds = %3235
-  %3283 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3517 = select i1 %3283, i32 1658, i32 1651
-  br label %.critedge42
-
-3284:                                             ; preds = %4
-  %3285 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %3286 = load i32, ptr %3285, align 4, !tbaa !382
-  switch i32 %3286, label %4671 [
-    i32 2, label %3287
-    i32 3, label %3298
-    i32 5, label %3309
-    i32 6, label %3311
-    i32 7, label %3313
-    i32 8, label %3315
-    i32 9, label %3317
-    i32 10, label %3326
-    i32 11, label %3335
-    i32 12, label %3344
-    i32 13, label %3353
-    i32 14, label %3357
-    i32 15, label %3361
-    i32 16, label %3365
-    i32 18, label %3367
-    i32 20, label %3376
-    i32 23, label %3378
+3268:                                             ; preds = %4
+  %3269 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %3270 = load i32, ptr %3269, align 4, !tbaa !382
+  switch i32 %3270, label %4653 [
+    i32 2, label %3271
+    i32 3, label %3282
+    i32 5, label %3293
+    i32 6, label %3295
+    i32 7, label %3297
+    i32 8, label %3299
+    i32 9, label %3301
+    i32 10, label %3310
+    i32 11, label %3319
+    i32 12, label %3328
+    i32 13, label %3337
+    i32 14, label %3341
+    i32 15, label %3345
+    i32 16, label %3349
+    i32 18, label %3351
+    i32 20, label %3360
+    i32 23, label %3362
   ]
 
-3287:                                             ; preds = %3284
-  %3288 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3288, label %.critedge42, label %3289
+3271:                                             ; preds = %3268
+  %3272 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3272, label %.critedge42, label %3273
 
-3289:                                             ; preds = %3287
-  %3290 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3291 = load ptr, ptr %3290, align 8, !tbaa !388
-  %3292 = getelementptr inbounds nuw i8, ptr %3291, i64 112
-  %3293 = load i64, ptr %3292, align 8, !tbaa !406
-  %3294 = trunc i64 %3293 to i32
-  %3295 = and i32 %3294, 448
-  %3296 = icmp eq i32 %3295, 0
-  %3297 = and i32 %3294, 63
-  %switch4176 = icmp samesign ult i32 %3297, 5
-  %or.cond4177 = and i1 %3296, %switch4176
+3273:                                             ; preds = %3271
+  %3274 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3275 = load ptr, ptr %3274, align 8, !tbaa !388
+  %3276 = getelementptr inbounds nuw i8, ptr %3275, i64 112
+  %3277 = load i64, ptr %3276, align 8, !tbaa !406
+  %3278 = trunc i64 %3277 to i32
+  %3279 = and i32 %3278, 448
+  %3280 = icmp eq i32 %3279, 0
+  %3281 = and i32 %3278, 63
+  %switch4176 = icmp samesign ult i32 %3281, 5
+  %or.cond4177 = and i1 %3280, %switch4176
   %spec.select4342 = select i1 %or.cond4177, i32 1757, i32 1758
   br label %.critedge42
 
-3298:                                             ; preds = %3284
-  %3299 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3299, label %.critedge42, label %3300
+3282:                                             ; preds = %3268
+  %3283 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3283, label %.critedge42, label %3284
 
-3300:                                             ; preds = %3298
-  %3301 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3302 = load ptr, ptr %3301, align 8, !tbaa !388
-  %3303 = getelementptr inbounds nuw i8, ptr %3302, i64 112
-  %3304 = load i64, ptr %3303, align 8, !tbaa !406
-  %3305 = trunc i64 %3304 to i32
-  %3306 = and i32 %3305, 448
-  %3307 = icmp eq i32 %3306, 0
-  %3308 = and i32 %3305, 63
-  %switch4178 = icmp samesign ult i32 %3308, 5
-  %or.cond4179 = and i1 %3307, %switch4178
+3284:                                             ; preds = %3282
+  %3285 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3286 = load ptr, ptr %3285, align 8, !tbaa !388
+  %3287 = getelementptr inbounds nuw i8, ptr %3286, i64 112
+  %3288 = load i64, ptr %3287, align 8, !tbaa !406
+  %3289 = trunc i64 %3288 to i32
+  %3290 = and i32 %3289, 448
+  %3291 = icmp eq i32 %3290, 0
+  %3292 = and i32 %3289, 63
+  %switch4178 = icmp samesign ult i32 %3292, 5
+  %or.cond4179 = and i1 %3291, %switch4178
   %spec.select4343 = select i1 %or.cond4179, i32 1673, i32 1674
   br label %.critedge42
 
-3309:                                             ; preds = %3284
-  %3310 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3518 = select i1 %3310, i32 1597, i32 1598
+3293:                                             ; preds = %3268
+  %3294 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3518 = select i1 %3294, i32 1597, i32 1598
   br label %.critedge42
 
-3311:                                             ; preds = %3284
-  %3312 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3519 = select i1 %3312, i32 1658, i32 1651
+3295:                                             ; preds = %3268
+  %3296 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3519 = select i1 %3296, i32 1658, i32 1651
   br label %.critedge42
 
-3313:                                             ; preds = %3284
-  %3314 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3520 = select i1 %3314, i32 1599, i32 1600
+3297:                                             ; preds = %3268
+  %3298 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3520 = select i1 %3298, i32 1599, i32 1600
   br label %.critedge42
 
-3315:                                             ; preds = %3284
-  %3316 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3521 = select i1 %3316, i32 1658, i32 1651
+3299:                                             ; preds = %3268
+  %3300 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3521 = select i1 %3300, i32 1658, i32 1651
   br label %.critedge42
 
-3317:                                             ; preds = %3284
-  %3318 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3319 = load ptr, ptr %3318, align 8, !tbaa !388
-  %3320 = getelementptr inbounds nuw i8, ptr %3319, i64 112
-  %3321 = load i64, ptr %3320, align 8, !tbaa !406
-  %3322 = trunc i64 %3321 to i32
-  %3323 = and i32 %3322, 448
-  %3324 = icmp eq i32 %3323, 0
-  %3325 = and i32 %3322, 63
-  %switch4180 = icmp samesign ult i32 %3325, 5
-  %or.cond4181 = and i1 %3324, %switch4180
+3301:                                             ; preds = %3268
+  %3302 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3303 = load ptr, ptr %3302, align 8, !tbaa !388
+  %3304 = getelementptr inbounds nuw i8, ptr %3303, i64 112
+  %3305 = load i64, ptr %3304, align 8, !tbaa !406
+  %3306 = trunc i64 %3305 to i32
+  %3307 = and i32 %3306, 448
+  %3308 = icmp eq i32 %3307, 0
+  %3309 = and i32 %3306, 63
+  %switch4180 = icmp samesign ult i32 %3309, 5
+  %or.cond4181 = and i1 %3308, %switch4180
   %spec.select4344 = select i1 %or.cond4181, i32 1601, i32 1602
   br label %.critedge42
 
-3326:                                             ; preds = %3284
-  %3327 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3328 = load ptr, ptr %3327, align 8, !tbaa !388
-  %3329 = getelementptr inbounds nuw i8, ptr %3328, i64 112
-  %3330 = load i64, ptr %3329, align 8, !tbaa !406
-  %3331 = trunc i64 %3330 to i32
-  %3332 = and i32 %3331, 448
-  %3333 = icmp eq i32 %3332, 0
-  %3334 = and i32 %3331, 63
-  %switch4182 = icmp samesign ult i32 %3334, 5
-  %or.cond4183 = and i1 %3333, %switch4182
+3310:                                             ; preds = %3268
+  %3311 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3312 = load ptr, ptr %3311, align 8, !tbaa !388
+  %3313 = getelementptr inbounds nuw i8, ptr %3312, i64 112
+  %3314 = load i64, ptr %3313, align 8, !tbaa !406
+  %3315 = trunc i64 %3314 to i32
+  %3316 = and i32 %3315, 448
+  %3317 = icmp eq i32 %3316, 0
+  %3318 = and i32 %3315, 63
+  %switch4182 = icmp samesign ult i32 %3318, 5
+  %or.cond4183 = and i1 %3317, %switch4182
   %spec.select4345 = select i1 %or.cond4183, i32 1603, i32 1604
   br label %.critedge42
 
-3335:                                             ; preds = %3284
-  %3336 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3337 = load ptr, ptr %3336, align 8, !tbaa !388
-  %3338 = getelementptr inbounds nuw i8, ptr %3337, i64 112
-  %3339 = load i64, ptr %3338, align 8, !tbaa !406
-  %3340 = trunc i64 %3339 to i32
-  %3341 = and i32 %3340, 448
-  %3342 = icmp eq i32 %3341, 0
-  %3343 = and i32 %3340, 63
-  %switch4184 = icmp samesign ult i32 %3343, 5
-  %or.cond4185 = and i1 %3342, %switch4184
+3319:                                             ; preds = %3268
+  %3320 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3321 = load ptr, ptr %3320, align 8, !tbaa !388
+  %3322 = getelementptr inbounds nuw i8, ptr %3321, i64 112
+  %3323 = load i64, ptr %3322, align 8, !tbaa !406
+  %3324 = trunc i64 %3323 to i32
+  %3325 = and i32 %3324, 448
+  %3326 = icmp eq i32 %3325, 0
+  %3327 = and i32 %3324, 63
+  %switch4184 = icmp samesign ult i32 %3327, 5
+  %or.cond4185 = and i1 %3326, %switch4184
   %spec.select4346 = select i1 %or.cond4185, i32 1605, i32 1606
   br label %.critedge42
 
-3344:                                             ; preds = %3284
-  %3345 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3346 = load ptr, ptr %3345, align 8, !tbaa !388
-  %3347 = getelementptr inbounds nuw i8, ptr %3346, i64 112
-  %3348 = load i64, ptr %3347, align 8, !tbaa !406
-  %3349 = trunc i64 %3348 to i32
-  %3350 = and i32 %3349, 448
-  %3351 = icmp eq i32 %3350, 0
-  %3352 = and i32 %3349, 63
-  %switch4186 = icmp samesign ult i32 %3352, 5
-  %or.cond4187 = and i1 %3351, %switch4186
+3328:                                             ; preds = %3268
+  %3329 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3330 = load ptr, ptr %3329, align 8, !tbaa !388
+  %3331 = getelementptr inbounds nuw i8, ptr %3330, i64 112
+  %3332 = load i64, ptr %3331, align 8, !tbaa !406
+  %3333 = trunc i64 %3332 to i32
+  %3334 = and i32 %3333, 448
+  %3335 = icmp eq i32 %3334, 0
+  %3336 = and i32 %3333, 63
+  %switch4186 = icmp samesign ult i32 %3336, 5
+  %or.cond4187 = and i1 %3335, %switch4186
   %spec.select4347 = select i1 %or.cond4187, i32 1607, i32 1608
   br label %.critedge42
 
-3353:                                             ; preds = %3284
-  %3354 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3354, label %.critedge42, label %3355
+3337:                                             ; preds = %3268
+  %3338 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3338, label %.critedge42, label %3339
 
-3355:                                             ; preds = %3353
-  %3356 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3522 = select i1 %3356, i32 1661, i32 1662
+3339:                                             ; preds = %3337
+  %3340 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3522 = select i1 %3340, i32 1661, i32 1662
   br label %.critedge42
 
-3357:                                             ; preds = %3284
-  %3358 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3358, label %.critedge42, label %3359
+3341:                                             ; preds = %3268
+  %3342 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3342, label %.critedge42, label %3343
 
-3359:                                             ; preds = %3357
-  %3360 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3523 = select i1 %3360, i32 1663, i32 1664
+3343:                                             ; preds = %3341
+  %3344 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3523 = select i1 %3344, i32 1663, i32 1664
   br label %.critedge42
 
-3361:                                             ; preds = %3284
-  %3362 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3362, label %.critedge42, label %3363
+3345:                                             ; preds = %3268
+  %3346 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3346, label %.critedge42, label %3347
 
-3363:                                             ; preds = %3361
-  %3364 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3524 = select i1 %3364, i32 1665, i32 1666
+3347:                                             ; preds = %3345
+  %3348 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3524 = select i1 %3348, i32 1665, i32 1666
   br label %.critedge42
 
-3365:                                             ; preds = %3284
-  %3366 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3525 = select i1 %3366, i32 1659, i32 1660
+3349:                                             ; preds = %3268
+  %3350 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3525 = select i1 %3350, i32 1659, i32 1660
   br label %.critedge42
 
-3367:                                             ; preds = %3284
-  %3368 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3369 = load ptr, ptr %3368, align 8, !tbaa !388
-  %3370 = getelementptr inbounds nuw i8, ptr %3369, i64 112
-  %3371 = load i64, ptr %3370, align 8, !tbaa !406
-  %3372 = trunc i64 %3371 to i32
-  %3373 = and i32 %3372, 448
-  %3374 = icmp eq i32 %3373, 0
-  %3375 = and i32 %3372, 63
-  %switch4188 = icmp samesign ult i32 %3375, 5
-  %or.cond4189 = and i1 %3374, %switch4188
+3351:                                             ; preds = %3268
+  %3352 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3353 = load ptr, ptr %3352, align 8, !tbaa !388
+  %3354 = getelementptr inbounds nuw i8, ptr %3353, i64 112
+  %3355 = load i64, ptr %3354, align 8, !tbaa !406
+  %3356 = trunc i64 %3355 to i32
+  %3357 = and i32 %3356, 448
+  %3358 = icmp eq i32 %3357, 0
+  %3359 = and i32 %3356, 63
+  %switch4188 = icmp samesign ult i32 %3359, 5
+  %or.cond4189 = and i1 %3358, %switch4188
   %spec.select4348 = select i1 %or.cond4189, i32 1609, i32 1610
   br label %.critedge42
 
-3376:                                             ; preds = %3284
-  %3377 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3526 = select i1 %3377, i32 1611, i32 1612
+3360:                                             ; preds = %3268
+  %3361 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3526 = select i1 %3361, i32 1611, i32 1612
   br label %.critedge42
 
-3378:                                             ; preds = %3284
-  %3379 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3527 = select i1 %3379, i32 1658, i32 1651
+3362:                                             ; preds = %3268
+  %3363 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3527 = select i1 %3363, i32 1658, i32 1651
   br label %.critedge42
 
-3380:                                             ; preds = %4
-  %3381 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %3382 = load i32, ptr %3381, align 4, !tbaa !382
-  switch i32 %3382, label %4671 [
-    i32 13, label %3383
-    i32 14, label %3387
-    i32 15, label %3393
+3364:                                             ; preds = %4
+  %3365 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %3366 = load i32, ptr %3365, align 4, !tbaa !382
+  switch i32 %3366, label %4653 [
+    i32 13, label %3367
+    i32 14, label %3371
+    i32 15, label %3377
   ]
 
-3383:                                             ; preds = %3380
-  %3384 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3384, label %.critedge42, label %3385
+3367:                                             ; preds = %3364
+  %3368 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3368, label %.critedge42, label %3369
 
-3385:                                             ; preds = %3383
-  %3386 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3528 = select i1 %3386, i32 1661, i32 1662
+3369:                                             ; preds = %3367
+  %3370 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3528 = select i1 %3370, i32 1661, i32 1662
   br label %.critedge42
 
-3387:                                             ; preds = %3380
-  %3388 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3388, label %.critedge42, label %3389
+3371:                                             ; preds = %3364
+  %3372 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3372, label %.critedge42, label %3373
 
-3389:                                             ; preds = %3387
-  %3390 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3390, label %.critedge42, label %3391
+3373:                                             ; preds = %3371
+  %3374 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3374, label %.critedge42, label %3375
 
-3391:                                             ; preds = %3389
-  %3392 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3529 = select i1 %3392, i32 1663, i32 1664
+3375:                                             ; preds = %3373
+  %3376 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3529 = select i1 %3376, i32 1663, i32 1664
   br label %.critedge42
 
-3393:                                             ; preds = %3380
-  %3394 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3394, label %.critedge42, label %3395
+3377:                                             ; preds = %3364
+  %3378 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3378, label %.critedge42, label %3379
 
-3395:                                             ; preds = %3393
-  %3396 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3396, label %.critedge42, label %3397
+3379:                                             ; preds = %3377
+  %3380 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3380, label %.critedge42, label %3381
 
-3397:                                             ; preds = %3395
-  %3398 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3530 = select i1 %3398, i32 1665, i32 1666
+3381:                                             ; preds = %3379
+  %3382 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3530 = select i1 %3382, i32 1665, i32 1666
   br label %.critedge42
 
-3399:                                             ; preds = %4
-  %3400 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %3401 = load i32, ptr %3400, align 4, !tbaa !382
-  switch i32 %3401, label %4671 [
-    i32 1, label %3402
-    i32 4, label %3404
-    i32 13, label %3406
-    i32 14, label %3408
-    i32 15, label %3412
-    i32 16, label %3416
-    i32 21, label %3418
-    i32 22, label %3420
+3383:                                             ; preds = %4
+  %3384 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %3385 = load i32, ptr %3384, align 4, !tbaa !382
+  switch i32 %3385, label %4653 [
+    i32 1, label %3386
+    i32 4, label %3388
+    i32 13, label %3390
+    i32 14, label %3392
+    i32 15, label %3396
+    i32 16, label %3400
+    i32 21, label %3402
+    i32 22, label %3404
   ]
 
-3402:                                             ; preds = %3399
+3386:                                             ; preds = %3383
+  %3387 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+3388:                                             ; preds = %3383
+  %3389 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3531 = select i1 %3389, i32 1632, i32 1633
+  br label %.critedge42
+
+3390:                                             ; preds = %3383
+  %3391 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+3392:                                             ; preds = %3383
+  %3393 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3393, label %.critedge42, label %3394
+
+3394:                                             ; preds = %3392
+  %3395 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+3396:                                             ; preds = %3383
+  %3397 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3397, label %.critedge42, label %3398
+
+3398:                                             ; preds = %3396
+  %3399 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+3400:                                             ; preds = %3383
+  %3401 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3532 = select i1 %3401, i32 1712, i32 1713
+  br label %.critedge42
+
+3402:                                             ; preds = %3383
   %3403 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3533 = select i1 %3403, i32 1639, i32 1640
   br label %.critedge42
 
-3404:                                             ; preds = %3399
+3404:                                             ; preds = %3383
   %3405 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3531 = select i1 %3405, i32 1632, i32 1633
+  %.3534 = select i1 %3405, i32 1641, i32 1642
   br label %.critedge42
 
-3406:                                             ; preds = %3399
-  %3407 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-3408:                                             ; preds = %3399
-  %3409 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3409, label %.critedge42, label %3410
-
-3410:                                             ; preds = %3408
-  %3411 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-3412:                                             ; preds = %3399
-  %3413 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3413, label %.critedge42, label %3414
-
-3414:                                             ; preds = %3412
-  %3415 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-3416:                                             ; preds = %3399
-  %3417 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3532 = select i1 %3417, i32 1712, i32 1713
-  br label %.critedge42
-
-3418:                                             ; preds = %3399
-  %3419 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3533 = select i1 %3419, i32 1639, i32 1640
-  br label %.critedge42
-
-3420:                                             ; preds = %3399
-  %3421 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3534 = select i1 %3421, i32 1641, i32 1642
-  br label %.critedge42
-
-3422:                                             ; preds = %4
-  %3423 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %3424 = load i32, ptr %3423, align 4, !tbaa !382
-  switch i32 %3424, label %4671 [
-    i32 1, label %3425
-    i32 4, label %3427
-    i32 13, label %3429
-    i32 14, label %3431
-    i32 15, label %3435
-    i32 16, label %3439
-    i32 21, label %3441
-    i32 22, label %3443
+3406:                                             ; preds = %4
+  %3407 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %3408 = load i32, ptr %3407, align 4, !tbaa !382
+  switch i32 %3408, label %4653 [
+    i32 1, label %3409
+    i32 4, label %3411
+    i32 13, label %3413
+    i32 14, label %3415
+    i32 15, label %3419
+    i32 16, label %3423
+    i32 21, label %3425
+    i32 22, label %3427
   ]
 
-3425:                                             ; preds = %3422
+3409:                                             ; preds = %3406
+  %3410 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+3411:                                             ; preds = %3406
+  %3412 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3535 = select i1 %3412, i32 1632, i32 1633
+  br label %.critedge42
+
+3413:                                             ; preds = %3406
+  %3414 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+3415:                                             ; preds = %3406
+  %3416 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3416, label %.critedge42, label %3417
+
+3417:                                             ; preds = %3415
+  %3418 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+3419:                                             ; preds = %3406
+  %3420 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3420, label %.critedge42, label %3421
+
+3421:                                             ; preds = %3419
+  %3422 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+3423:                                             ; preds = %3406
+  %3424 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3536 = select i1 %3424, i32 1726, i32 1727
+  br label %.critedge42
+
+3425:                                             ; preds = %3406
   %3426 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3537 = select i1 %3426, i32 1639, i32 1640
   br label %.critedge42
 
-3427:                                             ; preds = %3422
+3427:                                             ; preds = %3406
   %3428 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3535 = select i1 %3428, i32 1632, i32 1633
+  %.3538 = select i1 %3428, i32 1641, i32 1642
   br label %.critedge42
 
-3429:                                             ; preds = %3422
-  %3430 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-3431:                                             ; preds = %3422
-  %3432 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3432, label %.critedge42, label %3433
-
-3433:                                             ; preds = %3431
-  %3434 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-3435:                                             ; preds = %3422
-  %3436 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3436, label %.critedge42, label %3437
-
-3437:                                             ; preds = %3435
-  %3438 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-3439:                                             ; preds = %3422
-  %3440 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3536 = select i1 %3440, i32 1726, i32 1727
-  br label %.critedge42
-
-3441:                                             ; preds = %3422
-  %3442 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3537 = select i1 %3442, i32 1639, i32 1640
-  br label %.critedge42
-
-3443:                                             ; preds = %3422
-  %3444 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3538 = select i1 %3444, i32 1641, i32 1642
-  br label %.critedge42
-
-3445:                                             ; preds = %4
-  %3446 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %3447 = load i32, ptr %3446, align 4, !tbaa !382
-  switch i32 %3447, label %4671 [
-    i32 13, label %3448
-    i32 14, label %3450
-    i32 15, label %3454
-    i32 16, label %3458
+3429:                                             ; preds = %4
+  %3430 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %3431 = load i32, ptr %3430, align 4, !tbaa !382
+  switch i32 %3431, label %4653 [
+    i32 13, label %3432
+    i32 14, label %3434
+    i32 15, label %3438
+    i32 16, label %3442
   ]
 
-3448:                                             ; preds = %3445
-  %3449 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+3432:                                             ; preds = %3429
+  %3433 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-3450:                                             ; preds = %3445
-  %3451 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3451, label %.critedge42, label %3452
+3434:                                             ; preds = %3429
+  %3435 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3435, label %.critedge42, label %3436
 
-3452:                                             ; preds = %3450
-  %3453 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+3436:                                             ; preds = %3434
+  %3437 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-3454:                                             ; preds = %3445
-  %3455 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3455, label %.critedge42, label %3456
+3438:                                             ; preds = %3429
+  %3439 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3439, label %.critedge42, label %3440
 
-3456:                                             ; preds = %3454
-  %3457 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+3440:                                             ; preds = %3438
+  %3441 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-3458:                                             ; preds = %3445
-  %3459 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3539 = select i1 %3459, i32 1763, i32 1764
+3442:                                             ; preds = %3429
+  %3443 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3539 = select i1 %3443, i32 1763, i32 1764
   br label %.critedge42
 
-3460:                                             ; preds = %4
-  %3461 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %3462 = load i32, ptr %3461, align 4, !tbaa !382
-  switch i32 %3462, label %4671 [
-    i32 1, label %3463
-    i32 4, label %3465
-    i32 13, label %3467
-    i32 14, label %3469
-    i32 15, label %3473
-    i32 16, label %3477
-    i32 21, label %3479
-    i32 22, label %3481
+3444:                                             ; preds = %4
+  %3445 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %3446 = load i32, ptr %3445, align 4, !tbaa !382
+  switch i32 %3446, label %4653 [
+    i32 1, label %3447
+    i32 4, label %3449
+    i32 13, label %3451
+    i32 14, label %3453
+    i32 15, label %3457
+    i32 16, label %3461
+    i32 21, label %3463
+    i32 22, label %3465
   ]
 
-3463:                                             ; preds = %3460
+3447:                                             ; preds = %3444
+  %3448 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+3449:                                             ; preds = %3444
+  %3450 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3540 = select i1 %3450, i32 1644, i32 1645
+  br label %.critedge42
+
+3451:                                             ; preds = %3444
+  %3452 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+3453:                                             ; preds = %3444
+  %3454 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3454, label %.critedge42, label %3455
+
+3455:                                             ; preds = %3453
+  %3456 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+3457:                                             ; preds = %3444
+  %3458 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3458, label %.critedge42, label %3459
+
+3459:                                             ; preds = %3457
+  %3460 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+3461:                                             ; preds = %3444
+  %3462 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3541 = select i1 %3462, i32 1738, i32 1739
+  br label %.critedge42
+
+3463:                                             ; preds = %3444
   %3464 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-3465:                                             ; preds = %3460
+3465:                                             ; preds = %3444
   %3466 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3540 = select i1 %3466, i32 1644, i32 1645
   br label %.critedge42
 
-3467:                                             ; preds = %3460
-  %3468 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-3469:                                             ; preds = %3460
-  %3470 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3470, label %.critedge42, label %3471
-
-3471:                                             ; preds = %3469
-  %3472 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-3473:                                             ; preds = %3460
-  %3474 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3474, label %.critedge42, label %3475
-
-3475:                                             ; preds = %3473
-  %3476 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-3477:                                             ; preds = %3460
-  %3478 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3541 = select i1 %3478, i32 1738, i32 1739
-  br label %.critedge42
-
-3479:                                             ; preds = %3460
-  %3480 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-3481:                                             ; preds = %3460
-  %3482 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-3483:                                             ; preds = %4
-  %3484 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %3485 = load i32, ptr %3484, align 4, !tbaa !382
-  switch i32 %3485, label %4671 [
-    i32 1, label %3486
-    i32 4, label %3488
-    i32 12, label %3490
-    i32 13, label %3501
-    i32 14, label %3503
-    i32 15, label %3507
-    i32 16, label %3511
-    i32 21, label %3513
-    i32 22, label %3515
+3467:                                             ; preds = %4
+  %3468 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %3469 = load i32, ptr %3468, align 4, !tbaa !382
+  switch i32 %3469, label %4653 [
+    i32 1, label %3470
+    i32 4, label %3472
+    i32 12, label %3474
+    i32 13, label %3484
+    i32 14, label %3486
+    i32 15, label %3490
+    i32 16, label %3494
+    i32 21, label %3496
+    i32 22, label %3498
   ]
 
-3486:                                             ; preds = %3483
+3470:                                             ; preds = %3467
+  %3471 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+3472:                                             ; preds = %3467
+  %3473 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3542 = select i1 %3473, i32 1644, i32 1645
+  br label %.critedge42
+
+3474:                                             ; preds = %3467
+  %3475 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3475, label %3478, label %3476
+
+3476:                                             ; preds = %3474
+  %3477 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3477, label %3478, label %4298
+
+3478:                                             ; preds = %3476, %3474
+  %3479 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3480 = load ptr, ptr %3479, align 8, !tbaa !388
+  %3481 = getelementptr inbounds nuw i8, ptr %3480, i64 144
+  %3482 = load i64, ptr %3481, align 8, !tbaa !406
+  %3483 = icmp eq i64 %3482, 1
+  br i1 %3483, label %.critedge42, label %4298
+
+3484:                                             ; preds = %3467
+  %3485 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+3486:                                             ; preds = %3467
   %3487 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3487, label %.critedge42, label %3488
+
+3488:                                             ; preds = %3486
+  %3489 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-3488:                                             ; preds = %3483
-  %3489 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3542 = select i1 %3489, i32 1644, i32 1645
-  br label %.critedge42
-
-3490:                                             ; preds = %3483
-  %3491 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3491, label %3494, label %3492
+3490:                                             ; preds = %3467
+  %3491 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3491, label %.critedge42, label %3492
 
 3492:                                             ; preds = %3490
-  %3493 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3493, label %3494, label %3500
-
-3494:                                             ; preds = %3492, %3490
-  %3495 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3496 = load ptr, ptr %3495, align 8, !tbaa !388
-  %3497 = getelementptr inbounds nuw i8, ptr %3496, i64 144
-  %3498 = load i64, ptr %3497, align 8, !tbaa !406
-  %3499 = icmp eq i64 %3498, 1
-  br i1 %3499, label %.critedge42, label %3500
-
-3500:                                             ; preds = %3494, %3492
+  %3493 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-3501:                                             ; preds = %3483
-  %3502 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+3494:                                             ; preds = %3467
+  %3495 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3543 = select i1 %3495, i32 1728, i32 1729
   br label %.critedge42
 
-3503:                                             ; preds = %3483
-  %3504 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3504, label %.critedge42, label %3505
-
-3505:                                             ; preds = %3503
-  %3506 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+3496:                                             ; preds = %3467
+  %3497 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-3507:                                             ; preds = %3483
-  %3508 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3508, label %.critedge42, label %3509
-
-3509:                                             ; preds = %3507
-  %3510 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+3498:                                             ; preds = %3467
+  %3499 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-3511:                                             ; preds = %3483
-  %3512 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3543 = select i1 %3512, i32 1728, i32 1729
-  br label %.critedge42
+3500:                                             ; preds = %4
+  %3501 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %3502 = load i32, ptr %3501, align 4, !tbaa !382
+  %3503 = icmp eq i32 %3502, 12
+  br i1 %3503, label %3504, label %4653
 
-3513:                                             ; preds = %3483
-  %3514 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-3515:                                             ; preds = %3483
-  %3516 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-3517:                                             ; preds = %4
-  %3518 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %3519 = load i32, ptr %3518, align 4, !tbaa !382
-  %3520 = icmp eq i32 %3519, 12
-  br i1 %3520, label %3521, label %4671
-
-3521:                                             ; preds = %3517
-  %3522 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %3523 = load i16, ptr %3522, align 4, !tbaa !407
-  switch i16 %3523, label %.critedge108 [
-    i16 5243, label %3524
-    i16 5244, label %3524
-    i16 5335, label %3539
-    i16 5337, label %3539
-    i16 3556, label %3553
-    i16 3560, label %3553
-    i16 3557, label %3553
-    i16 3559, label %3553
-    i16 5217, label %3565
-    i16 5219, label %3565
+3504:                                             ; preds = %3500
+  %3505 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %3506 = load i16, ptr %3505, align 4, !tbaa !407
+  switch i16 %3506, label %.critedge108 [
+    i16 5243, label %3507
+    i16 5244, label %3507
+    i16 5335, label %3522
+    i16 5337, label %3522
+    i16 3556, label %3536
+    i16 3560, label %3536
+    i16 3557, label %3536
+    i16 3559, label %3536
+    i16 5217, label %3548
+    i16 5219, label %3548
   ]
 
-3524:                                             ; preds = %3521, %3521
-  %3525 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3526 = load ptr, ptr %3525, align 8, !tbaa !388
-  %3527 = getelementptr inbounds nuw i8, ptr %3526, i64 32
-  %3528 = load i32, ptr %3527, align 8
-  %3529 = and i32 %3528, 255
-  %3530 = icmp eq i32 %3529, 1
-  br i1 %3530, label %3531, label %.critedge108
+3507:                                             ; preds = %3504, %3504
+  %3508 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3509 = load ptr, ptr %3508, align 8, !tbaa !388
+  %3510 = getelementptr inbounds nuw i8, ptr %3509, i64 32
+  %3511 = load i32, ptr %3510, align 8
+  %3512 = and i32 %3511, 255
+  %3513 = icmp eq i32 %3512, 1
+  br i1 %3513, label %3514, label %.critedge108
 
-3531:                                             ; preds = %3524
-  %3532 = getelementptr inbounds nuw i8, ptr %3526, i64 48
-  %3533 = load i64, ptr %3532, align 8, !tbaa !406
-  %3534 = icmp eq i64 %3533, 0
-  br i1 %3534, label %3535, label %.critedge108
+3514:                                             ; preds = %3507
+  %3515 = getelementptr inbounds nuw i8, ptr %3509, i64 48
+  %3516 = load i64, ptr %3515, align 8, !tbaa !406
+  %3517 = icmp eq i64 %3516, 0
+  br i1 %3517, label %3518, label %.critedge108
 
-3535:                                             ; preds = %3531
-  %3536 = getelementptr inbounds nuw i8, ptr %3526, i64 80
-  %3537 = load i64, ptr %3536, align 8, !tbaa !406
-  %3538 = icmp eq i64 %3537, 0
-  br i1 %3538, label %.critedge42, label %.critedge108
+3518:                                             ; preds = %3514
+  %3519 = getelementptr inbounds nuw i8, ptr %3509, i64 80
+  %3520 = load i64, ptr %3519, align 8, !tbaa !406
+  %3521 = icmp eq i64 %3520, 0
+  br i1 %3521, label %.critedge42, label %.critedge108
 
-3539:                                             ; preds = %3521, %3521
-  %3540 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3541 = load ptr, ptr %3540, align 8, !tbaa !388
-  %3542 = getelementptr inbounds nuw i8, ptr %3541, i64 32
-  %3543 = load i32, ptr %3542, align 8
-  %3544 = and i32 %3543, 255
-  %3545 = icmp eq i32 %3544, 0
-  br i1 %3545, label %3546, label %.critedge108
+3522:                                             ; preds = %3504, %3504
+  %3523 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3524 = load ptr, ptr %3523, align 8, !tbaa !388
+  %3525 = getelementptr inbounds nuw i8, ptr %3524, i64 32
+  %3526 = load i32, ptr %3525, align 8
+  %3527 = and i32 %3526, 255
+  %3528 = icmp eq i32 %3527, 0
+  br i1 %3528, label %3529, label %.critedge108
 
-3546:                                             ; preds = %3539
-  %3547 = getelementptr inbounds nuw i8, ptr %3541, i64 36
-  %3548 = load i32, ptr %3547, align 4, !tbaa !406
-  switch i32 %3548, label %.critedge108 [
-    i32 12, label %3549
-    i32 14, label %3549
+3529:                                             ; preds = %3522
+  %3530 = getelementptr inbounds nuw i8, ptr %3524, i64 36
+  %3531 = load i32, ptr %3530, align 4, !tbaa !406
+  switch i32 %3531, label %.critedge108 [
+    i32 12, label %3532
+    i32 14, label %3532
   ]
 
-3549:                                             ; preds = %3546, %3546
-  %3550 = getelementptr inbounds nuw i8, ptr %3541, i64 112
-  %3551 = load i64, ptr %3550, align 8, !tbaa !406
-  %3552 = icmp eq i64 %3551, 0
-  br i1 %3552, label %.critedge42, label %.critedge108
+3532:                                             ; preds = %3529, %3529
+  %3533 = getelementptr inbounds nuw i8, ptr %3524, i64 112
+  %3534 = load i64, ptr %3533, align 8, !tbaa !406
+  %3535 = icmp eq i64 %3534, 0
+  br i1 %3535, label %.critedge42, label %.critedge108
 
-3553:                                             ; preds = %3521, %3521, %3521, %3521
-  %3554 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3555 = load ptr, ptr %3554, align 8, !tbaa !388
-  %3556 = getelementptr inbounds nuw i8, ptr %3555, i64 32
-  %3557 = load i32, ptr %3556, align 8
-  %3558 = and i32 %3557, 255
-  %3559 = icmp eq i32 %3558, 0
-  br i1 %3559, label %3560, label %.critedge108
+3536:                                             ; preds = %3504, %3504, %3504, %3504
+  %3537 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3538 = load ptr, ptr %3537, align 8, !tbaa !388
+  %3539 = getelementptr inbounds nuw i8, ptr %3538, i64 32
+  %3540 = load i32, ptr %3539, align 8
+  %3541 = and i32 %3540, 255
+  %3542 = icmp eq i32 %3541, 0
+  br i1 %3542, label %3543, label %.critedge108
 
-3560:                                             ; preds = %3553
-  %3561 = getelementptr inbounds nuw i8, ptr %3555, i64 36
-  %3562 = load i32, ptr %3561, align 4, !tbaa !406
-  %3563 = and i32 %3562, -3
-  %switch.selectcmp4191 = icmp eq i32 %3563, 12
-  %3564 = select i1 %switch.selectcmp4191, i32 1752, i32 1683
+3543:                                             ; preds = %3536
+  %3544 = getelementptr inbounds nuw i8, ptr %3538, i64 36
+  %3545 = load i32, ptr %3544, align 4, !tbaa !406
+  %3546 = and i32 %3545, -3
+  %switch.selectcmp4191 = icmp eq i32 %3546, 12
+  %3547 = select i1 %switch.selectcmp4191, i32 1752, i32 1683
   br label %.critedge42
 
-3565:                                             ; preds = %3521, %3521
-  %3566 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3567 = load ptr, ptr %3566, align 8, !tbaa !388
-  %3568 = getelementptr inbounds nuw i8, ptr %3567, i64 48
-  %3569 = load i64, ptr %3568, align 8, !tbaa !406
-  %3570 = icmp eq i64 %3569, 0
-  br i1 %3570, label %.critedge42, label %.critedge108
+3548:                                             ; preds = %3504, %3504
+  %3549 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3550 = load ptr, ptr %3549, align 8, !tbaa !388
+  %3551 = getelementptr inbounds nuw i8, ptr %3550, i64 48
+  %3552 = load i64, ptr %3551, align 8, !tbaa !406
+  %3553 = icmp eq i64 %3552, 0
+  br i1 %3553, label %.critedge42, label %.critedge108
 
-.critedge108:                                     ; preds = %3521, %3546, %3553, %3535, %3531, %3524, %3539, %3549, %3565
+.critedge108:                                     ; preds = %2285, %2269, %2259, %2244, %2251, %2255, %2273, %2266, %2241, %3504, %3529, %3536, %3518, %3514, %3507, %3522, %3532, %3548
   br label %.critedge42
 
-3571:                                             ; preds = %4
-  %3572 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %3573 = load i32, ptr %3572, align 4, !tbaa !382
-  switch i32 %3573, label %4671 [
-    i32 2, label %3574
-    i32 3, label %3585
-    i32 5, label %3596
-    i32 6, label %3598
-    i32 7, label %3600
-    i32 8, label %3602
-    i32 9, label %3604
-    i32 10, label %3613
-    i32 11, label %3622
-    i32 12, label %3631
-    i32 13, label %3640
-    i32 14, label %3644
-    i32 15, label %3648
-    i32 16, label %3652
-    i32 18, label %3654
-    i32 20, label %3663
-    i32 23, label %3665
+3554:                                             ; preds = %4
+  %3555 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %3556 = load i32, ptr %3555, align 4, !tbaa !382
+  switch i32 %3556, label %4653 [
+    i32 2, label %3557
+    i32 3, label %3568
+    i32 5, label %3579
+    i32 6, label %3581
+    i32 7, label %3583
+    i32 8, label %3585
+    i32 9, label %3587
+    i32 10, label %3596
+    i32 11, label %3605
+    i32 12, label %3614
+    i32 13, label %3623
+    i32 14, label %3627
+    i32 15, label %3631
+    i32 16, label %3635
+    i32 18, label %3637
+    i32 20, label %3646
+    i32 23, label %3648
   ]
 
-3574:                                             ; preds = %3571
-  %3575 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3575, label %.critedge42, label %3576
+3557:                                             ; preds = %3554
+  %3558 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3558, label %.critedge42, label %3559
 
-3576:                                             ; preds = %3574
-  %3577 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3578 = load ptr, ptr %3577, align 8, !tbaa !388
-  %3579 = getelementptr inbounds nuw i8, ptr %3578, i64 112
-  %3580 = load i64, ptr %3579, align 8, !tbaa !406
-  %3581 = trunc i64 %3580 to i32
-  %3582 = and i32 %3581, 448
-  %3583 = icmp eq i32 %3582, 0
-  %3584 = and i32 %3581, 63
-  %switch4192 = icmp samesign ult i32 %3584, 5
-  %or.cond4193 = and i1 %3583, %switch4192
+3559:                                             ; preds = %3557
+  %3560 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3561 = load ptr, ptr %3560, align 8, !tbaa !388
+  %3562 = getelementptr inbounds nuw i8, ptr %3561, i64 112
+  %3563 = load i64, ptr %3562, align 8, !tbaa !406
+  %3564 = trunc i64 %3563 to i32
+  %3565 = and i32 %3564, 448
+  %3566 = icmp eq i32 %3565, 0
+  %3567 = and i32 %3564, 63
+  %switch4192 = icmp samesign ult i32 %3567, 5
+  %or.cond4193 = and i1 %3566, %switch4192
   %spec.select4349 = select i1 %or.cond4193, i32 1757, i32 1758
   br label %.critedge42
 
-3585:                                             ; preds = %3571
-  %3586 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3586, label %.critedge42, label %3587
+3568:                                             ; preds = %3554
+  %3569 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3569, label %.critedge42, label %3570
 
-3587:                                             ; preds = %3585
+3570:                                             ; preds = %3568
+  %3571 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3572 = load ptr, ptr %3571, align 8, !tbaa !388
+  %3573 = getelementptr inbounds nuw i8, ptr %3572, i64 112
+  %3574 = load i64, ptr %3573, align 8, !tbaa !406
+  %3575 = trunc i64 %3574 to i32
+  %3576 = and i32 %3575, 448
+  %3577 = icmp eq i32 %3576, 0
+  %3578 = and i32 %3575, 63
+  %switch4194 = icmp samesign ult i32 %3578, 5
+  %or.cond4195 = and i1 %3577, %switch4194
+  %spec.select4350 = select i1 %or.cond4195, i32 1673, i32 1674
+  br label %.critedge42
+
+3579:                                             ; preds = %3554
+  %3580 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3544 = select i1 %3580, i32 1597, i32 1598
+  br label %.critedge42
+
+3581:                                             ; preds = %3554
+  %3582 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3545 = select i1 %3582, i32 1658, i32 1651
+  br label %.critedge42
+
+3583:                                             ; preds = %3554
+  %3584 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3546 = select i1 %3584, i32 1599, i32 1600
+  br label %.critedge42
+
+3585:                                             ; preds = %3554
+  %3586 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3547 = select i1 %3586, i32 1658, i32 1651
+  br label %.critedge42
+
+3587:                                             ; preds = %3554
   %3588 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3589 = load ptr, ptr %3588, align 8, !tbaa !388
   %3590 = getelementptr inbounds nuw i8, ptr %3589, i64 112
@@ -11853,189 +11797,189 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3593 = and i32 %3592, 448
   %3594 = icmp eq i32 %3593, 0
   %3595 = and i32 %3592, 63
-  %switch4194 = icmp samesign ult i32 %3595, 5
-  %or.cond4195 = and i1 %3594, %switch4194
-  %spec.select4350 = select i1 %or.cond4195, i32 1673, i32 1674
-  br label %.critedge42
-
-3596:                                             ; preds = %3571
-  %3597 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3544 = select i1 %3597, i32 1597, i32 1598
-  br label %.critedge42
-
-3598:                                             ; preds = %3571
-  %3599 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3545 = select i1 %3599, i32 1658, i32 1651
-  br label %.critedge42
-
-3600:                                             ; preds = %3571
-  %3601 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3546 = select i1 %3601, i32 1599, i32 1600
-  br label %.critedge42
-
-3602:                                             ; preds = %3571
-  %3603 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3547 = select i1 %3603, i32 1658, i32 1651
-  br label %.critedge42
-
-3604:                                             ; preds = %3571
-  %3605 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3606 = load ptr, ptr %3605, align 8, !tbaa !388
-  %3607 = getelementptr inbounds nuw i8, ptr %3606, i64 112
-  %3608 = load i64, ptr %3607, align 8, !tbaa !406
-  %3609 = trunc i64 %3608 to i32
-  %3610 = and i32 %3609, 448
-  %3611 = icmp eq i32 %3610, 0
-  %3612 = and i32 %3609, 63
-  %switch4196 = icmp samesign ult i32 %3612, 5
-  %or.cond4197 = and i1 %3611, %switch4196
+  %switch4196 = icmp samesign ult i32 %3595, 5
+  %or.cond4197 = and i1 %3594, %switch4196
   %spec.select4351 = select i1 %or.cond4197, i32 1601, i32 1602
   br label %.critedge42
 
-3613:                                             ; preds = %3571
-  %3614 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3615 = load ptr, ptr %3614, align 8, !tbaa !388
-  %3616 = getelementptr inbounds nuw i8, ptr %3615, i64 112
-  %3617 = load i64, ptr %3616, align 8, !tbaa !406
-  %3618 = trunc i64 %3617 to i32
-  %3619 = and i32 %3618, 448
-  %3620 = icmp eq i32 %3619, 0
-  %3621 = and i32 %3618, 63
-  %switch4198 = icmp samesign ult i32 %3621, 5
-  %or.cond4199 = and i1 %3620, %switch4198
+3596:                                             ; preds = %3554
+  %3597 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3598 = load ptr, ptr %3597, align 8, !tbaa !388
+  %3599 = getelementptr inbounds nuw i8, ptr %3598, i64 112
+  %3600 = load i64, ptr %3599, align 8, !tbaa !406
+  %3601 = trunc i64 %3600 to i32
+  %3602 = and i32 %3601, 448
+  %3603 = icmp eq i32 %3602, 0
+  %3604 = and i32 %3601, 63
+  %switch4198 = icmp samesign ult i32 %3604, 5
+  %or.cond4199 = and i1 %3603, %switch4198
   %spec.select4352 = select i1 %or.cond4199, i32 1603, i32 1604
   br label %.critedge42
 
-3622:                                             ; preds = %3571
-  %3623 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3624 = load ptr, ptr %3623, align 8, !tbaa !388
-  %3625 = getelementptr inbounds nuw i8, ptr %3624, i64 112
-  %3626 = load i64, ptr %3625, align 8, !tbaa !406
-  %3627 = trunc i64 %3626 to i32
-  %3628 = and i32 %3627, 448
-  %3629 = icmp eq i32 %3628, 0
-  %3630 = and i32 %3627, 63
-  %switch4200 = icmp samesign ult i32 %3630, 5
-  %or.cond4201 = and i1 %3629, %switch4200
+3605:                                             ; preds = %3554
+  %3606 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3607 = load ptr, ptr %3606, align 8, !tbaa !388
+  %3608 = getelementptr inbounds nuw i8, ptr %3607, i64 112
+  %3609 = load i64, ptr %3608, align 8, !tbaa !406
+  %3610 = trunc i64 %3609 to i32
+  %3611 = and i32 %3610, 448
+  %3612 = icmp eq i32 %3611, 0
+  %3613 = and i32 %3610, 63
+  %switch4200 = icmp samesign ult i32 %3613, 5
+  %or.cond4201 = and i1 %3612, %switch4200
   %spec.select4353 = select i1 %or.cond4201, i32 1605, i32 1606
   br label %.critedge42
 
-3631:                                             ; preds = %3571
-  %3632 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3633 = load ptr, ptr %3632, align 8, !tbaa !388
-  %3634 = getelementptr inbounds nuw i8, ptr %3633, i64 112
-  %3635 = load i64, ptr %3634, align 8, !tbaa !406
-  %3636 = trunc i64 %3635 to i32
-  %3637 = and i32 %3636, 448
-  %3638 = icmp eq i32 %3637, 0
-  %3639 = and i32 %3636, 63
-  %switch4202 = icmp samesign ult i32 %3639, 5
-  %or.cond4203 = and i1 %3638, %switch4202
+3614:                                             ; preds = %3554
+  %3615 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3616 = load ptr, ptr %3615, align 8, !tbaa !388
+  %3617 = getelementptr inbounds nuw i8, ptr %3616, i64 112
+  %3618 = load i64, ptr %3617, align 8, !tbaa !406
+  %3619 = trunc i64 %3618 to i32
+  %3620 = and i32 %3619, 448
+  %3621 = icmp eq i32 %3620, 0
+  %3622 = and i32 %3619, 63
+  %switch4202 = icmp samesign ult i32 %3622, 5
+  %or.cond4203 = and i1 %3621, %switch4202
   %spec.select4354 = select i1 %or.cond4203, i32 1607, i32 1608
   br label %.critedge42
 
-3640:                                             ; preds = %3571
-  %3641 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3641, label %.critedge42, label %3642
+3623:                                             ; preds = %3554
+  %3624 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3624, label %.critedge42, label %3625
 
-3642:                                             ; preds = %3640
-  %3643 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3548 = select i1 %3643, i32 1661, i32 1662
+3625:                                             ; preds = %3623
+  %3626 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3548 = select i1 %3626, i32 1661, i32 1662
   br label %.critedge42
 
-3644:                                             ; preds = %3571
-  %3645 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3645, label %.critedge42, label %3646
+3627:                                             ; preds = %3554
+  %3628 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3628, label %.critedge42, label %3629
 
-3646:                                             ; preds = %3644
-  %3647 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3549 = select i1 %3647, i32 1663, i32 1664
+3629:                                             ; preds = %3627
+  %3630 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3549 = select i1 %3630, i32 1663, i32 1664
   br label %.critedge42
 
-3648:                                             ; preds = %3571
-  %3649 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3649, label %.critedge42, label %3650
+3631:                                             ; preds = %3554
+  %3632 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3632, label %.critedge42, label %3633
 
-3650:                                             ; preds = %3648
-  %3651 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3550 = select i1 %3651, i32 1703, i32 1771
+3633:                                             ; preds = %3631
+  %3634 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3550 = select i1 %3634, i32 1703, i32 1771
   br label %.critedge42
 
-3652:                                             ; preds = %3571
-  %3653 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3551 = select i1 %3653, i32 1659, i32 1660
+3635:                                             ; preds = %3554
+  %3636 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3551 = select i1 %3636, i32 1659, i32 1660
   br label %.critedge42
 
-3654:                                             ; preds = %3571
-  %3655 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3656 = load ptr, ptr %3655, align 8, !tbaa !388
-  %3657 = getelementptr inbounds nuw i8, ptr %3656, i64 112
-  %3658 = load i64, ptr %3657, align 8, !tbaa !406
-  %3659 = trunc i64 %3658 to i32
-  %3660 = and i32 %3659, 448
-  %3661 = icmp eq i32 %3660, 0
-  %3662 = and i32 %3659, 63
-  %switch4204 = icmp samesign ult i32 %3662, 5
-  %or.cond4205 = and i1 %3661, %switch4204
+3637:                                             ; preds = %3554
+  %3638 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3639 = load ptr, ptr %3638, align 8, !tbaa !388
+  %3640 = getelementptr inbounds nuw i8, ptr %3639, i64 112
+  %3641 = load i64, ptr %3640, align 8, !tbaa !406
+  %3642 = trunc i64 %3641 to i32
+  %3643 = and i32 %3642, 448
+  %3644 = icmp eq i32 %3643, 0
+  %3645 = and i32 %3642, 63
+  %switch4204 = icmp samesign ult i32 %3645, 5
+  %or.cond4205 = and i1 %3644, %switch4204
   %spec.select4355 = select i1 %or.cond4205, i32 1609, i32 1610
   br label %.critedge42
 
-3663:                                             ; preds = %3571
-  %3664 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3552 = select i1 %3664, i32 1611, i32 1612
+3646:                                             ; preds = %3554
+  %3647 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3552 = select i1 %3647, i32 1611, i32 1612
   br label %.critedge42
 
-3665:                                             ; preds = %3571
-  %3666 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3553 = select i1 %3666, i32 1658, i32 1651
+3648:                                             ; preds = %3554
+  %3649 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3553 = select i1 %3649, i32 1658, i32 1651
   br label %.critedge42
 
-3667:                                             ; preds = %4
-  %3668 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %3669 = load i32, ptr %3668, align 4, !tbaa !382
-  switch i32 %3669, label %4671 [
-    i32 2, label %3670
-    i32 3, label %3681
-    i32 5, label %3692
-    i32 6, label %3694
-    i32 7, label %3696
-    i32 8, label %3698
-    i32 9, label %3700
-    i32 10, label %3709
-    i32 11, label %3718
-    i32 12, label %3727
-    i32 13, label %3736
-    i32 14, label %3740
-    i32 15, label %3744
-    i32 16, label %3748
-    i32 18, label %3750
-    i32 20, label %3759
-    i32 23, label %3761
+3650:                                             ; preds = %4
+  %3651 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %3652 = load i32, ptr %3651, align 4, !tbaa !382
+  switch i32 %3652, label %4653 [
+    i32 2, label %3653
+    i32 3, label %3664
+    i32 5, label %3675
+    i32 6, label %3677
+    i32 7, label %3679
+    i32 8, label %3681
+    i32 9, label %3683
+    i32 10, label %3692
+    i32 11, label %3701
+    i32 12, label %3710
+    i32 13, label %3719
+    i32 14, label %3723
+    i32 15, label %3727
+    i32 16, label %3731
+    i32 18, label %3733
+    i32 20, label %3742
+    i32 23, label %3744
   ]
 
-3670:                                             ; preds = %3667
-  %3671 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3671, label %.critedge42, label %3672
+3653:                                             ; preds = %3650
+  %3654 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3654, label %.critedge42, label %3655
 
-3672:                                             ; preds = %3670
-  %3673 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3674 = load ptr, ptr %3673, align 8, !tbaa !388
-  %3675 = getelementptr inbounds nuw i8, ptr %3674, i64 112
-  %3676 = load i64, ptr %3675, align 8, !tbaa !406
-  %3677 = trunc i64 %3676 to i32
-  %3678 = and i32 %3677, 448
-  %3679 = icmp eq i32 %3678, 0
-  %3680 = and i32 %3677, 63
-  %switch4206 = icmp samesign ult i32 %3680, 5
-  %or.cond4207 = and i1 %3679, %switch4206
+3655:                                             ; preds = %3653
+  %3656 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3657 = load ptr, ptr %3656, align 8, !tbaa !388
+  %3658 = getelementptr inbounds nuw i8, ptr %3657, i64 112
+  %3659 = load i64, ptr %3658, align 8, !tbaa !406
+  %3660 = trunc i64 %3659 to i32
+  %3661 = and i32 %3660, 448
+  %3662 = icmp eq i32 %3661, 0
+  %3663 = and i32 %3660, 63
+  %switch4206 = icmp samesign ult i32 %3663, 5
+  %or.cond4207 = and i1 %3662, %switch4206
   %spec.select4356 = select i1 %or.cond4207, i32 1757, i32 1758
   br label %.critedge42
 
-3681:                                             ; preds = %3667
-  %3682 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3682, label %.critedge42, label %3683
+3664:                                             ; preds = %3650
+  %3665 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3665, label %.critedge42, label %3666
 
-3683:                                             ; preds = %3681
+3666:                                             ; preds = %3664
+  %3667 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3668 = load ptr, ptr %3667, align 8, !tbaa !388
+  %3669 = getelementptr inbounds nuw i8, ptr %3668, i64 112
+  %3670 = load i64, ptr %3669, align 8, !tbaa !406
+  %3671 = trunc i64 %3670 to i32
+  %3672 = and i32 %3671, 448
+  %3673 = icmp eq i32 %3672, 0
+  %3674 = and i32 %3671, 63
+  %switch4208 = icmp samesign ult i32 %3674, 5
+  %or.cond4209 = and i1 %3673, %switch4208
+  %spec.select4357 = select i1 %or.cond4209, i32 1673, i32 1674
+  br label %.critedge42
+
+3675:                                             ; preds = %3650
+  %3676 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3554 = select i1 %3676, i32 1597, i32 1598
+  br label %.critedge42
+
+3677:                                             ; preds = %3650
+  %3678 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3555 = select i1 %3678, i32 1658, i32 1651
+  br label %.critedge42
+
+3679:                                             ; preds = %3650
+  %3680 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3556 = select i1 %3680, i32 1599, i32 1600
+  br label %.critedge42
+
+3681:                                             ; preds = %3650
+  %3682 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3557 = select i1 %3682, i32 1658, i32 1651
+  br label %.critedge42
+
+3683:                                             ; preds = %3650
   %3684 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3685 = load ptr, ptr %3684, align 8, !tbaa !388
   %3686 = getelementptr inbounds nuw i8, ptr %3685, i64 112
@@ -12044,189 +11988,189 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3689 = and i32 %3688, 448
   %3690 = icmp eq i32 %3689, 0
   %3691 = and i32 %3688, 63
-  %switch4208 = icmp samesign ult i32 %3691, 5
-  %or.cond4209 = and i1 %3690, %switch4208
-  %spec.select4357 = select i1 %or.cond4209, i32 1673, i32 1674
-  br label %.critedge42
-
-3692:                                             ; preds = %3667
-  %3693 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3554 = select i1 %3693, i32 1597, i32 1598
-  br label %.critedge42
-
-3694:                                             ; preds = %3667
-  %3695 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3555 = select i1 %3695, i32 1658, i32 1651
-  br label %.critedge42
-
-3696:                                             ; preds = %3667
-  %3697 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3556 = select i1 %3697, i32 1599, i32 1600
-  br label %.critedge42
-
-3698:                                             ; preds = %3667
-  %3699 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3557 = select i1 %3699, i32 1658, i32 1651
-  br label %.critedge42
-
-3700:                                             ; preds = %3667
-  %3701 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3702 = load ptr, ptr %3701, align 8, !tbaa !388
-  %3703 = getelementptr inbounds nuw i8, ptr %3702, i64 112
-  %3704 = load i64, ptr %3703, align 8, !tbaa !406
-  %3705 = trunc i64 %3704 to i32
-  %3706 = and i32 %3705, 448
-  %3707 = icmp eq i32 %3706, 0
-  %3708 = and i32 %3705, 63
-  %switch4210 = icmp samesign ult i32 %3708, 5
-  %or.cond4211 = and i1 %3707, %switch4210
+  %switch4210 = icmp samesign ult i32 %3691, 5
+  %or.cond4211 = and i1 %3690, %switch4210
   %spec.select4358 = select i1 %or.cond4211, i32 1601, i32 1602
   br label %.critedge42
 
-3709:                                             ; preds = %3667
-  %3710 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3711 = load ptr, ptr %3710, align 8, !tbaa !388
-  %3712 = getelementptr inbounds nuw i8, ptr %3711, i64 112
-  %3713 = load i64, ptr %3712, align 8, !tbaa !406
-  %3714 = trunc i64 %3713 to i32
-  %3715 = and i32 %3714, 448
-  %3716 = icmp eq i32 %3715, 0
-  %3717 = and i32 %3714, 63
-  %switch4212 = icmp samesign ult i32 %3717, 5
-  %or.cond4213 = and i1 %3716, %switch4212
+3692:                                             ; preds = %3650
+  %3693 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3694 = load ptr, ptr %3693, align 8, !tbaa !388
+  %3695 = getelementptr inbounds nuw i8, ptr %3694, i64 112
+  %3696 = load i64, ptr %3695, align 8, !tbaa !406
+  %3697 = trunc i64 %3696 to i32
+  %3698 = and i32 %3697, 448
+  %3699 = icmp eq i32 %3698, 0
+  %3700 = and i32 %3697, 63
+  %switch4212 = icmp samesign ult i32 %3700, 5
+  %or.cond4213 = and i1 %3699, %switch4212
   %spec.select4359 = select i1 %or.cond4213, i32 1603, i32 1604
   br label %.critedge42
 
-3718:                                             ; preds = %3667
-  %3719 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3720 = load ptr, ptr %3719, align 8, !tbaa !388
-  %3721 = getelementptr inbounds nuw i8, ptr %3720, i64 112
-  %3722 = load i64, ptr %3721, align 8, !tbaa !406
-  %3723 = trunc i64 %3722 to i32
-  %3724 = and i32 %3723, 448
-  %3725 = icmp eq i32 %3724, 0
-  %3726 = and i32 %3723, 63
-  %switch4214 = icmp samesign ult i32 %3726, 5
-  %or.cond4215 = and i1 %3725, %switch4214
+3701:                                             ; preds = %3650
+  %3702 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3703 = load ptr, ptr %3702, align 8, !tbaa !388
+  %3704 = getelementptr inbounds nuw i8, ptr %3703, i64 112
+  %3705 = load i64, ptr %3704, align 8, !tbaa !406
+  %3706 = trunc i64 %3705 to i32
+  %3707 = and i32 %3706, 448
+  %3708 = icmp eq i32 %3707, 0
+  %3709 = and i32 %3706, 63
+  %switch4214 = icmp samesign ult i32 %3709, 5
+  %or.cond4215 = and i1 %3708, %switch4214
   %spec.select4360 = select i1 %or.cond4215, i32 1605, i32 1606
   br label %.critedge42
 
-3727:                                             ; preds = %3667
-  %3728 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3729 = load ptr, ptr %3728, align 8, !tbaa !388
-  %3730 = getelementptr inbounds nuw i8, ptr %3729, i64 112
-  %3731 = load i64, ptr %3730, align 8, !tbaa !406
-  %3732 = trunc i64 %3731 to i32
-  %3733 = and i32 %3732, 448
-  %3734 = icmp eq i32 %3733, 0
-  %3735 = and i32 %3732, 63
-  %switch4216 = icmp samesign ult i32 %3735, 5
-  %or.cond4217 = and i1 %3734, %switch4216
+3710:                                             ; preds = %3650
+  %3711 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3712 = load ptr, ptr %3711, align 8, !tbaa !388
+  %3713 = getelementptr inbounds nuw i8, ptr %3712, i64 112
+  %3714 = load i64, ptr %3713, align 8, !tbaa !406
+  %3715 = trunc i64 %3714 to i32
+  %3716 = and i32 %3715, 448
+  %3717 = icmp eq i32 %3716, 0
+  %3718 = and i32 %3715, 63
+  %switch4216 = icmp samesign ult i32 %3718, 5
+  %or.cond4217 = and i1 %3717, %switch4216
   %spec.select4361 = select i1 %or.cond4217, i32 1607, i32 1608
   br label %.critedge42
 
-3736:                                             ; preds = %3667
-  %3737 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3737, label %.critedge42, label %3738
+3719:                                             ; preds = %3650
+  %3720 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3720, label %.critedge42, label %3721
 
-3738:                                             ; preds = %3736
-  %3739 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3558 = select i1 %3739, i32 1661, i32 1662
+3721:                                             ; preds = %3719
+  %3722 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3558 = select i1 %3722, i32 1661, i32 1662
   br label %.critedge42
 
-3740:                                             ; preds = %3667
-  %3741 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3741, label %.critedge42, label %3742
+3723:                                             ; preds = %3650
+  %3724 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3724, label %.critedge42, label %3725
 
-3742:                                             ; preds = %3740
-  %3743 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3559 = select i1 %3743, i32 1663, i32 1664
+3725:                                             ; preds = %3723
+  %3726 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3559 = select i1 %3726, i32 1663, i32 1664
   br label %.critedge42
 
-3744:                                             ; preds = %3667
-  %3745 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3745, label %.critedge42, label %3746
+3727:                                             ; preds = %3650
+  %3728 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3728, label %.critedge42, label %3729
 
-3746:                                             ; preds = %3744
-  %3747 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3560 = select i1 %3747, i32 1703, i32 1771
+3729:                                             ; preds = %3727
+  %3730 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3560 = select i1 %3730, i32 1703, i32 1771
   br label %.critedge42
 
-3748:                                             ; preds = %3667
-  %3749 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3561 = select i1 %3749, i32 1659, i32 1660
+3731:                                             ; preds = %3650
+  %3732 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3561 = select i1 %3732, i32 1659, i32 1660
   br label %.critedge42
 
-3750:                                             ; preds = %3667
-  %3751 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3752 = load ptr, ptr %3751, align 8, !tbaa !388
-  %3753 = getelementptr inbounds nuw i8, ptr %3752, i64 112
-  %3754 = load i64, ptr %3753, align 8, !tbaa !406
-  %3755 = trunc i64 %3754 to i32
-  %3756 = and i32 %3755, 448
-  %3757 = icmp eq i32 %3756, 0
-  %3758 = and i32 %3755, 63
-  %switch4218 = icmp samesign ult i32 %3758, 5
-  %or.cond4219 = and i1 %3757, %switch4218
+3733:                                             ; preds = %3650
+  %3734 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3735 = load ptr, ptr %3734, align 8, !tbaa !388
+  %3736 = getelementptr inbounds nuw i8, ptr %3735, i64 112
+  %3737 = load i64, ptr %3736, align 8, !tbaa !406
+  %3738 = trunc i64 %3737 to i32
+  %3739 = and i32 %3738, 448
+  %3740 = icmp eq i32 %3739, 0
+  %3741 = and i32 %3738, 63
+  %switch4218 = icmp samesign ult i32 %3741, 5
+  %or.cond4219 = and i1 %3740, %switch4218
   %spec.select4362 = select i1 %or.cond4219, i32 1609, i32 1610
   br label %.critedge42
 
-3759:                                             ; preds = %3667
-  %3760 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3562 = select i1 %3760, i32 1611, i32 1612
+3742:                                             ; preds = %3650
+  %3743 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3562 = select i1 %3743, i32 1611, i32 1612
   br label %.critedge42
 
-3761:                                             ; preds = %3667
-  %3762 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3563 = select i1 %3762, i32 1658, i32 1651
+3744:                                             ; preds = %3650
+  %3745 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3563 = select i1 %3745, i32 1658, i32 1651
   br label %.critedge42
 
-3763:                                             ; preds = %4
-  %3764 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %3765 = load i32, ptr %3764, align 4, !tbaa !382
-  switch i32 %3765, label %4671 [
-    i32 2, label %3766
-    i32 3, label %3777
-    i32 5, label %3788
-    i32 6, label %3790
-    i32 7, label %3792
-    i32 8, label %3794
-    i32 9, label %3796
-    i32 10, label %3805
-    i32 11, label %3814
-    i32 12, label %3823
-    i32 13, label %3832
-    i32 14, label %3836
-    i32 15, label %3840
-    i32 16, label %3844
-    i32 18, label %3846
-    i32 20, label %3855
-    i32 23, label %3857
+3746:                                             ; preds = %4
+  %3747 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %3748 = load i32, ptr %3747, align 4, !tbaa !382
+  switch i32 %3748, label %4653 [
+    i32 2, label %3749
+    i32 3, label %3760
+    i32 5, label %3771
+    i32 6, label %3773
+    i32 7, label %3775
+    i32 8, label %3777
+    i32 9, label %3779
+    i32 10, label %3788
+    i32 11, label %3797
+    i32 12, label %3806
+    i32 13, label %3815
+    i32 14, label %3819
+    i32 15, label %3823
+    i32 16, label %3827
+    i32 18, label %3829
+    i32 20, label %3838
+    i32 23, label %3840
   ]
 
-3766:                                             ; preds = %3763
-  %3767 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3767, label %.critedge42, label %3768
+3749:                                             ; preds = %3746
+  %3750 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3750, label %.critedge42, label %3751
 
-3768:                                             ; preds = %3766
-  %3769 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3770 = load ptr, ptr %3769, align 8, !tbaa !388
-  %3771 = getelementptr inbounds nuw i8, ptr %3770, i64 112
-  %3772 = load i64, ptr %3771, align 8, !tbaa !406
-  %3773 = trunc i64 %3772 to i32
-  %3774 = and i32 %3773, 448
-  %3775 = icmp eq i32 %3774, 0
-  %3776 = and i32 %3773, 63
-  %switch4220 = icmp samesign ult i32 %3776, 5
-  %or.cond4221 = and i1 %3775, %switch4220
+3751:                                             ; preds = %3749
+  %3752 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3753 = load ptr, ptr %3752, align 8, !tbaa !388
+  %3754 = getelementptr inbounds nuw i8, ptr %3753, i64 112
+  %3755 = load i64, ptr %3754, align 8, !tbaa !406
+  %3756 = trunc i64 %3755 to i32
+  %3757 = and i32 %3756, 448
+  %3758 = icmp eq i32 %3757, 0
+  %3759 = and i32 %3756, 63
+  %switch4220 = icmp samesign ult i32 %3759, 5
+  %or.cond4221 = and i1 %3758, %switch4220
   %spec.select4363 = select i1 %or.cond4221, i32 1670, i32 1671
   br label %.critedge42
 
-3777:                                             ; preds = %3763
-  %3778 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3778, label %.critedge42, label %3779
+3760:                                             ; preds = %3746
+  %3761 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3761, label %.critedge42, label %3762
 
-3779:                                             ; preds = %3777
+3762:                                             ; preds = %3760
+  %3763 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3764 = load ptr, ptr %3763, align 8, !tbaa !388
+  %3765 = getelementptr inbounds nuw i8, ptr %3764, i64 112
+  %3766 = load i64, ptr %3765, align 8, !tbaa !406
+  %3767 = trunc i64 %3766 to i32
+  %3768 = and i32 %3767, 448
+  %3769 = icmp eq i32 %3768, 0
+  %3770 = and i32 %3767, 63
+  %switch4222 = icmp samesign ult i32 %3770, 5
+  %or.cond4223 = and i1 %3769, %switch4222
+  %spec.select4364 = select i1 %or.cond4223, i32 1673, i32 1674
+  br label %.critedge42
+
+3771:                                             ; preds = %3746
+  %3772 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3564 = select i1 %3772, i32 1597, i32 1598
+  br label %.critedge42
+
+3773:                                             ; preds = %3746
+  %3774 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3565 = select i1 %3774, i32 1658, i32 1651
+  br label %.critedge42
+
+3775:                                             ; preds = %3746
+  %3776 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3566 = select i1 %3776, i32 1599, i32 1600
+  br label %.critedge42
+
+3777:                                             ; preds = %3746
+  %3778 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3567 = select i1 %3778, i32 1658, i32 1651
+  br label %.critedge42
+
+3779:                                             ; preds = %3746
   %3780 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3781 = load ptr, ptr %3780, align 8, !tbaa !388
   %3782 = getelementptr inbounds nuw i8, ptr %3781, i64 112
@@ -12235,189 +12179,189 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3785 = and i32 %3784, 448
   %3786 = icmp eq i32 %3785, 0
   %3787 = and i32 %3784, 63
-  %switch4222 = icmp samesign ult i32 %3787, 5
-  %or.cond4223 = and i1 %3786, %switch4222
-  %spec.select4364 = select i1 %or.cond4223, i32 1673, i32 1674
-  br label %.critedge42
-
-3788:                                             ; preds = %3763
-  %3789 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3564 = select i1 %3789, i32 1597, i32 1598
-  br label %.critedge42
-
-3790:                                             ; preds = %3763
-  %3791 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3565 = select i1 %3791, i32 1658, i32 1651
-  br label %.critedge42
-
-3792:                                             ; preds = %3763
-  %3793 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3566 = select i1 %3793, i32 1599, i32 1600
-  br label %.critedge42
-
-3794:                                             ; preds = %3763
-  %3795 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3567 = select i1 %3795, i32 1658, i32 1651
-  br label %.critedge42
-
-3796:                                             ; preds = %3763
-  %3797 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3798 = load ptr, ptr %3797, align 8, !tbaa !388
-  %3799 = getelementptr inbounds nuw i8, ptr %3798, i64 112
-  %3800 = load i64, ptr %3799, align 8, !tbaa !406
-  %3801 = trunc i64 %3800 to i32
-  %3802 = and i32 %3801, 448
-  %3803 = icmp eq i32 %3802, 0
-  %3804 = and i32 %3801, 63
-  %switch4224 = icmp samesign ult i32 %3804, 5
-  %or.cond4225 = and i1 %3803, %switch4224
+  %switch4224 = icmp samesign ult i32 %3787, 5
+  %or.cond4225 = and i1 %3786, %switch4224
   %spec.select4365 = select i1 %or.cond4225, i32 1601, i32 1602
   br label %.critedge42
 
-3805:                                             ; preds = %3763
-  %3806 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3807 = load ptr, ptr %3806, align 8, !tbaa !388
-  %3808 = getelementptr inbounds nuw i8, ptr %3807, i64 112
-  %3809 = load i64, ptr %3808, align 8, !tbaa !406
-  %3810 = trunc i64 %3809 to i32
-  %3811 = and i32 %3810, 448
-  %3812 = icmp eq i32 %3811, 0
-  %3813 = and i32 %3810, 63
-  %switch4226 = icmp samesign ult i32 %3813, 5
-  %or.cond4227 = and i1 %3812, %switch4226
+3788:                                             ; preds = %3746
+  %3789 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3790 = load ptr, ptr %3789, align 8, !tbaa !388
+  %3791 = getelementptr inbounds nuw i8, ptr %3790, i64 112
+  %3792 = load i64, ptr %3791, align 8, !tbaa !406
+  %3793 = trunc i64 %3792 to i32
+  %3794 = and i32 %3793, 448
+  %3795 = icmp eq i32 %3794, 0
+  %3796 = and i32 %3793, 63
+  %switch4226 = icmp samesign ult i32 %3796, 5
+  %or.cond4227 = and i1 %3795, %switch4226
   %spec.select4366 = select i1 %or.cond4227, i32 1603, i32 1604
   br label %.critedge42
 
-3814:                                             ; preds = %3763
-  %3815 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3816 = load ptr, ptr %3815, align 8, !tbaa !388
-  %3817 = getelementptr inbounds nuw i8, ptr %3816, i64 112
-  %3818 = load i64, ptr %3817, align 8, !tbaa !406
-  %3819 = trunc i64 %3818 to i32
-  %3820 = and i32 %3819, 448
-  %3821 = icmp eq i32 %3820, 0
-  %3822 = and i32 %3819, 63
-  %switch4228 = icmp samesign ult i32 %3822, 5
-  %or.cond4229 = and i1 %3821, %switch4228
+3797:                                             ; preds = %3746
+  %3798 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3799 = load ptr, ptr %3798, align 8, !tbaa !388
+  %3800 = getelementptr inbounds nuw i8, ptr %3799, i64 112
+  %3801 = load i64, ptr %3800, align 8, !tbaa !406
+  %3802 = trunc i64 %3801 to i32
+  %3803 = and i32 %3802, 448
+  %3804 = icmp eq i32 %3803, 0
+  %3805 = and i32 %3802, 63
+  %switch4228 = icmp samesign ult i32 %3805, 5
+  %or.cond4229 = and i1 %3804, %switch4228
   %spec.select4367 = select i1 %or.cond4229, i32 1675, i32 1676
   br label %.critedge42
 
-3823:                                             ; preds = %3763
-  %3824 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3825 = load ptr, ptr %3824, align 8, !tbaa !388
-  %3826 = getelementptr inbounds nuw i8, ptr %3825, i64 112
-  %3827 = load i64, ptr %3826, align 8, !tbaa !406
-  %3828 = trunc i64 %3827 to i32
-  %3829 = and i32 %3828, 448
-  %3830 = icmp eq i32 %3829, 0
-  %3831 = and i32 %3828, 63
-  %switch4230 = icmp samesign ult i32 %3831, 5
-  %or.cond4231 = and i1 %3830, %switch4230
+3806:                                             ; preds = %3746
+  %3807 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3808 = load ptr, ptr %3807, align 8, !tbaa !388
+  %3809 = getelementptr inbounds nuw i8, ptr %3808, i64 112
+  %3810 = load i64, ptr %3809, align 8, !tbaa !406
+  %3811 = trunc i64 %3810 to i32
+  %3812 = and i32 %3811, 448
+  %3813 = icmp eq i32 %3812, 0
+  %3814 = and i32 %3811, 63
+  %switch4230 = icmp samesign ult i32 %3814, 5
+  %or.cond4231 = and i1 %3813, %switch4230
   %spec.select4368 = select i1 %or.cond4231, i32 1677, i32 1678
   br label %.critedge42
 
-3832:                                             ; preds = %3763
-  %3833 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3833, label %.critedge42, label %3834
+3815:                                             ; preds = %3746
+  %3816 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3816, label %.critedge42, label %3817
 
-3834:                                             ; preds = %3832
-  %3835 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3568 = select i1 %3835, i32 1661, i32 1662
+3817:                                             ; preds = %3815
+  %3818 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3568 = select i1 %3818, i32 1661, i32 1662
   br label %.critedge42
 
-3836:                                             ; preds = %3763
-  %3837 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3837, label %.critedge42, label %3838
+3819:                                             ; preds = %3746
+  %3820 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3820, label %.critedge42, label %3821
 
-3838:                                             ; preds = %3836
-  %3839 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3569 = select i1 %3839, i32 1663, i32 1664
+3821:                                             ; preds = %3819
+  %3822 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3569 = select i1 %3822, i32 1663, i32 1664
   br label %.critedge42
 
-3840:                                             ; preds = %3763
-  %3841 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3841, label %.critedge42, label %3842
+3823:                                             ; preds = %3746
+  %3824 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3824, label %.critedge42, label %3825
 
-3842:                                             ; preds = %3840
-  %3843 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3570 = select i1 %3843, i32 1703, i32 1771
+3825:                                             ; preds = %3823
+  %3826 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3570 = select i1 %3826, i32 1703, i32 1771
   br label %.critedge42
 
-3844:                                             ; preds = %3763
-  %3845 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3571 = select i1 %3845, i32 1659, i32 1660
+3827:                                             ; preds = %3746
+  %3828 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3571 = select i1 %3828, i32 1659, i32 1660
   br label %.critedge42
 
-3846:                                             ; preds = %3763
-  %3847 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3848 = load ptr, ptr %3847, align 8, !tbaa !388
-  %3849 = getelementptr inbounds nuw i8, ptr %3848, i64 112
-  %3850 = load i64, ptr %3849, align 8, !tbaa !406
-  %3851 = trunc i64 %3850 to i32
-  %3852 = and i32 %3851, 448
-  %3853 = icmp eq i32 %3852, 0
-  %3854 = and i32 %3851, 63
-  %switch4232 = icmp samesign ult i32 %3854, 5
-  %or.cond4233 = and i1 %3853, %switch4232
+3829:                                             ; preds = %3746
+  %3830 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3831 = load ptr, ptr %3830, align 8, !tbaa !388
+  %3832 = getelementptr inbounds nuw i8, ptr %3831, i64 112
+  %3833 = load i64, ptr %3832, align 8, !tbaa !406
+  %3834 = trunc i64 %3833 to i32
+  %3835 = and i32 %3834, 448
+  %3836 = icmp eq i32 %3835, 0
+  %3837 = and i32 %3834, 63
+  %switch4232 = icmp samesign ult i32 %3837, 5
+  %or.cond4233 = and i1 %3836, %switch4232
   %spec.select4369 = select i1 %or.cond4233, i32 1609, i32 1610
   br label %.critedge42
 
-3855:                                             ; preds = %3763
-  %3856 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3572 = select i1 %3856, i32 1611, i32 1612
+3838:                                             ; preds = %3746
+  %3839 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3572 = select i1 %3839, i32 1611, i32 1612
   br label %.critedge42
 
-3857:                                             ; preds = %3763
-  %3858 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3573 = select i1 %3858, i32 1667, i32 1668
+3840:                                             ; preds = %3746
+  %3841 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3573 = select i1 %3841, i32 1667, i32 1668
   br label %.critedge42
 
-3859:                                             ; preds = %4
-  %3860 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %3861 = load i32, ptr %3860, align 4, !tbaa !382
-  switch i32 %3861, label %4671 [
-    i32 2, label %3862
-    i32 3, label %3873
-    i32 5, label %3884
-    i32 6, label %3886
-    i32 7, label %3888
-    i32 8, label %3890
-    i32 9, label %3892
-    i32 10, label %3901
-    i32 11, label %3910
-    i32 12, label %3919
-    i32 13, label %3928
-    i32 14, label %3932
-    i32 15, label %3936
-    i32 16, label %3940
-    i32 18, label %3942
-    i32 20, label %3951
-    i32 23, label %3953
+3842:                                             ; preds = %4
+  %3843 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %3844 = load i32, ptr %3843, align 4, !tbaa !382
+  switch i32 %3844, label %4653 [
+    i32 2, label %3845
+    i32 3, label %3856
+    i32 5, label %3867
+    i32 6, label %3869
+    i32 7, label %3871
+    i32 8, label %3873
+    i32 9, label %3875
+    i32 10, label %3884
+    i32 11, label %3893
+    i32 12, label %3902
+    i32 13, label %3911
+    i32 14, label %3915
+    i32 15, label %3919
+    i32 16, label %3923
+    i32 18, label %3925
+    i32 20, label %3934
+    i32 23, label %3936
   ]
 
-3862:                                             ; preds = %3859
-  %3863 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3863, label %.critedge42, label %3864
+3845:                                             ; preds = %3842
+  %3846 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3846, label %.critedge42, label %3847
 
-3864:                                             ; preds = %3862
-  %3865 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3866 = load ptr, ptr %3865, align 8, !tbaa !388
-  %3867 = getelementptr inbounds nuw i8, ptr %3866, i64 112
-  %3868 = load i64, ptr %3867, align 8, !tbaa !406
-  %3869 = trunc i64 %3868 to i32
-  %3870 = and i32 %3869, 448
-  %3871 = icmp eq i32 %3870, 0
-  %3872 = and i32 %3869, 63
-  %switch4234 = icmp samesign ult i32 %3872, 5
-  %or.cond4235 = and i1 %3871, %switch4234
+3847:                                             ; preds = %3845
+  %3848 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3849 = load ptr, ptr %3848, align 8, !tbaa !388
+  %3850 = getelementptr inbounds nuw i8, ptr %3849, i64 112
+  %3851 = load i64, ptr %3850, align 8, !tbaa !406
+  %3852 = trunc i64 %3851 to i32
+  %3853 = and i32 %3852, 448
+  %3854 = icmp eq i32 %3853, 0
+  %3855 = and i32 %3852, 63
+  %switch4234 = icmp samesign ult i32 %3855, 5
+  %or.cond4235 = and i1 %3854, %switch4234
   %spec.select4370 = select i1 %or.cond4235, i32 1670, i32 1671
   br label %.critedge42
 
-3873:                                             ; preds = %3859
-  %3874 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3874, label %.critedge42, label %3875
+3856:                                             ; preds = %3842
+  %3857 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3857, label %.critedge42, label %3858
 
-3875:                                             ; preds = %3873
+3858:                                             ; preds = %3856
+  %3859 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3860 = load ptr, ptr %3859, align 8, !tbaa !388
+  %3861 = getelementptr inbounds nuw i8, ptr %3860, i64 112
+  %3862 = load i64, ptr %3861, align 8, !tbaa !406
+  %3863 = trunc i64 %3862 to i32
+  %3864 = and i32 %3863, 448
+  %3865 = icmp eq i32 %3864, 0
+  %3866 = and i32 %3863, 63
+  %switch4236 = icmp samesign ult i32 %3866, 5
+  %or.cond4237 = and i1 %3865, %switch4236
+  %spec.select4371 = select i1 %or.cond4237, i32 1673, i32 1674
+  br label %.critedge42
+
+3867:                                             ; preds = %3842
+  %3868 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3574 = select i1 %3868, i32 1597, i32 1598
+  br label %.critedge42
+
+3869:                                             ; preds = %3842
+  %3870 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3575 = select i1 %3870, i32 1658, i32 1651
+  br label %.critedge42
+
+3871:                                             ; preds = %3842
+  %3872 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3576 = select i1 %3872, i32 1599, i32 1600
+  br label %.critedge42
+
+3873:                                             ; preds = %3842
+  %3874 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3577 = select i1 %3874, i32 1658, i32 1651
+  br label %.critedge42
+
+3875:                                             ; preds = %3842
   %3876 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3877 = load ptr, ptr %3876, align 8, !tbaa !388
   %3878 = getelementptr inbounds nuw i8, ptr %3877, i64 112
@@ -12426,1147 +12370,1158 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
   %3881 = and i32 %3880, 448
   %3882 = icmp eq i32 %3881, 0
   %3883 = and i32 %3880, 63
-  %switch4236 = icmp samesign ult i32 %3883, 5
-  %or.cond4237 = and i1 %3882, %switch4236
-  %spec.select4371 = select i1 %or.cond4237, i32 1673, i32 1674
-  br label %.critedge42
-
-3884:                                             ; preds = %3859
-  %3885 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3574 = select i1 %3885, i32 1597, i32 1598
-  br label %.critedge42
-
-3886:                                             ; preds = %3859
-  %3887 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3575 = select i1 %3887, i32 1658, i32 1651
-  br label %.critedge42
-
-3888:                                             ; preds = %3859
-  %3889 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3576 = select i1 %3889, i32 1599, i32 1600
-  br label %.critedge42
-
-3890:                                             ; preds = %3859
-  %3891 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3577 = select i1 %3891, i32 1658, i32 1651
-  br label %.critedge42
-
-3892:                                             ; preds = %3859
-  %3893 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3894 = load ptr, ptr %3893, align 8, !tbaa !388
-  %3895 = getelementptr inbounds nuw i8, ptr %3894, i64 112
-  %3896 = load i64, ptr %3895, align 8, !tbaa !406
-  %3897 = trunc i64 %3896 to i32
-  %3898 = and i32 %3897, 448
-  %3899 = icmp eq i32 %3898, 0
-  %3900 = and i32 %3897, 63
-  %switch4238 = icmp samesign ult i32 %3900, 5
-  %or.cond4239 = and i1 %3899, %switch4238
+  %switch4238 = icmp samesign ult i32 %3883, 5
+  %or.cond4239 = and i1 %3882, %switch4238
   %spec.select4372 = select i1 %or.cond4239, i32 1601, i32 1602
   br label %.critedge42
 
-3901:                                             ; preds = %3859
-  %3902 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3903 = load ptr, ptr %3902, align 8, !tbaa !388
-  %3904 = getelementptr inbounds nuw i8, ptr %3903, i64 112
-  %3905 = load i64, ptr %3904, align 8, !tbaa !406
-  %3906 = trunc i64 %3905 to i32
-  %3907 = and i32 %3906, 448
-  %3908 = icmp eq i32 %3907, 0
-  %3909 = and i32 %3906, 63
-  %switch4240 = icmp samesign ult i32 %3909, 5
-  %or.cond4241 = and i1 %3908, %switch4240
+3884:                                             ; preds = %3842
+  %3885 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3886 = load ptr, ptr %3885, align 8, !tbaa !388
+  %3887 = getelementptr inbounds nuw i8, ptr %3886, i64 112
+  %3888 = load i64, ptr %3887, align 8, !tbaa !406
+  %3889 = trunc i64 %3888 to i32
+  %3890 = and i32 %3889, 448
+  %3891 = icmp eq i32 %3890, 0
+  %3892 = and i32 %3889, 63
+  %switch4240 = icmp samesign ult i32 %3892, 5
+  %or.cond4241 = and i1 %3891, %switch4240
   %spec.select4373 = select i1 %or.cond4241, i32 1603, i32 1604
   br label %.critedge42
 
-3910:                                             ; preds = %3859
-  %3911 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3912 = load ptr, ptr %3911, align 8, !tbaa !388
-  %3913 = getelementptr inbounds nuw i8, ptr %3912, i64 112
-  %3914 = load i64, ptr %3913, align 8, !tbaa !406
-  %3915 = trunc i64 %3914 to i32
-  %3916 = and i32 %3915, 448
-  %3917 = icmp eq i32 %3916, 0
-  %3918 = and i32 %3915, 63
-  %switch4242 = icmp samesign ult i32 %3918, 5
-  %or.cond4243 = and i1 %3917, %switch4242
+3893:                                             ; preds = %3842
+  %3894 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3895 = load ptr, ptr %3894, align 8, !tbaa !388
+  %3896 = getelementptr inbounds nuw i8, ptr %3895, i64 112
+  %3897 = load i64, ptr %3896, align 8, !tbaa !406
+  %3898 = trunc i64 %3897 to i32
+  %3899 = and i32 %3898, 448
+  %3900 = icmp eq i32 %3899, 0
+  %3901 = and i32 %3898, 63
+  %switch4242 = icmp samesign ult i32 %3901, 5
+  %or.cond4243 = and i1 %3900, %switch4242
   %spec.select4374 = select i1 %or.cond4243, i32 1675, i32 1676
   br label %.critedge42
 
-3919:                                             ; preds = %3859
-  %3920 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3921 = load ptr, ptr %3920, align 8, !tbaa !388
-  %3922 = getelementptr inbounds nuw i8, ptr %3921, i64 112
-  %3923 = load i64, ptr %3922, align 8, !tbaa !406
-  %3924 = trunc i64 %3923 to i32
-  %3925 = and i32 %3924, 448
-  %3926 = icmp eq i32 %3925, 0
-  %3927 = and i32 %3924, 63
-  %switch4244 = icmp samesign ult i32 %3927, 5
-  %or.cond4245 = and i1 %3926, %switch4244
+3902:                                             ; preds = %3842
+  %3903 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3904 = load ptr, ptr %3903, align 8, !tbaa !388
+  %3905 = getelementptr inbounds nuw i8, ptr %3904, i64 112
+  %3906 = load i64, ptr %3905, align 8, !tbaa !406
+  %3907 = trunc i64 %3906 to i32
+  %3908 = and i32 %3907, 448
+  %3909 = icmp eq i32 %3908, 0
+  %3910 = and i32 %3907, 63
+  %switch4244 = icmp samesign ult i32 %3910, 5
+  %or.cond4245 = and i1 %3909, %switch4244
   %spec.select4375 = select i1 %or.cond4245, i32 1677, i32 1678
   br label %.critedge42
 
-3928:                                             ; preds = %3859
-  %3929 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3929, label %.critedge42, label %3930
+3911:                                             ; preds = %3842
+  %3912 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3912, label %.critedge42, label %3913
 
-3930:                                             ; preds = %3928
-  %3931 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3578 = select i1 %3931, i32 1661, i32 1662
+3913:                                             ; preds = %3911
+  %3914 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3578 = select i1 %3914, i32 1661, i32 1662
   br label %.critedge42
 
-3932:                                             ; preds = %3859
-  %3933 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3933, label %.critedge42, label %3934
+3915:                                             ; preds = %3842
+  %3916 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3916, label %.critedge42, label %3917
 
-3934:                                             ; preds = %3932
-  %3935 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3579 = select i1 %3935, i32 1663, i32 1664
+3917:                                             ; preds = %3915
+  %3918 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3579 = select i1 %3918, i32 1663, i32 1664
   br label %.critedge42
 
-3936:                                             ; preds = %3859
-  %3937 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3937, label %.critedge42, label %3938
+3919:                                             ; preds = %3842
+  %3920 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3920, label %.critedge42, label %3921
 
-3938:                                             ; preds = %3936
-  %3939 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3580 = select i1 %3939, i32 1703, i32 1771
+3921:                                             ; preds = %3919
+  %3922 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3580 = select i1 %3922, i32 1703, i32 1771
   br label %.critedge42
 
-3940:                                             ; preds = %3859
-  %3941 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3581 = select i1 %3941, i32 1659, i32 1660
+3923:                                             ; preds = %3842
+  %3924 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3581 = select i1 %3924, i32 1659, i32 1660
   br label %.critedge42
 
-3942:                                             ; preds = %3859
-  %3943 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3944 = load ptr, ptr %3943, align 8, !tbaa !388
-  %3945 = getelementptr inbounds nuw i8, ptr %3944, i64 112
-  %3946 = load i64, ptr %3945, align 8, !tbaa !406
-  %3947 = trunc i64 %3946 to i32
-  %3948 = and i32 %3947, 448
-  %3949 = icmp eq i32 %3948, 0
-  %3950 = and i32 %3947, 63
-  %switch4246 = icmp samesign ult i32 %3950, 5
-  %or.cond4247 = and i1 %3949, %switch4246
+3925:                                             ; preds = %3842
+  %3926 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3927 = load ptr, ptr %3926, align 8, !tbaa !388
+  %3928 = getelementptr inbounds nuw i8, ptr %3927, i64 112
+  %3929 = load i64, ptr %3928, align 8, !tbaa !406
+  %3930 = trunc i64 %3929 to i32
+  %3931 = and i32 %3930, 448
+  %3932 = icmp eq i32 %3931, 0
+  %3933 = and i32 %3930, 63
+  %switch4246 = icmp samesign ult i32 %3933, 5
+  %or.cond4247 = and i1 %3932, %switch4246
   %spec.select4376 = select i1 %or.cond4247, i32 1609, i32 1610
   br label %.critedge42
 
-3951:                                             ; preds = %3859
-  %3952 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3582 = select i1 %3952, i32 1611, i32 1612
+3934:                                             ; preds = %3842
+  %3935 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3582 = select i1 %3935, i32 1611, i32 1612
   br label %.critedge42
 
-3953:                                             ; preds = %3859
-  %3954 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3583 = select i1 %3954, i32 1667, i32 1668
+3936:                                             ; preds = %3842
+  %3937 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3583 = select i1 %3937, i32 1667, i32 1668
   br label %.critedge42
 
-3955:                                             ; preds = %4
-  %3956 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %3957 = load i32, ptr %3956, align 4, !tbaa !382
-  switch i32 %3957, label %4671 [
-    i32 2, label %3958
-    i32 3, label %3969
-    i32 5, label %3980
-    i32 7, label %3982
-    i32 11, label %3984
-    i32 13, label %3993
-    i32 14, label %3997
-    i32 15, label %4001
-    i32 16, label %4005
-    i32 20, label %4007
-    i32 23, label %4009
+3938:                                             ; preds = %4
+  %3939 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %3940 = load i32, ptr %3939, align 4, !tbaa !382
+  switch i32 %3940, label %4653 [
+    i32 2, label %3941
+    i32 3, label %3952
+    i32 5, label %3963
+    i32 7, label %3965
+    i32 11, label %3967
+    i32 13, label %3976
+    i32 14, label %3980
+    i32 15, label %3984
+    i32 16, label %3988
+    i32 20, label %3990
+    i32 23, label %3992
   ]
 
-3958:                                             ; preds = %3955
-  %3959 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3959, label %.critedge42, label %3960
+3941:                                             ; preds = %3938
+  %3942 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3942, label %.critedge42, label %3943
 
-3960:                                             ; preds = %3958
-  %3961 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3962 = load ptr, ptr %3961, align 8, !tbaa !388
-  %3963 = getelementptr inbounds nuw i8, ptr %3962, i64 112
-  %3964 = load i64, ptr %3963, align 8, !tbaa !406
-  %3965 = trunc i64 %3964 to i32
-  %3966 = and i32 %3965, 448
-  %3967 = icmp eq i32 %3966, 0
-  %3968 = and i32 %3965, 63
-  %switch4248 = icmp samesign ult i32 %3968, 5
-  %or.cond4249 = and i1 %3967, %switch4248
+3943:                                             ; preds = %3941
+  %3944 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3945 = load ptr, ptr %3944, align 8, !tbaa !388
+  %3946 = getelementptr inbounds nuw i8, ptr %3945, i64 112
+  %3947 = load i64, ptr %3946, align 8, !tbaa !406
+  %3948 = trunc i64 %3947 to i32
+  %3949 = and i32 %3948, 448
+  %3950 = icmp eq i32 %3949, 0
+  %3951 = and i32 %3948, 63
+  %switch4248 = icmp samesign ult i32 %3951, 5
+  %or.cond4249 = and i1 %3950, %switch4248
   %spec.select4377 = select i1 %or.cond4249, i32 1670, i32 1671
   br label %.critedge42
 
-3969:                                             ; preds = %3955
-  %3970 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3970, label %.critedge42, label %3971
+3952:                                             ; preds = %3938
+  %3953 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3953, label %.critedge42, label %3954
 
-3971:                                             ; preds = %3969
-  %3972 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3973 = load ptr, ptr %3972, align 8, !tbaa !388
-  %3974 = getelementptr inbounds nuw i8, ptr %3973, i64 112
-  %3975 = load i64, ptr %3974, align 8, !tbaa !406
-  %3976 = trunc i64 %3975 to i32
-  %3977 = and i32 %3976, 448
-  %3978 = icmp eq i32 %3977, 0
-  %3979 = and i32 %3976, 63
-  %switch4250 = icmp samesign ult i32 %3979, 5
-  %or.cond4251 = and i1 %3978, %switch4250
+3954:                                             ; preds = %3952
+  %3955 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3956 = load ptr, ptr %3955, align 8, !tbaa !388
+  %3957 = getelementptr inbounds nuw i8, ptr %3956, i64 112
+  %3958 = load i64, ptr %3957, align 8, !tbaa !406
+  %3959 = trunc i64 %3958 to i32
+  %3960 = and i32 %3959, 448
+  %3961 = icmp eq i32 %3960, 0
+  %3962 = and i32 %3959, 63
+  %switch4250 = icmp samesign ult i32 %3962, 5
+  %or.cond4251 = and i1 %3961, %switch4250
   %spec.select4378 = select i1 %or.cond4251, i32 1673, i32 1674
   br label %.critedge42
 
-3980:                                             ; preds = %3955
-  %3981 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3584 = select i1 %3981, i32 1613, i32 1614
+3963:                                             ; preds = %3938
+  %3964 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3584 = select i1 %3964, i32 1613, i32 1614
   br label %.critedge42
 
-3982:                                             ; preds = %3955
-  %3983 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3585 = select i1 %3983, i32 1615, i32 1616
+3965:                                             ; preds = %3938
+  %3966 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3585 = select i1 %3966, i32 1615, i32 1616
   br label %.critedge42
 
-3984:                                             ; preds = %3955
-  %3985 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3986 = load ptr, ptr %3985, align 8, !tbaa !388
-  %3987 = getelementptr inbounds nuw i8, ptr %3986, i64 112
-  %3988 = load i64, ptr %3987, align 8, !tbaa !406
-  %3989 = trunc i64 %3988 to i32
-  %3990 = and i32 %3989, 448
-  %3991 = icmp eq i32 %3990, 0
-  %3992 = and i32 %3989, 63
-  %switch4252 = icmp samesign ult i32 %3992, 5
-  %or.cond4253 = and i1 %3991, %switch4252
+3967:                                             ; preds = %3938
+  %3968 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3969 = load ptr, ptr %3968, align 8, !tbaa !388
+  %3970 = getelementptr inbounds nuw i8, ptr %3969, i64 112
+  %3971 = load i64, ptr %3970, align 8, !tbaa !406
+  %3972 = trunc i64 %3971 to i32
+  %3973 = and i32 %3972, 448
+  %3974 = icmp eq i32 %3973, 0
+  %3975 = and i32 %3972, 63
+  %switch4252 = icmp samesign ult i32 %3975, 5
+  %or.cond4253 = and i1 %3974, %switch4252
   %spec.select4379 = select i1 %or.cond4253, i32 1675, i32 1676
   br label %.critedge42
 
-3993:                                             ; preds = %3955
-  %3994 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %3994, label %.critedge42, label %3995
+3976:                                             ; preds = %3938
+  %3977 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3977, label %.critedge42, label %3978
 
-3995:                                             ; preds = %3993
-  %3996 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3586 = select i1 %3996, i32 1661, i32 1662
+3978:                                             ; preds = %3976
+  %3979 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3586 = select i1 %3979, i32 1661, i32 1662
   br label %.critedge42
 
-3997:                                             ; preds = %3955
-  %3998 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+3980:                                             ; preds = %3938
+  %3981 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3981, label %.critedge42, label %3982
+
+3982:                                             ; preds = %3980
+  %3983 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3587 = select i1 %3983, i32 1663, i32 1664
+  br label %.critedge42
+
+3984:                                             ; preds = %3938
+  %3985 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %3985, label %.critedge42, label %3986
+
+3986:                                             ; preds = %3984
+  %3987 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3588 = select i1 %3987, i32 1703, i32 1771
+  br label %.critedge42
+
+3988:                                             ; preds = %3938
+  %3989 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3589 = select i1 %3989, i32 1659, i32 1660
+  br label %.critedge42
+
+3990:                                             ; preds = %3938
+  %3991 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3590 = select i1 %3991, i32 1617, i32 1618
+  br label %.critedge42
+
+3992:                                             ; preds = %3938
+  %3993 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3591 = select i1 %3993, i32 1667, i32 1668
+  br label %.critedge42
+
+3994:                                             ; preds = %4
+  %3995 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %3996 = load i32, ptr %3995, align 4, !tbaa !382
+  switch i32 %3996, label %4653 [
+    i32 2, label %3997
+    i32 3, label %4008
+    i32 5, label %4019
+    i32 7, label %4021
+    i32 11, label %4023
+    i32 13, label %4032
+    i32 14, label %4036
+    i32 15, label %4040
+    i32 16, label %4044
+    i32 20, label %4046
+    i32 23, label %4048
+  ]
+
+3997:                                             ; preds = %3994
+  %3998 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %3998, label %.critedge42, label %3999
 
 3999:                                             ; preds = %3997
-  %4000 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3587 = select i1 %4000, i32 1663, i32 1664
-  br label %.critedge42
-
-4001:                                             ; preds = %3955
-  %4002 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4002, label %.critedge42, label %4003
-
-4003:                                             ; preds = %4001
-  %4004 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3588 = select i1 %4004, i32 1703, i32 1771
-  br label %.critedge42
-
-4005:                                             ; preds = %3955
-  %4006 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3589 = select i1 %4006, i32 1659, i32 1660
-  br label %.critedge42
-
-4007:                                             ; preds = %3955
-  %4008 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3590 = select i1 %4008, i32 1617, i32 1618
-  br label %.critedge42
-
-4009:                                             ; preds = %3955
-  %4010 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3591 = select i1 %4010, i32 1667, i32 1668
-  br label %.critedge42
-
-4011:                                             ; preds = %4
-  %4012 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %4013 = load i32, ptr %4012, align 4, !tbaa !382
-  switch i32 %4013, label %4671 [
-    i32 2, label %4014
-    i32 3, label %4025
-    i32 5, label %4036
-    i32 7, label %4038
-    i32 11, label %4040
-    i32 13, label %4049
-    i32 14, label %4053
-    i32 15, label %4057
-    i32 16, label %4061
-    i32 20, label %4063
-    i32 23, label %4065
-  ]
-
-4014:                                             ; preds = %4011
-  %4015 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4015, label %.critedge42, label %4016
-
-4016:                                             ; preds = %4014
-  %4017 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4018 = load ptr, ptr %4017, align 8, !tbaa !388
-  %4019 = getelementptr inbounds nuw i8, ptr %4018, i64 112
-  %4020 = load i64, ptr %4019, align 8, !tbaa !406
-  %4021 = trunc i64 %4020 to i32
-  %4022 = and i32 %4021, 448
-  %4023 = icmp eq i32 %4022, 0
-  %4024 = and i32 %4021, 63
-  %switch4254 = icmp samesign ult i32 %4024, 5
-  %or.cond4255 = and i1 %4023, %switch4254
+  %4000 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %4001 = load ptr, ptr %4000, align 8, !tbaa !388
+  %4002 = getelementptr inbounds nuw i8, ptr %4001, i64 112
+  %4003 = load i64, ptr %4002, align 8, !tbaa !406
+  %4004 = trunc i64 %4003 to i32
+  %4005 = and i32 %4004, 448
+  %4006 = icmp eq i32 %4005, 0
+  %4007 = and i32 %4004, 63
+  %switch4254 = icmp samesign ult i32 %4007, 5
+  %or.cond4255 = and i1 %4006, %switch4254
   %spec.select4380 = select i1 %or.cond4255, i32 1670, i32 1671
   br label %.critedge42
 
-4025:                                             ; preds = %4011
-  %4026 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4026, label %.critedge42, label %4027
+4008:                                             ; preds = %3994
+  %4009 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4009, label %.critedge42, label %4010
 
-4027:                                             ; preds = %4025
-  %4028 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4029 = load ptr, ptr %4028, align 8, !tbaa !388
-  %4030 = getelementptr inbounds nuw i8, ptr %4029, i64 112
-  %4031 = load i64, ptr %4030, align 8, !tbaa !406
-  %4032 = trunc i64 %4031 to i32
-  %4033 = and i32 %4032, 448
-  %4034 = icmp eq i32 %4033, 0
-  %4035 = and i32 %4032, 63
-  %switch4256 = icmp samesign ult i32 %4035, 5
-  %or.cond4257 = and i1 %4034, %switch4256
+4010:                                             ; preds = %4008
+  %4011 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %4012 = load ptr, ptr %4011, align 8, !tbaa !388
+  %4013 = getelementptr inbounds nuw i8, ptr %4012, i64 112
+  %4014 = load i64, ptr %4013, align 8, !tbaa !406
+  %4015 = trunc i64 %4014 to i32
+  %4016 = and i32 %4015, 448
+  %4017 = icmp eq i32 %4016, 0
+  %4018 = and i32 %4015, 63
+  %switch4256 = icmp samesign ult i32 %4018, 5
+  %or.cond4257 = and i1 %4017, %switch4256
   %spec.select4381 = select i1 %or.cond4257, i32 1673, i32 1674
   br label %.critedge42
 
-4036:                                             ; preds = %4011
-  %4037 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3592 = select i1 %4037, i32 1613, i32 1614
+4019:                                             ; preds = %3994
+  %4020 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3592 = select i1 %4020, i32 1613, i32 1614
   br label %.critedge42
 
-4038:                                             ; preds = %4011
-  %4039 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3593 = select i1 %4039, i32 1615, i32 1616
+4021:                                             ; preds = %3994
+  %4022 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3593 = select i1 %4022, i32 1615, i32 1616
   br label %.critedge42
 
-4040:                                             ; preds = %4011
-  %4041 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4042 = load ptr, ptr %4041, align 8, !tbaa !388
-  %4043 = getelementptr inbounds nuw i8, ptr %4042, i64 112
-  %4044 = load i64, ptr %4043, align 8, !tbaa !406
-  %4045 = trunc i64 %4044 to i32
-  %4046 = and i32 %4045, 448
-  %4047 = icmp eq i32 %4046, 0
-  %4048 = and i32 %4045, 63
-  %switch4258 = icmp samesign ult i32 %4048, 5
-  %or.cond4259 = and i1 %4047, %switch4258
+4023:                                             ; preds = %3994
+  %4024 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %4025 = load ptr, ptr %4024, align 8, !tbaa !388
+  %4026 = getelementptr inbounds nuw i8, ptr %4025, i64 112
+  %4027 = load i64, ptr %4026, align 8, !tbaa !406
+  %4028 = trunc i64 %4027 to i32
+  %4029 = and i32 %4028, 448
+  %4030 = icmp eq i32 %4029, 0
+  %4031 = and i32 %4028, 63
+  %switch4258 = icmp samesign ult i32 %4031, 5
+  %or.cond4259 = and i1 %4030, %switch4258
   %spec.select4382 = select i1 %or.cond4259, i32 1675, i32 1676
   br label %.critedge42
 
-4049:                                             ; preds = %4011
-  %4050 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4050, label %.critedge42, label %4051
+4032:                                             ; preds = %3994
+  %4033 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4033, label %.critedge42, label %4034
 
-4051:                                             ; preds = %4049
-  %4052 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3594 = select i1 %4052, i32 1661, i32 1662
+4034:                                             ; preds = %4032
+  %4035 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3594 = select i1 %4035, i32 1661, i32 1662
   br label %.critedge42
 
-4053:                                             ; preds = %4011
-  %4054 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4036:                                             ; preds = %3994
+  %4037 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4037, label %.critedge42, label %4038
+
+4038:                                             ; preds = %4036
+  %4039 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3595 = select i1 %4039, i32 1663, i32 1664
+  br label %.critedge42
+
+4040:                                             ; preds = %3994
+  %4041 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4041, label %.critedge42, label %4042
+
+4042:                                             ; preds = %4040
+  %4043 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3596 = select i1 %4043, i32 1703, i32 1771
+  br label %.critedge42
+
+4044:                                             ; preds = %3994
+  %4045 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3597 = select i1 %4045, i32 1659, i32 1660
+  br label %.critedge42
+
+4046:                                             ; preds = %3994
+  %4047 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3598 = select i1 %4047, i32 1617, i32 1618
+  br label %.critedge42
+
+4048:                                             ; preds = %3994
+  %4049 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3599 = select i1 %4049, i32 1667, i32 1668
+  br label %.critedge42
+
+4050:                                             ; preds = %4
+  %4051 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %4052 = load i32, ptr %4051, align 4, !tbaa !382
+  switch i32 %4052, label %4653 [
+    i32 13, label %4053
+    i32 14, label %4057
+    i32 15, label %4063
+  ]
+
+4053:                                             ; preds = %4050
+  %4054 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %4054, label %.critedge42, label %4055
 
 4055:                                             ; preds = %4053
-  %4056 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3595 = select i1 %4056, i32 1663, i32 1664
+  %4056 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3600 = select i1 %4056, i32 1661, i32 1662
   br label %.critedge42
 
-4057:                                             ; preds = %4011
-  %4058 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4057:                                             ; preds = %4050
+  %4058 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br i1 %4058, label %.critedge42, label %4059
 
 4059:                                             ; preds = %4057
-  %4060 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3596 = select i1 %4060, i32 1703, i32 1771
+  %4060 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4060, label %.critedge42, label %4061
+
+4061:                                             ; preds = %4059
+  %4062 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3601 = select i1 %4062, i32 1663, i32 1664
   br label %.critedge42
 
-4061:                                             ; preds = %4011
-  %4062 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3597 = select i1 %4062, i32 1659, i32 1660
+4063:                                             ; preds = %4050
+  %4064 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4064, label %.critedge42, label %4065
+
+4065:                                             ; preds = %4063
+  %4066 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4066, label %.critedge42, label %4067
+
+4067:                                             ; preds = %4065
+  %4068 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3602 = select i1 %4068, i32 1703, i32 1771
   br label %.critedge42
 
-4063:                                             ; preds = %4011
-  %4064 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3598 = select i1 %4064, i32 1617, i32 1618
-  br label %.critedge42
-
-4065:                                             ; preds = %4011
-  %4066 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3599 = select i1 %4066, i32 1667, i32 1668
-  br label %.critedge42
-
-4067:                                             ; preds = %4
-  %4068 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %4069 = load i32, ptr %4068, align 4, !tbaa !382
-  switch i32 %4069, label %4671 [
-    i32 13, label %4070
-    i32 14, label %4074
-    i32 15, label %4080
+4069:                                             ; preds = %4
+  %4070 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %4071 = load i32, ptr %4070, align 4, !tbaa !382
+  switch i32 %4071, label %4653 [
+    i32 5, label %4072
+    i32 7, label %4074
+    i32 20, label %4076
   ]
 
-4070:                                             ; preds = %4067
-  %4071 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4071, label %.critedge42, label %4072
-
-4072:                                             ; preds = %4070
-  %4073 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3600 = select i1 %4073, i32 1661, i32 1662
+4072:                                             ; preds = %4069
+  %4073 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3603 = select i1 %4073, i32 1597, i32 1598
   br label %.critedge42
 
-4074:                                             ; preds = %4067
-  %4075 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4075, label %.critedge42, label %4076
-
-4076:                                             ; preds = %4074
-  %4077 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4077, label %.critedge42, label %4078
-
-4078:                                             ; preds = %4076
-  %4079 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3601 = select i1 %4079, i32 1663, i32 1664
+4074:                                             ; preds = %4069
+  %4075 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3604 = select i1 %4075, i32 1599, i32 1600
   br label %.critedge42
 
-4080:                                             ; preds = %4067
-  %4081 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4081, label %.critedge42, label %4082
-
-4082:                                             ; preds = %4080
-  %4083 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4083, label %.critedge42, label %4084
-
-4084:                                             ; preds = %4082
-  %4085 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3602 = select i1 %4085, i32 1703, i32 1771
+4076:                                             ; preds = %4069
+  %4077 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3605 = select i1 %4077, i32 1611, i32 1612
   br label %.critedge42
 
-4086:                                             ; preds = %4
-  %4087 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %4088 = load i32, ptr %4087, align 4, !tbaa !382
-  switch i32 %4088, label %4671 [
-    i32 5, label %4089
-    i32 7, label %4091
-    i32 20, label %4093
+4078:                                             ; preds = %4
+  %4079 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %4080 = load i32, ptr %4079, align 4, !tbaa !382
+  switch i32 %4080, label %4653 [
+    i32 1, label %4081
+    i32 4, label %4083
+    i32 13, label %4085
+    i32 14, label %4087
+    i32 15, label %4091
+    i32 16, label %4095
+    i32 21, label %4097
+    i32 22, label %4099
   ]
 
-4089:                                             ; preds = %4086
-  %4090 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3603 = select i1 %4090, i32 1597, i32 1598
+4081:                                             ; preds = %4078
+  %4082 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4091:                                             ; preds = %4086
-  %4092 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3604 = select i1 %4092, i32 1599, i32 1600
+4083:                                             ; preds = %4078
+  %4084 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3606 = select i1 %4084, i32 1632, i32 1633
   br label %.critedge42
 
-4093:                                             ; preds = %4086
-  %4094 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3605 = select i1 %4094, i32 1611, i32 1612
+4085:                                             ; preds = %4078
+  %4086 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4095:                                             ; preds = %4
-  %4096 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %4097 = load i32, ptr %4096, align 4, !tbaa !382
-  switch i32 %4097, label %4671 [
-    i32 1, label %4098
-    i32 4, label %4100
-    i32 13, label %4102
-    i32 14, label %4104
-    i32 15, label %4108
-    i32 16, label %4112
-    i32 21, label %4114
-    i32 22, label %4116
+4087:                                             ; preds = %4078
+  %4088 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4088, label %.critedge42, label %4089
+
+4089:                                             ; preds = %4087
+  %4090 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4091:                                             ; preds = %4078
+  %4092 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4092, label %.critedge42, label %4093
+
+4093:                                             ; preds = %4091
+  %4094 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4095:                                             ; preds = %4078
+  %4096 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3607 = select i1 %4096, i32 1712, i32 1713
+  br label %.critedge42
+
+4097:                                             ; preds = %4078
+  %4098 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4099:                                             ; preds = %4078
+  %4100 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4101:                                             ; preds = %4
+  %4102 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %4103 = load i32, ptr %4102, align 4, !tbaa !382
+  switch i32 %4103, label %4653 [
+    i32 1, label %4104
+    i32 4, label %4106
+    i32 13, label %4108
+    i32 14, label %4110
+    i32 15, label %4114
+    i32 16, label %4118
+    i32 21, label %4120
+    i32 22, label %4122
   ]
 
-4098:                                             ; preds = %4095
-  %4099 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-4100:                                             ; preds = %4095
-  %4101 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3606 = select i1 %4101, i32 1632, i32 1633
-  br label %.critedge42
-
-4102:                                             ; preds = %4095
-  %4103 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-4104:                                             ; preds = %4095
+4104:                                             ; preds = %4101
   %4105 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4105, label %.critedge42, label %4106
-
-4106:                                             ; preds = %4104
-  %4107 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4108:                                             ; preds = %4095
-  %4109 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4109, label %.critedge42, label %4110
-
-4110:                                             ; preds = %4108
-  %4111 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4106:                                             ; preds = %4101
+  %4107 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3608 = select i1 %4107, i32 1632, i32 1633
   br label %.critedge42
 
-4112:                                             ; preds = %4095
-  %4113 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3607 = select i1 %4113, i32 1712, i32 1713
+4108:                                             ; preds = %4101
+  %4109 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4114:                                             ; preds = %4095
+4110:                                             ; preds = %4101
+  %4111 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4111, label %.critedge42, label %4112
+
+4112:                                             ; preds = %4110
+  %4113 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4114:                                             ; preds = %4101
   %4115 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4115, label %.critedge42, label %4116
+
+4116:                                             ; preds = %4114
+  %4117 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4116:                                             ; preds = %4095
-  %4117 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4118:                                             ; preds = %4101
+  %4119 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3609 = select i1 %4119, i32 1712, i32 1713
   br label %.critedge42
 
-4118:                                             ; preds = %4
-  %4119 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %4120 = load i32, ptr %4119, align 4, !tbaa !382
-  switch i32 %4120, label %4671 [
-    i32 1, label %4121
-    i32 4, label %4123
-    i32 13, label %4125
-    i32 14, label %4127
-    i32 15, label %4131
-    i32 16, label %4135
-    i32 21, label %4137
-    i32 22, label %4139
+4120:                                             ; preds = %4101
+  %4121 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4122:                                             ; preds = %4101
+  %4123 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4124:                                             ; preds = %4
+  %4125 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %4126 = load i32, ptr %4125, align 4, !tbaa !382
+  switch i32 %4126, label %4653 [
+    i32 1, label %4127
+    i32 4, label %4129
+    i32 13, label %4131
+    i32 14, label %4133
+    i32 15, label %4145
+    i32 16, label %4157
+    i32 21, label %4159
+    i32 22, label %4161
   ]
 
-4121:                                             ; preds = %4118
-  %4122 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-4123:                                             ; preds = %4118
-  %4124 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3608 = select i1 %4124, i32 1632, i32 1633
-  br label %.critedge42
-
-4125:                                             ; preds = %4118
-  %4126 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-4127:                                             ; preds = %4118
+4127:                                             ; preds = %4124
   %4128 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4128, label %.critedge42, label %4129
-
-4129:                                             ; preds = %4127
-  %4130 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4131:                                             ; preds = %4118
-  %4132 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4132, label %.critedge42, label %4133
+4129:                                             ; preds = %4124
+  %4130 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3610 = select i1 %4130, i32 1632, i32 1633
+  br label %.critedge42
 
-4133:                                             ; preds = %4131
+4131:                                             ; preds = %4124
+  %4132 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3611 = select i1 %4132, i32 1723, i32 1724
+  br label %.critedge42
+
+4133:                                             ; preds = %4124
   %4134 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
+  br i1 %4134, label %4135, label %4139
 
-4135:                                             ; preds = %4118
-  %4136 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3609 = select i1 %4136, i32 1712, i32 1713
-  br label %.critedge42
+4135:                                             ; preds = %4133
+  %4136 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4136, label %.critedge42, label %4137
 
-4137:                                             ; preds = %4118
-  %4138 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
+4137:                                             ; preds = %4135
+  %4138 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4138, label %.critedge42, label %4139
 
-4139:                                             ; preds = %4118
+4139:                                             ; preds = %4137, %4133
   %4140 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4140, label %.critedge42, label %4141
+
+4141:                                             ; preds = %4139
+  %4142 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4142, label %.critedge42, label %4143
+
+4143:                                             ; preds = %4141
+  %4144 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3612 = select i1 %4144, i32 1635, i32 1636
   br label %.critedge42
 
-4141:                                             ; preds = %4
-  %4142 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %4143 = load i32, ptr %4142, align 4, !tbaa !382
-  switch i32 %4143, label %4671 [
-    i32 1, label %4144
-    i32 4, label %4146
-    i32 13, label %4148
-    i32 14, label %4150
-    i32 15, label %4162
-    i32 16, label %4174
-    i32 21, label %4176
-    i32 22, label %4178
+4145:                                             ; preds = %4124
+  %4146 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4146, label %4147, label %4151
+
+4147:                                             ; preds = %4145
+  %4148 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4148, label %.critedge42, label %4149
+
+4149:                                             ; preds = %4147
+  %4150 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4150, label %.critedge42, label %4151
+
+4151:                                             ; preds = %4149, %4145
+  %4152 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4152, label %.critedge42, label %4153
+
+4153:                                             ; preds = %4151
+  %4154 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4154, label %.critedge42, label %4155
+
+4155:                                             ; preds = %4153
+  %4156 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3613 = select i1 %4156, i32 1637, i32 1638
+  br label %.critedge42
+
+4157:                                             ; preds = %4124
+  %4158 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3614 = select i1 %4158, i32 1712, i32 1713
+  br label %.critedge42
+
+4159:                                             ; preds = %4124
+  %4160 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4161:                                             ; preds = %4124
+  %4162 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4163:                                             ; preds = %4
+  %4164 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %4165 = load i32, ptr %4164, align 4, !tbaa !382
+  switch i32 %4165, label %4653 [
+    i32 1, label %4166
+    i32 4, label %4168
+    i32 13, label %4170
+    i32 14, label %4172
+    i32 15, label %4184
+    i32 16, label %4196
+    i32 21, label %4198
+    i32 22, label %4200
   ]
 
-4144:                                             ; preds = %4141
-  %4145 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4166:                                             ; preds = %4163
+  %4167 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4146:                                             ; preds = %4141
-  %4147 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3610 = select i1 %4147, i32 1632, i32 1633
-  br label %.critedge42
-
-4148:                                             ; preds = %4141
-  %4149 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3611 = select i1 %4149, i32 1723, i32 1724
-  br label %.critedge42
-
-4150:                                             ; preds = %4141
-  %4151 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4151, label %4152, label %4156
-
-4152:                                             ; preds = %4150
-  %4153 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4153, label %.critedge42, label %4154
-
-4154:                                             ; preds = %4152
-  %4155 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4155, label %.critedge42, label %4156
-
-4156:                                             ; preds = %4154, %4150
-  %4157 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4157, label %.critedge42, label %4158
-
-4158:                                             ; preds = %4156
-  %4159 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4159, label %.critedge42, label %4160
-
-4160:                                             ; preds = %4158
-  %4161 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3612 = select i1 %4161, i32 1635, i32 1636
-  br label %.critedge42
-
-4162:                                             ; preds = %4141
-  %4163 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4163, label %4164, label %4168
-
-4164:                                             ; preds = %4162
-  %4165 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4165, label %.critedge42, label %4166
-
-4166:                                             ; preds = %4164
-  %4167 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4167, label %.critedge42, label %4168
-
-4168:                                             ; preds = %4166, %4162
+4168:                                             ; preds = %4163
   %4169 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4169, label %.critedge42, label %4170
+  %.3615 = select i1 %4169, i32 1632, i32 1633
+  br label %.critedge42
 
-4170:                                             ; preds = %4168
+4170:                                             ; preds = %4163
   %4171 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4171, label %.critedge42, label %4172
+  %.3616 = select i1 %4171, i32 1723, i32 1724
+  br label %.critedge42
 
-4172:                                             ; preds = %4170
+4172:                                             ; preds = %4163
   %4173 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3613 = select i1 %4173, i32 1637, i32 1638
-  br label %.critedge42
+  br i1 %4173, label %4174, label %4178
 
-4174:                                             ; preds = %4141
-  %4175 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3614 = select i1 %4175, i32 1712, i32 1713
-  br label %.critedge42
+4174:                                             ; preds = %4172
+  %4175 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4175, label %.critedge42, label %4176
 
-4176:                                             ; preds = %4141
-  %4177 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
+4176:                                             ; preds = %4174
+  %4177 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4177, label %.critedge42, label %4178
 
-4178:                                             ; preds = %4141
+4178:                                             ; preds = %4176, %4172
   %4179 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4179, label %.critedge42, label %4180
+
+4180:                                             ; preds = %4178
+  %4181 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4181, label %.critedge42, label %4182
+
+4182:                                             ; preds = %4180
+  %4183 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3617 = select i1 %4183, i32 1635, i32 1636
   br label %.critedge42
 
-4180:                                             ; preds = %4
-  %4181 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %4182 = load i32, ptr %4181, align 4, !tbaa !382
-  switch i32 %4182, label %4671 [
-    i32 1, label %4183
-    i32 4, label %4185
-    i32 13, label %4187
-    i32 14, label %4189
-    i32 15, label %4201
-    i32 16, label %4213
-    i32 21, label %4215
-    i32 22, label %4217
+4184:                                             ; preds = %4163
+  %4185 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4185, label %4186, label %4190
+
+4186:                                             ; preds = %4184
+  %4187 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4187, label %.critedge42, label %4188
+
+4188:                                             ; preds = %4186
+  %4189 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4189, label %.critedge42, label %4190
+
+4190:                                             ; preds = %4188, %4184
+  %4191 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4191, label %.critedge42, label %4192
+
+4192:                                             ; preds = %4190
+  %4193 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4193, label %.critedge42, label %4194
+
+4194:                                             ; preds = %4192
+  %4195 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3618 = select i1 %4195, i32 1637, i32 1638
+  br label %.critedge42
+
+4196:                                             ; preds = %4163
+  %4197 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3619 = select i1 %4197, i32 1712, i32 1713
+  br label %.critedge42
+
+4198:                                             ; preds = %4163
+  %4199 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4200:                                             ; preds = %4163
+  %4201 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4202:                                             ; preds = %4
+  %4203 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %4204 = load i32, ptr %4203, align 4, !tbaa !382
+  switch i32 %4204, label %4653 [
+    i32 1, label %4205
+    i32 4, label %4207
+    i32 13, label %4209
+    i32 14, label %4211
+    i32 15, label %4215
+    i32 16, label %4219
+    i32 21, label %4221
+    i32 22, label %4223
   ]
 
-4183:                                             ; preds = %4180
-  %4184 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4205:                                             ; preds = %4202
+  %4206 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4185:                                             ; preds = %4180
-  %4186 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3615 = select i1 %4186, i32 1632, i32 1633
-  br label %.critedge42
-
-4187:                                             ; preds = %4180
-  %4188 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3616 = select i1 %4188, i32 1723, i32 1724
-  br label %.critedge42
-
-4189:                                             ; preds = %4180
-  %4190 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4190, label %4191, label %4195
-
-4191:                                             ; preds = %4189
-  %4192 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4192, label %.critedge42, label %4193
-
-4193:                                             ; preds = %4191
-  %4194 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4194, label %.critedge42, label %4195
-
-4195:                                             ; preds = %4193, %4189
-  %4196 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4196, label %.critedge42, label %4197
-
-4197:                                             ; preds = %4195
-  %4198 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4198, label %.critedge42, label %4199
-
-4199:                                             ; preds = %4197
-  %4200 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3617 = select i1 %4200, i32 1635, i32 1636
-  br label %.critedge42
-
-4201:                                             ; preds = %4180
-  %4202 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4202, label %4203, label %4207
-
-4203:                                             ; preds = %4201
-  %4204 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4204, label %.critedge42, label %4205
-
-4205:                                             ; preds = %4203
-  %4206 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4206, label %.critedge42, label %4207
-
-4207:                                             ; preds = %4205, %4201
+4207:                                             ; preds = %4202
   %4208 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4208, label %.critedge42, label %4209
+  %.3620 = select i1 %4208, i32 1644, i32 1645
+  br label %.critedge42
 
-4209:                                             ; preds = %4207
+4209:                                             ; preds = %4202
   %4210 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4210, label %.critedge42, label %4211
-
-4211:                                             ; preds = %4209
-  %4212 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3618 = select i1 %4212, i32 1637, i32 1638
   br label %.critedge42
 
-4213:                                             ; preds = %4180
-  %4214 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3619 = select i1 %4214, i32 1712, i32 1713
+4211:                                             ; preds = %4202
+  %4212 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4212, label %.critedge42, label %4213
+
+4213:                                             ; preds = %4211
+  %4214 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4215:                                             ; preds = %4180
+4215:                                             ; preds = %4202
   %4216 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4216, label %.critedge42, label %4217
+
+4217:                                             ; preds = %4215
+  %4218 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4217:                                             ; preds = %4180
-  %4218 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4219:                                             ; preds = %4202
+  %4220 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3621 = select i1 %4220, i32 1738, i32 1739
   br label %.critedge42
 
-4219:                                             ; preds = %4
-  %4220 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %4221 = load i32, ptr %4220, align 4, !tbaa !382
-  switch i32 %4221, label %4671 [
-    i32 1, label %4222
-    i32 4, label %4224
-    i32 13, label %4226
-    i32 14, label %4228
-    i32 15, label %4232
-    i32 16, label %4236
-    i32 21, label %4238
-    i32 22, label %4240
+4221:                                             ; preds = %4202
+  %4222 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4223:                                             ; preds = %4202
+  %4224 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4225:                                             ; preds = %4
+  %4226 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %4227 = load i32, ptr %4226, align 4, !tbaa !382
+  switch i32 %4227, label %4653 [
+    i32 1, label %4228
+    i32 4, label %4230
+    i32 13, label %4232
+    i32 14, label %4234
+    i32 15, label %4238
+    i32 16, label %4242
+    i32 21, label %4244
+    i32 22, label %4246
   ]
 
-4222:                                             ; preds = %4219
-  %4223 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-4224:                                             ; preds = %4219
-  %4225 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3620 = select i1 %4225, i32 1644, i32 1645
-  br label %.critedge42
-
-4226:                                             ; preds = %4219
-  %4227 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-4228:                                             ; preds = %4219
+4228:                                             ; preds = %4225
   %4229 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4229, label %.critedge42, label %4230
-
-4230:                                             ; preds = %4228
-  %4231 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4232:                                             ; preds = %4219
-  %4233 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4233, label %.critedge42, label %4234
-
-4234:                                             ; preds = %4232
-  %4235 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4230:                                             ; preds = %4225
+  %4231 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3622 = select i1 %4231, i32 1644, i32 1645
   br label %.critedge42
 
-4236:                                             ; preds = %4219
-  %4237 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3621 = select i1 %4237, i32 1738, i32 1739
+4232:                                             ; preds = %4225
+  %4233 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4238:                                             ; preds = %4219
+4234:                                             ; preds = %4225
+  %4235 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4235, label %.critedge42, label %4236
+
+4236:                                             ; preds = %4234
+  %4237 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4238:                                             ; preds = %4225
   %4239 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4239, label %.critedge42, label %4240
+
+4240:                                             ; preds = %4238
+  %4241 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4240:                                             ; preds = %4219
-  %4241 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4242:                                             ; preds = %4225
+  %4243 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3623 = select i1 %4243, i32 1738, i32 1739
   br label %.critedge42
 
-4242:                                             ; preds = %4
-  %4243 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %4244 = load i32, ptr %4243, align 4, !tbaa !382
-  switch i32 %4244, label %4671 [
-    i32 1, label %4245
-    i32 4, label %4247
-    i32 13, label %4249
-    i32 14, label %4251
-    i32 15, label %4255
-    i32 16, label %4259
-    i32 21, label %4261
-    i32 22, label %4263
+4244:                                             ; preds = %4225
+  %4245 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4246:                                             ; preds = %4225
+  %4247 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4248:                                             ; preds = %4
+  %4249 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %4250 = load i32, ptr %4249, align 4, !tbaa !382
+  switch i32 %4250, label %4653 [
+    i32 1, label %4251
+    i32 4, label %4253
+    i32 12, label %4255
+    i32 13, label %4265
+    i32 14, label %4267
+    i32 15, label %4271
+    i32 16, label %4275
+    i32 21, label %4277
+    i32 22, label %4279
   ]
 
-4245:                                             ; preds = %4242
-  %4246 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-4247:                                             ; preds = %4242
-  %4248 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3622 = select i1 %4248, i32 1644, i32 1645
-  br label %.critedge42
-
-4249:                                             ; preds = %4242
-  %4250 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-4251:                                             ; preds = %4242
+4251:                                             ; preds = %4248
   %4252 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4252, label %.critedge42, label %4253
-
-4253:                                             ; preds = %4251
-  %4254 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4255:                                             ; preds = %4242
-  %4256 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4256, label %.critedge42, label %4257
+4253:                                             ; preds = %4248
+  %4254 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3624 = select i1 %4254, i32 1644, i32 1645
+  br label %.critedge42
+
+4255:                                             ; preds = %4248
+  %4256 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4256, label %4259, label %4257
 
 4257:                                             ; preds = %4255
-  %4258 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %4258 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4258, label %4259, label %4298
+
+4259:                                             ; preds = %4257, %4255
+  %4260 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %4261 = load ptr, ptr %4260, align 8, !tbaa !388
+  %4262 = getelementptr inbounds nuw i8, ptr %4261, i64 144
+  %4263 = load i64, ptr %4262, align 8, !tbaa !406
+  %4264 = icmp eq i64 %4263, 1
+  br i1 %4264, label %.critedge42, label %4298
+
+4265:                                             ; preds = %4248
+  %4266 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4259:                                             ; preds = %4242
-  %4260 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3623 = select i1 %4260, i32 1738, i32 1739
+4267:                                             ; preds = %4248
+  %4268 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4268, label %.critedge42, label %4269
+
+4269:                                             ; preds = %4267
+  %4270 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4261:                                             ; preds = %4242
-  %4262 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4271:                                             ; preds = %4248
+  %4272 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4272, label %.critedge42, label %4273
+
+4273:                                             ; preds = %4271
+  %4274 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4263:                                             ; preds = %4242
-  %4264 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4275:                                             ; preds = %4248
+  %4276 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3625 = select i1 %4276, i32 1728, i32 1729
   br label %.critedge42
 
-4265:                                             ; preds = %4
-  %4266 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %4267 = load i32, ptr %4266, align 4, !tbaa !382
-  switch i32 %4267, label %4671 [
-    i32 1, label %4268
-    i32 4, label %4270
-    i32 12, label %4272
-    i32 13, label %4283
-    i32 14, label %4285
-    i32 15, label %4289
-    i32 16, label %4293
-    i32 21, label %4295
-    i32 22, label %4297
+4277:                                             ; preds = %4248
+  %4278 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4279:                                             ; preds = %4248
+  %4280 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4281:                                             ; preds = %4
+  %4282 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %4283 = load i32, ptr %4282, align 4, !tbaa !382
+  switch i32 %4283, label %4653 [
+    i32 1, label %4284
+    i32 4, label %4286
+    i32 12, label %4288
+    i32 13, label %4299
+    i32 14, label %4301
+    i32 15, label %4305
+    i32 16, label %4309
+    i32 21, label %4311
+    i32 22, label %4313
   ]
 
-4268:                                             ; preds = %4265
-  %4269 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4284:                                             ; preds = %4281
+  %4285 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4270:                                             ; preds = %4265
-  %4271 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3624 = select i1 %4271, i32 1644, i32 1645
+4286:                                             ; preds = %4281
+  %4287 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3626 = select i1 %4287, i32 1644, i32 1645
   br label %.critedge42
 
-4272:                                             ; preds = %4265
-  %4273 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4273, label %4276, label %4274
+4288:                                             ; preds = %4281
+  %4289 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4289, label %4292, label %4290
 
-4274:                                             ; preds = %4272
-  %4275 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4275, label %4276, label %4282
+4290:                                             ; preds = %4288
+  %4291 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4291, label %4292, label %4298
 
-4276:                                             ; preds = %4274, %4272
-  %4277 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4278 = load ptr, ptr %4277, align 8, !tbaa !388
-  %4279 = getelementptr inbounds nuw i8, ptr %4278, i64 144
-  %4280 = load i64, ptr %4279, align 8, !tbaa !406
-  %4281 = icmp eq i64 %4280, 1
-  br i1 %4281, label %.critedge42, label %4282
+4292:                                             ; preds = %4290, %4288
+  %4293 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %4294 = load ptr, ptr %4293, align 8, !tbaa !388
+  %4295 = getelementptr inbounds nuw i8, ptr %4294, i64 144
+  %4296 = load i64, ptr %4295, align 8, !tbaa !406
+  %4297 = icmp eq i64 %4296, 1
+  br i1 %4297, label %.critedge42, label %4298
 
-4282:                                             ; preds = %4276, %4274
+4298:                                             ; preds = %1157, %1159, %1190, %1192, %1269, %1271, %1302, %1304, %1337, %1339, %1372, %1374, %2214, %2216, %3476, %3478, %4257, %4259, %4292, %4290
   br label %.critedge42
 
-4283:                                             ; preds = %4265
-  %4284 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4299:                                             ; preds = %4281
+  %4300 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4285:                                             ; preds = %4265
-  %4286 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4286, label %.critedge42, label %4287
+4301:                                             ; preds = %4281
+  %4302 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4302, label %.critedge42, label %4303
 
-4287:                                             ; preds = %4285
-  %4288 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4303:                                             ; preds = %4301
+  %4304 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4289:                                             ; preds = %4265
-  %4290 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4290, label %.critedge42, label %4291
+4305:                                             ; preds = %4281
+  %4306 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4306, label %.critedge42, label %4307
 
-4291:                                             ; preds = %4289
-  %4292 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4307:                                             ; preds = %4305
+  %4308 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4293:                                             ; preds = %4265
-  %4294 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3625 = select i1 %4294, i32 1728, i32 1729
+4309:                                             ; preds = %4281
+  %4310 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3627 = select i1 %4310, i32 1728, i32 1729
   br label %.critedge42
 
-4295:                                             ; preds = %4265
-  %4296 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4311:                                             ; preds = %4281
+  %4312 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4297:                                             ; preds = %4265
-  %4298 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4313:                                             ; preds = %4281
+  %4314 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4299:                                             ; preds = %4
-  %4300 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %4301 = load i32, ptr %4300, align 4, !tbaa !382
-  switch i32 %4301, label %4671 [
-    i32 1, label %4302
-    i32 4, label %4304
-    i32 12, label %4306
-    i32 13, label %4317
-    i32 14, label %4319
-    i32 15, label %4323
-    i32 16, label %4327
-    i32 21, label %4329
-    i32 22, label %4331
+4315:                                             ; preds = %4
+  %4316 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %4317 = load i32, ptr %4316, align 4, !tbaa !382
+  switch i32 %4317, label %4653 [
+    i32 1, label %4318
+    i32 4, label %4320
+    i32 13, label %4322
+    i32 14, label %4324
+    i32 15, label %4328
+    i32 16, label %4332
+    i32 21, label %4334
+    i32 22, label %4336
   ]
 
-4302:                                             ; preds = %4299
-  %4303 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4318:                                             ; preds = %4315
+  %4319 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4304:                                             ; preds = %4299
-  %4305 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3626 = select i1 %4305, i32 1644, i32 1645
+4320:                                             ; preds = %4315
+  %4321 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3628 = select i1 %4321, i32 1644, i32 1645
   br label %.critedge42
 
-4306:                                             ; preds = %4299
-  %4307 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4307, label %4310, label %4308
-
-4308:                                             ; preds = %4306
-  %4309 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4309, label %4310, label %4316
-
-4310:                                             ; preds = %4308, %4306
-  %4311 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4312 = load ptr, ptr %4311, align 8, !tbaa !388
-  %4313 = getelementptr inbounds nuw i8, ptr %4312, i64 144
-  %4314 = load i64, ptr %4313, align 8, !tbaa !406
-  %4315 = icmp eq i64 %4314, 1
-  br i1 %4315, label %.critedge42, label %4316
-
-4316:                                             ; preds = %4310, %4308
+4322:                                             ; preds = %4315
+  %4323 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4317:                                             ; preds = %4299
-  %4318 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4324:                                             ; preds = %4315
+  %4325 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4325, label %.critedge42, label %4326
+
+4326:                                             ; preds = %4324
+  %4327 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4319:                                             ; preds = %4299
-  %4320 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4320, label %.critedge42, label %4321
+4328:                                             ; preds = %4315
+  %4329 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4329, label %.critedge42, label %4330
 
-4321:                                             ; preds = %4319
-  %4322 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4330:                                             ; preds = %4328
+  %4331 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4323:                                             ; preds = %4299
-  %4324 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4324, label %.critedge42, label %4325
-
-4325:                                             ; preds = %4323
-  %4326 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4332:                                             ; preds = %4315
+  %4333 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3629 = select i1 %4333, i32 1738, i32 1739
   br label %.critedge42
 
-4327:                                             ; preds = %4299
-  %4328 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3627 = select i1 %4328, i32 1728, i32 1729
+4334:                                             ; preds = %4315
+  %4335 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4329:                                             ; preds = %4299
-  %4330 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-4331:                                             ; preds = %4299
-  %4332 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-4333:                                             ; preds = %4
-  %4334 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %4335 = load i32, ptr %4334, align 4, !tbaa !382
-  switch i32 %4335, label %4671 [
-    i32 1, label %4336
-    i32 4, label %4338
-    i32 13, label %4340
-    i32 14, label %4342
-    i32 15, label %4346
-    i32 16, label %4350
-    i32 21, label %4352
-    i32 22, label %4354
-  ]
-
-4336:                                             ; preds = %4333
+4336:                                             ; preds = %4315
   %4337 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4338:                                             ; preds = %4333
-  %4339 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3628 = select i1 %4339, i32 1644, i32 1645
-  br label %.critedge42
-
-4340:                                             ; preds = %4333
-  %4341 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-4342:                                             ; preds = %4333
-  %4343 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4343, label %.critedge42, label %4344
-
-4344:                                             ; preds = %4342
-  %4345 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-4346:                                             ; preds = %4333
-  %4347 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4347, label %.critedge42, label %4348
-
-4348:                                             ; preds = %4346
-  %4349 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-4350:                                             ; preds = %4333
-  %4351 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3629 = select i1 %4351, i32 1738, i32 1739
-  br label %.critedge42
-
-4352:                                             ; preds = %4333
-  %4353 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-4354:                                             ; preds = %4333
-  %4355 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-4356:                                             ; preds = %4
-  %4357 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %4358 = load i32, ptr %4357, align 4, !tbaa !382
-  switch i32 %4358, label %4671 [
-    i32 1, label %4359
-    i32 4, label %4361
-    i32 13, label %4363
-    i32 14, label %4365
-    i32 15, label %4369
-    i32 16, label %4373
-    i32 21, label %4375
-    i32 22, label %4377
+4338:                                             ; preds = %4
+  %4339 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %4340 = load i32, ptr %4339, align 4, !tbaa !382
+  switch i32 %4340, label %4653 [
+    i32 1, label %4341
+    i32 4, label %4343
+    i32 13, label %4345
+    i32 14, label %4347
+    i32 15, label %4351
+    i32 16, label %4355
+    i32 21, label %4357
+    i32 22, label %4359
   ]
 
-4359:                                             ; preds = %4356
+4341:                                             ; preds = %4338
+  %4342 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4343:                                             ; preds = %4338
+  %4344 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3630 = select i1 %4344, i32 1644, i32 1645
+  br label %.critedge42
+
+4345:                                             ; preds = %4338
+  %4346 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4347:                                             ; preds = %4338
+  %4348 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4348, label %.critedge42, label %4349
+
+4349:                                             ; preds = %4347
+  %4350 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4351:                                             ; preds = %4338
+  %4352 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4352, label %.critedge42, label %4353
+
+4353:                                             ; preds = %4351
+  %4354 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4355:                                             ; preds = %4338
+  %4356 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3631 = select i1 %4356, i32 1738, i32 1739
+  br label %.critedge42
+
+4357:                                             ; preds = %4338
+  %4358 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br label %.critedge42
+
+4359:                                             ; preds = %4338
   %4360 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
   br label %.critedge42
 
-4361:                                             ; preds = %4356
-  %4362 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3630 = select i1 %4362, i32 1644, i32 1645
+4361:                                             ; preds = %4
+  %4362 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %4363 = load i32, ptr %4362, align 4, !tbaa !382
+  switch i32 %4363, label %4653 [
+    i32 13, label %4364
+    i32 14, label %4366
+    i32 15, label %4368
+  ]
+
+4364:                                             ; preds = %4361
+  %4365 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3632 = select i1 %4365, i32 1653, i32 1652
   br label %.critedge42
 
-4363:                                             ; preds = %4356
-  %4364 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4366:                                             ; preds = %4361
+  %4367 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3633 = select i1 %4367, i32 1655, i32 1654
   br label %.critedge42
 
-4365:                                             ; preds = %4356
-  %4366 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4366, label %.critedge42, label %4367
-
-4367:                                             ; preds = %4365
-  %4368 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4368:                                             ; preds = %4361
+  %4369 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3634 = select i1 %4369, i32 1657, i32 1760
   br label %.critedge42
 
-4369:                                             ; preds = %4356
-  %4370 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4370, label %.critedge42, label %4371
+4370:                                             ; preds = %4
+  %4371 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %4372 = load i32, ptr %4371, align 4, !tbaa !382
+  switch i32 %4372, label %4653 [
+    i32 5, label %4373
+    i32 7, label %4375
+    i32 20, label %4377
+  ]
 
-4371:                                             ; preds = %4369
-  %4372 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4373:                                             ; preds = %4370
+  %4374 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3635 = select i1 %4374, i32 1597, i32 1598
   br label %.critedge42
 
-4373:                                             ; preds = %4356
-  %4374 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3631 = select i1 %4374, i32 1738, i32 1739
+4375:                                             ; preds = %4370
+  %4376 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3636 = select i1 %4376, i32 1599, i32 1600
   br label %.critedge42
 
-4375:                                             ; preds = %4356
-  %4376 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br label %.critedge42
-
-4377:                                             ; preds = %4356
-  %4378 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+4377:                                             ; preds = %4370
+  %4378 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3637 = select i1 %4378, i32 1611, i32 1612
   br label %.critedge42
 
 4379:                                             ; preds = %4
   %4380 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %4381 = load i32, ptr %4380, align 4, !tbaa !382
-  switch i32 %4381, label %4671 [
-    i32 13, label %4382
-    i32 14, label %4384
-    i32 15, label %4386
+  switch i32 %4381, label %4653 [
+    i32 5, label %4382
+    i32 7, label %4384
+    i32 20, label %4386
   ]
 
 4382:                                             ; preds = %4379
-  %4383 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3632 = select i1 %4383, i32 1653, i32 1652
+  %4383 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3638 = select i1 %4383, i32 1597, i32 1598
   br label %.critedge42
 
 4384:                                             ; preds = %4379
-  %4385 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3633 = select i1 %4385, i32 1655, i32 1654
+  %4385 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3639 = select i1 %4385, i32 1599, i32 1600
   br label %.critedge42
 
 4386:                                             ; preds = %4379
-  %4387 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3634 = select i1 %4387, i32 1657, i32 1760
+  %4387 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3640 = select i1 %4387, i32 1611, i32 1612
   br label %.critedge42
 
 4388:                                             ; preds = %4
   %4389 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %4390 = load i32, ptr %4389, align 4, !tbaa !382
-  switch i32 %4390, label %4671 [
+  switch i32 %4390, label %4653 [
     i32 5, label %4391
     i32 7, label %4393
     i32 20, label %4395
@@ -13574,23 +13529,23 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
 
 4391:                                             ; preds = %4388
   %4392 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3635 = select i1 %4392, i32 1597, i32 1598
+  %.3641 = select i1 %4392, i32 1597, i32 1598
   br label %.critedge42
 
 4393:                                             ; preds = %4388
   %4394 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3636 = select i1 %4394, i32 1599, i32 1600
+  %.3642 = select i1 %4394, i32 1599, i32 1600
   br label %.critedge42
 
 4395:                                             ; preds = %4388
   %4396 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3637 = select i1 %4396, i32 1611, i32 1612
+  %.3643 = select i1 %4396, i32 1611, i32 1612
   br label %.critedge42
 
 4397:                                             ; preds = %4
   %4398 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %4399 = load i32, ptr %4398, align 4, !tbaa !382
-  switch i32 %4399, label %4671 [
+  switch i32 %4399, label %4653 [
     i32 5, label %4400
     i32 7, label %4402
     i32 20, label %4404
@@ -13598,597 +13553,549 @@ define dso_local noundef range(i32 1597, 1772) i32 @_ZNK4llvm23AArch64GenSubtarg
 
 4400:                                             ; preds = %4397
   %4401 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3638 = select i1 %4401, i32 1597, i32 1598
+  %.3644 = select i1 %4401, i32 1597, i32 1598
   br label %.critedge42
 
 4402:                                             ; preds = %4397
   %4403 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3639 = select i1 %4403, i32 1599, i32 1600
+  %.3645 = select i1 %4403, i32 1599, i32 1600
   br label %.critedge42
 
 4404:                                             ; preds = %4397
   %4405 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3640 = select i1 %4405, i32 1611, i32 1612
+  %.3646 = select i1 %4405, i32 1611, i32 1612
   br label %.critedge42
 
 4406:                                             ; preds = %4
   %4407 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %4408 = load i32, ptr %4407, align 4, !tbaa !382
-  switch i32 %4408, label %4671 [
-    i32 5, label %4409
-    i32 7, label %4411
-    i32 20, label %4413
+  switch i32 %4408, label %4653 [
+    i32 2, label %4409
+    i32 3, label %4420
+    i32 5, label %4431
+    i32 7, label %4433
+    i32 13, label %4435
+    i32 14, label %4439
+    i32 15, label %4443
+    i32 16, label %4447
+    i32 20, label %4449
+    i32 23, label %4451
   ]
 
 4409:                                             ; preds = %4406
-  %4410 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3641 = select i1 %4410, i32 1597, i32 1598
-  br label %.critedge42
+  %4410 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4410, label %.critedge42, label %4411
 
-4411:                                             ; preds = %4406
-  %4412 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3642 = select i1 %4412, i32 1599, i32 1600
-  br label %.critedge42
-
-4413:                                             ; preds = %4406
-  %4414 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3643 = select i1 %4414, i32 1611, i32 1612
-  br label %.critedge42
-
-4415:                                             ; preds = %4
-  %4416 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %4417 = load i32, ptr %4416, align 4, !tbaa !382
-  switch i32 %4417, label %4671 [
-    i32 5, label %4418
-    i32 7, label %4420
-    i32 20, label %4422
-  ]
-
-4418:                                             ; preds = %4415
-  %4419 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3644 = select i1 %4419, i32 1597, i32 1598
-  br label %.critedge42
-
-4420:                                             ; preds = %4415
-  %4421 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3645 = select i1 %4421, i32 1599, i32 1600
-  br label %.critedge42
-
-4422:                                             ; preds = %4415
-  %4423 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3646 = select i1 %4423, i32 1611, i32 1612
-  br label %.critedge42
-
-4424:                                             ; preds = %4
-  %4425 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %4426 = load i32, ptr %4425, align 4, !tbaa !382
-  switch i32 %4426, label %4671 [
-    i32 2, label %4427
-    i32 3, label %4438
-    i32 5, label %4449
-    i32 7, label %4451
-    i32 13, label %4453
-    i32 14, label %4457
-    i32 15, label %4461
-    i32 16, label %4465
-    i32 20, label %4467
-    i32 23, label %4469
-  ]
-
-4427:                                             ; preds = %4424
-  %4428 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4428, label %.critedge42, label %4429
-
-4429:                                             ; preds = %4427
-  %4430 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4431 = load ptr, ptr %4430, align 8, !tbaa !388
-  %4432 = getelementptr inbounds nuw i8, ptr %4431, i64 112
-  %4433 = load i64, ptr %4432, align 8, !tbaa !406
-  %4434 = trunc i64 %4433 to i32
-  %4435 = and i32 %4434, 448
-  %4436 = icmp eq i32 %4435, 0
-  %4437 = and i32 %4434, 63
-  %switch4260 = icmp samesign ult i32 %4437, 5
-  %or.cond4261 = and i1 %4436, %switch4260
+4411:                                             ; preds = %4409
+  %4412 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %4413 = load ptr, ptr %4412, align 8, !tbaa !388
+  %4414 = getelementptr inbounds nuw i8, ptr %4413, i64 112
+  %4415 = load i64, ptr %4414, align 8, !tbaa !406
+  %4416 = trunc i64 %4415 to i32
+  %4417 = and i32 %4416, 448
+  %4418 = icmp eq i32 %4417, 0
+  %4419 = and i32 %4416, 63
+  %switch4260 = icmp samesign ult i32 %4419, 5
+  %or.cond4261 = and i1 %4418, %switch4260
   %spec.select4383 = select i1 %or.cond4261, i32 1757, i32 1758
   br label %.critedge42
 
-4438:                                             ; preds = %4424
-  %4439 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4439, label %.critedge42, label %4440
+4420:                                             ; preds = %4406
+  %4421 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4421, label %.critedge42, label %4422
 
-4440:                                             ; preds = %4438
-  %4441 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4442 = load ptr, ptr %4441, align 8, !tbaa !388
-  %4443 = getelementptr inbounds nuw i8, ptr %4442, i64 112
-  %4444 = load i64, ptr %4443, align 8, !tbaa !406
-  %4445 = trunc i64 %4444 to i32
-  %4446 = and i32 %4445, 448
-  %4447 = icmp eq i32 %4446, 0
-  %4448 = and i32 %4445, 63
-  %switch4262 = icmp samesign ult i32 %4448, 5
-  %or.cond4263 = and i1 %4447, %switch4262
+4422:                                             ; preds = %4420
+  %4423 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %4424 = load ptr, ptr %4423, align 8, !tbaa !388
+  %4425 = getelementptr inbounds nuw i8, ptr %4424, i64 112
+  %4426 = load i64, ptr %4425, align 8, !tbaa !406
+  %4427 = trunc i64 %4426 to i32
+  %4428 = and i32 %4427, 448
+  %4429 = icmp eq i32 %4428, 0
+  %4430 = and i32 %4427, 63
+  %switch4262 = icmp samesign ult i32 %4430, 5
+  %or.cond4263 = and i1 %4429, %switch4262
   %spec.select4384 = select i1 %or.cond4263, i32 1673, i32 1674
   br label %.critedge42
 
-4449:                                             ; preds = %4424
+4431:                                             ; preds = %4406
+  %4432 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3647 = select i1 %4432, i32 1613, i32 1614
+  br label %.critedge42
+
+4433:                                             ; preds = %4406
+  %4434 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3648 = select i1 %4434, i32 1615, i32 1616
+  br label %.critedge42
+
+4435:                                             ; preds = %4406
+  %4436 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4436, label %.critedge42, label %4437
+
+4437:                                             ; preds = %4435
+  %4438 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3649 = select i1 %4438, i32 1661, i32 1662
+  br label %.critedge42
+
+4439:                                             ; preds = %4406
+  %4440 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4440, label %.critedge42, label %4441
+
+4441:                                             ; preds = %4439
+  %4442 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3650 = select i1 %4442, i32 1663, i32 1664
+  br label %.critedge42
+
+4443:                                             ; preds = %4406
+  %4444 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4444, label %.critedge42, label %4445
+
+4445:                                             ; preds = %4443
+  %4446 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3651 = select i1 %4446, i32 1703, i32 1771
+  br label %.critedge42
+
+4447:                                             ; preds = %4406
+  %4448 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3652 = select i1 %4448, i32 1659, i32 1660
+  br label %.critedge42
+
+4449:                                             ; preds = %4406
   %4450 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3647 = select i1 %4450, i32 1613, i32 1614
+  %.3653 = select i1 %4450, i32 1617, i32 1618
   br label %.critedge42
 
-4451:                                             ; preds = %4424
+4451:                                             ; preds = %4406
   %4452 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3648 = select i1 %4452, i32 1615, i32 1616
+  %.3654 = select i1 %4452, i32 1658, i32 1651
   br label %.critedge42
 
-4453:                                             ; preds = %4424
-  %4454 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4454, label %.critedge42, label %4455
-
-4455:                                             ; preds = %4453
-  %4456 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3649 = select i1 %4456, i32 1661, i32 1662
-  br label %.critedge42
-
-4457:                                             ; preds = %4424
-  %4458 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4458, label %.critedge42, label %4459
-
-4459:                                             ; preds = %4457
-  %4460 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3650 = select i1 %4460, i32 1663, i32 1664
-  br label %.critedge42
-
-4461:                                             ; preds = %4424
-  %4462 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4462, label %.critedge42, label %4463
-
-4463:                                             ; preds = %4461
-  %4464 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3651 = select i1 %4464, i32 1703, i32 1771
-  br label %.critedge42
-
-4465:                                             ; preds = %4424
-  %4466 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3652 = select i1 %4466, i32 1659, i32 1660
-  br label %.critedge42
-
-4467:                                             ; preds = %4424
-  %4468 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3653 = select i1 %4468, i32 1617, i32 1618
-  br label %.critedge42
-
-4469:                                             ; preds = %4424
-  %4470 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3654 = select i1 %4470, i32 1658, i32 1651
-  br label %.critedge42
-
-4471:                                             ; preds = %4
-  %4472 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %4473 = load i32, ptr %4472, align 4, !tbaa !382
-  switch i32 %4473, label %4671 [
-    i32 2, label %4474
-    i32 3, label %4485
-    i32 5, label %4496
-    i32 7, label %4498
-    i32 13, label %4500
-    i32 14, label %4504
-    i32 15, label %4508
-    i32 16, label %4512
-    i32 20, label %4514
-    i32 23, label %4516
+4453:                                             ; preds = %4
+  %4454 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %4455 = load i32, ptr %4454, align 4, !tbaa !382
+  switch i32 %4455, label %4653 [
+    i32 2, label %4456
+    i32 3, label %4467
+    i32 5, label %4478
+    i32 7, label %4480
+    i32 13, label %4482
+    i32 14, label %4486
+    i32 15, label %4490
+    i32 16, label %4494
+    i32 20, label %4496
+    i32 23, label %4498
   ]
 
-4474:                                             ; preds = %4471
-  %4475 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4475, label %.critedge42, label %4476
+4456:                                             ; preds = %4453
+  %4457 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4457, label %.critedge42, label %4458
 
-4476:                                             ; preds = %4474
-  %4477 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4478 = load ptr, ptr %4477, align 8, !tbaa !388
-  %4479 = getelementptr inbounds nuw i8, ptr %4478, i64 112
-  %4480 = load i64, ptr %4479, align 8, !tbaa !406
-  %4481 = trunc i64 %4480 to i32
-  %4482 = and i32 %4481, 448
-  %4483 = icmp eq i32 %4482, 0
-  %4484 = and i32 %4481, 63
-  %switch4264 = icmp samesign ult i32 %4484, 5
-  %or.cond4265 = and i1 %4483, %switch4264
+4458:                                             ; preds = %4456
+  %4459 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %4460 = load ptr, ptr %4459, align 8, !tbaa !388
+  %4461 = getelementptr inbounds nuw i8, ptr %4460, i64 112
+  %4462 = load i64, ptr %4461, align 8, !tbaa !406
+  %4463 = trunc i64 %4462 to i32
+  %4464 = and i32 %4463, 448
+  %4465 = icmp eq i32 %4464, 0
+  %4466 = and i32 %4463, 63
+  %switch4264 = icmp samesign ult i32 %4466, 5
+  %or.cond4265 = and i1 %4465, %switch4264
   %spec.select4385 = select i1 %or.cond4265, i32 1757, i32 1758
   br label %.critedge42
 
-4485:                                             ; preds = %4471
-  %4486 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4486, label %.critedge42, label %4487
+4467:                                             ; preds = %4453
+  %4468 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4468, label %.critedge42, label %4469
 
-4487:                                             ; preds = %4485
-  %4488 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4489 = load ptr, ptr %4488, align 8, !tbaa !388
-  %4490 = getelementptr inbounds nuw i8, ptr %4489, i64 112
-  %4491 = load i64, ptr %4490, align 8, !tbaa !406
-  %4492 = trunc i64 %4491 to i32
-  %4493 = and i32 %4492, 448
-  %4494 = icmp eq i32 %4493, 0
-  %4495 = and i32 %4492, 63
-  %switch4266 = icmp samesign ult i32 %4495, 5
-  %or.cond4267 = and i1 %4494, %switch4266
+4469:                                             ; preds = %4467
+  %4470 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %4471 = load ptr, ptr %4470, align 8, !tbaa !388
+  %4472 = getelementptr inbounds nuw i8, ptr %4471, i64 112
+  %4473 = load i64, ptr %4472, align 8, !tbaa !406
+  %4474 = trunc i64 %4473 to i32
+  %4475 = and i32 %4474, 448
+  %4476 = icmp eq i32 %4475, 0
+  %4477 = and i32 %4474, 63
+  %switch4266 = icmp samesign ult i32 %4477, 5
+  %or.cond4267 = and i1 %4476, %switch4266
   %spec.select4386 = select i1 %or.cond4267, i32 1673, i32 1674
   br label %.critedge42
 
-4496:                                             ; preds = %4471
+4478:                                             ; preds = %4453
+  %4479 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3655 = select i1 %4479, i32 1613, i32 1614
+  br label %.critedge42
+
+4480:                                             ; preds = %4453
+  %4481 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3656 = select i1 %4481, i32 1615, i32 1616
+  br label %.critedge42
+
+4482:                                             ; preds = %4453
+  %4483 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4483, label %.critedge42, label %4484
+
+4484:                                             ; preds = %4482
+  %4485 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3657 = select i1 %4485, i32 1661, i32 1662
+  br label %.critedge42
+
+4486:                                             ; preds = %4453
+  %4487 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4487, label %.critedge42, label %4488
+
+4488:                                             ; preds = %4486
+  %4489 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3658 = select i1 %4489, i32 1663, i32 1664
+  br label %.critedge42
+
+4490:                                             ; preds = %4453
+  %4491 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4491, label %.critedge42, label %4492
+
+4492:                                             ; preds = %4490
+  %4493 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3659 = select i1 %4493, i32 1665, i32 1666
+  br label %.critedge42
+
+4494:                                             ; preds = %4453
+  %4495 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3660 = select i1 %4495, i32 1659, i32 1660
+  br label %.critedge42
+
+4496:                                             ; preds = %4453
   %4497 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3655 = select i1 %4497, i32 1613, i32 1614
+  %.3661 = select i1 %4497, i32 1617, i32 1618
   br label %.critedge42
 
-4498:                                             ; preds = %4471
+4498:                                             ; preds = %4453
   %4499 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3656 = select i1 %4499, i32 1615, i32 1616
+  %.3662 = select i1 %4499, i32 1658, i32 1651
   br label %.critedge42
 
-4500:                                             ; preds = %4471
-  %4501 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4501, label %.critedge42, label %4502
-
-4502:                                             ; preds = %4500
-  %4503 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3657 = select i1 %4503, i32 1661, i32 1662
-  br label %.critedge42
-
-4504:                                             ; preds = %4471
-  %4505 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4505, label %.critedge42, label %4506
-
-4506:                                             ; preds = %4504
-  %4507 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3658 = select i1 %4507, i32 1663, i32 1664
-  br label %.critedge42
-
-4508:                                             ; preds = %4471
-  %4509 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4509, label %.critedge42, label %4510
-
-4510:                                             ; preds = %4508
-  %4511 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3659 = select i1 %4511, i32 1665, i32 1666
-  br label %.critedge42
-
-4512:                                             ; preds = %4471
-  %4513 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3660 = select i1 %4513, i32 1659, i32 1660
-  br label %.critedge42
-
-4514:                                             ; preds = %4471
-  %4515 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3661 = select i1 %4515, i32 1617, i32 1618
-  br label %.critedge42
-
-4516:                                             ; preds = %4471
-  %4517 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3662 = select i1 %4517, i32 1658, i32 1651
-  br label %.critedge42
-
-4518:                                             ; preds = %4
-  %4519 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %4520 = load i32, ptr %4519, align 4, !tbaa !382
-  switch i32 %4520, label %4671 [
-    i32 2, label %4521
-    i32 3, label %4532
-    i32 5, label %4543
-    i32 7, label %4545
-    i32 13, label %4547
-    i32 14, label %4551
-    i32 15, label %4555
-    i32 16, label %4559
-    i32 20, label %4561
-    i32 23, label %4563
+4500:                                             ; preds = %4
+  %4501 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %4502 = load i32, ptr %4501, align 4, !tbaa !382
+  switch i32 %4502, label %4653 [
+    i32 2, label %4503
+    i32 3, label %4514
+    i32 5, label %4525
+    i32 7, label %4527
+    i32 13, label %4529
+    i32 14, label %4533
+    i32 15, label %4537
+    i32 16, label %4541
+    i32 20, label %4543
+    i32 23, label %4545
   ]
 
-4521:                                             ; preds = %4518
-  %4522 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4522, label %.critedge42, label %4523
+4503:                                             ; preds = %4500
+  %4504 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4504, label %.critedge42, label %4505
 
-4523:                                             ; preds = %4521
-  %4524 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4525 = load ptr, ptr %4524, align 8, !tbaa !388
-  %4526 = getelementptr inbounds nuw i8, ptr %4525, i64 112
-  %4527 = load i64, ptr %4526, align 8, !tbaa !406
-  %4528 = trunc i64 %4527 to i32
-  %4529 = and i32 %4528, 448
-  %4530 = icmp eq i32 %4529, 0
-  %4531 = and i32 %4528, 63
-  %switch4268 = icmp samesign ult i32 %4531, 5
-  %or.cond4269 = and i1 %4530, %switch4268
+4505:                                             ; preds = %4503
+  %4506 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %4507 = load ptr, ptr %4506, align 8, !tbaa !388
+  %4508 = getelementptr inbounds nuw i8, ptr %4507, i64 112
+  %4509 = load i64, ptr %4508, align 8, !tbaa !406
+  %4510 = trunc i64 %4509 to i32
+  %4511 = and i32 %4510, 448
+  %4512 = icmp eq i32 %4511, 0
+  %4513 = and i32 %4510, 63
+  %switch4268 = icmp samesign ult i32 %4513, 5
+  %or.cond4269 = and i1 %4512, %switch4268
   %spec.select4387 = select i1 %or.cond4269, i32 1757, i32 1758
   br label %.critedge42
 
-4532:                                             ; preds = %4518
-  %4533 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4533, label %.critedge42, label %4534
+4514:                                             ; preds = %4500
+  %4515 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4515, label %.critedge42, label %4516
 
-4534:                                             ; preds = %4532
-  %4535 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4536 = load ptr, ptr %4535, align 8, !tbaa !388
-  %4537 = getelementptr inbounds nuw i8, ptr %4536, i64 112
-  %4538 = load i64, ptr %4537, align 8, !tbaa !406
-  %4539 = trunc i64 %4538 to i32
-  %4540 = and i32 %4539, 448
-  %4541 = icmp eq i32 %4540, 0
-  %4542 = and i32 %4539, 63
-  %switch4270 = icmp samesign ult i32 %4542, 5
-  %or.cond4271 = and i1 %4541, %switch4270
+4516:                                             ; preds = %4514
+  %4517 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %4518 = load ptr, ptr %4517, align 8, !tbaa !388
+  %4519 = getelementptr inbounds nuw i8, ptr %4518, i64 112
+  %4520 = load i64, ptr %4519, align 8, !tbaa !406
+  %4521 = trunc i64 %4520 to i32
+  %4522 = and i32 %4521, 448
+  %4523 = icmp eq i32 %4522, 0
+  %4524 = and i32 %4521, 63
+  %switch4270 = icmp samesign ult i32 %4524, 5
+  %or.cond4271 = and i1 %4523, %switch4270
   %spec.select4388 = select i1 %or.cond4271, i32 1673, i32 1674
   br label %.critedge42
 
-4543:                                             ; preds = %4518
+4525:                                             ; preds = %4500
+  %4526 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3663 = select i1 %4526, i32 1613, i32 1614
+  br label %.critedge42
+
+4527:                                             ; preds = %4500
+  %4528 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3664 = select i1 %4528, i32 1615, i32 1616
+  br label %.critedge42
+
+4529:                                             ; preds = %4500
+  %4530 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4530, label %.critedge42, label %4531
+
+4531:                                             ; preds = %4529
+  %4532 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3665 = select i1 %4532, i32 1661, i32 1662
+  br label %.critedge42
+
+4533:                                             ; preds = %4500
+  %4534 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4534, label %.critedge42, label %4535
+
+4535:                                             ; preds = %4533
+  %4536 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3666 = select i1 %4536, i32 1663, i32 1664
+  br label %.critedge42
+
+4537:                                             ; preds = %4500
+  %4538 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4538, label %.critedge42, label %4539
+
+4539:                                             ; preds = %4537
+  %4540 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3667 = select i1 %4540, i32 1703, i32 1771
+  br label %.critedge42
+
+4541:                                             ; preds = %4500
+  %4542 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3668 = select i1 %4542, i32 1659, i32 1660
+  br label %.critedge42
+
+4543:                                             ; preds = %4500
   %4544 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3663 = select i1 %4544, i32 1613, i32 1614
+  %.3669 = select i1 %4544, i32 1617, i32 1618
   br label %.critedge42
 
-4545:                                             ; preds = %4518
+4545:                                             ; preds = %4500
   %4546 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3664 = select i1 %4546, i32 1615, i32 1616
+  %.3670 = select i1 %4546, i32 1658, i32 1651
   br label %.critedge42
 
-4547:                                             ; preds = %4518
-  %4548 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4548, label %.critedge42, label %4549
-
-4549:                                             ; preds = %4547
-  %4550 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3665 = select i1 %4550, i32 1661, i32 1662
-  br label %.critedge42
-
-4551:                                             ; preds = %4518
-  %4552 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4552, label %.critedge42, label %4553
-
-4553:                                             ; preds = %4551
-  %4554 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3666 = select i1 %4554, i32 1663, i32 1664
-  br label %.critedge42
-
-4555:                                             ; preds = %4518
-  %4556 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4556, label %.critedge42, label %4557
-
-4557:                                             ; preds = %4555
-  %4558 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3667 = select i1 %4558, i32 1703, i32 1771
-  br label %.critedge42
-
-4559:                                             ; preds = %4518
-  %4560 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3668 = select i1 %4560, i32 1659, i32 1660
-  br label %.critedge42
-
-4561:                                             ; preds = %4518
-  %4562 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3669 = select i1 %4562, i32 1617, i32 1618
-  br label %.critedge42
-
-4563:                                             ; preds = %4518
-  %4564 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3670 = select i1 %4564, i32 1658, i32 1651
-  br label %.critedge42
-
-4565:                                             ; preds = %4
-  %4566 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %4567 = load i32, ptr %4566, align 4, !tbaa !382
-  switch i32 %4567, label %4671 [
-    i32 2, label %4568
-    i32 3, label %4579
-    i32 5, label %4590
-    i32 7, label %4592
-    i32 13, label %4594
-    i32 14, label %4598
-    i32 15, label %4602
-    i32 16, label %4606
-    i32 20, label %4608
-    i32 23, label %4610
+4547:                                             ; preds = %4
+  %4548 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %4549 = load i32, ptr %4548, align 4, !tbaa !382
+  switch i32 %4549, label %4653 [
+    i32 2, label %4550
+    i32 3, label %4561
+    i32 5, label %4572
+    i32 7, label %4574
+    i32 13, label %4576
+    i32 14, label %4580
+    i32 15, label %4584
+    i32 16, label %4588
+    i32 20, label %4590
+    i32 23, label %4592
   ]
 
-4568:                                             ; preds = %4565
-  %4569 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4569, label %.critedge42, label %4570
+4550:                                             ; preds = %4547
+  %4551 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4551, label %.critedge42, label %4552
 
-4570:                                             ; preds = %4568
-  %4571 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4572 = load ptr, ptr %4571, align 8, !tbaa !388
-  %4573 = getelementptr inbounds nuw i8, ptr %4572, i64 112
-  %4574 = load i64, ptr %4573, align 8, !tbaa !406
-  %4575 = trunc i64 %4574 to i32
-  %4576 = and i32 %4575, 448
-  %4577 = icmp eq i32 %4576, 0
-  %4578 = and i32 %4575, 63
-  %switch4272 = icmp samesign ult i32 %4578, 5
-  %or.cond4273 = and i1 %4577, %switch4272
+4552:                                             ; preds = %4550
+  %4553 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %4554 = load ptr, ptr %4553, align 8, !tbaa !388
+  %4555 = getelementptr inbounds nuw i8, ptr %4554, i64 112
+  %4556 = load i64, ptr %4555, align 8, !tbaa !406
+  %4557 = trunc i64 %4556 to i32
+  %4558 = and i32 %4557, 448
+  %4559 = icmp eq i32 %4558, 0
+  %4560 = and i32 %4557, 63
+  %switch4272 = icmp samesign ult i32 %4560, 5
+  %or.cond4273 = and i1 %4559, %switch4272
   %spec.select4389 = select i1 %or.cond4273, i32 1757, i32 1758
   br label %.critedge42
 
-4579:                                             ; preds = %4565
-  %4580 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4580, label %.critedge42, label %4581
+4561:                                             ; preds = %4547
+  %4562 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4562, label %.critedge42, label %4563
 
-4581:                                             ; preds = %4579
-  %4582 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4583 = load ptr, ptr %4582, align 8, !tbaa !388
-  %4584 = getelementptr inbounds nuw i8, ptr %4583, i64 112
-  %4585 = load i64, ptr %4584, align 8, !tbaa !406
-  %4586 = trunc i64 %4585 to i32
-  %4587 = and i32 %4586, 448
-  %4588 = icmp eq i32 %4587, 0
-  %4589 = and i32 %4586, 63
-  %switch4274 = icmp samesign ult i32 %4589, 5
-  %or.cond4275 = and i1 %4588, %switch4274
+4563:                                             ; preds = %4561
+  %4564 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %4565 = load ptr, ptr %4564, align 8, !tbaa !388
+  %4566 = getelementptr inbounds nuw i8, ptr %4565, i64 112
+  %4567 = load i64, ptr %4566, align 8, !tbaa !406
+  %4568 = trunc i64 %4567 to i32
+  %4569 = and i32 %4568, 448
+  %4570 = icmp eq i32 %4569, 0
+  %4571 = and i32 %4568, 63
+  %switch4274 = icmp samesign ult i32 %4571, 5
+  %or.cond4275 = and i1 %4570, %switch4274
   %spec.select4390 = select i1 %or.cond4275, i32 1673, i32 1674
   br label %.critedge42
 
-4590:                                             ; preds = %4565
+4572:                                             ; preds = %4547
+  %4573 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3671 = select i1 %4573, i32 1613, i32 1614
+  br label %.critedge42
+
+4574:                                             ; preds = %4547
+  %4575 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3672 = select i1 %4575, i32 1615, i32 1616
+  br label %.critedge42
+
+4576:                                             ; preds = %4547
+  %4577 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4577, label %.critedge42, label %4578
+
+4578:                                             ; preds = %4576
+  %4579 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3673 = select i1 %4579, i32 1661, i32 1662
+  br label %.critedge42
+
+4580:                                             ; preds = %4547
+  %4581 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4581, label %.critedge42, label %4582
+
+4582:                                             ; preds = %4580
+  %4583 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3674 = select i1 %4583, i32 1663, i32 1664
+  br label %.critedge42
+
+4584:                                             ; preds = %4547
+  %4585 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  br i1 %4585, label %.critedge42, label %4586
+
+4586:                                             ; preds = %4584
+  %4587 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3675 = select i1 %4587, i32 1665, i32 1666
+  br label %.critedge42
+
+4588:                                             ; preds = %4547
+  %4589 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3676 = select i1 %4589, i32 1659, i32 1660
+  br label %.critedge42
+
+4590:                                             ; preds = %4547
   %4591 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3671 = select i1 %4591, i32 1613, i32 1614
+  %.3677 = select i1 %4591, i32 1617, i32 1618
   br label %.critedge42
 
-4592:                                             ; preds = %4565
+4592:                                             ; preds = %4547
   %4593 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3672 = select i1 %4593, i32 1615, i32 1616
+  %.3678 = select i1 %4593, i32 1658, i32 1651
   br label %.critedge42
 
-4594:                                             ; preds = %4565
-  %4595 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4595, label %.critedge42, label %4596
-
-4596:                                             ; preds = %4594
-  %4597 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3673 = select i1 %4597, i32 1661, i32 1662
-  br label %.critedge42
-
-4598:                                             ; preds = %4565
-  %4599 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4599, label %.critedge42, label %4600
-
-4600:                                             ; preds = %4598
-  %4601 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3674 = select i1 %4601, i32 1663, i32 1664
-  br label %.critedge42
-
-4602:                                             ; preds = %4565
-  %4603 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  br i1 %4603, label %.critedge42, label %4604
-
-4604:                                             ; preds = %4602
-  %4605 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3675 = select i1 %4605, i32 1665, i32 1666
-  br label %.critedge42
-
-4606:                                             ; preds = %4565
-  %4607 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3676 = select i1 %4607, i32 1659, i32 1660
-  br label %.critedge42
-
-4608:                                             ; preds = %4565
-  %4609 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3677 = select i1 %4609, i32 1617, i32 1618
-  br label %.critedge42
-
-4610:                                             ; preds = %4565
-  %4611 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3678 = select i1 %4611, i32 1658, i32 1651
-  br label %.critedge42
-
-4612:                                             ; preds = %4
-  %4613 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %4614 = load i32, ptr %4613, align 4, !tbaa !382
-  switch i32 %4614, label %4671 [
-    i32 12, label %4615
-    i32 13, label %4665
-    i32 14, label %4667
-    i32 15, label %4669
+4594:                                             ; preds = %4
+  %4595 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %4596 = load i32, ptr %4595, align 4, !tbaa !382
+  switch i32 %4596, label %4653 [
+    i32 12, label %4597
+    i32 13, label %4647
+    i32 14, label %4649
+    i32 15, label %4651
   ]
 
-4615:                                             ; preds = %4612
-  %4616 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %4617 = load i16, ptr %4616, align 4, !tbaa !407
-  switch i16 %4617, label %.critedge112 [
-    i16 5243, label %4618
-    i16 5244, label %4618
-    i16 5335, label %4633
-    i16 5337, label %4633
-    i16 3556, label %4647
-    i16 3560, label %4647
-    i16 3557, label %4647
-    i16 3559, label %4647
-    i16 5217, label %4659
-    i16 5219, label %4659
+4597:                                             ; preds = %4594
+  %4598 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %4599 = load i16, ptr %4598, align 4, !tbaa !407
+  switch i16 %4599, label %.critedge112 [
+    i16 5243, label %4600
+    i16 5244, label %4600
+    i16 5335, label %4615
+    i16 5337, label %4615
+    i16 3556, label %4629
+    i16 3560, label %4629
+    i16 3557, label %4629
+    i16 3559, label %4629
+    i16 5217, label %4641
+    i16 5219, label %4641
   ]
 
-4618:                                             ; preds = %4615, %4615
-  %4619 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4620 = load ptr, ptr %4619, align 8, !tbaa !388
-  %4621 = getelementptr inbounds nuw i8, ptr %4620, i64 32
-  %4622 = load i32, ptr %4621, align 8
-  %4623 = and i32 %4622, 255
-  %4624 = icmp eq i32 %4623, 1
-  br i1 %4624, label %4625, label %.critedge112
+4600:                                             ; preds = %4597, %4597
+  %4601 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %4602 = load ptr, ptr %4601, align 8, !tbaa !388
+  %4603 = getelementptr inbounds nuw i8, ptr %4602, i64 32
+  %4604 = load i32, ptr %4603, align 8
+  %4605 = and i32 %4604, 255
+  %4606 = icmp eq i32 %4605, 1
+  br i1 %4606, label %4607, label %.critedge112
 
-4625:                                             ; preds = %4618
-  %4626 = getelementptr inbounds nuw i8, ptr %4620, i64 48
+4607:                                             ; preds = %4600
+  %4608 = getelementptr inbounds nuw i8, ptr %4602, i64 48
+  %4609 = load i64, ptr %4608, align 8, !tbaa !406
+  %4610 = icmp eq i64 %4609, 0
+  br i1 %4610, label %4611, label %.critedge112
+
+4611:                                             ; preds = %4607
+  %4612 = getelementptr inbounds nuw i8, ptr %4602, i64 80
+  %4613 = load i64, ptr %4612, align 8, !tbaa !406
+  %4614 = icmp eq i64 %4613, 0
+  br i1 %4614, label %.critedge42, label %.critedge112
+
+4615:                                             ; preds = %4597, %4597
+  %4616 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %4617 = load ptr, ptr %4616, align 8, !tbaa !388
+  %4618 = getelementptr inbounds nuw i8, ptr %4617, i64 32
+  %4619 = load i32, ptr %4618, align 8
+  %4620 = and i32 %4619, 255
+  %4621 = icmp eq i32 %4620, 0
+  br i1 %4621, label %4622, label %.critedge112
+
+4622:                                             ; preds = %4615
+  %4623 = getelementptr inbounds nuw i8, ptr %4617, i64 36
+  %4624 = load i32, ptr %4623, align 4, !tbaa !406
+  switch i32 %4624, label %.critedge112 [
+    i32 12, label %4625
+    i32 14, label %4625
+  ]
+
+4625:                                             ; preds = %4622, %4622
+  %4626 = getelementptr inbounds nuw i8, ptr %4617, i64 112
   %4627 = load i64, ptr %4626, align 8, !tbaa !406
   %4628 = icmp eq i64 %4627, 0
-  br i1 %4628, label %4629, label %.critedge112
+  br i1 %4628, label %.critedge42, label %.critedge112
 
-4629:                                             ; preds = %4625
-  %4630 = getelementptr inbounds nuw i8, ptr %4620, i64 80
-  %4631 = load i64, ptr %4630, align 8, !tbaa !406
-  %4632 = icmp eq i64 %4631, 0
-  br i1 %4632, label %.critedge42, label %.critedge112
+4629:                                             ; preds = %4597, %4597, %4597, %4597
+  %4630 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %4631 = load ptr, ptr %4630, align 8, !tbaa !388
+  %4632 = getelementptr inbounds nuw i8, ptr %4631, i64 32
+  %4633 = load i32, ptr %4632, align 8
+  %4634 = and i32 %4633, 255
+  %4635 = icmp eq i32 %4634, 0
+  br i1 %4635, label %4636, label %.critedge112
 
-4633:                                             ; preds = %4615, %4615
-  %4634 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4635 = load ptr, ptr %4634, align 8, !tbaa !388
-  %4636 = getelementptr inbounds nuw i8, ptr %4635, i64 32
-  %4637 = load i32, ptr %4636, align 8
-  %4638 = and i32 %4637, 255
-  %4639 = icmp eq i32 %4638, 0
-  br i1 %4639, label %4640, label %.critedge112
+4636:                                             ; preds = %4629
+  %4637 = getelementptr inbounds nuw i8, ptr %4631, i64 36
+  %4638 = load i32, ptr %4637, align 4, !tbaa !406
+  %4639 = and i32 %4638, -3
+  %switch.selectcmp4277 = icmp eq i32 %4639, 12
+  %4640 = select i1 %switch.selectcmp4277, i32 1752, i32 1761
+  br label %.critedge42
 
-4640:                                             ; preds = %4633
-  %4641 = getelementptr inbounds nuw i8, ptr %4635, i64 36
-  %4642 = load i32, ptr %4641, align 4, !tbaa !406
-  switch i32 %4642, label %.critedge112 [
-    i32 12, label %4643
-    i32 14, label %4643
-  ]
-
-4643:                                             ; preds = %4640, %4640
-  %4644 = getelementptr inbounds nuw i8, ptr %4635, i64 112
+4641:                                             ; preds = %4597, %4597
+  %4642 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %4643 = load ptr, ptr %4642, align 8, !tbaa !388
+  %4644 = getelementptr inbounds nuw i8, ptr %4643, i64 48
   %4645 = load i64, ptr %4644, align 8, !tbaa !406
   %4646 = icmp eq i64 %4645, 0
   br i1 %4646, label %.critedge42, label %.critedge112
 
-4647:                                             ; preds = %4615, %4615, %4615, %4615
-  %4648 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4649 = load ptr, ptr %4648, align 8, !tbaa !388
-  %4650 = getelementptr inbounds nuw i8, ptr %4649, i64 32
-  %4651 = load i32, ptr %4650, align 8
-  %4652 = and i32 %4651, 255
-  %4653 = icmp eq i32 %4652, 0
-  br i1 %4653, label %4654, label %.critedge112
-
-4654:                                             ; preds = %4647
-  %4655 = getelementptr inbounds nuw i8, ptr %4649, i64 36
-  %4656 = load i32, ptr %4655, align 4, !tbaa !406
-  %4657 = and i32 %4656, -3
-  %switch.selectcmp4277 = icmp eq i32 %4657, 12
-  %4658 = select i1 %switch.selectcmp4277, i32 1752, i32 1761
+.critedge112:                                     ; preds = %2170, %2154, %2144, %2129, %2136, %2140, %2158, %2151, %2126, %4597, %4622, %4629, %4611, %4607, %4600, %4615, %4625, %4641
   br label %.critedge42
 
-4659:                                             ; preds = %4615, %4615
-  %4660 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4661 = load ptr, ptr %4660, align 8, !tbaa !388
-  %4662 = getelementptr inbounds nuw i8, ptr %4661, i64 48
-  %4663 = load i64, ptr %4662, align 8, !tbaa !406
-  %4664 = icmp eq i64 %4663, 0
-  br i1 %4664, label %.critedge42, label %.critedge112
-
-.critedge112:                                     ; preds = %4615, %4640, %4647, %4629, %4625, %4618, %4633, %4643, %4659
+4647:                                             ; preds = %4594
+  %4648 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3679 = select i1 %4648, i32 1653, i32 1652
   br label %.critedge42
 
-4665:                                             ; preds = %4612
-  %4666 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3679 = select i1 %4666, i32 1653, i32 1652
+4649:                                             ; preds = %4594
+  %4650 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3680 = select i1 %4650, i32 1655, i32 1654
   br label %.critedge42
 
-4667:                                             ; preds = %4612
-  %4668 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3680 = select i1 %4668, i32 1655, i32 1654
+4651:                                             ; preds = %4594
+  %4652 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
+  %.3681 = select i1 %4652, i32 1657, i32 1760
   br label %.critedge42
 
-4669:                                             ; preds = %4612
-  %4670 = tail call noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %2) #24
-  %.3681 = select i1 %4670, i32 1657, i32 1760
-  br label %.critedge42
-
-4671:                                             ; preds = %4612, %4565, %4518, %4471, %4424, %4415, %4406, %4397, %4388, %4379, %4356, %4333, %4299, %4265, %4242, %4219, %4180, %4141, %4118, %4095, %4086, %4067, %4011, %3955, %3859, %3763, %3667, %3571, %3483, %3460, %3445, %3422, %3399, %3380, %3284, %3235, %3186, %3137, %3088, %2992, %2953, %2848, %2799, %2750, %2701, %2640, %2573, %2550, %2508, %2466, %2424, %2385, %2354, %2315, %2254, %2220, %2213, %2204, %2197, %2138, %2082, %2026, %1930, %1825, %1798, %1749, %1700, %1651, %1590, %1529, %1514, %1427, %1375, %1339, %1305, %1271, %1248, %1225, %1191, %1157, %1123, %1089, %1050, %1027, %988, %965, %915, %881, %847, %813, %774, %751, %717, %683, %649, %615, %608, %601, %526, %451, %418, %326, %230, %217, %180, %143, %68, %59, %5, %3517, %2980, %2634, %1521, %1508, %1500, %1494, %412, %406, %400, %394, %388, %382, %365, %359, %353, %347, %341, %335, %4
+4653:                                             ; preds = %4594, %4547, %4500, %4453, %4406, %4397, %4388, %4379, %4370, %4361, %4338, %4315, %4281, %4248, %4225, %4202, %4163, %4124, %4101, %4078, %4069, %4050, %3994, %3938, %3842, %3746, %3650, %3554, %3467, %3444, %3429, %3406, %3383, %3364, %3268, %3219, %3170, %3121, %3072, %2976, %2937, %2832, %2783, %2734, %2685, %2624, %2557, %2534, %2492, %2450, %2408, %2369, %2338, %2299, %2238, %2205, %2198, %2189, %2182, %2123, %2067, %2011, %1915, %1810, %1783, %1734, %1685, %1636, %1575, %1514, %1499, %1412, %1361, %1326, %1293, %1260, %1237, %1214, %1181, %1148, %1114, %1081, %1042, %1019, %980, %957, %908, %875, %842, %809, %770, %747, %714, %681, %648, %615, %608, %601, %526, %451, %418, %326, %230, %217, %180, %143, %68, %59, %5, %3500, %2964, %2618, %1506, %1493, %1485, %1479, %412, %406, %400, %394, %388, %382, %365, %359, %353, %347, %341, %335, %4
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str, i1 noundef zeroext true) #25
   unreachable
 
@@ -14197,8 +14104,8 @@ switch.lookup:                                    ; preds = %378
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge42
 
-.critedge42:                                      ; preds = %372, %369, %378, %switch.lookup, %4581, %4570, %4534, %4523, %4487, %4476, %4440, %4429, %4040, %4027, %4016, %3984, %3971, %3960, %3942, %3919, %3910, %3901, %3892, %3875, %3864, %3846, %3823, %3814, %3805, %3796, %3779, %3768, %3750, %3727, %3718, %3709, %3700, %3683, %3672, %3654, %3631, %3622, %3613, %3604, %3587, %3576, %3367, %3344, %3335, %3326, %3317, %3300, %3289, %3251, %3240, %3202, %3191, %3153, %3142, %3104, %3093, %3075, %3052, %3043, %3034, %3025, %3008, %2997, %2864, %2853, %2815, %2804, %2766, %2755, %2717, %2706, %2656, %2645, %2589, %2578, %2111, %2098, %2087, %2055, %2042, %2031, %2013, %1990, %1981, %1972, %1963, %1946, %1935, %1841, %1830, %1765, %1754, %1716, %1705, %1667, %1656, %1606, %1595, %1545, %1534, %313, %290, %281, %272, %263, %246, %235, %48, %39, %30, %21, %12, %2679, %2673, %2612, %2606, %1629, %1623, %1568, %1562, %4654, %3560, %2920, %2538, %2545, %2526, %2523, %2533, %2511, %2518, %2496, %2503, %2484, %2481, %2491, %2469, %2476, %2454, %2461, %2442, %2439, %2449, %2427, %2434, %2296, %2180, %1897, %1471, %4643, %4629, %3549, %3535, %2984, %2972, %2909, %2895, %2307, %2285, %2271, %2169, %2155, %1886, %1872, %1817, %1460, %1446, %2990, %2978, %2313, %1823, %4371, %4367, %4348, %4344, %4325, %4321, %4291, %4287, %4257, %4253, %4234, %4230, %4133, %4129, %4110, %4106, %3509, %3505, %3475, %3471, %3456, %3452, %3437, %3433, %3414, %3410, %2565, %2561, %2246, %2242, %1367, %1363, %1331, %1327, %1297, %1293, %1263, %1259, %1240, %1236, %1217, %1213, %1183, %1179, %1149, %1145, %1115, %1111, %1042, %1038, %980, %976, %907, %903, %873, %869, %839, %835, %766, %762, %743, %739, %709, %705, %675, %671, %641, %637, %4669, %4667, %4665, %4659, %4610, %4608, %4606, %4604, %4602, %4600, %4598, %4596, %4594, %4592, %4590, %4579, %4568, %4563, %4561, %4559, %4557, %4555, %4553, %4551, %4549, %4547, %4545, %4543, %4532, %4521, %4516, %4514, %4512, %4510, %4508, %4506, %4504, %4502, %4500, %4498, %4496, %4485, %4474, %4469, %4467, %4465, %4463, %4461, %4459, %4457, %4455, %4453, %4451, %4449, %4438, %4427, %4422, %4420, %4418, %4413, %4411, %4409, %4404, %4402, %4400, %4395, %4393, %4391, %4386, %4384, %4382, %4373, %4369, %4365, %4361, %4350, %4346, %4342, %4338, %4327, %4323, %4319, %4310, %4304, %4293, %4289, %4285, %4276, %4270, %4259, %4255, %4251, %4247, %4236, %4232, %4228, %4224, %4213, %4211, %4207, %4209, %4203, %4205, %4199, %4195, %4197, %4191, %4193, %4187, %4185, %4174, %4172, %4168, %4170, %4164, %4166, %4160, %4156, %4158, %4152, %4154, %4148, %4146, %4135, %4131, %4127, %4123, %4112, %4108, %4104, %4100, %4093, %4091, %4089, %4084, %4082, %4080, %4078, %4076, %4074, %4072, %4070, %4065, %4063, %4061, %4059, %4057, %4055, %4053, %4051, %4049, %4038, %4036, %4025, %4014, %4009, %4007, %4005, %4003, %4001, %3999, %3997, %3995, %3993, %3982, %3980, %3969, %3958, %3953, %3951, %3940, %3938, %3936, %3934, %3932, %3930, %3928, %3890, %3888, %3886, %3884, %3873, %3862, %3857, %3855, %3844, %3842, %3840, %3838, %3836, %3834, %3832, %3794, %3792, %3790, %3788, %3777, %3766, %3761, %3759, %3748, %3746, %3744, %3742, %3740, %3738, %3736, %3698, %3696, %3694, %3692, %3681, %3670, %3665, %3663, %3652, %3650, %3648, %3646, %3644, %3642, %3640, %3602, %3600, %3598, %3596, %3585, %3574, %3565, %3511, %3507, %3503, %3494, %3488, %3477, %3473, %3469, %3465, %3458, %3454, %3450, %3443, %3441, %3439, %3435, %3431, %3427, %3420, %3418, %3416, %3412, %3408, %3404, %3397, %3395, %3393, %3391, %3389, %3387, %3385, %3383, %3378, %3376, %3365, %3363, %3361, %3359, %3357, %3355, %3353, %3315, %3313, %3311, %3309, %3298, %3287, %3282, %3280, %3278, %3276, %3274, %3272, %3270, %3268, %3266, %3264, %3262, %3260, %3249, %3238, %3233, %3231, %3229, %3227, %3225, %3223, %3221, %3219, %3217, %3215, %3213, %3211, %3200, %3189, %3184, %3182, %3180, %3178, %3176, %3174, %3172, %3170, %3168, %3166, %3164, %3162, %3151, %3140, %3135, %3133, %3131, %3129, %3127, %3125, %3123, %3121, %3119, %3117, %3115, %3113, %3102, %3091, %3086, %3084, %3073, %3071, %3069, %3067, %3065, %3063, %3061, %3023, %3021, %3019, %3017, %3006, %2995, %2970, %2968, %2966, %2964, %2962, %2960, %2958, %2956, %2951, %2949, %2947, %2945, %2943, %2941, %2939, %2937, %2935, %2933, %2931, %2925, %2879, %2877, %2875, %2873, %2862, %2851, %2846, %2844, %2842, %2840, %2838, %2836, %2834, %2832, %2830, %2828, %2826, %2824, %2813, %2802, %2797, %2795, %2793, %2791, %2789, %2787, %2785, %2783, %2781, %2779, %2777, %2775, %2764, %2753, %2748, %2746, %2744, %2742, %2740, %2738, %2736, %2734, %2732, %2730, %2728, %2726, %2715, %2704, %2699, %2697, %2695, %2693, %2691, %2689, %2687, %2685, %2671, %2669, %2667, %2665, %2654, %2643, %2638, %2632, %2630, %2628, %2626, %2624, %2622, %2620, %2618, %2604, %2602, %2600, %2598, %2587, %2576, %2567, %2563, %2559, %2555, %2422, %2420, %2418, %2416, %2412, %2414, %2408, %2410, %2404, %2400, %2402, %2396, %2398, %2392, %2390, %2383, %2381, %2377, %2379, %2373, %2375, %2369, %2365, %2367, %2361, %2363, %2357, %2352, %2350, %2348, %2346, %2342, %2344, %2338, %2340, %2334, %2330, %2332, %2326, %2328, %2322, %2320, %2301, %2248, %2244, %2240, %2231, %2225, %2218, %2216, %2211, %2209, %2207, %2202, %2200, %2195, %2193, %2191, %2185, %2136, %2134, %2132, %2130, %2128, %2126, %2124, %2122, %2120, %2109, %2107, %2096, %2085, %2080, %2078, %2076, %2074, %2072, %2070, %2068, %2066, %2064, %2053, %2051, %2040, %2029, %2024, %2022, %2011, %2009, %2007, %2005, %2003, %2001, %1999, %1961, %1959, %1957, %1955, %1944, %1933, %1928, %1926, %1924, %1922, %1920, %1918, %1916, %1914, %1912, %1910, %1908, %1902, %1856, %1854, %1852, %1850, %1839, %1828, %1815, %1813, %1811, %1809, %1807, %1805, %1803, %1801, %1796, %1794, %1792, %1790, %1788, %1786, %1784, %1782, %1780, %1778, %1776, %1774, %1763, %1752, %1747, %1745, %1743, %1741, %1739, %1737, %1735, %1733, %1731, %1729, %1727, %1725, %1714, %1703, %1698, %1696, %1694, %1692, %1690, %1688, %1686, %1684, %1682, %1680, %1678, %1676, %1665, %1654, %1649, %1647, %1645, %1643, %1641, %1639, %1637, %1635, %1621, %1619, %1617, %1615, %1604, %1593, %1588, %1586, %1584, %1582, %1580, %1578, %1576, %1574, %1560, %1558, %1556, %1554, %1543, %1532, %1527, %1525, %1519, %1517, %1512, %1506, %1504, %1498, %1489, %1476, %1430, %1421, %1419, %1415, %1417, %1411, %1413, %1407, %1403, %1405, %1399, %1401, %1395, %1388, %1382, %1380, %1369, %1365, %1361, %1352, %1346, %1344, %1333, %1329, %1325, %1316, %1310, %1299, %1295, %1291, %1282, %1276, %1265, %1261, %1257, %1253, %1242, %1238, %1234, %1230, %1219, %1215, %1211, %1202, %1196, %1185, %1181, %1177, %1168, %1162, %1151, %1147, %1143, %1134, %1128, %1117, %1113, %1109, %1100, %1094, %1083, %1081, %1077, %1079, %1073, %1075, %1069, %1065, %1067, %1061, %1063, %1057, %1055, %1044, %1040, %1036, %1032, %1021, %1019, %1015, %1017, %1011, %1013, %1007, %1003, %1005, %999, %1001, %995, %993, %982, %978, %974, %970, %959, %957, %953, %955, %949, %951, %945, %941, %943, %937, %939, %933, %926, %920, %909, %905, %901, %899, %892, %886, %875, %871, %867, %858, %852, %841, %837, %833, %824, %818, %807, %805, %801, %803, %797, %799, %793, %789, %791, %785, %787, %781, %779, %768, %764, %760, %756, %745, %741, %737, %728, %722, %711, %707, %703, %694, %688, %677, %673, %669, %660, %654, %643, %639, %635, %626, %620, %613, %611, %606, %604, %593, %581, %569, %557, %545, %533, %518, %506, %494, %482, %470, %458, %445, %435, %425, %416, %410, %404, %398, %392, %386, %363, %357, %351, %345, %339, %333, %331, %329, %324, %322, %311, %309, %307, %305, %303, %301, %299, %261, %259, %257, %255, %244, %233, %228, %226, %224, %222, %220, %211, %207, %209, %203, %205, %199, %195, %197, %191, %193, %185, %178, %176, %174, %170, %172, %166, %168, %162, %158, %160, %154, %156, %148, %135, %123, %111, %99, %87, %75, %66, %64, %62, %57, %10, %8, %4377, %4375, %4363, %4359, %4354, %4352, %4340, %4336, %4331, %4329, %4317, %4302, %4297, %4295, %4283, %4268, %4263, %4261, %4249, %4245, %4240, %4238, %4226, %4222, %4217, %4215, %4183, %4178, %4176, %4144, %4139, %4137, %4125, %4121, %4116, %4114, %4102, %4098, %3515, %3513, %3501, %3486, %3481, %3479, %3467, %3463, %3448, %3429, %3425, %3406, %3402, %2571, %2569, %2557, %2553, %2388, %2318, %2252, %2250, %2238, %2223, %1425, %1423, %1378, %1373, %1371, %1359, %1342, %1337, %1335, %1323, %1308, %1303, %1301, %1289, %1274, %1269, %1267, %1255, %1251, %1246, %1244, %1232, %1228, %1223, %1221, %1209, %1194, %1189, %1187, %1175, %1160, %1155, %1153, %1141, %1126, %1121, %1119, %1107, %1092, %1087, %1085, %1053, %1048, %1046, %1034, %1030, %1025, %1023, %991, %986, %984, %972, %968, %963, %961, %918, %913, %911, %884, %879, %877, %865, %850, %845, %843, %831, %816, %811, %809, %777, %772, %770, %758, %754, %749, %747, %735, %720, %715, %713, %701, %686, %681, %679, %667, %652, %647, %645, %633, %618, %215, %213, %187, %183, %150, %146, %.critedge112, %4316, %4282, %.critedge108, %3500, %.critedge100, %.critedge58, %2237, %.critedge54, %.critedge50, %1493, %.critedge44, %1394, %1358, %1322, %1288, %1208, %1174, %1140, %1106, %932, %898, %864, %830, %734, %700, %666, %632, %.critedge40, %.critedge38, %.critedge36, %.critedge34, %.critedge32, %.critedge30, %.critedge28, %.critedge26, %.critedge24, %.critedge22, %.critedge20, %.critedge18, %.critedge16, %.critedge14, %.critedge12, %.critedge10, %.critedge8, %.critedge6, %.critedge4, %.critedge2, %.critedge
-  %.0 = phi i32 [ %., %8 ], [ 1637, %3454 ], [ %.3181, %10 ], [ %.3681, %4669 ], [ 1718, %4121 ], [ %4658, %4654 ], [ %.3561, %3748 ], [ 1635, %3410 ], [ %.3608, %4123 ], [ %.3593, %4038 ], [ 1752, %2909 ], [ %.3541, %3477 ], [ 1752, %2271 ], [ %spec.select4360, %3718 ], [ %.3182, %57 ], [ %.3661, %4514 ], [ %.3183, %62 ], [ 1752, %1886 ], [ %.3184, %64 ], [ 1752, %1872 ], [ %.3185, %66 ], [ 1669, %3766 ], [ 1722, %4102 ], [ 1620, %.critedge ], [ 1619, %75 ], [ 1622, %.critedge2 ], [ 1621, %87 ], [ 1624, %.critedge4 ], [ 1623, %99 ], [ 1626, %.critedge6 ], [ 1625, %111 ], [ 1628, %.critedge8 ], [ 1627, %123 ], [ 1630, %.critedge10 ], [ 1631, %146 ], [ %.3186, %148 ], [ 1629, %135 ], [ 1634, %150 ], [ 1703, %3936 ], [ 1635, %154 ], [ %.3187, %162 ], [ 1636, %158 ], [ 1636, %160 ], [ 1637, %166 ], [ %.3188, %174 ], [ 1638, %170 ], [ %.3189, %176 ], [ 1638, %172 ], [ %.3190, %178 ], [ 1637, %168 ], [ 1643, %183 ], [ %.3191, %185 ], [ 1635, %156 ], [ 1643, %187 ], [ 1752, %2169 ], [ 1646, %191 ], [ %.3192, %199 ], [ 1647, %195 ], [ 1647, %197 ], [ 1648, %203 ], [ %.3193, %211 ], [ 1649, %207 ], [ 1643, %213 ], [ 1643, %215 ], [ 1649, %209 ], [ %.3194, %222 ], [ 1650, %220 ], [ %.3195, %224 ], [ 1648, %205 ], [ %.3196, %226 ], [ 1646, %193 ], [ %.3197, %228 ], [ 1752, %2155 ], [ %spec.select4281, %39 ], [ 1669, %233 ], [ %spec.select4282, %48 ], [ 1752, %1460 ], [ 1672, %244 ], [ %spec.select4359, %3709 ], [ %.3198, %255 ], [ 1636, %4158 ], [ %.3199, %257 ], [ %.3625, %4293 ], [ %.3200, %259 ], [ 1732, %4289 ], [ %.3201, %261 ], [ %.3576, %3888 ], [ 1733, %3479 ], [ %spec.select4284, %246 ], [ %2924, %2920 ], [ %spec.select4358, %3700 ], [ 1759, %2972 ], [ 1735, %3481 ], [ 1703, %4001 ], [ %spec.select4357, %3683 ], [ %.3567, %3794 ], [ %.3202, %301 ], [ 1661, %299 ], [ 1661, %4500 ], [ %.3203, %305 ], [ 1663, %303 ], [ %.3657, %4502 ], [ %.3204, %309 ], [ 1665, %307 ], [ %.3205, %311 ], [ %1901, %1897 ], [ %.3597, %4061 ], [ %spec.select4288, %290 ], [ %.3206, %322 ], [ 1740, %3467 ], [ %.3207, %324 ], [ %.3660, %4512 ], [ %.3208, %329 ], [ 1665, %4508 ], [ %.3209, %331 ], [ %.3677, %4608 ], [ %.3210, %333 ], [ %.3557, %3698 ], [ %.3211, %339 ], [ %.3656, %4498 ], [ %.3212, %345 ], [ %.3589, %4005 ], [ %.3213, %351 ], [ %.3566, %3792 ], [ %.3214, %357 ], [ %spec.select4287, %281 ], [ %.3215, %363 ], [ 1732, %4317 ], [ %spec.select4346, %3335 ], [ %.3533, %3418 ], [ %.3216, %386 ], [ %switch.load, %switch.lookup ], [ %.3217, %392 ], [ %.3534, %3420 ], [ %.3218, %398 ], [ 1637, %3414 ], [ %.3219, %404 ], [ %.3655, %4496 ], [ %.3220, %410 ], [ %spec.select4286, %272 ], [ %.3221, %416 ], [ 1737, %4316 ], [ 1731, %4287 ], [ 1698, %.critedge12 ], [ 1697, %425 ], [ 1700, %.critedge14 ], [ 1699, %435 ], [ 1702, %.critedge16 ], [ 1701, %445 ], [ 1620, %.critedge18 ], [ 1619, %458 ], [ 1706, %.critedge20 ], [ 1705, %470 ], [ 1624, %.critedge22 ], [ 1623, %482 ], [ 1626, %.critedge24 ], [ 1625, %494 ], [ 1704, %.critedge26 ], [ 1703, %506 ], [ 1630, %.critedge28 ], [ 1629, %518 ], [ 1620, %.critedge30 ], [ 1619, %533 ], [ 1706, %.critedge32 ], [ 1705, %545 ], [ 1624, %.critedge34 ], [ 1623, %557 ], [ 1626, %.critedge36 ], [ 1625, %569 ], [ 1707, %.critedge38 ], [ 1665, %581 ], [ 1630, %.critedge40 ], [ %.3222, %604 ], [ 1629, %593 ], [ %.3223, %606 ], [ 1732, %4291 ], [ %.3224, %611 ], [ %spec.select4285, %263 ], [ %.3225, %613 ], [ 1752, %1446 ], [ 1718, %618 ], [ %.3226, %620 ], [ 1731, %4285 ], [ 1736, %4276 ], [ 1720, %632 ], [ 1714, %633 ], [ 1719, %626 ], [ 1715, %635 ], [ %.3583, %3953 ], [ 1716, %639 ], [ %.3227, %643 ], [ %.3581, %3940 ], [ 1717, %645 ], [ 1642, %647 ], [ 1718, %652 ], [ %.3228, %654 ], [ 1716, %641 ], [ 1715, %637 ], [ 1720, %666 ], [ 1721, %667 ], [ 1719, %660 ], [ 1721, %669 ], [ %spec.select4371, %3875 ], [ 1721, %673 ], [ %.3229, %677 ], [ 1635, %3433 ], [ 1717, %679 ], [ 1642, %681 ], [ 1718, %686 ], [ %.3230, %688 ], [ 1721, %675 ], [ 1721, %671 ], [ 1720, %700 ], [ 1714, %701 ], [ 1719, %694 ], [ 1715, %703 ], [ 1637, %3437 ], [ 1716, %707 ], [ %.3231, %711 ], [ %.3574, %3884 ], [ 1717, %713 ], [ 1642, %715 ], [ 1718, %720 ], [ %.3232, %722 ], [ 1716, %709 ], [ 1715, %705 ], [ 1720, %734 ], [ 1721, %735 ], [ 1719, %728 ], [ 1721, %737 ], [ %.3539, %3458 ], [ 1721, %741 ], [ %.3233, %745 ], [ %.3585, %3982 ], [ 1717, %747 ], [ 1642, %749 ], [ 1718, %754 ], [ %.3234, %756 ], [ 1721, %743 ], [ 1722, %758 ], [ 1721, %739 ], [ 1635, %760 ], [ %.3572, %3855 ], [ 1637, %764 ], [ %.3235, %768 ], [ 1661, %3993 ], [ 1717, %770 ], [ 1642, %772 ], [ 1718, %777 ], [ %.3236, %779 ], [ 1637, %766 ], [ %.3237, %781 ], [ 1635, %762 ], [ %spec.select4283, %235 ], [ 1635, %785 ], [ %.3238, %793 ], [ 1636, %789 ], [ 1636, %791 ], [ 1637, %797 ], [ %.3239, %805 ], [ 1638, %801 ], [ %.3240, %807 ], [ 1638, %803 ], [ 1717, %809 ], [ 1642, %811 ], [ 1718, %816 ], [ %.3241, %818 ], [ 1637, %799 ], [ 1635, %787 ], [ 1720, %830 ], [ 1714, %831 ], [ 1719, %824 ], [ 1715, %833 ], [ %.3586, %3995 ], [ 1716, %837 ], [ %.3242, %841 ], [ 1669, %3862 ], [ 1717, %843 ], [ 1642, %845 ], [ 1718, %850 ], [ %.3243, %852 ], [ 1716, %839 ], [ 1715, %835 ], [ 1720, %864 ], [ 1721, %865 ], [ 1719, %858 ], [ 1721, %867 ], [ %.3588, %4003 ], [ 1721, %871 ], [ %.3244, %875 ], [ %spec.select4369, %3846 ], [ 1717, %877 ], [ 1642, %879 ], [ 1718, %884 ], [ %.3245, %886 ], [ 1721, %873 ], [ 1721, %869 ], [ 1720, %898 ], [ %.3246, %899 ], [ 1719, %892 ], [ 1752, %2895 ], [ 1715, %901 ], [ 1663, %3997 ], [ 1716, %905 ], [ %.3247, %909 ], [ %.3587, %3999 ], [ 1717, %911 ], [ 1642, %913 ], [ 1718, %918 ], [ %.3248, %920 ], [ 1716, %907 ], [ 1715, %903 ], [ 1720, %932 ], [ %.3249, %933 ], [ 1719, %926 ], [ %.3643, %4413 ], [ 1715, %937 ], [ %.3250, %945 ], [ 1635, %941 ], [ 1635, %943 ], [ 1716, %949 ], [ %.3251, %957 ], [ 1725, %953 ], [ %.3252, %959 ], [ 1725, %955 ], [ 1717, %961 ], [ 1642, %963 ], [ 1718, %968 ], [ %.3253, %970 ], [ 1716, %951 ], [ 1722, %972 ], [ 1715, %939 ], [ 1635, %974 ], [ 1672, %3873 ], [ 1637, %978 ], [ %.3254, %982 ], [ %spec.select4370, %3864 ], [ 1717, %984 ], [ 1642, %986 ], [ 1718, %991 ], [ %.3255, %993 ], [ 1637, %980 ], [ %.3256, %995 ], [ 1635, %976 ], [ 1752, %2285 ], [ 1635, %999 ], [ %.3257, %1007 ], [ 1636, %1003 ], [ 1636, %1005 ], [ 1637, %1011 ], [ %.3258, %1019 ], [ 1638, %1015 ], [ %.3259, %1021 ], [ 1638, %1017 ], [ 1717, %1023 ], [ 1642, %1025 ], [ 1718, %1030 ], [ %.3260, %1032 ], [ 1637, %1013 ], [ 1722, %1034 ], [ 1635, %1001 ], [ 1635, %1036 ], [ %.3591, %4009 ], [ 1637, %1040 ], [ %.3261, %1044 ], [ %spec.select4376, %3942 ], [ 1717, %1046 ], [ 1642, %1048 ], [ 1718, %1053 ], [ %.3262, %1055 ], [ 1637, %1042 ], [ %.3263, %1057 ], [ 1635, %1038 ], [ %spec.select4280, %30 ], [ 1635, %1061 ], [ %.3264, %1069 ], [ 1636, %1065 ], [ 1636, %1067 ], [ 1637, %1073 ], [ %.3265, %1081 ], [ 1638, %1077 ], [ %.3266, %1083 ], [ 1638, %1079 ], [ 1717, %1085 ], [ 1642, %1087 ], [ 1718, %1092 ], [ %.3267, %1094 ], [ 1637, %1075 ], [ 1635, %1063 ], [ 1720, %1106 ], [ 1714, %1107 ], [ 1719, %1100 ], [ 1715, %1109 ], [ 1672, %4025 ], [ 1716, %1113 ], [ %.3268, %1117 ], [ %.3573, %3857 ], [ 1717, %1119 ], [ 1642, %1121 ], [ 1718, %1126 ], [ %.3269, %1128 ], [ 1716, %1115 ], [ 1715, %1111 ], [ 1720, %1140 ], [ 1721, %1141 ], [ 1719, %1134 ], [ 1721, %1143 ], [ %.3570, %3842 ], [ 1721, %1147 ], [ %.3270, %1151 ], [ %.3536, %3439 ], [ 1717, %1153 ], [ 1642, %1155 ], [ 1734, %1160 ], [ %.3271, %1162 ], [ 1721, %1149 ], [ 1721, %1145 ], [ 1737, %1174 ], [ 1730, %1175 ], [ 1736, %1168 ], [ 1731, %1177 ], [ 1734, %3463 ], [ 1732, %1181 ], [ %.3272, %1185 ], [ 1672, %3969 ], [ 1733, %1187 ], [ 1735, %1189 ], [ 1734, %1194 ], [ %.3273, %1196 ], [ 1732, %1183 ], [ 1731, %1179 ], [ 1737, %1208 ], [ 1732, %1209 ], [ 1736, %1202 ], [ 1732, %1211 ], [ %.3595, %4055 ], [ 1732, %1215 ], [ %.3274, %1219 ], [ %.3538, %3443 ], [ 1733, %1221 ], [ 1735, %1223 ], [ 1734, %1228 ], [ %.3275, %1230 ], [ 1732, %1217 ], [ 1740, %1232 ], [ 1732, %1213 ], [ 1741, %1234 ], [ 1661, %4049 ], [ 1742, %1238 ], [ %.3276, %1242 ], [ %.3594, %4051 ], [ 1733, %1244 ], [ 1735, %1246 ], [ 1734, %1251 ], [ %.3277, %1253 ], [ 1742, %1240 ], [ 1743, %1255 ], [ 1741, %1236 ], [ 1743, %1257 ], [ 1703, %4057 ], [ 1743, %1261 ], [ %.3278, %1265 ], [ %.3596, %4059 ], [ 1733, %1267 ], [ 1735, %1269 ], [ 1734, %1274 ], [ %.3279, %1276 ], [ 1743, %1263 ], [ 1743, %1259 ], [ 1737, %1288 ], [ 1730, %1289 ], [ 1736, %1282 ], [ 1731, %1291 ], [ 1663, %3836 ], [ 1732, %1295 ], [ %.3280, %1299 ], [ 1663, %4053 ], [ 1733, %1301 ], [ 1735, %1303 ], [ 1734, %1308 ], [ %.3281, %1310 ], [ 1732, %1297 ], [ 1731, %1293 ], [ 1737, %1322 ], [ 1732, %1323 ], [ 1736, %1316 ], [ 1732, %1325 ], [ %.3600, %4072 ], [ 1732, %1329 ], [ %.3282, %1333 ], [ %.3571, %3844 ], [ 1733, %1335 ], [ 1735, %1337 ], [ 1734, %1342 ], [ %.3283, %1344 ], [ 1732, %1331 ], [ %.3284, %1346 ], [ 1732, %1327 ], [ 1752, %3549 ], [ 1737, %1358 ], [ 1730, %1359 ], [ 1736, %1352 ], [ 1731, %1361 ], [ 1703, %3840 ], [ 1746, %1365 ], [ %.3285, %1369 ], [ %.3599, %4065 ], [ 1733, %1371 ], [ 1735, %1373 ], [ 1734, %1378 ], [ %.3286, %1380 ], [ 1746, %1367 ], [ %.3287, %1382 ], [ 1731, %1363 ], [ 1752, %3535 ], [ 1737, %1394 ], [ %.3288, %1395 ], [ 1736, %1388 ], [ 1736, %4310 ], [ 1731, %1399 ], [ %.3289, %1407 ], [ 1732, %1403 ], [ 1732, %1405 ], [ 1746, %1411 ], [ %.3290, %1419 ], [ 1732, %1415 ], [ %.3291, %1421 ], [ 1732, %1417 ], [ 1733, %1423 ], [ 1735, %1425 ], [ %.3292, %1430 ], [ 1746, %1413 ], [ 1731, %1401 ], [ 1705, %.critedge44 ], [ 1752, %1476 ], [ 1751, %1493 ], [ %.3293, %1498 ], [ 1750, %1489 ], [ 1730, %4283 ], [ %.3294, %1506 ], [ 1650, %1504 ], [ %.3295, %1512 ], [ %spec.select4279, %21 ], [ %.3296, %1517 ], [ %.3575, %3886 ], [ %.3297, %1519 ], [ 1752, %4643 ], [ 1752, %4629 ], [ %.3298, %1527 ], [ 1650, %1525 ], [ %spec.select4278, %12 ], [ 1669, %1532 ], [ %spec.select4289, %313 ], [ %1475, %1471 ], [ 1672, %1543 ], [ 1637, %3435 ], [ %.3299, %1554 ], [ %.3537, %3441 ], [ %.3300, %1556 ], [ 1663, %4598 ], [ %.3301, %1558 ], [ %.3674, %4600 ], [ %.3302, %1560 ], [ %.3562, %3759 ], [ %.3556, %3696 ], [ 1661, %4594 ], [ %spec.select4291, %1545 ], [ %spec.select4042, %1562 ], [ 1703, %3744 ], [ %.3303, %1576 ], [ 1661, %1574 ], [ %.3676, %4606 ], [ %.3304, %1580 ], [ 1663, %1578 ], [ 1665, %4602 ], [ %.3305, %1584 ], [ 1665, %1582 ], [ %.3306, %1586 ], [ %.3675, %4604 ], [ %.3307, %1588 ], [ %spec.select4290, %1534 ], [ %.3680, %4667 ], [ 1669, %1593 ], [ %.3560, %3746 ], [ %spec.select4043, %1568 ], [ 1672, %1604 ], [ %.3598, %4063 ], [ %.3308, %1615 ], [ %.3672, %4592 ], [ %.3309, %1617 ], [ 1742, %3473 ], [ %.3310, %1619 ], [ %.3671, %4590 ], [ %.3311, %1621 ], [ 1631, %3425 ], [ %.3555, %3694 ], [ 1672, %4579 ], [ %spec.select4293, %1606 ], [ %spec.select4048, %1623 ], [ %.3592, %4036 ], [ %.3312, %1637 ], [ 1661, %1635 ], [ %.3673, %4596 ], [ %.3313, %1641 ], [ 1663, %1639 ], [ %spec.select4361, %3727 ], [ %.3314, %1645 ], [ 1665, %1643 ], [ %.3315, %1647 ], [ %spec.select4390, %4581 ], [ %.3316, %1649 ], [ %spec.select4292, %1595 ], [ 1752, %4659 ], [ 1756, %1654 ], [ 1663, %3740 ], [ %spec.select4049, %1629 ], [ 1672, %1665 ], [ %.3569, %3838 ], [ %.3317, %1676 ], [ %spec.select4379, %3984 ], [ %.3318, %1678 ], [ %.3565, %3790 ], [ %.3319, %1680 ], [ %.3670, %4563 ], [ %.3320, %1682 ], [ %.3590, %4007 ], [ %.3554, %3692 ], [ %.3321, %1686 ], [ 1661, %1684 ], [ 1722, %3448 ], [ %.3322, %1690 ], [ 1663, %1688 ], [ %.3535, %3427 ], [ %.3323, %1694 ], [ 1665, %1692 ], [ %.3324, %1696 ], [ 1756, %4568 ], [ %.3325, %1698 ], [ %spec.select4294, %1656 ], [ %.3679, %4665 ], [ 1756, %1703 ], [ %spec.select4295, %1667 ], [ %.3669, %4561 ], [ 1672, %1714 ], [ 1734, %3486 ], [ %.3326, %1725 ], [ %.3667, %4557 ], [ %.3327, %1727 ], [ 1741, %3469 ], [ %.3328, %1729 ], [ 1663, %4551 ], [ %.3329, %1731 ], [ %.3666, %4553 ], [ 1672, %3681 ], [ %.3330, %1735 ], [ 1661, %1733 ], [ %.3564, %3788 ], [ %.3331, %1739 ], [ 1663, %1737 ], [ %.3668, %4559 ], [ %.3332, %1743 ], [ 1665, %1741 ], [ %.3333, %1745 ], [ 1703, %4555 ], [ %.3334, %1747 ], [ %spec.select4296, %1705 ], [ 1761, %.critedge112 ], [ 1756, %1752 ], [ %spec.select4297, %1716 ], [ 1672, %3777 ], [ 1672, %1763 ], [ %spec.select4356, %3672 ], [ %.3335, %1774 ], [ %spec.select4363, %3768 ], [ %.3336, %1776 ], [ %.3664, %4545 ], [ %.3337, %1778 ], [ %spec.select4362, %3750 ], [ %.3338, %1780 ], [ %.3663, %4543 ], [ %.3542, %3488 ], [ %.3339, %1784 ], [ 1661, %1782 ], [ 1661, %4547 ], [ %.3340, %1788 ], [ 1663, %1786 ], [ %.3665, %4549 ], [ %.3341, %1792 ], [ 1665, %1790 ], [ %.3342, %1794 ], [ %spec.select4388, %4534 ], [ %.3343, %1796 ], [ %spec.select4298, %1754 ], [ 1669, %4014 ], [ %.3344, %1803 ], [ 1653, %1801 ], [ %.3563, %3761 ], [ 1655, %1805 ], [ %.3345, %1809 ], [ 1663, %1807 ], [ %.3678, %4610 ], [ 1657, %1811 ], [ %.3346, %1815 ], [ 1665, %1813 ], [ %spec.select4389, %4570 ], [ %.3601, %4078 ], [ 1718, %4183 ], [ 1756, %1828 ], [ %spec.select4299, %1765 ], [ 1717, %4137 ], [ 1672, %1839 ], [ 1756, %3670 ], [ %.3347, %1850 ], [ 1756, %4521 ], [ %.3348, %1852 ], [ %spec.select4365, %3796 ], [ %.3349, %1854 ], [ 1635, %3452 ], [ %.3350, %1856 ], [ %.3662, %4516 ], [ %spec.select4355, %3654 ], [ 1705, %.critedge50 ], [ 1752, %1902 ], [ 1653, %1908 ], [ %.3351, %1912 ], [ 1661, %1910 ], [ 1759, %1817 ], [ 1655, %1914 ], [ %.3352, %1918 ], [ 1663, %1916 ], [ 1672, %4532 ], [ 1657, %1920 ], [ %.3353, %1924 ], [ 1665, %1922 ], [ %.3354, %1926 ], [ %spec.select4387, %4523 ], [ %.3355, %1928 ], [ 1722, %3429 ], [ %spec.select4300, %1830 ], [ 1669, %1933 ], [ %spec.select4301, %1841 ], [ 1653, %4070 ], [ 1672, %1944 ], [ %spec.select4302, %1935 ], [ %.3356, %1955 ], [ %.3659, %4510 ], [ %.3357, %1957 ], [ %spec.select4386, %4487 ], [ %.3358, %1959 ], [ 1663, %4504 ], [ %.3359, %1961 ], [ %.3658, %4506 ], [ %.3553, %3665 ], [ %spec.select4303, %1946 ], [ %spec.select4380, %4016 ], [ %spec.select4304, %1963 ], [ %.3552, %3663 ], [ %spec.select4305, %1972 ], [ 1672, %4485 ], [ 1742, %3475 ], [ 1756, %4474 ], [ %.3360, %2001 ], [ 1661, %1999 ], [ %.3584, %3980 ], [ %.3361, %2005 ], [ 1663, %2003 ], [ 1661, %3832 ], [ %.3362, %2009 ], [ 1665, %2007 ], [ %.3363, %2011 ], [ %.3654, %4469 ], [ %spec.select4354, %3631 ], [ %spec.select4307, %1990 ], [ %.3364, %2022 ], [ %.3568, %3834 ], [ %.3365, %2024 ], [ %.3653, %4467 ], [ %spec.select4378, %3971 ], [ 1669, %2029 ], [ 1663, %4076 ], [ 1703, %4461 ], [ 1672, %2040 ], [ %.3551, %3652 ], [ %.3366, %2051 ], [ %.3650, %4459 ], [ %.3367, %2053 ], [ %.3540, %3465 ], [ 1661, %4453 ], [ 1703, %3648 ], [ %spec.select4367, %3814 ], [ %.3368, %2066 ], [ 1661, %2064 ], [ 1637, %3456 ], [ %.3369, %2070 ], [ 1663, %2068 ], [ %.3648, %4451 ], [ %.3370, %2074 ], [ 1665, %2072 ], [ %.3371, %2076 ], [ %spec.select4366, %3805 ], [ %.3372, %2078 ], [ %.3550, %3650 ], [ %.3373, %2080 ], [ %.3649, %4455 ], [ %spec.select4310, %2042 ], [ 1669, %2085 ], [ %spec.select4311, %2055 ], [ %.3647, %4449 ], [ 1672, %2096 ], [ %spec.select4368, %3823 ], [ %.3374, %2107 ], [ %spec.select4382, %4040 ], [ %.3375, %2109 ], [ 1756, %4427 ], [ %.3582, %3951 ], [ 1663, %3644 ], [ %.3646, %4422 ], [ %.3376, %2122 ], [ 1661, %2120 ], [ %.3580, %3938 ], [ %.3377, %2126 ], [ 1663, %2124 ], [ %.3645, %4420 ], [ %.3378, %2130 ], [ 1665, %2128 ], [ %.3379, %2132 ], [ 1635, %3450 ], [ %.3380, %2134 ], [ %.3549, %3646 ], [ %.3381, %2136 ], [ 1663, %3932 ], [ %spec.select4313, %2098 ], [ 1761, %.critedge54 ], [ %.3382, %2191 ], [ 1752, %2185 ], [ %.3383, %2193 ], [ %spec.select4364, %3779 ], [ %.3384, %2195 ], [ 1718, %4098 ], [ %.3385, %2200 ], [ 1672, %4438 ], [ %.3386, %2202 ], [ %spec.select4383, %4429 ], [ %.3387, %2207 ], [ %spec.select4312, %2087 ], [ %.3388, %2209 ], [ %.3651, %4463 ], [ %.3389, %2211 ], [ 1635, %3431 ], [ %.3390, %2216 ], [ 1663, %4457 ], [ %.3391, %2218 ], [ %spec.select4309, %2031 ], [ 1734, %2223 ], [ %.3392, %2225 ], [ %.3652, %4465 ], [ %spec.select4308, %2013 ], [ 1737, %2237 ], [ 1732, %2238 ], [ 1736, %2231 ], [ 1732, %2240 ], [ %spec.select, %1823 ], [ 1732, %2244 ], [ %.3393, %2248 ], [ 1655, %4074 ], [ 1733, %2250 ], [ 1735, %2252 ], [ 1732, %2246 ], [ 1683, %.critedge58 ], [ 1752, %2301 ], [ %.3604, %4091 ], [ 1631, %2318 ], [ %.3394, %2320 ], [ 1743, %4253 ], [ %.3395, %2322 ], [ %2184, %2180 ], [ %.3644, %4418 ], [ 1635, %2326 ], [ %.3396, %2334 ], [ 1636, %2330 ], [ 1636, %2332 ], [ 1637, %2338 ], [ %.3397, %2346 ], [ 1638, %2342 ], [ %.3398, %2348 ], [ 1638, %2344 ], [ %.3399, %2350 ], [ 1637, %2340 ], [ %.3400, %2352 ], [ 1635, %2328 ], [ %.3401, %2357 ], [ 1732, %2242 ], [ %spec.select4385, %4476 ], [ 1635, %2361 ], [ %.3402, %2369 ], [ 1636, %2365 ], [ 1636, %2367 ], [ 1637, %2373 ], [ %.3403, %2381 ], [ 1638, %2377 ], [ %.3404, %2383 ], [ 1638, %2379 ], [ 1631, %2388 ], [ %.3405, %2390 ], [ 1637, %2375 ], [ %.3406, %2392 ], [ 1635, %2363 ], [ %spec.select4384, %4440 ], [ 1635, %2396 ], [ %.3407, %2404 ], [ 1636, %2400 ], [ 1636, %2402 ], [ 1637, %2408 ], [ %.3408, %2416 ], [ 1638, %2412 ], [ %.3409, %2418 ], [ 1638, %2414 ], [ %.3410, %2420 ], [ 1637, %2410 ], [ %.3411, %2422 ], [ 1635, %2398 ], [ %spec.select4306, %1981 ], [ %2438, %2434 ], [ %.3579, %3934 ], [ %2453, %2449 ], [ %.3642, %4411 ], [ %2465, %2461 ], [ 1768, %2439 ], [ %2480, %2476 ], [ %.3605, %4093 ], [ %2495, %2491 ], [ %.3641, %4409 ], [ %2507, %2503 ], [ 1768, %2481 ], [ %2522, %2518 ], [ 1661, %3928 ], [ %2537, %2533 ], [ %.3640, %4404 ], [ %2549, %2545 ], [ 1734, %2553 ], [ %.3412, %2555 ], [ 1768, %2523 ], [ 1743, %2557 ], [ 1766, %2511 ], [ 1743, %2559 ], [ %spec.select3682, %2313 ], [ 1743, %2563 ], [ %.3413, %2567 ], [ 1669, %3958 ], [ 1733, %2569 ], [ 1735, %2571 ], [ 1743, %2565 ], [ 1669, %2576 ], [ %spec.select4314, %2111 ], [ 1770, %2538 ], [ 1672, %2587 ], [ 1657, %4080 ], [ %.3414, %2598 ], [ %.3638, %4400 ], [ %.3415, %2600 ], [ %spec.select4372, %3892 ], [ %.3416, %2602 ], [ %.3637, %4395 ], [ %.3417, %2604 ], [ %spec.select4345, %3326 ], [ 1661, %3640 ], [ %.3636, %4393 ], [ %spec.select4316, %2589 ], [ %spec.select4120, %2606 ], [ %.3559, %3742 ], [ %.3418, %2620 ], [ 1661, %2618 ], [ %.3578, %3930 ], [ %.3419, %2624 ], [ 1663, %2622 ], [ %.3639, %4402 ], [ %.3420, %2628 ], [ 1703, %2626 ], [ %.3421, %2630 ], [ %spec.select4373, %3901 ], [ %.3422, %2632 ], [ %spec.select4315, %2578 ], [ %.3423, %2638 ], [ 1743, %2561 ], [ 1770, %2496 ], [ 1669, %2643 ], [ %spec.select4381, %4027 ], [ %spec.select4121, %2612 ], [ 1672, %2654 ], [ %.3548, %3642 ], [ %.3424, %2665 ], [ %.3634, %4386 ], [ %.3425, %2667 ], [ 1743, %4367 ], [ %.3426, %2669 ], [ %.3633, %4384 ], [ %.3427, %2671 ], [ 1743, %4371 ], [ %.3602, %4084 ], [ %.3632, %4382 ], [ %spec.select4318, %2656 ], [ %spec.select4126, %2673 ], [ 1661, %3736 ], [ %.3428, %2687 ], [ 1661, %2685 ], [ %spec.select4374, %3910 ], [ %.3429, %2691 ], [ 1663, %2689 ], [ %.3635, %4391 ], [ %.3430, %2695 ], [ 1703, %2693 ], [ %.3431, %2697 ], [ %.3577, %3890 ], [ %.3432, %2699 ], [ %spec.select4317, %2645 ], [ 1768, %2484 ], [ 1756, %2704 ], [ %.3558, %3738 ], [ %spec.select4127, %2679 ], [ 1672, %2715 ], [ 1741, %3471 ], [ %.3433, %2726 ], [ %.3631, %4373 ], [ %.3434, %2728 ], [ 1743, %4369 ], [ %.3435, %2730 ], [ 1642, %4178 ], [ %.3436, %2732 ], [ 1743, %4365 ], [ %spec.select4353, %3622 ], [ %.3437, %2736 ], [ 1661, %2734 ], [ 1735, %4377 ], [ %.3438, %2740 ], [ 1663, %2738 ], [ 1733, %4375 ], [ %.3439, %2744 ], [ 1703, %2742 ], [ %.3440, %2746 ], [ 1717, %4176 ], [ %.3441, %2748 ], [ %spec.select4319, %2706 ], [ 1766, %2469 ], [ 1756, %2753 ], [ %spec.select4320, %2717 ], [ 1741, %4344 ], [ 1672, %2764 ], [ 1737, %3500 ], [ %.3442, %2775 ], [ 1734, %4359 ], [ %.3443, %2777 ], [ 1735, %4354 ], [ %.3444, %2779 ], [ 1733, %4352 ], [ %.3445, %2781 ], [ 1638, %4170 ], [ %spec.select4352, %3613 ], [ %.3446, %2785 ], [ 1661, %2783 ], [ 1743, %4363 ], [ %.3447, %2789 ], [ 1663, %2787 ], [ 1742, %4348 ], [ %.3448, %2793 ], [ 1703, %2791 ], [ %.3449, %2795 ], [ %.3630, %4361 ], [ %.3450, %2797 ], [ %spec.select4321, %2755 ], [ 1770, %2454 ], [ 1756, %2802 ], [ %spec.select4322, %2766 ], [ %.3629, %4350 ], [ 1672, %2813 ], [ 1730, %3501 ], [ %.3451, %2824 ], [ 1732, %4321 ], [ %.3452, %2826 ], [ 1740, %4340 ], [ %.3453, %2828 ], [ 1732, %4325 ], [ %.3454, %2830 ], [ %.3628, %4338 ], [ %spec.select4351, %3604 ], [ %.3455, %2834 ], [ 1661, %2832 ], [ 1742, %4346 ], [ %.3456, %2838 ], [ 1663, %2836 ], [ 1636, %4156 ], [ %.3457, %2842 ], [ 1703, %2840 ], [ %.3458, %2844 ], [ 1741, %4342 ], [ %.3459, %2846 ], [ %spec.select4323, %2804 ], [ 1768, %2442 ], [ 1756, %2851 ], [ %spec.select4324, %2815 ], [ 1734, %4336 ], [ 1672, %2862 ], [ 1736, %3494 ], [ %.3460, %2873 ], [ %.3627, %4327 ], [ %.3461, %2875 ], [ 1732, %4323 ], [ %.3462, %2877 ], [ %.3612, %4160 ], [ %.3463, %2879 ], [ 1732, %4319 ], [ %spec.select4350, %3587 ], [ 1705, %.critedge100 ], [ 1752, %2925 ], [ 1653, %2931 ], [ %.3464, %2935 ], [ 1661, %2933 ], [ 1768, %2526 ], [ 1655, %2937 ], [ %.3465, %2941 ], [ 1663, %2939 ], [ 1735, %4331 ], [ 1657, %2943 ], [ %.3466, %2947 ], [ 1703, %2945 ], [ %.3467, %2949 ], [ 1733, %4329 ], [ %.3468, %2951 ], [ 1635, %4152 ], [ %spec.select4325, %2853 ], [ %.3469, %2958 ], [ 1653, %2956 ], [ 1766, %2427 ], [ 1655, %2960 ], [ %.3470, %2964 ], [ 1663, %2962 ], [ %2300, %2296 ], [ 1657, %2966 ], [ %.3471, %2970 ], [ 1703, %2968 ], [ 1750, %2307 ], [ %.3603, %4089 ], [ 1743, %4257 ], [ %spec.select3683, %2978 ], [ 1737, %4282 ], [ 1756, %2995 ], [ %spec.select4326, %2864 ], [ 1635, %4104 ], [ 1672, %3006 ], [ %spec.select4327, %2997 ], [ %.3472, %3017 ], [ %.3626, %4304 ], [ %.3473, %3019 ], [ 1734, %4302 ], [ %.3474, %3021 ], [ 1735, %4297 ], [ %.3475, %3023 ], [ 1733, %4295 ], [ %.3547, %3602 ], [ %spec.select4328, %3008 ], [ 1731, %3503 ], [ %spec.select4329, %3025 ], [ %.3546, %3600 ], [ %spec.select4330, %3034 ], [ %.3624, %4270 ], [ 1637, %4108 ], [ 1735, %4263 ], [ %.3476, %3063 ], [ 1661, %3061 ], [ 1733, %4261 ], [ %.3477, %3067 ], [ 1663, %3065 ], [ 1635, %4129 ], [ %.3478, %3071 ], [ 1665, %3069 ], [ %.3479, %3073 ], [ %.3623, %4259 ], [ %.3545, %3598 ], [ %spec.select4332, %3052 ], [ %.3480, %3084 ], [ 1743, %4255 ], [ %.3481, %3086 ], [ %.3611, %4148 ], [ 1743, %4251 ], [ 1756, %3091 ], [ %.3607, %4112 ], [ 1743, %4249 ], [ 1672, %3102 ], [ %.3544, %3596 ], [ %.3482, %3113 ], [ 1735, %4240 ], [ %.3483, %3115 ], [ 1733, %4238 ], [ %.3484, %3117 ], [ 1731, %3505 ], [ %.3485, %3119 ], [ %.3621, %4236 ], [ %spec.select4349, %3576 ], [ %.3486, %3123 ], [ 1661, %3121 ], [ 1742, %4234 ], [ %.3487, %3127 ], [ 1663, %3125 ], [ %.3622, %4247 ], [ %.3488, %3131 ], [ 1703, %3129 ], [ %.3489, %3133 ], [ 1734, %4245 ], [ %.3490, %3135 ], [ %spec.select4334, %3093 ], [ 1741, %4230 ], [ 1756, %3140 ], [ %spec.select4335, %3104 ], [ 1742, %4232 ], [ 1672, %3151 ], [ 1672, %3585 ], [ %.3491, %3162 ], [ 1740, %4226 ], [ %.3492, %3164 ], [ 1637, %4205 ], [ %.3493, %3166 ], [ %.3620, %4224 ], [ %.3494, %3168 ], [ 1734, %4222 ], [ 1717, %4114 ], [ %.3495, %3172 ], [ 1661, %3170 ], [ 1750, %2984 ], [ %.3496, %3176 ], [ 1663, %3174 ], [ 1741, %4228 ], [ %.3497, %3180 ], [ 1665, %3178 ], [ %.3498, %3182 ], [ 1635, %4193 ], [ %.3499, %3184 ], [ %spec.select4336, %3142 ], [ %spec.select4333, %3075 ], [ 1756, %3189 ], [ %spec.select4337, %3153 ], [ 1642, %4217 ], [ 1672, %3200 ], [ %spec.select4377, %3960 ], [ %.3500, %3211 ], [ 1638, %4207 ], [ %.3501, %3213 ], [ %.3618, %4211 ], [ %.3502, %3215 ], [ 1637, %4203 ], [ %.3503, %3217 ], [ 1636, %4197 ], [ 1756, %3574 ], [ %.3504, %3221 ], [ 1661, %3219 ], [ 1717, %4215 ], [ %.3505, %3225 ], [ 1663, %3223 ], [ 1638, %4209 ], [ %.3506, %3229 ], [ 1703, %3227 ], [ %.3507, %3231 ], [ %.3619, %4213 ], [ %.3508, %3233 ], [ %spec.select4338, %3191 ], [ 1734, %4268 ], [ 1756, %3238 ], [ %spec.select4339, %3202 ], [ 1636, %4195 ], [ 1672, %3249 ], [ 1752, %3565 ], [ %.3509, %3260 ], [ 1635, %4154 ], [ %.3510, %3262 ], [ %.3616, %4187 ], [ %.3511, %3264 ], [ 1637, %4166 ], [ %.3512, %3266 ], [ %.3615, %4185 ], [ 1683, %.critedge108 ], [ %.3513, %3270 ], [ 1661, %3268 ], [ %.3617, %4199 ], [ %.3514, %3274 ], [ 1663, %3272 ], [ 1635, %4191 ], [ %.3515, %3278 ], [ 1665, %3276 ], [ %.3516, %3280 ], [ %spec.select4375, %3919 ], [ %.3517, %3282 ], [ %spec.select4340, %3240 ], [ %spec.select4331, %3043 ], [ 1756, %3287 ], [ %spec.select4341, %3251 ], [ 1732, %3509 ], [ 1672, %3298 ], [ %spec.select4342, %3289 ], [ %.3518, %3309 ], [ %.3614, %4174 ], [ %.3519, %3311 ], [ 1638, %4168 ], [ %.3520, %3313 ], [ %.3613, %4172 ], [ %.3521, %3315 ], [ 1637, %4164 ], [ 1735, %3515 ], [ %spec.select4343, %3300 ], [ 1733, %3513 ], [ %spec.select4344, %3317 ], [ 1637, %4133 ], [ %.3606, %4100 ], [ %.3610, %4146 ], [ %.3543, %3511 ], [ %3564, %3560 ], [ %.3522, %3355 ], [ 1661, %3353 ], [ %.3609, %4135 ], [ %.3523, %3359 ], [ 1663, %3357 ], [ 1637, %4131 ], [ %.3524, %3363 ], [ 1665, %3361 ], [ %.3525, %3365 ], [ 1642, %4116 ], [ 1732, %3507 ], [ %spec.select4347, %3344 ], [ %.3526, %3376 ], [ 1635, %4127 ], [ %.3527, %3378 ], [ 1635, %4106 ], [ 1722, %4125 ], [ %.3528, %3385 ], [ 1653, %3383 ], [ 1637, %4110 ], [ 1655, %3387 ], [ %.3529, %3391 ], [ 1663, %3389 ], [ %spec.select4348, %3367 ], [ 1657, %3393 ], [ %.3530, %3397 ], [ 1665, %3395 ], [ 1631, %3402 ], [ %.3531, %3404 ], [ 1718, %4144 ], [ 1722, %3406 ], [ 1642, %4139 ], [ 1635, %3408 ], [ %spec.select3684, %2990 ], [ 1637, %3412 ], [ %.3532, %3416 ], [ 1703, %4082 ], [ 1680, %378 ], [ 1680, %369 ], [ 1680, %372 ]
+.critedge42:                                      ; preds = %372, %369, %378, %switch.lookup, %4563, %4552, %4516, %4505, %4469, %4458, %4422, %4411, %4023, %4010, %3999, %3967, %3954, %3943, %3925, %3902, %3893, %3884, %3875, %3858, %3847, %3829, %3806, %3797, %3788, %3779, %3762, %3751, %3733, %3710, %3701, %3692, %3683, %3666, %3655, %3637, %3614, %3605, %3596, %3587, %3570, %3559, %3351, %3328, %3319, %3310, %3301, %3284, %3273, %3235, %3224, %3186, %3175, %3137, %3126, %3088, %3077, %3059, %3036, %3027, %3018, %3009, %2992, %2981, %2848, %2837, %2799, %2788, %2750, %2739, %2701, %2690, %2640, %2629, %2573, %2562, %2096, %2083, %2072, %2040, %2027, %2016, %1998, %1975, %1966, %1957, %1948, %1931, %1920, %1826, %1815, %1750, %1739, %1701, %1690, %1652, %1641, %1591, %1580, %1530, %1519, %313, %290, %281, %272, %263, %246, %235, %48, %39, %30, %21, %12, %2663, %2657, %2596, %2590, %1614, %1608, %1553, %1547, %4636, %3543, %2904, %2522, %2529, %2510, %2507, %2517, %2495, %2502, %2480, %2487, %2468, %2465, %2475, %2453, %2460, %2438, %2445, %2426, %2423, %2433, %2411, %2418, %2280, %2165, %1882, %1456, %4625, %4611, %3532, %3518, %2968, %2956, %2893, %2879, %2291, %2269, %2255, %2154, %2140, %1871, %1857, %1802, %1445, %1431, %2974, %2962, %2297, %1808, %4353, %4349, %4330, %4326, %4307, %4303, %4273, %4269, %4240, %4236, %4217, %4213, %4116, %4112, %4093, %4089, %3492, %3488, %3459, %3455, %3440, %3436, %3421, %3417, %3398, %3394, %2549, %2545, %2230, %2226, %1353, %1349, %1318, %1314, %1285, %1281, %1252, %1248, %1229, %1225, %1206, %1202, %1173, %1169, %1140, %1136, %1106, %1102, %1034, %1030, %972, %968, %900, %896, %867, %863, %834, %830, %762, %758, %739, %735, %706, %702, %673, %669, %640, %636, %4651, %4649, %4647, %4641, %4592, %4590, %4588, %4586, %4584, %4582, %4580, %4578, %4576, %4574, %4572, %4561, %4550, %4545, %4543, %4541, %4539, %4537, %4535, %4533, %4531, %4529, %4527, %4525, %4514, %4503, %4498, %4496, %4494, %4492, %4490, %4488, %4486, %4484, %4482, %4480, %4478, %4467, %4456, %4451, %4449, %4447, %4445, %4443, %4441, %4439, %4437, %4435, %4433, %4431, %4420, %4409, %4404, %4402, %4400, %4395, %4393, %4391, %4386, %4384, %4382, %4377, %4375, %4373, %4368, %4366, %4364, %4355, %4351, %4347, %4343, %4332, %4328, %4324, %4320, %4309, %4305, %4301, %4292, %4286, %4275, %4271, %4267, %4259, %4253, %4242, %4238, %4234, %4230, %4219, %4215, %4211, %4207, %4196, %4194, %4190, %4192, %4186, %4188, %4182, %4178, %4180, %4174, %4176, %4170, %4168, %4157, %4155, %4151, %4153, %4147, %4149, %4143, %4139, %4141, %4135, %4137, %4131, %4129, %4118, %4114, %4110, %4106, %4095, %4091, %4087, %4083, %4076, %4074, %4072, %4067, %4065, %4063, %4061, %4059, %4057, %4055, %4053, %4048, %4046, %4044, %4042, %4040, %4038, %4036, %4034, %4032, %4021, %4019, %4008, %3997, %3992, %3990, %3988, %3986, %3984, %3982, %3980, %3978, %3976, %3965, %3963, %3952, %3941, %3936, %3934, %3923, %3921, %3919, %3917, %3915, %3913, %3911, %3873, %3871, %3869, %3867, %3856, %3845, %3840, %3838, %3827, %3825, %3823, %3821, %3819, %3817, %3815, %3777, %3775, %3773, %3771, %3760, %3749, %3744, %3742, %3731, %3729, %3727, %3725, %3723, %3721, %3719, %3681, %3679, %3677, %3675, %3664, %3653, %3648, %3646, %3635, %3633, %3631, %3629, %3627, %3625, %3623, %3585, %3583, %3581, %3579, %3568, %3557, %3548, %3494, %3490, %3486, %3478, %3472, %3461, %3457, %3453, %3449, %3442, %3438, %3434, %3427, %3425, %3423, %3419, %3415, %3411, %3404, %3402, %3400, %3396, %3392, %3388, %3381, %3379, %3377, %3375, %3373, %3371, %3369, %3367, %3362, %3360, %3349, %3347, %3345, %3343, %3341, %3339, %3337, %3299, %3297, %3295, %3293, %3282, %3271, %3266, %3264, %3262, %3260, %3258, %3256, %3254, %3252, %3250, %3248, %3246, %3244, %3233, %3222, %3217, %3215, %3213, %3211, %3209, %3207, %3205, %3203, %3201, %3199, %3197, %3195, %3184, %3173, %3168, %3166, %3164, %3162, %3160, %3158, %3156, %3154, %3152, %3150, %3148, %3146, %3135, %3124, %3119, %3117, %3115, %3113, %3111, %3109, %3107, %3105, %3103, %3101, %3099, %3097, %3086, %3075, %3070, %3068, %3057, %3055, %3053, %3051, %3049, %3047, %3045, %3007, %3005, %3003, %3001, %2990, %2979, %2954, %2952, %2950, %2948, %2946, %2944, %2942, %2940, %2935, %2933, %2931, %2929, %2927, %2925, %2923, %2921, %2919, %2917, %2915, %2909, %2863, %2861, %2859, %2857, %2846, %2835, %2830, %2828, %2826, %2824, %2822, %2820, %2818, %2816, %2814, %2812, %2810, %2808, %2797, %2786, %2781, %2779, %2777, %2775, %2773, %2771, %2769, %2767, %2765, %2763, %2761, %2759, %2748, %2737, %2732, %2730, %2728, %2726, %2724, %2722, %2720, %2718, %2716, %2714, %2712, %2710, %2699, %2688, %2683, %2681, %2679, %2677, %2675, %2673, %2671, %2669, %2655, %2653, %2651, %2649, %2638, %2627, %2622, %2616, %2614, %2612, %2610, %2608, %2606, %2604, %2602, %2588, %2586, %2584, %2582, %2571, %2560, %2551, %2547, %2543, %2539, %2406, %2404, %2402, %2400, %2396, %2398, %2392, %2394, %2388, %2384, %2386, %2380, %2382, %2376, %2374, %2367, %2365, %2361, %2363, %2357, %2359, %2353, %2349, %2351, %2345, %2347, %2341, %2336, %2334, %2332, %2330, %2326, %2328, %2322, %2324, %2318, %2314, %2316, %2310, %2312, %2306, %2304, %2285, %2232, %2228, %2224, %2216, %2210, %2203, %2201, %2196, %2194, %2192, %2187, %2185, %2180, %2178, %2176, %2170, %2121, %2119, %2117, %2115, %2113, %2111, %2109, %2107, %2105, %2094, %2092, %2081, %2070, %2065, %2063, %2061, %2059, %2057, %2055, %2053, %2051, %2049, %2038, %2036, %2025, %2014, %2009, %2007, %1996, %1994, %1992, %1990, %1988, %1986, %1984, %1946, %1944, %1942, %1940, %1929, %1918, %1913, %1911, %1909, %1907, %1905, %1903, %1901, %1899, %1897, %1895, %1893, %1887, %1841, %1839, %1837, %1835, %1824, %1813, %1800, %1798, %1796, %1794, %1792, %1790, %1788, %1786, %1781, %1779, %1777, %1775, %1773, %1771, %1769, %1767, %1765, %1763, %1761, %1759, %1748, %1737, %1732, %1730, %1728, %1726, %1724, %1722, %1720, %1718, %1716, %1714, %1712, %1710, %1699, %1688, %1683, %1681, %1679, %1677, %1675, %1673, %1671, %1669, %1667, %1665, %1663, %1661, %1650, %1639, %1634, %1632, %1630, %1628, %1626, %1624, %1622, %1620, %1606, %1604, %1602, %1600, %1589, %1578, %1573, %1571, %1569, %1567, %1565, %1563, %1561, %1559, %1545, %1543, %1541, %1539, %1528, %1517, %1512, %1510, %1504, %1502, %1497, %1491, %1489, %1483, %1474, %1461, %1415, %1406, %1404, %1400, %1402, %1396, %1398, %1392, %1388, %1390, %1384, %1386, %1380, %1374, %1368, %1366, %1355, %1351, %1347, %1339, %1333, %1331, %1320, %1316, %1312, %1304, %1298, %1287, %1283, %1279, %1271, %1265, %1254, %1250, %1246, %1242, %1231, %1227, %1223, %1219, %1208, %1204, %1200, %1192, %1186, %1175, %1171, %1167, %1159, %1153, %1142, %1138, %1134, %1125, %1119, %1108, %1104, %1100, %1092, %1086, %1075, %1073, %1069, %1071, %1065, %1067, %1061, %1057, %1059, %1053, %1055, %1049, %1047, %1036, %1032, %1028, %1024, %1013, %1011, %1007, %1009, %1003, %1005, %999, %995, %997, %991, %993, %987, %985, %974, %970, %966, %962, %951, %949, %945, %947, %941, %943, %937, %933, %935, %929, %931, %925, %919, %913, %902, %898, %894, %892, %886, %880, %869, %865, %861, %853, %847, %836, %832, %828, %820, %814, %803, %801, %797, %799, %793, %795, %789, %785, %787, %781, %783, %777, %775, %764, %760, %756, %752, %741, %737, %733, %725, %719, %708, %704, %700, %692, %686, %675, %671, %667, %659, %653, %642, %638, %634, %626, %620, %613, %611, %606, %604, %593, %581, %569, %557, %545, %533, %518, %506, %494, %482, %470, %458, %445, %435, %425, %416, %410, %404, %398, %392, %386, %363, %357, %351, %345, %339, %333, %331, %329, %324, %322, %311, %309, %307, %305, %303, %301, %299, %261, %259, %257, %255, %244, %233, %228, %226, %224, %222, %220, %211, %207, %209, %203, %205, %199, %195, %197, %191, %193, %185, %178, %176, %174, %170, %172, %166, %168, %162, %158, %160, %154, %156, %148, %135, %123, %111, %99, %87, %75, %66, %64, %62, %57, %10, %8, %4359, %4357, %4345, %4341, %4336, %4334, %4322, %4318, %4313, %4311, %4299, %4284, %4279, %4277, %4265, %4251, %4246, %4244, %4232, %4228, %4223, %4221, %4209, %4205, %4200, %4198, %4166, %4161, %4159, %4127, %4122, %4120, %4108, %4104, %4099, %4097, %4085, %4081, %3498, %3496, %3484, %3470, %3465, %3463, %3451, %3447, %3432, %3413, %3409, %3390, %3386, %2555, %2553, %2541, %2537, %2372, %2302, %2236, %2234, %2222, %2208, %1410, %1408, %1364, %1359, %1357, %1345, %1329, %1324, %1322, %1310, %1296, %1291, %1289, %1277, %1263, %1258, %1256, %1244, %1240, %1235, %1233, %1221, %1217, %1212, %1210, %1198, %1184, %1179, %1177, %1165, %1151, %1146, %1144, %1132, %1117, %1112, %1110, %1098, %1084, %1079, %1077, %1045, %1040, %1038, %1026, %1022, %1017, %1015, %983, %978, %976, %964, %960, %955, %953, %911, %906, %904, %878, %873, %871, %859, %845, %840, %838, %826, %812, %807, %805, %773, %768, %766, %754, %750, %745, %743, %731, %717, %712, %710, %698, %684, %679, %677, %665, %651, %646, %644, %632, %618, %215, %213, %187, %183, %150, %146, %.critedge112, %4298, %.critedge108, %.critedge100, %1478, %1131, %.critedge40, %.critedge38, %.critedge36, %.critedge34, %.critedge32, %.critedge30, %.critedge26, %.critedge16, %.critedge14, %.critedge12, %.critedge8, %.critedge2
+  %.0 = phi i32 [ %., %8 ], [ 1637, %3438 ], [ %.3181, %10 ], [ %.3681, %4651 ], [ 1718, %4104 ], [ %4640, %4636 ], [ %.3561, %3731 ], [ 1635, %3394 ], [ %.3608, %4106 ], [ %.3593, %4021 ], [ 1752, %2893 ], [ %.3541, %3461 ], [ 1752, %2255 ], [ %spec.select4360, %3701 ], [ %.3182, %57 ], [ %.3661, %4496 ], [ %.3183, %62 ], [ 1752, %1871 ], [ %.3184, %64 ], [ 1752, %1857 ], [ %.3185, %66 ], [ 1669, %3749 ], [ 1722, %4085 ], [ %.3534, %3404 ], [ 1619, %75 ], [ 1622, %.critedge2 ], [ 1621, %87 ], [ 1637, %3398 ], [ 1623, %99 ], [ %.3533, %3402 ], [ 1625, %111 ], [ 1628, %.critedge8 ], [ 1627, %123 ], [ 1703, %4065 ], [ 1631, %146 ], [ %.3186, %148 ], [ 1629, %135 ], [ 1634, %150 ], [ 1703, %3919 ], [ 1635, %154 ], [ %.3187, %162 ], [ 1636, %158 ], [ 1636, %160 ], [ 1637, %166 ], [ %.3188, %174 ], [ 1638, %170 ], [ %.3189, %176 ], [ 1638, %172 ], [ %.3190, %178 ], [ 1637, %168 ], [ 1643, %183 ], [ %.3191, %185 ], [ 1635, %156 ], [ 1643, %187 ], [ 1752, %2154 ], [ 1646, %191 ], [ %.3192, %199 ], [ 1647, %195 ], [ 1647, %197 ], [ 1648, %203 ], [ %.3193, %211 ], [ 1649, %207 ], [ 1643, %213 ], [ 1643, %215 ], [ 1649, %209 ], [ %.3194, %222 ], [ 1650, %220 ], [ %.3195, %224 ], [ 1648, %205 ], [ %.3196, %226 ], [ 1646, %193 ], [ %.3197, %228 ], [ 1752, %2140 ], [ %spec.select4281, %39 ], [ 1669, %233 ], [ %spec.select4282, %48 ], [ 1752, %1445 ], [ 1672, %244 ], [ %spec.select4359, %3692 ], [ %.3198, %255 ], [ 1636, %4141 ], [ %.3199, %257 ], [ %.3625, %4275 ], [ %.3200, %259 ], [ 1732, %4271 ], [ %.3201, %261 ], [ %.3576, %3871 ], [ 1733, %3463 ], [ %spec.select4284, %246 ], [ %2908, %2904 ], [ %spec.select4358, %3683 ], [ 1759, %2956 ], [ 1735, %3465 ], [ 1703, %3984 ], [ %spec.select4357, %3666 ], [ %.3567, %3777 ], [ %.3202, %301 ], [ 1661, %299 ], [ 1661, %4482 ], [ %.3203, %305 ], [ 1663, %303 ], [ %.3657, %4484 ], [ %.3204, %309 ], [ 1665, %307 ], [ %.3205, %311 ], [ %1886, %1882 ], [ %.3597, %4044 ], [ %spec.select4288, %290 ], [ %.3206, %322 ], [ 1740, %3451 ], [ %.3207, %324 ], [ %.3660, %4494 ], [ %.3208, %329 ], [ 1665, %4490 ], [ %.3209, %331 ], [ %.3677, %4590 ], [ %.3210, %333 ], [ %.3557, %3681 ], [ %.3211, %339 ], [ %.3656, %4480 ], [ %.3212, %345 ], [ %.3589, %3988 ], [ %.3213, %351 ], [ %.3566, %3775 ], [ %.3214, %357 ], [ %spec.select4287, %281 ], [ %.3215, %363 ], [ 1732, %4299 ], [ %spec.select4346, %3319 ], [ %.3524, %3347 ], [ %.3216, %386 ], [ %switch.load, %switch.lookup ], [ %.3217, %392 ], [ %.3525, %3349 ], [ %.3218, %398 ], [ 1665, %3345 ], [ %.3219, %404 ], [ %.3655, %4478 ], [ %.3220, %410 ], [ %spec.select4286, %272 ], [ %.3221, %416 ], [ 1737, %4298 ], [ 1731, %4269 ], [ 1698, %.critedge12 ], [ 1697, %425 ], [ 1700, %.critedge14 ], [ 1699, %435 ], [ 1702, %.critedge16 ], [ 1701, %445 ], [ %.3532, %3400 ], [ 1619, %458 ], [ 1637, %3396 ], [ 1705, %470 ], [ %spec.select3684, %2974 ], [ 1623, %482 ], [ 1635, %3392 ], [ 1625, %494 ], [ 1704, %.critedge26 ], [ 1703, %506 ], [ 1642, %4122 ], [ 1629, %518 ], [ 1620, %.critedge30 ], [ 1619, %533 ], [ 1706, %.critedge32 ], [ 1705, %545 ], [ 1624, %.critedge34 ], [ 1623, %557 ], [ 1626, %.critedge36 ], [ 1625, %569 ], [ 1707, %.critedge38 ], [ 1665, %581 ], [ 1630, %.critedge40 ], [ %.3222, %604 ], [ 1629, %593 ], [ %.3223, %606 ], [ 1732, %4273 ], [ %.3224, %611 ], [ %spec.select4285, %263 ], [ %.3225, %613 ], [ 1752, %1431 ], [ 1718, %618 ], [ %.3226, %620 ], [ 1731, %4267 ], [ 1736, %4259 ], [ 1722, %3390 ], [ 1714, %632 ], [ 1719, %626 ], [ 1715, %634 ], [ %.3583, %3936 ], [ 1716, %638 ], [ %.3227, %642 ], [ %.3581, %3923 ], [ 1717, %644 ], [ 1642, %646 ], [ 1718, %651 ], [ %.3228, %653 ], [ 1716, %640 ], [ 1715, %636 ], [ 1718, %4127 ], [ 1721, %665 ], [ 1719, %659 ], [ 1721, %667 ], [ %spec.select4371, %3858 ], [ 1721, %671 ], [ %.3229, %675 ], [ 1635, %3417 ], [ 1717, %677 ], [ 1642, %679 ], [ 1718, %684 ], [ %.3230, %686 ], [ 1721, %673 ], [ 1721, %669 ], [ %.3531, %3388 ], [ 1714, %698 ], [ 1719, %692 ], [ 1715, %700 ], [ 1637, %3421 ], [ 1716, %704 ], [ %.3231, %708 ], [ %.3574, %3867 ], [ 1717, %710 ], [ 1642, %712 ], [ 1718, %717 ], [ %.3232, %719 ], [ 1716, %706 ], [ 1715, %702 ], [ 1631, %3386 ], [ 1721, %731 ], [ 1719, %725 ], [ 1721, %733 ], [ %.3539, %3442 ], [ 1721, %737 ], [ %.3233, %741 ], [ %.3585, %3965 ], [ 1717, %743 ], [ 1642, %745 ], [ 1718, %750 ], [ %.3234, %752 ], [ 1721, %739 ], [ 1722, %754 ], [ 1721, %735 ], [ 1635, %756 ], [ %.3572, %3838 ], [ 1637, %760 ], [ %.3235, %764 ], [ 1661, %3976 ], [ 1717, %766 ], [ 1642, %768 ], [ 1718, %773 ], [ %.3236, %775 ], [ 1637, %762 ], [ %.3237, %777 ], [ 1635, %758 ], [ %spec.select4283, %235 ], [ 1635, %781 ], [ %.3238, %789 ], [ 1636, %785 ], [ 1636, %787 ], [ 1637, %793 ], [ %.3239, %801 ], [ 1638, %797 ], [ %.3240, %803 ], [ 1638, %799 ], [ 1717, %805 ], [ 1642, %807 ], [ 1718, %812 ], [ %.3241, %814 ], [ 1637, %795 ], [ 1635, %783 ], [ 1665, %3379 ], [ 1714, %826 ], [ 1719, %820 ], [ 1715, %828 ], [ %.3586, %3978 ], [ 1716, %832 ], [ %.3242, %836 ], [ 1669, %3845 ], [ 1717, %838 ], [ 1642, %840 ], [ 1718, %845 ], [ %.3243, %847 ], [ 1716, %834 ], [ 1715, %830 ], [ %.3530, %3381 ], [ 1721, %859 ], [ 1719, %853 ], [ 1721, %861 ], [ %.3588, %3986 ], [ 1721, %865 ], [ %.3244, %869 ], [ %spec.select4369, %3829 ], [ 1717, %871 ], [ 1642, %873 ], [ 1718, %878 ], [ %.3245, %880 ], [ 1721, %867 ], [ 1721, %863 ], [ 1657, %3377 ], [ %.3246, %892 ], [ 1719, %886 ], [ 1752, %2879 ], [ 1715, %894 ], [ 1663, %3980 ], [ 1716, %898 ], [ %.3247, %902 ], [ %.3587, %3982 ], [ 1717, %904 ], [ 1642, %906 ], [ 1718, %911 ], [ %.3248, %913 ], [ 1716, %900 ], [ 1715, %896 ], [ %spec.select4348, %3351 ], [ %.3249, %925 ], [ 1719, %919 ], [ %.3643, %4395 ], [ 1715, %929 ], [ %.3250, %937 ], [ 1635, %933 ], [ 1635, %935 ], [ 1716, %941 ], [ %.3251, %949 ], [ 1725, %945 ], [ %.3252, %951 ], [ 1725, %947 ], [ 1717, %953 ], [ 1642, %955 ], [ 1718, %960 ], [ %.3253, %962 ], [ 1716, %943 ], [ 1722, %964 ], [ 1715, %931 ], [ 1635, %966 ], [ 1672, %3856 ], [ 1637, %970 ], [ %.3254, %974 ], [ %spec.select4370, %3847 ], [ 1717, %976 ], [ 1642, %978 ], [ 1718, %983 ], [ %.3255, %985 ], [ 1637, %972 ], [ %.3256, %987 ], [ 1635, %968 ], [ 1752, %2269 ], [ 1635, %991 ], [ %.3257, %999 ], [ 1636, %995 ], [ 1636, %997 ], [ 1637, %1003 ], [ %.3258, %1011 ], [ 1638, %1007 ], [ %.3259, %1013 ], [ 1638, %1009 ], [ 1717, %1015 ], [ 1642, %1017 ], [ 1718, %1022 ], [ %.3260, %1024 ], [ 1637, %1005 ], [ 1722, %1026 ], [ 1635, %993 ], [ 1635, %1028 ], [ %.3591, %3992 ], [ 1637, %1032 ], [ %.3261, %1036 ], [ %spec.select4376, %3925 ], [ 1717, %1038 ], [ 1642, %1040 ], [ 1718, %1045 ], [ %.3262, %1047 ], [ 1637, %1034 ], [ %.3263, %1049 ], [ 1635, %1030 ], [ %spec.select4280, %30 ], [ 1635, %1053 ], [ %.3264, %1061 ], [ 1636, %1057 ], [ 1636, %1059 ], [ 1637, %1065 ], [ %.3265, %1073 ], [ 1638, %1069 ], [ %.3266, %1075 ], [ 1638, %1071 ], [ 1717, %1077 ], [ 1642, %1079 ], [ 1718, %1084 ], [ %.3267, %1086 ], [ 1637, %1067 ], [ 1635, %1055 ], [ 1663, %3373 ], [ 1714, %1098 ], [ 1719, %1092 ], [ 1715, %1100 ], [ 1672, %4008 ], [ 1716, %1104 ], [ %.3268, %1108 ], [ %.3573, %3840 ], [ 1717, %1110 ], [ 1642, %1112 ], [ 1718, %1117 ], [ %.3269, %1119 ], [ 1716, %1106 ], [ 1715, %1102 ], [ 1720, %1131 ], [ 1721, %1132 ], [ 1719, %1125 ], [ 1721, %1134 ], [ %.3570, %3825 ], [ 1721, %1138 ], [ %.3270, %1142 ], [ %.3536, %3423 ], [ 1717, %1144 ], [ 1642, %1146 ], [ 1734, %1151 ], [ %.3271, %1153 ], [ 1721, %1140 ], [ 1721, %1136 ], [ %.3529, %3375 ], [ 1730, %1165 ], [ 1736, %1159 ], [ 1731, %1167 ], [ 1734, %3447 ], [ 1732, %1171 ], [ %.3272, %1175 ], [ 1672, %3952 ], [ 1733, %1177 ], [ 1735, %1179 ], [ 1734, %1184 ], [ %.3273, %1186 ], [ 1732, %1173 ], [ 1731, %1169 ], [ 1655, %3371 ], [ 1732, %1198 ], [ 1736, %1192 ], [ 1732, %1200 ], [ %.3595, %4038 ], [ 1732, %1204 ], [ %.3274, %1208 ], [ %.3538, %3427 ], [ 1733, %1210 ], [ 1735, %1212 ], [ 1734, %1217 ], [ %.3275, %1219 ], [ 1732, %1206 ], [ 1740, %1221 ], [ 1732, %1202 ], [ 1741, %1223 ], [ 1661, %4032 ], [ 1742, %1227 ], [ %.3276, %1231 ], [ %.3594, %4034 ], [ 1733, %1233 ], [ 1735, %1235 ], [ 1734, %1240 ], [ %.3277, %1242 ], [ 1742, %1229 ], [ 1743, %1244 ], [ 1741, %1225 ], [ 1743, %1246 ], [ 1703, %4040 ], [ 1743, %1250 ], [ %.3278, %1254 ], [ %.3596, %4042 ], [ 1733, %1256 ], [ 1735, %1258 ], [ 1734, %1263 ], [ %.3279, %1265 ], [ 1743, %1252 ], [ 1743, %1248 ], [ 1637, %4093 ], [ 1730, %1277 ], [ 1736, %1271 ], [ 1731, %1279 ], [ 1663, %3819 ], [ 1732, %1283 ], [ %.3280, %1287 ], [ 1663, %4036 ], [ 1733, %1289 ], [ 1735, %1291 ], [ 1734, %1296 ], [ %.3281, %1298 ], [ 1732, %1285 ], [ 1731, %1281 ], [ 1653, %3367 ], [ 1732, %1310 ], [ 1736, %1304 ], [ 1732, %1312 ], [ %.3600, %4055 ], [ 1732, %1316 ], [ %.3282, %1320 ], [ %.3571, %3827 ], [ 1733, %1322 ], [ 1735, %1324 ], [ 1734, %1329 ], [ %.3283, %1331 ], [ 1732, %1318 ], [ %.3284, %1333 ], [ 1732, %1314 ], [ 1752, %3532 ], [ %.3528, %3369 ], [ 1730, %1345 ], [ 1736, %1339 ], [ 1731, %1347 ], [ 1703, %3823 ], [ 1746, %1351 ], [ %.3285, %1355 ], [ %.3599, %4048 ], [ 1733, %1357 ], [ 1735, %1359 ], [ 1734, %1364 ], [ %.3286, %1366 ], [ 1746, %1353 ], [ %.3287, %1368 ], [ 1731, %1349 ], [ 1752, %3518 ], [ 1722, %4108 ], [ %.3288, %1380 ], [ 1736, %1374 ], [ 1736, %4292 ], [ 1731, %1384 ], [ %.3289, %1392 ], [ 1732, %1388 ], [ 1732, %1390 ], [ 1746, %1396 ], [ %.3290, %1404 ], [ 1732, %1400 ], [ %.3291, %1406 ], [ 1732, %1402 ], [ 1733, %1408 ], [ 1735, %1410 ], [ %.3292, %1415 ], [ 1746, %1398 ], [ 1731, %1386 ], [ 1635, %4089 ], [ 1752, %1461 ], [ 1751, %1478 ], [ %.3293, %1483 ], [ 1750, %1474 ], [ 1730, %4265 ], [ %.3294, %1491 ], [ 1650, %1489 ], [ %.3295, %1497 ], [ %spec.select4279, %21 ], [ %.3296, %1502 ], [ %.3575, %3869 ], [ %.3297, %1504 ], [ 1752, %4625 ], [ 1752, %4611 ], [ %.3298, %1512 ], [ 1650, %1510 ], [ %spec.select4278, %12 ], [ 1669, %1517 ], [ %spec.select4289, %313 ], [ %1460, %1456 ], [ 1672, %1528 ], [ 1637, %3419 ], [ %.3299, %1539 ], [ %.3537, %3425 ], [ %.3300, %1541 ], [ 1663, %4580 ], [ %.3301, %1543 ], [ %.3674, %4582 ], [ %.3302, %1545 ], [ %.3562, %3742 ], [ %.3556, %3679 ], [ 1661, %4576 ], [ %spec.select4291, %1530 ], [ %spec.select4042, %1547 ], [ 1703, %3727 ], [ %.3303, %1561 ], [ 1661, %1559 ], [ %.3676, %4588 ], [ %.3304, %1565 ], [ 1663, %1563 ], [ 1665, %4584 ], [ %.3305, %1569 ], [ 1665, %1567 ], [ %.3306, %1571 ], [ %.3675, %4586 ], [ %.3307, %1573 ], [ %spec.select4290, %1519 ], [ %.3680, %4649 ], [ 1669, %1578 ], [ %.3560, %3729 ], [ %spec.select4043, %1553 ], [ 1672, %1589 ], [ %.3598, %4046 ], [ %.3308, %1600 ], [ %.3672, %4574 ], [ %.3309, %1602 ], [ 1742, %3457 ], [ %.3310, %1604 ], [ %.3671, %4572 ], [ %.3311, %1606 ], [ 1631, %3409 ], [ %.3555, %3677 ], [ 1672, %4561 ], [ %spec.select4293, %1591 ], [ %spec.select4048, %1608 ], [ %.3592, %4019 ], [ %.3312, %1622 ], [ 1661, %1620 ], [ %.3673, %4578 ], [ %.3313, %1626 ], [ 1663, %1624 ], [ %spec.select4361, %3710 ], [ %.3314, %1630 ], [ 1665, %1628 ], [ %.3315, %1632 ], [ %spec.select4390, %4563 ], [ %.3316, %1634 ], [ %spec.select4292, %1580 ], [ 1752, %4641 ], [ 1756, %1639 ], [ 1663, %3723 ], [ %spec.select4049, %1614 ], [ 1672, %1650 ], [ %.3569, %3821 ], [ %.3317, %1661 ], [ %spec.select4379, %3967 ], [ %.3318, %1663 ], [ %.3565, %3773 ], [ %.3319, %1665 ], [ %.3670, %4545 ], [ %.3320, %1667 ], [ %.3590, %3990 ], [ %.3554, %3675 ], [ %.3321, %1671 ], [ 1661, %1669 ], [ 1722, %3432 ], [ %.3322, %1675 ], [ 1663, %1673 ], [ %.3535, %3411 ], [ %.3323, %1679 ], [ 1665, %1677 ], [ %.3324, %1681 ], [ 1756, %4550 ], [ %.3325, %1683 ], [ %spec.select4294, %1641 ], [ %.3679, %4647 ], [ 1756, %1688 ], [ %spec.select4295, %1652 ], [ %.3669, %4543 ], [ 1672, %1699 ], [ 1734, %3470 ], [ %.3326, %1710 ], [ %.3667, %4539 ], [ %.3327, %1712 ], [ 1741, %3453 ], [ %.3328, %1714 ], [ 1663, %4533 ], [ %.3329, %1716 ], [ %.3666, %4535 ], [ 1672, %3664 ], [ %.3330, %1720 ], [ 1661, %1718 ], [ %.3564, %3771 ], [ %.3331, %1724 ], [ 1663, %1722 ], [ %.3668, %4541 ], [ %.3332, %1728 ], [ 1665, %1726 ], [ %.3333, %1730 ], [ 1703, %4537 ], [ %.3334, %1732 ], [ %spec.select4296, %1690 ], [ 1761, %.critedge112 ], [ 1756, %1737 ], [ %spec.select4297, %1701 ], [ 1672, %3760 ], [ 1672, %1748 ], [ %spec.select4356, %3655 ], [ %.3335, %1759 ], [ %spec.select4363, %3751 ], [ %.3336, %1761 ], [ %.3664, %4527 ], [ %.3337, %1763 ], [ %spec.select4362, %3733 ], [ %.3338, %1765 ], [ %.3663, %4525 ], [ %.3542, %3472 ], [ %.3339, %1769 ], [ 1661, %1767 ], [ 1661, %4529 ], [ %.3340, %1773 ], [ 1663, %1771 ], [ %.3665, %4531 ], [ %.3341, %1777 ], [ 1665, %1775 ], [ %.3342, %1779 ], [ %spec.select4388, %4516 ], [ %.3343, %1781 ], [ %spec.select4298, %1739 ], [ 1669, %3997 ], [ %.3344, %1788 ], [ 1653, %1786 ], [ %.3563, %3744 ], [ 1655, %1790 ], [ %.3345, %1794 ], [ 1663, %1792 ], [ %.3678, %4592 ], [ 1657, %1796 ], [ %.3346, %1800 ], [ 1665, %1798 ], [ %spec.select4389, %4552 ], [ %.3601, %4061 ], [ 1718, %4166 ], [ 1756, %1813 ], [ %spec.select4299, %1750 ], [ 1717, %4120 ], [ 1672, %1824 ], [ 1756, %3653 ], [ %.3347, %1835 ], [ 1756, %4503 ], [ %.3348, %1837 ], [ %spec.select4365, %3779 ], [ %.3349, %1839 ], [ 1635, %3436 ], [ %.3350, %1841 ], [ %.3662, %4498 ], [ %spec.select4355, %3637 ], [ %.3527, %3362 ], [ 1752, %1887 ], [ 1653, %1893 ], [ %.3351, %1897 ], [ 1661, %1895 ], [ 1759, %1802 ], [ 1655, %1899 ], [ %.3352, %1903 ], [ 1663, %1901 ], [ 1672, %4514 ], [ 1657, %1905 ], [ %.3353, %1909 ], [ 1665, %1907 ], [ %.3354, %1911 ], [ %spec.select4387, %4505 ], [ %.3355, %1913 ], [ 1722, %3413 ], [ %spec.select4300, %1815 ], [ 1669, %1918 ], [ %spec.select4301, %1826 ], [ 1653, %4053 ], [ 1672, %1929 ], [ %spec.select4302, %1920 ], [ %.3356, %1940 ], [ %.3659, %4492 ], [ %.3357, %1942 ], [ %spec.select4386, %4469 ], [ %.3358, %1944 ], [ 1663, %4486 ], [ %.3359, %1946 ], [ %.3658, %4488 ], [ %.3553, %3648 ], [ %spec.select4303, %1931 ], [ %spec.select4380, %3999 ], [ %spec.select4304, %1948 ], [ %.3552, %3646 ], [ %spec.select4305, %1957 ], [ 1672, %4467 ], [ 1742, %3459 ], [ 1756, %4456 ], [ %.3360, %1986 ], [ 1661, %1984 ], [ %.3584, %3963 ], [ %.3361, %1990 ], [ 1663, %1988 ], [ 1661, %3815 ], [ %.3362, %1994 ], [ 1665, %1992 ], [ %.3363, %1996 ], [ %.3654, %4451 ], [ %spec.select4354, %3614 ], [ %spec.select4307, %1975 ], [ %.3364, %2007 ], [ %.3568, %3817 ], [ %.3365, %2009 ], [ %.3653, %4449 ], [ %spec.select4378, %3954 ], [ 1669, %2014 ], [ 1663, %4059 ], [ 1703, %4443 ], [ 1672, %2025 ], [ %.3551, %3635 ], [ %.3366, %2036 ], [ %.3650, %4441 ], [ %.3367, %2038 ], [ %.3540, %3449 ], [ 1661, %4435 ], [ 1703, %3631 ], [ %spec.select4367, %3797 ], [ %.3368, %2051 ], [ 1661, %2049 ], [ 1637, %3440 ], [ %.3369, %2055 ], [ 1663, %2053 ], [ %.3648, %4433 ], [ %.3370, %2059 ], [ 1665, %2057 ], [ %.3371, %2061 ], [ %spec.select4366, %3788 ], [ %.3372, %2063 ], [ %.3550, %3633 ], [ %.3373, %2065 ], [ %.3649, %4437 ], [ %spec.select4310, %2027 ], [ 1669, %2070 ], [ %spec.select4311, %2040 ], [ %.3647, %4431 ], [ 1672, %2081 ], [ %spec.select4368, %3806 ], [ %.3374, %2092 ], [ %spec.select4382, %4023 ], [ %.3375, %2094 ], [ 1756, %4409 ], [ %.3582, %3934 ], [ 1663, %3627 ], [ %.3646, %4404 ], [ %.3376, %2107 ], [ 1661, %2105 ], [ %.3580, %3921 ], [ %.3377, %2111 ], [ 1663, %2109 ], [ %.3645, %4402 ], [ %.3378, %2115 ], [ 1665, %2113 ], [ %.3379, %2117 ], [ 1635, %3434 ], [ %.3380, %2119 ], [ %.3549, %3629 ], [ %.3381, %2121 ], [ 1663, %3915 ], [ %spec.select4313, %2083 ], [ 1635, %4110 ], [ %.3382, %2176 ], [ 1752, %2170 ], [ %.3383, %2178 ], [ %spec.select4364, %3762 ], [ %.3384, %2180 ], [ 1718, %4081 ], [ %.3385, %2185 ], [ 1672, %4420 ], [ %.3386, %2187 ], [ %spec.select4383, %4411 ], [ %.3387, %2192 ], [ %spec.select4312, %2072 ], [ %.3388, %2194 ], [ %.3651, %4445 ], [ %.3389, %2196 ], [ 1635, %3415 ], [ %.3390, %2201 ], [ 1663, %4439 ], [ %.3391, %2203 ], [ %spec.select4309, %2016 ], [ 1734, %2208 ], [ %.3392, %2210 ], [ %.3652, %4447 ], [ %spec.select4308, %1998 ], [ %.3526, %3360 ], [ 1732, %2222 ], [ 1736, %2216 ], [ 1732, %2224 ], [ %spec.select, %1808 ], [ 1732, %2228 ], [ %.3393, %2232 ], [ 1655, %4057 ], [ 1733, %2234 ], [ 1735, %2236 ], [ 1732, %2230 ], [ %spec.select4347, %3328 ], [ 1752, %2285 ], [ %.3604, %4074 ], [ 1631, %2302 ], [ %.3394, %2304 ], [ 1743, %4236 ], [ %.3395, %2306 ], [ %2169, %2165 ], [ %.3644, %4400 ], [ 1635, %2310 ], [ %.3396, %2318 ], [ 1636, %2314 ], [ 1636, %2316 ], [ 1637, %2322 ], [ %.3397, %2330 ], [ 1638, %2326 ], [ %.3398, %2332 ], [ 1638, %2328 ], [ %.3399, %2334 ], [ 1637, %2324 ], [ %.3400, %2336 ], [ 1635, %2312 ], [ %.3401, %2341 ], [ 1732, %2226 ], [ %spec.select4385, %4458 ], [ 1635, %2345 ], [ %.3402, %2353 ], [ 1636, %2349 ], [ 1636, %2351 ], [ 1637, %2357 ], [ %.3403, %2365 ], [ 1638, %2361 ], [ %.3404, %2367 ], [ 1638, %2363 ], [ 1631, %2372 ], [ %.3405, %2374 ], [ 1637, %2359 ], [ %.3406, %2376 ], [ 1635, %2347 ], [ %spec.select4384, %4422 ], [ 1635, %2380 ], [ %.3407, %2388 ], [ 1636, %2384 ], [ 1636, %2386 ], [ 1637, %2392 ], [ %.3408, %2400 ], [ 1638, %2396 ], [ %.3409, %2402 ], [ 1638, %2398 ], [ %.3410, %2404 ], [ 1637, %2394 ], [ %.3411, %2406 ], [ 1635, %2382 ], [ %spec.select4306, %1966 ], [ %2422, %2418 ], [ %.3579, %3917 ], [ %2437, %2433 ], [ %.3642, %4393 ], [ %2449, %2445 ], [ 1768, %2423 ], [ %2464, %2460 ], [ %.3605, %4076 ], [ %2479, %2475 ], [ %.3641, %4391 ], [ %2491, %2487 ], [ 1768, %2465 ], [ %2506, %2502 ], [ 1661, %3911 ], [ %2521, %2517 ], [ %.3640, %4386 ], [ %2533, %2529 ], [ 1734, %2537 ], [ %.3412, %2539 ], [ 1768, %2507 ], [ 1743, %2541 ], [ 1766, %2495 ], [ 1743, %2543 ], [ %spec.select3682, %2297 ], [ 1743, %2547 ], [ %.3413, %2551 ], [ 1669, %3941 ], [ 1733, %2553 ], [ 1735, %2555 ], [ 1743, %2549 ], [ 1669, %2560 ], [ %spec.select4314, %2096 ], [ 1770, %2522 ], [ 1672, %2571 ], [ 1657, %4063 ], [ %.3414, %2582 ], [ %.3638, %4382 ], [ %.3415, %2584 ], [ %spec.select4372, %3875 ], [ %.3416, %2586 ], [ %.3637, %4377 ], [ %.3417, %2588 ], [ %spec.select4345, %3310 ], [ 1661, %3623 ], [ %.3636, %4375 ], [ %spec.select4316, %2573 ], [ %spec.select4120, %2590 ], [ %.3559, %3725 ], [ %.3418, %2604 ], [ 1661, %2602 ], [ %.3578, %3913 ], [ %.3419, %2608 ], [ 1663, %2606 ], [ %.3639, %4384 ], [ %.3420, %2612 ], [ 1703, %2610 ], [ %.3421, %2614 ], [ %spec.select4373, %3884 ], [ %.3422, %2616 ], [ %spec.select4315, %2562 ], [ %.3423, %2622 ], [ 1743, %2545 ], [ 1770, %2480 ], [ 1669, %2627 ], [ %spec.select4381, %4010 ], [ %spec.select4121, %2596 ], [ 1672, %2638 ], [ %.3548, %3625 ], [ %.3424, %2649 ], [ %.3634, %4368 ], [ %.3425, %2651 ], [ 1743, %4349 ], [ %.3426, %2653 ], [ %.3633, %4366 ], [ %.3427, %2655 ], [ 1743, %4353 ], [ %.3602, %4067 ], [ %.3632, %4364 ], [ %spec.select4318, %2640 ], [ %spec.select4126, %2657 ], [ 1661, %3719 ], [ %.3428, %2671 ], [ 1661, %2669 ], [ %spec.select4374, %3893 ], [ %.3429, %2675 ], [ 1663, %2673 ], [ %.3635, %4373 ], [ %.3430, %2679 ], [ 1703, %2677 ], [ %.3431, %2681 ], [ %.3577, %3873 ], [ %.3432, %2683 ], [ %spec.select4317, %2629 ], [ 1768, %2468 ], [ 1756, %2688 ], [ %.3558, %3721 ], [ %spec.select4127, %2663 ], [ 1672, %2699 ], [ 1741, %3455 ], [ %.3433, %2710 ], [ %.3631, %4355 ], [ %.3434, %2712 ], [ 1743, %4351 ], [ %.3435, %2714 ], [ 1642, %4161 ], [ %.3436, %2716 ], [ 1743, %4347 ], [ %spec.select4353, %3605 ], [ %.3437, %2720 ], [ 1661, %2718 ], [ 1735, %4359 ], [ %.3438, %2724 ], [ 1663, %2722 ], [ 1733, %4357 ], [ %.3439, %2728 ], [ 1703, %2726 ], [ %.3440, %2730 ], [ 1717, %4159 ], [ %.3441, %2732 ], [ %spec.select4319, %2690 ], [ 1766, %2453 ], [ 1756, %2737 ], [ %spec.select4320, %2701 ], [ 1741, %4326 ], [ 1672, %2748 ], [ 1732, %3490 ], [ %.3442, %2759 ], [ 1734, %4341 ], [ %.3443, %2761 ], [ 1735, %4336 ], [ %.3444, %2763 ], [ 1733, %4334 ], [ %.3445, %2765 ], [ 1638, %4153 ], [ %spec.select4352, %3596 ], [ %.3446, %2769 ], [ 1661, %2767 ], [ 1743, %4345 ], [ %.3447, %2773 ], [ 1663, %2771 ], [ 1742, %4330 ], [ %.3448, %2777 ], [ 1703, %2775 ], [ %.3449, %2779 ], [ %.3630, %4343 ], [ %.3450, %2781 ], [ %spec.select4321, %2739 ], [ 1770, %2438 ], [ 1756, %2786 ], [ %spec.select4322, %2750 ], [ %.3629, %4332 ], [ 1672, %2797 ], [ 1730, %3484 ], [ %.3451, %2808 ], [ 1732, %4303 ], [ %.3452, %2810 ], [ 1740, %4322 ], [ %.3453, %2812 ], [ 1732, %4307 ], [ %.3454, %2814 ], [ %.3628, %4320 ], [ %spec.select4351, %3587 ], [ %.3455, %2818 ], [ 1661, %2816 ], [ 1742, %4328 ], [ %.3456, %2822 ], [ 1663, %2820 ], [ 1636, %4139 ], [ %.3457, %2826 ], [ 1703, %2824 ], [ %.3458, %2828 ], [ 1741, %4324 ], [ %.3459, %2830 ], [ %spec.select4323, %2788 ], [ 1768, %2426 ], [ 1756, %2835 ], [ %spec.select4324, %2799 ], [ 1734, %4318 ], [ 1672, %2846 ], [ 1736, %3478 ], [ %.3460, %2857 ], [ %.3627, %4309 ], [ %.3461, %2859 ], [ 1732, %4305 ], [ %.3462, %2861 ], [ %.3612, %4143 ], [ %.3463, %2863 ], [ 1732, %4301 ], [ %spec.select4350, %3570 ], [ 1705, %.critedge100 ], [ 1752, %2909 ], [ 1653, %2915 ], [ %.3464, %2919 ], [ 1661, %2917 ], [ 1768, %2510 ], [ 1655, %2921 ], [ %.3465, %2925 ], [ 1663, %2923 ], [ 1735, %4313 ], [ 1657, %2927 ], [ %.3466, %2931 ], [ 1703, %2929 ], [ %.3467, %2933 ], [ 1733, %4311 ], [ %.3468, %2935 ], [ 1635, %4135 ], [ %spec.select4325, %2837 ], [ %.3469, %2942 ], [ 1653, %2940 ], [ 1766, %2411 ], [ 1655, %2944 ], [ %.3470, %2948 ], [ 1663, %2946 ], [ %2284, %2280 ], [ 1657, %2950 ], [ %.3471, %2954 ], [ 1703, %2952 ], [ 1750, %2291 ], [ %.3603, %4072 ], [ 1743, %4240 ], [ %spec.select3683, %2962 ], [ 1642, %4099 ], [ 1756, %2979 ], [ %spec.select4326, %2848 ], [ 1635, %4087 ], [ 1672, %2990 ], [ %spec.select4327, %2981 ], [ %.3472, %3001 ], [ %.3626, %4286 ], [ %.3473, %3003 ], [ 1734, %4284 ], [ %.3474, %3005 ], [ 1735, %4279 ], [ %.3475, %3007 ], [ 1733, %4277 ], [ %.3547, %3585 ], [ %spec.select4328, %2992 ], [ 1731, %3486 ], [ %spec.select4329, %3009 ], [ %.3546, %3583 ], [ %spec.select4330, %3018 ], [ %.3624, %4253 ], [ 1637, %4091 ], [ 1735, %4246 ], [ %.3476, %3047 ], [ 1661, %3045 ], [ 1733, %4244 ], [ %.3477, %3051 ], [ 1663, %3049 ], [ 1635, %4112 ], [ %.3478, %3055 ], [ 1665, %3053 ], [ %.3479, %3057 ], [ %.3623, %4242 ], [ %.3545, %3581 ], [ %spec.select4332, %3036 ], [ %.3480, %3068 ], [ 1743, %4238 ], [ %.3481, %3070 ], [ %.3611, %4131 ], [ 1743, %4234 ], [ 1756, %3075 ], [ %.3607, %4095 ], [ 1743, %4232 ], [ 1672, %3086 ], [ %.3544, %3579 ], [ %.3482, %3097 ], [ 1735, %4223 ], [ %.3483, %3099 ], [ 1733, %4221 ], [ %.3484, %3101 ], [ 1731, %3488 ], [ %.3485, %3103 ], [ %.3621, %4219 ], [ %spec.select4349, %3559 ], [ %.3486, %3107 ], [ 1661, %3105 ], [ 1742, %4217 ], [ %.3487, %3111 ], [ 1663, %3109 ], [ %.3622, %4230 ], [ %.3488, %3115 ], [ 1703, %3113 ], [ %.3489, %3117 ], [ 1734, %4228 ], [ %.3490, %3119 ], [ %spec.select4334, %3077 ], [ 1741, %4213 ], [ 1756, %3124 ], [ %spec.select4335, %3088 ], [ 1742, %4215 ], [ 1672, %3135 ], [ 1672, %3568 ], [ %.3491, %3146 ], [ 1740, %4209 ], [ %.3492, %3148 ], [ 1637, %4188 ], [ %.3493, %3150 ], [ %.3620, %4207 ], [ %.3494, %3152 ], [ 1734, %4205 ], [ 1717, %4097 ], [ %.3495, %3156 ], [ 1661, %3154 ], [ 1750, %2968 ], [ %.3496, %3160 ], [ 1663, %3158 ], [ 1741, %4211 ], [ %.3497, %3164 ], [ 1665, %3162 ], [ %.3498, %3166 ], [ 1635, %4176 ], [ %.3499, %3168 ], [ %spec.select4336, %3126 ], [ %spec.select4333, %3059 ], [ 1756, %3173 ], [ %spec.select4337, %3137 ], [ 1642, %4200 ], [ 1672, %3184 ], [ %spec.select4377, %3943 ], [ %.3500, %3195 ], [ 1638, %4190 ], [ %.3501, %3197 ], [ %.3618, %4194 ], [ %.3502, %3199 ], [ 1637, %4186 ], [ %.3503, %3201 ], [ 1636, %4180 ], [ 1756, %3557 ], [ %.3504, %3205 ], [ 1661, %3203 ], [ 1717, %4198 ], [ %.3505, %3209 ], [ 1663, %3207 ], [ 1638, %4192 ], [ %.3506, %3213 ], [ 1703, %3211 ], [ %.3507, %3215 ], [ %.3619, %4196 ], [ %.3508, %3217 ], [ %spec.select4338, %3175 ], [ 1734, %4251 ], [ 1756, %3222 ], [ %spec.select4339, %3186 ], [ 1636, %4178 ], [ 1672, %3233 ], [ 1752, %3548 ], [ %.3509, %3244 ], [ 1635, %4137 ], [ %.3510, %3246 ], [ %.3616, %4170 ], [ %.3511, %3248 ], [ 1637, %4149 ], [ %.3512, %3250 ], [ %.3615, %4168 ], [ 1683, %.critedge108 ], [ %.3513, %3254 ], [ 1661, %3252 ], [ %.3617, %4182 ], [ %.3514, %3258 ], [ 1663, %3256 ], [ 1635, %4174 ], [ %.3515, %3262 ], [ 1665, %3260 ], [ %.3516, %3264 ], [ %spec.select4375, %3902 ], [ %.3517, %3266 ], [ %spec.select4340, %3224 ], [ %spec.select4331, %3027 ], [ 1756, %3271 ], [ %spec.select4341, %3235 ], [ 1732, %3492 ], [ 1672, %3282 ], [ %spec.select4342, %3273 ], [ %.3518, %3293 ], [ %.3614, %4157 ], [ %.3519, %3295 ], [ 1638, %4151 ], [ %.3520, %3297 ], [ %.3613, %4155 ], [ %.3521, %3299 ], [ 1637, %4147 ], [ 1735, %3498 ], [ %spec.select4343, %3284 ], [ 1733, %3496 ], [ %spec.select4344, %3301 ], [ 1637, %4116 ], [ %.3606, %4083 ], [ %.3610, %4129 ], [ %.3543, %3494 ], [ %3547, %3543 ], [ %.3522, %3339 ], [ 1661, %3337 ], [ %.3609, %4118 ], [ %.3523, %3343 ], [ 1663, %3341 ], [ 1637, %4114 ], [ 1680, %378 ], [ 1680, %369 ], [ 1680, %372 ]
   ret i32 %.0
 }
 

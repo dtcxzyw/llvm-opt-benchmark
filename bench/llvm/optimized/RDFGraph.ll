@@ -19109,14 +19109,14 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i: ;
   %44 = zext i32 %38 to i64
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 %44
   %.not.i35 = icmp eq ptr %45, %3
-  br i1 %.not.i35, label %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.thread.i", label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.thread.i
+  br i1 %.not.i35, label %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.thread.i", label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.thread.i
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.thread.i: ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i, %30
   %.0.i.i.i14.i = phi ptr [ %45, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i ], [ null, %30 ]
   %46 = load i16, ptr %.0.i.i.i14.i, align 8, !tbaa !47
   %47 = and i16 %46, 3
   %48 = icmp eq i16 %47, 2
-  br i1 %48, label %49, label %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.thread.i"
+  br i1 %48, label %49, label %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.thread.i"
 
 49:                                               ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.thread.i
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -19160,7 +19160,7 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit.i: ; preds = %63, %_
   %66 = extractvalue { i32, i64 } %.pn.i.i, 0
   %67 = extractvalue { i32, i64 } %.pn.i.i, 1
   %68 = tail call noundef zeroext i1 @_ZNK4llvm3rdf20PhysicalRegisterInfo8equal_toENS0_11RegisterRefES2_(ptr noundef nonnull align 8 dereferenceable(128) %50, i32 %66, i64 %67, i32 %22, i64 %23) #24
-  br i1 %68, label %69, label %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.thread.i"
+  br i1 %68, label %69, label %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.thread.i"
 
 69:                                               ; preds = %_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit.i
   %70 = load i16, ptr %.0.i.i.i14.i, align 8, !tbaa !47
@@ -19168,7 +19168,7 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit.i: ; preds = %63, %_
   %72 = xor i16 %71, %70
   %73 = and i16 %72, 28
   %.not.i.i.i = icmp eq i16 %73, 0
-  br i1 %.not.i.i.i, label %74, label %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.thread.i"
+  br i1 %.not.i.i.i, label %74, label %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.thread.i"
 
 74:                                               ; preds = %69
   %75 = and i16 %70, 128
@@ -19250,16 +19250,13 @@ _ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i10.i.i.i: ; p
   %106 = extractvalue { i32, i64 } %.pn.i16.i.i.i, 0
   %107 = extractvalue { i32, i64 } %.pn.i16.i.i.i, 1
   %108 = tail call noundef zeroext i1 @_ZNK4llvm3rdf20PhysicalRegisterInfo8equal_toENS0_11RegisterRefES2_(ptr noundef nonnull align 8 dereferenceable(128) %50, i32 %90, i64 %91, i32 %106, i64 %107) #24
-  br i1 %108, label %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.i", label %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.thread.i"
+  br i1 %108, label %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.i", label %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.thread.i"
 
 "_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.i": ; preds = %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_0clES8_.exit.i.i"
   %109 = load ptr, ptr %8, align 8, !tbaa !50
   %110 = load ptr, ptr %52, align 8, !tbaa !50
   %111 = icmp eq ptr %109, %110
-  br i1 %111, label %"_ZN4llvm3rdf7RefNode10getNextRefIZNKS0_13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS4_IPS1_EEE3$_1EES9_NS0_11RegisterRefET_bRKS3_.exit", label %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.thread.i"
-
-"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.thread.i": ; preds = %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.i", %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_0clES8_.exit.i.i", %69, %_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit.i, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.thread.i, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i
-  br label %"_ZN4llvm3rdf7RefNode10getNextRefIZNKS0_13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS4_IPS1_EEE3$_1EES9_NS0_11RegisterRefET_bRKS3_.exit"
+  br i1 %111, label %"_ZN4llvm3rdf7RefNode10getNextRefIZNKS0_13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS4_IPS1_EEE3$_1EES9_NS0_11RegisterRefET_bRKS3_.exit", label %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.thread.i"
 
 112:                                              ; preds = %_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit
   br i1 %29, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.thread.i39, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i37
@@ -19438,12 +19435,12 @@ _ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i10.i.i.i74: ;
   %198 = icmp eq i32 %195, %197
   br i1 %198, label %"_ZN4llvm3rdf7RefNode10getNextRefIZNKS0_13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS4_IPS1_EEE3$_1EES9_NS0_11RegisterRefET_bRKS3_.exit", label %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.thread.i"
 
-"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.thread.i": ; preds = %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.i", %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_0clES8_.exit.i.i80", %151, %_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit.i55, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.thread.i39, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i37
+"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.thread.i": ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.thread.i, %_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit.i, %69, %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_0clES8_.exit.i.i", %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.i", %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.i", %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_0clES8_.exit.i.i80", %151, %_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit.i55, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.thread.i39, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i37
   br label %"_ZN4llvm3rdf7RefNode10getNextRefIZNKS0_13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS4_IPS1_EEE3$_1EES9_NS0_11RegisterRefET_bRKS3_.exit"
 
-"_ZN4llvm3rdf7RefNode10getNextRefIZNKS0_13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS4_IPS1_EEE3$_1EES9_NS0_11RegisterRefET_bRKS3_.exit": ; preds = %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.thread.i", %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.i", %191, %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.thread.i", %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.i"
-  %.sroa.08.0.i.pn = phi ptr [ %.0.i.i.i14.i, %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.i" ], [ null, %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.thread.i" ], [ null, %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.thread.i" ], [ %.0.i.i.i14.i40, %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.i" ], [ %.0.i.i.i14.i40, %191 ]
-  %.sroa.4.0.i.pn = phi i32 [ %28, %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.i" ], [ 0, %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.thread.i" ], [ 0, %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.thread.i" ], [ %28, %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.i" ], [ %28, %191 ]
+"_ZN4llvm3rdf7RefNode10getNextRefIZNKS0_13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS4_IPS1_EEE3$_1EES9_NS0_11RegisterRefET_bRKS3_.exit": ; preds = %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.thread.i", %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.i", %191, %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.i"
+  %.sroa.08.0.i.pn = phi ptr [ %.0.i.i.i14.i, %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.i" ], [ %.0.i.i.i14.i40, %191 ], [ null, %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.thread.i" ], [ %.0.i.i.i14.i40, %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.i" ]
+  %.sroa.4.0.i.pn = phi i32 [ %28, %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.i" ], [ %28, %191 ], [ 0, %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.thread.i" ], [ %28, %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_2clES8_.exit.i" ]
   %.fca.0.insert.i.pn = insertvalue { ptr, i32 } poison, ptr %.sroa.08.0.i.pn, 0
   %.pn = insertvalue { ptr, i32 } %.fca.0.insert.i.pn, i32 %.sroa.4.0.i.pn, 1
   ret { ptr, i32 } %.pn

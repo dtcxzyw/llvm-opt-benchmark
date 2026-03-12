@@ -7004,7 +7004,7 @@ _ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit: ; preds = %7, %.pre
     i8 2, label %switch.lookup
   ]
 
-20:                                               ; preds = %switch.lookup, %_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit, %23
+20:                                               ; preds = %switch.lookup, %23, %_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit
   %.sroa.0.0 = phi i1 [ false, %23 ], [ true, %_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE.exit ], [ %switch.masked, %switch.lookup ]
   ret i1 %.sroa.0.0
 

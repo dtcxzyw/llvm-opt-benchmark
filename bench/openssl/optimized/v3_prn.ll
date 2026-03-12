@@ -160,12 +160,12 @@ define i32 @X509V3_EXT_print(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32
   %8 = tail call i32 @ASN1_STRING_length(ptr noundef %6) #3
   %9 = tail call ptr @X509V3_EXT_get(ptr noundef %1) #3
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %22
+  br i1 %10, label %11, label %21
 
 11:                                               ; preds = %4
   %12 = lshr i64 %2, 16
   %13 = and i64 %12, 15
-  switch i64 %13, label %21 [
+  switch i64 %13, label %45 [
     i64 0, label %unknown_ext_print.exit
     i64 1, label %14
     i64 2, label %16
@@ -185,128 +185,125 @@ define i32 @X509V3_EXT_print(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32
   %20 = tail call i32 @BIO_dump_indent(ptr noundef %0, ptr noundef %7, i32 noundef %8, i32 noundef %3) #3
   br label %unknown_ext_print.exit
 
-21:                                               ; preds = %11
-  br label %unknown_ext_print.exit
+21:                                               ; preds = %4
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !13
+  %.not = icmp eq ptr %23, null
+  br i1 %.not, label %28, label %24
 
-22:                                               ; preds = %4
-  %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !13
-  %.not = icmp eq ptr %24, null
-  br i1 %.not, label %29, label %25
+24:                                               ; preds = %21
+  %25 = sext i32 %8 to i64
+  %26 = tail call ptr %23() #3
+  %27 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %5, i64 noundef %25, ptr noundef %26) #3
+  br label %33
 
-25:                                               ; preds = %22
-  %26 = sext i32 %8 to i64
-  %27 = tail call ptr %24() #3
-  %28 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %5, i64 noundef %26, ptr noundef %27) #3
-  br label %34
+28:                                               ; preds = %21
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %30 = load ptr, ptr %29, align 8, !tbaa !16
+  %31 = sext i32 %8 to i64
+  %32 = call ptr %30(ptr noundef null, ptr noundef nonnull %5, i64 noundef %31) #3
+  br label %33
 
-29:                                               ; preds = %22
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !16
-  %32 = sext i32 %8 to i64
-  %33 = call ptr %31(ptr noundef null, ptr noundef nonnull %5, i64 noundef %32) #3
-  br label %34
-
-34:                                               ; preds = %29, %25
-  %.049 = phi ptr [ %28, %25 ], [ %33, %29 ]
+33:                                               ; preds = %28, %24
+  %.049 = phi ptr [ %27, %24 ], [ %32, %28 ]
   %.not60 = icmp eq ptr %.049, null
-  br i1 %.not60, label %35, label %47
+  br i1 %.not60, label %34, label %46
 
-35:                                               ; preds = %34
-  %36 = load ptr, ptr %5, align 8, !tbaa !12
-  %37 = lshr i64 %2, 16
-  %38 = and i64 %37, 15
-  switch i64 %38, label %46 [
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %5, align 8, !tbaa !12
+  %36 = lshr i64 %2, 16
+  %37 = and i64 %36, 15
+  switch i64 %37, label %45 [
     i64 0, label %unknown_ext_print.exit
-    i64 1, label %39
-    i64 2, label %41
-    i64 3, label %44
+    i64 1, label %38
+    i64 2, label %40
+    i64 3, label %43
   ]
 
-39:                                               ; preds = %35
-  %40 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %3, ptr noundef nonnull @.str.1) #3
+38:                                               ; preds = %34
+  %39 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %3, ptr noundef nonnull @.str.1) #3
   br label %unknown_ext_print.exit
 
-41:                                               ; preds = %35
-  %42 = sext i32 %8 to i64
-  %43 = call i32 @ASN1_parse_dump(ptr noundef %0, ptr noundef %36, i64 noundef %42, i32 noundef %3, i32 noundef -1) #3
+40:                                               ; preds = %34
+  %41 = sext i32 %8 to i64
+  %42 = call i32 @ASN1_parse_dump(ptr noundef %0, ptr noundef %35, i64 noundef %41, i32 noundef %3, i32 noundef -1) #3
   br label %unknown_ext_print.exit
 
-44:                                               ; preds = %35
-  %45 = call i32 @BIO_dump_indent(ptr noundef %0, ptr noundef %36, i32 noundef %8, i32 noundef %3) #3
+43:                                               ; preds = %34
+  %44 = call i32 @BIO_dump_indent(ptr noundef %0, ptr noundef %35, i32 noundef %8, i32 noundef %3) #3
   br label %unknown_ext_print.exit
 
-46:                                               ; preds = %35
+45:                                               ; preds = %11, %34
   br label %unknown_ext_print.exit
 
-47:                                               ; preds = %34
-  %48 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %49 = load ptr, ptr %48, align 8, !tbaa !17
-  %.not61 = icmp eq ptr %49, null
-  br i1 %.not61, label %55, label %50
+46:                                               ; preds = %33
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %48 = load ptr, ptr %47, align 8, !tbaa !17
+  %.not61 = icmp eq ptr %48, null
+  br i1 %.not61, label %54, label %49
 
-50:                                               ; preds = %47
-  %51 = call ptr %49(ptr noundef nonnull %9, ptr noundef nonnull %.049) #3
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %70, label %53
+49:                                               ; preds = %46
+  %50 = call ptr %48(ptr noundef nonnull %9, ptr noundef nonnull %.049) #3
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %69, label %52
 
-53:                                               ; preds = %50
-  %54 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %51) #3
-  br label %70
+52:                                               ; preds = %49
+  %53 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %50) #3
+  br label %69
 
-55:                                               ; preds = %47
-  %56 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %57 = load ptr, ptr %56, align 8, !tbaa !18
-  %.not62 = icmp eq ptr %57, null
-  br i1 %.not62, label %65, label %58
+54:                                               ; preds = %46
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %56 = load ptr, ptr %55, align 8, !tbaa !18
+  %.not62 = icmp eq ptr %56, null
+  br i1 %.not62, label %64, label %57
 
-58:                                               ; preds = %55
-  %59 = call ptr %57(ptr noundef nonnull %9, ptr noundef nonnull %.049, ptr noundef null) #3
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %70, label %61
+57:                                               ; preds = %54
+  %58 = call ptr %56(ptr noundef nonnull %9, ptr noundef nonnull %.049, ptr noundef null) #3
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %69, label %60
 
-61:                                               ; preds = %58
-  %62 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %63 = load i32, ptr %62, align 4, !tbaa !19
-  %64 = and i32 %63, 4
-  call void @X509V3_EXT_val_prn(ptr noundef %0, ptr noundef nonnull %59, i32 noundef %3, i32 noundef %64)
-  br label %70
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %62 = load i32, ptr %61, align 4, !tbaa !19
+  %63 = and i32 %62, 4
+  call void @X509V3_EXT_val_prn(ptr noundef %0, ptr noundef nonnull %58, i32 noundef %3, i32 noundef %63)
+  br label %69
 
-65:                                               ; preds = %55
-  %66 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  %67 = load ptr, ptr %66, align 8, !tbaa !20
-  %.not63 = icmp eq ptr %67, null
-  br i1 %.not63, label %70, label %68
+64:                                               ; preds = %54
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %66 = load ptr, ptr %65, align 8, !tbaa !20
+  %.not63 = icmp eq ptr %66, null
+  br i1 %.not63, label %69, label %67
 
-68:                                               ; preds = %65
-  %69 = call i32 %67(ptr noundef nonnull %9, ptr noundef nonnull %.049, ptr noundef %0, i32 noundef %3) #3
-  %.not64 = icmp ne i32 %69, 0
+67:                                               ; preds = %64
+  %68 = call i32 %66(ptr noundef nonnull %9, ptr noundef nonnull %.049, ptr noundef %0, i32 noundef %3) #3
+  %.not64 = icmp ne i32 %68, 0
   %spec.select = zext i1 %.not64 to i32
-  br label %70
+  br label %69
 
-70:                                               ; preds = %68, %65, %58, %50, %53, %61
-  %.050 = phi ptr [ null, %65 ], [ %51, %53 ], [ null, %50 ], [ null, %61 ], [ null, %68 ], [ null, %58 ]
-  %.047 = phi ptr [ null, %65 ], [ null, %53 ], [ null, %50 ], [ %59, %61 ], [ null, %68 ], [ null, %58 ]
-  %.0 = phi i32 [ 0, %65 ], [ 1, %53 ], [ 0, %50 ], [ 1, %61 ], [ %spec.select, %68 ], [ 0, %58 ]
+69:                                               ; preds = %67, %64, %57, %49, %52, %60
+  %.050 = phi ptr [ null, %64 ], [ %50, %52 ], [ null, %49 ], [ null, %60 ], [ null, %67 ], [ null, %57 ]
+  %.047 = phi ptr [ null, %64 ], [ null, %52 ], [ null, %49 ], [ %58, %60 ], [ null, %67 ], [ null, %57 ]
+  %.0 = phi i32 [ 0, %64 ], [ 1, %52 ], [ 0, %49 ], [ 1, %60 ], [ %spec.select, %67 ], [ 0, %57 ]
   call void @OPENSSL_sk_pop_free(ptr noundef %.047, ptr noundef nonnull @X509V3_conf_free) #3
   call void @CRYPTO_free(ptr noundef %.050, ptr noundef nonnull @.str.7, i32 noundef 131) #3
-  %71 = load ptr, ptr %23, align 8, !tbaa !13
-  %.not65 = icmp eq ptr %71, null
-  br i1 %.not65, label %74, label %72
+  %70 = load ptr, ptr %22, align 8, !tbaa !13
+  %.not65 = icmp eq ptr %70, null
+  br i1 %.not65, label %73, label %71
 
-72:                                               ; preds = %70
-  %73 = call ptr %71() #3
-  call void @ASN1_item_free(ptr noundef nonnull %.049, ptr noundef %73) #3
+71:                                               ; preds = %69
+  %72 = call ptr %70() #3
+  call void @ASN1_item_free(ptr noundef nonnull %.049, ptr noundef %72) #3
   br label %unknown_ext_print.exit
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %76 = load ptr, ptr %75, align 8, !tbaa !21
-  call void %76(ptr noundef nonnull %.049) #3
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %75 = load ptr, ptr %74, align 8, !tbaa !21
+  call void %75(ptr noundef nonnull %.049) #3
   br label %unknown_ext_print.exit
 
-unknown_ext_print.exit:                           ; preds = %46, %44, %41, %39, %35, %21, %19, %16, %14, %11, %72, %74
-  %.048 = phi i32 [ %.0, %72 ], [ 1, %14 ], [ %.0, %74 ], [ 1, %21 ], [ %20, %19 ], [ 0, %11 ], [ %18, %16 ], [ 1, %46 ], [ %45, %44 ], [ 0, %35 ], [ %43, %41 ], [ 1, %39 ]
+unknown_ext_print.exit:                           ; preds = %45, %43, %40, %38, %34, %19, %16, %14, %11, %71, %73
+  %.048 = phi i32 [ %.0, %71 ], [ 1, %14 ], [ %.0, %73 ], [ 1, %38 ], [ %20, %19 ], [ 0, %11 ], [ %18, %16 ], [ 1, %45 ], [ %44, %43 ], [ 0, %34 ], [ %42, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.048
 }

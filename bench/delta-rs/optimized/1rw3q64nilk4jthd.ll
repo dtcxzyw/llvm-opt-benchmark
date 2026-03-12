@@ -123047,7 +123047,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
   br label %341
 
 .invoke:                                          ; preds = %437, %467, %298, %328
-  %339 = phi ptr [ @anon.e68c98984d05f4ab0d2a6f8791335996.1201, %467 ], [ @anon.e68c98984d05f4ab0d2a6f8791335996.1197, %328 ], [ @anon.e68c98984d05f4ab0d2a6f8791335996.1197, %298 ], [ @anon.e68c98984d05f4ab0d2a6f8791335996.1201, %437 ]
+  %339 = phi ptr [ @anon.e68c98984d05f4ab0d2a6f8791335996.1197, %298 ], [ @anon.e68c98984d05f4ab0d2a6f8791335996.1197, %328 ], [ @anon.e68c98984d05f4ab0d2a6f8791335996.1201, %467 ], [ @anon.e68c98984d05f4ab0d2a6f8791335996.1201, %437 ]
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.e68c98984d05f4ab0d2a6f8791335996.1196, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %339) #77
           to label %.cont unwind label %.loopexit.split-lp
 

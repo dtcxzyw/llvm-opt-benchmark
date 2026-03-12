@@ -2295,7 +2295,7 @@ _ZNSt3mapIN3ue215rose_literal_idEZNS0_L15groupByFragmentERKNS0_13RoseBuildImplEE
 .noexc76.i:                                       ; preds = %476
   %489 = sub i64 %485, %488
   %490 = icmp slt i64 %489, 0
-  br i1 %490, label %.noexc51.i, label %.thread.i.i.i.i.i.i.i
+  br i1 %490, label %.noexc51.i, label %.thread99.i
 
 .noexc76.thread.i:                                ; preds = %476
   %491 = call noundef i32 @memcmp(ptr noundef %478, ptr noundef %481, i64 noundef %.sroa.speculated.i.i.i.i.i.i79.i) #27
@@ -2306,16 +2306,13 @@ _ZNSt3mapIN3ue215rose_literal_idEZNS0_L15groupByFragmentERKNS0_13RoseBuildImplEE
   %494 = icmp slt i64 %spec.select.i.i.i.i.i.i82.i, 0
   br i1 %494, label %.noexc51.i, label %.thread99.i
 
-.thread.i.i.i.i.i.i.i:                            ; preds = %.noexc76.i
+.thread99.i:                                      ; preds = %.noexc76.thread.i, %.noexc76.i
   br label %.noexc51.i
 
-.thread99.i:                                      ; preds = %.noexc76.thread.i
-  br label %.noexc51.i
-
-.noexc51.i:                                       ; preds = %.thread99.i, %.thread.i.i.i.i.i.i.i, %.noexc76.thread.i, %.noexc76.i, %.noexc75.i, %.noexc74.thread.i, %.noexc74.i, %449, %444, %.noexc73.i, %.noexc72.i, %438, %433, %431, %.lr.ph.i.i.i.i.i
-  %495 = phi ptr [ %.013.i.i.i.i.i, %.thread99.i ], [ %.013.i.i.i.i.i, %.thread.i.i.i.i.i.i.i ], [ %.013.i.i.i.i.i, %.noexc75.i ], [ %.013.i.i.i.i.i, %449 ], [ %.013.i.i.i.i.i, %.noexc73.i ], [ %.013.i.i.i.i.i, %438 ], [ %.013.i.i.i.i.i, %431 ], [ %.0812.i.i.i.i.i, %.noexc76.thread.i ], [ %.0812.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0812.i.i.i.i.i, %433 ], [ %.0812.i.i.i.i.i, %.noexc72.i ], [ %.0812.i.i.i.i.i, %444 ], [ %.0812.i.i.i.i.i, %.noexc74.i ], [ %.0812.i.i.i.i.i, %.noexc76.i ], [ %.0812.i.i.i.i.i, %.noexc74.thread.i ]
-  %.0.i.i101106.i = phi i1 [ false, %.thread99.i ], [ false, %.thread.i.i.i.i.i.i.i ], [ false, %.noexc75.i ], [ false, %449 ], [ false, %.noexc73.i ], [ false, %438 ], [ false, %431 ], [ true, %.noexc76.thread.i ], [ true, %.lr.ph.i.i.i.i.i ], [ true, %433 ], [ true, %.noexc72.i ], [ true, %444 ], [ true, %.noexc74.i ], [ true, %.noexc76.i ], [ true, %.noexc74.thread.i ]
-  %496 = phi i64 [ 16, %.thread99.i ], [ 16, %.thread.i.i.i.i.i.i.i ], [ 16, %.noexc75.i ], [ 16, %449 ], [ 16, %.noexc73.i ], [ 16, %438 ], [ 16, %431 ], [ 24, %.noexc76.thread.i ], [ 24, %.lr.ph.i.i.i.i.i ], [ 24, %433 ], [ 24, %.noexc72.i ], [ 24, %444 ], [ 24, %.noexc74.i ], [ 24, %.noexc76.i ], [ 24, %.noexc74.thread.i ]
+.noexc51.i:                                       ; preds = %.thread99.i, %.noexc76.thread.i, %.noexc76.i, %.noexc75.i, %.noexc74.thread.i, %.noexc74.i, %449, %444, %.noexc73.i, %.noexc72.i, %438, %433, %431, %.lr.ph.i.i.i.i.i
+  %495 = phi ptr [ %.013.i.i.i.i.i, %.thread99.i ], [ %.0812.i.i.i.i.i, %.noexc74.thread.i ], [ %.013.i.i.i.i.i, %.noexc75.i ], [ %.013.i.i.i.i.i, %449 ], [ %.013.i.i.i.i.i, %.noexc73.i ], [ %.013.i.i.i.i.i, %438 ], [ %.013.i.i.i.i.i, %431 ], [ %.0812.i.i.i.i.i, %.noexc76.thread.i ], [ %.0812.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0812.i.i.i.i.i, %433 ], [ %.0812.i.i.i.i.i, %.noexc72.i ], [ %.0812.i.i.i.i.i, %444 ], [ %.0812.i.i.i.i.i, %.noexc74.i ], [ %.0812.i.i.i.i.i, %.noexc76.i ]
+  %.0.i.i101106.i = phi i1 [ false, %.thread99.i ], [ true, %.noexc74.thread.i ], [ false, %.noexc75.i ], [ false, %449 ], [ false, %.noexc73.i ], [ false, %438 ], [ false, %431 ], [ true, %.noexc76.thread.i ], [ true, %.lr.ph.i.i.i.i.i ], [ true, %433 ], [ true, %.noexc72.i ], [ true, %444 ], [ true, %.noexc74.i ], [ true, %.noexc76.i ]
+  %496 = phi i64 [ 16, %.thread99.i ], [ 24, %.noexc74.thread.i ], [ 16, %.noexc75.i ], [ 16, %449 ], [ 16, %.noexc73.i ], [ 16, %438 ], [ 16, %431 ], [ 24, %.noexc76.thread.i ], [ 24, %.lr.ph.i.i.i.i.i ], [ 24, %433 ], [ 24, %.noexc72.i ], [ 24, %444 ], [ 24, %.noexc74.i ], [ 24, %.noexc76.i ]
   %.1.in.i.i.i.i.i = getelementptr i8, ptr %.013.i.i.i.i.i, i64 %496
   %.1.i.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i.i, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.1.i.i.i.i.i, null

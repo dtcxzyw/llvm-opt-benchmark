@@ -6064,11 +6064,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   br i1 %1943, label %.body.i.i, label %.body.i.i.sink.split
 
 .body.i.i.sink.split:                             ; preds = %1940, %1916
-  %.sink4265 = phi ptr [ %1918, %1916 ], [ %1942, %1940 ]
+  %.sink4267 = phi ptr [ %1918, %1916 ], [ %1942, %1940 ]
   %.pn.i191.i.ph = phi { ptr, i32 } [ %1917, %1916 ], [ %1941, %1940 ]
   %1944 = load i64, ptr %1905, align 8, !tbaa !15, !noalias !124
   %1945 = add i64 %1944, 1
-  call void @_ZdlPvm(ptr noundef %.sink4265, i64 noundef %1945) #24
+  call void @_ZdlPvm(ptr noundef %.sink4267, i64 noundef %1945) #24
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %.body.i.i.sink.split, %1940, %1916
@@ -6302,11 +6302,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %2028, label %.body.i554, label %.body.i554.sink.split
 
 .body.i554.sink.split:                            ; preds = %2025, %1977
-  %.sink4268 = phi ptr [ %1979, %1977 ], [ %2027, %2025 ]
+  %.sink4270 = phi ptr [ %1979, %1977 ], [ %2027, %2025 ]
   %.pn120.i.ph = phi { ptr, i32 } [ %1978, %1977 ], [ %2026, %2025 ]
   %2029 = load i64, ptr %1957, align 8, !tbaa !15
   %2030 = add i64 %2029, 1
-  call void @_ZdlPvm(ptr noundef %.sink4268, i64 noundef %2030) #24
+  call void @_ZdlPvm(ptr noundef %.sink4270, i64 noundef %2030) #24
   br label %.body.i554
 
 .body.i554:                                       ; preds = %.body.i554.sink.split, %2025, %1977
@@ -8433,10 +8433,7 @@ _ZN5vcpkgL41check_matching_debug_and_release_binariesERKNS_4PathENS_4SpanIKNS3_I
   %2796 = sext i32 %2795 to i64
   %2797 = urem i64 %2796, %2780
   %.not19.i.i.i.i.i.i752 = icmp eq i64 %2797, %2781
-  br i1 %.not19.i.i.i.i.i.i752, label %2790, label %..loopexit_crit_edge21.i.i.i.i.i.i753, !llvm.loop !44
-
-..loopexit_crit_edge21.i.i.i.i.i.i753:            ; preds = %2793
-  br label %_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit760.thread, !llvm.loop !44
+  br i1 %.not19.i.i.i.i.i.i752, label %2790, label %..loopexit_crit_edge21.i.i.i.i.i.i767, !llvm.loop !44
 
 _ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit760: ; preds = %2790, %2774
   %.sroa.06.1.i.i.i.i756 = phi ptr [ %.sroa.06.0.i.i.i.i758, %2774 ], [ %2792, %2790 ]
@@ -8510,7 +8507,7 @@ _ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit760.thread1986: ; pr
   %.not19.i.i.i.i.i.i766 = icmp eq i64 %2829, %2814
   br i1 %.not19.i.i.i.i.i.i766, label %2822, label %..loopexit_crit_edge21.i.i.i.i.i.i767, !llvm.loop !44
 
-..loopexit_crit_edge21.i.i.i.i.i.i767:            ; preds = %2825
+..loopexit_crit_edge21.i.i.i.i.i.i767:            ; preds = %2793, %2825
   br label %_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit760.thread, !llvm.loop !44
 
 _ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit774: ; preds = %2822, %2808, %2817
@@ -8520,7 +8517,7 @@ _ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit774: ; preds = %2822
   %2832 = trunc nuw i8 %2831 to i1
   br i1 %2832, label %2865, label %_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit760.thread
 
-_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit760.thread: ; preds = %.lr.ph.i.i.i.i.i.i749, %2773, %.lr.ph.i.i.i.i.i.i763, %2807, %.thread, %..loopexit_crit_edge21.i.i.i.i.i.i767, %2778, %..loopexit_crit_edge21.i.i.i.i.i.i753, %_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit760.thread1986, %_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit774, %_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit760
+_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit760.thread: ; preds = %.lr.ph.i.i.i.i.i.i749, %2773, %.lr.ph.i.i.i.i.i.i763, %2807, %.thread, %..loopexit_crit_edge21.i.i.i.i.i.i767, %2778, %_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit760.thread1986, %_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit774, %_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit760
   call void @llvm.lifetime.start.p0(ptr nonnull %270)
   %2833 = load ptr, ptr %258, align 8, !tbaa !101
   %2834 = getelementptr inbounds nuw i8, ptr %258, i64 8
@@ -12287,11 +12284,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i1223: ; preds 
   br i1 %4259, label %.body.i.i1212, label %.body.i.i1212.sink.split
 
 .body.i.i1212.sink.split:                         ; preds = %4256, %4232
-  %.sink4271 = phi ptr [ %4234, %4232 ], [ %4258, %4256 ]
+  %.sink4273 = phi ptr [ %4234, %4232 ], [ %4258, %4256 ]
   %.pn.i.i1213.ph = phi { ptr, i32 } [ %4233, %4232 ], [ %4257, %4256 ]
   %4260 = load i64, ptr %4221, align 8, !tbaa !15, !noalias !232
   %4261 = add i64 %4260, 1
-  call void @_ZdlPvm(ptr noundef %.sink4271, i64 noundef %4261) #24
+  call void @_ZdlPvm(ptr noundef %.sink4273, i64 noundef %4261) #24
   br label %.body.i.i1212
 
 .body.i.i1212:                                    ; preds = %.body.i.i1212.sink.split, %4256, %4232
@@ -12565,11 +12562,11 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %4361, label %.body.i1231, label %.body.i1231.sink.split
 
 .body.i1231.sink.split:                           ; preds = %4358, %4312
-  %.sink4274 = phi ptr [ %4314, %4312 ], [ %4360, %4358 ]
+  %.sink4276 = phi ptr [ %4314, %4312 ], [ %4360, %4358 ]
   %.pn.i1232.ph = phi { ptr, i32 } [ %4313, %4312 ], [ %4359, %4358 ]
   %4362 = load i64, ptr %4303, align 8, !tbaa !15
   %4363 = add i64 %4362, 1
-  call void @_ZdlPvm(ptr noundef %.sink4274, i64 noundef %4363) #24
+  call void @_ZdlPvm(ptr noundef %.sink4276, i64 noundef %4363) #24
   br label %.body.i1231
 
 .body.i1231:                                      ; preds = %.body.i1231.sink.split, %4358, %4312
@@ -14523,11 +14520,11 @@ _ZN5vcpkg15LocalizedStringD2Ev.exit74.i:          ; preds = %5043, %_ZNKSt7__cxx
   br i1 %5057, label %.body.i1448, label %.body.i1448.sink.split
 
 .body.i1448.sink.split:                           ; preds = %5054, %5000
-  %.sink4277 = phi ptr [ %5002, %5000 ], [ %5056, %5054 ]
+  %.sink4279 = phi ptr [ %5002, %5000 ], [ %5056, %5054 ]
   %.pn24.i.ph = phi { ptr, i32 } [ %5001, %5000 ], [ %5055, %5054 ]
   %5058 = load i64, ptr %4980, align 8, !tbaa !15
   %5059 = add i64 %5058, 1
-  call void @_ZdlPvm(ptr noundef %.sink4277, i64 noundef %5059) #24
+  call void @_ZdlPvm(ptr noundef %.sink4279, i64 noundef %5059) #24
   br label %.body.i1448
 
 .body.i1448:                                      ; preds = %.body.i1448.sink.split, %5054, %5000
@@ -15261,10 +15258,7 @@ _ZSt8_DestroyIPN5vcpkg4PathES1_EvT_S3_RSaIT0_E.exit.i94.i: ; preds = %._crit_edg
   %5315 = sext i32 %5314 to i64
   %5316 = urem i64 %5315, %5299
   %.not19.i.i.i.i.i.i1559 = icmp eq i64 %5316, %5300
-  br i1 %.not19.i.i.i.i.i.i1559, label %5309, label %..loopexit_crit_edge21.i.i.i.i.i.i1560, !llvm.loop !44
-
-..loopexit_crit_edge21.i.i.i.i.i.i1560:           ; preds = %5312
-  br label %_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit1567.thread, !llvm.loop !44
+  br i1 %.not19.i.i.i.i.i.i1559, label %5309, label %..loopexit_crit_edge21.i.i.i.i.i.i1574, !llvm.loop !44
 
 _ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit1567: ; preds = %5309, %5293
   %.sroa.06.1.i.i.i.i1563 = phi ptr [ %.sroa.06.0.i.i.i.i1565, %5293 ], [ %5311, %5309 ]
@@ -15338,7 +15332,7 @@ _ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit1567.thread2001: ; p
   %.not19.i.i.i.i.i.i1573 = icmp eq i64 %5348, %5333
   br i1 %.not19.i.i.i.i.i.i1573, label %5341, label %..loopexit_crit_edge21.i.i.i.i.i.i1574, !llvm.loop !44
 
-..loopexit_crit_edge21.i.i.i.i.i.i1574:           ; preds = %5344
+..loopexit_crit_edge21.i.i.i.i.i.i1574:           ; preds = %5312, %5344
   br label %_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit1567.thread, !llvm.loop !44
 
 _ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit1581: ; preds = %5341, %5327, %5336
@@ -15348,7 +15342,7 @@ _ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit1581: ; preds = %534
   %5351 = trunc nuw i8 %5350 to i1
   br i1 %5351, label %_ZN5vcpkg4Util4sortISt6vectorINS_4PathESaIS3_EESt4lessIvEEEvRT_T0_.exit, label %_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit1567.thread
 
-_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit1567.thread: ; preds = %.lr.ph.i.i.i.i.i.i1556, %5292, %.lr.ph.i.i.i.i.i.i1570, %5326, %.thread2003, %..loopexit_crit_edge21.i.i.i.i.i.i1574, %5297, %..loopexit_crit_edge21.i.i.i.i.i.i1560, %_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit1567.thread2001, %_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit1581, %_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit1567
+_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit1567.thread: ; preds = %.lr.ph.i.i.i.i.i.i1556, %5292, %.lr.ph.i.i.i.i.i.i1570, %5326, %.thread2003, %..loopexit_crit_edge21.i.i.i.i.i.i1574, %5297, %_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit1567.thread2001, %_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit1581, %_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit1567
   call void @llvm.lifetime.start.p0(ptr nonnull %282)
   call void @llvm.lifetime.start.p0(ptr nonnull %283)
   %5352 = getelementptr inbounds nuw i8, ptr %283, i64 8
@@ -16866,11 +16860,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit246.i: ; preds = %
   br i1 %5873, label %.thread617.i, label %.thread617.i.sink.split
 
 .thread617.i.sink.split:                          ; preds = %5870, %5856
-  %.sink4280 = phi ptr [ %5858, %5856 ], [ %5872, %5870 ]
+  %.sink4282 = phi ptr [ %5858, %5856 ], [ %5872, %5870 ]
   %.pn119.i.ph = phi { ptr, i32 } [ %5857, %5856 ], [ %5871, %5870 ]
   %5874 = load i64, ptr %5839, align 8, !tbaa !15
   %5875 = add i64 %5874, 1
-  call void @_ZdlPvm(ptr noundef %.sink4280, i64 noundef %5875) #24
+  call void @_ZdlPvm(ptr noundef %.sink4282, i64 noundef %5875) #24
   br label %.thread617.i
 
 .thread617.i:                                     ; preds = %.thread617.i.sink.split, %5870, %5856

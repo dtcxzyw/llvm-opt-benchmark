@@ -3127,16 +3127,13 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_wait(ptr nound
   %52 = tail call i64 @__do_wait(ptr noundef %0)
   %53 = and i64 %52, 4294967295
   %54 = icmp eq i64 %53, 4294966784
-  br i1 %54, label %44, label %..critedge.loopexit_crit_edge1, !llvm.loop !94
+  br i1 %54, label %44, label %..critedge.loopexit_crit_edge, !llvm.loop !94
 
-..critedge.loopexit_crit_edge1:                   ; preds = %.lr.ph5
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph5, %44
   br label %.critedge, !llvm.loop !94
 
-..critedge.loopexit_crit_edge:                    ; preds = %44
-  br label %.critedge, !llvm.loop !94
-
-.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader, %..critedge.loopexit_crit_edge1, %24
-  %55 = phi i64 [ %35, %24 ], [ %35, %.preheader ], [ %52, %..critedge.loopexit_crit_edge1 ], [ %52, %..critedge.loopexit_crit_edge ], [ %35, %.lr.ph.preheader ], [ %52, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %.preheader, %24
+  %55 = phi i64 [ %35, %24 ], [ %35, %.preheader ], [ %35, %.lr.ph.preheader ], [ %52, %..critedge.loopexit_crit_edge ], [ %52, %.lr.ph ]
   store volatile i32 0, ptr %33, align 8
   %56 = load ptr, ptr %30, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32

@@ -4035,7 +4035,7 @@ switch.lookup58:                                  ; preds = %38
   br label %46
 
 46:                                               ; preds = %switch.lookup58, %switch.lookup54, %switch.lookup50, %switch.lookup48, %switch.lookup46, %switch.lookup
-  %.0 = phi i32 [ %switch.offset, %switch.lookup ], [ %switch.load52, %switch.lookup50 ], [ %switch.load60, %switch.lookup58 ], [ %switch.load56, %switch.lookup54 ], [ %switch.offset47, %switch.lookup46 ], [ %switch.load, %switch.lookup48 ]
+  %.0 = phi i32 [ %switch.offset, %switch.lookup ], [ %switch.load60, %switch.lookup58 ], [ %switch.offset47, %switch.lookup46 ], [ %switch.load, %switch.lookup48 ], [ %switch.load52, %switch.lookup50 ], [ %switch.load56, %switch.lookup54 ]
   %47 = tail call ptr @MRIStepCoupling_LoadTable(i32 noundef %.0) #14
   store ptr %47, ptr %9, align 8, !tbaa !125
   %48 = icmp eq ptr %47, null

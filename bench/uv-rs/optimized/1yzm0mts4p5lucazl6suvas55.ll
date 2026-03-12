@@ -2984,7 +2984,7 @@ define hidden void @_ZN9itertools9Itertools4join17h9db1844e69ac222dE(ptr dead_on
   br i1 %65, label %.invoke, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7aa6e34a821babf7E.exit"
 
 .invoke:                                          ; preds = %.noexc17, %.noexc20, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h1f6dbf90cc2b9afeE.exit"
-  %69 = phi ptr [ @anon.6d5fe796e03f1e73a9c6d99fff61b81d.57, %.noexc20 ], [ @anon.6d5fe796e03f1e73a9c6d99fff61b81d.56, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h1f6dbf90cc2b9afeE.exit" ], [ @anon.6d5fe796e03f1e73a9c6d99fff61b81d.57, %.noexc17 ]
+  %69 = phi ptr [ @anon.6d5fe796e03f1e73a9c6d99fff61b81d.56, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h1f6dbf90cc2b9afeE.exit" ], [ @anon.6d5fe796e03f1e73a9c6d99fff61b81d.57, %.noexc20 ], [ @anon.6d5fe796e03f1e73a9c6d99fff61b81d.57, %.noexc17 ]
   invoke void @_ZN4core6result13unwrap_failed17h3ff7104a9ace307aE(ptr noalias noundef nonnull readonly align 1 @anon.6d5fe796e03f1e73a9c6d99fff61b81d.36, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.6d5fe796e03f1e73a9c6d99fff61b81d.35, ptr noalias noundef readonly align 8 dereferenceable(24) %69) #24
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -3616,7 +3616,7 @@ define hidden void @_ZN9itertools9Itertools4join17he1949d6168f00469E(ptr dead_on
   br i1 %88, label %.invoke, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7aa6e34a821babf7E.exit"
 
 .invoke:                                          ; preds = %.noexc22, %.noexc25, %.noexc19, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h1f6dbf90cc2b9afeE.exit"
-  %92 = phi ptr [ @anon.6d5fe796e03f1e73a9c6d99fff61b81d.57, %.noexc25 ], [ @anon.6d5fe796e03f1e73a9c6d99fff61b81d.56, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h1f6dbf90cc2b9afeE.exit" ], [ @anon.6d5fe796e03f1e73a9c6d99fff61b81d.57, %.noexc19 ], [ @anon.6d5fe796e03f1e73a9c6d99fff61b81d.57, %.noexc22 ]
+  %92 = phi ptr [ @anon.6d5fe796e03f1e73a9c6d99fff61b81d.56, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h1f6dbf90cc2b9afeE.exit" ], [ @anon.6d5fe796e03f1e73a9c6d99fff61b81d.57, %.noexc19 ], [ @anon.6d5fe796e03f1e73a9c6d99fff61b81d.57, %.noexc25 ], [ @anon.6d5fe796e03f1e73a9c6d99fff61b81d.57, %.noexc22 ]
   invoke void @_ZN4core6result13unwrap_failed17h3ff7104a9ace307aE(ptr noalias noundef nonnull readonly align 1 @anon.6d5fe796e03f1e73a9c6d99fff61b81d.36, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.6d5fe796e03f1e73a9c6d99fff61b81d.35, ptr noalias noundef readonly align 8 dereferenceable(24) %92) #24
           to label %.cont unwind label %.loopexit.split-lp
 
