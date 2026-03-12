@@ -9058,7 +9058,7 @@ define internal fastcc noundef zeroext i1 @mi_manage_os_memory_ex2(ptr noundef %
 
 12:                                               ; preds = %11, %7
   %13 = icmp ult i64 %1, 33554432
-  br i1 %13, label %86, label %14
+  br i1 %13, label %85, label %14
 
 14:                                               ; preds = %12
   %15 = lshr i64 %1, 25
@@ -9135,63 +9135,61 @@ define internal fastcc noundef zeroext i1 @mi_manage_os_memory_ex2(ptr noundef %
   %58 = and i64 %16, 1099511627712
   %59 = sub nsw i64 %58, %15
   %60 = icmp sgt i64 %59, 0
-  br i1 %60, label %_mi_bitmap_claim.exit, label %68
+  br i1 %60, label %_mi_bitmap_claim.exit, label %67
 
 _mi_bitmap_claim.exit:                            ; preds = %57
   %61 = lshr i64 %1, 31
   %62 = and i64 %15, 63
-  %63 = icmp samesign ugt i64 %59, 63
   %notmask.i.i = shl nsw i64 -1, %59
-  %64 = xor i64 %notmask.i.i, -1
-  %65 = shl i64 %64, %62
-  %.0.i.i = select i1 %63, i64 -1, i64 %65
-  %66 = getelementptr [8 x i8], ptr %39, i64 %61
-  %67 = atomicrmw or ptr %66, i64 %.0.i.i acq_rel, align 8
-  br label %68
+  %63 = xor i64 %notmask.i.i, -1
+  %64 = shl i64 %63, %62
+  %65 = getelementptr [8 x i8], ptr %39, i64 %61
+  %66 = atomicrmw or ptr %65, i64 %64 acq_rel, align 8
+  br label %67
 
-68:                                               ; preds = %_mi_bitmap_claim.exit, %57
-  br i1 %.not, label %69, label %.thread.i
+67:                                               ; preds = %_mi_bitmap_claim.exit, %57
+  br i1 %.not, label %68, label %.thread.i
 
-69:                                               ; preds = %68
-  %70 = atomicrmw add ptr @mi_arena_count, i64 1 acq_rel, align 64
-  %71 = icmp ult i64 %70, 112
-  br i1 %71, label %76, label %74
+68:                                               ; preds = %67
+  %69 = atomicrmw add ptr @mi_arena_count, i64 1 acq_rel, align 64
+  %70 = icmp ult i64 %69, 112
+  br i1 %70, label %75, label %73
 
-.thread.i:                                        ; preds = %68
+.thread.i:                                        ; preds = %67
   store i32 -1, ptr %6, align 4, !tbaa !96
-  %72 = atomicrmw add ptr @mi_arena_count, i64 1 acq_rel, align 64
-  %73 = icmp ult i64 %72, 112
-  br i1 %73, label %81, label %74
+  %71 = atomicrmw add ptr @mi_arena_count, i64 1 acq_rel, align 64
+  %72 = icmp ult i64 %71, 112
+  br i1 %72, label %80, label %73
 
-74:                                               ; preds = %.thread.i, %69
-  %75 = atomicrmw sub ptr @mi_arena_count, i64 1 acq_rel, align 64
+73:                                               ; preds = %.thread.i, %68
+  %74 = atomicrmw sub ptr @mi_arena_count, i64 1 acq_rel, align 64
   br label %mi_arena_add.exit
 
-76:                                               ; preds = %69
-  %77 = trunc nuw nsw i64 %70 to i32
-  %78 = add nuw nsw i32 %77, 1
-  store i32 %78, ptr %25, align 8, !tbaa !110
-  %79 = getelementptr [8 x i8], ptr @mi_arenas, i64 %70
-  %80 = ptrtoint ptr %25 to i64
-  store atomic i64 %80, ptr %79 release, align 8
+75:                                               ; preds = %68
+  %76 = trunc nuw nsw i64 %69 to i32
+  %77 = add nuw nsw i32 %76, 1
+  store i32 %77, ptr %25, align 8, !tbaa !110
+  %78 = getelementptr [8 x i8], ptr @mi_arenas, i64 %69
+  %79 = ptrtoint ptr %25 to i64
+  store atomic i64 %79, ptr %78 release, align 8
   br label %mi_arena_add.exit
 
-81:                                               ; preds = %.thread.i
-  %82 = trunc nuw nsw i64 %72 to i32
-  %83 = add nuw nsw i32 %82, 1
-  store i32 %83, ptr %25, align 8, !tbaa !110
-  %84 = getelementptr [8 x i8], ptr @mi_arenas, i64 %72
-  %85 = ptrtoint ptr %25 to i64
-  store atomic i64 %85, ptr %84 release, align 8
-  store i32 %83, ptr %6, align 4, !tbaa !96
+80:                                               ; preds = %.thread.i
+  %81 = trunc nuw nsw i64 %71 to i32
+  %82 = add nuw nsw i32 %81, 1
+  store i32 %82, ptr %25, align 8, !tbaa !110
+  %83 = getelementptr [8 x i8], ptr @mi_arenas, i64 %71
+  %84 = ptrtoint ptr %25 to i64
+  store atomic i64 %84, ptr %83 release, align 8
+  store i32 %82, ptr %6, align 4, !tbaa !96
   br label %mi_arena_add.exit
 
-mi_arena_add.exit:                                ; preds = %81, %76, %74, %14
-  %.1 = phi i1 [ false, %14 ], [ true, %76 ], [ true, %81 ], [ false, %74 ]
+mi_arena_add.exit:                                ; preds = %80, %75, %73, %14
+  %.1 = phi i1 [ false, %14 ], [ true, %75 ], [ true, %80 ], [ false, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %86
+  br label %85
 
-86:                                               ; preds = %12, %mi_arena_add.exit
+85:                                               ; preds = %12, %mi_arena_add.exit
   %.0 = phi i1 [ %.1, %mi_arena_add.exit ], [ false, %12 ]
   ret i1 %.0
 }
@@ -9601,40 +9599,38 @@ define hidden noundef zeroext i1 @mi_manage_os_memory(ptr noundef %0, i64 nounde
   %46 = and i64 %14, 1099511627712
   %47 = sub nsw i64 %46, %13
   %48 = icmp sgt i64 %47, 0
-  br i1 %48, label %_mi_bitmap_claim.exit.i, label %56
+  br i1 %48, label %_mi_bitmap_claim.exit.i, label %55
 
 _mi_bitmap_claim.exit.i:                          ; preds = %45
   %49 = lshr i64 %1, 31
   %50 = and i64 %13, 63
-  %51 = icmp samesign ugt i64 %47, 63
   %notmask.i.i.i = shl nsw i64 -1, %47
-  %52 = xor i64 %notmask.i.i.i, -1
-  %53 = shl i64 %52, %50
-  %.0.i.i.i = select i1 %51, i64 -1, i64 %53
-  %54 = getelementptr [8 x i8], ptr %34, i64 %49
-  %55 = atomicrmw or ptr %54, i64 %.0.i.i.i acq_rel, align 8
-  br label %56
+  %51 = xor i64 %notmask.i.i.i, -1
+  %52 = shl i64 %51, %50
+  %53 = getelementptr [8 x i8], ptr %34, i64 %49
+  %54 = atomicrmw or ptr %53, i64 %52 acq_rel, align 8
+  br label %55
 
-56:                                               ; preds = %_mi_bitmap_claim.exit.i, %45
-  %57 = atomicrmw add ptr @mi_arena_count, i64 1 acq_rel, align 64
-  %58 = icmp ult i64 %57, 112
-  br i1 %58, label %61, label %59
+55:                                               ; preds = %_mi_bitmap_claim.exit.i, %45
+  %56 = atomicrmw add ptr @mi_arena_count, i64 1 acq_rel, align 64
+  %57 = icmp ult i64 %56, 112
+  br i1 %57, label %60, label %58
 
-59:                                               ; preds = %56
-  %60 = atomicrmw sub ptr @mi_arena_count, i64 1 acq_rel, align 64
+58:                                               ; preds = %55
+  %59 = atomicrmw sub ptr @mi_arena_count, i64 1 acq_rel, align 64
   br label %mi_arena_add.exit.i
 
-61:                                               ; preds = %56
-  %62 = trunc nuw nsw i64 %57 to i32
-  %63 = add nuw nsw i32 %62, 1
-  store i32 %63, ptr %20, align 8, !tbaa !110
-  %64 = getelementptr [8 x i8], ptr @mi_arenas, i64 %57
-  %65 = ptrtoint ptr %20 to i64
-  store atomic i64 %65, ptr %64 release, align 8
+60:                                               ; preds = %55
+  %61 = trunc nuw nsw i64 %56 to i32
+  %62 = add nuw nsw i32 %61, 1
+  store i32 %62, ptr %20, align 8, !tbaa !110
+  %63 = getelementptr [8 x i8], ptr @mi_arenas, i64 %56
+  %64 = ptrtoint ptr %20 to i64
+  store atomic i64 %64, ptr %63 release, align 8
   br label %mi_arena_add.exit.i
 
-mi_arena_add.exit.i:                              ; preds = %61, %59, %12
-  %.1.i = phi i1 [ false, %12 ], [ true, %61 ], [ false, %59 ]
+mi_arena_add.exit.i:                              ; preds = %60, %58, %12
+  %.1.i = phi i1 [ false, %12 ], [ true, %60 ], [ false, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %mi_manage_os_memory_ex2.exit
 

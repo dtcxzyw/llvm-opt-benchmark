@@ -248,18 +248,15 @@ define internal range(i32 -2147483648, 8191) i32 @read_access_unit(ptr noundef %
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %28 = shl nuw nsw i32 %23, 3
   %29 = add nsw i32 %28, -32
-  %or.cond.i = icmp ult i32 %29, 2147483135
-  %.018.i = select i1 %or.cond.i, i32 %29, i32 0
-  %.017.i = select i1 %or.cond.i, ptr %27, ptr null
-  %30 = lshr exact i32 %.018.i, 3
-  store ptr %.017.i, ptr %8, align 8, !tbaa !46
+  %30 = lshr exact i32 %29, 3
+  store ptr %27, ptr %8, align 8, !tbaa !46
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i32 %.018.i, ptr %31, align 4, !tbaa !48
-  %32 = or disjoint i32 %.018.i, 8
+  store i32 %29, ptr %31, align 4, !tbaa !48
+  %32 = or disjoint i32 %29, 8
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %32, ptr %33, align 8, !tbaa !49
   %34 = zext nneg i32 %30 to i64
-  %35 = getelementptr inbounds nuw i8, ptr %.017.i, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %35, ptr %36, align 8, !tbaa !50
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 16

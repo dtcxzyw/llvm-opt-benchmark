@@ -12856,8 +12856,6 @@ define internal fastcc void @_ZN12_GLOBAL__N_111DeclPrinter22VisitClassTemplateD
   %26 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 3
   %.not.i.i.i.i.i.i = icmp eq i64 %26, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i.i.i)
-  %.not.i.i.i.not = icmp ne i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.not)
   %27 = inttoptr i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i to ptr
   %28 = tail call noundef zeroext i1 @_ZNK5clang10RecordDecl19isInjectedClassNameEv(ptr noundef nonnull align 8 dereferenceable(128) %27) #17
   br i1 %28, label %.lr.ph.i.i.i, label %_ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializationDeclENS0_15SpecEntryTraitsIS2_EES2_EdeEv.exit, !llvm.loop !741

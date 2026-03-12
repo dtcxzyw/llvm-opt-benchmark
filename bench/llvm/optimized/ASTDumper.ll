@@ -1960,8 +1960,6 @@ _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4Decl
   %62 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 3
   %.not.i.i.i.i.i.i = icmp eq i64 %62, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i.i.i)
-  %.not.i.i.i.not = icmp ne i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.not)
   %63 = inttoptr i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i to ptr
   %64 = tail call noundef zeroext i1 @_ZNK5clang10RecordDecl19isInjectedClassNameEv(ptr noundef nonnull align 8 dereferenceable(128) %63) #21
   br i1 %64, label %.lr.ph.i.i.i, label %_ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializationDeclENS0_15SpecEntryTraitsIS2_EES2_EdeEv.exit, !llvm.loop !113
@@ -38747,8 +38745,6 @@ _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4De
   %61 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 3
   %.not.i.i.i.i.i.i = icmp eq i64 %61, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i.i.i)
-  %.not.i.i.i.not = icmp ne i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.not)
   %62 = inttoptr i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i to ptr
   %63 = tail call noundef zeroext i1 @_ZNK5clang10RecordDecl19isInjectedClassNameEv(ptr noundef nonnull align 8 dereferenceable(128) %62) #21
   br i1 %63, label %.lr.ph.i.i.i, label %_ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializationDeclENS0_15SpecEntryTraitsIS2_EES2_EdeEv.exit, !llvm.loop !113

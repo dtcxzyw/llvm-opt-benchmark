@@ -46300,15 +46300,11 @@ _ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo.exit30.i: ; preds
   %sub3.i = sub i64 %count, %div13.i
   call void @llvm.lifetime.start.p0(ptr nonnull %text.i31.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %text.i31.i, i8 0, i64 5, i1 false)
-  %cmp.not7.i32.i = icmp eq i64 %count, %div13.i
-  br i1 %cmp.not7.i32.i, label %_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo.exit48.i, label %for.body.i33.preheader.i
-
-for.body.i33.preheader.i:                         ; preds = %_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo.exit30.i
   %invariant.gep.i = getelementptr i8, ptr %obj_bytes, i64 %div13.i
   br label %for.body.i33.i
 
-for.body.i33.i:                                   ; preds = %if.end5.i41.i, %for.body.i33.preheader.i
-  %i.08.i34.i = phi i64 [ %inc.i46.i, %if.end5.i41.i ], [ 0, %for.body.i33.preheader.i ]
+for.body.i33.i:                                   ; preds = %if.end5.i41.i, %_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo.exit30.i
+  %i.08.i34.i = phi i64 [ %inc.i46.i, %if.end5.i41.i ], [ 0, %_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo.exit30.i ]
   %cmp1.not.i35.i = icmp eq i64 %i.08.i34.i, 0
   br i1 %cmp1.not.i35.i, label %if.end5.i41.i, label %if.then.i36.i
 
@@ -46329,7 +46325,7 @@ if.end5.i41.i:                                    ; preds = %if.then.i36.i, %for
   %cmp.not.i47.i = icmp eq i64 %inc.i46.i, %sub3.i
   br i1 %cmp.not.i47.i, label %_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo.exit48.i, label %for.body.i33.i, !llvm.loop !736
 
-_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo.exit48.i: ; preds = %if.end5.i41.i, %_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo.exit30.i
+_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo.exit48.i: ; preds = %if.end5.i41.i
   call void @llvm.lifetime.end.p0(ptr nonnull %text.i31.i)
   br label %_ZN7testing12_GLOBAL__N_124PrintBytesInObjectToImplEPKhmPSo.exit
 

@@ -3027,7 +3027,7 @@ define void @_ZN6open3d9pipelines8odometry19ComputeRGBDOdometryERKNS_8geometry9R
   %or.cond94 = select i1 %or.cond81.i, i1 %141, i1 false
   br i1 %or.cond94, label %150, label %_ZN6open3d9pipelines8odometryL18CheckRGBDImagePairERKNS_8geometry9RGBDImageES5_.exit.thread
 
-_ZN6open3d9pipelines8odometryL18CheckRGBDImagePairERKNS_8geometry9RGBDImageES5_.exit.thread: ; preds = %109, %117, %100, %121, %69, %77, %60, %81, %101, %61
+_ZN6open3d9pipelines8odometryL18CheckRGBDImagePairERKNS_8geometry9RGBDImageES5_.exit.thread: ; preds = %109, %117, %60, %121, %69, %77, %100, %81, %101, %61
   tail call void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str.3, i32 noundef 509, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d9pipelines8odometry19ComputeRGBDOdometryERKNS_8geometry9RGBDImageES5_RKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEERKNS1_20RGBDOdometryJacobianERKNS1_14OdometryOptionE, ptr noundef nonnull @.str.4)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(288) %0, i8 0, i64 288, i1 false), !tbaa !7
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 288

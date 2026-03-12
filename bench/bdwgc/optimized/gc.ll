@@ -14072,7 +14072,7 @@ GC_build_fl4.exit.i:                              ; preds = %327
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4088) %335, i8 0, i64 4088, i1 false)
   br label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %333, %334
+.lr.ph.preheader.i:                               ; preds = %334, %333
   %336 = and i64 %0, 4080
   %337 = sub nuw nsw i64 4096, %336
   %338 = getelementptr inbounds nuw i8, ptr %229, i64 %337
@@ -14297,7 +14297,7 @@ GC_build_fl4.exit.i168:                           ; preds = %404
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4088) %412, i8 0, i64 4088, i1 false)
   br label %.lr.ph.preheader.i182
 
-.lr.ph.preheader.i182:                            ; preds = %410, %411
+.lr.ph.preheader.i182:                            ; preds = %411, %410
   %413 = and i64 %0, 4080
   %414 = sub nuw nsw i64 4096, %413
   %415 = getelementptr inbounds nuw i8, ptr %229, i64 %414

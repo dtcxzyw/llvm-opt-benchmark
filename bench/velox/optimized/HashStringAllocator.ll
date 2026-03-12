@@ -3424,14 +3424,6 @@ _ZN8facebook5velox17CompactDoubleList9nextMovedEPS1_.exit: ; preds = %_ZN8facebo
   %previousHigh_.i11.i = getelementptr inbounds nuw i8, ptr %22, i64 10
   store i32 %conv.i.i.i39, ptr %previousLow_.i10.i, align 4
   store i16 %conv12.i.i.i, ptr %previousHigh_.i11.i, align 2
-  %cmp.i44 = icmp sgt i32 %numBytes, 536870911
-  br i1 %cmp.i44, label %if.then.i47, label %_ZN8facebook5velox19HashStringAllocator6Header7setSizeEi.exit
-
-if.then.i47:                                      ; preds = %_ZN8facebook5velox17CompactDoubleList9nextMovedEPS1_.exit
-  tail call void @llvm.trap()
-  unreachable
-
-_ZN8facebook5velox19HashStringAllocator6Header7setSizeEi.exit: ; preds = %_ZN8facebook5velox17CompactDoubleList9nextMovedEPS1_.exit
   %23 = load i32, ptr %add.ptr.i, align 4
   %and.i45 = and i32 %23, -536870912
   %or.i46 = or disjoint i32 %and.i45, %.sroa.speculated
@@ -3451,8 +3443,8 @@ if.else42:                                        ; preds = %if.end21
   %tobool.not = icmp eq ptr %call43, null
   br i1 %tobool.not, label %return, label %if.end47
 
-if.end47:                                         ; preds = %_ZN8facebook5velox19HashStringAllocator6Header7setSizeEi.exit, %if.else42, %if.end8
-  %header.0 = phi ptr [ %call9, %if.end8 ], [ %add.ptr.i, %_ZN8facebook5velox19HashStringAllocator6Header7setSizeEi.exit ], [ %call43, %if.else42 ]
+if.end47:                                         ; preds = %_ZN8facebook5velox17CompactDoubleList9nextMovedEPS1_.exit, %if.else42, %if.end8
+  %header.0 = phi ptr [ %call9, %if.end8 ], [ %add.ptr.i, %_ZN8facebook5velox17CompactDoubleList9nextMovedEPS1_.exit ], [ %call43, %if.else42 ]
   %add.ptr.i48 = getelementptr inbounds nuw i8, ptr %header.0, i64 4
   %cmp.not95.i = icmp slt i32 %numBytes, 32
   br i1 %cmp.not95.i, label %while.cond2.preheader.i, label %if.then.i.i
