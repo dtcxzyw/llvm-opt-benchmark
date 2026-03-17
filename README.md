@@ -1,5 +1,9 @@
 # LLVM Opt Benchmark
 
+**IMPORTANT: This repository has moved to https://github.com/dtcxzyw/llvm-opt-benchmark-nightly**. 
+
+----
+
 [![CI](https://github.com/dtcxzyw/llvm-opt-benchmark/actions/workflows/llvm-ci.yml/badge.svg?branch=main)](https://github.com/dtcxzyw/llvm-opt-benchmark/actions/workflows/llvm-ci.yml)
 ![GitHub repo size in bytes](https://img.shields.io/github/repo-size/dtcxzyw/llvm-opt-benchmark)
 
