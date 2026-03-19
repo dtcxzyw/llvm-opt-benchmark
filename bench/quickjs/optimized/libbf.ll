@@ -2683,8 +2683,7 @@ mp_neg.exit:                                      ; preds = %mp_neg.exit.loopexi
 
 ._crit_edge192:                                   ; preds = %.lr.ph191
   %106 = getelementptr inbounds [8 x i8], ptr %45, i64 %42
-  %.not.i155 = icmp eq i64 %3, %35
-  br i1 %.not.i155, label %bf_free.exit163, label %.lr.ph.i156
+  br label %.lr.ph.i156
 
 .lr.ph.i156:                                      ; preds = %._crit_edge192, %.lr.ph.i156
   %.021.i = phi i64 [ %117, %.lr.ph.i156 ], [ 0, %._crit_edge192 ]
@@ -2704,9 +2703,9 @@ mp_neg.exit:                                      ; preds = %mp_neg.exit.loopexi
   %exitcond.not.i157 = icmp eq i64 %117, %36
   br i1 %exitcond.not.i157, label %bf_free.exit163, label %.lr.ph.i156, !llvm.loop !50
 
-bf_free.exit163:                                  ; preds = %.lr.ph.i156, %.lr.ph.i, %.lr.ph.i138, %._crit_edge192
-  %.1115 = phi ptr [ %14, %.lr.ph.i ], [ %14, %.lr.ph.i138 ], [ %41, %._crit_edge192 ], [ %41, %.lr.ph.i156 ]
-  %.1 = phi ptr [ %11, %.lr.ph.i ], [ %11, %.lr.ph.i138 ], [ %45, %._crit_edge192 ], [ %45, %.lr.ph.i156 ]
+bf_free.exit163:                                  ; preds = %.lr.ph.i156, %.lr.ph.i, %.lr.ph.i138
+  %.1115 = phi ptr [ %14, %.lr.ph.i ], [ %14, %.lr.ph.i138 ], [ %41, %.lr.ph.i156 ]
+  %.1 = phi ptr [ %11, %.lr.ph.i ], [ %11, %.lr.ph.i138 ], [ %45, %.lr.ph.i156 ]
   %.val.i = load ptr, ptr %0, align 8, !tbaa !19
   %118 = getelementptr i8, ptr %0, i64 8
   %.val3.i = load ptr, ptr %118, align 8, !tbaa !7

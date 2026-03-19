@@ -1421,35 +1421,31 @@ define dso_local void @intel_uncore_forcewake_put_delayed(ptr noundef %0, i32 no
   tail call void @hrtimer_start_range_ns(ptr noundef nonnull %49, i64 noundef 1000000, i64 noundef 1000000, i32 noundef 1) #12
   br label %35
 
-50:                                               ; preds = %37
-  %51 = icmp eq i32 %42, 0
-  br i1 %51, label %.loopexit, label %.preheader
-
-.preheader:                                       ; preds = %50, %66
-  %52 = phi i32 [ %58, %66 ], [ %42, %50 ]
-  %53 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %52, i32 -1) #13, !srcloc !9
-  %54 = zext nneg i32 %53 to i64
-  %55 = shl nuw i64 1, %54
-  %56 = trunc i64 %55 to i32
-  %57 = xor i32 %56, -1
-  %58 = and i32 %52, %57
-  %59 = sext i32 %53 to i64
-  %60 = getelementptr [8 x i8], ptr %14, i64 %59
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %66, label %63
+50:                                               ; preds = %37, %64
+  %50 = phi i32 [ %56, %64 ], [ %42, %37 ]
+  %51 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %50, i32 -1) #13, !srcloc !9
+  %52 = zext nneg i32 %51 to i64
+  %53 = shl nuw i64 1, %52
+  %54 = trunc i64 %53 to i32
+  %55 = xor i32 %54, -1
+  %56 = and i32 %50, %55
+  %57 = sext i32 %51 to i64
+  %58 = getelementptr [8 x i8], ptr %14, i64 %57
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %64, label %61
 
 63:                                               ; preds = %.preheader
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 88
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 88
   %65 = load ptr, ptr %64, align 8
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %65) #12, !srcloc !18
   br label %66
 
 66:                                               ; preds = %63, %.preheader
-  %67 = icmp eq i32 %58, 0
+  %67 = icmp eq i32 %56, 0
   br i1 %67, label %.loopexit, label %.preheader, !llvm.loop !19
 
-.loopexit:                                        ; preds = %66, %50
+.loopexit:                                        ; preds = %66
   %68 = xor i32 %42, -1
   %69 = load i32, ptr %15, align 8
   %70 = and i32 %69, %68

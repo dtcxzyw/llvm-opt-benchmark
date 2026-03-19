@@ -1573,11 +1573,9 @@ define hidden zeroext i16 @be_chan_type(ptr noundef %0, ptr noundef %1, ptr noun
   br label %47
 
 45:                                               ; preds = %41
-  %or.cond8 = icmp ne i8 %43, 48
+  %or.cond8 = icmp eq i8 %43, 48
   %46 = add nsw i8 %28, -47
-  %.not186 = icmp eq i8 %46, 0
-  %or.cond = select i1 %or.cond8, i1 true, i1 %.not186
-  br i1 %or.cond, label %.thread, label %47
+  br i1 %or.cond8.not, label %47, label %.thread
 
 47:                                               ; preds = %45, %.thread194
   %.0176197 = phi i8 [ %44, %.thread194 ], [ %46, %45 ]
@@ -1703,7 +1701,7 @@ switch.lookup207:                                 ; preds = %86
   br label %90
 
 90:                                               ; preds = %switch.lookup207, %switch.lookup, %73, %67, %85, %72, %71, %70, %69, %68, %81, %80, %79, %78, %77, %76, %75, %74
-  %.0 = phi ptr [ %switch.load209, %switch.lookup207 ], [ @.str.104, %73 ], [ @.str.99, %68 ], [ @.str.100, %69 ], [ @.str.101, %70 ], [ @.str.102, %71 ], [ @.str.103, %72 ], [ %switch.load, %switch.lookup ], [ @.str.98, %67 ], [ @.str.105, %74 ], [ @.str.106, %75 ], [ @.str.107, %76 ], [ @.str.108, %77 ], [ @.str.109, %78 ], [ @.str.110, %79 ], [ @.str.111, %80 ], [ @.str.112, %81 ], [ @.str.28, %85 ]
+  %.0 = phi ptr [ %switch.load209, %switch.lookup206 ], [ @.str.104, %73 ], [ @.str.99, %68 ], [ @.str.100, %69 ], [ @.str.101, %70 ], [ @.str.102, %71 ], [ @.str.103, %72 ], [ %switch.load, %switch.lookup ], [ @.str.98, %67 ], [ @.str.105, %74 ], [ @.str.106, %75 ], [ @.str.107, %76 ], [ @.str.108, %77 ], [ @.str.109, %78 ], [ @.str.110, %79 ], [ @.str.111, %80 ], [ @.str.112, %81 ], [ @.str.28, %85 ]
   %91 = load i32, ptr @hf_gsm_a_bssmap_rate, align 4
   %92 = and i8 %58, 63
   %93 = zext nneg i8 %92 to i32

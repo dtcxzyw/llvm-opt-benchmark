@@ -19308,10 +19308,9 @@ _ZNK12symbol_tableIN4smt26parser5localEE10hash_entry8get_hashEv.exit.i: ; preds 
   %36 = zext i32 %35 to i64
   %.idx43.i = mul nuw nsw i64 %36, 24
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx43.i
-  %.not2933.i = icmp eq i32 %35, %12
-  br i1 %.not2933.i, label %.preheader.i, label %.lr.ph.i
+  br label %.lr.ph.i
 
-.preheader.i:                                     ; preds = %41, %_ZNK12symbol_tableIN4smt26parser5localEE10hash_entry8get_hashEv.exit.i
+.preheader.i:                                     ; preds = %41
   %.not3035.i = icmp eq i32 %35, 0
   br i1 %.not3035.i, label %._crit_edge.i, label %.lr.ph37.i
 
@@ -19331,7 +19330,7 @@ _ZNK12symbol_tableIN4smt26parser5localEE10hash_entry8get_hashEv.exit.i: ; preds 
   br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !525
 
 .lr.ph37.i:                                       ; preds = %.preheader.i, %46
-  %.136.i = phi ptr [ %47, %46 ], [ %8, %.preheader.i ]
+  %.136.i = phi ptr [ %47, %46 ], [ %8, %.preheader.i.loopexit ]
   %43 = load ptr, ptr %.136.i, align 8, !tbaa !316
   %44 = icmp eq ptr %43, %17
   br i1 %44, label %45, label %46

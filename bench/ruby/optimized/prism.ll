@@ -25143,13 +25143,13 @@ pm_interpolated_xstring_node_append.exit:         ; preds = %2487, %2489, %.thre
   br label %pm_interpolated_xstring_node_closing_set.exit2704
 
 pm_interpolated_xstring_node_closing_set.exit2704: ; preds = %2531, %.thread3044
+  %.sroa.8.03049 = phi ptr [ %.sroa.8.0.copyload, %2531 ], [ %2530, %.thread3044 ]
   %.sink8.i2702 = phi ptr [ %.sroa.62758.0.copyload, %2531 ], [ %2530, %.thread3044 ]
-  %.sink.i2703 = phi ptr [ %.sroa.8.0.copyload, %2531 ], [ %2530, %.thread3044 ]
   %2532 = getelementptr inbounds nuw i8, ptr %.11813, i64 64
   store ptr %.sink8.i2702, ptr %2532, align 8, !tbaa !14
   %2533 = getelementptr inbounds nuw i8, ptr %.11813, i64 72
-  store ptr %.sink.i2703, ptr %2533, align 8, !tbaa !14
-  store ptr %.sink.i2703, ptr %2483, align 8, !tbaa !396
+  store ptr %.sroa.8.03049, ptr %2533, align 8, !tbaa !14
+  store ptr %.sroa.8.03049, ptr %2483, align 8, !tbaa !396
   br label %2534
 
 2534:                                             ; preds = %.thread3041, %pm_interpolated_xstring_node_closing_set.exit2704, %2431

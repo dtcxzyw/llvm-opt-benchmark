@@ -3814,15 +3814,10 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i, label %if.end8.i
 
 if.then.i:                                        ; preds = %if.end
-  %tobool.not.i.i.i.i.i.i = icmp eq i32 %bf.load.i.i.i, 0
-  %storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %storage.i.i.i.i.i.i.i, align 8
-  %cond.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i, ptr %1, ptr %storage.i.i.i.i.i.i.i
-  %NumBuckets.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load i32, ptr %NumBuckets.i.i.i.i.i, align 8
-  %cond.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i, i32 %2, i32 8
-  %idx.ext.i.i.i = zext i32 %cond.i.i.i.i.i to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %cond.i.i.i.i.i.i, i64 %idx.ext.i.i.i
+  %storage.i.i.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %.pre = load ptr, ptr %storage.i.i.i.i.i.i.phi.trans.insert, align 8
+  %NumBuckets.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %.pre9 = load i32, ptr %NumBuckets.i.i.i.i.phi.trans.insert, align 8
   br label %_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIN6hermes2vm6detail10TransitionENS3_7WeakRefINS3_11HiddenClassEEELj8ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5beginEv.exit
 
 if.end8.i:                                        ; preds = %if.end
@@ -3858,10 +3853,10 @@ while.body.i8.i15.i28.i:                          ; preds = %land.rhs.i4.i10.i20
 
 _ZN4llvh12DenseMapBaseINS_13SmallDenseMapIN6hermes2vm6detail10TransitionENS3_7WeakRefINS3_11HiddenClassEEELj8ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5beginEv.exit: ; preds = %land.rhs.i4.i10.i20.i, %while.body.i8.i15.i28.i, %if.then.i, %if.end8.i
   %bf.clear.i.i.i.i.i.pre-phi = phi i32 [ %bf.clear.i.i.i6.i, %if.end8.i ], [ %bf.load.i.i.i, %if.then.i ], [ %bf.clear.i.i.i6.i, %while.body.i8.i15.i28.i ], [ %bf.clear.i.i.i6.i, %land.rhs.i4.i10.i20.i ]
-  %9 = phi i32 [ %4, %if.end8.i ], [ %2, %if.then.i ], [ %4, %while.body.i8.i15.i28.i ], [ %4, %land.rhs.i4.i10.i20.i ]
-  %10 = phi ptr [ %3, %if.end8.i ], [ %1, %if.then.i ], [ %3, %while.body.i8.i15.i28.i ], [ %3, %land.rhs.i4.i10.i20.i ]
-  %add.ptr.i.i.pn32.i = phi ptr [ %cond.i.i.i9.i, %if.end8.i ], [ %add.ptr.i.i.i, %if.then.i ], [ %retval.sroa.0.3.i21.i, %land.rhs.i4.i10.i20.i ], [ %add.ptr.i18.i, %while.body.i8.i15.i28.i ]
-  %add.ptr.i.i.pn.i = phi ptr [ %add.ptr.i18.i, %if.end8.i ], [ %add.ptr.i.i.i, %if.then.i ], [ %add.ptr.i18.i, %while.body.i8.i15.i28.i ], [ %add.ptr.i18.i, %land.rhs.i4.i10.i20.i ]
+  %9 = phi i32 [ %4, %if.end8.i ], [ %.pre9, %if.then.i ], [ %4, %while.body.i8.i15.i28.i ], [ %4, %land.rhs.i4.i10.i20.i ]
+  %10 = phi ptr [ %3, %if.end8.i ], [ %.pre, %if.then.i ], [ %3, %while.body.i8.i15.i28.i ], [ %3, %land.rhs.i4.i10.i20.i ]
+  %add.ptr.i.i.pn32.i = phi ptr [ %cond.i.i.i9.i, %if.end8.i ], [ %pruneLimit_, %if.then.i ], [ %retval.sroa.0.3.i21.i, %land.rhs.i4.i10.i20.i ], [ %add.ptr.i18.i, %while.body.i8.i15.i28.i ]
+  %add.ptr.i.i.pn.i = phi ptr [ %add.ptr.i18.i, %if.end8.i ], [ %pruneLimit_, %if.then.i ], [ %add.ptr.i18.i, %while.body.i8.i15.i28.i ], [ %add.ptr.i18.i, %land.rhs.i4.i10.i20.i ]
   %tobool.not.i.i.i.i.i = icmp eq i32 %bf.clear.i.i.i.i.i.pre-phi, 0
   %storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %cond.i.i.i.i.i1 = select i1 %tobool.not.i.i.i.i.i, ptr %10, ptr %storage.i.i.i.i.i.i

@@ -2501,27 +2501,26 @@ _ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tab
   br i1 %.not38.i, label %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit, label %.lr.ph41.i
 
 .lr.ph41.i:                                       ; preds = %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tableEj.exit, %36
-  %.02839.i = phi ptr [ %37, %36 ], [ %12, %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tableEj.exit ]
+  %.02839.i = phi ptr [ %37, %35 ], [ %12, %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tableEj.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !26
   %20 = icmp ult ptr %19, inttoptr (i64 2 to ptr)
-  br i1 %20, label %36, label %21
+  br i1 %20, label %36, label %.preheader.i
 
-21:                                               ; preds = %.lr.ph41.i
-  %22 = load i32, ptr %.02839.i, align 8, !tbaa !56
-  %23 = and i32 %22, %14
-  %24 = zext i32 %23 to i64
-  %.idx43.i = shl nuw nsw i64 %24, 4
-  %25 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx43.i
-  %.not2933.i = icmp eq i32 %23, %13
-  br i1 %.not2933.i, label %.preheader.i, label %.lr.ph.i
+.preheader.i:                                     ; preds = %.lr.ph41.i
+  %21 = load i32, ptr %.02839.i, align 8, !tbaa !56
+  %22 = and i32 %21, %14
+  %23 = zext i32 %22 to i64
+  %.idx43.i = shl nuw nsw i64 %23, 4
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx43.i
+  br label %.lr.ph.i
 
-.preheader.i:                                     ; preds = %29, %21
-  %.not3035.i = icmp eq i32 %23, 0
+.preheader.i:                                     ; preds = %28
+  %.not3035.i = icmp eq i32 %22, 0
   br i1 %.not3035.i, label %.preheader._crit_edge.i, label %.lr.ph37.i
 
-.lr.ph.i:                                         ; preds = %21, %29
-  %.034.i = phi ptr [ %30, %29 ], [ %25, %21 ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %29
+  %.034.i = phi ptr [ %30, %28 ], [ %24, %.lr.ph.i.preheader ]
   %26 = getelementptr inbounds nuw i8, ptr %.034.i, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !26
   %28 = icmp eq ptr %27, null
@@ -2533,7 +2532,7 @@ _ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tab
   br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !59
 
 .lr.ph37.i:                                       ; preds = %.preheader.i, %34
-  %.136.i = phi ptr [ %35, %34 ], [ %8, %.preheader.i ]
+  %.136.i = phi ptr [ %35, %33 ], [ %8, %.preheader.i ]
   %31 = getelementptr inbounds nuw i8, ptr %.136.i, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !26
   %33 = icmp eq ptr %32, null
@@ -2541,7 +2540,7 @@ _ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tab
 
 34:                                               ; preds = %.lr.ph37.i
   %35 = getelementptr inbounds nuw i8, ptr %.136.i, i64 16
-  %.not30.i = icmp eq ptr %35, %25
+  %.not30.i = icmp eq ptr %35, %24
   br i1 %.not30.i, label %.preheader._crit_edge.i, label %.lr.ph37.i, !llvm.loop !60
 
 .preheader._crit_edge.i:                          ; preds = %.preheader.i, %34

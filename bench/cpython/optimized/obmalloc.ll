@@ -9140,13 +9140,11 @@ define internal fastcc noundef zeroext i1 @mi_manage_os_memory_ex2(ptr noundef %
 _mi_bitmap_claim.exit:                            ; preds = %57
   %61 = lshr i64 %1, 31
   %62 = and i64 %15, 63
-  %63 = icmp samesign ugt i64 %59, 63
   %notmask.i.i = shl nsw i64 -1, %59
   %64 = xor i64 %notmask.i.i, -1
   %65 = shl i64 %64, %62
-  %.0.i.i = select i1 %63, i64 -1, i64 %65
-  %66 = getelementptr [8 x i8], ptr %39, i64 %61
-  %67 = atomicrmw or ptr %66, i64 %.0.i.i acq_rel, align 8
+  %65 = getelementptr [8 x i8], ptr %39, i64 %61
+  %66 = atomicrmw or ptr %65, i64 %64 acq_rel, align 8
   br label %68
 
 68:                                               ; preds = %_mi_bitmap_claim.exit, %57
@@ -9187,7 +9185,7 @@ _mi_bitmap_claim.exit:                            ; preds = %57
   br label %mi_arena_add.exit
 
 mi_arena_add.exit:                                ; preds = %81, %76, %74, %14
-  %.1 = phi i1 [ false, %14 ], [ true, %76 ], [ true, %81 ], [ false, %74 ]
+  %.1 = phi i1 [ false, %14 ], [ true, %75 ], [ true, %80 ], [ false, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %86
 
@@ -9606,13 +9604,11 @@ define hidden noundef zeroext i1 @mi_manage_os_memory(ptr noundef %0, i64 nounde
 _mi_bitmap_claim.exit.i:                          ; preds = %45
   %49 = lshr i64 %1, 31
   %50 = and i64 %13, 63
-  %51 = icmp samesign ugt i64 %47, 63
   %notmask.i.i.i = shl nsw i64 -1, %47
   %52 = xor i64 %notmask.i.i.i, -1
   %53 = shl i64 %52, %50
-  %.0.i.i.i = select i1 %51, i64 -1, i64 %53
-  %54 = getelementptr [8 x i8], ptr %34, i64 %49
-  %55 = atomicrmw or ptr %54, i64 %.0.i.i.i acq_rel, align 8
+  %53 = getelementptr [8 x i8], ptr %34, i64 %49
+  %54 = atomicrmw or ptr %53, i64 %52 acq_rel, align 8
   br label %56
 
 56:                                               ; preds = %_mi_bitmap_claim.exit.i, %45
@@ -9634,7 +9630,7 @@ _mi_bitmap_claim.exit.i:                          ; preds = %45
   br label %mi_arena_add.exit.i
 
 mi_arena_add.exit.i:                              ; preds = %61, %59, %12
-  %.1.i = phi i1 [ false, %12 ], [ true, %61 ], [ false, %59 ]
+  %.1.i = phi i1 [ false, %12 ], [ true, %60 ], [ false, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %mi_manage_os_memory_ex2.exit
 

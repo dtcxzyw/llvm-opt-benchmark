@@ -18090,48 +18090,40 @@ define internal fastcc void @rcu_report_exp_cpu_mult(ptr noundef %0, i64 noundef
 20:                                               ; preds = %19, %10
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %22 = load i32, ptr %21, align 16
-  %23 = icmp eq i64 %1, 0
-  br i1 %23, label %27, label %24
+  %23 = tail call i64 asm "rep ; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1) #29, !srcloc !127
+  %24 = trunc i64 %23 to i32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %26 = load i32, ptr %25, align 4
+  %27 = add i32 %22, %24
+  %28 = icmp sgt i32 %27, %26
+  br i1 %28, label %.loopexit, label %.preheader
 
-24:                                               ; preds = %20
-  %25 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1) #29, !srcloc !127
-  %26 = trunc i64 %25 to i32
-  br label %27
+24:                                               ; preds = %20, %41
+  %29 = phi i32 [ %43, %41 ], [ %27, %20 ]
+  %30 = sub i32 %29, %22
+  %31 = add i32 %30, 1
+  %32 = icmp ugt i32 %31, 63
+  br i1 %32, label %41, label %33, !prof !29
 
-27:                                               ; preds = %24, %20
-  %28 = phi i32 [ %26, %24 ], [ 64, %20 ]
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %30 = load i32, ptr %29, align 4
-  %31 = add i32 %28, %22
-  %32 = icmp sgt i32 %31, %30
-  br i1 %32, label %.loopexit, label %.preheader
+33:                                               ; preds = %.preheader
+  %34 = zext nneg i32 %31 to i64
+  %35 = shl nsw i64 -1, %34
+  %36 = and i64 %35, %1
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %41, label %38
 
-.preheader:                                       ; preds = %27, %45
-  %33 = phi i32 [ %47, %45 ], [ %31, %27 ]
-  %34 = sub i32 %33, %22
-  %35 = add i32 %34, 1
-  %36 = icmp ugt i32 %35, 63
-  br i1 %36, label %45, label %37, !prof !29
+27:                                               ; preds = %33
+  %39 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %36) #29, !srcloc !127
+  %40 = trunc i64 %39 to i32
+  br label %41
 
-37:                                               ; preds = %.preheader
-  %38 = zext nneg i32 %35 to i64
-  %39 = shl nsw i64 -1, %38
-  %40 = and i64 %39, %1
-  %41 = icmp eq i64 %40, 0
-  br i1 %41, label %45, label %42
-
-42:                                               ; preds = %37
-  %43 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %40) #29, !srcloc !127
-  %44 = trunc i64 %43 to i32
-  br label %45
-
-45:                                               ; preds = %42, %37, %.preheader
-  %46 = phi i32 [ 64, %.preheader ], [ %44, %42 ], [ 64, %37 ]
+45:                                               ; preds = %27, %33, %.preheader
+  %46 = phi i32 [ 64, %.preheader ], [ %40, %38 ], [ 64, %33 ]
   %47 = add i32 %46, %22
-  %48 = icmp sgt i32 %47, %30
+  %48 = icmp sgt i32 %47, %26
   br i1 %48, label %.loopexit, label %.preheader, !llvm.loop !623
 
-.loopexit:                                        ; preds = %45, %27
+.loopexit:                                        ; preds = %45, %20
   tail call fastcc void @__rcu_report_exp_rnp(ptr noundef %0, i1 noundef zeroext %2, i64 noundef %4)
   br label %49
 

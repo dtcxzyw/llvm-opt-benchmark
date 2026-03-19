@@ -11430,28 +11430,24 @@ define range(i32 -128, 2097152) i32 @GetCodepoint(ptr noundef readonly captures(
   br label %.critedge
 
 77:                                               ; preds = %74
-  %78 = icmp samesign ugt i8 %3, -17
-  br i1 %78, label %79, label %.critedge
-
-79:                                               ; preds = %77
-  %80 = shl nuw nsw i32 %4, 18
-  %81 = and i32 %80, 1835008
-  %82 = shl nuw nsw i32 %59, 12
-  %83 = and i32 %82, 258048
-  %84 = or disjoint i32 %83, %81
-  %.fr = freeze i32 %84
-  %85 = shl nuw nsw i32 %64, 6
-  %86 = and i32 %85, 4032
-  %87 = and i32 %69, 63
-  %88 = or disjoint i32 %86, %87
-  %89 = or i32 %88, %.fr
+  %78 = shl nuw nsw i32 %4, 18
+  %79 = and i32 %78, 1835008
+  %80 = shl nuw nsw i32 %59, 12
+  %81 = and i32 %80, 258048
+  %82 = or disjoint i32 %81, %79
+  %.fr = freeze i32 %82
+  %82 = shl nuw nsw i32 %64, 6
+  %83 = and i32 %82, 4032
+  %85 = and i32 %69, 63
+  %86 = or disjoint i32 %84, %85
+  %87 = or i32 %86, %.fr
   store i32 4, ptr %1, align 4
   %90 = icmp ugt i32 %.fr, 1114111
-  %spec.select = select i1 %90, i32 63, i32 %89
+  %spec.select = select i1 %90, i32 63, i32 %87
   br label %.critedge
 
-.critedge:                                        ; preds = %79, %44, %42, %16, %52, %18, %77, %6, %30, %35, %41, %.critedge.critedge, %60, %65, %70, %76
-  %.1 = phi i32 [ 63, %30 ], [ 63, %.critedge.critedge ], [ 63, %60 ], [ %8, %6 ], [ 63, %76 ], [ 63, %70 ], [ 63, %65 ], [ 63, %41 ], [ 63, %35 ], [ 63, %77 ], [ %spec.select, %79 ], [ %51, %44 ], [ 63, %42 ], [ 63, %16 ], [ 63, %52 ], [ %22, %18 ]
+.critedge:                                        ; preds = %77, %44, %42, %16, %52, %18, %6, %30, %35, %41, %.critedge.critedge, %60, %65, %70, %76
+  %.1 = phi i32 [ 63, %30 ], [ 63, %.critedge.critedge ], [ 63, %60 ], [ %8, %6 ], [ 63, %76 ], [ 63, %70 ], [ 63, %65 ], [ 63, %41 ], [ 63, %35 ], [ %22, %18 ], [ %spec.select, %77 ], [ %51, %44 ], [ 63, %42 ], [ 63, %16 ], [ 63, %52 ]
   ret i32 %.1
 }
 

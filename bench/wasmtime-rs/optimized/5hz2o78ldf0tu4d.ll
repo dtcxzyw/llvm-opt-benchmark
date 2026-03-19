@@ -83,7 +83,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.1a7877b4d25764724cd66411c116da83.96 = private unnamed_addr constant <{ [16 x i8] }> <{ [16 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF" }>, align 16
 @anon.1a7877b4d25764724cd66411c116da83.97 = private unnamed_addr constant <{ ptr, [24 x i8] }> <{ ptr @anon.1a7877b4d25764724cd66411c116da83.96, [24 x i8] zeroinitializer }>, align 8
 @anon.1a7877b4d25764724cd66411c116da83.98.llvm.6092180546091225645 = hidden unnamed_addr constant <{ [37 x i8] }> <{ [37 x i8] c"cranelift/codegen/src/machinst/abi.rs" }>, align 1
-@anon.1a7877b4d25764724cd66411c116da83.100 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.1a7877b4d25764724cd66411c116da83.98.llvm.6092180546091225645, [16 x i8] c"%\00\00\00\00\00\00\005\03\00\00(\00\00\00" }>, align 8
 @anon.1a7877b4d25764724cd66411c116da83.103 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.1a7877b4d25764724cd66411c116da83.98.llvm.6092180546091225645, [16 x i8] c"%\00\00\00\00\00\00\00i\03\00\00;\00\00\00" }>, align 8
 @anon.1a7877b4d25764724cd66411c116da83.104 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.1a7877b4d25764724cd66411c116da83.98.llvm.6092180546091225645, [16 x i8] c"%\00\00\00\00\00\00\00t\03\00\00;\00\00\00" }>, align 8
 @anon.1a7877b4d25764724cd66411c116da83.105 = private unnamed_addr constant <{ [12 x i8] }> <{ [12 x i8] c"ABISig: sig " }>, align 1
@@ -5860,7 +5859,7 @@ define hidden void @_ZN17cranelift_codegen8machinst3abi6SigSet3new17he2c6f920bbf
 15:                                               ; preds = %24, %16
   %.pn.pn = phi { ptr, i32 } [ %.pn, %24 ], [ %17, %16 ]
   invoke void @"_ZN4core3ptr218drop_in_place$LT$std..collections..hash..map..HashMap$LT$cranelift_codegen..ir..extfunc..Signature$C$cranelift_codegen..machinst..abi..Sig$C$core..hash..BuildHasherDefault$LT$cranelift_codegen..fx..FxHasher$GT$$GT$$GT$17hb6e72e16e89d9dbeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10) #40
-          to label %116 unwind label %114
+          to label %112 unwind label %114
 
 16:                                               ; preds = %3
   %17 = landingpad { ptr, i32 }
@@ -5915,7 +5914,7 @@ define hidden void @_ZN17cranelift_codegen8machinst3abi6SigSet3new17he2c6f920bbf
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %59, %36, %88
+.loopexit.split-lp:                               ; preds = %59, %36
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -5923,7 +5922,7 @@ define hidden void @_ZN17cranelift_codegen8machinst3abi6SigSet3new17he2c6f920bbf
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %55
   %eh.lpad-body = phi { ptr, i32 } [ %56, %55 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$cranelift_codegen..machinst..abi..SigSet$GT$17hf177b0d49c210c0fE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %11) #40
-          to label %116 unwind label %114
+          to label %112 unwind label %114
 
 36:                                               ; preds = %29
   %37 = extractvalue { i64, ptr } %35, 0
@@ -6056,7 +6055,7 @@ define hidden void @_ZN17cranelift_codegen8machinst3abi6SigSet3new17he2c6f920bbf
   ret void
 
 79:                                               ; preds = %.lr.ph, %110
-  %.sroa.0.093 = phi i64 [ 0, %.lr.ph ], [ %80, %110 ]
+  %.sroa.0.093 = phi i64 [ 0, %.lr.ph ], [ %80, %106 ]
   %80 = add nuw i64 %.sroa.0.093, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !857)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -6071,17 +6070,6 @@ define hidden void @_ZN17cranelift_codegen8machinst3abi6SigSet3new17he2c6f920bbf
   br i1 %.not.i, label %86, label %110
 
 86:                                               ; preds = %79
-  %87 = icmp ugt i64 %13, %83
-  br i1 %87, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h7cb4a19f6dc9b62fE.exit.i", label %88, !prof !62
-
-88:                                               ; preds = %86
-  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %83, i64 noundef %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1a7877b4d25764724cd66411c116da83.100) #38
-          to label %.noexc61 unwind label %.loopexit.split-lp
-
-.noexc61:                                         ; preds = %88
-  unreachable
-
-"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h7cb4a19f6dc9b62fE.exit.i": ; preds = %86
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %89 = getelementptr inbounds nuw [56 x i8], ptr %.val, i64 %83
   invoke void @_ZN17cranelift_codegen8machinst3abi6SigSet13from_func_sig17h5bc1e7491b84f926E.llvm.6092180546091225645(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 dereferenceable(112) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %89, ptr noalias noundef nonnull readonly align 1 dereferenceable(9) %2)
@@ -6107,7 +6095,7 @@ define hidden void @_ZN17cranelift_codegen8machinst3abi6SigSet3new17he2c6f920bbf
   br label %"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h420714591380a115E.exit.i"
 
 "_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$GT$4push17h420714591380a115E.exit.i": ; preds = %.noexc63, %92
-  %97 = phi i64 [ %.pre.i.i.i, %.noexc63 ], [ %93, %92 ]
+  %97 = phi i64 [ %.pre.i.i.i, %.noexc63 ], [ %93, %88 ]
   %98 = trunc i64 %93 to i32
   %99 = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !872, !noalias !875, !nonnull !4, !noundef !4
   %100 = getelementptr inbounds [24 x i8], ptr %99, i64 %97
@@ -6129,7 +6117,7 @@ define hidden void @_ZN17cranelift_codegen8machinst3abi6SigSet3new17he2c6f920bbf
   br label %"_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h7e87b431a3f42f2fE.exit.i"
 
 "_ZN104_$LT$cranelift_entity..map..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h7e87b431a3f42f2fE.exit.i": ; preds = %104, %106
-  %.0.i16.i = phi ptr [ %108, %106 ], [ %105, %104 ]
+  %.0.i16.i = phi ptr [ %108, %102 ], [ %105, %100 ]
   store i32 1, ptr %.0.i16.i, align 4, !noalias !877
   %109 = getelementptr inbounds nuw i8, ptr %.0.i16.i, i64 4
   store i32 %98, ptr %109, align 4, !noalias !877

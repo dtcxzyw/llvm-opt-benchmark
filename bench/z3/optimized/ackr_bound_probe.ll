@@ -4291,7 +4291,7 @@ _ZN14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_
   br i1 %.not38.i, label %_ZN14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE10move_tableEPS6_jSD_j.exit, label %.lr.ph41.i
 
 .lr.ph41.i:                                       ; preds = %_ZN14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE11alloc_tableEj.exit, %33
-  %.02839.i = phi ptr [ %34, %33 ], [ %9, %_ZN14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE11alloc_tableEj.exit ]
+  %.02839.i = phi ptr [ %34, %32 ], [ %9, %_ZN14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE11alloc_tableEj.exit ]
   %15 = load ptr, ptr %.02839.i, align 8, !tbaa !97
   %16 = icmp ult ptr %15, inttoptr (i64 2 to ptr)
   br i1 %16, label %33, label %17
@@ -4303,15 +4303,14 @@ _ZN14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_
   %21 = zext i32 %20 to i64
   %.idx43.i = shl nuw nsw i64 %21, 4
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx43.i
-  %.not2933.i = icmp eq i32 %20, %10
-  br i1 %.not2933.i, label %.preheader.i, label %.lr.ph.i
+  br label %.lr.ph.i
 
-.preheader.i:                                     ; preds = %26, %17
+.preheader.i:                                     ; preds = %26
   %.not3035.i = icmp eq i32 %20, 0
   br i1 %.not3035.i, label %._crit_edge.i, label %.lr.ph37.i
 
 .lr.ph.i:                                         ; preds = %17, %26
-  %.034.i = phi ptr [ %27, %26 ], [ %22, %17 ]
+  %.034.i = phi ptr [ %27, %25 ], [ %22, %.lr.ph.i.preheader ]
   %23 = load ptr, ptr %.034.i, align 8, !tbaa !97
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
@@ -4326,7 +4325,7 @@ _ZN14core_hashtableIN7obj_mapI3appPN11ackr_helper7app_occEE13obj_map_entryE8obj_
   br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !129
 
 .lr.ph37.i:                                       ; preds = %.preheader.i, %31
-  %.136.i = phi ptr [ %32, %31 ], [ %8, %.preheader.i ]
+  %.136.i = phi ptr [ %32, %30 ], [ %8, %.preheader.i.loopexit ]
   %28 = load ptr, ptr %.136.i, align 8, !tbaa !97
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %31

@@ -18077,7 +18077,8 @@ if.then.i10177:                                   ; preds = %land.rhs.i10173
   %first1.addr.046.i10174.ptr.ptr.le = getelementptr inbounds nuw i8, ptr %intArray15117, i64 %first1.addr.046.i10174.idx
   %gepdiff13757 = sub nsw i64 48, %first1.addr.046.i10174.idx
   %add.ptr.i.i.i10181 = getelementptr inbounds i8, ptr %first2.addr.045.i10175, i64 %gepdiff13757
-  br label %for.body.i10183
+  %cmp4.not47.i10182 = icmp eq i64 %first1.addr.046.i10174.idx, 48
+  br i1 %cmp4.not47.i10182, label %_ZN5eastl8Internal22quick_sort_impl_helperIPmlKmEEvT_S4_T0_.exit, label %for.body.i10183
 
 for.body.i10183:                                  ; preds = %if.then.i10177, %for.inc.i10194
   %i.048.i10184.idx = phi i64 [ %i.048.i10184.add, %for.inc.i10194 ], [ %first1.addr.046.i10174.idx, %if.then.i10177 ]
@@ -18140,8 +18141,8 @@ for.inc.i10194:                                   ; preds = %_ZN5eastl5countIPmm
   %cmp4.not.i10196 = icmp samesign eq i64 %i.048.i10184.add, 48
   br i1 %cmp4.not.i10196, label %_ZN5eastl8Internal22quick_sort_impl_helperIPmlKmEEvT_S4_T0_.exit, label %for.body.i10183, !llvm.loop !633
 
-_ZN5eastl8Internal22quick_sort_impl_helperIPmlKmEEvT_S4_T0_.exit: ; preds = %while.body.i10217, %for.inc.i10194, %_ZN5eastl5countIPmmEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i, %_ZN5eastl5countIPmmEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit.i
-  %retval.0.i10197 = phi i1 [ true, %for.inc.i10194 ], [ false, %_ZN5eastl5countIPmmEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i ], [ false, %_ZN5eastl5countIPmmEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit.i ], [ true, %while.body.i10217 ]
+_ZN5eastl8Internal22quick_sort_impl_helperIPmlKmEEvT_S4_T0_.exit: ; preds = %while.body.i10217, %for.inc.i10194, %_ZN5eastl5countIPmmEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i, %_ZN5eastl5countIPmmEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit.i, %if.then.i10177
+  %retval.0.i10197 = phi i1 [ true, %for.inc.i10194 ], [ true, %if.then.i10177 ], [ false, %_ZN5eastl5countIPmmEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i ], [ false, %_ZN5eastl5countIPmmEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit.i ], [ true, %while.body.i10217 ]
   br label %for.body.i.i15.i.i
 
 for.body.i.i15.i.i:                               ; preds = %_ZN5eastl8Internal22quick_sort_impl_helperIPmlKmEEvT_S4_T0_.exit, %for.end.i.i21.i.i
@@ -19161,12 +19162,18 @@ for.body.i10839:                                  ; preds = %for.body.i10839.pre
 invoke.cont5446:                                  ; preds = %for.body.i10839
   %add.ptr.i.i.i10850.idx = shl nuw nsw i64 %i5434.013718, 2
   %add.ptr.i.i.i10850 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i10821, i64 %add.ptr.i.i.i10850.idx
-  switch i64 %i5434.013718, label %if.end.i11767 [
-    i64 0, label %for.body5455.preheader
-    i64 1, label %_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11817
-  ]
+  %cmp.not.i10852 = icmp eq i64 %i5434.013718, 0
+  br i1 %cmp.not.i10852, label %for.body5455.preheader, label %if.then.i10853
 
-_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11817: ; preds = %invoke.cont5446
+if.then.i10853:                                   ; preds = %invoke.cont5446
+  %cmp1.not.i10854 = icmp samesign eq i64 %add.ptr.i.i.i10850.idx, %mul.i.i.i10820
+  br i1 %cmp1.not.i10854, label %for.body5455.preheader, label %if.then2.i10855
+
+if.then2.i10855:                                  ; preds = %if.then.i10853
+  %cmp.i11766 = icmp eq i64 %i5434.013718, 1
+  br i1 %cmp.i11766, label %_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11817, label %if.end.i11767
+
+_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11817: ; preds = %if.then2.i10855
   %1959 = load i32, ptr %call.i.i.i.i.i10821, align 4
   %gepdiff12964 = sub nsw i64 %mul.i.i.i10820, %add.ptr.i.i.i10850.idx
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call.i.i.i.i.i10821, ptr nonnull align 4 %add.ptr.i.i.i.i11765, i64 %gepdiff12964, i1 false)
@@ -19174,7 +19181,7 @@ _ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11817: ; preds = 
   store i32 %1959, ptr %add.ptr.i.i.i.i.i.i11816, align 4
   br label %for.body5455.preheader
 
-if.end.i11767:                                    ; preds = %invoke.cont5446
+if.end.i11767:                                    ; preds = %if.then2.i10855
   %1960 = add nuw nsw i64 %add.ptr.i.i.i10850.idx, 4
   %cmp3.i11769 = icmp samesign eq i64 %1960, %mul.i.i.i10820
   br i1 %cmp3.i11769, label %if.then4.i11809, label %if.end6.i11770
@@ -19274,13 +19281,12 @@ _ZN5eastl8Internal13rotate_helperINS_26random_access_iterator_tagELb0EE11rotate_
   %add.ptr17.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i10821, i64 %gepdiff12963
   br label %for.body5455.preheader
 
-for.body5455.preheader:                           ; preds = %while.body.i.i11798, %invoke.cont5446, %_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11817, %if.then4.i11809, %while.cond.preheader.i.i11796, %_ZN5eastl8Internal13rotate_helperINS_26random_access_iterator_tagELb0EE11rotate_implIPiEET_S6_S6_S6_.exit.i
-  %j5452.013717.ph = phi i64 [ 0, %_ZN5eastl8Internal13rotate_helperINS_26random_access_iterator_tagELb0EE11rotate_implIPiEET_S6_S6_S6_.exit.i ], [ 0, %while.cond.preheader.i.i11796 ], [ 0, %if.then4.i11809 ], [ 0, %_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11817 ], [ %i5434.013718, %invoke.cont5446 ], [ 0, %while.body.i.i11798 ]
-  %intVectorIt.013716.ph = phi ptr [ %add.ptr17.i.i, %_ZN5eastl8Internal13rotate_helperINS_26random_access_iterator_tagELb0EE11rotate_implIPiEET_S6_S6_S6_.exit.i ], [ %incdec.ptr.i.i11791, %while.cond.preheader.i.i11796 ], [ %add.ptr.i.i.i.i.i17.i11811, %if.then4.i11809 ], [ %add.ptr.i.i.i.i.i.i11816, %_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11817 ], [ %add.ptr.i10835, %invoke.cont5446 ], [ %incdec.ptr.i.i11791, %while.body.i.i11798 ]
+for.body5455.preheader:                           ; preds = %while.body.i.i11798, %_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11817, %if.then4.i11809, %while.cond.preheader.i.i11796, %_ZN5eastl8Internal13rotate_helperINS_26random_access_iterator_tagELb0EE11rotate_implIPiEET_S6_S6_S6_.exit.i, %invoke.cont5446, %if.then.i10853
+  %j5452.013717.ph = phi ptr [ %call.i.i.i.i.i10821, %if.then.i10853 ], [ %add.ptr.i10835, %invoke.cont5446 ], [ %add.ptr17.i.i, %_ZN5eastl8Internal13rotate_helperINS_26random_access_iterator_tagELb0EE11rotate_implIPiEET_S6_S6_S6_.exit.i ], [ %incdec.ptr.i.i11791, %while.cond.preheader.i.i11796 ], [ %add.ptr.i.i.i.i.i17.i11811, %_ZN5eastl8Internal24move_rotate_right_by_oneIPiEET_S3_S3_.exit.i ], [ %add.ptr.i.i.i.i.i.i11816, %_ZN5eastl8Internal23move_rotate_left_by_oneIPiEET_S3_S3_.exit.i11817 ], [ %incdec.ptr.i.i11791, %while.body.i.i11798 ]
   br label %for.body5455
 
 for.body5455:                                     ; preds = %for.body5455.preheader, %for.inc5466
-  %j5452.013717 = phi i64 [ %inc5467, %for.inc5466 ], [ %j5452.013717.ph, %for.body5455.preheader ]
+  %j5452.013717 = phi i64 [ %inc5467, %for.inc5466 ], [ 0, %for.body5455.preheader ]
   %intVectorIt.013716 = phi ptr [ %incdec.ptr5461, %for.inc5466 ], [ %intVectorIt.013716.ph, %for.body5455.preheader ]
   %cmp5457 = icmp eq ptr %intVectorIt.013716, %add.ptr.i10835
   %spec.select12925 = select i1 %cmp5457, ptr %call.i.i.i.i.i10821, ptr %intVectorIt.013716

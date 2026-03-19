@@ -4243,17 +4243,13 @@ define internal i32 @ftc_snode_new(ptr noundef writeonly captures(none) %0, ptr 
   store i32 %28, ptr %26, align 8, !tbaa !77
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 56
   store i32 %spec.store.select.i, ptr %29, align 8, !tbaa !113
-  %.not2.i = icmp eq i32 %16, %22
-  br i1 %.not2.i, label %._crit_edge.i, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %21
-  %30 = getelementptr inbounds nuw i8, ptr %19, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %wide.trip.count.i = zext nneg i32 %spec.store.select.i to i64
   br label %31
 
 31:                                               ; preds = %31, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
-  %32 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %indvars.iv.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %indvars.iv.i
   store i8 -1, ptr %32, align 8, !tbaa !118
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store i8 0, ptr %33, align 1, !tbaa !214
@@ -4263,7 +4259,7 @@ define internal i32 @ftc_snode_new(ptr noundef writeonly captures(none) %0, ptr 
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !215
 
-._crit_edge.i:                                    ; preds = %31, %21
+._crit_edge.i:                                    ; preds = %31
   %35 = load ptr, ptr %14, align 8, !tbaa !18
   %36 = call fastcc i32 @ftc_snode_load(ptr noundef nonnull %19, ptr noundef %35, i32 noundef %.val, ptr noundef null)
   store i32 %36, ptr %4, align 4, !tbaa !3
@@ -4276,8 +4272,8 @@ define internal i32 @ftc_snode_new(ptr noundef writeonly captures(none) %0, ptr 
   br label %FTC_SNode_New.exit
 
 FTC_SNode_New.exit:                               ; preds = %3, %18, %._crit_edge.i, %37
-  %38 = phi i32 [ 0, %._crit_edge.i ], [ %20, %18 ], [ %.pre.i, %37 ], [ 6, %3 ]
-  %.0.i = phi ptr [ %19, %._crit_edge.i ], [ %19, %18 ], [ null, %37 ], [ null, %3 ]
+  %38 = phi i32 [ 0, %._crit_edge.i ], [ %20, %18 ], [ %.pre.i, %36 ], [ 6, %3 ]
+  %.0.i = phi ptr [ %19, %._crit_edge.i ], [ %19, %18 ], [ null, %36 ], [ null, %3 ]
   store ptr %.0.i, ptr %0, align 8, !tbaa !216
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %38

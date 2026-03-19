@@ -53413,8 +53413,8 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree8navigate35LeafRange$LT
   tail call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.176fb063d3ac714cb10979d0c4c01eeb.0.llvm.3189713146689755573, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.176fb063d3ac714cb10979d0c4c01eeb.72.llvm.3189713146689755573) #51
   unreachable
 
-.thread:                                          ; preds = %8, %._crit_edge
-  %.sroa.37.0.copyload.i = phi i64 [ %.sroa.37.0.copyload.i.pre, %._crit_edge ], [ %11, %8 ]
+.thread:                                          ; preds = %._crit_edge, %8
+  %.sroa.37.0.copyload.i = phi i64 [ %.sroa.37.0.copyload.i.pre, %..thread_crit_edge ], [ %11, %8 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11595)
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.26.0.copyload.i = load i64, ptr %.sroa.26.0..sroa_idx.i, align 8, !alias.scope !11595

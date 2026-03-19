@@ -1916,6 +1916,7 @@ lor.lhs.false1683:                                ; preds = %lor.lhs.false1671
   br i1 %or.cond2748, label %cleanup, label %lor.lhs.false1713
 
 land.lhs.true1687:                                ; preds = %land.lhs.true1621
+  %or.cond11323149 = and i1 %cmp1192, %or.cond346
   %or.cond1146 = and i1 %cmp8, %or.cond868
   %or.cond1152.old = and i1 %cmp14, %or.cond988
   %34 = or i1 %or.cond1146, %or.cond1152.old
@@ -1925,7 +1926,7 @@ land.lhs.true1687:                                ; preds = %land.lhs.true1621
   br i1 %or.cond2747, label %cleanup, label %lor.lhs.false1713
 
 lor.lhs.false1713:                                ; preds = %lor.lhs.false1683, %land.lhs.true1687
-  %or.cond113231513153 = phi i1 [ %or.cond1132, %lor.lhs.false1683 ], [ false, %land.lhs.true1687 ]
+  %or.cond113231513153 = phi i1 [ %or.cond1132, %lor.lhs.false1683 ], [ %or.cond11323149, %land.lhs.true1687 ]
   %or.cond1162 = and i1 %cmp1192, %11
   %or.cond1164 = and i1 %cmp26, %or.cond1162
   %or.cond1170 = and i1 %cmp32, %or.cond892
