@@ -35474,7 +35474,6 @@ _ZN2cv4text14auto_array_ptrIlED2Ev.exit1:         ; preds = %_ZN2cv4text14auto_a
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt21__inplace_stable_sortIPN2cv4text4nodeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
-  %.sroa.0.i.i = alloca { i64, i64 }, align 8
   %3 = alloca %"struct.cv::text::node", align 8
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
@@ -35525,8 +35524,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.thread.
   br label %26
 
 19:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.024.i, i64 16, i1 false), !tbaa.struct !746
+  %.sroa.0.0.copyload.i.i = load <2 x i64>, ptr %.024.i, align 8
   br i1 %12, label %.split.i.preheader.i, label %.split.us.i.i
 
 .split.i.preheader.i:                             ; preds = %19
@@ -35565,10 +35563,9 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.
 
 _ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i, %.split.us.i.i, %.split.i.preheader.i
   %.us-phi.i.i = phi ptr [ %.0.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i ], [ %.024.i, %.split.us.i.i ], [ %.024.i, %.split.i.preheader.i ], [ %.0.us17.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.us-phi.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false), !tbaa.struct !746
+  store <2 x i64> %.sroa.0.0.copyload.i.i, ptr %.us-phi.i.i, align 8
   %.sroa.4.0..09.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i, i64 16
   store double %.sroa.4.0.copyload.fr.i.i, ptr %.sroa.4.0..09.sroa_idx.i.i, align 8, !tbaa !106
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %26
 
 26:                                               ; preds = %_ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.thread.i
@@ -36393,9 +36390,7 @@ _ZSt21__move_merge_adaptiveIPN2cv4text4nodeES3_S3_N9__gnu_cxx5__ops15_Iter_less_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt22__chunk_insertion_sortIPN2cv4text4nodeElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_T1_(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 comdat {
-  %.sroa.0.i.i10 = alloca { i64, i64 }, align 8
   %4 = alloca %"struct.cv::text::node", align 8
-  %.sroa.0.i.i = alloca { i64, i64 }, align 8
   %5 = alloca %"struct.cv::text::node", align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %0 to i64
@@ -36456,8 +36451,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.thread.
   br label %32
 
 25:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.024.i, i64 16, i1 false), !tbaa.struct !746
+  %.sroa.0.0.copyload.i.i = load <2 x i64>, ptr %.024.i, align 8
   br i1 %18, label %.split.i.preheader.i, label %.split.us.i.i
 
 .split.i.preheader.i:                             ; preds = %25
@@ -36496,10 +36490,9 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.
 
 _ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i, %.split.us.i.i, %.split.i.preheader.i
   %.us-phi.i.i = phi ptr [ %.0.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i ], [ %.024.i, %.split.us.i.i ], [ %.024.i, %.split.i.preheader.i ], [ %.0.us17.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.us-phi.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false), !tbaa.struct !746
+  store <2 x i64> %.sroa.0.0.copyload.i.i, ptr %.us-phi.i.i, align 8
   %.sroa.4.0..09.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i, i64 16
   store double %.sroa.4.0.copyload.fr.i.i, ptr %.sroa.4.0..09.sroa_idx.i.i, align 8, !tbaa !106
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %32
 
 32:                                               ; preds = %_ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.thread.i
@@ -36530,8 +36523,8 @@ _ZSt16__insertion_sortIPN2cv4text4nodeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7
   br label %37
 
 37:                                               ; preds = %53, %.lr.ph.i14
-  %.024.i16 = phi ptr [ %.021.i12, %.lr.ph.i14 ], [ %.0.i29, %53 ]
-  %.pn23.i17 = phi ptr [ %.0.lcssa, %.lr.ph.i14 ], [ %.024.i16, %53 ]
+  %.024.i16 = phi ptr [ %.021.i12, %.lr.ph.i13 ], [ %.0.i29, %53 ]
+  %.pn23.i17 = phi ptr [ %.0.lcssa, %.lr.ph.i13 ], [ %.024.i16, %53 ]
   %.sroa.2.0..sroa_idx.i.i18 = getelementptr inbounds nuw i8, ptr %.pn23.i17, i64 40
   %.sroa.2.0.copyload.i.i19 = load double, ptr %.sroa.2.0..sroa_idx.i.i18, align 8, !tbaa !106
   %.sroa.4.0.copyload.fr.i.i20 = freeze double %.sroa.2.0.copyload.i.i19
@@ -36559,8 +36552,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.thread.
   br label %53
 
 46:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.i22
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %.024.i16, i64 16, i1 false), !tbaa.struct !746
+  %.sroa.0.0.copyload.i.i22 = load <2 x i64>, ptr %.024.i15, align 8
   br i1 %39, label %.split.i.preheader.i36, label %.split.us.i.i23
 
 .split.i.preheader.i36:                           ; preds = %46
@@ -36599,10 +36591,9 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.
 
 _ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i26: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i31, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i40, %.split.us.i.i23, %.split.i.preheader.i36
   %.us-phi.i.i27 = phi ptr [ %.0.i.i42, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i40 ], [ %.024.i16, %.split.us.i.i23 ], [ %.024.i16, %.split.i.preheader.i36 ], [ %.0.us17.i.i33, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i31 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.us-phi.i.i27, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i10, i64 16, i1 false), !tbaa.struct !746
+  store <2 x i64> %.sroa.0.0.copyload.i.i22, ptr %.us-phi.i.i27, align 8
   %.sroa.4.0..09.sroa_idx.i.i28 = getelementptr inbounds nuw i8, ptr %.us-phi.i.i27, i64 16
   store double %.sroa.4.0.copyload.fr.i.i20, ptr %.sroa.4.0..09.sroa_idx.i.i28, align 8, !tbaa !106
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i10)
   br label %53
 
 53:                                               ; preds = %_ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.thread.i46

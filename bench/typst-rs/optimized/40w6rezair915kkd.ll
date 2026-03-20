@@ -31405,7 +31405,6 @@ _ZN4core5slice4sort11insert_tail17h0886b0bb32c99331E.exit.i: ; preds = %.thread.
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h355288f5b9b5265bE(ptr noalias noundef nonnull align 16 captures(none) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #15 personality ptr @rust_eh_personality {
-  %.sroa.6.i = alloca { double, double }, align 8
   %.sroa.7.i = alloca [183 x i8], align 1
   %4 = add i64 %2, -1
   %or.cond = icmp ult i64 %4, %1
@@ -31451,10 +31450,9 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h35
   br i1 %or.cond.i, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cd7e45f5e94876bE.exit.thread.i", label %_ZN4core5slice4sort11insert_tail17hd9e3535530a032eaE.exit
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cd7e45f5e94876bE.exit.thread.i": ; preds = %"_ZN65_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h03e3f7912dbb1ce0E.exit.i.i.i"
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
   %.sroa.4.0..sroa_idx.i = getelementptr i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i, i64 16, i1 false)
+  %.sroa.4.0.copyload.i = load <2 x double>, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !10458
   %.sroa.611.0..sroa_idx.i = getelementptr i8, ptr %8, i64 25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(183) %.sroa.7.i, ptr noundef nonnull align 1 dereferenceable(183) %.sroa.611.0..sroa_idx.i, i64 183, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %8, ptr noundef nonnull align 16 dereferenceable(208) %9, i64 208, i1 false), !alias.scope !10458
@@ -31466,12 +31464,11 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h35
   %.sroa.5.024.i = phi ptr [ %.sroa.5.026.i, %22 ], [ %9, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cd7e45f5e94876bE.exit.thread.i" ], [ %.sroa.5.026.i, %"_ZN65_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h03e3f7912dbb1ce0E.exit.i.i21.i" ], [ %0, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cd7e45f5e94876bE.exit23.thread.i" ]
   store double %.val.i, ptr %.sroa.5.024.i, align 16, !alias.scope !10458
   %.sroa.6.0..sroa.5.0.sroa_idx4.i = getelementptr inbounds nuw i8, ptr %.sroa.5.024.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa.5.0.sroa_idx4.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i, i64 16, i1 false)
+  store <2 x double> %.sroa.4.0.copyload.i, ptr %.sroa.6.0..sroa.5.0.sroa_idx4.i, align 8, !alias.scope !10458
   %.sroa.65.0..sroa.5.0.sroa_idx7.i = getelementptr inbounds nuw i8, ptr %.sroa.5.024.i, i64 24
   store i8 %.val10.i, ptr %.sroa.65.0..sroa.5.0.sroa_idx7.i, align 8, !alias.scope !10458
   %.sroa.7.0..sroa.5.0.sroa_idx9.i = getelementptr inbounds nuw i8, ptr %.sroa.5.024.i, i64 25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(183) %.sroa.7.0..sroa.5.0.sroa_idx9.i, ptr noundef nonnull align 1 dereferenceable(183) %.sroa.7.i, i64 183, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   br label %_ZN4core5slice4sort11insert_tail17hd9e3535530a032eaE.exit
 
@@ -31512,7 +31509,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h35
           cleanup
   store double %.val.i, ptr %.sroa.5.026.i, align 16, !alias.scope !10458
   %.sroa.6.0..sroa.5.0.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.5.026.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa.5.0.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i, i64 16, i1 false)
+  store <2 x double> %.sroa.4.0.copyload.i, ptr %.sroa.6.0..sroa.5.0.sroa_idx.i, align 8, !alias.scope !10458
   %.sroa.65.0..sroa.5.0.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.5.026.i, i64 24
   store i8 %.val10.i, ptr %.sroa.65.0..sroa.5.0.sroa_idx.i, align 8, !alias.scope !10458
   %.sroa.7.0..sroa.5.0.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.5.026.i, i64 25

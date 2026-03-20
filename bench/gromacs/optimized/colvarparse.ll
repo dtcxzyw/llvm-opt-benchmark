@@ -37928,11 +37928,11 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN12colvarmodule10quaternionESt6vector
 
 74:                                               ; preds = %51
   %75 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
-          to label %_ZNSt6vectorIN12colvarmodule10quaternionESaIS1_EE6assignEmRKS1_.exit unwind label %77
+          to label %.lr.ph.i.i.i.i.i.i.i.preheader unwind label %77
 
 _ZNSt6vectorIN12colvarmodule10quaternionESaIS1_EE6assignEmRKS1_.exit: ; preds = %74
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 32, i1 false)
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
+  store <4 x double> zeroinitializer, ptr %75, align 8
   br label %_ZNSt6vectorIN12colvarmodule10quaternionESaIS1_EEaSERKS3_.exit
 
 77:                                               ; preds = %74
@@ -37940,10 +37940,10 @@ _ZNSt6vectorIN12colvarmodule10quaternionESaIS1_EE6assignEmRKS1_.exit: ; preds = 
           cleanup
   br label %_ZNSt6vectorIN12colvarmodule10quaternionESaIS1_EED2Ev.exit107
 
-_ZNSt6vectorIN12colvarmodule10quaternionESaIS1_EEaSERKS3_.exit: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN12colvarmodule10quaternionESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.i, %_ZNSt6vectorIN12colvarmodule10quaternionESaIS1_EE6assignEmRKS1_.exit
-  %.sroa.0.0 = phi ptr [ %75, %_ZNSt6vectorIN12colvarmodule10quaternionESaIS1_EE6assignEmRKS1_.exit ], [ %61, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN12colvarmodule10quaternionESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.i ]
-  %.sroa.11.0 = phi ptr [ %76, %_ZNSt6vectorIN12colvarmodule10quaternionESaIS1_EE6assignEmRKS1_.exit ], [ %67, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN12colvarmodule10quaternionESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.i ]
-  %.sroa.18.0 = phi ptr [ %76, %_ZNSt6vectorIN12colvarmodule10quaternionESaIS1_EE6assignEmRKS1_.exit ], [ %66, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN12colvarmodule10quaternionESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.i ]
+_ZNSt6vectorIN12colvarmodule10quaternionESaIS1_EEaSERKS3_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.preheader, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN12colvarmodule10quaternionESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.i
+  %.sroa.0.0 = phi ptr [ %75, %.lr.ph.i.i.i.i.i.i.i.preheader ], [ %61, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN12colvarmodule10quaternionESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %76, %.lr.ph.i.i.i.i.i.i.i.preheader ], [ %67, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN12colvarmodule10quaternionESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.i ]
+  %.sroa.18.0 = phi ptr [ %76, %.lr.ph.i.i.i.i.i.i.i.preheader ], [ %66, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN12colvarmodule10quaternionESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.i ]
   %79 = ptrtoint ptr %.sroa.11.0 to i64
   %80 = ptrtoint ptr %.sroa.0.0 to i64
   %81 = sub i64 %79, %80
@@ -38217,7 +38217,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118: ; preds = %178, %.loopexit193, %.loopexit.split-lp194, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i116
-  %.pn82 = phi { ptr, i32 } [ %179, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i116 ], [ %lpad.loopexit.split-lp196, %.loopexit.split-lp194 ], [ %lpad.loopexit195, %.loopexit193 ], [ %179, %178 ]
+  %.pn82 = phi { ptr, i32 } [ %179, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i116 ], [ %lpad.loopexit.split-lp196, %.loopexit.split-lp198 ], [ %lpad.loopexit199, %.loopexit197 ], [ %179, %178 ]
   %184 = load ptr, ptr %14, align 8, !tbaa !19
   %185 = icmp eq ptr %184, %50
   br i1 %185, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i119

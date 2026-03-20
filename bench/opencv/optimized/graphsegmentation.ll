@@ -2345,8 +2345,8 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPN2cv8ximgproc12se
   br label %11
 
 11:                                               ; preds = %27, %9
-  %.019.i.idx = phi i64 [ 12, %9 ], [ %.019.i.add, %27 ]
-  %.pn18.i = phi ptr [ %0, %9 ], [ %.019.i.ptr, %27 ]
+  %.019.i.idx = phi i64 [ 12, %9 ], [ %.019.i.add, %26 ]
+  %.pn18.i = phi ptr [ %0, %9 ], [ %.019.i.ptr, %26 ]
   %.019.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.019.i.idx
   %12 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 20
   %13 = load float, ptr %12, align 4, !tbaa !44
@@ -2366,7 +2366,7 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPN2cv8ximgproc12se
   br label %27
 
 19:                                               ; preds = %11
-  %20 = load i64, ptr %.019.i.ptr, align 4
+  %20 = load <2 x i32>, ptr %.019.i.ptr, align 4
   %21 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 8
   %22 = load float, ptr %21, align 4, !tbaa !44
   %23 = fcmp olt float %13, %22
@@ -2383,7 +2383,7 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPN2cv8ximgproc12se
 
 _ZSt25__unguarded_linear_insertIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %19
   %.09.lcssa.i.i = phi ptr [ %.019.i.ptr, %19 ], [ %.0.i.i, %.lr.ph.i.i ]
-  store i64 %20, ptr %.09.lcssa.i.i, align 4
+  store <2 x i32> %20, ptr %.09.lcssa.i.i, align 4
   %.sroa.4.0..09.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i, i64 8
   store float %13, ptr %.sroa.4.0..09.sroa_idx.i.i, align 4, !tbaa !48
   br label %27
@@ -2399,8 +2399,8 @@ _ZSt16__insertion_sortIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops15_Ite
   br i1 %.not5.i, label %_ZSt26__unguarded_insertion_sortIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S8_T0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt16__insertion_sortIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S8_T0_.exit, %_ZSt25__unguarded_linear_insertIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8
-  %.06.i = phi ptr [ %36, %_ZSt25__unguarded_linear_insertIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8 ], [ %28, %_ZSt16__insertion_sortIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S8_T0_.exit ]
-  %29 = load i64, ptr %.06.i, align 4
+  %.06.i = phi ptr [ %36, %_ZSt25__unguarded_linear_insertIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i9 ], [ %28, %_ZSt16__insertion_sortIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S8_T0_.exit ]
+  %29 = load <2 x i32>, ptr %.06.i, align 4
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %.sroa.4.0.copyload.i.i = load float, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !tbaa !48
   %30 = getelementptr inbounds i8, ptr %.06.i, i64 -4
@@ -2409,7 +2409,7 @@ _ZSt16__insertion_sortIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops15_Ite
   br i1 %32, label %.lr.ph.i.i12, label %_ZSt25__unguarded_linear_insertIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8
 
 .lr.ph.i.i12:                                     ; preds = %.lr.ph.i, %.lr.ph.i.i12
-  %.0911.i.i13 = phi ptr [ %.0.i.i14, %.lr.ph.i.i12 ], [ %.06.i, %.lr.ph.i ]
+  %.0911.i.i13 = phi ptr [ %.0.i.i14, %.lr.ph.i.i13 ], [ %.06.i, %.lr.ph.i ]
   %.0.i.i14 = getelementptr inbounds i8, ptr %.0911.i.i13, i64 -12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i13, ptr noundef nonnull align 4 dereferenceable(12) %.0.i.i14, i64 12, i1 false), !tbaa.struct !108
   %33 = getelementptr inbounds i8, ptr %.0911.i.i13, i64 -16
@@ -2418,8 +2418,8 @@ _ZSt16__insertion_sortIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops15_Ite
   br i1 %35, label %.lr.ph.i.i12, label %_ZSt25__unguarded_linear_insertIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8, !llvm.loop !117
 
 _ZSt25__unguarded_linear_insertIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8: ; preds = %.lr.ph.i.i12, %.lr.ph.i
-  %.09.lcssa.i.i9 = phi ptr [ %.06.i, %.lr.ph.i ], [ %.0.i.i14, %.lr.ph.i.i12 ]
-  store i64 %29, ptr %.09.lcssa.i.i9, align 4
+  %.09.lcssa.i.i9 = phi ptr [ %.06.i, %.lr.ph.i ], [ %.0.i.i14, %.lr.ph.i.i13 ]
+  store <2 x i32> %29, ptr %.09.lcssa.i.i9, align 4
   %.sroa.4.0..09.sroa_idx.i.i10 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i9, i64 8
   store float %.sroa.4.0.copyload.i.i, ptr %.sroa.4.0..09.sroa_idx.i.i10, align 4, !tbaa !48
   %36 = getelementptr inbounds nuw i8, ptr %.06.i, i64 12
@@ -2439,9 +2439,9 @@ _ZSt25__unguarded_linear_insertIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %40
 
-40:                                               ; preds = %58, %.lr.ph.i16
-  %.019.i17 = phi ptr [ %.016.i15, %.lr.ph.i16 ], [ %.0.i22, %58 ]
-  %.pn18.i18 = phi ptr [ %0, %.lr.ph.i16 ], [ %.019.i17, %58 ]
+40:                                               ; preds = %55, %.lr.ph.i16
+  %.019.i17 = phi ptr [ %.016.i15, %.lr.ph.i17 ], [ %.0.i24, %55 ]
+  %.pn18.i18 = phi ptr [ %0, %.lr.ph.i17 ], [ %.019.i17, %55 ]
   %41 = getelementptr inbounds nuw i8, ptr %.pn18.i18, i64 20
   %42 = load float, ptr %41, align 4, !tbaa !44
   %43 = load float, ptr %39, align 4, !tbaa !44
@@ -2459,37 +2459,37 @@ _ZSt25__unguarded_linear_insertIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %49, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false), !tbaa.struct !108
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %58
+  br label %55
 
 50:                                               ; preds = %40
-  %51 = load i64, ptr %.019.i17, align 4
+  %51 = load <2 x i32>, ptr %.019.i17, align 4
   %52 = getelementptr inbounds nuw i8, ptr %.pn18.i18, i64 8
+  %50 = load float, ptr %49, align 4, !tbaa !44
+  %51 = fcmp olt float %40, %50
+  br i1 %51, label %.lr.ph.i.i26, label %_ZSt25__unguarded_linear_insertIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i21
+
+.lr.ph.i.i26:                                     ; preds = %48, %.lr.ph.i.i26
+  %.0912.i.i27 = phi ptr [ %.0.i.i28, %.lr.ph.i.i26 ], [ %.019.i18, %48 ]
+  %.0.i.i28 = getelementptr inbounds i8, ptr %.0912.i.i27, i64 -12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.0912.i.i27, ptr noundef nonnull align 4 dereferenceable(12) %.0.i.i28, i64 12, i1 false), !tbaa.struct !108
+  %52 = getelementptr inbounds i8, ptr %.0912.i.i27, i64 -16
   %53 = load float, ptr %52, align 4, !tbaa !44
   %54 = fcmp olt float %42, %53
-  br i1 %54, label %.lr.ph.i.i24, label %_ZSt25__unguarded_linear_insertIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i19
+  br i1 %54, label %.lr.ph.i.i26, label %_ZSt25__unguarded_linear_insertIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i21, !llvm.loop !117
 
-.lr.ph.i.i24:                                     ; preds = %50, %.lr.ph.i.i24
-  %.0911.i.i25 = phi ptr [ %.0.i.i26, %.lr.ph.i.i24 ], [ %.019.i17, %50 ]
-  %.0.i.i26 = getelementptr inbounds i8, ptr %.0911.i.i25, i64 -12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.0911.i.i25, ptr noundef nonnull align 4 dereferenceable(12) %.0.i.i26, i64 12, i1 false), !tbaa.struct !108
-  %55 = getelementptr inbounds i8, ptr %.0911.i.i25, i64 -16
-  %56 = load float, ptr %55, align 4, !tbaa !44
-  %57 = fcmp olt float %42, %56
-  br i1 %57, label %.lr.ph.i.i24, label %_ZSt25__unguarded_linear_insertIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i19, !llvm.loop !117
+.lr.ph.i.i24:                                     ; preds = %.lr.ph.i.i26, %48
+  %.0911.i.i25 = phi ptr [ %.019.i18, %48 ], [ %.0.i.i28, %.lr.ph.i.i26 ]
+  store <2 x i32> %51, ptr %.0911.i.i25, align 4
+  %.sroa.4.0..09.sroa_idx.i.i23 = getelementptr inbounds nuw i8, ptr %.0911.i.i25, i64 8
+  store float %40, ptr %.sroa.4.0..09.sroa_idx.i.i23, align 4, !tbaa !48
+  br label %55
 
-_ZSt25__unguarded_linear_insertIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i19: ; preds = %.lr.ph.i.i24, %50
-  %.09.lcssa.i.i20 = phi ptr [ %.019.i17, %50 ], [ %.0.i.i26, %.lr.ph.i.i24 ]
-  store i64 %51, ptr %.09.lcssa.i.i20, align 4
-  %.sroa.4.0..09.sroa_idx.i.i21 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i20, i64 8
-  store float %42, ptr %.sroa.4.0..09.sroa_idx.i.i21, align 4, !tbaa !48
-  br label %58
+55: ; preds = %_ZSt25__unguarded_linear_insertIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i21, %43
+  %.0.i24 = getelementptr inbounds nuw i8, ptr %.019.i18, i64 12
+  %.not.i25 = icmp eq ptr %.0.i24, %1
+  br i1 %.not.i25, label %_ZSt26__unguarded_insertion_sortIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S8_T0_.exit, label %38, !llvm.loop !118
 
-58:                                               ; preds = %_ZSt25__unguarded_linear_insertIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i19, %45
-  %.0.i22 = getelementptr inbounds nuw i8, ptr %.019.i17, i64 12
-  %.not.i23 = icmp eq ptr %.0.i22, %1
-  br i1 %.not.i23, label %_ZSt26__unguarded_insertion_sortIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S8_T0_.exit, label %40, !llvm.loop !118
-
-_ZSt26__unguarded_insertion_sortIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S8_T0_.exit: ; preds = %58, %_ZSt25__unguarded_linear_insertIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8, %.preheader.i, %37, %_ZSt16__insertion_sortIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S8_T0_.exit
+_ZSt26__unguarded_insertion_sortIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S8_T0_.exit:; preds = %55, %_ZSt25__unguarded_linear_insertIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i9, %.preheader.i, %35, %_ZSt16__insertion_sortIPN2cv8ximgproc12segmentation4EdgeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S8_T0_.exit
   ret void
 }
 

@@ -13383,7 +13383,6 @@ define range(i32 0, 21) i32 @FT_Outline_Copy(ptr noundef readonly captures(addre
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @FT_Outline_Reverse(ptr noundef captures(address_is_null) %0) local_unnamed_addr #10 {
-  %2 = alloca %struct.FT_Vector_, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %35, label %.preheader
 
@@ -13396,69 +13395,63 @@ define void @FT_Outline_Reverse(ptr noundef captures(address_is_null) %0) local_
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %7
+  br label %6
 
-7:                                                ; preds = %.lr.ph47, %._crit_edge44
-  %indvars.iv = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next, %._crit_edge44 ]
-  %.03645 = phi i64 [ 4294967295, %.lr.ph47 ], [ %12, %._crit_edge44 ]
-  %8 = add nuw nsw i64 %.03645, 2
-  %9 = load ptr, ptr %4, align 8, !tbaa !131
-  %10 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv
-  %11 = load i16, ptr %10, align 2, !tbaa !133
-  %12 = zext i16 %11 to i64
-  %13 = load ptr, ptr %5, align 8, !tbaa !156
-  %14 = and i64 %8, 4294967295
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %15 = icmp samesign ult i64 %14, %12
-  br i1 %15, label %.lr.ph.preheader, label %._crit_edge
+.lr.ph.preheader:                                 ; preds = %.lr.ph47, %._crit_edge45
+  %indvars.iv = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next, %._crit_edge45 ]
+  %.03646 = phi i64 [ 4294967295, %.lr.ph48 ], [ %11, %._crit_edge45 ]
+  %7 = add nuw nsw i64 %.03646, 2
+  %8 = load ptr, ptr %3, align 8, !tbaa !131
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv
+  %10 = load i16, ptr %9, align 2, !tbaa !133
+  %11 = zext i16 %10 to i64
+  %12 = and i64 %7, 4294967295
+  %13 = icmp samesign ult i64 %12, %11
+  br i1 %13, label %.lr.ph.preheader, label %._crit_edge45
 
-.lr.ph.preheader:                                 ; preds = %7
-  %16 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
-  %17 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %14
+.lr.ph.preheader:                                 ; preds = %6
+  %14 = load ptr, ptr %4, align 8, !tbaa !156
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %11
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %12
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.03439 = phi ptr [ %19, %.lr.ph ], [ %16, %.lr.ph.preheader ]
-  %.03538 = phi ptr [ %18, %.lr.ph ], [ %17, %.lr.ph.preheader ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %.03538, i64 16, i1 false), !tbaa.struct !281
+  %.03439 = phi ptr [ %19, %.lr.ph ], [ %15, %.lr.ph.preheader ]
+  %.03538 = phi ptr [ %18, %.lr.ph ], [ %16, %.lr.ph.preheader ]
+  %.sroa.0.0.copyload = load <2 x i64>, ptr %.03538, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03538, ptr noundef nonnull align 8 dereferenceable(16) %.03439, i64 16, i1 false), !tbaa.struct !281
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03439, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !281
+  store <2 x i64> %.sroa.0.0.copyload, ptr %.03439, align 8
   %18 = getelementptr inbounds nuw i8, ptr %.03538, i64 16
   %19 = getelementptr inbounds i8, ptr %.03439, i64 -16
   %20 = icmp ult ptr %18, %19
-  br i1 %20, label %.lr.ph, label %.lr.ph43.preheader, !llvm.loop !488
+  br i1 %20, label %.lr.ph, label %.lr.ph44.preheader, !llvm.loop !488
 
-._crit_edge:                                      ; preds = %7
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %._crit_edge44
+._crit_edge:                                      ; preds = %.lr.ph
+  %20 = load ptr, ptr %5, align 8, !tbaa !202
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %11
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %12
+  br label %.lr.ph44
 
-.lr.ph43.preheader:                               ; preds = %.lr.ph
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %21 = load ptr, ptr %6, align 8, !tbaa !202
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %12
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %14
-  br label %.lr.ph43
+.lr.ph44:; preds = %.lr.ph44.preheader, %.lr.ph44
+  %.03242 = phi ptr [ %26, %.lr.ph44 ], [ %21, %.lr.ph44.preheader ]
+  %.03341 = phi ptr [ %25, %.lr.ph44 ], [ %22, %.lr.ph44.preheader ]
+  %23 = load i8, ptr %.03341, align 1, !tbaa !222
+  %24 = load i8, ptr %.03242, align 1, !tbaa !222
+  store i8 %24, ptr %.03341, align 1, !tbaa !222
+  store i8 %23, ptr %.03242, align 1, !tbaa !222
+  %25 = getelementptr inbounds nuw i8, ptr %.03341, i64 1
+  %26 = getelementptr inbounds i8, ptr %.03242, i64 -1
+  %27 = icmp ult ptr %25, %26
+  br i1 %27, label %.lr.ph44, label %._crit_edge45, !llvm.loop !489
 
-.lr.ph43:                                         ; preds = %.lr.ph43.preheader, %.lr.ph43
-  %.03241 = phi ptr [ %27, %.lr.ph43 ], [ %22, %.lr.ph43.preheader ]
-  %.03340 = phi ptr [ %26, %.lr.ph43 ], [ %23, %.lr.ph43.preheader ]
-  %24 = load i8, ptr %.03340, align 1, !tbaa !222
-  %25 = load i8, ptr %.03241, align 1, !tbaa !222
-  store i8 %25, ptr %.03340, align 1, !tbaa !222
-  store i8 %24, ptr %.03241, align 1, !tbaa !222
-  %26 = getelementptr inbounds nuw i8, ptr %.03340, i64 1
-  %27 = getelementptr inbounds i8, ptr %.03241, i64 -1
-  %28 = icmp ult ptr %26, %27
-  br i1 %28, label %.lr.ph43, label %._crit_edge44, !llvm.loop !489
-
-._crit_edge44:                                    ; preds = %.lr.ph43, %._crit_edge
+._crit_edge45:; preds = %.lr.ph44, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i16, ptr %0, align 8, !tbaa !130
   %30 = zext i16 %29 to i64
   %31 = icmp samesign ult i64 %indvars.iv.next, %30
-  br i1 %31, label %7, label %._crit_edge48, !llvm.loop !490
+  br i1 %31, label %6, label %._crit_edge48, !llvm.loop !490
 
-._crit_edge48:                                    ; preds = %._crit_edge44, %.preheader
+._crit_edge48:                                    ; preds = %._crit_edge45, %.preheader
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load i32, ptr %32, align 8, !tbaa !487
   %34 = xor i32 %33, 4

@@ -33838,25 +33838,15 @@ _ZN7xgboost6common14HistCollection12AllocateDataEj.exit.thread: ; preds = %91, %
 
 130:                                              ; preds = %128
   %.idx.i.i = shl nuw nsw i64 %.sroa.045.0, 4
-  %131 = getelementptr inbounds nuw i8, ptr %.sroa.446.0, i64 %.idx.i.i
-  br label %.lr.ph.i.i.i.i43
-
-.lr.ph.i.i.i.i43:                                 ; preds = %.lr.ph.i.i.i.i43, %130
-  %.06.i.i.i.i = phi ptr [ %132, %.lr.ph.i.i.i.i43 ], [ %.sroa.446.0, %130 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.06.i.i.i.i, i8 0, i64 16, i1 false)
-  %132 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 16
-  %.not.i.i.i.i44 = icmp eq ptr %132, %131
-  br i1 %.not.i.i.i.i44, label %_ZSt6fill_nIPN7xgboost6detail20GradientPairInternalIdEEmS3_ET_S5_T0_RKT1_.exit.loopexit, label %.lr.ph.i.i.i.i43, !llvm.loop !988
-
-_ZSt6fill_nIPN7xgboost6detail20GradientPairInternalIdEEmS3_ET_S5_T0_RKT1_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i43
-  %.pre57 = load i64, ptr %11, align 8, !tbaa !1116
-  %.pre58 = load ptr, ptr %121, align 8, !tbaa !194
-  %.pre59 = mul i64 %.pre57, %120
+  call void @llvm.memset.p0.i64(ptr align 8 %.sroa.446.0, i8 0, i64 %.idx.i.i, i1 false)
+  %.pre58 = load i64, ptr %11, align 8, !tbaa !1116
+  %.pre59 = load ptr, ptr %121, align 8, !tbaa !194
+  %.pre60 = mul i64 %.pre58, %120
   br label %_ZSt6fill_nIPN7xgboost6detail20GradientPairInternalIdEEmS3_ET_S5_T0_RKT1_.exit
 
 _ZSt6fill_nIPN7xgboost6detail20GradientPairInternalIdEEmS3_ET_S5_T0_RKT1_.exit: ; preds = %_ZSt6fill_nIPN7xgboost6detail20GradientPairInternalIdEEmS3_ET_S5_T0_RKT1_.exit.loopexit, %128
-  %.pre-phi = phi i64 [ %.pre59, %_ZSt6fill_nIPN7xgboost6detail20GradientPairInternalIdEEmS3_ET_S5_T0_RKT1_.exit.loopexit ], [ %123, %128 ]
-  %133 = phi ptr [ %.pre58, %_ZSt6fill_nIPN7xgboost6detail20GradientPairInternalIdEEmS3_ET_S5_T0_RKT1_.exit.loopexit ], [ %124, %128 ]
+  %.pre-phi = phi i64 [ %.pre60, %_ZSt6fill_nIPN7xgboost6detail20GradientPairInternalIdEEmS3_ET_S5_T0_RKT1_.exit.loopexit ], [ %123, %128 ]
+  %133 = phi ptr [ %.pre59, %_ZSt6fill_nIPN7xgboost6detail20GradientPairInternalIdEEmS3_ET_S5_T0_RKT1_.exit.loopexit ], [ %124, %128 ]
   %134 = getelementptr [4 x i8], ptr %133, i64 %.pre-phi
   %135 = getelementptr [4 x i8], ptr %134, i64 %119
   store i32 1, ptr %135, align 4, !tbaa !99
@@ -36141,22 +36131,17 @@ _ZNKSt3mapISt4pairImmEiSt4lessIS1_ESaIS0_IKS1_iEEE2atERS4_.exit: ; preds = %97, 
 .critedge:                                        ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit42, %._crit_edge
   %120 = load i64, ptr %6, align 8, !tbaa !44
   %121 = load i64, ptr %7, align 8, !tbaa !44
-  %122 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.448.0.copyload, i64 %121
   %.not5.i.i.i = icmp samesign eq i64 %120, %121
   br i1 %.not5.i.i.i, label %_ZSt4fillIPN7xgboost6detail20GradientPairInternalIdEES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %.critedge
-  %123 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.448.0.copyload, i64 %120
-  br label %.lr.ph.i.i.i
+  %123 = getelementptr [16 x i8], ptr %.sroa.448.0.copyload, i64 %120
+  %123 = sub i64 %121, %120
+  %124 = shl i64 %123, 4
+  call void @llvm.memset.p0.i64(ptr align 8 %122, i8 0, i64 %124, i1 false)
+  br label %_ZSt4fillIPN7xgboost6detail20GradientPairInternalIdEES3_EvT_S5_RKT0_.exit
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %124, %.lr.ph.i.i.i ], [ %123, %.lr.ph.i.i.i.preheader ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.06.i.i.i, i8 0, i64 16, i1 false)
-  %124 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 16
-  %.not.i.i.i = icmp eq ptr %124, %122
-  br i1 %.not.i.i.i, label %_ZSt4fillIPN7xgboost6detail20GradientPairInternalIdEES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !988
-
-_ZSt4fillIPN7xgboost6detail20GradientPairInternalIdEES3_EvT_S5_RKT0_.exit: ; preds = %.lr.ph.i.i.i, %.critedge, %._crit_edge
+_ZSt4fillIPN7xgboost6detail20GradientPairInternalIdEES3_EvT_S5_RKT0_.exit: ; preds = %.lr.ph.i.i.i.preheader, %.critedge, %._crit_edge
   ret void
 
 125:                                              ; preds = %55, %28

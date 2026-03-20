@@ -90522,10 +90522,8 @@ declare void @_ZN4llvm21SymbolTableListTraitsINS_8FunctionEJEE13addNodeToListEPS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 {
-  %.sroa.0.i.i.i.i.i.i.i.i.i55 = alloca { i64, i64 }, align 8
-  %3 = alloca %"class.std::function.232", align 8
-  %.sroa.0.i.i.i.i.i.i.i.i.i = alloca { i64, i64 }, align 8
-  %4 = alloca %"class.std::function.232", align 8
+  %.sroa.0.i.i.i.i.i.i.i.i.i55 = alloca %"class.std::function.232", align 16
+  %3 = alloca %"class.std::function.232", align 16
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %178, label %6
 
@@ -90630,7 +90628,7 @@ _ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE12assignRemoteEOS3_
   %.0910.i.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i.i ], [ %64, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %48 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   %49 = load ptr, ptr %48, align 8, !tbaa !602
   %50 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !43
@@ -90638,19 +90636,18 @@ _ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE12assignRemoteEOS3_
   br i1 %.not.i.i.not.i.i.i.i.i.i.i.i, label %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i, label %52
 
 52:                                               ; preds = %47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !830
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !830
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
+  %.sroa.0.i.i.i.i.sroa.0.0.copyload.pre.i.i.i.i.i = load <2 x i64>, ptr %4, align 16, !tbaa !111
   br label %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i
 
 _ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i: ; preds = %52, %47
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !830
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !830
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !830
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i)
-  %53 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
+  %.sroa.0.i.i.i.i.sroa.0.0.copyload.i.i.i.i.i = phi <2 x i64> [ %.sroa.0.i.i.i.i.sroa.0.0.copyload.pre.i.i.i.i.i, %52 ], [ zeroinitializer, %47 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(88) %.0812.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !830
+  store <2 x i64> %.sroa.0.i.i.i.i.sroa.0.0.copyload.i.i.i.i.i, ptr %.0811.i.i.i.i.i, align 8, !tbaa !111
+  %53 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !638
-  store ptr %54, ptr %46, align 8, !tbaa !638
+  store ptr %54, ptr %46, align 16, !tbaa !638
   store ptr %51, ptr %53, align 8, !tbaa !638
   %55 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !638
@@ -90821,12 +90818,12 @@ _ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit54: ; 
   br label %115
 
 115:                                              ; preds = %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i64, %.lr.ph.i.i.i.i.i57
-  %.012.i.i.i.i.i58 = phi i64 [ %42, %.lr.ph.i.i.i.i.i57 ], [ %134, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i64 ]
-  %.0811.i.i.i.i.i59 = phi ptr [ %112, %.lr.ph.i.i.i.i.i57 ], [ %133, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i64 ]
-  %.0910.i.i.i.i.i60 = phi ptr [ %7, %.lr.ph.i.i.i.i.i57 ], [ %132, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i64 ]
+  %.012.i.i.i.i.i58 = phi i64 [ %42, %.lr.ph.i.i.i.i.i56 ], [ %134, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i65 ]
+  %.0811.i.i.i.i.i59 = phi ptr [ %112, %.lr.ph.i.i.i.i.i56 ], [ %133, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i65 ]
+  %.0910.i.i.i.i.i60 = phi ptr [ %7, %.lr.ph.i.i.i.i.i56 ], [ %132, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %116 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i60, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   %117 = load ptr, ptr %116, align 8, !tbaa !602
   %118 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i60, i64 16
   %119 = load ptr, ptr %118, align 8, !tbaa !43
@@ -90834,19 +90831,18 @@ _ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit54: ; 
   br i1 %.not.i.i.not.i.i.i.i.i.i.i.i61, label %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i62, label %120
 
 120:                                              ; preds = %115
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i60, i64 16, i1 false), !tbaa.struct !830
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i60, i64 16, i1 false), !tbaa.struct !830
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, i8 0, i64 16, i1 false)
+  %.sroa.0.i.i.i.i.sroa.0.0.copyload.pre.i.i.i.i.i61 = load <2 x i64>, ptr %3, align 16, !tbaa !111
   br label %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i62
 
 _ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i62: ; preds = %120, %115
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i55)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i.i55, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !830
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i59, i64 16, i1 false), !tbaa.struct !830
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i59, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i.i55, i64 16, i1 false), !tbaa.struct !830
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i55)
+  %.sroa.0.i.i.i.i.sroa.0.0.copyload.i.i.i.i.i63 = phi <2 x i64> [ %.sroa.0.i.i.i.i.sroa.0.0.copyload.pre.i.i.i.i.i61, %120 ], [ zeroinitializer, %115 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i.i55, ptr noundef nonnull align 8 dereferenceable(88) %.0812.i.i.i.i.i58, i64 16, i1 false), !tbaa.struct !830
+  store <2 x i64> %.sroa.0.i.i.i.i.sroa.0.0.copyload.i.i.i.i.i63, ptr %.0811.i.i.i.i.i59, align 8, !tbaa !111
   %121 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i59, i64 16
   %122 = load ptr, ptr %121, align 8, !tbaa !638
-  store ptr %122, ptr %114, align 8, !tbaa !638
+  store ptr %122, ptr %114, align 16, !tbaa !638
   store ptr %119, ptr %121, align 8, !tbaa !638
   %123 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i59, i64 24
   %124 = load ptr, ptr %123, align 8, !tbaa !638
@@ -90874,7 +90870,7 @@ _ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i64: ; preds = %125, 
   br i1 %135, label %115, label %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit65, !llvm.loop !2849
 
 _ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit65: ; preds = %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i64, %111, %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit54
-  %.026 = phi i64 [ 0, %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit54 ], [ 0, %111 ], [ %42, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i64 ]
+  %.026 = phi i64 [ 0, %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit54 ], [ 0, %111 ], [ %42, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i65 ]
   %136 = load ptr, ptr %1, align 8, !tbaa !25
   %137 = load i32, ptr %37, align 8, !tbaa !26
   %138 = zext i32 %137 to i64
@@ -90889,8 +90885,8 @@ _ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit65: ; preds 
   br label %.lr.ph.i.i.i.i.i66
 
 .lr.ph.i.i.i.i.i66:                               ; preds = %.lr.ph.i.i.i.i.i66.preheader, %_ZSt10_ConstructIN4llvm15OpenMPIRBuilder11OutlineInfoEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i
-  %.09.i.i.i.i.i = phi ptr [ %163, %_ZSt10_ConstructIN4llvm15OpenMPIRBuilder11OutlineInfoEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %141, %.lr.ph.i.i.i.i.i66.preheader ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %162, %_ZSt10_ConstructIN4llvm15OpenMPIRBuilder11OutlineInfoEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %142, %.lr.ph.i.i.i.i.i66.preheader ]
+  %.09.i.i.i.i.i = phi ptr [ %163, %_ZSt10_ConstructIN4llvm15OpenMPIRBuilder11OutlineInfoEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %141, %.lr.ph.i.i.i.i.i67.preheader ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %162, %_ZSt10_ConstructIN4llvm15OpenMPIRBuilder11OutlineInfoEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %142, %.lr.ph.i.i.i.i.i67.preheader ]
   %143 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 24
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.09.i.i.i.i.i, i8 0, i64 24, i1 false)
@@ -90941,7 +90937,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18unini
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.loopexit, %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit65
-  %164 = phi ptr [ %.pre81, %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.loopexit ], [ %136, %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit65 ]
+  %164 = phi ptr [ %.pre81, %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.loopexit ], [ %136, %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit66 ]
   store i32 %38, ptr %40, align 8, !tbaa !26
   %165 = load i32, ptr %37, align 8, !tbaa !26
   %.not4.i.i69 = icmp eq i32 %165, 0
@@ -90954,7 +90950,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18unini
   br label %.lr.ph.i.i72
 
 .lr.ph.i.i72:                                     ; preds = %_ZN4llvm15OpenMPIRBuilder11OutlineInfoD2Ev.exit.i.i76, %.lr.ph.i.preheader.i70
-  %.05.i.i73 = phi ptr [ %168, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoD2Ev.exit.i.i76 ], [ %167, %.lr.ph.i.preheader.i70 ]
+  %.05.i.i73 = phi ptr [ %168, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoD2Ev.exit.i.i77 ], [ %167, %.lr.ph.i.preheader.i71 ]
   %168 = getelementptr inbounds i8, ptr %.05.i.i73, i64 -88
   %169 = getelementptr inbounds i8, ptr %.05.i.i73, i64 -32
   %170 = load ptr, ptr %169, align 8, !tbaa !25

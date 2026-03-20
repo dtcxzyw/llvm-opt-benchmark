@@ -52785,7 +52785,6 @@ if.end24:                                         ; preds = %.noexc.i, %if.then.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt16__introsort_loopIPN8facebook5velox9TimestampElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_T1_(ptr noundef %__first, ptr noundef %__last, i64 noundef %__depth_limit) local_unnamed_addr #0 comdat {
 entry:
-  %__tmp.i.i.i.i = alloca %"struct.facebook::velox::Timestamp", align 8
   %__comp.i.i = alloca %"struct.__gnu_cxx::__ops::_Iter_less_iter", align 1
   %__comp.i = alloca %"struct.__gnu_cxx::__ops::_Iter_less_iter", align 1
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
@@ -52889,11 +52888,9 @@ while.end8.i.i:                                   ; preds = %land.rhs.i.i14.i.i,
   br i1 %cmp.i.i, label %if.end.i.i, label %_ZSt27__unguarded_partition_pivotIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_less_iterEET_S7_S7_T0_.exit
 
 if.end.i.i:                                       ; preds = %while.end8.i.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.1.i.i, i64 16, i1 false)
+  %__tmp.i.i.sroa.0.0.copyload.i.i = load <2 x i64>, ptr %__first.addr.1.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.1.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.1.i.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.1.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i)
+  store <2 x i64> %__tmp.i.i.sroa.0.0.copyload.i.i, ptr %__last.addr.1.i.i, align 8
   %incdec.ptr9.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.i.i, i64 16
   br label %while.body.i.i10, !llvm.loop !601
 
@@ -52912,8 +52909,6 @@ while.end:                                        ; preds = %_ZSt27__unguarded_p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt22__final_insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_(ptr noundef %__first, ptr noundef %__last) local_unnamed_addr #0 comdat {
 entry:
-  %__val.i20 = alloca %"struct.facebook::velox::Timestamp", align 8
-  %__val.i = alloca %"struct.facebook::velox::Timestamp", align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -52921,7 +52916,6 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(ptr nonnull %__val.i)
   %nanos_6.i.i.i = getelementptr inbounds nuw i8, ptr %__first, i64 8
   %scevgep = getelementptr i8, ptr %__first, i64 16
   br label %for.body.i
@@ -52950,9 +52944,9 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN8facebook5velox9TimestampES6_EEbT_T0_.
   br i1 %cmp7.i.i.i, label %if.then2.i, label %while.cond.i.i.preheader
 
 if.then2.i:                                       ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN8facebook5velox9TimestampES6_EEbT_T0_.exit.i, %for.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.i, ptr noundef nonnull align 8 dereferenceable(16) %__i.016.i.ptr, i64 16, i1 false)
+  %__val.sroa.0.0.copyload.i = load <2 x i64>, ptr %__i.016.i.ptr, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %__i.016.i.idx, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first, ptr noundef nonnull align 8 dereferenceable(16) %__val.i, i64 16, i1 false)
+  store <2 x i64> %__val.sroa.0.0.copyload.i, ptr %__first, align 8
   br label %for.inc.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i.preheader, %while.body.i.i
@@ -52989,7 +52983,6 @@ for.inc.i:                                        ; preds = %_ZSt25__unguarded_l
 
 _ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit: ; preds = %for.inc.i
   %add.ptr = getelementptr inbounds nuw i8, ptr %__first, i64 256
-  call void @llvm.lifetime.end.p0(ptr nonnull %__val.i)
   %cmp.not3.i = icmp eq ptr %add.ptr, %__last
   br i1 %cmp.not3.i, label %if.end, label %for.body.i7
 
@@ -53030,22 +53023,21 @@ _ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_
   br i1 %cmp.not.i, label %if.end, label %for.body.i7, !llvm.loop !605
 
 if.else:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(ptr nonnull %__val.i20)
   %cmp.i = icmp eq ptr %__first, %__last
-  br i1 %cmp.i, label %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit56, label %for.cond.preheader.i
+  br i1 %cmp.i, label %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_.exit58, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.else
   %__i.013.i21 = getelementptr inbounds nuw i8, ptr %__first, i64 16
   %cmp1.not14.i = icmp eq ptr %__i.013.i21, %__last
-  br i1 %cmp1.not14.i, label %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit56, label %for.body.lr.ph.i
+  br i1 %cmp1.not14.i, label %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_.exit58, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %nanos_6.i.i.i22 = getelementptr inbounds nuw i8, ptr %__first, i64 8
   br label %for.body.i24
 
-for.body.i24:                                     ; preds = %for.inc.i40, %for.body.lr.ph.i
-  %__i.016.i25 = phi ptr [ %__i.013.i21, %for.body.lr.ph.i ], [ %__i.0.i41, %for.inc.i40 ]
-  %__first.pn15.i26 = phi ptr [ %__first, %for.body.lr.ph.i ], [ %__i.016.i25, %for.inc.i40 ]
+for.body.i24:                                     ; preds = %for.inc.i39, %for.body.lr.ph.i
+  %__i.016.i25 = phi ptr [ %__i.013.i21, %for.body.lr.ph.i ], [ %__i.0.i40, %for.inc.i39 ]
+  %__first.pn15.i26 = phi ptr [ %__first, %for.body.lr.ph.i ], [ %__i.016.i25, %for.inc.i39 ]
   %8 = load i64, ptr %__i.016.i25, align 8
   %9 = load i64, ptr %__first, align 8
   %cmp.i.i.i27 = icmp slt i64 %8, %9
@@ -53066,7 +53058,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN8facebook5velox9TimestampES6_EEbT_T0_.
   br i1 %cmp7.i.i.i48, label %if.then2.i49, label %while.cond.i.i32.preheader
 
 if.then2.i49:                                     ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN8facebook5velox9TimestampES6_EEbT_T0_.exit.i47, %for.body.i24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.i20, ptr noundef nonnull align 8 dereferenceable(16) %__i.016.i25, i64 16, i1 false)
+  %__val.sroa.0.0.copyload.i49 = load <2 x i64>, ptr %__i.016.i25, align 8
   %add.ptr3.i50 = getelementptr inbounds nuw i8, ptr %__first.pn15.i26, i64 32
   %sub.ptr.lhs.cast.i.i.i.i.i.i51 = ptrtoint ptr %__i.016.i25 to i64
   %sub.ptr.sub.i.i.i.i.i.i52 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i51, %sub.ptr.rhs.cast
@@ -53074,11 +53066,11 @@ if.then2.i49:                                     ; preds = %_ZNK9__gnu_cxx5__op
   %idx.neg.i.i.i.i.i.i54 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i53
   %add.ptr.i.i.i.i.i.i55 = getelementptr inbounds [16 x i8], ptr %add.ptr3.i50, i64 %idx.neg.i.i.i.i.i.i54
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i55, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i52, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first, ptr noundef nonnull align 8 dereferenceable(16) %__val.i20, i64 16, i1 false)
-  br label %for.inc.i40
+  store <2 x i64> %__val.sroa.0.0.copyload.i49, ptr %__first, align 8
+  br label %for.inc.i39
 
 while.cond.i.i32:                                 ; preds = %while.cond.i.i32.preheader, %while.body.i.i46
-  %__last.addr.0.i.i33 = phi ptr [ %__next.0.i.i34, %while.body.i.i46 ], [ %__i.016.i25, %while.cond.i.i32.preheader ]
+  %__last.addr.0.i.i33 = phi ptr [ %__next.0.i.i34, %while.body.i.i45 ], [ %__i.016.i25, %while.cond.i.i31.preheader ]
   %__next.0.i.i34 = getelementptr inbounds i8, ptr %__last.addr.0.i.i33, i64 -16
   %12 = load i64, ptr %__next.0.i.i34, align 8
   %cmp.i.i.i.i35 = icmp slt i64 %8, %12
@@ -53086,34 +53078,30 @@ while.cond.i.i32:                                 ; preds = %while.cond.i.i32.pr
 
 lor.rhs.i.i.i.i36:                                ; preds = %while.cond.i.i32
   %cmp5.i.i.i.i37 = icmp eq i64 %8, %12
-  br i1 %cmp5.i.i.i.i37, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN8facebook5velox9TimestampEPS5_EEbRT_T0_.exit.i.i43, label %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i38
+  br i1 %cmp5.i.i.i.i37, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN8facebook5velox9TimestampEPS5_EEbRT_T0_.exit.i.i43, label %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i37
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN8facebook5velox9TimestampEPS5_EEbRT_T0_.exit.i.i43: ; preds = %lor.rhs.i.i.i.i36
   %nanos_6.i.i.i.i44 = getelementptr inbounds i8, ptr %__last.addr.0.i.i33, i64 -8
   %13 = load i64, ptr %nanos_6.i.i.i.i44, align 8
   %cmp7.i.i.i.i45 = icmp ult i64 %10, %13
-  br i1 %cmp7.i.i.i.i45, label %while.body.i.i46, label %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i38
+  br i1 %cmp7.i.i.i.i45, label %while.body.i.i46, label %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i37
 
 while.body.i.i46:                                 ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN8facebook5velox9TimestampEPS5_EEbRT_T0_.exit.i.i43, %while.cond.i.i32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.0.i.i33, ptr noundef nonnull align 8 dereferenceable(16) %__next.0.i.i34, i64 16, i1 false)
   br label %while.cond.i.i32, !llvm.loop !603
 
-_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i38: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN8facebook5velox9TimestampEPS5_EEbRT_T0_.exit.i.i43, %lor.rhs.i.i.i.i36
-  store i64 %8, ptr %__last.addr.0.i.i33, align 8
-  %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i33, i64 8
-  store i64 %10, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i39, align 8
-  br label %for.inc.i40
+_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i37:; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN8facebook5velox9TimestampEPS5_EEbRT_T0_.exit.i.i42, %lor.rhs.i.i.i.i36
+  store i64 %8, ptr %__last.addr.0.i.i32, align 8
+  %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i38 = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i32, i64 8
+  store i64 %10, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i38, align 8
+  br label %for.inc.i39
 
-for.inc.i40:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i38, %if.then2.i49
-  %__i.0.i41 = getelementptr inbounds nuw i8, ptr %__i.016.i25, i64 16
-  %cmp1.not.i42 = icmp eq ptr %__i.0.i41, %__last
-  br i1 %cmp1.not.i42, label %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit56, label %for.body.i24, !llvm.loop !604
+for.inc.i39:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i37, %if.then2.i48
+  %__i.0.i40 = getelementptr inbounds nuw i8, ptr %__i.016.i24, i64 16
+  %cmp1.not.i41 = icmp eq ptr %__i.0.i40, %__last
+  br i1 %cmp1.not.i41, label %if.end, label %for.body.i23, !llvm.loop !604
 
-_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit56: ; preds = %for.inc.i40, %if.else, %for.cond.preheader.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %__val.i20)
-  br label %if.end
-
-if.end:                                           ; preds = %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i14, %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit, %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit56
+if.end:                                           ; preds = %for.inc.i39, %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i14, %for.cond.preheader.i, %if.else, %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit
   ret void
 }
 
@@ -53603,7 +53591,6 @@ if.end16:                                         ; preds = %if.then9, %if.else1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt16__introsort_loopIPN8facebook5velox9TimestampElN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_T1_(ptr noundef %__first, ptr noundef %__last, i64 noundef %__depth_limit) local_unnamed_addr #0 comdat {
 entry:
-  %__tmp.i.i.i.i = alloca %"struct.facebook::velox::Timestamp", align 8
   %__comp.i.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.628", align 1
   %__comp.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter.628", align 1
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
@@ -53707,11 +53694,9 @@ while.end8.i.i:                                   ; preds = %land.rhs.i.i.i14.i.
   br i1 %cmp.i.i, label %if.end.i.i, label %_ZSt27__unguarded_partition_pivotIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEET_SA_SA_T0_.exit
 
 if.end.i.i:                                       ; preds = %while.end8.i.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.1.i.i, i64 16, i1 false)
+  %__tmp.i.i.sroa.0.0.copyload.i.i = load <2 x i64>, ptr %__first.addr.1.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.1.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.1.i.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.1.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i)
+  store <2 x i64> %__tmp.i.i.sroa.0.0.copyload.i.i, ptr %__last.addr.1.i.i, align 8
   %incdec.ptr9.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.i.i, i64 16
   br label %while.body.i.i12, !llvm.loop !612
 
@@ -53730,8 +53715,6 @@ while.end:                                        ; preds = %_ZSt27__unguarded_p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt22__final_insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_(ptr noundef %__first, ptr noundef %__last) local_unnamed_addr #0 comdat {
 entry:
-  %__val.i22 = alloca %"struct.facebook::velox::Timestamp", align 8
-  %__val.i = alloca %"struct.facebook::velox::Timestamp", align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -53739,7 +53722,6 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(ptr nonnull %__val.i)
   %nanos_6.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first, i64 8
   %scevgep = getelementptr i8, ptr %__first, i64 16
   br label %for.body.i
@@ -53768,9 +53750,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclI
   br i1 %cmp7.i.i.i.i, label %if.then2.i, label %while.cond.i.i.preheader
 
 if.then2.i:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclIPS5_S9_EEbT_T0_.exit.i, %for.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.i, ptr noundef nonnull align 8 dereferenceable(16) %__i.016.i.ptr, i64 16, i1 false)
+  %__val.sroa.0.0.copyload.i = load <2 x i64>, ptr %__i.016.i.ptr, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %__i.016.i.idx, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first, ptr noundef nonnull align 8 dereferenceable(16) %__val.i, i64 16, i1 false)
+  store <2 x i64> %__val.sroa.0.0.copyload.i, ptr %__first, align 8
   br label %for.inc.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i.preheader, %while.body.i.i
@@ -53807,7 +53789,6 @@ for.inc.i:                                        ; preds = %_ZSt25__unguarded_l
 
 _ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_.exit: ; preds = %for.inc.i
   %add.ptr = getelementptr inbounds nuw i8, ptr %__first, i64 256
-  call void @llvm.lifetime.end.p0(ptr nonnull %__val.i)
   %cmp.not3.i = icmp eq ptr %add.ptr, %__last
   br i1 %cmp.not3.i, label %if.end, label %for.body.i9
 
@@ -53848,7 +53829,6 @@ _ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_
   br i1 %cmp.not.i, label %if.end, label %for.body.i9, !llvm.loop !616
 
 if.else:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(ptr nonnull %__val.i22)
   %cmp.i = icmp eq ptr %__first, %__last
   br i1 %cmp.i, label %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_.exit58, label %for.cond.preheader.i
 
@@ -53862,8 +53842,8 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   br label %for.body.i26
 
 for.body.i26:                                     ; preds = %for.inc.i42, %for.body.lr.ph.i
-  %__i.016.i27 = phi ptr [ %__i.013.i23, %for.body.lr.ph.i ], [ %__i.0.i43, %for.inc.i42 ]
-  %__first.pn15.i28 = phi ptr [ %__first, %for.body.lr.ph.i ], [ %__i.016.i27, %for.inc.i42 ]
+  %__i.016.i27 = phi ptr [ %__i.013.i23, %for.body.lr.ph.i ], [ %__i.0.i43, %for.inc.i41 ]
+  %__first.pn15.i28 = phi ptr [ %__first, %for.body.lr.ph.i ], [ %__i.016.i27, %for.inc.i41 ]
   %8 = load i64, ptr %__i.016.i27, align 8
   %9 = load i64, ptr %__first, align 8
   %cmp.i.i.i.i29 = icmp sgt i64 %8, %9
@@ -53884,7 +53864,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclI
   br i1 %cmp7.i.i.i.i50, label %if.then2.i51, label %while.cond.i.i34.preheader
 
 if.then2.i51:                                     ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclIPS5_S9_EEbT_T0_.exit.i49, %for.body.i26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__val.i22, ptr noundef nonnull align 8 dereferenceable(16) %__i.016.i27, i64 16, i1 false)
+  %__val.sroa.0.0.copyload.i51 = load <2 x i64>, ptr %__i.016.i26, align 8
   %add.ptr3.i52 = getelementptr inbounds nuw i8, ptr %__first.pn15.i28, i64 32
   %sub.ptr.lhs.cast.i.i.i.i.i.i53 = ptrtoint ptr %__i.016.i27 to i64
   %sub.ptr.sub.i.i.i.i.i.i54 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i53, %sub.ptr.rhs.cast
@@ -53892,11 +53872,11 @@ if.then2.i51:                                     ; preds = %_ZN9__gnu_cxx5__ops
   %idx.neg.i.i.i.i.i.i56 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i55
   %add.ptr.i.i.i.i.i.i57 = getelementptr inbounds [16 x i8], ptr %add.ptr3.i52, i64 %idx.neg.i.i.i.i.i.i56
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i57, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i54, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first, ptr noundef nonnull align 8 dereferenceable(16) %__val.i22, i64 16, i1 false)
+  store <2 x i64> %__val.sroa.0.0.copyload.i51, ptr %__first, align 8
   br label %for.inc.i42
 
 while.cond.i.i34:                                 ; preds = %while.cond.i.i34.preheader, %while.body.i.i48
-  %__last.addr.0.i.i35 = phi ptr [ %__next.0.i.i36, %while.body.i.i48 ], [ %__i.016.i27, %while.cond.i.i34.preheader ]
+  %__last.addr.0.i.i35 = phi ptr [ %__next.0.i.i36, %while.body.i.i47 ], [ %__i.016.i27, %while.cond.i.i33.preheader ]
   %__next.0.i.i36 = getelementptr inbounds i8, ptr %__last.addr.0.i.i35, i64 -16
   %12 = load i64, ptr %__next.0.i.i36, align 8
   %cmp.i.i.i.i.i37 = icmp sgt i64 %8, %12
@@ -53927,11 +53907,7 @@ for.inc.i42:                                      ; preds = %_ZSt25__unguarded_l
   %cmp1.not.i44 = icmp eq ptr %__i.0.i43, %__last
   br i1 %cmp1.not.i44, label %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_.exit58, label %for.body.i26, !llvm.loop !615
 
-_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_.exit58: ; preds = %for.inc.i42, %if.else, %for.cond.preheader.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %__val.i22)
-  br label %if.end
-
-if.end:                                           ; preds = %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS2_EEEEvT_T0_.exit.i16, %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_.exit, %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_.exit58
+_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_.exit58: ; preds = %for.inc.i42, %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS2_EEEEvT_T0_.exit.i16, %for.cond.preheader.i, %if.else, %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_.exit
   ret void
 }
 

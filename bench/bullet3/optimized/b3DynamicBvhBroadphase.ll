@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.BroadphaseRayTester = type { %"struct.b3DynamicBvh::ICollide", ptr }
 %struct.BroadphaseAabbTester = type { %"struct.b3DynamicBvh::ICollide", ptr }
 %class.b3BroadphasePairSortPredicate = type { i8 }
-%struct.anon.10 = type { i32, i32, i32, i32 }
 
 $_ZN20b3AlignedObjectArrayI11b3DbvtProxyED2Ev = comdat any
 
@@ -2935,7 +2934,6 @@ define linkonce_odr dso_local void @_ZN20BroadphaseAabbTester7ProcessEPK10b3Dbvt
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI6b3Int4E17quickSortInternalI29b3BroadphasePairSortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
-  %.sroa.0.i = alloca %struct.anon.10, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %tailrecurse
 
@@ -3007,13 +3005,11 @@ _ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit34.thread: ; preds = %24,
   br i1 %.not, label %41, label %36
 
 36:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !48
+  %.sroa.0.i.sroa.0.0.copyload = load <4 x i32>, ptr %15, align 16, !tbaa !49
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, ptr noundef nonnull align 16 dereferenceable(16) %25, i64 16, i1 false), !tbaa.struct !48
   %37 = load ptr, ptr %5, align 8, !tbaa !98
   %38 = getelementptr inbounds [16 x i8], ptr %37, i64 %indvars.iv46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %38, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i, i64 16, i1 false), !tbaa.struct !48
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
+  store <4 x i32> %.sroa.0.i.sroa.0.0.copyload, ptr %38, align 16, !tbaa !49
   %39 = add nsw i32 %34, 1
   %40 = add nsw i32 %35, -1
   br label %41

@@ -3,7 +3,6 @@ source_filename = "bench/ffmpeg/original/ffmpeg_dec.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ViewSpecifier = type { i32, i32 }
 %struct.AVSubtitle = type { i16, i32, i32, i32, ptr, i64 }
 %struct.DecoderOpts = type { i32, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, %struct.AVRational, %struct.AVRational }
 %struct.AVRational = type { i32, i32 }
@@ -138,7 +137,7 @@ declare void @av_freep(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @dec_request_view(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
-  %4 = alloca %struct.ViewSpecifier, align 4
+  %4 = alloca <2 x i32>, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load i32, ptr %5, align 8, !tbaa !9
   %.not = icmp eq i32 %6, 0
@@ -176,14 +175,14 @@ define range(i32 -2147483648, 1) i32 @dec_request_view(ptr noundef %0, ptr nound
   br i1 %.not67, label %18, label %19
 
 18:                                               ; preds = %16, %15
-  store i32 1, ptr %4, align 4, !tbaa !24
+  store i32 1, ptr %4, align 8, !tbaa !24
   %.4..4..4.gep.sroa_idx111 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %.4..4..4.gep.sroa_idx111, align 4, !tbaa !28
   br label %19
 
 19:                                               ; preds = %16, %18
-  %20 = phi i32 [ 1, %18 ], [ %17, %16 ]
-  %21 = phi ptr [ %4, %18 ], [ %1, %16 ]
+  %20 = phi i32 [ 1, %17 ], [ %17, %15 ]
+  %21 = phi ptr [ %4, %17 ], [ %1, %15 ]
   %.sroa.phi = getelementptr inbounds nuw i8, ptr %21, i64 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %23 = load i32, ptr %22, align 8, !tbaa !29
@@ -199,7 +198,7 @@ define range(i32 -2147483648, 1) i32 @dec_request_view(ptr noundef %0, ptr nound
   br i1 %26, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %30
-  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %30 ], [ 0, %.lr.ph ]
+  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %29 ], [ 0, %.lr.ph ]
   %27 = getelementptr inbounds nuw [12 x i8], ptr %25, i64 %indvars.iv85
   %28 = load i32, ptr %27, align 4, !tbaa !24
   %29 = icmp eq i32 %28, 4
@@ -211,7 +210,7 @@ define range(i32 -2147483648, 1) i32 @dec_request_view(ptr noundef %0, ptr nound
   br i1 %exitcond89.not, label %.critedge71, label %.lr.ph.split.us, !llvm.loop !31
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %45
-  %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.lr.ph ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %.lr.ph ]
   %31 = getelementptr inbounds nuw [12 x i8], ptr %25, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !24
   %33 = icmp eq i32 %.fr78, %32
@@ -225,7 +224,7 @@ define range(i32 -2147483648, 1) i32 @dec_request_view(ptr noundef %0, ptr nound
   br i1 %38, label %.critedge, label %45
 
 .critedge:                                        ; preds = %34, %.lr.ph.split.us
-  %39 = phi i64 [ %indvars.iv85, %.lr.ph.split.us ], [ %indvars.iv, %34 ]
+  %39 = phi i64 [ %indvars.iv85, %.lr.ph.split.us ], [ %indvars.iv, %33 ]
   %40 = getelementptr inbounds nuw [12 x i8], ptr %25, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %42 = load i32, ptr %41, align 8, !tbaa !26
@@ -277,8 +276,8 @@ define range(i32 -2147483648, 1) i32 @dec_request_view(ptr noundef %0, ptr nound
   br label %63
 
 63:                                               ; preds = %._crit_edge, %53
-  %64 = phi i32 [ %54, %53 ], [ %.pre, %._crit_edge ]
-  %.056 = phi i32 [ 0, %53 ], [ %61, %._crit_edge ]
+  %64 = phi i32 [ %54, %52 ], [ %.pre, %._crit_edge ]
+  %.056 = phi i32 [ 0, %52 ], [ %61, %._crit_edge ]
   %65 = load ptr, ptr %49, align 8, !tbaa !30
   %66 = sext i32 %64 to i64
   %67 = getelementptr [12 x i8], ptr %65, i64 %66
@@ -303,7 +302,7 @@ define range(i32 -2147483648, 1) i32 @dec_request_view(ptr noundef %0, ptr nound
   br label %79
 
 79:                                               ; preds = %.critedge, %56, %48, %63, %47, %14, %11
-  %.0 = phi i32 [ 0, %11 ], [ -22, %14 ], [ -38, %47 ], [ 0, %.critedge ], [ %51, %48 ], [ 0, %63 ], [ %61, %56 ]
+  %.0 = phi i32 [ 0, %10 ], [ -22, %13 ], [ -38, %46 ], [ 0, %.critedge ], [ %51, %47 ], [ 0, %62 ], [ %61, %55 ]
   ret i32 %.0
 }
 

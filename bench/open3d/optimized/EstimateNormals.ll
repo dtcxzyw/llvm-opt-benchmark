@@ -4549,10 +4549,7 @@ _ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE5countERKm.exit: ; preds = 
 
 ; Function Attrs: mustprogress ssp uwtable
 define internal fastcc void @_ZN6open3d12_GLOBAL__N_17KruskalERSt6vectorINS0_12WeightedEdgeESaIS2_EEm(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i64 noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %.sroa.06.i.i26.i.i.i = alloca { i64, i64 }, align 8
   %4 = alloca %"struct.open3d::(anonymous namespace)::WeightedEdge", align 8
-  %.sroa.06.i.i15.i.i.i = alloca { i64, i64 }, align 8
-  %.sroa.06.i.i.i.i.i = alloca { i64, i64 }, align 8
   %5 = alloca %"struct.open3d::(anonymous namespace)::WeightedEdge", align 8
   %6 = alloca %"class.open3d::(anonymous namespace)::DisjointSet", align 8
   %.val = load ptr, ptr %1, align 8, !tbaa !126
@@ -4609,8 +4606,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112Weig
   br label %31
 
 26:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.06.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.020.i.ptr.i.i.i, i64 16, i1 false), !tbaa.struct !150
+  %.sroa.06.sroa.0.0.copyload.i.i.i.i.i = load <2 x i64>, ptr %.sroa.0.020.i.ptr.i.i.i, align 8
   %27 = getelementptr i8, ptr %.pn19.i.i.i.i, i64 16
   %.val3.i9.i.i.i.i.i = load double, ptr %27, align 8, !tbaa !131
   %28 = fcmp olt double %.val2.i.i.i.i.i, %.val3.i9.i.i.i.i.i
@@ -4627,10 +4623,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112Weig
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112WeightedEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_7KruskalERS8_mE3$_0EEEvT_T0_.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i, %26
   %.sroa.08.0.lcssa.i.i.i.i.i = phi ptr [ %.sroa.0.020.i.ptr.i.i.i, %26 ], [ %.sroa.0.0.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.0.lcssa.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !150
+  store <2 x i64> %.sroa.06.sroa.0.0.copyload.i.i.i.i.i, ptr %.sroa.08.0.lcssa.i.i.i.i.i, align 8
   %.sroa.4.0..val.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.08.0.lcssa.i.i.i.i.i, i64 16
   store double %.val2.i.i.i.i.i, ptr %.sroa.4.0..val.sroa_idx.i.i.i.i.i, align 8, !tbaa !29
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.06.i.i.i.i.i)
   br label %31
 
 31:                                               ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112WeightedEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_7KruskalERS8_mE3$_0EEEvT_T0_.exit.i.i.i.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112WeightedEdgeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i.i
@@ -4645,8 +4640,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112Weig
 
 .lr.ph.i16.i.i.i:                                 ; preds = %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112WeightedEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_7KruskalERS8_mE3$_0EEEvT_SF_T0_.exit.i.i.i", %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112WeightedEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_7KruskalERS8_mE3$_0EEEvT_T0_.exit.i18.i.i.i"
   %.sroa.0.07.i.i.i.i = phi ptr [ %37, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112WeightedEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_7KruskalERS8_mE3$_0EEEvT_T0_.exit.i18.i.i.i" ], [ %32, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112WeightedEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_7KruskalERS8_mE3$_0EEEvT_SF_T0_.exit.i.i.i" ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.06.i.i15.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i.i15.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.07.i.i.i.i, i64 16, i1 false), !tbaa.struct !150
+  %.sroa.06.sroa.0.0.copyload.i.i16.i.i.i = load <2 x i64>, ptr %.sroa.0.07.i.i.i.i, align 8
   %.sroa.4.0..val3.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i.i, i64 16
   %.sroa.4.0.copyload.i.i.i.i.i = load double, ptr %.sroa.4.0..val3.sroa_idx.i.i.i.i.i, align 8, !tbaa !29
   %33 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i, i64 -8
@@ -4655,7 +4649,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112Weig
   br i1 %34, label %.lr.ph.i.i22.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112WeightedEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_7KruskalERS8_mE3$_0EEEvT_T0_.exit.i18.i.i.i"
 
 .lr.ph.i.i22.i.i.i:                               ; preds = %.lr.ph.i16.i.i.i, %.lr.ph.i.i22.i.i.i
-  %.sroa.08.010.i.i23.i.i.i = phi ptr [ %.sroa.0.0.i.i24.i.i.i, %.lr.ph.i.i22.i.i.i ], [ %.sroa.0.07.i.i.i.i, %.lr.ph.i16.i.i.i ]
+  %.sroa.08.010.i.i23.i.i.i = phi ptr [ %.sroa.0.0.i.i24.i.i.i, %.lr.ph.i.i22.i.i.i ], [ %.sroa.0.07.i.i.i.i, %.lr.ph.i15.i.i.i ]
   %.sroa.0.0.i.i24.i.i.i = getelementptr inbounds i8, ptr %.sroa.08.010.i.i23.i.i.i, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.08.010.i.i23.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.i.i24.i.i.i, i64 24, i1 false), !tbaa.struct !150
   %35 = getelementptr i8, ptr %.sroa.08.010.i.i23.i.i.i, i64 -32
@@ -4664,11 +4658,10 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112Weig
   br i1 %36, label %.lr.ph.i.i22.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112WeightedEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_7KruskalERS8_mE3$_0EEEvT_T0_.exit.i18.i.i.i", !llvm.loop !202
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112WeightedEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_7KruskalERS8_mE3$_0EEEvT_T0_.exit.i18.i.i.i": ; preds = %.lr.ph.i.i22.i.i.i, %.lr.ph.i16.i.i.i
-  %.sroa.08.0.lcssa.i.i19.i.i.i = phi ptr [ %.sroa.0.07.i.i.i.i, %.lr.ph.i16.i.i.i ], [ %.sroa.0.0.i.i24.i.i.i, %.lr.ph.i.i22.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.0.lcssa.i.i19.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i.i15.i.i.i, i64 16, i1 false), !tbaa.struct !150
+  %.sroa.08.0.lcssa.i.i19.i.i.i = phi ptr [ %.sroa.0.07.i.i.i.i, %.lr.ph.i15.i.i.i ], [ %.sroa.0.0.i.i24.i.i.i, %.lr.ph.i.i22.i.i.i ]
+  store <2 x i64> %.sroa.06.sroa.0.0.copyload.i.i16.i.i.i, ptr %.sroa.08.0.lcssa.i.i19.i.i.i, align 8
   %.sroa.4.0..val.sroa_idx.i.i20.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.08.0.lcssa.i.i19.i.i.i, i64 16
   store double %.sroa.4.0.copyload.i.i.i.i.i, ptr %.sroa.4.0..val.sroa_idx.i.i20.i.i.i, align 8, !tbaa !29
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.06.i.i15.i.i.i)
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i.i, i64 24
   %.not.i21.i.i.i = icmp eq ptr %37, %.val24
   br i1 %.not.i21.i.i.i, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112WeightedEdgeESt6vectorIS4_SaIS4_EEEEZNS3_7KruskalERS8_mE3$_0EvT_SC_T0_.exit", label %.lr.ph.i16.i.i.i, !llvm.loop !204
@@ -4683,8 +4676,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112Weig
   br label %39
 
 39:                                               ; preds = %58, %.lr.ph.i30.i.i.i
-  %.sroa.0.020.i31.i.i.i = phi ptr [ %.sroa.0.017.i28.i.i.i, %.lr.ph.i30.i.i.i ], [ %.sroa.0.0.i39.i.i.i, %58 ]
-  %.pn19.i32.i.i.i = phi ptr [ %.val, %.lr.ph.i30.i.i.i ], [ %.sroa.0.020.i31.i.i.i, %58 ]
+  %.sroa.0.020.i31.i.i.i = phi ptr [ %.sroa.0.017.i28.i.i.i, %.lr.ph.i29.i.i.i ], [ %.sroa.0.0.i39.i.i.i, %58 ]
+  %.pn19.i32.i.i.i = phi ptr [ %.val, %.lr.ph.i29.i.i.i ], [ %.sroa.0.020.i31.i.i.i, %58 ]
   %40 = getelementptr i8, ptr %.pn19.i32.i.i.i, i64 40
   %.val2.i.i33.i.i.i = load double, ptr %40, align 8, !tbaa !131
   %.val3.i.i34.i.i.i = load double, ptr %38, align 8, !tbaa !131
@@ -4722,9 +4715,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112Weig
   br label %58
 
 53:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.06.i.i26.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i.i26.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.020.i31.i.i.i, i64 16, i1 false), !tbaa.struct !150
-  %54 = getelementptr i8, ptr %.pn19.i32.i.i.i, i64 16
+  %.sroa.06.sroa.0.0.copyload.i.i34.i.i.i = load <2 x i64>, ptr %.sroa.0.020.i30.i.i.i, align 8
+  %54 = getelementptr i8, ptr %.pn19.i31.i.i.i, i64 16
   %.val3.i9.i.i35.i.i.i = load double, ptr %54, align 8, !tbaa !131
   %55 = fcmp olt double %.val2.i.i33.i.i.i, %.val3.i9.i.i35.i.i.i
   br i1 %55, label %.lr.ph.i.i41.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112WeightedEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_7KruskalERS8_mE3$_0EEEvT_T0_.exit.i36.i.i.i"
@@ -4740,10 +4732,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112Weig
 
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112WeightedEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_7KruskalERS8_mE3$_0EEEvT_T0_.exit.i36.i.i.i": ; preds = %.lr.ph.i.i41.i.i.i, %53
   %.sroa.08.0.lcssa.i.i37.i.i.i = phi ptr [ %.sroa.0.020.i31.i.i.i, %53 ], [ %.sroa.0.0.i.i43.i.i.i, %.lr.ph.i.i41.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.0.lcssa.i.i37.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i.i26.i.i.i, i64 16, i1 false), !tbaa.struct !150
+  store <2 x i64> %.sroa.06.sroa.0.0.copyload.i.i34.i.i.i, ptr %.sroa.08.0.lcssa.i.i37.i.i.i, align 8
   %.sroa.4.0..val.sroa_idx.i.i38.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.08.0.lcssa.i.i37.i.i.i, i64 16
   store double %.val2.i.i33.i.i.i, ptr %.sroa.4.0..val.sroa_idx.i.i38.i.i.i, align 8, !tbaa !29
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.06.i.i26.i.i.i)
   br label %58
 
 58:                                               ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112WeightedEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS3_7KruskalERS8_mE3$_0EEEvT_T0_.exit.i36.i.i.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6open3d12_GLOBAL__N_112WeightedEdgeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i45.i.i.i

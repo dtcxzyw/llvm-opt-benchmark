@@ -1635,7 +1635,6 @@ define hidden void @_ZN3ue213RoseBuildImpl16buildFinalEngineEj(ptr dead_on_unwin
   %106 = alloca i8, align 1
   %107 = alloca %"class.std::unique_ptr.515", align 8
   %108 = alloca %"class.ue2::bytecode_ptr.534", align 8
-  %.sroa.15.i.i.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %109 = alloca %"class.ue2::bytecode_ptr.534", align 8
   %110 = alloca %"class.ue2::bytecode_ptr.534", align 8
   %111 = alloca %"class.ue2::bytecode_ptr.534", align 8
@@ -4535,7 +4534,6 @@ _ZN3ue2L7prepMpvERNS_13RoseBuildImplERNS_12_GLOBAL__N_113build_contextEPmPb.exit
 
 1299:                                             ; preds = %1297
   %1300 = ptrtoint ptr %1298 to i64
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15.i.i.i.i.i.i.i.i)
   store i64 %1300, ptr %109, align 8, !noalias !102
   store ptr null, ptr %108, align 8, !noalias !102
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink26.i.sroa.gep.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1271, i64 16, i1 false), !noalias !102
@@ -4629,7 +4627,7 @@ _ZN3ue2L7prepMpvERNS_13RoseBuildImplERNS_12_GLOBAL__N_113build_contextEPmPb.exit
   %1326 = phi ptr [ %..cast.i.i.i.i.i.i.i.i, %1321 ], [ %.cast.27.i.i.i.i.i.i.i.i, %1323 ], [ %..cast23.i.i.i.i.i.i.i.i, %1322 ], [ null, %1299 ], [ %.cast.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i.i ]
   %.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ %.cast..i.i.i.i.i.i.i.i, %1321 ], [ %..cast28.i.i.i.i.i.i.i.i, %1323 ], [ %.cast.24.i.i.i.i.i.i.i.i, %1322 ], [ %.cast.i.i.i.i.i.i.i.i, %1299 ], [ %1298, %.noexc.i.i.i.i.i.i.i.i ]
   %.sink26.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sink26.i.sroa.gep1..sink26.i.sroa.gep.i.i.i.i.i.i.i.i, %1321 ], [ %.sink26.i.sroa.gep..sink26.i.sroa.gep1.i.i.i.i.i.i.i.i, %1323 ], [ %.sink26.i.sroa.gep1..sink26.i.sroa.gep25.i.i.i.i.i.i.i.i, %1322 ], [ %.sink26.i.sroa.gep1.i.i.i.i.i.i.i.i, %1299 ], [ %.sink26.i.sroa.gep.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.15.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sink26.i.sroa.phi.i.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !102
+  %.sroa.15.8.copyload.i.i.i.i.i.i.i.i = load <2 x i64>, ptr %.sink26.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !noalias !102
   %1327 = load ptr, ptr %111, align 8, !alias.scope !102
   store ptr %.sroa.0.0.i.i.i.i.i.i.i.i, ptr %111, align 8, !alias.scope !102
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %1327, null
@@ -4647,7 +4645,7 @@ _ZN3ue2L7prepMpvERNS_13RoseBuildImplERNS_12_GLOBAL__N_113build_contextEPmPb.exit
   unreachable
 
 _ZN3ue212bytecode_ptrI3NFAED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %1328, %1324
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1272, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.15.i.i.i.i.i.i.i.i, i64 16, i1 false)
+  store <2 x i64> %.sroa.15.8.copyload.i.i.i.i.i.i.i.i, ptr %1272, align 8, !alias.scope !102
   %.not.i.i27.i.i.i.i.i.i.i.i = icmp eq ptr %1326, null
   br i1 %.not.i.i27.i.i.i.i.i.i.i.i, label %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit28.i.i.i.i.i.i.i.i, label %1332
 
@@ -4702,12 +4700,10 @@ _ZN3ue212bytecode_ptrI3NFAED2Ev.exit28.i.i.i.i.i.i.i.i: ; preds = %1332, %_ZN3ue
           cleanup
   call void @_ZN3ue212bytecode_ptrI3NFAED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %110) #27
   call void @_ZN3ue212bytecode_ptrI3NFAED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %109) #27
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i.i.i.i.i.i.i.i)
   call void @_ZN3ue212bytecode_ptrI3NFAED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %108) #27
   br label %1355
 
 1350:                                             ; preds = %1336, %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit28.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i.i.i.i.i.i.i.i)
   %.pr.i.i.i.i.i.i.i.i = load ptr, ptr %108, align 8, !noalias !102
   %.not.i.i31.i.i.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i.i.i.i.i, null
   br i1 %.not.i.i31.i.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i.i, label %1351
