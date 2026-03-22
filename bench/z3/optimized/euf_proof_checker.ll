@@ -39,7 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.arith::theory_checker::row" = type { %class.obj_map.33, %class.rational }
 %class.obj_map.33 = type { %class.core_hashtable.34 }
 %class.core_hashtable.34 = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"struct.std::pair.138" = type { i32, i32 }
 
 $_ZN5arith14theory_checkerC2ER11ast_manager = comdat any
 
@@ -19266,11 +19265,11 @@ _ZN6vectorISt4pairIP4exprS2_ELb0EjE7destroyEv.exit: ; preds = %_ZSt20uninitializ
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZN3euf17eq_theory_checker7expr2idEP4expr(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
-  %3 = alloca %"struct.std::pair.138", align 4
+  %3 = alloca <2 x i32>, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %1, align 4, !tbaa !105
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i32 0, ptr %3, align 4, !tbaa !536
+  store i32 0, ptr %3, align 8, !tbaa !536
   %.4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %.4..4..4..sroa_idx, align 4, !tbaa !538
   %6 = load ptr, ptr %4, align 8, !tbaa !411
@@ -19368,7 +19367,7 @@ _ZNK6vectorISt4pairIjjELb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vector
   br label %_ZN6vectorISt4pairIjjELb0EjE4setxEjRKS1_S4_.exit
 
 _ZN6vectorISt4pairIjjELb0EjE4setxEjRKS1_S4_.exit: ; preds = %_ZNK6vectorISt4pairIjjELb0EjE4sizeEv.exit.i6, %28, %34, %.lr.ph.preheader.i.i
-  %41 = phi ptr [ %.pre.i, %.lr.ph.preheader.i.i ], [ %29, %34 ], [ %22, %28 ], [ %22, %_ZNK6vectorISt4pairIjjELb0EjE4sizeEv.exit.i6 ]
+  %41 = phi ptr [ %.pre.i, %.lr.ph.preheader.i.i ], [ %29, %33 ], [ %22, %27 ], [ %22, %_ZNK6vectorISt4pairIjjELb0EjE4sizeEv.exit.i6 ]
   %42 = zext i32 %20 to i64
   %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   store i32 %21, ptr %43, align 4, !tbaa !536
@@ -19438,7 +19437,7 @@ _ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vectorIP4ex
   br label %_ZN6vectorIP4exprLb0EjE4setxEjRKS1_S4_.exit
 
 _ZN6vectorIP4exprLb0EjE4setxEjRKS1_S4_.exit:      ; preds = %.lr.ph.preheader.i.i10, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i, %52, %58
-  %65 = phi ptr [ %46, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i ], [ %53, %58 ], [ %46, %52 ], [ %53, %.lr.ph.preheader.i.i10 ]
+  %65 = phi ptr [ %46, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i ], [ %53, %57 ], [ %46, %51 ], [ %53, %.lr.ph.preheader.i.i10 ]
   %66 = zext i32 %19 to i64
   %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %66
   store ptr %1, ptr %67, align 8, !tbaa !90

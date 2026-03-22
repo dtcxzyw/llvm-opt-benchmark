@@ -20167,7 +20167,6 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$13filter_chunks17h235c
   %10 = alloca { i64, [3 x i64] }, align 8
   %11 = alloca ptr, align 8
   %12 = alloca { { i64, i64 }, { i64, i64 } }, align 8
-  %.sroa.0121 = alloca { i64, i64 }, align 8
   %.sroa.273 = alloca [3 x i64], align 8
   %.sroa.7 = alloca [4 x i64], align 8
   %.sroa.060.sroa.0 = alloca { { { { i64, [534 x i64] }, i64 }, { i8, i8, i8, i8, i8 }, [3 x i8] }, { { i8, [15 x i8] }, { { { { ptr, i64 }, i64, i64, i64 }, i32, [1 x i32] }, i64 } } }, align 8
@@ -20585,7 +20584,7 @@ _ZN4core5slice4sort9quicksort17hae0bd84b19696730E.exit: ; preds = %.thread213
   %144 = load i64, ptr %.sroa.218.0..sroa_idx, align 8, !alias.scope !4273, !noalias !4276, !noundef !4
   %145 = add i64 %144, 1
   store i64 %145, ptr %.sroa.218.0..sroa_idx, align 8, !alias.scope !4273, !noalias !4276
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0121, ptr noundef nonnull align 8 dereferenceable(16) %142, i64 16, i1 false)
+  %.sroa.0121.sroa.0.0.copyload389 = load <2 x i64>, ptr %142, align 8
   %.sroa.10.16..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 16
   %.sroa.10.16.copyload = load i64, ptr %.sroa.10.16..sroa_idx, align 8, !noalias !4273
   %.sroa.11.16..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 24
@@ -20644,7 +20643,7 @@ _ZN4core5slice4sort9quicksort17hae0bd84b19696730E.exit: ; preds = %.thread213
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %1, ptr %14, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0121, i64 16, i1 false)
+  store <2 x i64> %.sroa.0121.sroa.0.0.copyload389, ptr %95, align 8
   store i64 %.sroa.10.16.copyload, ptr %.sroa.3122.0..sroa_idx125, align 8
   store i64 %.sroa.11.16.copyload, ptr %.sroa.4127.0..sroa_idx130, align 8
   store i64 %157, ptr %96, align 8
@@ -20841,7 +20840,6 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$13filter_chunks17h754c
   %10 = alloca { i64, [3 x i64] }, align 8
   %11 = alloca ptr, align 8
   %12 = alloca { { i64, i64 }, { i64, i64 } }, align 8
-  %.sroa.0121 = alloca { i64, i64 }, align 8
   %.sroa.273 = alloca [3 x i64], align 8
   %.sroa.7 = alloca [4 x i64], align 8
   %.sroa.060.sroa.0 = alloca { { { { i64, [534 x i64] }, i64 }, { i8, i8, i8, i8, i8 }, [3 x i8] }, { { i8, [15 x i8] }, { { { ptr, i64 }, i64 }, i64 } } }, align 8
@@ -21259,7 +21257,7 @@ _ZN4core5slice4sort9quicksort17hae0bd84b19696730E.exit: ; preds = %.thread213
   %144 = load i64, ptr %.sroa.218.0..sroa_idx, align 8, !alias.scope !4354, !noalias !4357, !noundef !4
   %145 = add i64 %144, 1
   store i64 %145, ptr %.sroa.218.0..sroa_idx, align 8, !alias.scope !4354, !noalias !4357
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0121, ptr noundef nonnull align 8 dereferenceable(16) %142, i64 16, i1 false)
+  %.sroa.0121.sroa.0.0.copyload389 = load <2 x i64>, ptr %142, align 8
   %.sroa.10.16..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 16
   %.sroa.10.16.copyload = load i64, ptr %.sroa.10.16..sroa_idx, align 8, !noalias !4354
   %.sroa.11.16..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 24
@@ -21318,7 +21316,7 @@ _ZN4core5slice4sort9quicksort17hae0bd84b19696730E.exit: ; preds = %.thread213
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %1, ptr %14, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0121, i64 16, i1 false)
+  store <2 x i64> %.sroa.0121.sroa.0.0.copyload389, ptr %95, align 8
   store i64 %.sroa.10.16.copyload, ptr %.sroa.3122.0..sroa_idx125, align 8
   store i64 %.sroa.11.16.copyload, ptr %.sroa.4127.0..sroa_idx130, align 8
   store i64 %157, ptr %96, align 8

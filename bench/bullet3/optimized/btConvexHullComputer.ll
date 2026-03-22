@@ -10096,13 +10096,12 @@ declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) loca
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIN20btConvexHullInternal7Point32EE17quickSortInternalI8pointCmpEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 comdat align 2 {
-  %5 = alloca %"class.btConvexHullInternal::Point32", align 4
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %58, %4
-  %.tr41 = phi i32 [ %2, %4 ], [ %.230, %58 ]
-  %7 = load ptr, ptr %6, align 8, !tbaa !122
+  %.tr41 = phi i32 [ %2, %4 ], [ %.230, %57 ]
+  %7 = load ptr, ptr %5, align 8, !tbaa !122
   %8 = add nsw i32 %.tr41, %3
   %9 = sdiv i32 %8, 2
   %10 = sext i32 %9 to i64
@@ -10112,54 +10111,54 @@ tailrecurse:                                      ; preds = %58, %4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !82
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !82
-  br label %12
+  br label %11
 
-12:                                               ; preds = %54, %tailrecurse
-  %.028 = phi i32 [ %.tr41, %tailrecurse ], [ %.230, %54 ]
-  %.0 = phi i32 [ %3, %tailrecurse ], [ %.2, %54 ]
-  %13 = load ptr, ptr %6, align 8, !tbaa !122
-  %14 = sext i32 %.028 to i64
-  br label %15
+11:                                               ; preds = %53, %tailrecurse
+  %.028 = phi i32 [ %.tr41, %tailrecurse ], [ %.230, %53 ]
+  %.0 = phi i32 [ %3, %tailrecurse ], [ %.2, %53 ]
+  %12 = load ptr, ptr %5, align 8, !tbaa !122
+  %13 = sext i32 %.028 to i64
+  br label %14
 
-15:                                               ; preds = %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit.thread, %12
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit.thread ], [ %14, %12 ]
-  %16 = getelementptr inbounds [16 x i8], ptr %13, i64 %indvars.iv
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !78
-  %19 = icmp slt i32 %18, %.sroa.5.0.copyload
-  br i1 %19, label %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit.thread, label %20
+14:                                               ; preds = %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit.thread, %11
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit.thread ], [ %13, %11 ]
+  %15 = getelementptr inbounds [16 x i8], ptr %12, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %17 = load i32, ptr %16, align 4, !tbaa !78
+  %18 = icmp slt i32 %17, %.sroa.5.0.copyload
+  br i1 %18, label %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit.thread, label %19
 
-20:                                               ; preds = %15
-  %21 = icmp eq i32 %18, %.sroa.5.0.copyload
-  br i1 %21, label %22, label %.preheader
+19:                                               ; preds = %14
+  %20 = icmp eq i32 %17, %.sroa.5.0.copyload
+  br i1 %20, label %21, label %.preheader
 
-22:                                               ; preds = %20
-  %23 = load i32, ptr %16, align 4, !tbaa !77
-  %24 = icmp slt i32 %23, %.sroa.0.0.copyload
-  br i1 %24, label %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit.thread, label %25
+21:                                               ; preds = %19
+  %22 = load i32, ptr %15, align 4, !tbaa !77
+  %23 = icmp slt i32 %22, %.sroa.0.0.copyload
+  br i1 %23, label %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit.thread, label %24
 
-25:                                               ; preds = %22
-  %26 = icmp eq i32 %23, %.sroa.0.0.copyload
-  br i1 %26, label %27, label %.preheader
+24:                                               ; preds = %21
+  %25 = icmp eq i32 %22, %.sroa.0.0.copyload
+  br i1 %25, label %26, label %.preheader
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %29 = load i32, ptr %28, align 4, !tbaa !79
-  %30 = icmp slt i32 %29, %.sroa.7.0.copyload
-  br i1 %30, label %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit.thread, label %.preheader
+12:                                               ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %28 = load i32, ptr %27, align 4, !tbaa !79
+  %29 = icmp slt i32 %28, %.sroa.7.0.copyload
+  br i1 %29, label %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit.thread, label %.preheader
 
-.preheader:                                       ; preds = %27, %25, %20
-  %31 = trunc nsw i64 %indvars.iv to i32
-  %32 = sext i32 %.0 to i64
-  br label %33
+.preheader:                                       ; preds = %26, %24, %19
+  %30 = trunc nsw i64 %indvars.iv to i32
+  %31 = sext i32 %.0 to i64
+  br label %32
 
-_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit.thread: ; preds = %22, %15, %27
+_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit.thread:; preds = %21, %14, %26
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br label %15, !llvm.loop !246
+  br label %14, !llvm.loop !246
 
 33:                                               ; preds = %.preheader, %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34.thread
-  %indvars.iv53 = phi i64 [ %32, %.preheader ], [ %indvars.iv.next54, %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34.thread ]
-  %34 = getelementptr inbounds [16 x i8], ptr %13, i64 %indvars.iv53
+  %indvars.iv53 = phi i64 [ %31, %.preheader ], [ %indvars.iv.next54, %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34.thread ]
+  %34 = getelementptr inbounds [16 x i8], ptr %12, i64 %indvars.iv53
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !78
   %37 = icmp slt i32 %.sroa.5.0.copyload, %36
@@ -10191,27 +10190,25 @@ _ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34.thread: ; preds = %
 _ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34.thread39: ; preds = %38, %43, %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34
   %48 = trunc nsw i64 %indvars.iv53 to i32
   %.not = icmp sgt i64 %indvars.iv, %indvars.iv53
-  br i1 %.not, label %54, label %49
+  br i1 %.not, label %53, label %49
 
 49:                                               ; preds = %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34.thread39
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !125
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %34, i64 16, i1 false), !tbaa.struct !125
-  %50 = load ptr, ptr %6, align 8, !tbaa !122
-  %51 = getelementptr inbounds [16 x i8], ptr %50, i64 %indvars.iv53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %51, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !125
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %52 = add nsw i32 %31, 1
-  %53 = add nsw i32 %48, -1
-  br label %54
+  %.sroa.0.0.copyload56 = load <4 x i32>, ptr %15, align 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !125
+  %49 = load ptr, ptr %5, align 8, !tbaa !122
+  %50 = getelementptr inbounds [16 x i8], ptr %49, i64 %indvars.iv53
+  store <4 x i32> %.sroa.0.0.copyload56, ptr %50, align 4
+  %51 = add nsw i32 %30, 1
+  %52 = add nsw i32 %47, -1
+  br label %53
 
-54:                                               ; preds = %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34.thread39, %49
-  %.230 = phi i32 [ %52, %49 ], [ %31, %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34.thread39 ]
-  %.2 = phi i32 [ %53, %49 ], [ %48, %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34.thread39 ]
+53:; preds = %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34.thread39, %48
+  %.230 = phi i32 [ %51, %48 ], [ %30, %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34.thread39 ]
+  %.2 = phi i32 [ %52, %48 ], [ %47, %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34.thread39 ]
   %.not33 = icmp sgt i32 %.230, %.2
-  br i1 %.not33, label %55, label %12, !llvm.loop !248
+  br i1 %.not33, label %55, label %11, !llvm.loop !248
 
-55:                                               ; preds = %54
+55:                                               ; preds = %53
   %56 = icmp slt i32 %.tr41, %.2
   br i1 %56, label %57, label %58
 

@@ -7624,15 +7624,15 @@ define hidden noundef zeroext i1 @_ZN6Assimp3FBX12FBXConverter31GenerateTransfor
   %.06.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %11, i64 %.06.i.i.i.i.idx
   store float 1.000000e+00, ptr %.06.i.i.i.i.ptr, align 16
   %.sroa.4.0..06.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.ptr, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.0..06.i.i.i.i.sroa_idx, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.4.0..06.i.i.i.i.sroa_idx, align 4
   %.sroa.5736.0..06.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.ptr, i64 20
   store float 1.000000e+00, ptr %.sroa.5736.0..06.i.i.i.i.sroa_idx, align 4
   %.sroa.6737.0..06.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.ptr, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6737.0..06.i.i.i.i.sroa_idx, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.6737.0..06.i.i.i.i.sroa_idx, align 8
   %.sroa.7738.0..06.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.ptr, i64 40
   store float 1.000000e+00, ptr %.sroa.7738.0..06.i.i.i.i.sroa_idx, align 8
   %.sroa.8739.0..06.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.ptr, i64 44
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.8739.0..06.i.i.i.i.sroa_idx, i8 0, i64 16, i1 false)
+  store <4 x float> zeroinitializer, ptr %.sroa.8739.0..06.i.i.i.i.sroa_idx, align 4
   %.sroa.9740.0..06.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.ptr, i64 60
   store float 1.000000e+00, ptr %.sroa.9740.0..06.i.i.i.i.sroa_idx, align 4
   %.06.i.i.i.i.add = add nuw nsw i64 %.06.i.i.i.i.idx, 64
@@ -11715,7 +11715,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %19, 
 define linkonce_odr hidden { <2 x float>, float } @_ZNK6Assimp3FBX5Light5ColorEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.sroa.0 = alloca { float, float }, align 8
+  %.sroa.0 = alloca <2 x float>, align 8
   %.sroa.7 = alloca float, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -37840,15 +37840,15 @@ define hidden noundef ptr @_ZN6Assimp3FBX12FBXConverter22GenerateSimpleNodeAnimE
   %17 = alloca %"class.std::vector.442", align 8
   %18 = alloca %class.aiVector3t, align 8
   %19 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.sroa.0619 = alloca { float, float }, align 8
+  %.sroa.0619 = alloca <2 x float>, align 8
   %.sroa.7620 = alloca float, align 4
   %20 = alloca %class.aiVector3t, align 8
   %21 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.sroa.0615 = alloca { float, float }, align 8
+  %.sroa.0615 = alloca <2 x float>, align 8
   %.sroa.7616 = alloca float, align 4
   %22 = alloca %class.aiVector3t, align 8
   %23 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.sroa.0 = alloca { float, float }, align 8
+  %.sroa.0 = alloca <2 x float>, align 8
   %.sroa.7 = alloca float, align 4
   %24 = alloca %class.aiVector3t, align 8
   %25 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -44780,7 +44780,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %22, 
 define linkonce_odr hidden { <2 x float>, float } @_ZNK6Assimp3FBX18FileGlobalSettings12AmbientColorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.sroa.0 = alloca { float, float }, align 8
+  %.sroa.0 = alloca <2 x float>, align 8
   %.sroa.7 = alloca float, align 4
   %2 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)

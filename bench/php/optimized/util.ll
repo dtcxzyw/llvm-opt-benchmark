@@ -3636,7 +3636,7 @@ zend_string_alloc.exit:                           ; preds = %61, %58
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 4
   store i32 %67, ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store i64 0, ptr %.sroa.5.0..sroa_idx, align 1
+  store <2 x i32> zeroinitializer, ptr %.sroa.5.0..sroa_idx, align 1
   %.sroa.537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 16
   store i32 %.sroa.7.0, ptr %.sroa.537.0..sroa_idx, align 1
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 20

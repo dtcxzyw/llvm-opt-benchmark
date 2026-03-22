@@ -1266,10 +1266,8 @@ define range(i32 0, 2) i32 @splineEdges(ptr noundef %0, ptr noundef readonly cap
 .lr.ph60:                                         ; preds = %._crit_edge51
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.6.sroa.10.0..sroa.6.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.17.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 40
   %.sroa.20.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %.sroa.20.sroa.11.0..sroa.20.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 56
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %15
 
@@ -1280,7 +1278,7 @@ define range(i32 0, 2) i32 @splineEdges(ptr noundef %0, ptr noundef readonly cap
   br i1 %.not4152, label %._crit_edge56, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %15, %77
-  %.13753 = phi ptr [ %78, %77 ], [ %16, %15 ]
+  %.13753 = phi ptr [ %78, %82 ], [ %16, %15 ]
   %17 = load i32, ptr @Nop, align 4, !tbaa !83
   %18 = icmp sgt i32 %17, 1
   br i1 %18, label %19, label %28
@@ -1319,13 +1317,9 @@ define range(i32 0, 2) i32 @splineEdges(ptr noundef %0, ptr noundef readonly cap
   %41 = getelementptr inbounds nuw i8, ptr %.13753, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !20
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %.sroa.6.sroa.0.0.copyload48.i = load double, ptr %43, align 8, !tbaa !11
-  %.sroa.6.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %.sroa.6.sroa.10.0.copyload50.i = load double, ptr %.sroa.6.sroa.10.0..sroa_idx.i, align 8, !tbaa !11
+  %.sroa.6.sroa.0.0.copyload48.i = load <2 x double>, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 72
-  %.sroa.20.sroa.0.0.copyload42.i = load double, ptr %44, align 8, !tbaa !11
-  %.sroa.20.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 80
-  %.sroa.20.sroa.11.0.copyload45.i = load double, ptr %.sroa.20.sroa.11.0..sroa_idx.i, align 8, !tbaa !11
+  %.sroa.20.sroa.0.0.copyload42.i = load <2 x double>, ptr %44, align 8
   br label %equivEdge.exit
 
 45:                                               ; preds = %28
@@ -1336,13 +1330,9 @@ define range(i32 0, 2) i32 @splineEdges(ptr noundef %0, ptr noundef readonly cap
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %.sroa.20.sroa.0.0.copyload43.i = load double, ptr %50, align 8, !tbaa !11
-  %.sroa.20.sroa.11.0..sroa_idx46.i = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %.sroa.20.sroa.11.0.copyload47.i = load double, ptr %.sroa.20.sroa.11.0..sroa_idx46.i, align 8, !tbaa !11
+  %.sroa.20.sroa.0.0.copyload43.i = load <2 x double>, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 72
-  %.sroa.6.sroa.0.0.copyload49.i = load double, ptr %51, align 8, !tbaa !11
-  %.sroa.6.sroa.10.0..sroa_idx51.i = getelementptr inbounds nuw i8, ptr %48, i64 80
-  %.sroa.6.sroa.10.0.copyload52.i = load double, ptr %.sroa.6.sroa.10.0..sroa_idx51.i, align 8, !tbaa !11
+  %.sroa.6.sroa.0.0.copyload49.i = load <2 x double>, ptr %51, align 8
   br label %equivEdge.exit
 
 52:                                               ; preds = %45
@@ -1355,38 +1345,65 @@ define range(i32 0, 2) i32 @splineEdges(ptr noundef %0, ptr noundef readonly cap
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %48, i64 32
   %.sroa.10.0.copyload.i = load double, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !11
   %55 = fcmp olt double %.sroa.0.0.copyload.i, %.sroa.018.0.copyload.i
-  br i1 %55, label %equivEdge.exit, label %56
+  br i1 %55, label %56, label %57
 
 56:                                               ; preds = %52
-  %57 = fcmp ogt double %.sroa.0.0.copyload.i, %.sroa.018.0.copyload.i
-  br i1 %57, label %equivEdge.exit, label %58
-
-58:                                               ; preds = %56
-  %59 = fcmp olt double %.sroa.10.0.copyload.i, %.sroa.9.0.copyload.i
-  br i1 %59, label %equivEdge.exit, label %60
-
-60:                                               ; preds = %58
-  %61 = fcmp ogt double %.sroa.10.0.copyload.i, %.sroa.9.0.copyload.i
-  %.sroa.018.0.copyload..sroa.0.0.copyload.i = select i1 %61, double %.sroa.018.0.copyload.i, double %.sroa.0.0.copyload.i
-  %.sroa.9.0.copyload..sroa.10.0.copyload.i = select i1 %61, double %.sroa.9.0.copyload.i, double %.sroa.10.0.copyload.i
+  %.sroa.6.0.vec.insert.i = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i, i64 0
+  %.sroa.6.8.vec.insert.i = insertelement <2 x double> %.sroa.6.0.vec.insert.i, double %.sroa.10.0.copyload.i, i64 1
+  %.sroa.20.0.vec.insert.i = insertelement <2 x double> poison, double %.sroa.018.0.copyload.i, i64 0
+  %.sroa.20.8.vec.insert.i = insertelement <2 x double> %.sroa.20.0.vec.insert.i, double %.sroa.9.0.copyload.i, i64 1
   br label %equivEdge.exit
 
-equivEdge.exit:                                   ; preds = %40, %49, %52, %56, %58, %60
-  %.sroa.033.0.i = phi ptr [ %34, %40 ], [ %38, %49 ], [ %34, %60 ], [ %34, %58 ], [ %34, %56 ], [ %34, %52 ]
-  %.sroa.17.0.i = phi ptr [ %38, %40 ], [ %34, %49 ], [ %34, %60 ], [ %34, %58 ], [ %34, %56 ], [ %34, %52 ]
-  %.sroa.20.sroa.0.0.i = phi double [ %.sroa.20.sroa.0.0.copyload42.i, %40 ], [ %.sroa.20.sroa.0.0.copyload43.i, %49 ], [ %.sroa.0.0.copyload.i, %60 ], [ %.sroa.018.0.copyload.i, %58 ], [ %.sroa.0.0.copyload.i, %56 ], [ %.sroa.018.0.copyload.i, %52 ]
-  %.sroa.20.sroa.11.0.i = phi double [ %.sroa.20.sroa.11.0.copyload45.i, %40 ], [ %.sroa.20.sroa.11.0.copyload47.i, %49 ], [ %.sroa.10.0.copyload.i, %60 ], [ %.sroa.9.0.copyload.i, %58 ], [ %.sroa.10.0.copyload.i, %56 ], [ %.sroa.9.0.copyload.i, %52 ]
-  %.sroa.6.sroa.0.0.i = phi double [ %.sroa.6.sroa.0.0.copyload48.i, %40 ], [ %.sroa.6.sroa.0.0.copyload49.i, %49 ], [ %.sroa.018.0.copyload..sroa.0.0.copyload.i, %60 ], [ %.sroa.0.0.copyload.i, %58 ], [ %.sroa.018.0.copyload.i, %56 ], [ %.sroa.0.0.copyload.i, %52 ]
-  %.sroa.6.sroa.10.0.i = phi double [ %.sroa.6.sroa.10.0.copyload50.i, %40 ], [ %.sroa.6.sroa.10.0.copyload52.i, %49 ], [ %.sroa.9.0.copyload..sroa.10.0.copyload.i, %60 ], [ %.sroa.10.0.copyload.i, %58 ], [ %.sroa.9.0.copyload.i, %56 ], [ %.sroa.10.0.copyload.i, %52 ]
+57:                                               ; preds = %52
+  %58 = fcmp ogt double %.sroa.0.0.copyload.i, %.sroa.018.0.copyload.i
+  br i1 %58, label %59, label %60
+
+59:                                               ; preds = %57
+  %.sroa.6.0.vec.insert63.i = insertelement <2 x double> poison, double %.sroa.018.0.copyload.i, i64 0
+  %.sroa.6.8.vec.insert69.i = insertelement <2 x double> %.sroa.6.0.vec.insert63.i, double %.sroa.9.0.copyload.i, i64 1
+  %.sroa.20.0.vec.insert45.i = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i, i64 0
+  %.sroa.20.8.vec.insert54.i = insertelement <2 x double> %.sroa.20.0.vec.insert45.i, double %.sroa.10.0.copyload.i, i64 1
+  br label %equivEdge.exit
+
+60:                                               ; preds = %57
+  %61 = fcmp olt double %.sroa.10.0.copyload.i, %.sroa.9.0.copyload.i
+  br i1 %61, label %62, label %63
+
+58:                                               ; preds = %60
+  %.sroa.6.0.vec.insert65.i = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i, i64 0
+  %.sroa.6.8.vec.insert71.i = insertelement <2 x double> %.sroa.6.0.vec.insert65.i, double %.sroa.10.0.copyload.i, i64 1
+  %.sroa.20.0.vec.insert47.i = insertelement <2 x double> poison, double %.sroa.018.0.copyload.i, i64 0
+  %.sroa.20.8.vec.insert56.i = insertelement <2 x double> %.sroa.20.0.vec.insert47.i, double %.sroa.9.0.copyload.i, i64 1
+  br label %equivEdge.exit
+
+63:                                               ; preds = %60
+  %64 = fcmp ogt double %.sroa.10.0.copyload.i, %.sroa.9.0.copyload.i
+  br i1 %64, label %65, label %66
+
+60:                                               ; preds = %63
+  %.sroa.6.0.vec.insert67.i = insertelement <2 x double> poison, double %.sroa.018.0.copyload.i, i64 0
+  %.sroa.6.8.vec.insert73.i = insertelement <2 x double> %.sroa.6.0.vec.insert67.i, double %.sroa.9.0.copyload.i, i64 1
+  %.sroa.20.0.vec.insert49.i = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i, i64 0
+  %.sroa.20.8.vec.insert58.i = insertelement <2 x double> %.sroa.20.0.vec.insert49.i, double %.sroa.10.0.copyload.i, i64 1
+  br label %equivEdge.exit
+
+66:                                               ; preds = %63
+  %.sroa.20.0.vec.insert51.i = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i, i64 0
+  %.sroa.20.8.vec.insert60.i = insertelement <2 x double> %.sroa.20.0.vec.insert51.i, double %.sroa.10.0.copyload.i, i64 1
+  br label %equivEdge.exit
+
+equivEdge.exit:                                   ; preds = %40, %49, %56, %59, %58, %60, %66
+  %.sroa.033.0.i = phi ptr [ %34, %40 ], [ %38, %49 ], [ %34, %59 ], [ %34, %65 ], [ %34, %66 ], [ %34, %62 ], [ %34, %56 ]
+  %.sroa.17.0.i = phi ptr [ %38, %40 ], [ %34, %49 ], [ %34, %59 ], [ %34, %65 ], [ %34, %66 ], [ %34, %62 ], [ %34, %56 ]
+  %.sroa.20.sroa.0.0.i = phi <2 x double> [ %.sroa.20.sroa.0.0.copyload42.i, %40 ], [ %.sroa.20.sroa.0.0.copyload43.i, %49 ], [ %.sroa.20.8.vec.insert54.i, %59 ], [ %.sroa.20.8.vec.insert58.i, %65 ], [ %.sroa.20.8.vec.insert60.i, %66 ], [ %.sroa.20.8.vec.insert56.i, %62 ], [ %.sroa.20.8.vec.insert.i, %56 ]
+  %.sroa.20.sroa.11.0.i = phi <2 x double> [ %.sroa.6.8.copyload.i, %40 ], [ %.sroa.6.sroa.0.0.copyload49.i, %49 ], [ %.sroa.6.8.vec.insert69.i, %59 ], [ %.sroa.6.8.vec.insert73.i, %65 ], [ %.sroa.20.8.vec.insert60.i, %66 ], [ %.sroa.6.8.vec.insert71.i, %62 ], [ %.sroa.6.8.vec.insert.i, %56 ]
   store ptr %.sroa.033.0.i, ptr %13, align 8, !tbaa !9
-  store double %.sroa.6.sroa.0.0.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !11
-  store double %.sroa.6.sroa.10.0.i, ptr %.sroa.6.sroa.10.0..sroa.6.0..sroa_idx.sroa_idx.i, align 8, !tbaa !11
+  store <2 x double> %.sroa.20.sroa.11.0.i, ptr %.sroa.6.0..sroa_idx.i, align 8
   store ptr %.sroa.17.0.i, ptr %.sroa.17.0..sroa_idx.i, align 8, !tbaa !9
-  store double %.sroa.20.sroa.0.0.i, ptr %.sroa.20.0..sroa_idx.i, align 8, !tbaa !11
-  store double %.sroa.20.sroa.11.0.i, ptr %.sroa.20.sroa.11.0..sroa.20.0..sroa_idx.sroa_idx.i, align 8, !tbaa !11
+  store <2 x double> %.sroa.20.sroa.0.0.i, ptr %.sroa.20.0..sroa_idx.i, align 8
   store ptr %.13753, ptr %14, align 8, !tbaa !13
   %62 = load ptr, ptr %11, align 8, !tbaa !100
-  %63 = call ptr %62(ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef 1) #20
+  %63 = call ptr %67(ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef 1) #20
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 64
   %65 = load ptr, ptr %64, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1430,7 +1447,7 @@ equivEdge.exit:                                   ; preds = %40, %49, %52, %56, 
   br label %83
 
 83:                                               ; preds = %._crit_edge61, %82
-  %.0 = phi i32 [ 0, %82 ], [ 1, %._crit_edge61 ]
+  %.0 = phi i32 [ 0, %87 ], [ 1, %._crit_edge61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

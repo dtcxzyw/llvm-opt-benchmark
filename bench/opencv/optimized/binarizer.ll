@@ -782,8 +782,8 @@ _ZNSt6vectorIN5zxing15BINARIZER_BLOCKESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc11, %_ZNSt6vectorIN5zxing15BINARIZER_BLOCKESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
-  %14 = phi ptr [ null, %_ZNSt6vectorIN5zxing15BINARIZER_BLOCKESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %10, %.noexc11 ]
-  %.0.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN5zxing15BINARIZER_BLOCKESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %13, %.noexc11 ]
+  %14 = phi ptr [ %10, %.noexc11 ], [ null, %_ZNSt6vectorIN5zxing15BINARIZER_BLOCKESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ]
+  %.0.i.i.i.i.i.i.i.i = phi ptr [ %13, %.noexc11 ], [ null, %_ZNSt6vectorIN5zxing15BINARIZER_BLOCKESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ]
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %.0.i.i.i.i.i.i.i.i, ptr %15, align 8, !tbaa !35
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8

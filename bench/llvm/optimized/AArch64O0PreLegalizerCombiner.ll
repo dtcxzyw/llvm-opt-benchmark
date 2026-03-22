@@ -12260,11 +12260,9 @@ declare noundef nonnull align 4 dereferenceable(17) ptr @_ZNK4llvm10DataLayout14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt8functionIFvRNS_19MachineInstrBuilderEEEEaSERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 {
-  %.sroa.0.i.i.i.i.i.i.i.i33 = alloca { i64, i64 }, align 8
-  %3 = alloca %"class.std::function.518", align 8
+  %.sroa.0.i.i.i.i.i.i.i.i33 = alloca %"class.std::function.518", align 16
   %4 = alloca i64, align 8
-  %.sroa.0.i.i.i.i.i.i.i.i = alloca { i64, i64 }, align 8
-  %5 = alloca %"class.std::function.518", align 8
+  %.sroa.0.i.i.i.i.i.i.i.i = alloca %"class.std::function.518", align 16
   %6 = icmp eq ptr %0, %1
   br i1 %6, label %128, label %7
 
@@ -12295,7 +12293,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %.0910.i.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i.i.i ], [ %35, %_ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEaSERKS4_.exit.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %21 = load ptr, ptr %20, align 8, !tbaa !48
   %.not.i.i.not.i.i.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEC2ERKS4_.exit.i.i.i.i.i.i, label %22
@@ -12305,19 +12303,18 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %24 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !915
   %26 = load ptr, ptr %20, align 8, !tbaa !48
+  %.sroa.0.i.i.i.sroa.0.0.copyload.pre.i.i.i.i.i = load <2 x i64>, ptr %5, align 16, !tbaa !15
   br label %_ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEC2ERKS4_.exit.i.i.i.i.i.i
 
 _ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEC2ERKS4_.exit.i.i.i.i.i.i: ; preds = %22, %19
+  %.sroa.0.i.i.i.sroa.0.0.copyload.i.i.i.i.i = phi <2 x i64> [ zeroinitializer, %19 ], [ %.sroa.0.i.i.i.sroa.0.0.copyload.pre.i.i.i.i.i, %22 ]
   %27 = phi ptr [ null, %19 ], [ %25, %22 ]
   %28 = phi ptr [ null, %19 ], [ %26, %22 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !1012
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !1012
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !1012
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0812.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !1012
+  store <2 x i64> %.sroa.0.i.i.i.sroa.0.0.copyload.i.i.i.i.i, ptr %.0812.i.i.i.i.i, align 8, !tbaa !15
   %29 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !65
-  store ptr %30, ptr %17, align 8, !tbaa !65
+  store ptr %30, ptr %17, align 16, !tbaa !65
   store ptr %28, ptr %29, align 8, !tbaa !65
   %31 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !65
@@ -12501,12 +12498,12 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_19MachineInstrBuilderEEELb0E
   br label %90
 
 90:                                               ; preds = %_ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEaSERKS4_.exit.i.i.i.i.i42, %.lr.ph.i.i.i.i.i35
-  %.012.i.i.i.i.i36 = phi i64 [ %13, %.lr.ph.i.i.i.i.i35 ], [ %108, %_ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEaSERKS4_.exit.i.i.i.i.i42 ]
-  %.0811.i.i.i.i.i37 = phi ptr [ %.pre47, %.lr.ph.i.i.i.i.i35 ], [ %107, %_ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEaSERKS4_.exit.i.i.i.i.i42 ]
-  %.0910.i.i.i.i.i38 = phi ptr [ %87, %.lr.ph.i.i.i.i.i35 ], [ %106, %_ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEaSERKS4_.exit.i.i.i.i.i42 ]
+  %.012.i.i.i.i.i36 = phi i64 [ %13, %.lr.ph.i.i.i.i.i34 ], [ %108, %_ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEaSERKS4_.exit.i.i.i.i.i43 ]
+  %.0811.i.i.i.i.i37 = phi ptr [ %.pre47, %.lr.ph.i.i.i.i.i34 ], [ %107, %_ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEaSERKS4_.exit.i.i.i.i.i43 ]
+  %.0910.i.i.i.i.i38 = phi ptr [ %87, %.lr.ph.i.i.i.i.i34 ], [ %106, %_ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEaSERKS4_.exit.i.i.i.i.i43 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %91 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i38, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %92 = load ptr, ptr %91, align 8, !tbaa !48
   %.not.i.i.not.i.i.i.i.i.i.i39 = icmp eq ptr %92, null
   br i1 %.not.i.i.not.i.i.i.i.i.i.i39, label %_ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEC2ERKS4_.exit.i.i.i.i.i.i40, label %93
@@ -12516,19 +12513,18 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_19MachineInstrBuilderEEELb0E
   %95 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i38, i64 24
   %96 = load ptr, ptr %95, align 8, !tbaa !915
   %97 = load ptr, ptr %91, align 8, !tbaa !48
+  %.sroa.0.i.i.i.sroa.0.0.copyload.pre.i.i.i.i.i39 = load <2 x i64>, ptr %3, align 16, !tbaa !15
   br label %_ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEC2ERKS4_.exit.i.i.i.i.i.i40
 
 _ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEC2ERKS4_.exit.i.i.i.i.i.i40: ; preds = %93, %90
+  %.sroa.0.i.i.i.sroa.0.0.copyload.i.i.i.i.i41 = phi <2 x i64> [ zeroinitializer, %90 ], [ %.sroa.0.i.i.i.sroa.0.0.copyload.pre.i.i.i.i.i39, %93 ]
   %98 = phi ptr [ null, %90 ], [ %96, %93 ]
   %99 = phi ptr [ null, %90 ], [ %97, %93 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i33)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i33, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !1012
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i.i37, i64 16, i1 false), !tbaa.struct !1012
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i.i37, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i33, i64 16, i1 false), !tbaa.struct !1012
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i33)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i33, ptr noundef nonnull align 8 dereferenceable(32) %.0812.i.i.i.i.i36, i64 16, i1 false), !tbaa.struct !1012
+  store <2 x i64> %.sroa.0.i.i.i.sroa.0.0.copyload.i.i.i.i.i41, ptr %.0812.i.i.i.i.i36, align 8, !tbaa !15
   %100 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i37, i64 16
   %101 = load ptr, ptr %100, align 8, !tbaa !65
-  store ptr %101, ptr %88, align 8, !tbaa !65
+  store ptr %101, ptr %88, align 16, !tbaa !65
   store ptr %99, ptr %100, align 8, !tbaa !65
   %102 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i37, i64 24
   %103 = load ptr, ptr %102, align 8, !tbaa !65
@@ -12554,8 +12550,8 @@ _ZSt4copyIPKSt8functionIFvRN4llvm19MachineInstrBuilderEEEPS5_ET0_T_SA_S9_.exit43
   br label %_ZSt4copyIPKSt8functionIFvRN4llvm19MachineInstrBuilderEEEPS5_ET0_T_SA_S9_.exit43
 
 _ZSt4copyIPKSt8functionIFvRN4llvm19MachineInstrBuilderEEEPS5_ET0_T_SA_S9_.exit43: ; preds = %_ZSt4copyIPKSt8functionIFvRN4llvm19MachineInstrBuilderEEEPS5_ET0_T_SA_S9_.exit43.loopexit, %86, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_19MachineInstrBuilderEEELb0EE4growEm.exit
-  %110 = phi ptr [ %59, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_19MachineInstrBuilderEEELb0EE4growEm.exit ], [ %.pre47, %86 ], [ %.pre46, %_ZSt4copyIPKSt8functionIFvRN4llvm19MachineInstrBuilderEEEPS5_ET0_T_SA_S9_.exit43.loopexit ]
-  %.022 = phi i64 [ 0, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_19MachineInstrBuilderEEELb0EE4growEm.exit ], [ 0, %86 ], [ %13, %_ZSt4copyIPKSt8functionIFvRN4llvm19MachineInstrBuilderEEEPS5_ET0_T_SA_S9_.exit43.loopexit ]
+  %110 = phi ptr [ %59, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_19MachineInstrBuilderEEELb0EE4growEm.exit ], [ %.pre47, %86 ], [ %.pre46, %_ZSt4copyIPKSt8functionIFvRN4llvm19MachineInstrBuilderEEEPS5_ET0_T_SA_S9_.exit44.loopexit ]
+  %.022 = phi i64 [ 0, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_19MachineInstrBuilderEEELb0EE4growEm.exit ], [ 0, %86 ], [ %13, %_ZSt4copyIPKSt8functionIFvRN4llvm19MachineInstrBuilderEEEPS5_ET0_T_SA_S9_.exit44.loopexit ]
   %111 = load ptr, ptr %1, align 8, !tbaa !36
   %112 = load i32, ptr %8, align 8, !tbaa !37
   %113 = zext i32 %112 to i64
